@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019/20190924mysql-yi-jian-bei-fen-jiao-ben/" />
+  <link rel="next" href="https://linjinbao.github.io/2019/20190924mongodb-an-zhuang/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019/mongodb%E5%AE%89%E8%A3%85/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Mongodb安装与使用 | 打工人日记
+       
+  </title>
+  <meta name="title" content="Mongodb安装与使用 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Mongodb安装与使用",
+    "headline" : "Mongodb安装与使用",
+    "description" : "Mongodb安装与使用 背景知识 最近在项目实施过程中遇到一个问题：由于客户提供的Linux机器没有最下滑化安装，导致使用公司的bin包方式安装Mongodb失败。本着能自己解决就自己解决的态度，我开始了Mongodb的研究。\n安装和启动   下载\n因为centos的官放的yum 源中没有提供Mongodb的安装包，此时我们需要自己下载下来（也可以修改yum源，不推荐） 执行命令wget https:\/\/fastdl.mongodb.org\/linux\/mongodb-linux-x86_64-4.0.0.tgz 下载安装包\n  解压\n执行解压命令tar zxvf mongodb-linux-x86_64-4.0.0.tgz，如果为了统一的化，可以把解压出来的文件夹重命名，以及移动到\/opt\/下去。这个不重要，可以不用看。\n  添加启动配置\nvi mongodb.conf\r` 添加一下配置：\nport=27017 #端口\rbind_ip = 0.0.0.0 #这样就可外部访问了，例如从win10中去连虚拟机中的MongoDB\rfork=true#后台启动\rlogpath=\/usr\/mongodb\/log\/log.log\rdbpath=\/usr\/mongodb\/db\r其他配置不用管他，Mongodb`会使用默认配置。\n  设置权限\ncd \/usr\/mongodb\rchmod 777 db\rchmod 777 log\r` 管他呢，全部777\n  启动服务\n  mongod --config mongodb.conf\r修改用户 使用mongo修改用户，注意不是mongod  [root@jk-zhengwu03 bin]# .\/mongo\rMongoDB shell version v4.0.0\rconnecting to: mongodb:\/\/127.0.0.1:27017\rMongoDB server version: 4.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-09-24 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-09-24 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019\/mongodb%E5%AE%89%E8%A3%85\/",
+    "wordCount" : "195",
+    "keywords" : [ "Mongodb","数据库","教程", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Mongodb安装与使用</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao</a> 时间： 
+                <span class="post-time">
+                 <time datetime=24099-09-24 itemprop="datePublished">September 24, 2019</time>
+                </span>
+                分类： 
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://linjinbao.github.io/categories/%E6%95%99%E7%A8%8B/"> 教程 </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="mongodb安装与使用">Mongodb安装与使用</h1>
+<h2 id="背景知识">背景知识</h2>
+<p>最近在项目实施过程中遇到一个问题：由于客户提供的Linux机器没有最下滑化安装，导致使用公司的<code>bin</code>包方式安装<code>Mongodb</code>失败。本着能自己解决就自己解决的态度，我开始了Mongodb的研究。</p>
+<h2 id="安装和启动">安装和启动</h2>
+<ol>
+<li>
+<p>下载</p>
+<p>因为<code>centos</code>的官放的<code>yum </code>源中没有提供<code>Mongodb</code>的安装包，此时我们需要自己下载下来（也可以修改<code>yum</code>源，不推荐）
+执行命令<code>wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.0.tgz</code> 下载安装包</p>
+</li>
+<li>
+<p>解压</p>
+<p>执行解压命令<code>tar zxvf mongodb-linux-x86_64-4.0.0.tgz</code>，如果为了统一的化，可以把解压出来的文件夹<strong>重命名</strong>，以及移动到<code>/opt/</code>下去。这个不重要，可以不用看。</p>
+</li>
+<li>
+<p>添加启动配置</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">vi mongodb.conf
+</code></pre></div><p>`
+添加一下配置：</p>
+<pre><code class="language-code" data-lang="code">port=27017 #端口
+bind_ip = 0.0.0.0  #这样就可外部访问了，例如从win10中去连虚拟机中的MongoDB
+fork=true#后台启动
+logpath=/usr/mongodb/log/log.log
+dbpath=/usr/mongodb/db
+</code></pre><p><code>其他配置不用管他，</code>Mongodb`会使用默认配置。</p>
+</li>
+<li>
+<p>设置权限</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd /usr/mongodb
+chmod <span style="color:#ae81ff">777</span> db
+chmod <span style="color:#ae81ff">777</span> log
+</code></pre></div><p>`
+管他呢，全部<strong>777</strong></p>
+</li>
+<li>
+<p>启动服务</p>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> mongod --config mongodb.conf
+</code></pre></div><ol start="6">
+<li>修改用户
+使用<code>mongo</code>修改用户，注意不是<code>mongod</code></li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>root@jk-zhengwu03 bin<span style="color:#f92672">]</span><span style="color:#75715e"># ./mongo</span>
+MongoDB shell version v4.0.0
+connecting to: mongodb://127.0.0.1:27017
+MongoDB server version: 4.0.0
+Server has startup warnings:
+2019-09-24T20:05:18.388+0800 I CONTROL  <span style="color:#f92672">[</span>initandlisten<span style="color:#f92672">]</span>
+2019-09-24T20:05:18.388+0800 I CONTROL  <span style="color:#f92672">[</span>initandlisten<span style="color:#f92672">]</span> ** WARNING: Access control is not enabled <span style="color:#66d9ef">for</span> the database.
+2019-09-24T20:05:18.388+0800 I CONTROL  <span style="color:#f92672">[</span>initandlisten<span style="color:#f92672">]</span> **          Read and write access to data and configuration is unrestricted.
+2019-09-24T20:05:18.388+0800 I CONTROL  <span style="color:#f92672">[</span>initandlisten<span style="color:#f92672">]</span> ** WARNING: You are running this process as the root user, which is not recommended.
+2019-09-24T20:05:18.388+0800 I CONTROL  <span style="color:#f92672">[</span>initandlisten<span style="color:#f92672">]</span>
+2019-09-24T20:05:18.388+0800 I CONTROL  <span style="color:#f92672">[</span>initandlisten<span style="color:#f92672">]</span>
+2019-09-24T20:05:18.388+0800 I CONTROL  <span style="color:#f92672">[</span>initandlisten<span style="color:#f92672">]</span> ** WARNING: /sys/kernel/mm/transparent_hugepage/enabled is <span style="color:#e6db74">&#39;always&#39;</span>.
+2019-09-24T20:05:18.388+0800 I CONTROL  <span style="color:#f92672">[</span>initandlisten<span style="color:#f92672">]</span> **        We suggest setting it to <span style="color:#e6db74">&#39;never&#39;</span>
+2019-09-24T20:05:18.389+0800 I CONTROL  <span style="color:#f92672">[</span>initandlisten<span style="color:#f92672">]</span>
+2019-09-24T20:05:18.389+0800 I CONTROL  <span style="color:#f92672">[</span>initandlisten<span style="color:#f92672">]</span> ** WARNING: /sys/kernel/mm/transparent_hugepage/defrag is <span style="color:#e6db74">&#39;always&#39;</span>.
+2019-09-24T20:05:18.389+0800 I CONTROL  <span style="color:#f92672">[</span>initandlisten<span style="color:#f92672">]</span> **        We suggest setting it to <span style="color:#e6db74">&#39;never&#39;</span>
+2019-09-24T20:05:18.389+0800 I CONTROL  <span style="color:#f92672">[</span>initandlisten<span style="color:#f92672">]</span>
+&gt; use admin
+switched to db admin
+</code></pre></div><pre><code>创建用户的命令为：`db.createUser({user:&quot;admin&quot;,pwd:&quot;123456&quot;,roles:[&quot;root&quot;]})`，返回值是`1`则创建成功.
+</code></pre>
+<h2 id="修改系统配置文件">修改系统配置文件</h2>
+<p>修改<code>epointframe.properties</code></p>
+<pre><code class="language-code" data-lang="code">#
+MongodbUrl=jdbc:mongodb://192.168.202.161/epointlog
+MongodbUserName=admin
+MongodbPassword=111111
+</code></pre><p>修改成</p>
+<pre><code class="language-code" data-lang="code">#
+MongodbUrl=jdbc:mongodb://X.X.X.X/X
+MongodbUserName=admin
+MongodbPassword=123456
+</code></pre><p>此处注意,url后面不需要加端口号<code>27017</code>,虽然它的端口号确实是这个.</p>
+<h2 id="总结">总结</h2>
+<p><code>Mongodb</code>的教程安装教程结束.<code>Mongodb</code>是一个什么样的数据库呢,给我的感觉就是[key,value]的样子,他不像传统的<code>关系型</code>数据库那样,翻来覆去都是表格约束,有横有纵,<code>mongodb</code>,更像是一个一对一的关系,例如<strong>一夫一妻</strong>制度,所以可以唯一确定.我感觉这万一使用简单,带来的就是空间的极度浪费,有时间我再去研究研究.
+喜欢我的博客欢迎转载<a href="linjinbao666.github.io">菜鸡聪</a>.</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2019/mongodb%E5%AE%89%E8%A3%85/>https://linjinbao.github.io/2019/mongodb%E5%AE%89%E8%A3%85/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/mongodb/">
+                    #Mongodb</a></span>
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                    #数据库</a></span>
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/%E6%95%99%E7%A8%8B/">
+                    #教程</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2019/20190924mysql-yi-jian-bei-fen-jiao-ben/" class="prev" rel="prev" title="MySQL一键备份脚本"><i class="iconfont icon-left"></i>&nbsp;MySQL一键备份脚本</a>
+         
+        
+        <a href="https://linjinbao.github.io/2019/20190924mongodb-an-zhuang/" class="next" rel="next" title="Mongodb安装与使用">Mongodb安装与使用&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

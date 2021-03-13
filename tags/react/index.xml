@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>React on 打工人日记</title>
+    <link>https://linjinbao.github.io/tags/react/</link>
+    <description>Recent content in React on 打工人日记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 28 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://linjinbao.github.io/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>React学习笔记</title>
+      <link>https://linjinbao.github.io/2019/20190928react-xue-xi/</link>
+      <pubDate>Sat, 28 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/20190928react-xue-xi/</guid>
+      <description>React学习 JSF语法概述 const element = &amp;lt;h1&amp;gt;Hello, world!&amp;lt;/h1&amp;gt;; 这个有趣的标签语法既不是字符串也不是 HTML。
+它被称为 JSX，是一个 JavaScript 的语法扩展。我们建议在 React 中配合使用 JSX，JSX 可以很好地描述 UI 应该呈现出它应有交互的本质形式。JSX 可能会使人联想到模版语言，但它具有 JavaScript 的全部功能。
+实例
+&amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;quot;utf-8&amp;quot; /&amp;gt; &amp;lt;title&amp;gt;&amp;lt;/title&amp;gt; &amp;lt;script src=&amp;quot;https://cdn.staticfile.org/react/16.4.0/umd/react.development.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;quot;https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;!-- 生产环境中不建议使用 --&amp;gt; &amp;lt;script src=&amp;quot;https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;div id=&amp;quot;root&amp;quot;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script type=&amp;quot;text/babel&amp;quot;&amp;gt; const name = &#39;linjinbao666&#39;; const element = &amp;lt;h1&amp;gt;hello, {name}&amp;lt;/h1&amp;gt; ReactDOM.render( element, document.getElementById(&#39;root&#39;) ); &amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; 元素 元素是构成React应用的最小砖块
+元素的渲染： const element = &amp;lt;h1&amp;gt;Hello, world&amp;lt;/h1&amp;gt;; ReactDOM.</description>
+    </item>
+    
+    <item>
+      <title>React学习笔记</title>
+      <link>https://linjinbao.github.io/2019/react%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Sat, 28 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/react%E5%AD%A6%E4%B9%A0/</guid>
+      <description>React学习 JSF语法概述 const element = &amp;lt;h1&amp;gt;Hello, world!&amp;lt;/h1&amp;gt;; 这个有趣的标签语法既不是字符串也不是 HTML。
+它被称为 JSX，是一个 JavaScript 的语法扩展。我们建议在 React 中配合使用 JSX，JSX 可以很好地描述 UI 应该呈现出它应有交互的本质形式。JSX 可能会使人联想到模版语言，但它具有 JavaScript 的全部功能。
+实例
+&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;meta charset=&amp;#34;utf-8&amp;#34; /&amp;gt;&amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;&amp;lt;script src=&amp;#34;https://cdn.staticfile.org/react/16.4.0/umd/react.development.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;script src=&amp;#34;https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;!--生产环境中不建议使用 --&amp;gt;&amp;lt;script src=&amp;#34;https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;div id=&amp;#34;root&amp;#34;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;script type=&amp;#34;text/babel&amp;#34;&amp;gt;const name = &amp;#39;linjinbao666&amp;#39;;const element = &amp;lt;h1&amp;gt;hello, {name}&amp;lt;/h1&amp;gt; ReactDOM.render(element,document.getElementById(&amp;#39;root&amp;#39;));&amp;lt;/script&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;元素 元素是构成React应用的最小砖块
+元素的渲染： const element = &amp;lt;h1&amp;gt;Hello, world&amp;lt;/h1&amp;gt;; ReactDOM.render(element, document.</description>
+    </item>
+    
+  </channel>
+</rss>

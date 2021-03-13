@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>网站 on 打工人日记</title>
+    <link>https://linjinbao.github.io/tags/%E7%BD%91%E7%AB%99/</link>
+    <description>Recent content in 网站 on 打工人日记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 27 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://linjinbao.github.io/tags/%E7%BD%91%E7%AB%99/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>网站申请SSL证书-腾讯云</title>
+      <link>https://linjinbao.github.io/2019/20191127-wang-zhan-shen-qing-ssl-zheng-shu/</link>
+      <pubDate>Wed, 27 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/20191127-wang-zhan-shen-qing-ssl-zheng-shu/</guid>
+      <description>2019-11-27-网站申请SSL证书 网站申请SSL证书   腾讯云文档
+  选择证书类型，这里选择免费的
+ 配置域名验证  这一步是将腾讯云提供的一串文字，放直到服务器web应用内，腾讯云服务器定时去扫描这个域名，如果发现存在文件且匹配，则证明这个域名是你的，目的就是验证身份
+最后访问的url
+ 等待腾讯验证，验证结束如下图   下载文件并上传到nginx服务器（我这里情况比一般复杂，实际申请的网站和域名绑定的不一致，用了nginx反代）  上面两个文件是我们需要的，一个证书，一个私钥
+ 在nginx中配置  server { ## 监听80端口，避免大量修改接口 listen 80; ##SSL证书配置 listen 443 ssl; ssl_certificate /opt/nginx1.14.2/conf/1_****_bundle.crt; ssl_certificate_key /opt/nginx1.14.2/conf/2_****.key; ssl_protocols TLSv1 TLSv1.1 TLSv1.2; ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE; ssl_prefer_server_ciphers on; server_name localhost; }  重启nginx服务器  总结 以前用过openssl，步骤繁琐，复杂，没想到腾讯的这么好用，但是限制很明显，，，，，，承认的浏览器有点少，，，，，，，，，，，</description>
+    </item>
+    
+    <item>
+      <title>网站申请SSL证书-腾讯云</title>
+      <link>https://linjinbao.github.io/2019/%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/</link>
+      <pubDate>Wed, 27 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/</guid>
+      <description>网站申请SSL证书   腾讯云文档
+  选择证书类型，这里选择免费的
+配置域名验证  这一步是将腾讯云提供的一串文字，放直到服务器web应用内，腾讯云服务器定时去扫描这个域名，如果发现存在文件且匹配，则证明这个域名是你的，目的就是验证身份
+最后访问的url
+等待腾讯验证，验证结束如下图  下载文件并上传到nginx服务器（我这里情况比一般复杂，实际申请的网站和域名绑定的不一致，用了nginx反代）  上面两个文件是我们需要的，一个证书，一个私钥
+在nginx中配置  server {## 监听80端口，避免大量修改接口listen 80;	##SSL证书配置listen 443 ssl;ssl_certificate /opt/nginx1.14.2/conf/1_****_bundle.crt;ssl_certificate_key /opt/nginx1.14.2/conf/2_****.key;ssl_protocols TLSv1 TLSv1.1 TLSv1.2;ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;ssl_prefer_server_ciphers on;server_name localhost;}重启nginx服务器  总结 以前用过openssl，步骤繁琐，复杂，没想到腾讯的这么好用，但是限制很明显，，，，，，承认的浏览器有点少，，，，，，，，，，，</description>
+    </item>
+    
+  </channel>
+</rss>

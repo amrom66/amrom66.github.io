@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2020/20200301apidoc-xie-fa/" />
+  <link rel="next" href="https://linjinbao.github.io/2020/20200304js-hui-tiao-de-li-jie/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2020/20200302springboot-jiao-cheng-di-24-pian-zheng-he-docker/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Spring Boot教程第24篇：整合docker | 打工人日记
+       
+  </title>
+  <meta name="title" content="Spring Boot教程第24篇：整合docker | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Spring Boot教程第24篇：整合docker",
+    "headline" : "Spring Boot教程第24篇：整合docker",
+    "description" : "Spring Boot教程第24篇：整合docker 在idea中使用docker插件，使用远程docker服务器打包。\n 在远程机器，linux上安装docker并开启docker远程访问。  \/usr\/lib\/systemd\/system\/docker.service\n[Unit] Description=Docker Application Container Engine Documentation=http:\/\/docs.docker.com After=network.target Wants=docker-storage-setup.service Requires=docker-cleanup.timer [Service] Type=notify NotifyAccess=main EnvironmentFile=-\/run\/containers\/registries.conf EnvironmentFile=-\/etc\/sysconfig\/docker EnvironmentFile=-\/etc\/sysconfig\/docker-storage EnvironmentFile=-\/etc\/sysconfig\/docker-network Environment=GOTRACEBACK=crash Environment=DOCKER_HTTP_HOST_COMPAT=1 Environment=PATH=\/usr\/libexec\/docker:\/usr\/bin:\/usr\/sbin ExecStart=\/usr\/bin\/dockerd-current \\ --add-runtime docker-runc=\/usr\/libexec\/docker\/docker-runc-current \\ --default-runtime=docker-runc \\ --exec-opt native.cgroupdriver=systemd \\ --userland-proxy-path=\/usr\/libexec\/docker\/docker-proxy-current \\ --init-path=\/usr\/libexec\/docker\/docker-init-current \\ --seccomp-profile=\/etc\/docker\/seccomp.json \\ -H tcp:\/\/0.0.0.0:2375 -H unix:\/\/\/var\/run\/docker.sock \\ $OPTIONS \\ $DOCKER_STORAGE_OPTIONS \\ $DOCKER_NETWORK_OPTIONS \\ $ADD_REGISTRY \\ $BLOCK_REGISTRY \\ $INSECURE_REGISTRY \\ $REGISTRIES ExecReload=\/bin\/kill -s HUP $MAINPID LimitNOFILE=1048576 LimitNPROC=1048576 LimitCORE=infinity TimeoutStartSec=0 Restart=on-abnormal KillMode=process [Install] WantedBy=multi-user.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-03-02 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-03-02 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2020\/20200302springboot-jiao-cheng-di-24-pian-zheng-he-docker\/",
+    "wordCount" : "150",
+    "keywords" : [  "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Spring Boot教程第24篇：整合docker</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao</a> 时间： 
+                <span class="post-time">
+                 <time datetime=2039-03-02 itemprop="datePublished">March 2, 2020</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="spring-boot教程第24篇整合docker">Spring Boot教程第24篇：整合docker</h1>
+<p>在idea中使用docker插件，使用远程docker服务器打包。</p>
+<ol>
+<li>在远程机器，linux上安装docker并开启docker远程访问。</li>
+</ol>
+<p>/usr/lib/systemd/system/docker.service</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[Unit]
+Description=Docker Application Container Engine
+Documentation=http://docs.docker.com
+After=network.target
+Wants=docker-storage-setup.service
+Requires=docker-cleanup.timer
+
+[Service]
+Type=notify
+NotifyAccess=main
+EnvironmentFile=-/run/containers/registries.conf
+EnvironmentFile=-/etc/sysconfig/docker
+EnvironmentFile=-/etc/sysconfig/docker-storage
+EnvironmentFile=-/etc/sysconfig/docker-network
+Environment=GOTRACEBACK=crash
+Environment=DOCKER_HTTP_HOST_COMPAT=1
+Environment=PATH=/usr/libexec/docker:/usr/bin:/usr/sbin
+ExecStart=/usr/bin/dockerd-current \
+          --add-runtime docker-runc=/usr/libexec/docker/docker-runc-current \
+          --default-runtime=docker-runc \
+          --exec-opt native.cgroupdriver=systemd \
+          --userland-proxy-path=/usr/libexec/docker/docker-proxy-current \
+          --init-path=/usr/libexec/docker/docker-init-current \
+          --seccomp-profile=/etc/docker/seccomp.json \
+           -H tcp://0.0.0.0:2375  -H unix:///var/run/docker.sock \
+          $OPTIONS \
+          $DOCKER_STORAGE_OPTIONS \
+          $DOCKER_NETWORK_OPTIONS \
+          $ADD_REGISTRY \
+          $BLOCK_REGISTRY \
+          $INSECURE_REGISTRY \
+          $REGISTRIES
+ExecReload=/bin/kill -s HUP $MAINPID
+LimitNOFILE=1048576
+LimitNPROC=1048576
+LimitCORE=infinity
+TimeoutStartSec=0
+Restart=on-abnormal
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+</code></pre></div><p><code>-H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock \</code>这一句为添加的内容。</p>
+<ol>
+<li>pom中加入docker插件</li>
+</ol>
+<pre><code class="language-markup" data-lang="markup">&lt;properties&gt;
+        &lt;docker.image.prefix&gt;springio&lt;/docker.image.prefix&gt;
+    &lt;/properties&gt;
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+            &lt;/plugin&gt;
+            &lt;!--加入maven插件“docker-maven-plugin”--&gt;
+
+            &lt;plugin&gt;
+                &lt;groupId&gt;com.spotify&lt;/groupId&gt;
+                &lt;artifactId&gt;docker-maven-plugin&lt;/artifactId&gt;
+                &lt;version&gt;1.0.0&lt;/version&gt;
+                &lt;executions&gt;
+                    &lt;!--执行 mvn package 时 自动 执行 mvn docker:build--&gt;
+                    &lt;execution&gt;
+                        &lt;id&gt;build-image&lt;/id&gt;
+                        &lt;phase&gt;package&lt;/phase&gt;
+                        &lt;goals&gt;
+                            &lt;goal&gt;build&lt;/goal&gt;
+                        &lt;/goals&gt;
+                    &lt;/execution&gt;
+                &lt;/executions&gt;
+                &lt;configuration&gt;
+                    &lt;imageName&gt;${docker.image.prefix}/${project.artifactId}&lt;/imageName&gt;
+                    &lt;dockerHost&gt; http://192.168.126.138:2375&lt;/dockerHost&gt;
+                    &lt;dockerDirectory&gt;src/main/docker&lt;/dockerDirectory&gt;
+                    &lt;resources&gt;
+                        &lt;resource&gt;
+                            &lt;targetPath&gt;/&lt;/targetPath&gt;
+                            &lt;directory&gt;${project.build.directory}&lt;/directory&gt;
+                            &lt;include&gt;${project.build.finalName}.jar&lt;/include&gt;
+                        &lt;/resource&gt;
+                    &lt;/resources&gt;
+                &lt;/configuration&gt;
+            &lt;/plugin&gt;
+
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+</code></pre><ol>
+<li>建立src/main/docker/Dockerfile文件</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">FROM frolvlad/alpine-oraclejdk8:slim
+VOLUME /tmp
+ADD learndocker-1.0-SNAPSHOT.jar app.jar
+RUN sh -c &#39;touch /app.jar&#39;
+ENV JAVA_OPTS=&#34;&#34;
+ENTRYPOINT [ &#34;sh&#34;, &#34;-c&#34;, &#34;java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar&#34; ]
+</code></pre></div><ol>
+<li>在maven插件里面有个，打包，即可</li>
+</ol>
+<p>打包完的会在远程docker打包服务器中存放。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2020/20200302springboot-jiao-cheng-di-24-pian-zheng-he-docker/>https://linjinbao.github.io/2020/20200302springboot-jiao-cheng-di-24-pian-zheng-he-docker/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2020/20200301apidoc-xie-fa/" class="prev" rel="prev" title="apidoc 写法"><i class="iconfont icon-left"></i>&nbsp;apidoc 写法</a>
+         
+        
+        <a href="https://linjinbao.github.io/2020/20200304js-hui-tiao-de-li-jie/" class="next" rel="next" title="JS回调的理解">JS回调的理解&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

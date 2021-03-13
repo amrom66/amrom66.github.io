@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vpn on 打工人日记</title>
+    <link>https://linjinbao.github.io/tags/vpn/</link>
+    <description>Recent content in vpn on 打工人日记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 28 Nov 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://linjinbao.github.io/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>openvpn服务搭建</title>
+      <link>https://linjinbao.github.io/2019/20191128openvpn-fu-wu-da-jian/</link>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/20191128openvpn-fu-wu-da-jian/</guid>
+      <description>openvpn服务搭建 安装openvpn 和easy-rsa（制作ca证书） 方法一：
+wget http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm rpm -Uvh epel-release-6-8.noarch.rpm yum install openvpn wget https://github.com/OpenVPN/easy-rsa/archive/master.zip unzip master.zip 方法二：
+yum -y install epel-release #epel源 yum -y install openvpn easy-rsa ca证书制作（重点难点）   创建目录，并复制easy-rsa 目录
+mkdir -p /etc/openvpn/ cp -a easy-rsa /etc/openvpn/   配置，编辑vars文件，根据自己环境配置
+cd /etc/openvpn/easy-rsa/easyrsa3 cp vars.example vars vi vars set_var EASYRSA_REQ_COUNTRY &amp;#34;CN&amp;#34; set_var EASYRSA_REQ_PROVINCE &amp;#34;Henan&amp;#34; set_var EASYRSA_REQ_CITY &amp;#34;Zhengzhou&amp;#34; set_var EASYRSA_REQ_ORG &amp;#34;amrom&amp;#34; set_var EASYRSA_REQ_EMAIL &amp;#34;1576654308@qq.com&amp;#34; set_var EASYRSA_REQ_OU &amp;#34;My OpenVPN&amp;#34;   创建服务端证书及key</description>
+    </item>
+    
+    <item>
+      <title>openvpn服务搭建</title>
+      <link>https://linjinbao.github.io/2019/openvpn%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/openvpn%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</guid>
+      <description>openvpn服务搭建 安装openvpn 和easy-rsa（制作ca证书） 方法一：
+wget http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpmrpm -Uvh epel-release-6-8.noarch.rpmyum install openvpnwget https://github.com/OpenVPN/easy-rsa/archive/master.zipunzip master.zip方法二：
+yum -y install epel-release #epel源yum -y install openvpn easy-rsaca证书制作（重点难点）  创建目录，并复制easy-rsa 目录  mkdir -p /etc/openvpn/cp -a easy-rsa /etc/openvpn/配置，编辑vars文件，根据自己环境配置  cd /etc/openvpn/easy-rsa/easyrsa3cp vars.example varsvi varsset_var EASYRSA_REQ_COUNTRY &amp;quot;CN&amp;quot;set_var EASYRSA_REQ_PROVINCE &amp;quot;Henan&amp;quot;set_var EASYRSA_REQ_CITY &amp;quot;Zhengzhou&amp;quot;set_var EASYRSA_REQ_ORG &amp;quot;amrom&amp;quot;set_var EASYRSA_REQ_EMAIL &amp;quot;1576654308@qq.com&amp;quot;set_var EASYRSA_REQ_OU &amp;quot;My OpenVPN&amp;quot;创建服务端证书及key  cd /etc/openvpn/easy-rsa/easyrsa3/sh easyrsa init-pki	##初始化sh easyrsa build-ca	##创建根证书，密码要记住！！！，根证书名称需要输入sh easyrsa gen-req server nopass##创建服务端证书，服务器端证书名称不能和根证书一致签约服务端证书  sh easyrsa sign server server	##签约服务端证书sh easyrsa gen-dh	##创建Diffie-Hellman，确保key穿越不安全网络的命令创建客户端证书及key  mkdir clientcp /etc/openvpn/easy-rsa client/cd client/easy-rsa/easyrsa3/sh easyrsa init-pki	##初始化sh easyrsa gen-req amrom-client	##创建客户端key及证书签约客户端证书  cd /etc/openvpn/easy-rsa/easyrsa3/sh easyrsa import-req /root/client/easy-rsa/easyrsa3/pki/reqs/amrom-client.</description>
+    </item>
+    
+  </channel>
+</rss>

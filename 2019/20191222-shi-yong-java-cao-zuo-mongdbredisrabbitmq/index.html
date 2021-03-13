@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019/20191209springmvc-xue-xi-02/" />
+  <link rel="next" href="https://linjinbao.github.io/2019/20191224-zhong-jian-shu-ju-ku-jie-jue-yum-bao-cuo/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019/20191222-shi-yong-java-cao-zuo-mongdbredisrabbitmq/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           使用Java操作mongdb，redis，rabbitmq | 打工人日记
+       
+  </title>
+  <meta name="title" content="使用Java操作mongdb，redis，rabbitmq | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "使用Java操作mongdb，redis，rabbitmq",
+    "headline" : "使用Java操作mongdb，redis，rabbitmq",
+    "description" : "使用Java操作mongdb，redis，rabbitmq Java操作mongodb public static void main(String[] args) { MongoClient mongoClient = new MongoClient(\x26#34;192.168.220.130\x26#34;, 27017); MongoDatabase mongoDatabase = mongoClient.getDatabase(\x26#34;test\x26#34;); MongoCollection\x26lt;Document\x26gt; collection = mongoDatabase.getCollection(\x26#34;user\x26#34;); Document document = new Document(\x26#34;name\x26#34;,\x26#34;张三\x26#34;) .append(\x26#34;sex\x26#34;, \x26#34;男\x26#34;) .append(\x26#34;age\x26#34;, 18); collection.insertOne(document) ; FindIterable findIterable = collection.find(); MongoCursor cursor = findIterable.iterator(); while (cursor.hasNext()) { System.out.println(cursor.next()); } } 需要用到的jar包：mongo-java-driver-3.4.3.jar\nJava操作redis public static void main(String[] args) { Jedis jedis = new Jedis(\x26#34;192.168.220.130\x26#34;,6379); jedis.set(\x26#34;username\x26#34;, \x26#34;ljbao\x26#34;); System.out.println(jedis.ping()); System.out.println(jedis.get(\x26#34;username\x26#34;)); } 需要用到的jar包：jedis-2.9.0.jar\nJava操作rabbitmq public static void main(String[] args) throws IOException, TimeoutException { ConnectionFactory factory = new ConnectionFactory(); factory.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-22 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-12-22 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019\/20191222-shi-yong-java-cao-zuo-mongdbredisrabbitmq\/",
+    "wordCount" : "102",
+    "keywords" : [  "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">使用Java操作mongdb，redis，rabbitmq</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao</a> 时间： 
+                <span class="post-time">
+                 <time datetime=22129-12-22 itemprop="datePublished">December 22, 2019</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="使用java操作mongdbredisrabbitmq">使用Java操作mongdb，redis，rabbitmq</h1>
+<h2 id="java操作mongodb">Java操作mongodb</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    MongoClient mongoClient <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MongoClient<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;192.168.220.130&#34;</span><span style="color:#f92672">,</span> 27017<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    MongoDatabase mongoDatabase <span style="color:#f92672">=</span> mongoClient<span style="color:#f92672">.</span><span style="color:#a6e22e">getDatabase</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;test&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    MongoCollection<span style="color:#f92672">&lt;</span>Document<span style="color:#f92672">&gt;</span> collection <span style="color:#f92672">=</span> mongoDatabase<span style="color:#f92672">.</span><span style="color:#a6e22e">getCollection</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    Document document <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Document<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;name&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;张三&#34;</span><span style="color:#f92672">)</span>
+        <span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;sex&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;男&#34;</span><span style="color:#f92672">)</span>
+        <span style="color:#f92672">.</span><span style="color:#a6e22e">append</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;age&#34;</span><span style="color:#f92672">,</span> 18<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    collection<span style="color:#f92672">.</span><span style="color:#a6e22e">insertOne</span><span style="color:#f92672">(</span>document<span style="color:#f92672">)</span>  <span style="color:#f92672">;</span>
+    FindIterable findIterable <span style="color:#f92672">=</span> collection<span style="color:#f92672">.</span><span style="color:#a6e22e">find</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    MongoCursor cursor <span style="color:#f92672">=</span> findIterable<span style="color:#f92672">.</span><span style="color:#a6e22e">iterator</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">while</span> <span style="color:#f92672">(</span>cursor<span style="color:#f92672">.</span><span style="color:#a6e22e">hasNext</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>cursor<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>需要用到的jar包：<code>mongo-java-driver-3.4.3.jar</code></p>
+<h2 id="java操作redis">Java操作redis</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    Jedis jedis <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Jedis<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;192.168.220.130&#34;</span><span style="color:#f92672">,</span>6379<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    jedis<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;username&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;ljbao&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>jedis<span style="color:#f92672">.</span><span style="color:#a6e22e">ping</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>jedis<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;username&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>需要用到的jar包：<code>jedis-2.9.0.jar</code></p>
+<h2 id="java操作rabbitmq">Java操作rabbitmq</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException<span style="color:#f92672">,</span> TimeoutException <span style="color:#f92672">{</span>
+    ConnectionFactory factory <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ConnectionFactory<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    factory<span style="color:#f92672">.</span><span style="color:#a6e22e">setHost</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;192.168.220.130&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    factory<span style="color:#f92672">.</span><span style="color:#a6e22e">setPort</span><span style="color:#f92672">(</span>5672<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    factory<span style="color:#f92672">.</span><span style="color:#a6e22e">setUsername</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;guest&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    factory<span style="color:#f92672">.</span><span style="color:#a6e22e">setPassword</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;guest&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    Connection connection <span style="color:#f92672">=</span> factory<span style="color:#f92672">.</span><span style="color:#a6e22e">newConnection</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    Channel channel <span style="color:#f92672">=</span> connection<span style="color:#f92672">.</span><span style="color:#a6e22e">createChannel</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;----------connected successful!----------&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>需要用到的jar包：<code>amqp-client-5.8.0.jar</code></p>
+<p>依赖包：</p>
+<p>​ <code>slf4j-api-1.7.26.jar</code> ​ <code>slf4j-simple-1.7.26.jar</code></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2019/20191222-shi-yong-java-cao-zuo-mongdbredisrabbitmq/>https://linjinbao.github.io/2019/20191222-shi-yong-java-cao-zuo-mongdbredisrabbitmq/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2019/20191209springmvc-xue-xi-02/" class="prev" rel="prev" title="SpringMVC学习02"><i class="iconfont icon-left"></i>&nbsp;SpringMVC学习02</a>
+         
+        
+        <a href="https://linjinbao.github.io/2019/20191224-zhong-jian-shu-ju-ku-jie-jue-yum-bao-cuo/" class="next" rel="next" title="yum 重建数据库解决报错">yum 重建数据库解决报错&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

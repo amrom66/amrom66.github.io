@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019/%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8Bspringaop/" />
+  <link rel="next" href="https://linjinbao.github.io/2019/java%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019/20191112-mian-xiang-qie-mian-bian-cheng-springaop/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           面向切面编程SpringAOP | 打工人日记
+       
+  </title>
+  <meta name="title" content="面向切面编程SpringAOP | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "面向切面编程SpringAOP",
+    "headline" : "面向切面编程SpringAOP",
+    "description" : "面向切面编程SpringAOP  注解方式实现aop，xml配置  名称空间xmlns:aop=\x26quot;http:\/\/www.springframework.org\/schema\/aop\x26quot; \x26lt;context:component-scan base-package=\x26quot;tk.amrom\x26quot;\x26gt;\x26lt;\/context:component-scan\x26gt; \x26lt;aop:aspectj-autoproxy\x26gt; \x26lt;\/aop:aspectj-autoproxy\x26gt;   LogUtil.java\n```java\n  @Aspect @Component public class LogUtil {\n@Before(value = \x26#34;execution(public int tk.amrom.impls.MyMathCaluctor.*(*, int))\x26#34;) public static void logStart() { System.out.println(\x26#34;目标方法执行之前执行1。。。。。。\x26#34;); } @After(value = \x26#34;execution(public int tk.amrom.impls.MyMathCaluctor.add(int, int)) | \x26#34; \x2b \x26#34;execution(public int tk.amrom.impls.MyMathCaluctor.sub(int, int))\x26#34;) public static void logAfter() { System.out.println(\x26#34;目标方法执行之后执行2。。。。。。。\x26#34;); } }\n3. TestAOP.java ```java public class TestAOP { ApplicationContext context = new ClassPathXmlApplicationContext(\x26#34;aop.xml\x26#34;); @Test public void test01() { Calcultor calcultor = context.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-12 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-11-12 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019\/20191112-mian-xiang-qie-mian-bian-cheng-springaop\/",
+    "wordCount" : "123",
+    "keywords" : [ "Spring","AOP", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">面向切面编程SpringAOP</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao</a> 时间： 
+                <span class="post-time">
+                 <time datetime=12119-11-12 itemprop="datePublished">November 12, 2019</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="面向切面编程springaop">面向切面编程SpringAOP</h1>
+<ol>
+<li>注解方式实现aop，xml配置</li>
+</ol>
+<pre><code class="language-markup" data-lang="markup">名称空间xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+&lt;context:component-scan base-package=&quot;tk.amrom&quot;&gt;&lt;/context:component-scan&gt;
+
+&lt;aop:aspectj-autoproxy&gt;
+
+&lt;/aop:aspectj-autoproxy&gt;
+</code></pre><ol>
+<li>
+<p>LogUtil.java</p>
+<p>```java</p>
+</li>
+</ol>
+<p>@Aspect @Component public class LogUtil {</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">@Before(value = &#34;execution(public int tk.amrom.impls.MyMathCaluctor.*(*, int))&#34;)
+public static void logStart() {
+    System.out.println(&#34;目标方法执行之前执行1。。。。。。&#34;);
+}
+
+@After(value = &#34;execution(public int tk.amrom.impls.MyMathCaluctor.add(int, int)) | &#34;
+        + &#34;execution(public int tk.amrom.impls.MyMathCaluctor.sub(int, int))&#34;)
+public static void logAfter() {
+    System.out.println(&#34;目标方法执行之后执行2。。。。。。。&#34;);
+}
+</code></pre></div><p>}</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">3. TestAOP.java
+```java
+public class TestAOP {
+    ApplicationContext context = new ClassPathXmlApplicationContext(&#34;aop.xml&#34;);
+    @Test
+    public void test01() {
+        Calcultor calcultor = context.getBean(Calcultor.class);
+        calcultor.add(2, 3);
+        calcultor.sub(3, 4);
+    }
+}
+</code></pre></div><ol>
+<li>JoinPoint使用</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">logBefore</span><span style="color:#f92672">(</span>JoinPoint j<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    Object<span style="color:#f92672">[</span><span style="color:#f92672">]</span> o <span style="color:#f92672">=</span> j<span style="color:#f92672">.</span><span style="color:#a6e22e">getArgs</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;目标方法执行之前执行1。。。。。。&#34;</span> <span style="color:#f92672">+</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span>o<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><ol>
+<li>xml配置方式实现aop</li>
+</ol>
+<p>aop.xml</p>
+<pre><code class="language-markup" data-lang="markup">&lt;bean id=&quot;logUtilAspect&quot; class=&quot;aspects.LogUtilAspect&quot;&gt;&lt;/bean&gt;
+
+&lt;aop:config&gt;
+    &lt;aop:pointcut expression=&quot;execution(public int tk.amrom.impls.MyMathCaluctor.*(int, int))&quot; id=&quot;mypointcut&quot;/&gt;
+
+    &lt;aop:aspect ref=&quot;logUtilAspect&quot;&gt;
+        &lt;aop:before method=&quot;logBefore&quot; pointcut-ref=&quot;mypointcut&quot; /&gt;
+
+    &lt;/aop:aspect&gt;
+
+&lt;/aop:config&gt;
+</code></pre><ol>
+<li>5大通知类型</li>
+</ol>
+<pre><code class="language-markup" data-lang="markup">&lt;aop:before method=&quot;logBefore&quot; pointcut-ref=&quot;mypointcut&quot; /&gt;
+&lt;aop:after method=&quot;&quot;/&gt;
+&lt;aop:after-returning method=&quot;&quot;/&gt;
+&lt;aop:after-throwing method=&quot;&quot;/&gt;
+&lt;aop:around method=&quot;&quot;/&gt;
+</code></pre>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2019/20191112-mian-xiang-qie-mian-bian-cheng-springaop/>https://linjinbao.github.io/2019/20191112-mian-xiang-qie-mian-bian-cheng-springaop/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/spring/">
+                    #Spring</a></span>
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/aop/">
+                    #AOP</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2019/%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8Bspringaop/" class="prev" rel="prev" title="面向切面编程SpringAOP"><i class="iconfont icon-left"></i>&nbsp;面向切面编程SpringAOP</a>
+         
+        
+        <a href="https://linjinbao.github.io/2019/java%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" class="next" rel="next" title="Java定时任务">Java定时任务&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

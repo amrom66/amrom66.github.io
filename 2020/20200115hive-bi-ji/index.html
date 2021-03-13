@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2020/20200109hive-on-spark-ce-shi/" />
+  <link rel="next" href="https://linjinbao.github.io/2020/20200117-da-jian-12306-qiang-piao-fu-wu/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2020/20200115hive-bi-ji/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           hive笔记 | 打工人日记
+       
+  </title>
+  <meta name="title" content="hive笔记 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "hive笔记",
+    "headline" : "hive笔记",
+    "description" : "hive笔记 建表语句：\nCREATE TABLE testB (id INT,name string,area string) PARTITIONED BY (create_time string) ROW FORMAT DELIMITED FIELDS TERMINATED BY \x26#39;,\x26#39; STORED AS TEXTFILE; 从物理机导入数据：\nLOAD DATA LOCAL INPATH \x26#39;\/root\/sourceA.txt\x26#39; into table testa PARTITION(create_time=\x26#39;2019-12-27\x26#39;); 从hdfs导入数据：\nLOAD DATA inpath \x26#39;\/user\/root\/sourceA.txt\x26#39; into table testB PARTITION(create_time=\x26#39;2019-12-27\x26#39;); 从hdfs导出数据：\ninsert overwrite directory \x26#39;\/user\/ljbao\/oput\x26#39; select * from testb; 导出的文件查看：\nhdfs dfs -cat \/user\/ljbao\/oput\/000000_0 hdfs用户创建 示例如下：\n1、需要先在linux 上创建一个普通用户： hn,并修改密码 sudo -u hdfs hadoop fs -mkdir \/user\/用户名 sudo -u hdfs hadoop fs -mkdir \/user\/hn sudo -u hdfs hadoop fs -chown 用户组：用户名 \/user\/用户名 sudo -u hdfs hadoop fs -chown hn:hdfs \/user\/hn 上传文件测试: hdfs dfs -put fileName \/user\/hn hive命令行交互中可以直接执行hdfs指令 示例如下：",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-01-15 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-01-15 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2020\/20200115hive-bi-ji\/",
+    "wordCount" : "633",
+    "keywords" : [  "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">hive笔记</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao</a> 时间： 
+                <span class="post-time">
+                 <time datetime=15019-01-15 itemprop="datePublished">January 15, 2020</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="hive笔记">hive笔记</h1>
+<p>建表语句：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">CREATE TABLE testB (id INT,name string,area string) PARTITIONED BY (create_time string) ROW FORMAT DELIMITED FIELDS TERMINATED BY &#39;,&#39; STORED AS TEXTFILE;
+</code></pre></div><p>从物理机导入数据：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">LOAD DATA LOCAL INPATH &#39;/root/sourceA.txt&#39; into table testa PARTITION(create_time=&#39;2019-12-27&#39;);
+</code></pre></div><p>从hdfs导入数据：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">LOAD DATA inpath &#39;/user/root/sourceA.txt&#39; into table testB PARTITION(create_time=&#39;2019-12-27&#39;);
+</code></pre></div><p>从hdfs导出数据：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">insert overwrite directory &#39;/user/ljbao/oput&#39; select * from testb;
+</code></pre></div><p>导出的文件查看：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">hdfs dfs -cat /user/ljbao/oput/000000_0
+</code></pre></div><h2 id="hdfs用户创建">hdfs用户创建</h2>
+<p>示例如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">1、需要先在linux 上创建一个普通用户： hn,并修改密码
+
+sudo -u hdfs hadoop fs -mkdir /user/用户名
+sudo -u hdfs hadoop fs -mkdir /user/hn
+sudo -u hdfs hadoop fs -chown 用户组：用户名 /user/用户名
+sudo -u hdfs hadoop fs -chown hn:hdfs /user/hn
+上传文件测试:
+hdfs dfs  -put  fileName /user/hn
+</code></pre></div><h3 id="hive命令行交互中可以直接执行hdfs指令">hive命令行交互中可以直接执行hdfs指令</h3>
+<p>示例如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">0: jdbc:hive2://localhost:10000&gt; dfs -ls /user/ljbao;
++------------------------------------------------------------------------------+--+
+|                                  DFS Output                                  |
++------------------------------------------------------------------------------+--+
+| Found 2 items                                                                |
+| drwx------   - ljbao ljbao          0 2019-12-26 22:09 /user/ljbao/.staging  |
+| drwxr-xr-x   - ljbao ljbao          0 2019-12-26 22:09 /user/ljbao/oput      |
++------------------------------------------------------------------------------+--+
+3 rows selected (0.011 seconds)
+0: jdbc:hive2://localhost:10000&gt;
+</code></pre></div><h3 id="建表语句">建表语句</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">create table if not exists ljbao.employees (
+name string comment &#39;employee name&#39;, 
+salary float comment &#39;salary&#39;, 
+deductions map&lt;String, float&gt; comment &#39;keys are name and values are per...&#39;
+) 
+tblproperties (&#39;creator&#39;=&#39;me&#39;,&#39;created_at&#39;=&#39;2019-12-29 10:00:00&#39;) 
+location &#39;/user/ljbao/employees&#39;;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">create table if not exists ljbao.employee4(name string comment &#39;employee names&#39;,salary float comment &#39;employee salary&#39;)   location &#39;/user/ljbao/employees&#39;;
+</code></pre></div><h2 id="分区表">分区表</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">---创建分区表
+create table ljbao.employee2(name string, salary float, subordinates array&lt;String&gt;) partitioned by (country string, state string);
+---添加信息
+alter table employee2 add partition ( country=&#34;china&#34;, state=&#34;zhejiang&#34;);
+---查看hdfs存储结构
+[root@hadoop1 ~]# hdfs dfs -ls -R /apps/hive/warehouse/ljbao.db
+drwxrwxrwx   - hive      hadoop          0 2019-12-25 20:47 /apps/hive/warehouse/ljbao.db/a
+-rwxrwxrwx   3 hive      hadoop          3 2019-12-25 20:47 /apps/hive/warehouse/ljbao.db/a/000000_0
+drwxrwxrwx   - ljbao     hadoop          0 2019-12-30 01:46 /apps/hive/warehouse/ljbao.db/employee2
+drwxrwxrwx   - ljbao     hadoop          0 2019-12-30 01:46 /apps/hive/warehouse/ljbao.db/employee2/country=china
+drwxrwxrwx   - ljbao     hadoop          0 2019-12-30 01:46 /apps/hive/warehouse/ljbao.db/employee2/country=china/state=zhejiang
+drwxrwxrwx   - root      hadoop          0 2019-12-24 01:07 /apps/hive/warehouse/ljbao.db/hive_01
+drwxrwxrwx   - root      hadoop          0 2019-12-25 20:11 /apps/hive/warehouse/ljbao.db/t1
+drwxrwxrwx   - anonymous hadoop          0 2019-12-26 20:21 /apps/hive/warehouse/ljbao.db/testa
+drwxrwxrwx   - anonymous hadoop          0 2019-12-26 20:21 /apps/hive/warehouse/ljbao.db/testa/create_time=2019-12-27
+-rwxrwxrwx   3 anonymous hadoop         55 2019-12-26 20:21 /apps/hive/warehouse/ljbao.db/testa/create_time=2019-12-27/sourceA.txt
+drwxrwxrwx   - anonymous hadoop          0 2019-12-26 20:33 /apps/hive/warehouse/ljbao.db/testb
+drwxrwxrwx   - anonymous hadoop          0 2019-12-26 20:33 /apps/hive/warehouse/ljbao.db/testb/create_time=2019-12-27
+[root@hadoop1 ~]#
+</code></pre></div><p>使用hive metastore api操作hive：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> hive.util<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> org.apache.hadoop.hive.conf.HiveConf<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.apache.hadoop.hive.metastore.IMetaStoreClient<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.apache.hadoop.hive.metastore.RetryingMetaStoreClient<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.apache.hadoop.hive.metastore.api.Database<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.apache.hadoop.hive.metastore.api.FieldSchema<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.apache.hadoop.hive.metastore.api.MetaException<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.apache.thrift.TException<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.slf4j.Logger<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
+
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HiveClient</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">final</span> Logger logger <span style="color:#f92672">=</span> org<span style="color:#f92672">.</span><span style="color:#a6e22e">slf4j</span><span style="color:#f92672">.</span><span style="color:#a6e22e">LoggerFactory</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">(</span><span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    IMetaStoreClient client<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">HiveClient</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            HiveConf hiveConf <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HiveConf<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+            hiveConf<span style="color:#f92672">.</span><span style="color:#a6e22e">addResource</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;hive-site.xml&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+            client <span style="color:#f92672">=</span> RetryingMetaStoreClient<span style="color:#f92672">.</span><span style="color:#a6e22e">getProxy</span><span style="color:#f92672">(</span>hiveConf<span style="color:#f92672">,</span><span style="color:#66d9ef">true</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>MetaException ex<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            logger<span style="color:#f92672">.</span><span style="color:#a6e22e">error</span><span style="color:#f92672">(</span>ex<span style="color:#f92672">.</span><span style="color:#a6e22e">getMessage</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getAllDatabases</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> databases <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            databases <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span><span style="color:#a6e22e">getAllDatabases</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>TException ex<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            logger<span style="color:#f92672">.</span><span style="color:#a6e22e">error</span><span style="color:#f92672">(</span>ex<span style="color:#f92672">.</span><span style="color:#a6e22e">getMessage</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> databases<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> Database <span style="color:#a6e22e">getDatabase</span><span style="color:#f92672">(</span>String db<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        Database database <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            database <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span><span style="color:#a6e22e">getDatabase</span><span style="color:#f92672">(</span>db<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>TException ex<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            logger<span style="color:#f92672">.</span><span style="color:#a6e22e">error</span><span style="color:#f92672">(</span>ex<span style="color:#f92672">.</span><span style="color:#a6e22e">getMessage</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> database<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>FieldSchema<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getSchema</span><span style="color:#f92672">(</span>String db<span style="color:#f92672">,</span> String table<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        List<span style="color:#f92672">&lt;</span>FieldSchema<span style="color:#f92672">&gt;</span> schema <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            schema <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span><span style="color:#a6e22e">getSchema</span><span style="color:#f92672">(</span>db<span style="color:#f92672">,</span> table<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>TException ex<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            logger<span style="color:#f92672">.</span><span style="color:#a6e22e">error</span><span style="color:#f92672">(</span>ex<span style="color:#f92672">.</span><span style="color:#a6e22e">getMessage</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> schema<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getAllTables</span><span style="color:#f92672">(</span>String db<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> tables <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            tables <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span><span style="color:#a6e22e">getAllTables</span><span style="color:#f92672">(</span>db<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>TException ex<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            logger<span style="color:#f92672">.</span><span style="color:#a6e22e">error</span><span style="color:#f92672">(</span>ex<span style="color:#f92672">.</span><span style="color:#a6e22e">getMessage</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> tables<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getLocation</span><span style="color:#f92672">(</span>String db<span style="color:#f92672">,</span> String table<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        String location <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+            location <span style="color:#f92672">=</span> client<span style="color:#f92672">.</span><span style="color:#a6e22e">getTable</span><span style="color:#f92672">(</span>db<span style="color:#f92672">,</span> table<span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getSd</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getLocation</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span><span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>TException ex<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            logger<span style="color:#f92672">.</span><span style="color:#a6e22e">error</span><span style="color:#f92672">(</span>ex<span style="color:#f92672">.</span><span style="color:#a6e22e">getMessage</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> location<span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        HiveClient hiveClient <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HiveClient<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        List l <span style="color:#f92672">=</span> hiveClient<span style="color:#f92672">.</span><span style="color:#a6e22e">getAllTables</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;ljbao&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>l<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><h3 id="第四章-数据定义">第四章-数据定义</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">describe</span> <span style="color:#66d9ef">database</span> db1;
+<span style="color:#66d9ef">describe</span> <span style="color:#66d9ef">database</span> extended db1;
+<span style="color:#66d9ef">set</span> hive.cli.print.<span style="color:#66d9ef">current</span>.db<span style="color:#f92672">=</span><span style="color:#66d9ef">true</span>;    <span style="color:#75715e">--设置打印当前数据库
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">drop</span> <span style="color:#66d9ef">database</span> <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">exists</span> db1 <span style="color:#66d9ef">cascade</span>;<span style="color:#75715e">--删除非空数据库
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">alter</span> <span style="color:#66d9ef">database</span> db1 <span style="color:#66d9ef">set</span> dbproperties (<span style="color:#e6db74">&#39;</span><span style="color:#e6db74">edit</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">linjb</span><span style="color:#e6db74">&#39;</span>);<span style="color:#75715e">--修改数据库属性
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">describe</span> extended tb4;
+<span style="color:#66d9ef">describe</span> formatted tb4;<span style="color:#75715e">--读取表的描述
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">external</span> <span style="color:#66d9ef">table</span> <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">not</span> <span style="color:#66d9ef">exists</span> tb5(id int, name string) <span style="color:#66d9ef">row</span> format delimited fields terminated <span style="color:#66d9ef">by</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">,</span><span style="color:#e6db74">&#39;</span> <span style="color:#66d9ef">location</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">/opt/lzh/dbs/tb5</span><span style="color:#e6db74">&#39;</span>;    <span style="color:#75715e">--建立外部表
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">set</span> hive.mapred.<span style="color:#66d9ef">mode</span><span style="color:#f92672">=</span><span style="color:#66d9ef">strict</span>;<span style="color:#75715e">--严格模式，查询语句必须带有分区参数
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">table</span> tb6(id int, name string)partitioned <span style="color:#66d9ef">by</span> (country string, <span style="color:#66d9ef">state</span> string)<span style="color:#75715e">--建表带分区参数
+</span></code></pre></div><h3 id="第五章-数据操作">第五章-数据操作</h3>
+<p>导入数据：从物理机导入</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">table</span> tb7(name string, age int) <span style="color:#66d9ef">row</span> format delimited fields terminated <span style="color:#66d9ef">by</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">&#39;</span> lines terminated <span style="color:#66d9ef">by</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">\n</span><span style="color:#e6db74">&#39;</span>;<span style="color:#75715e">---建表
+</span></code></pre></div><p>load_data.txt：文件数据内容</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">zhangsan 30
+lisi 50
+wangwu 60
+peiqi 6
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">load</span> <span style="color:#66d9ef">data</span> <span style="color:#66d9ef">local</span> inpath <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">/opt/lzh/load_data_local.txt</span><span style="color:#e6db74">&#39;</span> <span style="color:#66d9ef">into</span> <span style="color:#66d9ef">table</span> tb7;<span style="color:#75715e">---导入数据
+</span></code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">load</span> <span style="color:#66d9ef">data</span> inpath <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">/apps/hive/warehouse/db1.db/tb7/load_data_local.txt</span><span style="color:#e6db74">&#39;</span> <span style="color:#66d9ef">into</span> <span style="color:#66d9ef">table</span> tb8;<span style="color:#75715e">---从hdfs导入数据、
+</span></code></pre></div><p>设置参数<code>hive.exec.mode.local.auto=true</code>避免使用mareduce查询</p>
+<p>设置参数<code>hive.limit.optimize.enable=true</code> 控制limit从数据源抽取</p>
+<p>设置参数<code>set hive.exec.parallel=true</code>并发执行</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2020/20200115hive-bi-ji/>https://linjinbao.github.io/2020/20200115hive-bi-ji/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2020/20200109hive-on-spark-ce-shi/" class="prev" rel="prev" title="hive on spark 测试"><i class="iconfont icon-left"></i>&nbsp;hive on spark 测试</a>
+         
+        
+        <a href="https://linjinbao.github.io/2020/20200117-da-jian-12306-qiang-piao-fu-wu/" class="next" rel="next" title="搭建12306抢票服务">搭建12306抢票服务&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

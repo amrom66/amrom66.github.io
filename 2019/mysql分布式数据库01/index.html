@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019/20191203java-duo-xian-cheng-chu-li-shu-ju-biao-ge/" />
+  <link rel="next" href="https://linjinbao.github.io/2019/20191204mysql-fen-bu-shi-shu-ju-ku-01/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019/mysql%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%9301/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           mysql分布式数据库01 | 打工人日记
+       
+  </title>
+  <meta name="title" content="mysql分布式数据库01 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "mysql分布式数据库01",
+    "headline" : "mysql分布式数据库01",
+    "description" : "mysql分布式事务01 分布式事务组成  资源管理器： 提供访问事务资源的方法，通常一个数据库就是一个资源管理器 事务管理器： 协调参与全局事务的各个事务。需要和参与全局事务中的所有资源管理器进行通信。 应用程序： 定义事务的边界，指定全局事务中的操作。  提交方式 两段式提交。在第一个阶段，所有参与全局事务的节点都开始准备，告诉事务管理器他们准备提交了；第二阶段，事务管理器告诉资源管理器执行commit或者时rollback，如果任意一个节点显示不能提交，则所有的节点进行回滚。\n代码示例：\n MyXid.java  public class MyXid implements Xid{\rpublic int formatId;\rpublic byte gtrid[];\rpublic byte bqual[];\rpublic MyXid() {\r}\rpublic MyXid(int formatId, byte gtrid[], byte bqual[]) {\rthis.formatId = formatId;\rthis.gtrid = gtrid;\rthis.bqual = bqual;\r}\r@Override\rpublic byte[] getBranchQualifier() {\rreturn bqual;\r}\r@Override\rpublic int getFormatId() {\rreturn formatId;\r}\r@Override\rpublic byte[] getGlobalTransactionId() {\rreturn gtrid;\r}\r}\rDemo1.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-04 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-12-04 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019\/mysql%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%9301\/",
+    "wordCount" : "249",
+    "keywords" : [ "Mysql","分布式", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">mysql分布式数据库01</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao</a> 时间： 
+                <span class="post-time">
+                 <time datetime=4129-12-04 itemprop="datePublished">December 4, 2019</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="mysql分布式事务01">mysql分布式事务01</h1>
+<h2 id="分布式事务组成">分布式事务组成</h2>
+<ol>
+<li>资源管理器： 提供访问事务资源的方法，通常一个数据库就是一个资源管理器</li>
+<li>事务管理器： 协调参与全局事务的各个事务。需要和参与全局事务中的所有资源管理器进行通信。</li>
+<li>应用程序： 定义事务的边界，指定全局事务中的操作。</li>
+</ol>
+<h2 id="提交方式">提交方式</h2>
+<p>两段式提交。在第一个阶段，所有参与全局事务的节点都开始准备，告诉事务管理器他们准备提交了；第二阶段，事务管理器告诉资源管理器执行commit或者时rollback，如果任意一个节点显示不能提交，则所有的节点进行回滚。</p>
+<p>代码示例：</p>
+<ol>
+<li>MyXid.java</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyXid</span> <span style="color:#66d9ef">implements</span> Xid<span style="color:#f92672">{</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> formatId<span style="color:#f92672">;</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">byte</span> gtrid<span style="color:#f92672">[</span><span style="color:#f92672">]</span><span style="color:#f92672">;</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">byte</span> bqual<span style="color:#f92672">[</span><span style="color:#f92672">]</span><span style="color:#f92672">;</span>
+
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">MyXid</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">MyXid</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> formatId<span style="color:#f92672">,</span> <span style="color:#66d9ef">byte</span> gtrid<span style="color:#f92672">[</span><span style="color:#f92672">]</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">byte</span> bqual<span style="color:#f92672">[</span><span style="color:#f92672">]</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">formatId</span> <span style="color:#f92672">=</span> formatId<span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">gtrid</span> <span style="color:#f92672">=</span> gtrid<span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">bqual</span> <span style="color:#f92672">=</span> bqual<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">byte</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span> <span style="color:#a6e22e">getBranchQualifier</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> bqual<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getFormatId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> formatId<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">byte</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span> <span style="color:#a6e22e">getGlobalTransactionId</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> gtrid<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><ol start="2">
+<li>Demo1.java</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Demo1</span> <span style="color:#f92672">{</span>
+	
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 分布式数据库
+</span><span style="color:#75715e">	 * @param url
+</span><span style="color:#75715e">	 * @param user
+</span><span style="color:#75715e">	 * @param pass
+</span><span style="color:#75715e">	 * @return
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> MysqlXADataSource <span style="color:#a6e22e">getDataSource</span><span style="color:#f92672">(</span>String url<span style="color:#f92672">,</span> String user<span style="color:#f92672">,</span> String pass<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		MysqlXADataSource mysqlXADataSource <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MysqlXADataSource<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		mysqlXADataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setUrl</span><span style="color:#f92672">(</span>url<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		mysqlXADataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setUser</span><span style="color:#f92672">(</span>user<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		mysqlXADataSource<span style="color:#f92672">.</span><span style="color:#a6e22e">setPassword</span><span style="color:#f92672">(</span>pass<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">return</span> mysqlXADataSource<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> SQLException <span style="color:#f92672">{</span>
+		String connStr1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;jdbc:mysql://192.168.200.137:3306/bank_shanghai&#34;</span><span style="color:#f92672">;</span>	<span style="color:#75715e">//数据库1
+</span><span style="color:#75715e"></span>		String connStr2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;jdbc:mysql://127.0.0.1:3306/bank_beijing&#34;</span><span style="color:#f92672">;</span>			<span style="color:#75715e">//数据库2
+</span><span style="color:#75715e"></span>		
+		MysqlXADataSource ds1 <span style="color:#f92672">=</span> getDataSource<span style="color:#f92672">(</span>connStr1<span style="color:#f92672">,</span><span style="color:#e6db74">&#34;root&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;123456&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		MysqlXADataSource ds2 <span style="color:#f92672">=</span> getDataSource<span style="color:#f92672">(</span>connStr2<span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;root&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Gepoint&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		XAConnection xaConnection1 <span style="color:#f92672">=</span> ds1<span style="color:#f92672">.</span><span style="color:#a6e22e">getXAConnection</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		XAConnection xaConnection2 <span style="color:#f92672">=</span> ds2<span style="color:#f92672">.</span><span style="color:#a6e22e">getXAConnection</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		XAResource xaResource1 <span style="color:#f92672">=</span> xaConnection1<span style="color:#f92672">.</span><span style="color:#a6e22e">getXAResource</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		XAResource xaResource2 <span style="color:#f92672">=</span> xaConnection2<span style="color:#f92672">.</span><span style="color:#a6e22e">getXAResource</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		Connection connection1 <span style="color:#f92672">=</span> xaConnection1<span style="color:#f92672">.</span><span style="color:#a6e22e">getConnection</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>	<span style="color:#75715e">//获得连接
+</span><span style="color:#75715e"></span>		Connection connection2 <span style="color:#f92672">=</span> xaConnection2<span style="color:#f92672">.</span><span style="color:#a6e22e">getConnection</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>	<span style="color:#75715e">//获得连接
+</span><span style="color:#75715e"></span>		
+		Statement statement1 <span style="color:#f92672">=</span> connection1<span style="color:#f92672">.</span><span style="color:#a6e22e">createStatement</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		Statement statement2 <span style="color:#f92672">=</span> connection2<span style="color:#f92672">.</span><span style="color:#a6e22e">createStatement</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		Xid xid1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MyXid<span style="color:#f92672">(</span>100<span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">byte</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span> <span style="color:#f92672">{</span>0x01<span style="color:#f92672">}</span><span style="color:#f92672">,</span><span style="color:#66d9ef">new</span> <span style="color:#66d9ef">byte</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span> <span style="color:#f92672">{</span>0x02<span style="color:#f92672">}</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		Xid xid2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MyXid<span style="color:#f92672">(</span>100<span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">byte</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span> <span style="color:#f92672">{</span>0x11<span style="color:#f92672">}</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">byte</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span> <span style="color:#f92672">{</span>0x12<span style="color:#f92672">}</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#66d9ef">try</span> <span style="color:#f92672">{</span>
+			xaResource1<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">(</span>xid1<span style="color:#f92672">,</span> XAResource<span style="color:#f92672">.</span><span style="color:#a6e22e">TMNOFLAGS</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+			statement1<span style="color:#f92672">.</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;UPDATE money SET avail=&#39;22292&#39; WHERE id= 12&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+			xaResource1<span style="color:#f92672">.</span><span style="color:#a6e22e">end</span><span style="color:#f92672">(</span>xid1<span style="color:#f92672">,</span> XAResource<span style="color:#f92672">.</span><span style="color:#a6e22e">TMSUCCESS</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+			xaResource2<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">(</span>xid2<span style="color:#f92672">,</span> XAResource<span style="color:#f92672">.</span><span style="color:#a6e22e">TMNOFLAGS</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+			statement2<span style="color:#f92672">.</span><span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;UPDATE mone SET avail=&#39;22293&#39; WHERE id= 12&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span><span style="color:#75715e">//此处错误，会导致整个全局事务回滚
+</span><span style="color:#75715e"></span>			xaResource2<span style="color:#f92672">.</span><span style="color:#a6e22e">end</span><span style="color:#f92672">(</span>xid2<span style="color:#f92672">,</span> XAResource<span style="color:#f92672">.</span><span style="color:#a6e22e">TMSUCCESS</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+			<span style="color:#66d9ef">int</span> ret2 <span style="color:#f92672">=</span> xaResource2<span style="color:#f92672">.</span><span style="color:#a6e22e">prepare</span><span style="color:#f92672">(</span>xid2<span style="color:#f92672">)</span><span style="color:#f92672">;</span>			<span style="color:#75715e">//第一阶段
+</span><span style="color:#75715e"></span>			<span style="color:#66d9ef">int</span> ret1 <span style="color:#f92672">=</span> xaResource1<span style="color:#f92672">.</span><span style="color:#a6e22e">prepare</span><span style="color:#f92672">(</span>xid1<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+			<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>ret1<span style="color:#f92672">=</span><span style="color:#f92672">=</span>XAResource<span style="color:#f92672">.</span><span style="color:#a6e22e">XA_OK</span> <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> ret2<span style="color:#f92672">=</span><span style="color:#f92672">=</span>XAResource<span style="color:#f92672">.</span><span style="color:#a6e22e">XA_OK</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+				xaResource1<span style="color:#f92672">.</span><span style="color:#a6e22e">commit</span><span style="color:#f92672">(</span>xid1<span style="color:#f92672">,</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>			<span style="color:#75715e">//第二阶段
+</span><span style="color:#75715e"></span>				xaResource2<span style="color:#f92672">.</span><span style="color:#a6e22e">commit</span><span style="color:#f92672">(</span>xid2<span style="color:#f92672">,</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+			<span style="color:#f92672">}</span>
+			
+		<span style="color:#f92672">}</span> <span style="color:#66d9ef">catch</span> <span style="color:#f92672">(</span>Exception e<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			e<span style="color:#f92672">.</span><span style="color:#a6e22e">printStackTrace</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		
+		
+	<span style="color:#f92672">}</span>
+	
+<span style="color:#f92672">}</span>
+</code></pre></div>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2019/mysql%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%9301/>https://linjinbao.github.io/2019/mysql%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%9301/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/mysql/">
+                    #Mysql</a></span>
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">
+                    #分布式</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2019/20191203java-duo-xian-cheng-chu-li-shu-ju-biao-ge/" class="prev" rel="prev" title="java多线程处理数据表格"><i class="iconfont icon-left"></i>&nbsp;java多线程处理数据表格</a>
+         
+        
+        <a href="https://linjinbao.github.io/2019/20191204mysql-fen-bu-shi-shu-ju-ku-01/" class="next" rel="next" title="mysql分布式数据库01">mysql分布式数据库01&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

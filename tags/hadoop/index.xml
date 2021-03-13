@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hadoop on 打工人日记</title>
+    <link>https://linjinbao.github.io/tags/hadoop/</link>
+    <description>Recent content in hadoop on 打工人日记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://linjinbao.github.io/tags/hadoop/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>hive on spark 测试</title>
+      <link>https://linjinbao.github.io/2020/20200109hive-on-spark-ce-shi/</link>
+      <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2020/20200109hive-on-spark-ce-shi/</guid>
+      <description>hive on spark 测试 准备工作： 建库：
+create database db2; 建表：
+sql语句：
+create table tb1(id int , name string); 测试1：插入单条数据 insert into tb1(id, name) values(10, &amp;#39;linjb&amp;#39;); 执行结果：1秒
+Status: Running (Hive on Spark job[1]) Job Progress Format CurrentTime StageId_StageAttemptId: SucceededTasksCount(+RunningTasksCount-FailedTasksCount)/TotalTasksCount [StageCost] -------------------------------------------------------------------------------------- STAGES ATTEMPT STATUS TOTAL COMPLETED RUNNING PENDING FAILED -------------------------------------------------------------------------------------- Stage-1 ........ 0 FINISHED 1 1 0 0 0 -------------------------------------------------------------------------------------- STAGES: 01/01 [==========================&amp;gt;&amp;gt;] 100% ELAPSED TIME: 1.00 s -------------------------------------------------------------------------------------- Status: Finished successfully in 1.</description>
+    </item>
+    
+    <item>
+      <title>spark on hive 踩坑</title>
+      <link>https://linjinbao.github.io/2020/20200108sparkonhive-cai-keng/</link>
+      <pubDate>Wed, 08 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2020/20200108sparkonhive-cai-keng/</guid>
+      <description>spark on hive 踩坑 搭建hadoop环境 掠过
+搭建hive环境 掠过
+搭建spark  注意版本兼容  在pom文件中查看
+ 下载spark-2.0.0-bin-hadoop2.4-without-hive版本，without-hive必须  我的版本 hive:2.3.6 spark :spark-2.0.0-bin-hadoop2.4-without-hive hadoop:2.7
+  复制jar包
+ cp scala-library-*.jar /hive_home/lib/ cp spark-core_*.jar /hive_home/lib/ cp spark-network-common_*.jar /hive_home/lib/ chill-java chill jackson-module-paranamer jackson-module-scala jersey-container-servlet-core jersey-server json4s-ast kryo-shaded minlog scala-xml spark-launcher spark-network-shuffle spark-unsafe xbean-asm5-shaded  从spark的jars文件夹中复制过去
+  配置hive-site.xml
+&amp;lt;property&amp;gt; &amp;lt;name&amp;gt;hive.enable.spark.execution.engine&amp;lt;/name&amp;gt; &amp;lt;value&amp;gt;true&amp;lt;/value&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;property&amp;gt; &amp;lt;name&amp;gt;spark.master&amp;lt;/name&amp;gt; &amp;lt;--! &amp;lt;value&amp;gt;spark://localhost:7077&amp;lt;/value&amp;gt; --&amp;gt; &amp;lt;value&amp;gt;local&amp;lt;/value&amp;gt; &amp;lt;description/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;property&amp;gt; &amp;lt;name&amp;gt;hive.execution.engine&amp;lt;/name&amp;gt; &amp;lt;value&amp;gt;spark&amp;lt;/value&amp;gt; &amp;lt;description&amp;gt; Expects one of [mr, tez, spark].</description>
+    </item>
+    
+    <item>
+      <title>hive学习01-环境搭建</title>
+      <link>https://linjinbao.github.io/2019/20191225hive-xue-xi-01-huan-jing-da-jian/</link>
+      <pubDate>Wed, 25 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/20191225hive-xue-xi-01-huan-jing-da-jian/</guid>
+      <description>hive学习01-环境搭建 环境准备：
+ jdk 自己手动放置在一个不含空格的目录，并配置好JAVA_HOME hadoop安装包 hadoop-2.7.7 http://mirror.bit.edu.cn/apache/hadoop/common/hadoop-2.7.7/hadoop-2.7.7.tar.gz hive 安装包hive-2.1.1 http://archive.apache.org/dist/hive/hive-2.1.1/apache-hive-2.1.1-bin.tar.gz  环境准备玩本人目录如下：
+&amp;ndash;D:\hadoop
+​ &amp;ndash;hadoop-2.7.7
+​ &amp;ndash;jdk1.8.0_171
+​ &amp;ndash;apache-hive-2.1.1-bin
+hadoop环境搭建 第零步：配置环境变量：HADOOP_HOME=D:\hadoop\hadoop-2.7.7
+第一步：修改配置文件：
+ core-site.xml  &amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;name&amp;gt;fs.defaultFS&amp;lt;/name&amp;gt; &amp;lt;value&amp;gt;hdfs://localhost:9000&amp;lt;/value&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt;  hdfs-site.xml  &amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;name&amp;gt;dfs.replication&amp;lt;/name&amp;gt; &amp;lt;value&amp;gt;1&amp;lt;/value&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;property&amp;gt; &amp;lt;name&amp;gt;dfs.namenode.name.dir&amp;lt;/name&amp;gt; &amp;lt;value&amp;gt;file:/hadoop/data/dfs/namenode&amp;lt;/value&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;property&amp;gt; &amp;lt;name&amp;gt;dfs.datanode.data.dir&amp;lt;/name&amp;gt; &amp;lt;value&amp;gt;file:/hadoop/data/dfs/datanode&amp;lt;/value&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt;  mapred-site.xml（mapred-site.xml.template修改而来）  &amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;name&amp;gt;mapreduce.framework.name&amp;lt;/name&amp;gt; &amp;lt;value&amp;gt;yarn&amp;lt;/value&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt;  yarn-site.xml  &amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;name&amp;gt;yarn.nodemanager.aux-services&amp;lt;/name&amp;gt; &amp;lt;value&amp;gt;mapreduce_shuffle&amp;lt;/value&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;property&amp;gt; &amp;lt;name&amp;gt;yarn.nodemanager.aux-services.mapreduce.shuffle.class&amp;lt;/name&amp;gt; &amp;lt;value&amp;gt;org.apache.hadoop.mapred.ShuffleHandler&amp;lt;/value&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt;  hadoop-env.</description>
+    </item>
+    
+  </channel>
+</rss>

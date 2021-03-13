@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019/20191120mysql-xue-xi-xi-lie-01/" />
+  <link rel="next" href="https://linjinbao.github.io/2019/20191120linux-yong-hu-yong-hu-zu-mi-ma-wen-jian-quan-xian/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019/linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%AF%86%E7%A0%81%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Linux用户，用户组，密码，文件权限 | 打工人日记
+       
+  </title>
+  <meta name="title" content="Linux用户，用户组，密码，文件权限 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Linux用户，用户组，密码，文件权限",
+    "headline" : "Linux用户，用户组，密码，文件权限",
+    "description" : "Linux用户，用户组，密码，文件权限 用户 相关命令 useradd\ruserdel\rusermod\r\/etc\/passwd文件内容 用户名:密码:UID:GID:用户信息:HOME目录路径:用户shell\nroot❌0:0:root:\/root:\/bin\/bash\n\/etc\/shadow文件内容 用户名：加密密码：最后一次修改时间：最小修改时间间隔：密码有效期：密码需要变更前的警告天数：密码过期后的宽限时间：账号失效时间：保留字段\npostfix:!!:18220::::::\rljbao:$6$1QXKHgXD$66Aj\/Qyo3QGGxmKAMH9cQfJs61KXieXLurSvdxHWZtIY2hT4HeXrjX6LtfVGEmhYqAV\/9KLalvDTSxFQt03i11:18220:0:99999:7:::\rljbao2:!!:18220:0:99999:7:::\rljbao3:$6$lnlH0Lv5$zyh1jXS5Me4oT8\/tX7Ae3fAyVOmsFuQReXLcFaFHcTVGBs7ZExo1idZzhh2pkTxpznPOZcLMv6RqdGByWIv.00:18220:0:99999:7:::\r改变用户所属组 usermod -a -G groupA user\r用户可以属于多个组，切换用户组命令newgrp\n用户组 相关命令 groupadd -g 8888 groupname\rgroupmod groupdel\r\/etc\/group文件内容 组名:口令:组标识号:组内用户列表\nroot❌0:ljbao\rljbao❌8888:ljbao3,ljbao2\r文件权限 相关命令 chmod：改变文件权限\rchown：改变文件属主\rchown ljbao2:ljbao testchown\/\r",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-20 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-11-20 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019\/linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%AF%86%E7%A0%81%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90\/",
+    "wordCount" : "41",
+    "keywords" : [ "Linux", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Linux用户，用户组，密码，文件权限</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao</a> 时间： 
+                <span class="post-time">
+                 <time datetime=20119-11-20 itemprop="datePublished">November 20, 2019</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="linux用户用户组密码文件权限">Linux用户，用户组，密码，文件权限</h1>
+<h2 id="用户">用户</h2>
+<h3 id="相关命令">相关命令</h3>
+<pre><code class="language-code" data-lang="code">
+useradd
+userdel
+usermod
+
+</code></pre><h3 id="etcpasswd文件内容"><code>/etc/passwd</code>文件内容</h3>
+<p>用户名:密码:UID:GID:用户信息:HOME目录路径:用户shell</p>
+<p><code>root❌0:0:root:/root:/bin/bash</code></p>
+<h3 id="etcshadow文件内容"><code>/etc/shadow</code>文件内容</h3>
+<p>用户名：加密密码：最后一次修改时间：最小修改时间间隔：密码有效期：密码需要变更前的警告天数：密码过期后的宽限时间：账号失效时间：保留字段</p>
+<pre><code class="language-code" data-lang="code">
+postfix:!!:18220::::::
+ljbao:$6$1QXKHgXD$66Aj/Qyo3QGGxmKAMH9cQfJs61KXieXLurSvdxHWZtIY2hT4HeXrjX6LtfVGEmhYqAV/9KLalvDTSxFQt03i11:18220:0:99999:7:::
+ljbao2:!!:18220:0:99999:7:::
+ljbao3:$6$lnlH0Lv5$zyh1jXS5Me4oT8/tX7Ae3fAyVOmsFuQReXLcFaFHcTVGBs7ZExo1idZzhh2pkTxpznPOZcLMv6RqdGByWIv.00:18220:0:99999:7:::
+
+</code></pre><h3 id="改变用户所属组">改变用户所属组</h3>
+<pre><code class="language-code" data-lang="code">
+usermod -a -G groupA user
+
+</code></pre><p>用户可以属于多个组，切换用户组命令<code>newgrp</code></p>
+<h2 id="用户组">用户组</h2>
+<h3 id="相关命令-1">相关命令</h3>
+<pre><code class="language-code" data-lang="code">groupadd -g 8888 groupname
+groupmod 
+groupdel
+</code></pre><h3 id="etcgroup文件内容"><code>/etc/group</code>文件内容</h3>
+<p>组名:口令:组标识号:组内用户列表</p>
+<pre><code class="language-code" data-lang="code">
+root❌0:ljbao
+ljbao❌8888:ljbao3,ljbao2
+
+</code></pre><h2 id="文件权限">文件权限</h2>
+<h3 id="相关命令-2">相关命令</h3>
+<pre><code class="language-code" data-lang="code">
+chmod：改变文件权限
+chown：改变文件属主
+chown ljbao2:ljbao testchown/
+
+</code></pre>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2019/linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%AF%86%E7%A0%81%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90/>https://linjinbao.github.io/2019/linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%AF%86%E7%A0%81%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/linux/">
+                    #Linux</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2019/20191120mysql-xue-xi-xi-lie-01/" class="prev" rel="prev" title="Mysql学习系列01"><i class="iconfont icon-left"></i>&nbsp;Mysql学习系列01</a>
+         
+        
+        <a href="https://linjinbao.github.io/2019/20191120linux-yong-hu-yong-hu-zu-mi-ma-wen-jian-quan-xian/" class="next" rel="next" title="Linux用户，用户组，密码，文件权限">Linux用户，用户组，密码，文件权限&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>etcd on 打工人日记</title>
+    <link>https://linjinbao.github.io/tags/etcd/</link>
+    <description>Recent content in etcd on 打工人日记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 24 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://linjinbao.github.io/tags/etcd/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>etcd使用</title>
+      <link>https://linjinbao.github.io/2020/20200124etcd-shi-yong/</link>
+      <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2020/20200124etcd-shi-yong/</guid>
+      <description>etcd使用 简介 etcd是CoreOS团队于2013年6月发起的开源项目，它的目标是构建一个高可用的分布式键值(key-value)数据库。etcd内部采用raft协议作为一致性算法，etcd基于Go语言实现。 etcd作为服务发现系统，有以下的特点： 简单：安装配置简单，而且提供了HTTP API进行交互，使用也很简单 安全：支持SSL证书验证 快速：根据官方提供的benchmark数据，单实例支持每秒2k+读操作 可靠：采用raft算法，实现分布式系统数据的可用性和一致性
+etcd项目地址：https://github.com/coreos/etcd/
+应用场景 etcd比较多的应用场景是用于服务发现，服务发现(Service Discovery)要解决的是分布式系统中最常见的问题之一，即在同一个分布式集群中的进程或服务如何才能找到对方并建立连接。 从本质上说，服务发现就是要了解集群中是否有进程在监听upd或者tcp端口，并且通过名字就可以进行查找和链接。 要解决服务发现的问题，需要下面三大支柱，缺一不可。
+  一个强一致性、高可用的服务存储目录。
+基于Ralf算法的etcd天生就是这样一个强一致性、高可用的服务存储目录。
+  一种注册服务和健康服务健康状况的机制。
+用户可以在etcd中注册服务，并且对注册的服务配置key TTL，定时保持服务的心跳以达到监控健康状态的效果。
+  一种查找和连接服务的机制。
+通过在etcd指定的主题下注册的服务业能在对应的主题下查找到。为了确保连接，我们可以在每个服务机器上都部署一个proxy模式的etcd，这样就可以确保访问etcd集群的服务都能够互相连接。
+  etcd安装部署 yum install etcd -y 默认配置文件在/etc/etcd/etcd.conf
+etcd.conf 192.168.126.135节点配置：
+#[Member] #ETCD_CORS=&amp;#34;&amp;#34; ETCD_DATA_DIR=&amp;#34;/var/lib/etcd/default.etcd&amp;#34; #ETCD_WAL_DIR=&amp;#34;&amp;#34; ETCD_LISTEN_PEER_URLS=&amp;#34;http://192.168.126.135:2380&amp;#34; ##修改 ETCD_LISTEN_CLIENT_URLS=&amp;#34;http://0.0.0.0:2379&amp;#34; ##修改 #ETCD_MAX_SNAPSHOTS=&amp;#34;5&amp;#34; #ETCD_MAX_WALS=&amp;#34;5&amp;#34; ETCD_NAME=&amp;#34;etcd1&amp;#34; ##修改 #ETCD_SNAPSHOT_COUNT=&amp;#34;100000&amp;#34; #ETCD_HEARTBEAT_INTERVAL=&amp;#34;100&amp;#34; #ETCD_ELECTION_TIMEOUT=&amp;#34;1000&amp;#34; #ETCD_QUOTA_BACKEND_BYTES=&amp;#34;0&amp;#34; #ETCD_MAX_REQUEST_BYTES=&amp;#34;1572864&amp;#34; #ETCD_GRPC_KEEPALIVE_MIN_TIME=&amp;#34;5s&amp;#34; #ETCD_GRPC_KEEPALIVE_INTERVAL=&amp;#34;2h0m0s&amp;#34; #ETCD_GRPC_KEEPALIVE_TIMEOUT=&amp;#34;20s&amp;#34; # #[Clustering] ETCD_INITIAL_ADVERTISE_PEER_URLS=&amp;#34;http://192.168.126.135:2380&amp;#34; ##修改 ETCD_ADVERTISE_CLIENT_URLS=&amp;#34;http://0.0.0.0:2379&amp;#34; ##修改 #ETCD_DISCOVERY=&amp;#34;&amp;#34; #ETCD_DISCOVERY_FALLBACK=&amp;#34;proxy&amp;#34; #ETCD_DISCOVERY_PROXY=&amp;#34;&amp;#34; #ETCD_DISCOVERY_SRV=&amp;#34;&amp;#34; ETCD_INITIAL_CLUSTER=&amp;#34;etcd1=http://192.168.126.135:2380,etcd2=http://192.168.126.136:2380&amp;#34; ##修改 ETCD_INITIAL_CLUSTER_TOKEN=&amp;#34;etcd-cluster&amp;#34; ##修改 ETCD_INITIAL_CLUSTER_STATE=&amp;#34;new&amp;#34; ##修改 #ETCD_STRICT_RECONFIG_CHECK=&amp;#34;true&amp;#34; #ETCD_ENABLE_V2=&amp;#34;true&amp;#34; # #[Proxy] #ETCD_PROXY=&amp;#34;off&amp;#34; #ETCD_PROXY_FAILURE_WAIT=&amp;#34;5000&amp;#34; #ETCD_PROXY_REFRESH_INTERVAL=&amp;#34;30000&amp;#34; #ETCD_PROXY_DIAL_TIMEOUT=&amp;#34;1000&amp;#34; #ETCD_PROXY_WRITE_TIMEOUT=&amp;#34;5000&amp;#34; #ETCD_PROXY_READ_TIMEOUT=&amp;#34;0&amp;#34; # #[Security] #ETCD_CERT_FILE=&amp;#34;&amp;#34; #ETCD_KEY_FILE=&amp;#34;&amp;#34; #ETCD_CLIENT_CERT_AUTH=&amp;#34;false&amp;#34; #ETCD_TRUSTED_CA_FILE=&amp;#34;&amp;#34; #ETCD_AUTO_TLS=&amp;#34;false&amp;#34; #ETCD_PEER_CERT_FILE=&amp;#34;&amp;#34; #ETCD_PEER_KEY_FILE=&amp;#34;&amp;#34; #ETCD_PEER_CLIENT_CERT_AUTH=&amp;#34;false&amp;#34; #ETCD_PEER_TRUSTED_CA_FILE=&amp;#34;&amp;#34; #ETCD_PEER_AUTO_TLS=&amp;#34;false&amp;#34; # #[Logging] #ETCD_DEBUG=&amp;#34;false&amp;#34; #ETCD_LOG_PACKAGE_LEVELS=&amp;#34;&amp;#34; #ETCD_LOG_OUTPUT=&amp;#34;default&amp;#34; # #[Unsafe] #ETCD_FORCE_NEW_CLUSTER=&amp;#34;false&amp;#34; # #[Version] #ETCD_VERSION=&amp;#34;false&amp;#34; #ETCD_AUTO_COMPACTION_RETENTION=&amp;#34;0&amp;#34; # #[Profiling] #ETCD_ENABLE_PPROF=&amp;#34;false&amp;#34; #ETCD_METRICS=&amp;#34;basic&amp;#34; # #[Auth] #ETCD_AUTH_TOKEN=&amp;#34;simple&amp;#34; 节点192.</description>
+    </item>
+    
+  </channel>
+</rss>

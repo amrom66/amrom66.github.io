@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019/20191128openvpn-fu-wu-da-jian/" />
+  <link rel="next" href="https://linjinbao.github.io/2019/20191129-pi-chu-li-jie-jue-ie-liu-lan-qi-she-zhi-wen-ti/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019/%E6%89%B9%E5%A4%84%E7%90%86%E8%A7%A3%E5%86%B3ie%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BE%E7%BD%AE%E9%97%AE%E9%A2%98/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           批处理解决IE浏览器设置问题 | 打工人日记
+       
+  </title>
+  <meta name="title" content="批处理解决IE浏览器设置问题 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "批处理解决IE浏览器设置问题",
+    "headline" : "批处理解决IE浏览器设置问题",
+    "description" : "功能集合.bat\n@echo off\rtitle ★ IEl浏览器设置，请先确保浏览器是IE11 ，否则会有设置无法生效 ★\recho 正在启用IE的 ActiveX控件、JAVA脚本、活动脚本，请稍候...\rping 127.0.0.1 -n 2 \x26gt;nul 2\x26gt;nul\rset bl=0\r:setreg\rif \x26quot;%bl%\x26quot;==\x26quot;3\x26quot; goto ex\rset regpath=HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Zones\\%bl%\rcls\recho 本脚本可快速启用IE的 ActiveX控件、JAVA脚本、活动脚本\recho 正在进行 ZONE%bl% 的设置...\r:启用“activeX控件”“JAVE小程序脚本”“活动脚本”\r@reg add \x26quot;%regpath%\x26quot; \/v \x26quot;1001\x26quot; \/d \x26quot;0\x26quot; \/t REG_DWORD \/f\r@reg add \x26quot;%regpath%\x26quot; \/v \x26quot;1004\x26quot; \/d \x26quot;0\x26quot; \/t REG_DWORD \/f\r@reg add \x26quot;%regpath%\x26quot; \/v \x26quot;1200\x26quot; \/d \x26quot;0\x26quot; \/t REG_DWORD \/f\r@reg add \x26quot;%regpath%\x26quot; \/v \x26quot;1201\x26quot; \/d \x26quot;0\x26quot; \/t REG_DWORD \/f\r@reg add \x26quot;%regpath%\x26quot; \/v \x26quot;1400\x26quot; \/d \x26quot;0\x26quot; \/t REG_DWORD \/f\r@reg add \x26quot;%regpath%\x26quot; \/v \x26quot;1402\x26quot; \/d \x26quot;0\x26quot; \/t REG_DWORD \/f\r@reg add \x26quot;%regpath%\x26quot; \/v \x26quot;1405\x26quot; \/d \x26quot;0\x26quot; \/t REG_DWORD \/f\r@reg add \x26quot;%regpath%\x26quot; \/v \x26quot;1609\x26quot; \/d \x26quot;0\x26quot; \/t REG_DWORD \/f\r@reg add \x26quot;%regpath%\x26quot; \/v \x26quot;1804\x26quot; \/d \x26quot;0\x26quot; \/t REG_DWORD \/f\r@reg add \x26quot;%regpath%\x26quot; \/v \x26quot;2300\x26quot; \/d \x26quot;0\x26quot; \/t REG_DWORD \/f\rset \/a bl=%bl%\x2b1\rgoto setreg\r:ex\rcls\recho IE的 ActiveX控件、JAVA脚本、活动脚本，设置完成\recho 正在添加受信任站点,关闭弹窗功能.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-29 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-11-29 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019\/%E6%89%B9%E5%A4%84%E7%90%86%E8%A7%A3%E5%86%B3ie%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BE%E7%BD%AE%E9%97%AE%E9%A2%98\/",
+    "wordCount" : "504",
+    "keywords" : [ "dos", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">批处理解决IE浏览器设置问题</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao</a> 时间： 
+                <span class="post-time">
+                 <time datetime=29119-11-29 itemprop="datePublished">November 29, 2019</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>功能集合.bat</p>
+<pre><code class="language-dos" data-lang="dos">@echo off
+title    ★  IEl浏览器设置，请先确保浏览器是IE11 ，否则会有设置无法生效  ★
+echo   正在启用IE的 ActiveX控件、JAVA脚本、活动脚本，请稍候...
+ping 127.0.0.1 -n 2 &gt;nul 2&gt;nul
+set bl=0
+:setreg
+if &quot;%bl%&quot;==&quot;3&quot; goto ex
+set regpath=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\%bl%
+cls
+echo   本脚本可快速启用IE的 ActiveX控件、JAVA脚本、活动脚本
+echo   正在进行 ZONE%bl% 的设置...
+:启用“activeX控件”“JAVE小程序脚本”“活动脚本”
+@reg add &quot;%regpath%&quot; /v &quot;1001&quot; /d &quot;0&quot; /t REG_DWORD /f
+@reg add &quot;%regpath%&quot; /v &quot;1004&quot; /d &quot;0&quot; /t REG_DWORD /f
+@reg add &quot;%regpath%&quot; /v &quot;1200&quot; /d &quot;0&quot; /t REG_DWORD /f
+@reg add &quot;%regpath%&quot; /v &quot;1201&quot; /d &quot;0&quot; /t REG_DWORD /f
+@reg add &quot;%regpath%&quot; /v &quot;1400&quot; /d &quot;0&quot; /t REG_DWORD /f
+@reg add &quot;%regpath%&quot; /v &quot;1402&quot; /d &quot;0&quot; /t REG_DWORD /f
+@reg add &quot;%regpath%&quot; /v &quot;1405&quot; /d &quot;0&quot; /t REG_DWORD /f
+@reg add &quot;%regpath%&quot; /v &quot;1609&quot; /d &quot;0&quot; /t REG_DWORD /f
+@reg add &quot;%regpath%&quot; /v &quot;1804&quot; /d &quot;0&quot; /t REG_DWORD /f
+@reg add &quot;%regpath%&quot; /v &quot;2300&quot; /d &quot;0&quot; /t REG_DWORD /f
+set /a bl=%bl%+1
+goto setreg
+:ex
+cls
+
+echo IE的 ActiveX控件、JAVA脚本、活动脚本，设置完成
+
+echo 正在添加受信任站点,关闭弹窗功能...
+reg add &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Ranges&quot; /v @ /t REG_SZ /d &quot;&quot; /f
+reg add &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Ranges\Range1&quot; /v &quot;http&quot; /t REG_DWORD  /d 00000002 /f
+reg add &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Ranges\Range1&quot; /v &quot;:Range&quot; /t REG_SZ /d &quot;http://172.25.136.242:8080/jkqzwfw/&quot; /f
+reg add &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Ranges\Range2&quot; /v &quot;http&quot; /t REG_DWORD  /d 00000002 /f
+reg add &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Ranges\Range2&quot; /v &quot;:Range&quot; /t REG_SZ /d &quot;172.25.136.*&quot; /f
+reg add &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\he.boss\bd&quot; /v &quot;http&quot; /t REG_DWORD  /d 00000002 /f
+reg add &quot;HKCU\Software\Microsoft\Internet Explorer\New Windows&quot; /v &quot;PopupMgr&quot; /t REG_SZ /d &quot;no&quot; /f
+reg add &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\2&quot; /v &quot;2201&quot; /t REG_DWORD  /d 00000000 /f
+echo   设置完毕，请打开IE测试一下是否正常，若不正常，建议关闭所有IE再次运行本脚本。
+
+
+ping 127.0.0.1 -n 8 &gt;nul 2&gt;nul
+
+
+echo 受信任站点已添加,关闭弹窗功能完成
+
+echo  开始执行word预览插件注册程序，请确保OfficeControl.ocx文件在当前目录下
+
+:: BatchGotAdmin  
+:-------------------------------------  
+REM  --&gt; Check for permissions  
+&gt;nul 2&gt;&amp;1 &quot;%SYSTEMROOT%\system32\cacls.exe&quot; &quot;%SYSTEMROOT%\system32\config\system&quot;  
+
+REM --&gt; If error flag set, we do not have admin.  
+if '%errorlevel%' NEQ '0' (  
+    echo Requesting administrative privileges...  
+    goto UACPrompt  
+) else ( goto gotAdmin )  
+
+:UACPrompt  
+    echo Set UAC = CreateObject^(&quot;Shell.Application&quot;^) &gt; &quot;%temp%\getadmin.vbs&quot;  
+    echo UAC.ShellExecute &quot;%~s0&quot;, &quot;&quot;, &quot;&quot;, &quot;runas&quot;, 1 &gt;&gt; &quot;%temp%\getadmin.vbs&quot;  
+
+    &quot;%temp%\getadmin.vbs&quot;  
+    exit /B  
+
+:gotAdmin  
+    if exist &quot;%temp%\getadmin.vbs&quot; ( del &quot;%temp%\getadmin.vbs&quot; )  
+    pushd &quot;%CD%&quot;  
+    CD /D &quot;%~dp0&quot;  
+:--------------------------------------  
+regsvr32 OfficeControl.ocx
+
+echo ocx插件注册成功
+
+echo 开始将开发区政务中心放进收藏夹
+
+reg add &quot;HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\dl.pconline.com.cn&quot; /v http /t REG_DWORD /d 0x00000002 /f
+for /f &quot;tokens=2,*&quot; %%i in ('reg query &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders&quot; /v &quot;Favorites&quot;') do Set fpath=%%j
+for /f &quot;tokens=2,*&quot; %%i in ('reg query &quot;HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders&quot; /v &quot;Desktop&quot;') do Set dpath=%%j
+set uname=开发区在政务中心.url
+set uurl=http://172.25.136.242:8080/jkqzwfw
+echo [InternetShortcut] &gt; &quot;%fpath%\%uname%&quot;
+echo URL=%uurl%&gt;&gt; &quot;%fpath%\%uname%&quot;
+echo [InternetShortcut] &gt;  &quot;%dpath%\%uname%&quot;
+echo URL=%uurl%&gt;&gt;  &quot;%dpath%\%uname%&quot;
+echo &quot;收藏完成&quot;
+
+echo 开始安装360急速浏览器，请确保路径下存在360cse_11.0.2251.0.exe文件，如果不需要安装可以关闭
+
+::安装360急速浏览器
+start /wait .\360cse_11.0.2251.0.exe /s
+
+exit
+</code></pre><p>安装IE11.bat</p>
+<pre><code class="language-dos" data-lang="dos">@echo off
+for /f &quot;skip=2 tokens=3 delims= &quot; %%i in ('reg query &quot;HKLM\SOFTWARE\Microsoft\Internet Explorer&quot; /v Version') do set a=%%i
+set b=%a:~0,1%
+set c=%a:~2,1%
+set d=%a:~2,2%
+
+echo IE Version:%d%
+
+echo 判断IE版本
+	
+if %b% EQU 11 (echo IE Version:%b%&amp;&amp; echo 您的浏览器无需升级 &amp;&amp; goto next) else goto next1
+:next1
+if %b% LSS 11 (echo IE Version:%b%&amp;&amp; echo 您的浏览器需要升级，请确认可以升级，如果不可升级请关闭窗口，并上报原因)
+
+echo 请确认Y/N？
+
+set/p option=请输入你的选择:
+
+if &quot;%option%&quot;==&quot;N&quot; (exit) else goto next2 
+:next2
+if &quot;%option%&quot;==&quot;Y&quot; (echo 开始安装IE11)
+
+echo 开始检测电脑系统位数
+if &quot;%PROCESSOR_ARCHITECTURE%&quot;==&quot;x86&quot; goto x86 
+if &quot;%PROCESSOR_ARCHITECTURE%&quot;==&quot;AMD64&quot; goto x64 
+exit 
+:x64 
+echo 您的电脑是64位的，需要安装64位的IE11
+::安装IE1
+start /wait .\IE11-Windows6.1-x64-zh-cn.exe /s /update-no
+
+echo 安装IE11 完成，请关闭窗口
+
+pause 
+  
+:x86 
+
+echo 您的电脑是32位的，需要安装32位的IE11
+::安装IE11
+
+start /wait .\IE11-Windows6.1-x86-zh-cn.exe /s /update-no
+echo 安装IE11 完成，请关闭窗口
+
+pause
+</code></pre>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2019/%E6%89%B9%E5%A4%84%E7%90%86%E8%A7%A3%E5%86%B3ie%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BE%E7%BD%AE%E9%97%AE%E9%A2%98/>https://linjinbao.github.io/2019/%E6%89%B9%E5%A4%84%E7%90%86%E8%A7%A3%E5%86%B3ie%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BE%E7%BD%AE%E9%97%AE%E9%A2%98/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/dos/">
+                    #dos</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2019/20191128openvpn-fu-wu-da-jian/" class="prev" rel="prev" title="openvpn服务搭建"><i class="iconfont icon-left"></i>&nbsp;openvpn服务搭建</a>
+         
+        
+        <a href="https://linjinbao.github.io/2019/20191129-pi-chu-li-jie-jue-ie-liu-lan-qi-she-zhi-wen-ti/" class="next" rel="next" title="批处理解决IE浏览器设置问题">批处理解决IE浏览器设置问题&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

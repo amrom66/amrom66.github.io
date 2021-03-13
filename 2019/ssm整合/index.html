@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019/2019-06-24-vue/" />
+  <link rel="next" href="https://linjinbao.github.io/2019/20190701ssm-zheng-he/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019/ssm%E6%95%B4%E5%90%88/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           ssm整合 | 打工人日记
+       
+  </title>
+  <meta name="title" content="ssm整合 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "ssm整合",
+    "headline" : "ssm整合",
+    "description" : "pom.xml \x26lt;?xml version=\x26#34;1.0\x26#34; encoding=\x26#34;UTF-8\x26#34;?\x26gt;\r\x26lt;project xmlns=\x26#34;http:\/\/maven.apache.org\/POM\/4.0.0\x26#34; xmlns:xsi=\x26#34;http:\/\/www.w3.org\/2001\/XMLSchema-instance\x26#34;\rxsi:schemaLocation=\x26#34;http:\/\/maven.apache.org\/POM\/4.0.0 http:\/\/maven.apache.org\/xsd\/maven-4.0.0.xsd\x26#34;\x26gt;\r\x26lt;modelVersion\x26gt;4.0.0\x26lt;\/modelVersion\x26gt;\r\x26lt;groupId\x26gt;tk.amrom\x26lt;\/groupId\x26gt;\r\x26lt;artifactId\x26gt;crms\x26lt;\/artifactId\x26gt;\r\x26lt;version\x26gt;1.0-SNAPSHOT\x26lt;\/version\x26gt;\r\x26lt;packaging\x26gt;war\x26lt;\/packaging\x26gt;\r\x26lt;name\x26gt;crms Maven Webapp\x26lt;\/name\x26gt;\r\x26lt;!--FIXME change it to the project\x26#39;s website --\x26gt;\r\x26lt;url\x26gt;http:\/\/www.example.com\x26lt;\/url\x26gt;\r\x26lt;properties\x26gt;\r\x26lt;project.build.sourceEncoding\x26gt;UTF-8\x26lt;\/project.build.sourceEncoding\x26gt;\r\x26lt;maven.compiler.source\x26gt;1.8\x26lt;\/maven.compiler.source\x26gt;\r\x26lt;maven.compiler.target\x26gt;1.8\x26lt;\/maven.compiler.target\x26gt;\r\x26lt;spring.version\x26gt;3.1.0.RELEASE\x26lt;\/spring.version\x26gt;\r\x26lt;\/properties\x26gt;\r\x26lt;dependencies\x26gt;\r\x26lt;dependency\x26gt;\r\x26lt;groupId\x26gt;junit\x26lt;\/groupId\x26gt;\r\x26lt;artifactId\x26gt;junit\x26lt;\/artifactId\x26gt;\r\x26lt;version\x26gt;4.11\x26lt;\/version\x26gt;\r\x26lt;scope\x26gt;compile\x26lt;\/scope\x26gt;\r\x26lt;\/dependency\x26gt;\r\x26lt;!--spring核心包--\x26gt;\r\x26lt;dependency\x26gt;\r\x26lt;groupId\x26gt;org.springframework\x26lt;\/groupId\x26gt;\r\x26lt;artifactId\x26gt;spring-context\x26lt;\/artifactId\x26gt;\r\x26lt;version\x26gt;${spring.version}\x26lt;\/version\x26gt;\r\x26lt;\/dependency\x26gt;\r\x26lt;dependency\x26gt;\r\x26lt;groupId\x26gt;org.springframework\x26lt;\/groupId\x26gt;\r\x26lt;artifactId\x26gt;spring-core\x26lt;\/artifactId\x26gt;\r\x26lt;version\x26gt;${spring.version}\x26lt;\/version\x26gt;\r\x26lt;\/dependency\x26gt;\r\x26lt;dependency\x26gt;\r\x26lt;groupId\x26gt;org.springframework\x26lt;\/groupId\x26gt;\r\x26lt;artifactId\x26gt;spring-beans\x26lt;\/artifactId\x26gt;\r\x26lt;version\x26gt;${spring.version}\x26lt;\/version\x26gt;\r\x26lt;\/dependency\x26gt;\r\x26lt;dependency\x26gt;\r\x26lt;groupId\x26gt;org.springframework\x26lt;\/groupId\x26gt;\r\x26lt;artifactId\x26gt;spring-context-support\x26lt;\/artifactId\x26gt;\r\x26lt;version\x26gt;${spring.version}\x26lt;\/version\x26gt;\r\x26lt;\/dependency\x26gt;\r\x26lt;dependency\x26gt;\r\x26lt;groupId\x26gt;org.springframework\x26lt;\/groupId\x26gt;\r\x26lt;artifactId\x26gt;spring-aop\x26lt;\/artifactId\x26gt;\r\x26lt;version\x26gt;${spring.version}\x26lt;\/version\x26gt;\r\x26lt;\/dependency\x26gt;\r\x26lt;dependency\x26gt;\r\x26lt;groupId\x26gt;org.springframework\x26lt;\/groupId\x26gt;\r\x26lt;artifactId\x26gt;spring-aspects\x26lt;\/artifactId\x26gt;\r\x26lt;version\x26gt;${spring.version}\x26lt;\/version\x26gt;\r\x26lt;\/dependency\x26gt;\r\x26lt;dependency\x26gt;\r\x26lt;groupId\x26gt;org.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-07-01 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-07-01 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019\/ssm%E6%95%B4%E5%90%88\/",
+    "wordCount" : "457",
+    "keywords" : [ "javaee","spring","springmvc","mybatis","后端开发", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">ssm整合</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao</a> 时间： 
+                <span class="post-time">
+                 <time datetime=1079-07-01 itemprop="datePublished">July 1, 2019</time>
+                </span>
+                分类： 
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://linjinbao.github.io/categories/java/"> java </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h3 id="pomxml">pom.xml</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;project</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+  <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;modelVersion</span><span style="color:#f92672">&gt;</span>4.0.0<span style="color:#f92672">&lt;/modelVersion&gt;</span>
+
+  <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>tk.amrom<span style="color:#f92672">&lt;/groupId&gt;</span>
+  <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>crms<span style="color:#f92672">&lt;/artifactId&gt;</span>
+  <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>1.0-SNAPSHOT<span style="color:#f92672">&lt;/version&gt;</span>
+  <span style="color:#f92672">&lt;packaging</span><span style="color:#f92672">&gt;</span>war<span style="color:#f92672">&lt;/packaging&gt;</span>
+
+  <span style="color:#f92672">&lt;name</span><span style="color:#f92672">&gt;</span>crms Maven Webapp<span style="color:#f92672">&lt;/name&gt;</span>
+  <span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> FIXME change it to the project&#39;s website </span><span style="color:#75715e">--&gt;</span>
+  <span style="color:#f92672">&lt;url</span><span style="color:#f92672">&gt;</span>http://www.example.com<span style="color:#f92672">&lt;/url&gt;</span>
+
+  <span style="color:#f92672">&lt;properties</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;project.build.sourceEncoding</span><span style="color:#f92672">&gt;</span>UTF-8<span style="color:#f92672">&lt;/project.build.sourceEncoding&gt;</span>
+    <span style="color:#f92672">&lt;maven.compiler.source</span><span style="color:#f92672">&gt;</span>1.8<span style="color:#f92672">&lt;/maven.compiler.source&gt;</span>
+    <span style="color:#f92672">&lt;maven.compiler.target</span><span style="color:#f92672">&gt;</span>1.8<span style="color:#f92672">&lt;/maven.compiler.target&gt;</span>
+    <span style="color:#f92672">&lt;spring.version</span><span style="color:#f92672">&gt;</span>3.1.0.RELEASE<span style="color:#f92672">&lt;/spring.version&gt;</span>
+  <span style="color:#f92672">&lt;/properties&gt;</span>
+
+  <span style="color:#f92672">&lt;dependencies</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>junit<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>junit<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>4.11<span style="color:#f92672">&lt;/version&gt;</span>
+      <span style="color:#f92672">&lt;scope</span><span style="color:#f92672">&gt;</span>compile<span style="color:#f92672">&lt;/scope&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">spring核心包</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>org.springframework<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>spring-context<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>${spring.version}<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>org.springframework<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>spring-core<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>${spring.version}<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>org.springframework<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>spring-beans<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>${spring.version}<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>org.springframework<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>spring-context-support<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>${spring.version}<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>org.springframework<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>spring-aop<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>${spring.version}<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>org.springframework<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>spring-aspects<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>${spring.version}<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>org.springframework<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>spring-expression<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>${spring.version}<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>org.springframework<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>spring-jdbc<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>${spring.version}<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>org.springframework<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>spring-orm<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>${spring.version}<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>org.springframework<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>spring-tx<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>${spring.version}<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>org.springframework<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>spring-web<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>${spring.version}<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>org.springframework<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>spring-webmvc<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>${spring.version}<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> 数据库 </span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>mysql<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>mysql-connector-java<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>5.1.31<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>commons-dbcp<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>commons-dbcp<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>1.4<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">mybatis</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>org.mybatis<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>mybatis<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>3.4.6<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>org.mybatis<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>mybatis-spring<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>1.3.2<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> 通用包</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>commons-logging<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>commons-logging<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>1.2<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> 其他 </span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>javax.servlet<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>javax.servlet-api<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>4.0.1<span style="color:#f92672">&lt;/version&gt;</span>
+      <span style="color:#f92672">&lt;scope</span><span style="color:#f92672">&gt;</span>provided<span style="color:#f92672">&lt;/scope&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+
+    <span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>com.alibaba<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>fastjson<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>1.2.47<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> 连接池 </span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>com.alibaba<span style="color:#f92672">&lt;/groupId&gt;</span>
+      <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>druid<span style="color:#f92672">&lt;/artifactId&gt;</span>
+      <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>1.0.9<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;/dependency&gt;</span>
+
+  <span style="color:#f92672">&lt;/dependencies&gt;</span>
+
+  <span style="color:#f92672">&lt;build</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;finalName</span><span style="color:#f92672">&gt;</span>crms<span style="color:#f92672">&lt;/finalName&gt;</span>
+    <span style="color:#f92672">&lt;pluginManagement</span><span style="color:#f92672">&gt;</span><span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) </span><span style="color:#75715e">--&gt;</span>
+      <span style="color:#f92672">&lt;plugins</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;plugin</span><span style="color:#f92672">&gt;</span>
+          <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>maven-clean-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+          <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>3.1.0<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;/plugin&gt;</span>
+        <span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> see http://maven.apache.org/ref/current/maven</span><span style="color:#75715e">-</span><span style="color:#75715e">core/default</span><span style="color:#75715e">-</span><span style="color:#75715e">bindings.html#Plugin_bindings_for_war_packaging </span><span style="color:#75715e">--&gt;</span>
+        <span style="color:#f92672">&lt;plugin</span><span style="color:#f92672">&gt;</span>
+          <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>maven-resources-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+          <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>3.0.2<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;/plugin&gt;</span>
+        <span style="color:#f92672">&lt;plugin</span><span style="color:#f92672">&gt;</span>
+          <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>maven-compiler-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+          <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>3.8.0<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;/plugin&gt;</span>
+        <span style="color:#f92672">&lt;plugin</span><span style="color:#f92672">&gt;</span>
+          <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>maven-surefire-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+          <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>2.22.1<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;/plugin&gt;</span>
+        <span style="color:#f92672">&lt;plugin</span><span style="color:#f92672">&gt;</span>
+          <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>maven-war-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+          <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>3.2.2<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;/plugin&gt;</span>
+        <span style="color:#f92672">&lt;plugin</span><span style="color:#f92672">&gt;</span>
+          <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>maven-install-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+          <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>2.5.2<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;/plugin&gt;</span>
+        <span style="color:#f92672">&lt;plugin</span><span style="color:#f92672">&gt;</span>
+          <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>maven-deploy-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+          <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>2.8.2<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;/plugin&gt;</span>
+      <span style="color:#f92672">&lt;/plugins&gt;</span>
+    <span style="color:#f92672">&lt;/pluginManagement&gt;</span>
+  <span style="color:#f92672">&lt;/build&gt;</span>
+<span style="color:#f92672">&lt;/project&gt;</span>
+</code></pre></div><h3 id="1webxml">1.web.xml</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!DOCTYPE web-app PUBLIC
+</span><span style="color:#75715e"> &#34;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&#34;
+</span><span style="color:#75715e"> &#34;http://java.sun.com/dtd/web-app_2_3.dtd&#34; &gt;</span>
+
+<span style="color:#f92672">&lt;web-app</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;display-name</span><span style="color:#f92672">&gt;</span>Archetype Created Web Application<span style="color:#f92672">&lt;/display-name&gt;</span>
+  <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">配置Spring监听器 Spring配置</span><span style="color:#75715e">--&gt;</span>
+  <span style="color:#f92672">&lt;listener</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;listener-class</span><span style="color:#f92672">&gt;</span>org.springframework.web.context.ContextLoaderListener<span style="color:#f92672">&lt;/listener-class&gt;</span>
+<span style="color:#f92672">&lt;/listener&gt;</span>
+  <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">设置配置文件的路径</span><span style="color:#75715e">--&gt;</span>
+  <span style="color:#f92672">&lt;context-param</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;param-name</span><span style="color:#f92672">&gt;</span>contextConfigLocation<span style="color:#f92672">&lt;/param-name&gt;</span>
+    <span style="color:#f92672">&lt;param-value</span><span style="color:#f92672">&gt;</span>classpath:applicationContext.xml<span style="color:#f92672">&lt;/param-value&gt;</span>
+  <span style="color:#f92672">&lt;/context-param&gt;</span>
+
+  <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">配置前端控制器 SpringMVC配置</span><span style="color:#75715e">--&gt;</span>
+  <span style="color:#f92672">&lt;servlet</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;servlet-name</span><span style="color:#f92672">&gt;</span>dispatcherServlet<span style="color:#f92672">&lt;/servlet-name&gt;</span>
+    <span style="color:#f92672">&lt;servlet-class</span><span style="color:#f92672">&gt;</span>org.springframework.web.servlet.DispatcherServlet<span style="color:#f92672">&lt;/servlet-class&gt;</span>
+    <span style="color:#f92672">&lt;init-param</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;param-name</span><span style="color:#f92672">&gt;</span>contextConfigLocation<span style="color:#f92672">&lt;/param-name&gt;</span>
+      <span style="color:#f92672">&lt;param-value</span><span style="color:#f92672">&gt;</span>classpath:springmvc.xml<span style="color:#f92672">&lt;/param-value&gt;</span>
+    <span style="color:#f92672">&lt;/init-param&gt;</span>
+    <span style="color:#f92672">&lt;load-on-startup</span><span style="color:#f92672">&gt;</span>1<span style="color:#f92672">&lt;/load-on-startup&gt;</span>
+  <span style="color:#f92672">&lt;/servlet&gt;</span>
+  <span style="color:#f92672">&lt;servlet-mapping</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;servlet-name</span><span style="color:#f92672">&gt;</span>dispatcherServlet<span style="color:#f92672">&lt;/servlet-name&gt;</span>
+    <span style="color:#f92672">&lt;url-pattern</span><span style="color:#f92672">&gt;</span>/<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+  <span style="color:#f92672">&lt;/servlet-mapping&gt;</span>
+
+  <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">解决中文乱码</span><span style="color:#75715e">--&gt;</span>
+  <span style="color:#f92672">&lt;filter</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;filter-name</span><span style="color:#f92672">&gt;</span>characterEncodingFilter<span style="color:#f92672">&lt;/filter-name&gt;</span>
+    <span style="color:#f92672">&lt;filter-class</span><span style="color:#f92672">&gt;</span>org.springframework.web.filter.CharacterEncodingFilter<span style="color:#f92672">&lt;/filter-class&gt;</span>
+    <span style="color:#f92672">&lt;init-param</span><span style="color:#f92672">&gt;</span>
+      <span style="color:#f92672">&lt;param-name</span><span style="color:#f92672">&gt;</span>encoding<span style="color:#f92672">&lt;/param-name&gt;</span>
+      <span style="color:#f92672">&lt;param-value</span><span style="color:#f92672">&gt;</span>UTF-8<span style="color:#f92672">&lt;/param-value&gt;</span>
+    <span style="color:#f92672">&lt;/init-param&gt;</span>
+  <span style="color:#f92672">&lt;/filter&gt;</span>
+  <span style="color:#f92672">&lt;filter-mapping</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;filter-name</span><span style="color:#f92672">&gt;</span>characterEncodingFilter<span style="color:#f92672">&lt;/filter-name&gt;</span>
+    <span style="color:#f92672">&lt;url-pattern</span><span style="color:#f92672">&gt;</span>/*<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+  <span style="color:#f92672">&lt;/filter-mapping&gt;</span>
+
+<span style="color:#f92672">&lt;/web-app&gt;</span>
+</code></pre></div><h3 id="2applicationcontextxml">2.applicationContext.xml</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;beans</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+       <span style="color:#a6e22e">xmlns:context=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/context&#34;</span> <span style="color:#a6e22e">xmlns:tx=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/tx&#34;</span>
+       <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans
+</span><span style="color:#e6db74">                            http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+</span><span style="color:#e6db74">                            http://www.springframework.org/schema/context
+</span><span style="color:#e6db74">                            http://www.springframework.org/schema/context/spring-context-3.1.xsd
+</span><span style="color:#e6db74">                            http://www.springframework.org/schema/tx
+</span><span style="color:#e6db74">                            http://www.springframework.org/schema/tx/spring-tx.xsd&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> 自动扫描 </span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;context:component-scan</span> <span style="color:#a6e22e">base-package=</span><span style="color:#e6db74">&#34;crms&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">排除Controller目录</span><span style="color:#75715e">--&gt;</span>
+        <span style="color:#f92672">&lt;context:exclude-filter</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;annotation&#34;</span> <span style="color:#a6e22e">expression=</span><span style="color:#e6db74">&#34;org.springframework.stereotype.Controller&#34;</span> <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/context:component-scan&gt;</span>
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">Spring整合Mybatis</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">配置连接池</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;dataSource&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.alibaba.druid.pool.DruidDataSource&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;driverClassName&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;com.mysql.jdbc.Driver&#34;</span> <span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;url&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/crms?characterEncoding=utf8&#34;</span> <span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;root&#34;</span> <span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Gepoint&#34;</span> <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/bean&gt;</span>
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">配置工厂对象</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;sqlSessionFactory&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.mybatis.spring.SqlSessionFactoryBean&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;dataSource&#34;</span> <span style="color:#a6e22e">ref=</span><span style="color:#e6db74">&#34;dataSource&#34;</span> <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/bean&gt;</span>
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">配置借口所在的包</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;mapperScanner&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.mybatis.spring.mapper.MapperScannerConfigurer&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;basePackage&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;crms.dao&#34;</span> <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/bean&gt;</span>
+<span style="color:#f92672">&lt;/beans&gt;</span>
+</code></pre></div><h3 id="3springmvcxml">3.springmvc.xml</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;beans</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style="color:#a6e22e">xmlns:mvc=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/mvc&#34;</span>
+       <span style="color:#a6e22e">xmlns:context=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/context&#34;</span>
+       <span style="color:#a6e22e">xmlns:aop=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/aop&#34;</span> <span style="color:#a6e22e">xmlns:tx=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/tx&#34;</span>
+       <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://www.springframework.org/schema/beans
+</span><span style="color:#e6db74">		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+</span><span style="color:#e6db74">		http://www.springframework.org/schema/mvc
+</span><span style="color:#e6db74">		http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+</span><span style="color:#e6db74">		http://www.springframework.org/schema/context
+</span><span style="color:#e6db74">		http://www.springframework.org/schema/context/spring-context-3.2.xsd
+</span><span style="color:#e6db74">		http://www.springframework.org/schema/aop
+</span><span style="color:#e6db74">		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+</span><span style="color:#e6db74">		http://www.springframework.org/schema/tx
+</span><span style="color:#e6db74">		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd &#34;</span><span style="color:#f92672">&gt;</span>
+
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> 自动扫描  @Controller</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;context:component-scan</span> <span style="color:#a6e22e">base-package=</span><span style="color:#e6db74">&#34;crms&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;context:include-filter</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;annotation&#34;</span> <span style="color:#a6e22e">expression=</span><span style="color:#e6db74">&#34;org.springframework.stereotype.Controller&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/context:component-scan&gt;</span>
+
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">配置视图解析器</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;internalResourceViewResolver&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;org.springframework.web.servlet.view.InternalResourceViewResolver&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;prefix&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;/WEB-INF/pages/&#34;</span> <span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;suffix&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;.jsp&#34;</span> <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/bean&gt;</span>
+
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">过滤静态资源</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;mvc:resources</span> <span style="color:#a6e22e">mapping=</span><span style="color:#e6db74">&#34;/static/&#34;</span> <span style="color:#a6e22e">location=</span><span style="color:#e6db74">&#34;/WEB-INF/static/**&#34;</span> <span style="color:#f92672">/&gt;</span>
+
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">开启SpringMVC注解的支持</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;mvc:annotation-driven</span> <span style="color:#f92672">/&gt;</span>
+<span style="color:#f92672">&lt;/beans&gt;</span>
+</code></pre></div><h3 id="4mybatis-configxml不需要">4.mybatis-config.xml(不需要)</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34; ?&gt;</span>
+<span style="color:#75715e">&lt;!DOCTYPE configuration PUBLIC &#34;-//mybatis.org//DTD Config 3.0//EN&#34;
+</span><span style="color:#75715e">        &#34;http://mybatis.org/dtd/mybatis-3-config.dtd&#34;&gt;</span>
+
+<span style="color:#f92672">&lt;configuration</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">环境</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;environments</span> <span style="color:#a6e22e">default=</span><span style="color:#e6db74">&#34;mysql&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;environment</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;mysql&#34;</span><span style="color:#f92672">&gt;</span>
+            <span style="color:#f92672">&lt;transactionManager</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;JDBC&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">&lt;/transactionManager&gt;</span>
+            <span style="color:#f92672">&lt;dataSource</span> <span style="color:#a6e22e">type=</span><span style="color:#e6db74">&#34;POOLED&#34;</span><span style="color:#f92672">&gt;</span>
+                <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;driver&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;com.mysql.jdbc.Driver&#34;</span><span style="color:#f92672">/&gt;</span>
+                <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;url&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;jdbc:mysql://localhost:3306/crms?characterEncoding=utf8&#34;</span><span style="color:#f92672">/&gt;</span>
+                <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;root&#34;</span><span style="color:#f92672">/&gt;</span>
+                <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">/&gt;</span>
+            <span style="color:#f92672">&lt;/dataSource&gt;</span>
+        <span style="color:#f92672">&lt;/environment&gt;</span>
+    <span style="color:#f92672">&lt;/environments&gt;</span>
+    <span style="color:#75715e">&lt;!--</span><span style="color:#75715e">引入的映射配置文件</span><span style="color:#75715e">--&gt;</span>
+    <span style="color:#f92672">&lt;mappers</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;package</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;crms.dao&#34;</span><span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;/mappers&gt;</span>
+<span style="color:#f92672">&lt;/configuration&gt;</span>
+</code></pre></div><h3 id="5jdbcproperties">5.jdbc.properties</h3>
+<pre><code class="language-code" data-lang="code">driverClasss=com.mysql.jdbc.Driver
+jdbcUrl=jdbc:mysql://localhost:3306/crms?characterEncoding=utf8&amp;useSSL=false
+#数据库的用户名
+username=root
+#数据库的密码，别像我一样不设置
+password= 
+#定义初始连接数
+initialSize=0
+#定义最大连接数
+maxActive=20
+#定义最大空闲
+maxIdle=20
+#定义最小空闲
+minIdle=1
+#定义最长等待时间
+maxWait=60000
+</code></pre><h3 id="6log4jproperties">6.log4j.properties</h3>
+<pre><code class="language-code" data-lang="code">#日志输出级别
+log4j.rootLogger=debug,stdout,D,E
+#设置stdout的日志输出控制台
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+#输出日志到控制台的方式，默认为System.out
+log4j.appender.stdout.Target = System.out
+#设置使用灵活布局
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+#灵活定义输出格式
+log4j.appender.stdout.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss,SSS} -[%p]  method:[%c (%rms)] - %m%n
+</code></pre>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2019/ssm%E6%95%B4%E5%90%88/>https://linjinbao.github.io/2019/ssm%E6%95%B4%E5%90%88/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/javaee/">
+                    #javaee</a></span>
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/spring/">
+                    #spring</a></span>
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/springmvc/">
+                    #springmvc</a></span>
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/mybatis/">
+                    #mybatis</a></span>
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/">
+                    #后端开发</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2019/2019-06-24-vue/" class="prev" rel="prev" title="vue"><i class="iconfont icon-left"></i>&nbsp;vue</a>
+         
+        
+        <a href="https://linjinbao.github.io/2019/20190701ssm-zheng-he/" class="next" rel="next" title="ssm整合">ssm整合&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

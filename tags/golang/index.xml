@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>golang on 打工人日记</title>
+    <link>https://linjinbao.github.io/tags/golang/</link>
+    <description>Recent content in golang on 打工人日记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://linjinbao.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Go语言结构体（struct）</title>
+      <link>https://linjinbao.github.io/2020/20200102go-yu-yan-jie-gou-ti-struct/</link>
+      <pubDate>Thu, 02 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2020/20200102go-yu-yan-jie-gou-ti-struct/</guid>
+      <description>Go语言结构体（struct） Go 语言通过用自定义的方式形成新的类型，结构体是类型中带有成员的复合类型。Go 语言使用结构体和结构体成员来描述真实世界的实体和实体对应的各种属性。
+结构体成员是由一系列的成员变量构成，这些成员变量也被称为“字段”。字段有以下特性：
+ 字段拥有自己的类型和值。 字段名必须唯一。 字段的类型也可以是结构体，甚至是字段所在结构体的类型。  Go 语言中没有“类”的概念，也不支持“类”的继承等面向对象的概念。Go 语言的结构体与“类”都是复合结构体，但 Go 语言中结构体的内嵌配合接口比面向对象具有更高的扩展性和灵活性。Go 语言不仅认为结构体能拥有方法，且每种自定义类型也可以拥有自己的方法。
+定义 type 类型名 struct { 字段1 字段1类型 字段2 字段2类型 … } func main() { var p Point p.X = 10 p.Y = 10 q := new(Point) q.X = 10 q.Y = 20 fmt.Println(q) } type Point struct { X int Y int } </description>
+    </item>
+    
+    <item>
+      <title>golang容器</title>
+      <link>https://linjinbao.github.io/2020/20191228golang-rong-qi/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2020/20191228golang-rong-qi/</guid>
+      <description>golang容器 数组 声明：var 数组变量名 [元素数量]Type
+代码实例：
+func main() { var a [3]int fmt.Println(a[2]) fmt.Println(len(a)) /** 打印索引和元素 */ for i,v := range a { fmt.Printf(&amp;#34;%d,%d\n&amp;#34;,i,v) } /** 打印元素 */ for _,v := range a{ fmt.Printf(&amp;#34;%d\n&amp;#34;,v) } /** 比较数组相等 */ nums1 := [...]int{1,2,3} nums2 := [...]int{1,2,3} fmt.Println(nums1==nums2) } 注意：golang中数组可以直接比较是否相等，但是java不可以
+多维数组 声明：var array_name [size1][size2]...[sizen] array_type
+代码实例：
+func main() { // 声明一个二维整型数组，两个维度的长度分别是 4 和 2  var array [4][2]int // 使用数组字面量来声明并初始化一个二维整型数组  array = [4][2]int{{10, 11}, {20, 21}, {30, 31}, {40, 41}} // 声明并初始化数组中索引为 1 和 3 的元素  array = [4][2]int{1: {20, 21}, 3: {40, 41}} // 声明并初始化数组中指定的元素  array = [4][2]int{1: {0: 20}, 3: {1: 41}} //fmt.</description>
+    </item>
+    
+    <item>
+      <title>go语言笔记—函数</title>
+      <link>https://linjinbao.github.io/2020/20200101go-yu-yan-bi-ji-han-shu/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2020/20200101go-yu-yan-bi-ji-han-shu/</guid>
+      <description>go语言笔记—函数 函数是组织好的、可重复使用的、用来实现单一或相关联功能的代码段，其可以提高应用的模块性和代码的重复利用率。Go 语言支持普通函数、匿名函数和闭包，从设计上对函数进行了优化和改进，让函数使用起来更加方便。Go 语言的函数属于“一等公民”（first-class），也就是说：
+ 函数本身可以作为值进行传递。 支持匿名函数和闭包（closure）。 函数可以满足接口。  函数定义 格式：
+func 函数名(形式参数列表)(返回值列表){ 函数体 } 多返回值：
+func typedTwoValues() (int, int) { return 1, 2 } 对返回值命名：
+func namedRetValues() (a, b int) { a = 3 b = 2 return } 函数作为变量：
+func fire() { fmt.Println(&amp;#34;fire&amp;#34;) } func main() { var f func() f = fire f() } 匿名函数：
+匿名函数的定义就是没有名字的普通函数定义
+定义格式：
+func(参数列表)(返回参数列表){ 函数体 } 可变参数：
+func myfunc(args ...int) { for _, arg := range args { fmt.</description>
+    </item>
+    
+    <item>
+      <title>golang学习</title>
+      <link>https://linjinbao.github.io/2019/20191228golang-xue-xi/</link>
+      <pubDate>Sat, 28 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/20191228golang-xue-xi/</guid>
+      <description>golang学习 string 与 int 类型之间的转换 整型转字符串：Itoa()
+func main() { num := 100 str := strconv.Itoa(num) fmt.Printf(&amp;#34;type:%T value:%#v\n&amp;#34;, str, str) } 字符串转整形：Atoi()
+func main() { str1 := &amp;#34;110&amp;#34; str2 := &amp;#34;s100&amp;#34; num1, err := strconv.Atoi(str1) if err != nil { fmt.Printf(&amp;#34;%v 转换失败！&amp;#34;, str1) } else { fmt.Printf(&amp;#34;type:%T value:%#v\n&amp;#34;, num1, num1) } num2, err := strconv.Atoi(str2) if err != nil { fmt.Printf(&amp;#34;%v 转换失败！&amp;#34;, str2) } else { fmt.Printf(&amp;#34;type:%T value:%#v\n&amp;#34;, num2, num2) } } Parse 系列函数 Parse 系列函数用于将字符串转换为指定类型的值，其中包括 ParseBool()、ParseFloat()、ParseInt()、ParseUint()。</description>
+    </item>
+    
+  </channel>
+</rss>

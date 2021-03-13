@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>安装 on 打工人日记</title>
+    <link>https://linjinbao.github.io/tags/%E5%AE%89%E8%A3%85/</link>
+    <description>Recent content in 安装 on 打工人日记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 25 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://linjinbao.github.io/tags/%E5%AE%89%E8%A3%85/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RabbitMq安装部署</title>
+      <link>https://linjinbao.github.io/2019/20190925rabbitmqwindows-ban-ben-bu-shu/</link>
+      <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/20190925rabbitmqwindows-ban-ben-bu-shu/</guid>
+      <description>RabbitMq-Windows版本部署 软件下载  otp_win64_R16B03-1.exe rabbitmq-server-3.6.9.exe  软件安装一路下一步，全部使用默认地址
+启动服务 进入C:\Program Files (x86)\RabbitMQ Server\rabbitmq_server-3.4.1\sbin目录，运行cmd，输入命令rabbitmq-plugins enable rabbitmq_management：
+C:\Program Files\RabbitMQ Server\rabbitmq_server-3.6.9\sbin&amp;gt; rabbitmq-plugins enable rabbitmq_management The following plugins have been enabled: amqp_client cowlib cowboy rabbitmq_web_dispatch rabbitmq_management_agent rabbitmq_management Applying plugin configuration to rabbit@DESKTOP-I1CQLLJ... started 6 plugins. C:\Program Files\RabbitMQ Server\rabbitmq_server-3.6.9\sbin&amp;gt; 其他 相关命令：
+停止：net stop RabbitMQ 启动：net start RabbitMQ 在浏览器中输入地址查看：http://127.0.0.1:15672/
+使用默认账号登录：guest/ guest</description>
+    </item>
+    
+    <item>
+      <title>RabbitMq安装部署</title>
+      <link>https://linjinbao.github.io/2019/rabbitmq-windows%E7%89%88%E6%9C%AC%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/rabbitmq-windows%E7%89%88%E6%9C%AC%E9%83%A8%E7%BD%B2/</guid>
+      <description>RabbitMq-Windows版本部署 软件下载  otp_win64_R16B03-1.exe rabbitmq-server-3.6.9.exe  软件安装一路下一步，全部使用默认地址
+启动服务 进入C:\Program Files (x86)\RabbitMQ Server\rabbitmq_server-3.4.1\sbin目录，运行cmd，输入命令rabbitmq-plugins enable rabbitmq_management：
+C:\Program Files\RabbitMQ Server\rabbitmq_server-3.6.9\sbin&amp;gt; rabbitmq-plugins enable rabbitmq_managementThe following plugins have been enabled:amqp_clientcowlibcowboyrabbitmq_web_dispatchrabbitmq_management_agentrabbitmq_managementApplying plugin configuration to rabbit@DESKTOP-I1CQLLJ... started 6 plugins.C:\Program Files\RabbitMQ Server\rabbitmq_server-3.6.9\sbin&amp;gt;##其他
+相关命令：
+停止：net stop RabbitMQ启动：net start RabbitMQ在浏览器中输入地址查看：http://127.0.0.1:15672/
+使用默认账号登录：guest/ guest</description>
+    </item>
+    
+  </channel>
+</rss>

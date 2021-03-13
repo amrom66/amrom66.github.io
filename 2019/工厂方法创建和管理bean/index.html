@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019/20191107ioc-zhu-ru-fang-shi/" />
+  <link rel="next" href="https://linjinbao.github.io/2019/20191108-gong-chang-fang-fa-chuang-jian-he-guan-li-bean/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E5%88%9B%E5%BB%BA%E5%92%8C%E7%AE%A1%E7%90%86bean/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           使用工厂方法创建管理bean | 打工人日记
+       
+  </title>
+  <meta name="title" content="使用工厂方法创建管理bean | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "使用工厂方法创建管理bean",
+    "headline" : "使用工厂方法创建管理bean",
+    "description" : "使用工厂方法创建管理bean 第一部分： 静态工厂  工厂类写法：  public class AirPlaneStaticFactory {\r\/**\r* 静态工厂\r* @param name\r* @return\r*\/\rpublic static Airplane getAirPlane(String name) {\rAirplane airplane = new Airplane();\rairplane.setFjs(\x26#34;副驾驶\x26#34;);\rairplane.setName(name);\rairplane.setNum(1001001);\rreturn airplane;\r}\r}\rxml配置注册bean  \x26lt;!--使用工厂管理bean-satic静态管理 --\x26gt;\r\x26lt;bean name=\x26#34;airFactory01\x26#34; class=\x26#34;factory.AirPlaneStaticFactory\x26#34; factory-method=\x26#34;getAirPlane\x26#34;\x26gt;\r\x26lt;constructor-arg name=\x26#34;name\x26#34; value=\x26#34;和风号\x26#34;\x26gt;\x26lt;\/constructor-arg\x26gt;\r\x26lt;\/bean\x26gt;\rioc容器取出bean  Object object = context.getBean(\x26#34;airFactory01\x26#34;); \/\/注意此处的参数，使用的是xml中工厂类注册的名\r返回值是工厂类所管理的bean，即Airplane对象\n第二部分： 实例工厂  工厂类写法  public class AirPlaneInstanceFactory {\r\/**\r* 实例工厂\r* @param name\r* @return\r*\/\rpublic Airplane getAirPlane(String name) {\rAirplane airplane = new Airplane();\rairplane.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-08 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-11-08 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019\/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E5%88%9B%E5%BB%BA%E5%92%8C%E7%AE%A1%E7%90%86bean\/",
+    "wordCount" : "161",
+    "keywords" : [ "Spring","java", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">使用工厂方法创建管理bean</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao</a> 时间： 
+                <span class="post-time">
+                 <time datetime=8119-11-08 itemprop="datePublished">November 8, 2019</time>
+                </span>
+                分类： 
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://linjinbao.github.io/categories/spring/"> Spring </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="使用工厂方法创建管理bean">使用工厂方法创建管理bean</h1>
+<h2 id="第一部分-静态工厂">第一部分： 静态工厂</h2>
+<ol>
+<li>工厂类写法：</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AirPlaneStaticFactory</span> <span style="color:#f92672">{</span>
+	
+	
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 静态工厂
+</span><span style="color:#75715e">	 * @param name
+</span><span style="color:#75715e">	 * @return
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> Airplane <span style="color:#a6e22e">getAirPlane</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		Airplane airplane <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Airplane<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		airplane<span style="color:#f92672">.</span><span style="color:#a6e22e">setFjs</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;副驾驶&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		airplane<span style="color:#f92672">.</span><span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span>name<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		airplane<span style="color:#f92672">.</span><span style="color:#a6e22e">setNum</span><span style="color:#f92672">(</span>1001001<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">return</span> airplane<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+
+</code></pre></div><ol start="2">
+<li>xml配置注册bean</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> 使用工厂管理bean</span><span style="color:#75715e">-</span><span style="color:#75715e">satic静态管理 </span><span style="color:#75715e">--&gt;</span>
+<span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;airFactory01&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;factory.AirPlaneStaticFactory&#34;</span> 
+	<span style="color:#a6e22e">factory-method=</span><span style="color:#e6db74">&#34;getAirPlane&#34;</span><span style="color:#f92672">&gt;</span>
+	<span style="color:#f92672">&lt;constructor-arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;和风号&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">&lt;/constructor-arg&gt;</span>
+<span style="color:#f92672">&lt;/bean&gt;</span>
+</code></pre></div><ol start="3">
+<li>ioc容器取出bean</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Object object <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;airFactory01&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span> 		<span style="color:#75715e">//注意此处的参数，使用的是xml中工厂类注册的名
+</span></code></pre></div><p>返回值是工厂类所管理的bean，即<code>Airplane</code>对象</p>
+<h2 id="第二部分-实例工厂">第二部分： 实例工厂</h2>
+<ol>
+<li>工厂类写法</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AirPlaneInstanceFactory</span> <span style="color:#f92672">{</span>
+	<span style="color:#75715e">/**
+</span><span style="color:#75715e">	 * 实例工厂
+</span><span style="color:#75715e">	 * @param name
+</span><span style="color:#75715e">	 * @return
+</span><span style="color:#75715e">	 */</span>
+	<span style="color:#66d9ef">public</span> Airplane <span style="color:#a6e22e">getAirPlane</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		Airplane airplane <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Airplane<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		airplane<span style="color:#f92672">.</span><span style="color:#a6e22e">setFjs</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;我是副驾驶&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		airplane<span style="color:#f92672">.</span><span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span>name<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		airplane<span style="color:#f92672">.</span><span style="color:#a6e22e">setNum</span><span style="color:#f92672">(</span>2089289<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">return</span> airplane<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><ol start="2">
+<li>xml中注册</li>
+</ol>
+<p>此处注意点：1）要注册一个工厂类，2）要注册一个airplane类，3）要在airplane bean中指定所用到的工厂类和工厂方法，以及需要的参数，并且在之后的ioc容器创建的时候使用的名称是airplen bean的注册名</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> 使用工厂管理bean</span><span style="color:#75715e">-</span><span style="color:#75715e">实例管理 </span><span style="color:#75715e">--&gt;</span>
+<span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;airFactory02&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;factory.AirPlaneInstanceFactory&#34;</span> <span style="color:#f92672">&gt;</span>
+	
+<span style="color:#f92672">&lt;/bean&gt;</span>
+<span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;airPlane02&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;entity.Airplane&#34;</span> 
+	<span style="color:#a6e22e">factory-bean=</span><span style="color:#e6db74">&#34;airFactory02&#34;</span> <span style="color:#a6e22e">factory-method=</span><span style="color:#e6db74">&#34;getAirPlane&#34;</span><span style="color:#f92672">&gt;</span>
+	<span style="color:#f92672">&lt;constructor-arg</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;复兴号&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">&lt;/constructor-arg&gt;</span>
+<span style="color:#f92672">&lt;/bean&gt;</span>
+</code></pre></div><ol start="3">
+<li>ioc容器取出bean</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Object object <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;airPlane02&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>	<span style="color:#75715e">//此处的参数不能写工厂类的注册名，要使用bean类的注册名
+</span></code></pre></div><h2 id="第三部分-factorybean接口">第三部分： FactoryBean接口</h2>
+<p>FactoryBean是Spring官方提供的接口，实现该接口，则无需进行复杂的配置，只需要在xml中注册该工厂类即可</p>
+<ol>
+<li>xml注册</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;facrorybean&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;factory.MyFactoryBean&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">&lt;/bean&gt;</span>
+</code></pre></div><ol start="2">
+<li>MyFactoryBean.java</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyFactoryBean</span> <span style="color:#66d9ef">implements</span> FactoryBean<span style="color:#f92672">&lt;</span>Book<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> Book <span style="color:#a6e22e">getObject</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+		Book book <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Book<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		book<span style="color:#f92672">.</span><span style="color:#a6e22e">setAuthor</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;曹雪晴&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		book<span style="color:#f92672">.</span><span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;红楼梦&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		book<span style="color:#f92672">.</span><span style="color:#a6e22e">setPrice</span><span style="color:#f92672">(</span>100<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;MyFactoryBean创建了对象&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">return</span> book<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> Class<span style="color:#f92672">&lt;</span><span style="color:#f92672">?</span><span style="color:#f92672">&gt;</span> getObjectType<span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> Book<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><ol start="3">
+<li>ioc容器取出</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Object object <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;facrorybean&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div><h2 id="总结">总结</h2>
+<p>spring的bean注册，由每一个都需要单独在xml中注册，升级成可以使用工厂类批量，统一管理注册，再到FactoryBean，工厂bean注册，简化了效率，但是本质都是bean的配置，再底层则是反射的原理</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2019/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E5%88%9B%E5%BB%BA%E5%92%8C%E7%AE%A1%E7%90%86bean/>https://linjinbao.github.io/2019/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E5%88%9B%E5%BB%BA%E5%92%8C%E7%AE%A1%E7%90%86bean/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/spring/">
+                    #Spring</a></span>
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/java/">
+                    #java</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2019/20191107ioc-zhu-ru-fang-shi/" class="prev" rel="prev" title="IOC注入方式"><i class="iconfont icon-left"></i>&nbsp;IOC注入方式</a>
+         
+        
+        <a href="https://linjinbao.github.io/2019/20191108-gong-chang-fang-fa-chuang-jian-he-guan-li-bean/" class="next" rel="next" title="使用工厂方法创建管理bean">使用工厂方法创建管理bean&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

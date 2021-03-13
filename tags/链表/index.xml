@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>链表 on 打工人日记</title>
+    <link>https://linjinbao.github.io/tags/%E9%93%BE%E8%A1%A8/</link>
+    <description>Recent content in 链表 on 打工人日记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://linjinbao.github.io/tags/%E9%93%BE%E8%A1%A8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>牛客网-二叉树的镜像</title>
+      <link>https://linjinbao.github.io/2019/20190926-er-cha-shu-de-jing-xiang/</link>
+      <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/20190926-er-cha-shu-de-jing-xiang/</guid>
+      <description>二叉树镜像 题目描述 操作给定的二叉树，将其变换为源二叉树的镜像。
+分析： 想到递归，对每一个节点有4种情况：
+ 当前节点为空 当前节点不为空，左子树为空 当前节点不为空，右子树为空 当前节点不为空，左右子树都为空  很显然2,3两点可以重合
+那么递归退出条件就是1和4
+代码 代码如下，测试通过
+public static void mirror(TreeNode root) { if (root==null)return; if (root.left==null &amp;amp;&amp;amp; root.right==null) return; TreeNode tmp = root.left; root.left = root.right; root.right = tmp; mirror(root.left); mirror(root.right); } 总结 二叉树的递归，遵循以下几步：
+ 找出所有情况 确定退出条件 确定一般递归内容  这一题题目现在看来不难，但是我一开始想偏了，想利用一个辅助函数helper(TreeNode left, TreeNode right)来递归他的左子树和右子树，但是问题在于，每次交换左右子树都变化了，结果就是对于满二叉树可以完成，但是对于不是满二叉树就不行
+欢迎大家转载我的博客菜鸡聪。 如果希望交流算法，欢迎联系我， Gmail</description>
+    </item>
+    
+    <item>
+      <title>牛客网-二叉树的镜像</title>
+      <link>https://linjinbao.github.io/2019/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F/</link>
+      <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F/</guid>
+      <description>二叉树镜像 题目描述 操作给定的二叉树，将其变换为源二叉树的镜像。
+分析： 想到递归，对每一个节点有4种情况：
+  当前节点为空
+  当前节点不为空，左子树为空
+  当前节点不为空，右子树为空
+  当前节点不为空，左右子树都为空
+  很显然2,3两点可以重合
+那么递归退出条件就是1和4
+代码 代码如下，测试通过
+public static void mirror(TreeNode root) {if (root==null)return;if (root.left==null &amp;amp;&amp;amp; root.right==null) return;TreeNode tmp = root.left;root.left = root.right;root.right = tmp;mirror(root.left);mirror(root.right);}总结 二叉树的递归，遵循以下几步：
+  找出所有情况
+  确定退出条件
+  确定一般递归内容
+  这一题题目现在看来不难，但是我一开始想偏了，想利用一个辅助函数helper(TreeNode left, TreeNode right)来递归他的左子树和右子树，但是问题在于，每次交换左右子树都变化了，结果就是对于满二叉树可以完成，但是对于不是满二叉树就不行
+欢迎大家转载我的博客菜鸡聪。 如果希望交流算法，欢迎联系我， Gmail</description>
+    </item>
+    
+  </channel>
+</rss>

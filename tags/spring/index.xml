@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>spring on 打工人日记</title>
+    <link>https://linjinbao.github.io/tags/spring/</link>
+    <description>Recent content in spring on 打工人日记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 09 Dec 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://linjinbao.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SpringMVC学习02</title>
+      <link>https://linjinbao.github.io/2019/20191209springmvc-xue-xi-02/</link>
+      <pubDate>Mon, 09 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/20191209springmvc-xue-xi-02/</guid>
+      <description>SpringMVC学习02 获取请求 @RequestParam(&amp;#34;userid&amp;#34;) String userid; //获取请求参数 @RequestHeader(&amp;#34;User-Agent&amp;#34;)String userAgent; //获取请求头 @CookieValue(value = &amp;#34;JSESSIONID&amp;#34;, required = false); //获取Cookie 解决乱码 web.xml
+&amp;lt;filter&amp;gt; &amp;lt;filter-name&amp;gt;characterEncodingFilter&amp;lt;/filter-name&amp;gt; &amp;lt;filter-class&amp;gt;org.springframework.web.filter.CharacterEncodingFilter&amp;lt;/filter-class&amp;gt; &amp;lt;init-param&amp;gt; &amp;lt;param-name&amp;gt;encoding&amp;lt;/param-name&amp;gt; &amp;lt;param-value&amp;gt;UTF-8&amp;lt;/param-value&amp;gt; &amp;lt;/init-param&amp;gt; &amp;lt;init-param&amp;gt; &amp;lt;param-name&amp;gt;forceEncoding&amp;lt;/param-name&amp;gt; &amp;lt;param-value&amp;gt;true&amp;lt;/param-value&amp;gt; &amp;lt;/init-param&amp;gt; &amp;lt;/filter&amp;gt; &amp;lt;filter-mapping&amp;gt; &amp;lt;filter-name&amp;gt;characterEncodingFilter&amp;lt;/filter-name&amp;gt; &amp;lt;url-pattern&amp;gt;/*&amp;lt;/url-pattern&amp;gt; &amp;lt;/filter-mapping&amp;gt; 注意：要求字符编码Filter在其他filter之前
+数据输出 ** Map
+@RequestMapping(&amp;#34;/handle01&amp;#34;) public String handle01(Map map) { System.out.println(&amp;#34;访问了handle01&amp;#34;); map.put(&amp;#34;msg&amp;#34;,&amp;#34;你好&amp;#34;); return &amp;#34;success&amp;#34;; } ** Model
+@RequestMapping(&amp;#34;/handle01&amp;#34;) public String handle01(Model model) { System.out.println(&amp;#34;访问了handle01&amp;#34;); model.addAttribute(&amp;#34;msg&amp;#34;, &amp;#34;modelsss&amp;#34;); return &amp;#34;success&amp;#34;; } ** ModelMap
+@RequestMapping(&amp;#34;/handle01&amp;#34;) public String handle01(ModelMap modelMap) { System.</description>
+    </item>
+    
+    <item>
+      <title>SpringMVC学习02</title>
+      <link>https://linjinbao.github.io/2019/springmvc%E5%AD%A6%E4%B9%A002/</link>
+      <pubDate>Mon, 09 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/springmvc%E5%AD%A6%E4%B9%A002/</guid>
+      <description>SpringMVC学习02 获取请求 @RequestParam(&amp;#34;userid&amp;#34;) String userid;	//获取请求参数@RequestHeader(&amp;#34;User-Agent&amp;#34;)String userAgent;	//获取请求头@CookieValue(value = &amp;#34;JSESSIONID&amp;#34;, required = false);	//获取Cookie解决乱码 web.xml
+&amp;lt;filter&amp;gt;&amp;lt;filter-name&amp;gt;characterEncodingFilter&amp;lt;/filter-name&amp;gt;&amp;lt;filter-class&amp;gt;org.springframework.web.filter.CharacterEncodingFilter&amp;lt;/filter-class&amp;gt;&amp;lt;init-param&amp;gt;&amp;lt;param-name&amp;gt;encoding&amp;lt;/param-name&amp;gt;&amp;lt;param-value&amp;gt;UTF-8&amp;lt;/param-value&amp;gt;&amp;lt;/init-param&amp;gt;&amp;lt;init-param&amp;gt;&amp;lt;param-name&amp;gt;forceEncoding&amp;lt;/param-name&amp;gt;&amp;lt;param-value&amp;gt;true&amp;lt;/param-value&amp;gt;&amp;lt;/init-param&amp;gt;&amp;lt;/filter&amp;gt;&amp;lt;filter-mapping&amp;gt;&amp;lt;filter-name&amp;gt;characterEncodingFilter&amp;lt;/filter-name&amp;gt;&amp;lt;url-pattern&amp;gt;/*&amp;lt;/url-pattern&amp;gt;&amp;lt;/filter-mapping&amp;gt;注意：要求字符编码Filter在其他filter之前
+数据输出 ** Map
+@RequestMapping(&amp;#34;/handle01&amp;#34;)public String handle01(Map map) {System.out.println(&amp;#34;访问了handle01&amp;#34;);map.put(&amp;#34;msg&amp;#34;,&amp;#34;你好&amp;#34;);return &amp;#34;success&amp;#34;;}** Model
+@RequestMapping(&amp;#34;/handle01&amp;#34;)public String handle01(Model model) {System.out.println(&amp;#34;访问了handle01&amp;#34;);model.addAttribute(&amp;#34;msg&amp;#34;, &amp;#34;modelsss&amp;#34;);return &amp;#34;success&amp;#34;;}** ModelMap
+@RequestMapping(&amp;#34;/handle01&amp;#34;)public String handle01(ModelMap modelMap) {System.</description>
+    </item>
+    
+    <item>
+      <title>MySQL 分库分表-ShardingSphere使用</title>
+      <link>https://linjinbao.github.io/2019/20191117mysql-fen-ku-fen-biao-shardingsphere-shi-yong/</link>
+      <pubDate>Sun, 17 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/20191117mysql-fen-ku-fen-biao-shardingsphere-shi-yong/</guid>
+      <description>MySQL 分库分表-ShardingSphere使用 分库和分表的实现-java工程版  依赖项  &amp;lt;dependencies&amp;gt; &amp;lt;!-- 主要 --&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.shardingsphere&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;sharding-jdbc-core&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.0.0-RC2&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.12&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;commons-dbcp&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;commons-dbcp&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.4&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.1.41&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;io.netty&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;netty&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.7.0.Final&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt;  示例代码  public class ShardingSphereDemo { @Test public void test01() throws SQLException { // 配置真实数据源  Map&amp;lt;String, DataSource&amp;gt; dataSourceMap = new HashMap&amp;lt;String, DataSource&amp;gt;(); // 配置第一个数据源  BasicDataSource dataSource1 = new BasicDataSource(); dataSource1.setDriverClassName(&amp;#34;com.mysql.jdbc.Driver&amp;#34;); dataSource1.setUrl(&amp;#34;jdbc:mysql://localhost:3306/test&amp;#34;); dataSource1.</description>
+    </item>
+    
+    <item>
+      <title>MySQL 分库分表-ShardingSphere使用</title>
+      <link>https://linjinbao.github.io/2019/mysql-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8-shardingsphere%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Sun, 17 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/mysql-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8-shardingsphere%E4%BD%BF%E7%94%A8/</guid>
+      <description>MySQL 分库分表-ShardingSphere使用 分库和分表的实现-java工程版  依赖项  &amp;lt;dependencies&amp;gt;&amp;lt;!--主要 --&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;org.apache.shardingsphere&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;sharding-jdbc-core&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;4.0.0-RC2&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;4.12&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;commons-dbcp&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;commons-dbcp&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;1.4&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;5.1.41&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;io.netty&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;netty&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;3.7.0.Final&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt;&amp;lt;/dependencies&amp;gt;示例代码  public class ShardingSphereDemo {@Testpublic void test01() throws SQLException {// 配置真实数据源 Map&amp;lt;String, DataSource&amp;gt; dataSourceMap = new HashMap&amp;lt;String, DataSource&amp;gt;();// 配置第一个数据源 BasicDataSource dataSource1 = new BasicDataSource();dataSource1.setDriverClassName(&amp;#34;com.mysql.jdbc.Driver&amp;#34;);dataSource1.setUrl(&amp;#34;jdbc:mysql://localhost:3306/test&amp;#34;);dataSource1.setUsername(&amp;#34;root&amp;#34;);dataSource1.setPassword(&amp;#34;Gepoint&amp;#34;);dataSourceMap.</description>
+    </item>
+    
+    <item>
+      <title>面向切面编程SpringAOP</title>
+      <link>https://linjinbao.github.io/2019/20191112-mian-xiang-qie-mian-bian-cheng-springaop/</link>
+      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/20191112-mian-xiang-qie-mian-bian-cheng-springaop/</guid>
+      <description>面向切面编程SpringAOP  注解方式实现aop，xml配置  名称空间xmlns:aop=&amp;quot;http://www.springframework.org/schema/aop&amp;quot; &amp;lt;context:component-scan base-package=&amp;quot;tk.amrom&amp;quot;&amp;gt;&amp;lt;/context:component-scan&amp;gt; &amp;lt;aop:aspectj-autoproxy&amp;gt; &amp;lt;/aop:aspectj-autoproxy&amp;gt;   LogUtil.java
+```java
+  @Aspect @Component public class LogUtil {
+@Before(value = &amp;#34;execution(public int tk.amrom.impls.MyMathCaluctor.*(*, int))&amp;#34;) public static void logStart() { System.out.println(&amp;#34;目标方法执行之前执行1。。。。。。&amp;#34;); } @After(value = &amp;#34;execution(public int tk.amrom.impls.MyMathCaluctor.add(int, int)) | &amp;#34; + &amp;#34;execution(public int tk.amrom.impls.MyMathCaluctor.sub(int, int))&amp;#34;) public static void logAfter() { System.out.println(&amp;#34;目标方法执行之后执行2。。。。。。。&amp;#34;); } }
+3. TestAOP.java ```java public class TestAOP { ApplicationContext context = new ClassPathXmlApplicationContext(&amp;#34;aop.xml&amp;#34;); @Test public void test01() { Calcultor calcultor = context.</description>
+    </item>
+    
+    <item>
+      <title>面向切面编程SpringAOP</title>
+      <link>https://linjinbao.github.io/2019/%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8Bspringaop/</link>
+      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8Bspringaop/</guid>
+      <description>面向切面编程SpringAOP  注解方式实现aop，xml配置  名称空间xmlns:aop=&amp;#34;http://www.springframework.org/schema/aop&amp;#34;&amp;lt;context:component-scan base-package=&amp;#34;tk.amrom&amp;#34;&amp;gt;&amp;lt;/context:component-scan&amp;gt;&amp;lt;aop:aspectj-autoproxy&amp;gt;&amp;lt;/aop:aspectj-autoproxy&amp;gt;LogUtil.java  @Aspect@Componentpublic class LogUtil {@Before(value = &amp;#34;execution(public int tk.amrom.impls.MyMathCaluctor.*(*, int))&amp;#34;)public static void logStart() {System.out.println(&amp;#34;目标方法执行之前执行1。。。。。。&amp;#34;);}@After(value = &amp;#34;execution(public int tk.amrom.impls.MyMathCaluctor.add(int, int)) | &amp;#34;+ &amp;#34;execution(public int tk.amrom.impls.MyMathCaluctor.sub(int, int))&amp;#34;)public static void logAfter() {System.out.println(&amp;#34;目标方法执行之后执行2。。。。。。。&amp;#34;);}}TestAOP.java  public class TestAOP {ApplicationContext context = new ClassPathXmlApplicationContext(&amp;#34;aop.xml&amp;#34;);@Testpublic void test01() {Calcultor calcultor = context.</description>
+    </item>
+    
+    <item>
+      <title>spring xml使用bean加载数据库连接池</title>
+      <link>https://linjinbao.github.io/2019/20191110spring-xml-shi-yong-bean-jia-zai-shu-ju-ku-lian-jie-chi/</link>
+      <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/20191110spring-xml-shi-yong-bean-jia-zai-shu-ju-ku-lian-jie-chi/</guid>
+      <description>2019-11-10-spring xml使用bean加载数据库连接池 spring xml使用bean管理数据库连接池 ioc2.xml
+&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;beans xmlns=&amp;quot;http://www.springframework.org/schema/beans&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemaLocation=&amp;quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&amp;quot;&amp;gt; &amp;lt;bean id=&amp;quot;datasource&amp;quot; class=&amp;quot;com.mchange.v2.c3p0.ComboPooledDataSource&amp;quot;&amp;gt; &amp;lt;property name=&amp;quot;user&amp;quot; value=&amp;quot;root&amp;quot;&amp;gt;&amp;lt;/property&amp;gt; &amp;lt;property name=&amp;quot;password&amp;quot; value=&amp;quot;***&amp;quot;&amp;gt;&amp;lt;/property&amp;gt; &amp;lt;property name=&amp;quot;jdbcUrl&amp;quot; value=&amp;quot;jdbc:mysql://localhost:3306/mqtt&amp;quot;&amp;gt;&amp;lt;/property&amp;gt; &amp;lt;property name=&amp;quot;driverClass&amp;quot; value=&amp;quot;com.mysql.jdbc.Driver&amp;quot;&amp;gt;&amp;lt;/property&amp;gt; &amp;lt;/bean&amp;gt; &amp;lt;/beans&amp;gt; Test.java
+public static void main(String[] args) throws BeansException, SQLException { String fileName = &amp;#34;ioc2.xml&amp;#34;; ApplicationContext context = new ClassPathXmlApplicationContext(fileName); DataSource datasource = (DataSource) context.getBean(&amp;#34;datasource&amp;#34;); // System.out.println(datasource.getConnection());  Connection connection = datasource.getConnection(); Statement statement = connection.createStatement(); ResultSet resultSet = statement.executeQuery(&amp;#34;select * from user&amp;#34;); while (resultSet.</description>
+    </item>
+    
+    <item>
+      <title>spring xml使用bean加载数据库连接池</title>
+      <link>https://linjinbao.github.io/2019/spring-xml%E4%BD%BF%E7%94%A8bean%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/</link>
+      <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/spring-xml%E4%BD%BF%E7%94%A8bean%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/</guid>
+      <description>spring xml使用bean管理数据库连接池 ioc2.xml
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt;&amp;lt;beans xmlns=&amp;#34;http://www.springframework.org/schema/beans&amp;#34;xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34;xsi:schemaLocation=&amp;#34;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&amp;#34;&amp;gt;&amp;lt;bean id=&amp;#34;datasource&amp;#34; class=&amp;#34;com.mchange.v2.c3p0.ComboPooledDataSource&amp;#34;&amp;gt;&amp;lt;property name=&amp;#34;user&amp;#34; value=&amp;#34;root&amp;#34;&amp;gt;&amp;lt;/property&amp;gt;&amp;lt;property name=&amp;#34;password&amp;#34; value=&amp;#34;***&amp;#34;&amp;gt;&amp;lt;/property&amp;gt;&amp;lt;property name=&amp;#34;jdbcUrl&amp;#34; value=&amp;#34;jdbc:mysql://localhost:3306/mqtt&amp;#34;&amp;gt;&amp;lt;/property&amp;gt;&amp;lt;property name=&amp;#34;driverClass&amp;#34; value=&amp;#34;com.mysql.jdbc.Driver&amp;#34;&amp;gt;&amp;lt;/property&amp;gt;&amp;lt;/bean&amp;gt;&amp;lt;/beans&amp;gt;Test.java
+public static void main(String[] args) throws BeansException, SQLException {String fileName = &amp;#34;ioc2.xml&amp;#34;;ApplicationContext context = new ClassPathXmlApplicationContext(fileName);DataSource datasource = (DataSource) context.getBean(&amp;#34;datasource&amp;#34;);//	System.out.println(datasource.getConnection());	Connection connection = datasource.getConnection();Statement statement = connection.createStatement();ResultSet resultSet = statement.executeQuery(&amp;#34;select * from user&amp;#34;);while (resultSet.</description>
+    </item>
+    
+    <item>
+      <title>使用工厂方法创建管理bean</title>
+      <link>https://linjinbao.github.io/2019/20191108-gong-chang-fang-fa-chuang-jian-he-guan-li-bean/</link>
+      <pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/20191108-gong-chang-fang-fa-chuang-jian-he-guan-li-bean/</guid>
+      <description>使用工厂方法创建管理bean 第一部分： 静态工厂   工厂类写法：
+```java
+  public class AirPlaneStaticFactory {
+/** * 静态工厂 * @param name * @return */ public static Airplane getAirPlane(String name) { Airplane airplane = new Airplane(); airplane.setFjs(&amp;#34;副驾驶&amp;#34;); airplane.setName(name); airplane.setNum(1001001); return airplane; } }
+2. xml配置注册bean ```xml &amp;lt;!-- 使用工厂管理bean-satic静态管理 --&amp;gt; &amp;lt;bean name=&amp;#34;airFactory01&amp;#34; class=&amp;#34;factory.AirPlaneStaticFactory&amp;#34; factory-method=&amp;#34;getAirPlane&amp;#34;&amp;gt; &amp;lt;constructor-arg name=&amp;#34;name&amp;#34; value=&amp;#34;和风号&amp;#34;&amp;gt;&amp;lt;/constructor-arg&amp;gt; &amp;lt;/bean&amp;gt;   ioc容器取出bean
+Object object = context.getBean(&amp;#34;airFactory01&amp;#34;); //注意此处的参数，使用的是xml中工厂类注册的名   返回值是工厂类所管理的bean，即Airplane对象
+第二部分： 实例工厂   工厂类写法</description>
+    </item>
+    
+    <item>
+      <title>使用工厂方法创建管理bean</title>
+      <link>https://linjinbao.github.io/2019/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E5%88%9B%E5%BB%BA%E5%92%8C%E7%AE%A1%E7%90%86bean/</link>
+      <pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E5%88%9B%E5%BB%BA%E5%92%8C%E7%AE%A1%E7%90%86bean/</guid>
+      <description>使用工厂方法创建管理bean 第一部分： 静态工厂  工厂类写法：  public class AirPlaneStaticFactory {/*** 静态工厂* @param name* @return*/public static Airplane getAirPlane(String name) {Airplane airplane = new Airplane();airplane.setFjs(&amp;#34;副驾驶&amp;#34;);airplane.setName(name);airplane.setNum(1001001);return airplane;}}xml配置注册bean  &amp;lt;!--使用工厂管理bean-satic静态管理 --&amp;gt;&amp;lt;bean name=&amp;#34;airFactory01&amp;#34; class=&amp;#34;factory.AirPlaneStaticFactory&amp;#34; factory-method=&amp;#34;getAirPlane&amp;#34;&amp;gt;&amp;lt;constructor-arg name=&amp;#34;name&amp;#34; value=&amp;#34;和风号&amp;#34;&amp;gt;&amp;lt;/constructor-arg&amp;gt;&amp;lt;/bean&amp;gt;ioc容器取出bean  Object object = context.getBean(&amp;#34;airFactory01&amp;#34;); //注意此处的参数，使用的是xml中工厂类注册的名返回值是工厂类所管理的bean，即Airplane对象
+第二部分： 实例工厂  工厂类写法  public class AirPlaneInstanceFactory {/*** 实例工厂* @param name* @return*/public Airplane getAirPlane(String name) {Airplane airplane = new Airplane();airplane.</description>
+    </item>
+    
+    <item>
+      <title>IOC注入方式</title>
+      <link>https://linjinbao.github.io/2019/20191107ioc-zhu-ru-fang-shi/</link>
+      <pubDate>Thu, 07 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/20191107ioc-zhu-ru-fang-shi/</guid>
+      <description>2019-11-07-IOC注入方式 IOC注入多种复杂类型 简单类型注入 Person.java
+public class Person { private Integer id; private String name; private String gender; ... } ioc.xml
+&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;beans xmlns=&amp;quot;http://www.springframework.org/schema/beans&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemaLocation=&amp;quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&amp;quot;&amp;gt; &amp;lt;bean id = &amp;quot;Person01&amp;quot; class=&amp;quot;entity.Person&amp;quot;&amp;gt; &amp;lt;property name=&amp;quot;id&amp;quot; value=&amp;quot;1151301118&amp;quot;&amp;gt;&amp;lt;/property&amp;gt; &amp;lt;property name=&amp;quot;name&amp;quot; value=&amp;quot;linjinbao&amp;quot;&amp;gt;&amp;lt;/property&amp;gt; &amp;lt;property name=&amp;quot;gender&amp;quot; value=&amp;quot;男&amp;quot;&amp;gt;&amp;lt;/property&amp;gt; &amp;lt;/bean&amp;gt; &amp;lt;/beans&amp;gt; 注入另一个bean Person.java
+public class Person { private Integer id; private String name; private String gender; private Car car; //另外一个bean  ... } Car.java
+public class Car { private String name; private double price; .</description>
+    </item>
+    
+    <item>
+      <title>IOC注入方式</title>
+      <link>https://linjinbao.github.io/2019/ioc%E6%B3%A8%E5%85%A5%E6%96%B9%E5%BC%8F/</link>
+      <pubDate>Thu, 07 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/ioc%E6%B3%A8%E5%85%A5%E6%96%B9%E5%BC%8F/</guid>
+      <description>IOC注入多种复杂类型 简单类型注入 Person.java
+public class Person {private Integer id;private String name;private String gender;...}ioc.xml
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt;&amp;lt;beans xmlns=&amp;#34;http://www.springframework.org/schema/beans&amp;#34;xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34;xsi:schemaLocation=&amp;#34;http://www.springframework.org/schema/beanshttp://www.springframework.org/schema/beans/spring-beans.xsd&amp;#34;&amp;gt;&amp;lt;bean id = &amp;#34;Person01&amp;#34; class=&amp;#34;entity.Person&amp;#34;&amp;gt;&amp;lt;property name=&amp;#34;id&amp;#34; value=&amp;#34;1151301118&amp;#34;&amp;gt;&amp;lt;/property&amp;gt;&amp;lt;property name=&amp;#34;name&amp;#34; value=&amp;#34;linjinbao&amp;#34;&amp;gt;&amp;lt;/property&amp;gt;&amp;lt;property name=&amp;#34;gender&amp;#34; value=&amp;#34;男&amp;#34;&amp;gt;&amp;lt;/property&amp;gt;&amp;lt;/bean&amp;gt;&amp;lt;/beans&amp;gt;注入另一个bean Person.java
+public class Person {private Integer id;private String name;private String gender;private Car car;	//另外一个bean	...}Car.java
+public class Car {private String name;private double price;.</description>
+    </item>
+    
+    <item>
+      <title>ssm整合</title>
+      <link>https://linjinbao.github.io/2019/20190701ssm-zheng-he/</link>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/20190701ssm-zheng-he/</guid>
+      <description>2019-07-01-ssm整合 pom.xml &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;project xmlns=&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemaLocation=&amp;quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;groupId&amp;gt;tk.amrom&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;crms&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;packaging&amp;gt;war&amp;lt;/packaging&amp;gt; &amp;lt;name&amp;gt;crms Maven Webapp&amp;lt;/name&amp;gt; &amp;lt;!-- FIXME change it to the project&#39;s website --&amp;gt; &amp;lt;url&amp;gt;http://www.example.com&amp;lt;/url&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt; &amp;lt;maven.compiler.source&amp;gt;1.8&amp;lt;/maven.compiler.source&amp;gt; &amp;lt;maven.compiler.target&amp;gt;1.8&amp;lt;/maven.compiler.target&amp;gt; &amp;lt;spring.version&amp;gt;3.1.0.RELEASE&amp;lt;/spring.version&amp;gt; &amp;lt;/properties&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.11&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;compile&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!--spring核心包--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-context&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${spring.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-core&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${spring.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-beans&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${spring.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-context-support&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${spring.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-aop&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${spring.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-aspects&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${spring.</description>
+    </item>
+    
+    <item>
+      <title>ssm整合</title>
+      <link>https://linjinbao.github.io/2019/ssm%E6%95%B4%E5%90%88/</link>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/ssm%E6%95%B4%E5%90%88/</guid>
+      <description>pom.xml &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt;&amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34;xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&amp;gt;&amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt;&amp;lt;groupId&amp;gt;tk.amrom&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;crms&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt;&amp;lt;packaging&amp;gt;war&amp;lt;/packaging&amp;gt;&amp;lt;name&amp;gt;crms Maven Webapp&amp;lt;/name&amp;gt;&amp;lt;!--FIXME change it to the project&amp;#39;s website --&amp;gt;&amp;lt;url&amp;gt;http://www.example.com&amp;lt;/url&amp;gt;&amp;lt;properties&amp;gt;&amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt;&amp;lt;maven.compiler.source&amp;gt;1.8&amp;lt;/maven.compiler.source&amp;gt;&amp;lt;maven.compiler.target&amp;gt;1.8&amp;lt;/maven.compiler.target&amp;gt;&amp;lt;spring.version&amp;gt;3.1.0.RELEASE&amp;lt;/spring.version&amp;gt;&amp;lt;/properties&amp;gt;&amp;lt;dependencies&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;4.11&amp;lt;/version&amp;gt;&amp;lt;scope&amp;gt;compile&amp;lt;/scope&amp;gt;&amp;lt;/dependency&amp;gt;&amp;lt;!--spring核心包--&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;spring-context&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;${spring.version}&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;spring-core&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;${spring.version}&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;spring-beans&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;${spring.version}&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;spring-context-support&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;${spring.version}&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;spring-aop&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;${spring.version}&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;spring-aspects&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;${spring.version}&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;org.</description>
+    </item>
+    
+  </channel>
+</rss>

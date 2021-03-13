@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  
+  <link rel="next" href="https://linjinbao.github.io/2019/20190405-xiu-fu-office-wen-jian-mo-ren-tu-biao/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019/%E4%BF%AE%E5%A4%8Doffice%E6%96%87%E4%BB%B6%E9%BB%98%E8%AE%A4%E5%9B%BE%E6%A0%87/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           修复Office文件默认图标 | 打工人日记
+       
+  </title>
+  <meta name="title" content="修复Office文件默认图标 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "修复Office文件默认图标",
+    "headline" : "修复Office文件默认图标",
+    "description" : "rem 修复office文件默认图标.bat\n:: office图标文件路径，请根据自己电脑上的安装目录设置 set officepath=C:\\Program Files\\Microsoft Office\\root\\vfs\\Windows\\Installer{90160000-000F-0000-1000-0000000FF1CE}\\\n:: 修复word图标 reg add \x26ldquo;HKCR\\Word.Document.8\\DefaultIcon\x26rdquo; \/ve \/t REG_SZ \/d \x26ldquo;%officepath%WORDICON.EXE,1\x26rdquo; reg delete \x26ldquo;HKCR\\Word.Document.8\\DefaultIcon\x26rdquo; \/v .ksobak\nreg add \x26ldquo;HKCR\\Word.Document.12\\DefaultIcon\x26rdquo; \/ve \/t REG_SZ \/d \x26ldquo;%officepath%WORDICON.EXE,13\x26rdquo; :: 此行为删除wps残留注册表文件，下同 reg delete \x26ldquo;HKCR\\Word.Document.12\\DefaultIcon\x26rdquo; \/v .ksobak\n:: 修复EXCEL图标 reg add \x26ldquo;HKCR\\Excel.Sheet.8\\DefaultIcon\x26rdquo; \/ve \/t REG_SZ \/d \x26ldquo;%officepath%XLICONS.EXE,28\x26rdquo; reg delete \x26ldquo;HKCR\\Excel.Sheet.8\\DefaultIcon\x26rdquo; \/v .ksobak\nreg add \x26ldquo;HKCR\\Excel.Sheet.12\\DefaultIcon\x26rdquo; \/ve \/t REG_SZ \/d \x26ldquo;%officepath%XLICONS.EXE,1\x26rdquo; reg delete \x26ldquo;HKCR\\Excel.Sheet.12\\DefaultIcon\x26rdquo; \/v .ksobak\n:: 修复POWERPNT图标 reg add \x26ldquo;HKCR\\PowerPoint.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-04-05 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-04-05 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019\/%E4%BF%AE%E5%A4%8Doffice%E6%96%87%E4%BB%B6%E9%BB%98%E8%AE%A4%E5%9B%BE%E6%A0%87\/",
+    "wordCount" : "108",
+    "keywords" : [ "Office","bat","小工具", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">修复Office文件默认图标</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao</a> 时间： 
+                <span class="post-time">
+                 <time datetime=5049-04-05 itemprop="datePublished">April 5, 2019</time>
+                </span>
+                分类： 
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://linjinbao.github.io/categories/%E5%B0%8F%E5%B7%A5%E5%85%B7/"> 小工具 </a>
+                        
+                </span>
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>rem 修复office文件默认图标.bat</p>
+<p>:: office图标文件路径，请根据自己电脑上的安装目录设置
+set officepath=C:\Program Files\Microsoft Office\root\vfs\Windows\Installer{90160000-000F-0000-1000-0000000FF1CE}\</p>
+<p>:: 修复word图标
+reg add &ldquo;HKCR\Word.Document.8\DefaultIcon&rdquo; /ve /t REG_SZ /d &ldquo;%officepath%WORDICON.EXE,1&rdquo;
+reg delete &ldquo;HKCR\Word.Document.8\DefaultIcon&rdquo; /v .ksobak</p>
+<p>reg add &ldquo;HKCR\Word.Document.12\DefaultIcon&rdquo; /ve /t REG_SZ /d &ldquo;%officepath%WORDICON.EXE,13&rdquo;
+:: 此行为删除wps残留注册表文件，下同
+reg delete &ldquo;HKCR\Word.Document.12\DefaultIcon&rdquo; /v .ksobak</p>
+<p>:: 修复EXCEL图标
+reg add &ldquo;HKCR\Excel.Sheet.8\DefaultIcon&rdquo; /ve /t REG_SZ /d &ldquo;%officepath%XLICONS.EXE,28&rdquo;
+reg delete &ldquo;HKCR\Excel.Sheet.8\DefaultIcon&rdquo; /v .ksobak</p>
+<p>reg add &ldquo;HKCR\Excel.Sheet.12\DefaultIcon&rdquo; /ve /t REG_SZ /d &ldquo;%officepath%XLICONS.EXE,1&rdquo;
+reg delete &ldquo;HKCR\Excel.Sheet.12\DefaultIcon&rdquo; /v .ksobak</p>
+<p>:: 修复POWERPNT图标
+reg add &ldquo;HKCR\PowerPoint.Show.8\DefaultIcon&rdquo; /ve /t REG_SZ /d &ldquo;%officepath%PPTICO.EXE,17&rdquo;
+reg delete &ldquo;HKCR\PowerPoint.Show.8\DefaultIcon&rdquo; /v .ksobak</p>
+<p>reg add &ldquo;HKCR\PowerPoint.Show.12\DefaultIcon&rdquo; /ve /t REG_SZ /d &ldquo;%officepath%PPTICO.EXE,10&rdquo;
+reg delete &ldquo;HKCR\PowerPoint.Show.12\DefaultIcon&rdquo; /v .ksobak</p>
+<p>:: 清理图标缓存，重启explorer
+taskkill /f /im explorer.exe
+CD /d %userprofile%\AppData\Local
+DEL IconCache.db /a
+start explorer.exe</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2019/%E4%BF%AE%E5%A4%8Doffice%E6%96%87%E4%BB%B6%E9%BB%98%E8%AE%A4%E5%9B%BE%E6%A0%87/>https://linjinbao.github.io/2019/%E4%BF%AE%E5%A4%8Doffice%E6%96%87%E4%BB%B6%E9%BB%98%E8%AE%A4%E5%9B%BE%E6%A0%87/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/office/">
+                    #Office</a></span>
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/bat/">
+                    #bat</a></span>
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/%E5%B0%8F%E5%B7%A5%E5%85%B7/">
+                    #小工具</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+         
+        
+        <a href="https://linjinbao.github.io/2019/20190405-xiu-fu-office-wen-jian-mo-ren-tu-biao/" class="next" rel="next" title="修复Office文件默认图标">修复Office文件默认图标&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
