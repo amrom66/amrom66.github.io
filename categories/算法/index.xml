@@ -153,10 +153,10 @@ public boolean uniqueOccurrences(int[] arr) {Map&amp;lt;Integer, Integer&amp;gt
     
     <item>
       <title>LeetCode算法题-合并区间</title>
-      <link>https://linjinbao.github.io/2019/20190927leetcode-suan-fa-ti-he-bing-qu-jian/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-27-leetcode%E7%AE%97%E6%B3%95%E9%A2%98-%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/</link>
       <pubDate>Fri, 27 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190927leetcode-suan-fa-ti-he-bing-qu-jian/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-27-leetcode%E7%AE%97%E6%B3%95%E9%A2%98-%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/</guid>
       <description>2019-09-27-LeetCode算法题-合并区间 LeetCode算法题-合并区间 题目描述： 给出一个区间的集合，请合并所有重叠的区间。
 示例 1: 输入: [[1,3],[2,6],[8,10],[15,18]] 输出: [[1,6],[8,10],[15,18]] 解释: 区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6]. 示例 2: 输入: [[1,4],[4,5]] 输出: [[1,5]] 解释: 区间 [1,4] 和 [4,5] 可被视为重叠区间。 思路分析：
   对给出的二维数组进行排序，使得满足每一组第一个元素都小于等于后面一组第一个元素，例如这种形式：[[1,3],[2,6],[8,10]]。
@@ -180,10 +180,10 @@ public static int[][] merge(int[][] intervals) {if (intervals.length==0) return
     
     <item>
       <title>牛客网-二叉树的镜像</title>
-      <link>https://linjinbao.github.io/2019/20190926-er-cha-shu-de-jing-xiang/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-26-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%95%9C%E5%83%8F/</link>
       <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190926-er-cha-shu-de-jing-xiang/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-26-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%95%9C%E5%83%8F/</guid>
       <description>二叉树镜像 题目描述 操作给定的二叉树，将其变换为源二叉树的镜像。
 分析： 想到递归，对每一个节点有4种情况：
  当前节点为空 当前节点不为空，左子树为空 当前节点不为空，右子树为空 当前节点不为空，左右子树都为空  很显然2,3两点可以重合
@@ -219,10 +219,10 @@ public static void mirror(TreeNode root) {if (root==null)return;if (root.left=
     
     <item>
       <title>牛客网题目-树的子结构</title>
-      <link>https://linjinbao.github.io/2019/20190925-shu-de-zi-jie-gou/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-25-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/</link>
       <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190925-shu-de-zi-jie-gou/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-25-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/</guid>
       <description>2019-09-25-树的子结构 题目名称：树的子结构 题目描述 输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）
 分析： 第一想法是递归，只要是树，我就上递归。分析情况有以下3种：
  当前root1节点=当前root2节点 当前root1节点！=当前root2节点，但是root1.left和root2节点相等 当前root1节点！=当前root2节点，但是root1.right和root2节点相等  所以需要一个辅助函数helper
@@ -246,10 +246,10 @@ public static boolean hasSubtree(TreeNode root1, TreeNode root2) {if (root1==nu
     
     <item>
       <title>第155场周赛--LeetCode</title>
-      <link>https://linjinbao.github.io/2019/20190922-di-155-chang-zhou-sai/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-22-%E7%AC%AC155%E5%9C%BA%E5%91%A8%E8%B5%9B/</link>
       <pubDate>Sun, 22 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190922-di-155-chang-zhou-sai/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-22-%E7%AC%AC155%E5%9C%BA%E5%91%A8%E8%B5%9B/</guid>
       <description>第 155 场周赛&amp;ndash;LeetCode 第一题：最小绝对差 题目描述： 给你个整数数组 arr，其中每个元素都 不相同。 请你找到所有具有最小绝对差的元素对，并且按升序的顺序返回。 示例 1：
 输入：arr = [4,2,1,3] 输出：[[1,2],[2,3],[3,4]] 示例 2：
 输入：arr = [1,3,6,10,15] 输出：[[1,3]] 示例 3：
@@ -276,10 +276,10 @@ package compete;import java.util.ArrayList;import java.util.Arrays;import jav
     
     <item>
       <title>排序算法总结</title>
-      <link>https://linjinbao.github.io/2019/20190914-suan-fa-pai-xu-zong-jie/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-14-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</link>
       <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190914-suan-fa-pai-xu-zong-jie/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-14-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
       <description>排序总结 冒泡排序 原理：每次比较两个相邻的元素，将较大元素交换至右端 特点：每次循环结束，会出现一个排序好的元素，右侧 理解：大的数右移，重复此过程 代码：
 public static void bubbleSort(int[] nums){ for (int i=0; i&amp;lt;nums.length-1; i++){ //第i次循环找出第i小的元素0&amp;lt;=i&amp;lt;=length-1  for (int j=0; j&amp;lt;nums.length-1-i; j++){ if (nums[j+1]&amp;lt;nums[j]){ int tmp = nums[j]; nums[j] = nums[j+1]; nums[j+1] = tmp; } for (int num : nums) System.out.print(num+&amp;#34;\t&amp;#34;); System.out.println(); } } } 优化：使用flag标记是否已经有序
 选择排序 原理：每次循环找出最小的元素于左侧，每次循环都从剩余未排序系列找出最小的元素 代码：

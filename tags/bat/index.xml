@@ -13,10 +13,10 @@
     
     <item>
       <title>MySQL一键备份脚本</title>
-      <link>https://linjinbao.github.io/2019/20190924mysql-yi-jian-bei-fen-jiao-ben/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-24-mysql%E4%B8%80%E4%BB%B6%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190924mysql-yi-jian-bei-fen-jiao-ben/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-24-mysql%E4%B8%80%E4%BB%B6%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</guid>
       <description>MySQL一键备份脚本 备份脚本-Windows版本 脚本下载
 @echo off pause set year=%Date:~0,4% set month=%Date:~5,2% set day=%Date:~8,2% set address=f:\ set host=localhost set user=root set password=123321 set mysqlpath=D:\epoint_mysql_5.7.24\mysql-5.7.24-winx64\bin\mysqldump.exe set port=3306 rem 用户输入： set /p address=备份地址(例如：F:\) set /p mysqlpath=请输入MySQL安装，不输入则使用默认地址D:\epoint_mysql_5.7.24\mysql-5.7.24-winx64\bin\mysqldump.exe set /p host=请输入主机地址（默认localhost） set /p user=请输入数据库用户名：（默认root） set /p password=请输入数据库密码：(默认123321) set /p port=请输入端口号（默认3306） set /p dbname=请输入数据库名称 rem 用户输入结束： echo 用户输入结束，备份地址为%address%； 数据库用户名为：%user%；数据库密码为：%password%; pause set backupfile=%address%%year%-%month%-%day%-%dbname%.sql echo 备份文件: %backupfile% pause %mysqlpath% -u%user% -p%password% %dbname% &amp;gt; %backupfile% echo 请检查数据库备份是否成功，备份文件为%backupfile% echo 欢迎下次使用 pause exit 备份脚本-Linux版本 待续</description>
     </item>
@@ -33,10 +33,10 @@
     
     <item>
       <title>windows常用批处理命令</title>
-      <link>https://linjinbao.github.io/2019/20190923windows-chang-yong-pi-chu-li-ming-ling/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-23-windows/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190923windows-chang-yong-pi-chu-li-ming-ling/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-23-windows/</guid>
       <description>Windows批处理 常用dos命令 echo 打印 dir 列文件名 cd　改变当前目录 ren 改变文件名 copy　拷贝文件 del 删除文件 md　建立子目录 rd　删除目录 deltree　删除目录树 format　格式化磁盘 edit　文本编辑 type　显示文件内容 mem 查看内存状况 ## 以下是新增加的命令 help　显示帮助提示 cls 清屏 move　移动文件，改目录名 more　分屏显示 xcopy 拷贝目录和文件 显示篇  echo @ 和 pause 在DOS命令提示符中使用 echo /?可以获得对 echo 用法的解释。echo on 用于打开命令的回显；echo off 用于关闭命令的回显(默认情况下，ehco 是处于打开状态的)。只输入 echo 可以获得当前的回显状态(是否处于打开状态)。输入 echo 再加一段文字，例如 echo Hello world! 可以显示出 Hello world! 这句信息。 @ ，如果在某一条命令最前面加上 @ ，那么这一行命令就不会显示出来。与 echo off 有着相似之处。 echo off 以后的所有命令本身都不再显示出来；而 @ 只是将当前那一行的命令不显示出来。然而，至于命令所产生的输出结果，仍然会显示出来。这看起来似乎有些拗口，但我们会通过例子来很容易地理解它们。 pause ，从字面上看就是暂停的意思，效果等同于将程序挂起，在按下任意键后才继续。 &amp;gt; 和 &amp;gt;&amp;gt; &amp;gt; 表示将输出结果打印到某处。比如： echo Hello world!</description>
     </item>
     
@@ -51,11 +51,11 @@
     
     <item>
       <title>修复Office文件默认图标</title>
-      <link>https://linjinbao.github.io/2019/20190405-xiu-fu-office-wen-jian-mo-ren-tu-biao/</link>
+      <link>https://linjinbao.github.io/2019/2019-04-05-%E4%BF%AE%E5%A4%8Doffice%E6%96%87%E4%BB%B6%E9%BB%98%E8%AE%A4%E5%9B%BE%E6%A0%87/</link>
       <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190405-xiu-fu-office-wen-jian-mo-ren-tu-biao/</guid>
-      <description>2019-04-05-修复office文件默认图标 rem 修复office文件默认图标.bat :: office图标文件路径，请根据自己电脑上的安装目录设置 set officepath=C:\Program Files\Microsoft Office\root\vfs\Windows\Installer\{90160000-000F-0000-1000-0000000FF1CE}\ :: 修复word图标 reg add &amp;#34;HKCR\Word.Document.8\DefaultIcon&amp;#34; /ve /t REG_SZ /d &amp;#34;%officepath%WORDICON.EXE,1&amp;#34; reg delete &amp;#34;HKCR\Word.Document.8\DefaultIcon&amp;#34; /v .ksobak reg add &amp;#34;HKCR\Word.Document.12\DefaultIcon&amp;#34; /ve /t REG_SZ /d &amp;#34;%officepath%WORDICON.EXE,13&amp;#34; :: 此行为删除wps残留注册表文件，下同 reg delete &amp;#34;HKCR\Word.Document.12\DefaultIcon&amp;#34; /v .ksobak :: 修复EXCEL图标 reg add &amp;#34;HKCR\Excel.Sheet.8\DefaultIcon&amp;#34; /ve /t REG_SZ /d &amp;#34;%officepath%XLICONS.EXE,28&amp;#34; reg delete &amp;#34;HKCR\Excel.Sheet.8\DefaultIcon&amp;#34; /v .ksobak reg add &amp;#34;HKCR\Excel.Sheet.12\DefaultIcon&amp;#34; /ve /t REG_SZ /d &amp;#34;%officepath%XLICONS.EXE,1&amp;#34; reg delete &amp;#34;HKCR\Excel.Sheet.12\DefaultIcon&amp;#34; /v .ksobak :: 修复POWERPNT图标 reg add &amp;#34;HKCR\PowerPoint.</description>
+      <guid>https://linjinbao.github.io/2019/2019-04-05-%E4%BF%AE%E5%A4%8Doffice%E6%96%87%E4%BB%B6%E9%BB%98%E8%AE%A4%E5%9B%BE%E6%A0%87/</guid>
+      <description>修复office文件默认图标 rem 修复office文件默认图标.bat :: office图标文件路径，请根据自己电脑上的安装目录设置 set officepath=C:\Program Files\Microsoft Office\root\vfs\Windows\Installer\{90160000-000F-0000-1000-0000000FF1CE}\ :: 修复word图标 reg add &amp;#34;HKCR\Word.Document.8\DefaultIcon&amp;#34; /ve /t REG_SZ /d &amp;#34;%officepath%WORDICON.EXE,1&amp;#34; reg delete &amp;#34;HKCR\Word.Document.8\DefaultIcon&amp;#34; /v .ksobak reg add &amp;#34;HKCR\Word.Document.12\DefaultIcon&amp;#34; /ve /t REG_SZ /d &amp;#34;%officepath%WORDICON.EXE,13&amp;#34; :: 此行为删除wps残留注册表文件，下同 reg delete &amp;#34;HKCR\Word.Document.12\DefaultIcon&amp;#34; /v .ksobak :: 修复EXCEL图标 reg add &amp;#34;HKCR\Excel.Sheet.8\DefaultIcon&amp;#34; /ve /t REG_SZ /d &amp;#34;%officepath%XLICONS.EXE,28&amp;#34; reg delete &amp;#34;HKCR\Excel.Sheet.8\DefaultIcon&amp;#34; /v .ksobak reg add &amp;#34;HKCR\Excel.Sheet.12\DefaultIcon&amp;#34; /ve /t REG_SZ /d &amp;#34;%officepath%XLICONS.EXE,1&amp;#34; reg delete &amp;#34;HKCR\Excel.Sheet.12\DefaultIcon&amp;#34; /v .ksobak :: 修复POWERPNT图标 reg add &amp;#34;HKCR\PowerPoint.</description>
     </item>
     
     <item>

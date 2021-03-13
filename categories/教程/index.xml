@@ -13,10 +13,10 @@
     
     <item>
       <title>博客加入评论功能</title>
-      <link>https://linjinbao.github.io/2019/20190926-ge-ren-bo-ke-jia-ru-ping-lun-gong-neng/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-26-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8A%A0%E5%85%A5%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</link>
       <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190926-ge-ren-bo-ke-jia-ru-ping-lun-gong-neng/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-26-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8A%A0%E5%85%A5%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</guid>
       <description>2019-09-26-个人博客加入评论功能 个人博客加入评论功能 实现思路： 使用第三方存储，白嫖美滋滋
 按照姑苏流白的教程，我使用Valine的评论系统
 配置Valine  注册 登录账号 略过 建立应用 配置应用keys，配置项：AppID， AppKey  修改博客配置  修改config.toml配置  加入以下内容：
@@ -39,10 +39,10 @@
     
     <item>
       <title>RabbitMq安装部署</title>
-      <link>https://linjinbao.github.io/2019/20190925rabbitmqwindows-ban-ben-bu-shu/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-25-rabbitmqwindows/</link>
       <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190925rabbitmqwindows-ban-ben-bu-shu/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-25-rabbitmqwindows/</guid>
       <description>RabbitMq-Windows版本部署 软件下载  otp_win64_R16B03-1.exe rabbitmq-server-3.6.9.exe  软件安装一路下一步，全部使用默认地址
 启动服务 进入C:\Program Files (x86)\RabbitMQ Server\rabbitmq_server-3.4.1\sbin目录，运行cmd，输入命令rabbitmq-plugins enable rabbitmq_management：
 C:\Program Files\RabbitMQ Server\rabbitmq_server-3.6.9\sbin&amp;gt; rabbitmq-plugins enable rabbitmq_management The following plugins have been enabled: amqp_client cowlib cowboy rabbitmq_web_dispatch rabbitmq_management_agent rabbitmq_management Applying plugin configuration to rabbit@DESKTOP-I1CQLLJ... started 6 plugins. C:\Program Files\RabbitMQ Server\rabbitmq_server-3.6.9\sbin&amp;gt; 其他 相关命令：
@@ -66,10 +66,10 @@ C:\Program Files\RabbitMQ Server\rabbitmq_server-3.6.9\sbin&amp;gt; rabbitmq-plu
     
     <item>
       <title>Mongodb安装与使用</title>
-      <link>https://linjinbao.github.io/2019/20190924mongodb-an-zhuang/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-24-mongodb/</link>
       <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190924mongodb-an-zhuang/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-24-mongodb/</guid>
       <description>Mongodb安装与使用 背景知识 最近在项目实施过程中遇到一个问题：由于客户提供的Linux机器没有最下滑化安装，导致使用公司的bin包方式安装Mongodb失败。本着能自己解决就自己解决的态度，我开始了Mongodb的研究。
 安装和启动   下载
 因为centos的官放的yum源中没有提供Mongodb的安装包，此时我们需要自己下载下来（也可以修改yum源，不推荐） 执行命令wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.0.tgz 下载安装包
@@ -107,10 +107,10 @@ cd /usr/mongodbchmod 777 dbchmod 777 log` 管他呢，全部777
     
     <item>
       <title>GitHub博客教程</title>
-      <link>https://linjinbao.github.io/2019/20190923github-bo-ke/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-23-%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190923github-bo-ke/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-23-%E5%8D%9A%E5%AE%A2/</guid>
       <description>GitHub博客 作为一名程序员，每天的学习必不可少，但是，如果只是乱糟糟的学习，而不懂得如何去记笔记，那效率可想而知。一个技术博客，是大多数程序员的必须品。漂亮的博客，让工作顺心，让学习更有效率，更有动力。今天，我来教大家如何利用GitHub提供的免费服务，打造自己的专属博客，白嫖美滋滋。
 前期准备；   GitHub账号
   Hugo 软件
@@ -140,16 +140,15 @@ F:\&amp;gt;tree卷 新加卷 的文件夹 PATH 列表卷序列号为 F4A2-CDCD
     
     <item>
       <title>netcat使用教程</title>
-      <link>https://linjinbao.github.io/2019/20190921netcat-shi-yong-jiao-cheng/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-21-netcat%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link>
       <pubDate>Sat, 21 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190921netcat-shi-yong-jiao-cheng/</guid>
-      <description>2019-09-21-netcat使用教程 @author linjinbao666@gmail.com fork me on github
+      <guid>https://linjinbao.github.io/2019/2019-09-21-netcat%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid>
+      <description>netcat使用教程 @author linjinbao666@gmail.com fork me on github
 netcat简介 netcat 一般简称为 nc，直译为中文就是“网猫”，被誉为——【网络上的瑞士军刀】。它诞生于1995年，在网络安全社区的名气很大（就如同 AK47 在军事领域的名气）。长期在安全圈内混的人，应该都知道它。想当年，insecure.org 网站在本世纪初搞过几次“年度投票”，评选优秀的安全工具。每次投票，netcat 都能排进前几名。参考链接
-nc命令行简介 形式： nc 命令选项 主机 端口 命令选项 这部分可能包含 0~N 个选项 （注：这部分最复杂，下一个小节单独聊） 主机 这部分可能没有，可能以“点分十进制”形式表示，也可能以“域名”形式表示。 端口 这部分可能没有，可能是单个端口，可能是端口范围（以减号分隔）
-举例：
+nc命令行简介 形式： nc 命令选项 主机 端口 命令选项 这部分可能包含 0~N 个选项 （注：这部分最复杂，下一个小节单独聊） 主机 这部分可能没有，可能以“点分十进制”形式表示，也可能以“域名”形式表示。 端口 这部分可能没有，可能是单个端口，可能是端口范围（以减号分隔） 举例：
 nc -l -p 12345 -v 在这个例子中，分别用到了三个选项（l、v、p），其中 12345 是选项 p 所带的【选项值】
-常用的命令行选项    选项 是否有选项值 说明     h NO 输出 nc 的帮助   v NO 在网络通讯时，显示详细的输出信息    注：建议新手多用该选项，出错时帮你诊断问题| | n| No| 对命令行中的“主机”，【不】进行域名解析 | | p | YES | 指定“端口号” |</description>
+常用的命令行选项    选项 是否有选项值 说明     h NO 输出 nc 的帮助   v NO 在网络通讯时，显示详细的输出信息   注：建议新手多用该选项，出错时帮你诊断问题| | n| No| 对命令行中的“主机”，【不】进行域名解析 | | p | YES | 指定“端口号” |     命令行合写形式：      nc -lp 12345 -v nc -l -v -p 12345 nc -lv -p 12345 nc -lvp 12345 使用场景一：（网络诊断）测试某个远程主机的【监听】端口是否可达 nc -nv x.</description>
     </item>
     
     <item>
@@ -168,11 +167,11 @@ nc -l -p 12345 -v在这个例子中，分别用到了三个选项（l、v、p�
     
     <item>
       <title>Docker常用操作教程</title>
-      <link>https://linjinbao.github.io/2019/20190705docker-chang-yong-cao-zuo-jiao-cheng/</link>
+      <link>https://linjinbao.github.io/2019/2019-07-05-docker%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%95%99%E7%A8%8B/</link>
       <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190705docker-chang-yong-cao-zuo-jiao-cheng/</guid>
-      <description>2019-07-05-Docker常用操作教程 Docker笔记 Docker安装 yum install docker -y systemctl start docker.service systemctl status docker.service systemctl stop docker.service systemctl start docker.service systemctl restart docker.service systemctl status docker.service Docker卸载 1.搜索已经安装的Docker保
+      <guid>https://linjinbao.github.io/2019/2019-07-05-docker%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%95%99%E7%A8%8B/</guid>
+      <description>Docker常用操作教程 Docker笔记 Docker安装 yum install docker -y systemctl start docker.service systemctl status docker.service systemctl stop docker.service systemctl start docker.service systemctl restart docker.service systemctl status docker.service Docker卸载 1.搜索已经安装的Docker保
 yum list installed|grep docker rpm -qa|grep docker 2.分别删除安装包
 yum –y remove docker.x86_64 3.删除docker 镜像
 rm -rf /var/lib/docker 部署项目 1.配置DNS

@@ -13,10 +13,10 @@
     
     <item>
       <title>Mongodb安装与使用</title>
-      <link>https://linjinbao.github.io/2019/20190924mongodb-an-zhuang/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-24-mongodb/</link>
       <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190924mongodb-an-zhuang/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-24-mongodb/</guid>
       <description>Mongodb安装与使用 背景知识 最近在项目实施过程中遇到一个问题：由于客户提供的Linux机器没有最下滑化安装，导致使用公司的bin包方式安装Mongodb失败。本着能自己解决就自己解决的态度，我开始了Mongodb的研究。
 安装和启动   下载
 因为centos的官放的yum源中没有提供Mongodb的安装包，此时我们需要自己下载下来（也可以修改yum源，不推荐） 执行命令wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.0.tgz 下载安装包
@@ -54,11 +54,11 @@ cd /usr/mongodbchmod 777 dbchmod 777 log` 管他呢，全部777
     
     <item>
       <title>MYSQL笔记</title>
-      <link>https://linjinbao.github.io/2019/20190728mysql-bi-ji/</link>
+      <link>https://linjinbao.github.io/2019/2019-07-28-mysql%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Sun, 28 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190728mysql-bi-ji/</guid>
-      <description>2019-07-28-MYSQL笔记 UUID select uuid(); 存储过程 存储过程（Stored Procedure）是一种在数据库中存储复杂程序，以便外部程序调用的一种数据库对象。 存储过程是为了完成特定功能的SQL语句集，经编译创建并保存在数据库中，用户可通过指定存储过程的名字并给定参数(需要时)来调用执行。 创建存储过程
+      <guid>https://linjinbao.github.io/2019/2019-07-28-mysql%E7%AC%94%E8%AE%B0/</guid>
+      <description>MYSQL笔记 UUID select uuid(); 存储过程 存储过程（Stored Procedure）是一种在数据库中存储复杂程序，以便外部程序调用的一种数据库对象。 存储过程是为了完成特定功能的SQL语句集，经编译创建并保存在数据库中，用户可通过指定存储过程的名字并给定参数(需要时)来调用执行。 创建存储过程
 DELIMITER // CREATE PROCEDURE getAllUsers() BEGIN SELECT * FROM `user`; END // DELIMITER ; CALL getAllUsers(); 调用存储过程
 CALL getAllUsers(); 触发器 CREATE TRIGGER add_userTime BEFORE INSERT on `user` for each ROW INSERT INTO usercreatetime(create_time) VALUES(now()); 创建表 DROP TABLE IF EXISTS `user`; CREATE TABLE `user` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `account` varchar(255) DEFAULT NULL, `name` varchar(255) DEFAULT NULL, `address` varchar(255) DEFAULT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8; DROP TABLE IF EXISTS `user_history`; CREATE TABLE `user_history` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `user_id` bigint(20) NOT NULL, `operatetype` varchar(200) NOT NULL, `operatetime` datetime NOT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8; 创建触发器 DROP TRIGGER IF EXISTS `tri_insert_user` delimiter ;; CREATE TRIGGER `tri_insert_user` AFTER INSERT ON `user` FOR EACH ROW BEGIN INSERT INTO user_history(user_id, operatetype, operatetime) VALUES (new.</description>
     </item>

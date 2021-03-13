@@ -295,10 +295,10 @@ ACID 一个完整的事务，必然包含了如下4个特性：原子性、一�
     
     <item>
       <title>MYSQL操作笔记</title>
-      <link>https://linjinbao.github.io/2019/20190927mysql-cao-zuo-bi-ji/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-27-mysql%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Fri, 27 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190927mysql-cao-zuo-bi-ji/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-27-mysql%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/</guid>
       <description>MYSQL操作笔记 修改用户密码 [官方链接]（https://dev.mysql.com/doc/mysql-windows-excerpt/5.7/en/resetting-permissions-windows.html） 方法一（老版本）：使用set password命令 格式`mysql&amp;gt; set password for username@loclhost=password(&amp;lsquo;passwd&amp;rsquo;);
 mysql&amp;gt; set password = password(&amp;#39;Gepoint&amp;#39;); Query OK, 0 rows affected (0.36 sec) 方法二：使用alter命令
 alter user &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; identified by &amp;#39;123321&amp;#39;; 方法三：修改user表
@@ -321,10 +321,10 @@ UPDATE mysql.userSET authentication_string = PASSWORD(&amp;#39;MyNewPass&amp;#3
     
     <item>
       <title>MySQL一键备份脚本</title>
-      <link>https://linjinbao.github.io/2019/20190924mysql-yi-jian-bei-fen-jiao-ben/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-24-mysql%E4%B8%80%E4%BB%B6%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190924mysql-yi-jian-bei-fen-jiao-ben/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-24-mysql%E4%B8%80%E4%BB%B6%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</guid>
       <description>MySQL一键备份脚本 备份脚本-Windows版本 脚本下载
 @echo off pause set year=%Date:~0,4% set month=%Date:~5,2% set day=%Date:~8,2% set address=f:\ set host=localhost set user=root set password=123321 set mysqlpath=D:\epoint_mysql_5.7.24\mysql-5.7.24-winx64\bin\mysqldump.exe set port=3306 rem 用户输入： set /p address=备份地址(例如：F:\) set /p mysqlpath=请输入MySQL安装，不输入则使用默认地址D:\epoint_mysql_5.7.24\mysql-5.7.24-winx64\bin\mysqldump.exe set /p host=请输入主机地址（默认localhost） set /p user=请输入数据库用户名：（默认root） set /p password=请输入数据库密码：(默认123321) set /p port=请输入端口号（默认3306） set /p dbname=请输入数据库名称 rem 用户输入结束： echo 用户输入结束，备份地址为%address%； 数据库用户名为：%user%；数据库密码为：%password%; pause set backupfile=%address%%year%-%month%-%day%-%dbname%.sql echo 备份文件: %backupfile% pause %mysqlpath% -u%user% -p%password% %dbname% &amp;gt; %backupfile% echo 请检查数据库备份是否成功，备份文件为%backupfile% echo 欢迎下次使用 pause exit 备份脚本-Linux版本 待续</description>
     </item>
@@ -341,11 +341,11 @@ UPDATE mysql.userSET authentication_string = PASSWORD(&amp;#39;MyNewPass&amp;#3
     
     <item>
       <title>MYSQL笔记</title>
-      <link>https://linjinbao.github.io/2019/20190728mysql-bi-ji/</link>
+      <link>https://linjinbao.github.io/2019/2019-07-28-mysql%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Sun, 28 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190728mysql-bi-ji/</guid>
-      <description>2019-07-28-MYSQL笔记 UUID select uuid(); 存储过程 存储过程（Stored Procedure）是一种在数据库中存储复杂程序，以便外部程序调用的一种数据库对象。 存储过程是为了完成特定功能的SQL语句集，经编译创建并保存在数据库中，用户可通过指定存储过程的名字并给定参数(需要时)来调用执行。 创建存储过程
+      <guid>https://linjinbao.github.io/2019/2019-07-28-mysql%E7%AC%94%E8%AE%B0/</guid>
+      <description>MYSQL笔记 UUID select uuid(); 存储过程 存储过程（Stored Procedure）是一种在数据库中存储复杂程序，以便外部程序调用的一种数据库对象。 存储过程是为了完成特定功能的SQL语句集，经编译创建并保存在数据库中，用户可通过指定存储过程的名字并给定参数(需要时)来调用执行。 创建存储过程
 DELIMITER // CREATE PROCEDURE getAllUsers() BEGIN SELECT * FROM `user`; END // DELIMITER ; CALL getAllUsers(); 调用存储过程
 CALL getAllUsers(); 触发器 CREATE TRIGGER add_userTime BEFORE INSERT on `user` for each ROW INSERT INTO usercreatetime(create_time) VALUES(now()); 创建表 DROP TABLE IF EXISTS `user`; CREATE TABLE `user` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `account` varchar(255) DEFAULT NULL, `name` varchar(255) DEFAULT NULL, `address` varchar(255) DEFAULT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8; DROP TABLE IF EXISTS `user_history`; CREATE TABLE `user_history` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `user_id` bigint(20) NOT NULL, `operatetype` varchar(200) NOT NULL, `operatetime` datetime NOT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8; 创建触发器 DROP TRIGGER IF EXISTS `tri_insert_user` delimiter ;; CREATE TRIGGER `tri_insert_user` AFTER INSERT ON `user` FOR EACH ROW BEGIN INSERT INTO user_history(user_id, operatetype, operatetime) VALUES (new.</description>
     </item>

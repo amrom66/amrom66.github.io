@@ -26,10 +26,10 @@
     
     <item>
       <title>面试题</title>
-      <link>https://linjinbao.github.io/2021/%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
+      <link>https://linjinbao.github.io/2021/2021-02-23-%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
       <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2021/%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
+      <guid>https://linjinbao.github.io/2021/2021-02-23-%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
       <description>git合并指定的一次commit  答案：
 git cherry-pick commitid git rebase --onto branch commitid git撤销已经推送的提交  答案：
 git reset --soft id Java线程间通信  答案：利用线程同步来实现通信，通过while轮询方式，wait/notify机制
@@ -349,10 +349,10 @@ logback.xml
     
     <item>
       <title>新的开始</title>
-      <link>https://linjinbao.github.io/2020/%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/</link>
+      <link>https://linjinbao.github.io/2020/2020-07-17-%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/</link>
       <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/</guid>
+      <guid>https://linjinbao.github.io/2020/2020-07-17-%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/</guid>
       <description>新的开始 面试了两次
  端点 腾讯  感觉，能力还是不够，研究不够深入的全当做会的写在简历上了。
 面试题整理
@@ -2863,7 +2863,7 @@ nums1 = [1, 2]nums2 = [3, 4]则中位数是 (2 + 3)/2 = 2.5分析解答 这�
       <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://linjinbao.github.io/2019/2019-10-11-dart/</guid>
-      <description>2019-10-11-Dart 语法  代码片段  void main\(\) { for \(int i = 0; i &amp;amp;lt; 5; i++\) { print\(&amp;#39;hello ${i + 1}&amp;#39;\); prinfNUmber\(i\); } } prinfNUmber\(num number\){ print\(&amp;#39;The number is $number.&amp;#39;\); } 输出： ```code hello 1 The number is 0. hello 2 The number is 1. hello 3 The number is 2. hello 4 The number is 3. hello 5 The number is 4. 重要的概念  所有能够使用变量引用的都是对象， 每个对象都是一个类的实例。在 Dart 中 甚至连 数字、方法和 null 都是对象。所有的对象都继承于 Object 类。 使用静态类型(例如前面示例中的 num ) 可以更清晰的表明你的意图，并且可以让静态分析工具来分析你的代码， 但这并不是牵制性的。（在调试代码的时候你可能注意到 没有指定类型的变量的类型为 dynamic。） Dart 在运行之前会先解析你的代码。你可以通过使用 类型或者编译时常量来帮助 Dart 去捕获异常以及 让代码运行的更高效。 Dart 支持顶级方法 (例如 main())，同时还支持在类中定义函数。 （静态函数和实例函数）。 你还可以在方法中定义方法 （嵌套方法或者局部方法）。 同样，Dart 还支持顶级变量，以及 在类中定义变量（静态变量和实例变量）。 实例变量有时候被称之为域（Fields）或者属性（Properties）。 和 Java 不同的是，Dart 没有 public、 protected、 和 private 关键字。如果一个标识符以 (_) 开头，则该标识符 在库内是私有的。详情请参考： 库和可见性。 标识符可以以字母或者 _ 下划线开头，后面可以是 其他字符和数字的组合 有时候 表达式 expression 和 语句 statement 是有区别的，所以这种情况我们会分别指明每种情况 Dart 工具可以指出两种问题：警告和错误。 警告只是说你的代码可能有问题， 但是并不会阻止你的代码执行。 错误可以是编译时错误也可以是运行时错误。遇到编译时错误时，代码将 无法执行；运行时错误将会在运行代码的时候导致一个 异常。  关键字 下表为 Dart 语言的关键字。</description>
+      <description>Dart 语法  代码片段  void main\(\) { for \(int i = 0; i &amp;amp;lt; 5; i++\) { print\(&amp;#39;hello ${i + 1}&amp;#39;\); prinfNUmber\(i\); } } prinfNUmber\(num number\){ print\(&amp;#39;The number is $number.&amp;#39;\); } 输出： ```code hello 1 The number is 0. hello 2 The number is 1. hello 3 The number is 2. hello 4 The number is 3. hello 5 The number is 4. 重要的概念  所有能够使用变量引用的都是对象， 每个对象都是一个类的实例。在 Dart 中 甚至连 数字、方法和 null 都是对象。所有的对象都继承于 Object 类。 使用静态类型(例如前面示例中的 num ) 可以更清晰的表明你的意图，并且可以让静态分析工具来分析你的代码， 但这并不是牵制性的。（在调试代码的时候你可能注意到 没有指定类型的变量的类型为 dynamic。） Dart 在运行之前会先解析你的代码。你可以通过使用 类型或者编译时常量来帮助 Dart 去捕获异常以及 让代码运行的更高效。 Dart 支持顶级方法 (例如 main())，同时还支持在类中定义函数。 （静态函数和实例函数）。 你还可以在方法中定义方法 （嵌套方法或者局部方法）。 同样，Dart 还支持顶级变量，以及 在类中定义变量（静态变量和实例变量）。 实例变量有时候被称之为域（Fields）或者属性（Properties）。 和 Java 不同的是，Dart 没有 public、 protected、 和 private 关键字。如果一个标识符以 (_) 开头，则该标识符 在库内是私有的。详情请参考： 库和可见性。 标识符可以以字母或者 _ 下划线开头，后面可以是 其他字符和数字的组合 有时候 表达式 expression 和 语句 statement 是有区别的，所以这种情况我们会分别指明每种情况 Dart 工具可以指出两种问题：警告和错误。 警告只是说你的代码可能有问题， 但是并不会阻止你的代码执行。 错误可以是编译时错误也可以是运行时错误。遇到编译时错误时，代码将 无法执行；运行时错误将会在运行代码的时候导致一个 异常。  关键字 下表为 Dart 语言的关键字。</description>
     </item>
     
     <item>
@@ -3058,10 +3058,10 @@ public boolean uniqueOccurrences(int[] arr) {Map&amp;lt;Integer, Integer&amp;gt
     
     <item>
       <title>LeetCode算法题-合并区间</title>
-      <link>https://linjinbao.github.io/2019/20190927leetcode-suan-fa-ti-he-bing-qu-jian/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-27-leetcode%E7%AE%97%E6%B3%95%E9%A2%98-%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/</link>
       <pubDate>Fri, 27 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190927leetcode-suan-fa-ti-he-bing-qu-jian/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-27-leetcode%E7%AE%97%E6%B3%95%E9%A2%98-%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/</guid>
       <description>2019-09-27-LeetCode算法题-合并区间 LeetCode算法题-合并区间 题目描述： 给出一个区间的集合，请合并所有重叠的区间。
 示例 1: 输入: [[1,3],[2,6],[8,10],[15,18]] 输出: [[1,6],[8,10],[15,18]] 解释: 区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6]. 示例 2: 输入: [[1,4],[4,5]] 输出: [[1,5]] 解释: 区间 [1,4] 和 [4,5] 可被视为重叠区间。 思路分析：
   对给出的二维数组进行排序，使得满足每一组第一个元素都小于等于后面一组第一个元素，例如这种形式：[[1,3],[2,6],[8,10]]。
@@ -3085,10 +3085,10 @@ public static int[][] merge(int[][] intervals) {if (intervals.length==0) return
     
     <item>
       <title>MYSQL操作笔记</title>
-      <link>https://linjinbao.github.io/2019/20190927mysql-cao-zuo-bi-ji/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-27-mysql%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Fri, 27 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190927mysql-cao-zuo-bi-ji/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-27-mysql%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/</guid>
       <description>MYSQL操作笔记 修改用户密码 [官方链接]（https://dev.mysql.com/doc/mysql-windows-excerpt/5.7/en/resetting-permissions-windows.html） 方法一（老版本）：使用set password命令 格式`mysql&amp;gt; set password for username@loclhost=password(&amp;lsquo;passwd&amp;rsquo;);
 mysql&amp;gt; set password = password(&amp;#39;Gepoint&amp;#39;); Query OK, 0 rows affected (0.36 sec) 方法二：使用alter命令
 alter user &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; identified by &amp;#39;123321&amp;#39;; 方法三：修改user表
@@ -3111,10 +3111,10 @@ UPDATE mysql.userSET authentication_string = PASSWORD(&amp;#39;MyNewPass&amp;#3
     
     <item>
       <title>博客加入评论功能</title>
-      <link>https://linjinbao.github.io/2019/20190926-ge-ren-bo-ke-jia-ru-ping-lun-gong-neng/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-26-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8A%A0%E5%85%A5%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</link>
       <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190926-ge-ren-bo-ke-jia-ru-ping-lun-gong-neng/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-26-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8A%A0%E5%85%A5%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</guid>
       <description>2019-09-26-个人博客加入评论功能 个人博客加入评论功能 实现思路： 使用第三方存储，白嫖美滋滋
 按照姑苏流白的教程，我使用Valine的评论系统
 配置Valine  注册 登录账号 略过 建立应用 配置应用keys，配置项：AppID， AppKey  修改博客配置  修改config.toml配置  加入以下内容：
@@ -3137,10 +3137,10 @@ UPDATE mysql.userSET authentication_string = PASSWORD(&amp;#39;MyNewPass&amp;#3
     
     <item>
       <title>牛客网-二叉树的镜像</title>
-      <link>https://linjinbao.github.io/2019/20190926-er-cha-shu-de-jing-xiang/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-26-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%95%9C%E5%83%8F/</link>
       <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190926-er-cha-shu-de-jing-xiang/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-26-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%95%9C%E5%83%8F/</guid>
       <description>二叉树镜像 题目描述 操作给定的二叉树，将其变换为源二叉树的镜像。
 分析： 想到递归，对每一个节点有4种情况：
  当前节点为空 当前节点不为空，左子树为空 当前节点不为空，右子树为空 当前节点不为空，左右子树都为空  很显然2,3两点可以重合
@@ -3176,10 +3176,10 @@ public static void mirror(TreeNode root) {if (root==null)return;if (root.left=
     
     <item>
       <title>RabbitMq安装部署</title>
-      <link>https://linjinbao.github.io/2019/20190925rabbitmqwindows-ban-ben-bu-shu/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-25-rabbitmqwindows/</link>
       <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190925rabbitmqwindows-ban-ben-bu-shu/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-25-rabbitmqwindows/</guid>
       <description>RabbitMq-Windows版本部署 软件下载  otp_win64_R16B03-1.exe rabbitmq-server-3.6.9.exe  软件安装一路下一步，全部使用默认地址
 启动服务 进入C:\Program Files (x86)\RabbitMQ Server\rabbitmq_server-3.4.1\sbin目录，运行cmd，输入命令rabbitmq-plugins enable rabbitmq_management：
 C:\Program Files\RabbitMQ Server\rabbitmq_server-3.6.9\sbin&amp;gt; rabbitmq-plugins enable rabbitmq_management The following plugins have been enabled: amqp_client cowlib cowboy rabbitmq_web_dispatch rabbitmq_management_agent rabbitmq_management Applying plugin configuration to rabbit@DESKTOP-I1CQLLJ... started 6 plugins. C:\Program Files\RabbitMQ Server\rabbitmq_server-3.6.9\sbin&amp;gt; 其他 相关命令：
@@ -3203,10 +3203,10 @@ C:\Program Files\RabbitMQ Server\rabbitmq_server-3.6.9\sbin&amp;gt; rabbitmq-plu
     
     <item>
       <title>牛客网题目-树的子结构</title>
-      <link>https://linjinbao.github.io/2019/20190925-shu-de-zi-jie-gou/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-25-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/</link>
       <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190925-shu-de-zi-jie-gou/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-25-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/</guid>
       <description>2019-09-25-树的子结构 题目名称：树的子结构 题目描述 输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）
 分析： 第一想法是递归，只要是树，我就上递归。分析情况有以下3种：
  当前root1节点=当前root2节点 当前root1节点！=当前root2节点，但是root1.left和root2节点相等 当前root1节点！=当前root2节点，但是root1.right和root2节点相等  所以需要一个辅助函数helper
@@ -3230,10 +3230,10 @@ public static boolean hasSubtree(TreeNode root1, TreeNode root2) {if (root1==nu
     
     <item>
       <title>Mongodb安装与使用</title>
-      <link>https://linjinbao.github.io/2019/20190924mongodb-an-zhuang/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-24-mongodb/</link>
       <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190924mongodb-an-zhuang/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-24-mongodb/</guid>
       <description>Mongodb安装与使用 背景知识 最近在项目实施过程中遇到一个问题：由于客户提供的Linux机器没有最下滑化安装，导致使用公司的bin包方式安装Mongodb失败。本着能自己解决就自己解决的态度，我开始了Mongodb的研究。
 安装和启动   下载
 因为centos的官放的yum源中没有提供Mongodb的安装包，此时我们需要自己下载下来（也可以修改yum源，不推荐） 执行命令wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.0.tgz 下载安装包
@@ -3271,10 +3271,10 @@ cd /usr/mongodbchmod 777 dbchmod 777 log` 管他呢，全部777
     
     <item>
       <title>MySQL一键备份脚本</title>
-      <link>https://linjinbao.github.io/2019/20190924mysql-yi-jian-bei-fen-jiao-ben/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-24-mysql%E4%B8%80%E4%BB%B6%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190924mysql-yi-jian-bei-fen-jiao-ben/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-24-mysql%E4%B8%80%E4%BB%B6%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</guid>
       <description>MySQL一键备份脚本 备份脚本-Windows版本 脚本下载
 @echo off pause set year=%Date:~0,4% set month=%Date:~5,2% set day=%Date:~8,2% set address=f:\ set host=localhost set user=root set password=123321 set mysqlpath=D:\epoint_mysql_5.7.24\mysql-5.7.24-winx64\bin\mysqldump.exe set port=3306 rem 用户输入： set /p address=备份地址(例如：F:\) set /p mysqlpath=请输入MySQL安装，不输入则使用默认地址D:\epoint_mysql_5.7.24\mysql-5.7.24-winx64\bin\mysqldump.exe set /p host=请输入主机地址（默认localhost） set /p user=请输入数据库用户名：（默认root） set /p password=请输入数据库密码：(默认123321) set /p port=请输入端口号（默认3306） set /p dbname=请输入数据库名称 rem 用户输入结束： echo 用户输入结束，备份地址为%address%； 数据库用户名为：%user%；数据库密码为：%password%; pause set backupfile=%address%%year%-%month%-%day%-%dbname%.sql echo 备份文件: %backupfile% pause %mysqlpath% -u%user% -p%password% %dbname% &amp;gt; %backupfile% echo 请检查数据库备份是否成功，备份文件为%backupfile% echo 欢迎下次使用 pause exit 备份脚本-Linux版本 待续</description>
     </item>
@@ -3291,10 +3291,10 @@ cd /usr/mongodbchmod 777 dbchmod 777 log` 管他呢，全部777
     
     <item>
       <title>GitHub博客教程</title>
-      <link>https://linjinbao.github.io/2019/20190923github-bo-ke/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-23-%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190923github-bo-ke/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-23-%E5%8D%9A%E5%AE%A2/</guid>
       <description>GitHub博客 作为一名程序员，每天的学习必不可少，但是，如果只是乱糟糟的学习，而不懂得如何去记笔记，那效率可想而知。一个技术博客，是大多数程序员的必须品。漂亮的博客，让工作顺心，让学习更有效率，更有动力。今天，我来教大家如何利用GitHub提供的免费服务，打造自己的专属博客，白嫖美滋滋。
 前期准备；   GitHub账号
   Hugo 软件
@@ -3324,10 +3324,10 @@ F:\&amp;gt;tree卷 新加卷 的文件夹 PATH 列表卷序列号为 F4A2-CDCD
     
     <item>
       <title>windows常用批处理命令</title>
-      <link>https://linjinbao.github.io/2019/20190923windows-chang-yong-pi-chu-li-ming-ling/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-23-windows/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190923windows-chang-yong-pi-chu-li-ming-ling/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-23-windows/</guid>
       <description>Windows批处理 常用dos命令 echo 打印 dir 列文件名 cd　改变当前目录 ren 改变文件名 copy　拷贝文件 del 删除文件 md　建立子目录 rd　删除目录 deltree　删除目录树 format　格式化磁盘 edit　文本编辑 type　显示文件内容 mem 查看内存状况 ## 以下是新增加的命令 help　显示帮助提示 cls 清屏 move　移动文件，改目录名 more　分屏显示 xcopy 拷贝目录和文件 显示篇  echo @ 和 pause 在DOS命令提示符中使用 echo /?可以获得对 echo 用法的解释。echo on 用于打开命令的回显；echo off 用于关闭命令的回显(默认情况下，ehco 是处于打开状态的)。只输入 echo 可以获得当前的回显状态(是否处于打开状态)。输入 echo 再加一段文字，例如 echo Hello world! 可以显示出 Hello world! 这句信息。 @ ，如果在某一条命令最前面加上 @ ，那么这一行命令就不会显示出来。与 echo off 有着相似之处。 echo off 以后的所有命令本身都不再显示出来；而 @ 只是将当前那一行的命令不显示出来。然而，至于命令所产生的输出结果，仍然会显示出来。这看起来似乎有些拗口，但我们会通过例子来很容易地理解它们。 pause ，从字面上看就是暂停的意思，效果等同于将程序挂起，在按下任意键后才继续。 &amp;gt; 和 &amp;gt;&amp;gt; &amp;gt; 表示将输出结果打印到某处。比如： echo Hello world!</description>
     </item>
     
@@ -3342,11 +3342,11 @@ F:\&amp;gt;tree卷 新加卷 的文件夹 PATH 列表卷序列号为 F4A2-CDCD
     
     <item>
       <title>合并两个排序的链表</title>
-      <link>https://linjinbao.github.io/2019/20190923-he-bing-liang-ge-zhong-fu-lian-biao/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-23-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%8E%92%E5%BA%8F%E7%9A%84%E9%93%BE%E8%A1%A8/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190923-he-bing-liang-ge-zhong-fu-lian-biao/</guid>
-      <description>[牛客网]-合并两个排序的链表 题目描述： 输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则
+      <guid>https://linjinbao.github.io/2019/2019-09-23-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%8E%92%E5%BA%8F%E7%9A%84%E9%93%BE%E8%A1%A8/</guid>
+      <description>牛客网-合并两个排序的链表 题目描述： 输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则
 解答： package nowcoder; /** * 合并两个排序的链表 */ public class Merge { public static ListNode merge(ListNode list1,ListNode list2) { ListNode head = new ListNode(-1); head.next = null; ListNode root = head; while (list1!=null &amp;amp;&amp;amp; list2!=null){ if (list1.val &amp;lt; list2.val){ head.next = list1; head = list1; list1 = list1.next; }else { head.next = list2; head = list2; list2 = list2.next; } } if (list1==null)head.next = list1; if (list2==null)head.next = list2; return root.</description>
     </item>
     
@@ -3362,10 +3362,10 @@ F:\&amp;gt;tree卷 新加卷 的文件夹 PATH 列表卷序列号为 F4A2-CDCD
     
     <item>
       <title>第155场周赛--LeetCode</title>
-      <link>https://linjinbao.github.io/2019/20190922-di-155-chang-zhou-sai/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-22-%E7%AC%AC155%E5%9C%BA%E5%91%A8%E8%B5%9B/</link>
       <pubDate>Sun, 22 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190922-di-155-chang-zhou-sai/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-22-%E7%AC%AC155%E5%9C%BA%E5%91%A8%E8%B5%9B/</guid>
       <description>第 155 场周赛&amp;ndash;LeetCode 第一题：最小绝对差 题目描述： 给你个整数数组 arr，其中每个元素都 不相同。 请你找到所有具有最小绝对差的元素对，并且按升序的顺序返回。 示例 1：
 输入：arr = [4,2,1,3] 输出：[[1,2],[2,3],[3,4]] 示例 2：
 输入：arr = [1,3,6,10,15] 输出：[[1,3]] 示例 3：
@@ -3392,16 +3392,15 @@ package compete;import java.util.ArrayList;import java.util.Arrays;import jav
     
     <item>
       <title>netcat使用教程</title>
-      <link>https://linjinbao.github.io/2019/20190921netcat-shi-yong-jiao-cheng/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-21-netcat%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link>
       <pubDate>Sat, 21 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190921netcat-shi-yong-jiao-cheng/</guid>
-      <description>2019-09-21-netcat使用教程 @author linjinbao666@gmail.com fork me on github
+      <guid>https://linjinbao.github.io/2019/2019-09-21-netcat%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid>
+      <description>netcat使用教程 @author linjinbao666@gmail.com fork me on github
 netcat简介 netcat 一般简称为 nc，直译为中文就是“网猫”，被誉为——【网络上的瑞士军刀】。它诞生于1995年，在网络安全社区的名气很大（就如同 AK47 在军事领域的名气）。长期在安全圈内混的人，应该都知道它。想当年，insecure.org 网站在本世纪初搞过几次“年度投票”，评选优秀的安全工具。每次投票，netcat 都能排进前几名。参考链接
-nc命令行简介 形式： nc 命令选项 主机 端口 命令选项 这部分可能包含 0~N 个选项 （注：这部分最复杂，下一个小节单独聊） 主机 这部分可能没有，可能以“点分十进制”形式表示，也可能以“域名”形式表示。 端口 这部分可能没有，可能是单个端口，可能是端口范围（以减号分隔）
-举例：
+nc命令行简介 形式： nc 命令选项 主机 端口 命令选项 这部分可能包含 0~N 个选项 （注：这部分最复杂，下一个小节单独聊） 主机 这部分可能没有，可能以“点分十进制”形式表示，也可能以“域名”形式表示。 端口 这部分可能没有，可能是单个端口，可能是端口范围（以减号分隔） 举例：
 nc -l -p 12345 -v 在这个例子中，分别用到了三个选项（l、v、p），其中 12345 是选项 p 所带的【选项值】
-常用的命令行选项    选项 是否有选项值 说明     h NO 输出 nc 的帮助   v NO 在网络通讯时，显示详细的输出信息    注：建议新手多用该选项，出错时帮你诊断问题| | n| No| 对命令行中的“主机”，【不】进行域名解析 | | p | YES | 指定“端口号” |</description>
+常用的命令行选项    选项 是否有选项值 说明     h NO 输出 nc 的帮助   v NO 在网络通讯时，显示详细的输出信息   注：建议新手多用该选项，出错时帮你诊断问题| | n| No| 对命令行中的“主机”，【不】进行域名解析 | | p | YES | 指定“端口号” |     命令行合写形式：      nc -lp 12345 -v nc -l -v -p 12345 nc -lv -p 12345 nc -lvp 12345 使用场景一：（网络诊断）测试某个远程主机的【监听】端口是否可达 nc -nv x.</description>
     </item>
     
     <item>
@@ -3420,10 +3419,10 @@ nc -l -p 12345 -v在这个例子中，分别用到了三个选项（l、v、p�
     
     <item>
       <title>排序算法总结</title>
-      <link>https://linjinbao.github.io/2019/20190914-suan-fa-pai-xu-zong-jie/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-14-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</link>
       <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190914-suan-fa-pai-xu-zong-jie/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-14-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
       <description>排序总结 冒泡排序 原理：每次比较两个相邻的元素，将较大元素交换至右端 特点：每次循环结束，会出现一个排序好的元素，右侧 理解：大的数右移，重复此过程 代码：
 public static void bubbleSort(int[] nums){ for (int i=0; i&amp;lt;nums.length-1; i++){ //第i次循环找出第i小的元素0&amp;lt;=i&amp;lt;=length-1  for (int j=0; j&amp;lt;nums.length-1-i; j++){ if (nums[j+1]&amp;lt;nums[j]){ int tmp = nums[j]; nums[j] = nums[j+1]; nums[j+1] = tmp; } for (int num : nums) System.out.print(num+&amp;#34;\t&amp;#34;); System.out.println(); } } } 优化：使用flag标记是否已经有序
 选择排序 原理：每次循环找出最小的元素于左侧，每次循环都从剩余未排序系列找出最小的元素 代码：
@@ -3444,11 +3443,11 @@ public static void bubbleSort(int[] nums){for (int i=0; i&amp;lt;nums.length-1;
     
     <item>
       <title>Linux笔记</title>
-      <link>https://linjinbao.github.io/2019/20190913-bi-ji/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-13-linux%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190913-bi-ji/</guid>
-      <description>2019-09-13-笔记 查找软件包rsync rpm -qa | grep rsync 客户端拉取 rsync -av root@192.168.59.130::backup /home/ljbao/ 打印指定行数据 sed -n &amp;#39;10,10p&amp;#39; file.txt cat file.txt | head -n 10 | tail -n +10 awk使用 awk &amp;#39;{print $2} {print $1}&amp;#39; emp.data crond使用 service crond start //启动服务 service crond stop //关闭服务 service crond restart //重启服务 service crond reload //重新载入配置 service crond status //查看服务状态 第一步：写cron脚本文件,命名为crontest.cron。 15,30,45,59 * * * * echo &amp;quot;xgmtest.....&amp;quot; &amp;gt;&amp;gt; xgmtest.txt 表示，每隔15分钟，执行打印一次命令 第二步：添加定时任务。执行命令 crontab crontest.cron。搞定 第三步：crontab -l查看定时任务是否成功或者检测/var/spool/cron下是否生成对应cron脚本</description>
+      <guid>https://linjinbao.github.io/2019/2019-09-13-linux%E7%AC%94%E8%AE%B0/</guid>
+      <description>笔记 查找软件包rsync rpm -qa | grep rsync 客户端拉取 rsync -av root@192.168.59.130::backup /home/ljbao/ 打印指定行数据 sed -n &amp;#39;10,10p&amp;#39; file.txt cat file.txt | head -n 10 | tail -n +10 awk使用 awk &amp;#39;{print $2} {print $1}&amp;#39; emp.data crond使用 service crond start //启动服务 service crond stop //关闭服务 service crond restart //重启服务 service crond reload //重新载入配置 service crond status //查看服务状态 第一步：写cron脚本文件,命名为crontest.cron。 15,30,45,59 * * * * echo &amp;quot;xgmtest.....&amp;quot; &amp;gt;&amp;gt; xgmtest.txt 表示，每隔15分钟，执行打印一次命令 第二步：添加定时任务。执行命令 crontab crontest.cron。搞定 第三步：crontab -l查看定时任务是否成功或者检测/var/spool/cron下是否生成对应cron脚本</description>
     </item>
     
     <item>
@@ -3462,11 +3461,11 @@ public static void bubbleSort(int[] nums){for (int i=0; i&amp;lt;nums.length-1;
     
     <item>
       <title>Redis笔记</title>
-      <link>https://linjinbao.github.io/2019/20190729redis-bi-ji/</link>
+      <link>https://linjinbao.github.io/2019/2019-07-29-redis%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190729redis-bi-ji/</guid>
-      <description>2019-07-29-Redis笔记 key -value结构 Redis目前有5种数据类型，分别是：
+      <guid>https://linjinbao.github.io/2019/2019-07-29-redis%E7%AC%94%E8%AE%B0/</guid>
+      <description>Redis笔记 key-value结构 Redis目前有5种数据类型，分别是：
 String（字符串） List（列表） Hash（字典） Set（集合） Sorted Set（有序集合） 不同的数据类型，有不同的命令方式
 String 操作
 set google http://www.google append google .com get google set visitors 0 incr visitors incr visitors get visitors incrby visitors 100 get visitors type google type visitors ttl google rename google google-site get google get google-site String 手册
@@ -3488,11 +3487,11 @@ SET key value 设置key=valueGET key 获得键key对应的值GETRANGE key star
     
     <item>
       <title>MYSQL笔记</title>
-      <link>https://linjinbao.github.io/2019/20190728mysql-bi-ji/</link>
+      <link>https://linjinbao.github.io/2019/2019-07-28-mysql%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Sun, 28 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190728mysql-bi-ji/</guid>
-      <description>2019-07-28-MYSQL笔记 UUID select uuid(); 存储过程 存储过程（Stored Procedure）是一种在数据库中存储复杂程序，以便外部程序调用的一种数据库对象。 存储过程是为了完成特定功能的SQL语句集，经编译创建并保存在数据库中，用户可通过指定存储过程的名字并给定参数(需要时)来调用执行。 创建存储过程
+      <guid>https://linjinbao.github.io/2019/2019-07-28-mysql%E7%AC%94%E8%AE%B0/</guid>
+      <description>MYSQL笔记 UUID select uuid(); 存储过程 存储过程（Stored Procedure）是一种在数据库中存储复杂程序，以便外部程序调用的一种数据库对象。 存储过程是为了完成特定功能的SQL语句集，经编译创建并保存在数据库中，用户可通过指定存储过程的名字并给定参数(需要时)来调用执行。 创建存储过程
 DELIMITER // CREATE PROCEDURE getAllUsers() BEGIN SELECT * FROM `user`; END // DELIMITER ; CALL getAllUsers(); 调用存储过程
 CALL getAllUsers(); 触发器 CREATE TRIGGER add_userTime BEFORE INSERT on `user` for each ROW INSERT INTO usercreatetime(create_time) VALUES(now()); 创建表 DROP TABLE IF EXISTS `user`; CREATE TABLE `user` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `account` varchar(255) DEFAULT NULL, `name` varchar(255) DEFAULT NULL, `address` varchar(255) DEFAULT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8; DROP TABLE IF EXISTS `user_history`; CREATE TABLE `user_history` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `user_id` bigint(20) NOT NULL, `operatetype` varchar(200) NOT NULL, `operatetime` datetime NOT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8; 创建触发器 DROP TRIGGER IF EXISTS `tri_insert_user` delimiter ;; CREATE TRIGGER `tri_insert_user` AFTER INSERT ON `user` FOR EACH ROW BEGIN INSERT INTO user_history(user_id, operatetype, operatetime) VALUES (new.</description>
     </item>
@@ -3527,11 +3526,11 @@ https://www.appmews.com/bubbles/ssr https://www.ssrtool.com/tool/free_s5 https:/
     
     <item>
       <title>Docker常用操作教程</title>
-      <link>https://linjinbao.github.io/2019/20190705docker-chang-yong-cao-zuo-jiao-cheng/</link>
+      <link>https://linjinbao.github.io/2019/2019-07-05-docker%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%95%99%E7%A8%8B/</link>
       <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190705docker-chang-yong-cao-zuo-jiao-cheng/</guid>
-      <description>2019-07-05-Docker常用操作教程 Docker笔记 Docker安装 yum install docker -y systemctl start docker.service systemctl status docker.service systemctl stop docker.service systemctl start docker.service systemctl restart docker.service systemctl status docker.service Docker卸载 1.搜索已经安装的Docker保
+      <guid>https://linjinbao.github.io/2019/2019-07-05-docker%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%95%99%E7%A8%8B/</guid>
+      <description>Docker常用操作教程 Docker笔记 Docker安装 yum install docker -y systemctl start docker.service systemctl status docker.service systemctl stop docker.service systemctl start docker.service systemctl restart docker.service systemctl status docker.service Docker卸载 1.搜索已经安装的Docker保
 yum list installed|grep docker rpm -qa|grep docker 2.分别删除安装包
 yum –y remove docker.x86_64 3.删除docker 镜像
 rm -rf /var/lib/docker 部署项目 1.配置DNS
@@ -3555,11 +3554,11 @@ sudo mkdir -p /etc/dockersudo tee /etc/docker/daemon.json &amp;lt;&amp;lt;-&amp
     
     <item>
       <title>ssm整合</title>
-      <link>https://linjinbao.github.io/2019/20190701ssm-zheng-he/</link>
+      <link>https://linjinbao.github.io/2019/2019-07-01-ssm%E6%95%B4%E5%90%88/</link>
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190701ssm-zheng-he/</guid>
-      <description>2019-07-01-ssm整合 pom.xml &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;project xmlns=&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemaLocation=&amp;quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;groupId&amp;gt;tk.amrom&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;crms&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;packaging&amp;gt;war&amp;lt;/packaging&amp;gt; &amp;lt;name&amp;gt;crms Maven Webapp&amp;lt;/name&amp;gt; &amp;lt;!-- FIXME change it to the project&#39;s website --&amp;gt; &amp;lt;url&amp;gt;http://www.example.com&amp;lt;/url&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt; &amp;lt;maven.compiler.source&amp;gt;1.8&amp;lt;/maven.compiler.source&amp;gt; &amp;lt;maven.compiler.target&amp;gt;1.8&amp;lt;/maven.compiler.target&amp;gt; &amp;lt;spring.version&amp;gt;3.1.0.RELEASE&amp;lt;/spring.version&amp;gt; &amp;lt;/properties&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.11&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;compile&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!--spring核心包--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-context&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${spring.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-core&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${spring.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-beans&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${spring.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-context-support&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${spring.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-aop&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${spring.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-aspects&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${spring.</description>
+      <guid>https://linjinbao.github.io/2019/2019-07-01-ssm%E6%95%B4%E5%90%88/</guid>
+      <description>ssm整合 pom.xml &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;project xmlns=&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemaLocation=&amp;quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;groupId&amp;gt;tk.amrom&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;crms&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;packaging&amp;gt;war&amp;lt;/packaging&amp;gt; &amp;lt;name&amp;gt;crms Maven Webapp&amp;lt;/name&amp;gt; &amp;lt;!-- FIXME change it to the project&#39;s website --&amp;gt; &amp;lt;url&amp;gt;http://www.example.com&amp;lt;/url&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt; &amp;lt;maven.compiler.source&amp;gt;1.8&amp;lt;/maven.compiler.source&amp;gt; &amp;lt;maven.compiler.target&amp;gt;1.8&amp;lt;/maven.compiler.target&amp;gt; &amp;lt;spring.version&amp;gt;3.1.0.RELEASE&amp;lt;/spring.version&amp;gt; &amp;lt;/properties&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.11&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;compile&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;!--spring核心包--&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-context&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${spring.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-core&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${spring.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-beans&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${spring.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-context-support&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${spring.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-aop&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${spring.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-aspects&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${spring.</description>
     </item>
     
     <item>
@@ -3626,11 +3625,11 @@ Vue 测试实例
     
     <item>
       <title>修复Office文件默认图标</title>
-      <link>https://linjinbao.github.io/2019/20190405-xiu-fu-office-wen-jian-mo-ren-tu-biao/</link>
+      <link>https://linjinbao.github.io/2019/2019-04-05-%E4%BF%AE%E5%A4%8Doffice%E6%96%87%E4%BB%B6%E9%BB%98%E8%AE%A4%E5%9B%BE%E6%A0%87/</link>
       <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190405-xiu-fu-office-wen-jian-mo-ren-tu-biao/</guid>
-      <description>2019-04-05-修复office文件默认图标 rem 修复office文件默认图标.bat :: office图标文件路径，请根据自己电脑上的安装目录设置 set officepath=C:\Program Files\Microsoft Office\root\vfs\Windows\Installer\{90160000-000F-0000-1000-0000000FF1CE}\ :: 修复word图标 reg add &amp;#34;HKCR\Word.Document.8\DefaultIcon&amp;#34; /ve /t REG_SZ /d &amp;#34;%officepath%WORDICON.EXE,1&amp;#34; reg delete &amp;#34;HKCR\Word.Document.8\DefaultIcon&amp;#34; /v .ksobak reg add &amp;#34;HKCR\Word.Document.12\DefaultIcon&amp;#34; /ve /t REG_SZ /d &amp;#34;%officepath%WORDICON.EXE,13&amp;#34; :: 此行为删除wps残留注册表文件，下同 reg delete &amp;#34;HKCR\Word.Document.12\DefaultIcon&amp;#34; /v .ksobak :: 修复EXCEL图标 reg add &amp;#34;HKCR\Excel.Sheet.8\DefaultIcon&amp;#34; /ve /t REG_SZ /d &amp;#34;%officepath%XLICONS.EXE,28&amp;#34; reg delete &amp;#34;HKCR\Excel.Sheet.8\DefaultIcon&amp;#34; /v .ksobak reg add &amp;#34;HKCR\Excel.Sheet.12\DefaultIcon&amp;#34; /ve /t REG_SZ /d &amp;#34;%officepath%XLICONS.EXE,1&amp;#34; reg delete &amp;#34;HKCR\Excel.Sheet.12\DefaultIcon&amp;#34; /v .ksobak :: 修复POWERPNT图标 reg add &amp;#34;HKCR\PowerPoint.</description>
+      <guid>https://linjinbao.github.io/2019/2019-04-05-%E4%BF%AE%E5%A4%8Doffice%E6%96%87%E4%BB%B6%E9%BB%98%E8%AE%A4%E5%9B%BE%E6%A0%87/</guid>
+      <description>修复office文件默认图标 rem 修复office文件默认图标.bat :: office图标文件路径，请根据自己电脑上的安装目录设置 set officepath=C:\Program Files\Microsoft Office\root\vfs\Windows\Installer\{90160000-000F-0000-1000-0000000FF1CE}\ :: 修复word图标 reg add &amp;#34;HKCR\Word.Document.8\DefaultIcon&amp;#34; /ve /t REG_SZ /d &amp;#34;%officepath%WORDICON.EXE,1&amp;#34; reg delete &amp;#34;HKCR\Word.Document.8\DefaultIcon&amp;#34; /v .ksobak reg add &amp;#34;HKCR\Word.Document.12\DefaultIcon&amp;#34; /ve /t REG_SZ /d &amp;#34;%officepath%WORDICON.EXE,13&amp;#34; :: 此行为删除wps残留注册表文件，下同 reg delete &amp;#34;HKCR\Word.Document.12\DefaultIcon&amp;#34; /v .ksobak :: 修复EXCEL图标 reg add &amp;#34;HKCR\Excel.Sheet.8\DefaultIcon&amp;#34; /ve /t REG_SZ /d &amp;#34;%officepath%XLICONS.EXE,28&amp;#34; reg delete &amp;#34;HKCR\Excel.Sheet.8\DefaultIcon&amp;#34; /v .ksobak reg add &amp;#34;HKCR\Excel.Sheet.12\DefaultIcon&amp;#34; /ve /t REG_SZ /d &amp;#34;%officepath%XLICONS.EXE,1&amp;#34; reg delete &amp;#34;HKCR\Excel.Sheet.12\DefaultIcon&amp;#34; /v .ksobak :: 修复POWERPNT图标 reg add &amp;#34;HKCR\PowerPoint.</description>
     </item>
     
     <item>

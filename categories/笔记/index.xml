@@ -83,10 +83,10 @@ function component() {var element = document.createElement(&#39;div&#39;);// L
     
     <item>
       <title>MYSQL操作笔记</title>
-      <link>https://linjinbao.github.io/2019/20190927mysql-cao-zuo-bi-ji/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-27-mysql%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Fri, 27 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190927mysql-cao-zuo-bi-ji/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-27-mysql%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/</guid>
       <description>MYSQL操作笔记 修改用户密码 [官方链接]（https://dev.mysql.com/doc/mysql-windows-excerpt/5.7/en/resetting-permissions-windows.html） 方法一（老版本）：使用set password命令 格式`mysql&amp;gt; set password for username@loclhost=password(&amp;lsquo;passwd&amp;rsquo;);
 mysql&amp;gt; set password = password(&amp;#39;Gepoint&amp;#39;); Query OK, 0 rows affected (0.36 sec) 方法二：使用alter命令
 alter user &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; identified by &amp;#39;123321&amp;#39;; 方法三：修改user表

@@ -35,11 +35,11 @@ firewall-cmd相关命令(对域操作) firewall-cmd --state //查看状态firew
     
     <item>
       <title>Linux笔记</title>
-      <link>https://linjinbao.github.io/2019/20190913-bi-ji/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-13-linux%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20190913-bi-ji/</guid>
-      <description>2019-09-13-笔记 查找软件包rsync rpm -qa | grep rsync 客户端拉取 rsync -av root@192.168.59.130::backup /home/ljbao/ 打印指定行数据 sed -n &amp;#39;10,10p&amp;#39; file.txt cat file.txt | head -n 10 | tail -n +10 awk使用 awk &amp;#39;{print $2} {print $1}&amp;#39; emp.data crond使用 service crond start //启动服务 service crond stop //关闭服务 service crond restart //重启服务 service crond reload //重新载入配置 service crond status //查看服务状态 第一步：写cron脚本文件,命名为crontest.cron。 15,30,45,59 * * * * echo &amp;quot;xgmtest.....&amp;quot; &amp;gt;&amp;gt; xgmtest.txt 表示，每隔15分钟，执行打印一次命令 第二步：添加定时任务。执行命令 crontab crontest.cron。搞定 第三步：crontab -l查看定时任务是否成功或者检测/var/spool/cron下是否生成对应cron脚本</description>
+      <guid>https://linjinbao.github.io/2019/2019-09-13-linux%E7%AC%94%E8%AE%B0/</guid>
+      <description>笔记 查找软件包rsync rpm -qa | grep rsync 客户端拉取 rsync -av root@192.168.59.130::backup /home/ljbao/ 打印指定行数据 sed -n &amp;#39;10,10p&amp;#39; file.txt cat file.txt | head -n 10 | tail -n +10 awk使用 awk &amp;#39;{print $2} {print $1}&amp;#39; emp.data crond使用 service crond start //启动服务 service crond stop //关闭服务 service crond restart //重启服务 service crond reload //重新载入配置 service crond status //查看服务状态 第一步：写cron脚本文件,命名为crontest.cron。 15,30,45,59 * * * * echo &amp;quot;xgmtest.....&amp;quot; &amp;gt;&amp;gt; xgmtest.txt 表示，每隔15分钟，执行打印一次命令 第二步：添加定时任务。执行命令 crontab crontest.cron。搞定 第三步：crontab -l查看定时任务是否成功或者检测/var/spool/cron下是否生成对应cron脚本</description>
     </item>
     
     <item>
