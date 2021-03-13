@@ -13,24 +13,11 @@
     
     <item>
       <title>Linux端口扫描</title>
-      <link>https://linjinbao.github.io/2019/20191205linux-duan-kou-sao-miao/</link>
+      <link>https://linjinbao.github.io/2019/2019-12-05-linux%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/</link>
       <pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191205linux-duan-kou-sao-miao/</guid>
-      <description>2019-12-05-Linux端口扫描 Linux扫描网段主机是否可通   单纯扫描
-```shell
-!/bin/sh
-  declare -i I=1 declare -i S=100 while [ $I -le $S ] ; do IP=&amp;quot;192.168.1.$I&amp;rdquo; STATE=ping $IP -c 1 | grep time=0. | awk &#39;{print $8}&#39; echo -n &amp;ldquo;$IP &amp;quot; if [ &amp;ldquo;$STATE&amp;rdquo; = &amp;ldquo;ms&amp;rdquo; ] ; then echo &amp;ldquo;yes&amp;rdquo; else echo &amp;ldquo;no&amp;rdquo; fi I+=1 done
-2. 扫描并打印 ```shell #!/bin/sh declare -i I=1 declare -i S=100 while [ $I -le $S ] ; do IP=&amp;#34;192.</description>
-    </item>
-    
-    <item>
-      <title>Linux端口扫描</title>
-      <link>https://linjinbao.github.io/2019/linux%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/</link>
-      <pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/linux%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/</guid>
-      <description>Linux扫描网段主机是否可通  单纯扫描  #!/bin/shdeclare -i I=1declare -i S=100while [ $I -le $S ] ; doIP=&amp;#34;192.168.1.$I&amp;#34;STATE=`ping $IP -c 1 | grep time=0. | awk &amp;#39;{print $8}&amp;#39;`echo -n &amp;#34;$IP&amp;#34;if [ &amp;#34;$STATE&amp;#34; = &amp;#34;ms&amp;#34; ] ; thenecho &amp;#34;yes&amp;#34;elseecho &amp;#34;no&amp;#34;fiI+=1done扫描并打印  #!/bin/shdeclare -i I=1declare -i S=100while [ $I -le $S ] ; doIP=&amp;#34;192.168.1.$I&amp;#34;STATE=`ping $IP -c 1 | grep time=0.</description>
+      <guid>https://linjinbao.github.io/2019/2019-12-05-linux%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/</guid>
+      <description>2019-12-05-Linux端口扫描 Linux扫描网段主机是否可通  单纯扫描  ##!/bin/sh declare -i I=1 declare -i S=100 while \[ $I -le $S \] ; do IP=&amp;#34;192.168.1.$I&amp;#34; STATE=`ping $IP -c 1 | grep time=0. | awk &amp;#39;{print $8}&amp;#39;` echo -n &amp;#34;$IP&amp;#34; if \[ &amp;#34;$STATE&amp;#34; = &amp;#34;ms&amp;#34; \] ; then echo &amp;#34;yes&amp;#34; else echo &amp;#34;no&amp;#34; fi I+=1 done 扫描并打印  #!/bin/sh  declare -i I=1 declare -i S=100 while [ $I -le $S ] ; do IP=&amp;#34;192.168.1.$I&amp;#34; STATE=`ping $IP -c 1 | grep time=0.</description>
     </item>
     
     <item>
@@ -47,35 +34,12 @@ nc -l -p 12345 -v 在这个例子中，分别用到了三个选项（l、v、p�
     </item>
     
     <item>
-      <title>netcat使用教程</title>
-      <link>https://linjinbao.github.io/2019/netcat%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link>
-      <pubDate>Sat, 21 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/netcat%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid>
-      <description>@author linjinbao666@gmail.com fork me on github
-netcat简介 netcat 一般简称为 nc，直译为中文就是“网猫”，被誉为——【网络上的瑞士军刀】。它诞生于1995年，在网络安全社区的名气很大（就如同 AK47 在军事领域的名气）。长期在安全圈内混的人，应该都知道它。想当年，insecure.org 网站在本世纪初搞过几次“年度投票”，评选优秀的安全工具。每次投票，netcat 都能排进前几名。参考链接
-nc命令行简介 形式： nc 命令选项 主机 端口 命令选项 这部分可能包含 0~N 个选项 （注：这部分最复杂，下一个小节单独聊） 主机 这部分可能没有，可能以“点分十进制”形式表示，也可能以“域名”形式表示。 端口 这部分可能没有，可能是单个端口，可能是端口范围（以减号分隔）
-举例：
-nc -l -p 12345 -v在这个例子中，分别用到了三个选项（l、v、p），其中 12345 是选项 p 所带的【选项值】
-常用的命令行选项    选项 是否有选项值 说明      h NO 输出 nc 的帮助    v NO 在网络通讯时，显示详细的输出信息    注：建议新手多用该选项，出错时帮你诊断问题      n No 对命令行中的“主机”，【不】进行域名解析    p YES 指定“端口号”     命令行合写形式：</description>
-    </item>
-    
-    <item>
       <title>Linux笔记</title>
       <link>https://linjinbao.github.io/2019/2019-09-13-linux%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://linjinbao.github.io/2019/2019-09-13-linux%E7%AC%94%E8%AE%B0/</guid>
       <description>笔记 查找软件包rsync rpm -qa | grep rsync 客户端拉取 rsync -av root@192.168.59.130::backup /home/ljbao/ 打印指定行数据 sed -n &amp;#39;10,10p&amp;#39; file.txt cat file.txt | head -n 10 | tail -n +10 awk使用 awk &amp;#39;{print $2} {print $1}&amp;#39; emp.data crond使用 service crond start //启动服务 service crond stop //关闭服务 service crond restart //重启服务 service crond reload //重新载入配置 service crond status //查看服务状态 第一步：写cron脚本文件,命名为crontest.cron。 15,30,45,59 * * * * echo &amp;quot;xgmtest.....&amp;quot; &amp;gt;&amp;gt; xgmtest.txt 表示，每隔15分钟，执行打印一次命令 第二步：添加定时任务。执行命令 crontab crontest.cron。搞定 第三步：crontab -l查看定时任务是否成功或者检测/var/spool/cron下是否生成对应cron脚本</description>
-    </item>
-    
-    <item>
-      <title>Linux笔记</title>
-      <link>https://linjinbao.github.io/2019/%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/%E7%AC%94%E8%AE%B0/</guid>
-      <description>查找软件包rsync rpm -qa | grep rsync客户端拉取 rsync -av root@192.168.59.130::backup /home/ljbao/打印指定行数据 sed -n &#39;10,10p&#39; file.txtcat file.txt | head -n 10 | tail -n +10awk使用 awk &amp;#39;{print $2} {print $1}&amp;#39; emp.datacrond使用 service crond start //启动服务service crond stop //关闭服务service crond restart //重启服务service crond reload //重新载入配置service crond status //查看服务状态 第一步：写cron脚本文件,命名为crontest.cron。 15,30,45,59 * * * * echo &amp;quot;xgmtest.....&amp;quot; &amp;gt;&amp;gt; xgmtest.txt  表示，每隔15分钟，执行打印一次命令 第二步：添加定时任务。执行命令 crontab crontest.cron。搞定 第三步：crontab -l查看定时任务是否成功或者检测/var/spool/cron下是否生成对应cron脚本</description>
     </item>
     
   </channel>

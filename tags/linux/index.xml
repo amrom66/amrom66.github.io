@@ -6,50 +6,66 @@
     <description>Recent content in Linux on 打工人日记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 21 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://linjinbao.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>cent7修改仓库</title>
+      <link>https://linjinbao.github.io/2020/2020-02-21-centos7%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93/</link>
+      <pubDate>Fri, 21 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2020/2020-02-21-centos7%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93/</guid>
+      <description>2020-02-21-centos7修改仓库  首先备份  /etc/yum.repos.d/CentOS-Base.repo mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup  进入yum源配置文件所在文件夹  [root@localhost yum.repos.d]# cd /etc/yum.repos.d/</description>
+    </item>
+    
+    <item>
       <title>搭建12306抢票服务</title>
-      <link>https://linjinbao.github.io/2020/20200117-da-jian-12306-qiang-piao-fu-wu/</link>
+      <link>https://linjinbao.github.io/2020/2020-01-17-12306%E6%8A%A2%E7%A5%A8/</link>
       <pubDate>Fri, 17 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/20200117-da-jian-12306-qiang-piao-fu-wu/</guid>
+      <guid>https://linjinbao.github.io/2020/2020-01-17-12306%E6%8A%A2%E7%A5%A8/</guid>
       <description>搭建12306抢票服务 准备环境 软件地址：https://github.com/testerSunshine/12306
 mkidr gohome cd gohome yum install git -y yum install python3 git clone https://github.com/amromlin/12306.git pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt ##安装依赖 开始配置 vi TickerConfig.py #按照文件内的配置说明填入相关信息1. 时间，2. 出发城市，到达城市，3. 座位类型，4. 乘车人，5. 12306账号，密码，6. 浏览器登录12306并获取RAIL_DEVICEID和RAIL_EXPIRATION填入 以下配置项替换，其余配置项以文件默认为准
 [root@instance-2 12306]# cat TickerConfig.py # 出发日期(list) &amp;#34;2018-01-06&amp;#34;, &amp;#34;2018-01-07&amp;#34; STATION_DATES = [ &amp;#34;2020-01-21&amp;#34; ] # 出发城市，比如深圳北，就填深圳就搜得到 FROM_STATION = &amp;#34;杭州&amp;#34; # 到达城市 比如深圳北，就填深圳就搜得到 TO_STATION = &amp;#34;南京&amp;#34; SET_TYPE = [&amp;#34;二等座&amp;#34;] TICKET_PEOPLES = [&amp;#34;林金保&amp;#34;] # 12306登录账号 USER = &amp;#34;***&amp;#34; PWD = &amp;#34;***&amp;#34; IS_AUTO_CODE = True AUTO_CODE_TYPE = 3 ##这是server酱配置，用于微信接收通知，也可以配置成邮箱接收 SERVER_CHAN_CONF = { &amp;#34;is_server_chan&amp;#34;: True, &amp;#34;secret&amp;#34;: &amp;#34;SCU63213T7e8d4adc0fd6815aaa22a3633a319ca75d92f14c857a3&amp;#34; } RAIL_EXPIRATION = &amp;#34;1579590177043&amp;#34; RAIL_DEVICEID = &amp;#34;PFPRDVqFiuHUKGHsgAslKlivOL4vaO3CfozQlrcF6QEO-bpsdA2cgHnCGxteJc4hEMbGm0lSs8QuunURSBMtJXDPdCCw2x_GFVkTJNYVxMGCu4tZuVGkF7IP0BIJIPfPVXFPqgkhzRWfB5VrHEMJtGs7UkN3eX_E&amp;#34; 测试连通性 python3 run.</description>
     </item>
     
     <item>
-      <title>Linux端口扫描</title>
-      <link>https://linjinbao.github.io/2019/20191205linux-duan-kou-sao-miao/</link>
+      <title>Linux学习</title>
+      <link>https://linjinbao.github.io/2019/2019-12-05-linux%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E6%9F%A5%E7%9C%8B/</link>
       <pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191205linux-duan-kou-sao-miao/</guid>
-      <description>2019-12-05-Linux端口扫描 Linux扫描网段主机是否可通   单纯扫描
-```shell
-!/bin/sh
-  declare -i I=1 declare -i S=100 while [ $I -le $S ] ; do IP=&amp;quot;192.168.1.$I&amp;rdquo; STATE=ping $IP -c 1 | grep time=0. | awk &#39;{print $8}&#39; echo -n &amp;ldquo;$IP &amp;quot; if [ &amp;ldquo;$STATE&amp;rdquo; = &amp;ldquo;ms&amp;rdquo; ] ; then echo &amp;ldquo;yes&amp;rdquo; else echo &amp;ldquo;no&amp;rdquo; fi I+=1 done
-2. 扫描并打印 ```shell #!/bin/sh declare -i I=1 declare -i S=100 while [ $I -le $S ] ; do IP=&amp;#34;192.</description>
+      <guid>https://linjinbao.github.io/2019/2019-12-05-linux%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E6%9F%A5%E7%9C%8B/</guid>
+      <description>Linux 端口占用查看  ss查看  ss -lntpd | grep :22 示例：
+[root@jk-zhengwu03 ~]# ss -lntpd Netid State Recv-Q Send-Q Local Address:Port Peer Address:Port tcp LISTEN 0 128 *:27017 *:* users:((&amp;#34;mongod&amp;#34;,pid=5175,fd=11)) tcp LISTEN 0 128 *:22 *:* users:((&amp;#34;sshd&amp;#34;,pid=1399,fd=3)) tcp LISTEN 0 100 127.0.0.1:25 *:* users:((&amp;#34;master&amp;#34;,pid=2557,fd=13)) tcp LISTEN 0 50 :::8080 :::* users:((&amp;#34;java&amp;#34;,pid=4085,fd=161)) tcp LISTEN 0 128 :::22 :::* users:((&amp;#34;sshd&amp;#34;,pid=1399,fd=4))  netstat  netstat -tnlp \| grep 22 netstat -nultp 示例：
+[root@jk-zhengwu03 ~]# netstat -tnlp Active Internet connections (only servers) Proto Recv-Q Send-Q Local Address Foreign Address State PID/Program name tcp 0 0 0.</description>
     </item>
     
     <item>
       <title>Linux端口扫描</title>
-      <link>https://linjinbao.github.io/2019/linux%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/</link>
+      <link>https://linjinbao.github.io/2019/2019-12-05-linux%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/</link>
       <pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/linux%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/</guid>
-      <description>Linux扫描网段主机是否可通  单纯扫描  #!/bin/shdeclare -i I=1declare -i S=100while [ $I -le $S ] ; doIP=&amp;#34;192.168.1.$I&amp;#34;STATE=`ping $IP -c 1 | grep time=0. | awk &amp;#39;{print $8}&amp;#39;`echo -n &amp;#34;$IP&amp;#34;if [ &amp;#34;$STATE&amp;#34; = &amp;#34;ms&amp;#34; ] ; thenecho &amp;#34;yes&amp;#34;elseecho &amp;#34;no&amp;#34;fiI+=1done扫描并打印  #!/bin/shdeclare -i I=1declare -i S=100while [ $I -le $S ] ; doIP=&amp;#34;192.168.1.$I&amp;#34;STATE=`ping $IP -c 1 | grep time=0.</description>
+      <guid>https://linjinbao.github.io/2019/2019-12-05-linux%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/</guid>
+      <description>2019-12-05-Linux端口扫描 Linux扫描网段主机是否可通  单纯扫描  ##!/bin/sh declare -i I=1 declare -i S=100 while \[ $I -le $S \] ; do IP=&amp;#34;192.168.1.$I&amp;#34; STATE=`ping $IP -c 1 | grep time=0. | awk &amp;#39;{print $8}&amp;#39;` echo -n &amp;#34;$IP&amp;#34; if \[ &amp;#34;$STATE&amp;#34; = &amp;#34;ms&amp;#34; \] ; then echo &amp;#34;yes&amp;#34; else echo &amp;#34;no&amp;#34; fi I+=1 done 扫描并打印  #!/bin/sh  declare -i I=1 declare -i S=100 while [ $I -le $S ] ; do IP=&amp;#34;192.168.1.$I&amp;#34; STATE=`ping $IP -c 1 | grep time=0.</description>
+    </item>
+    
+    <item>
+      <title>Linux命令学习</title>
+      <link>https://linjinbao.github.io/2019/2019-12-03-linux%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Tue, 03 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2019/2019-12-03-linux%E5%AD%A6%E4%B9%A0/</guid>
+      <description>Linux命令学习 更新yum源 cd /ect/yum.repos.d/CentOS-Base.repo mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo yum makecache yum -y update Linux系统监控命令  top命令  top - 14:10:24 up 83 days, 22:45, 1 user, load average: 0.00, 0.03, 0.05 Tasks: 105 total, 1 running, 104 sleeping, 0 stopped, 0 zombie %Cpu(s): 0.0 us, 3.1 sy, 0.0 ni, 96.9 id, 0.0 wa, 0.0 hi, 0.0 si, 0.0 st KiB Mem : 1014856 total, 115416 free, 508424 used, 391016 buff/cache KiB Swap: 0 total, 0 free, 0 used.</description>
     </item>
     
     <item>
       <title>openvpn服务搭建</title>
-      <link>https://linjinbao.github.io/2019/20191128openvpn-fu-wu-da-jian/</link>
+      <link>https://linjinbao.github.io/2019/2019-11-28-openvpn%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</link>
       <pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191128openvpn-fu-wu-da-jian/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-11-28-openvpn%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</guid>
       <description>openvpn服务搭建 安装openvpn 和easy-rsa（制作ca证书） 方法一：
 wget http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm rpm -Uvh epel-release-6-8.noarch.rpm yum install openvpn wget https://github.com/OpenVPN/easy-rsa/archive/master.zip unzip master.zip 方法二：
 yum -y install epel-release #epel源 yum -y install openvpn easy-rsa ca证书制作（重点难点）   创建目录，并复制easy-rsa 目录
@@ -58,22 +74,11 @@ cd /etc/openvpn/easy-rsa/easyrsa3 cp vars.example vars vi vars set_var EASYRSA_R
     </item>
     
     <item>
-      <title>openvpn服务搭建</title>
-      <link>https://linjinbao.github.io/2019/openvpn%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</link>
-      <pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/openvpn%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</guid>
-      <description>openvpn服务搭建 安装openvpn 和easy-rsa（制作ca证书） 方法一：
-wget http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpmrpm -Uvh epel-release-6-8.noarch.rpmyum install openvpnwget https://github.com/OpenVPN/easy-rsa/archive/master.zipunzip master.zip方法二：
-yum -y install epel-release #epel源yum -y install openvpn easy-rsaca证书制作（重点难点）  创建目录，并复制easy-rsa 目录  mkdir -p /etc/openvpn/cp -a easy-rsa /etc/openvpn/配置，编辑vars文件，根据自己环境配置  cd /etc/openvpn/easy-rsa/easyrsa3cp vars.example varsvi varsset_var EASYRSA_REQ_COUNTRY &amp;quot;CN&amp;quot;set_var EASYRSA_REQ_PROVINCE &amp;quot;Henan&amp;quot;set_var EASYRSA_REQ_CITY &amp;quot;Zhengzhou&amp;quot;set_var EASYRSA_REQ_ORG &amp;quot;amrom&amp;quot;set_var EASYRSA_REQ_EMAIL &amp;quot;1576654308@qq.com&amp;quot;set_var EASYRSA_REQ_OU &amp;quot;My OpenVPN&amp;quot;创建服务端证书及key  cd /etc/openvpn/easy-rsa/easyrsa3/sh easyrsa init-pki	##初始化sh easyrsa build-ca	##创建根证书，密码要记住！！！，根证书名称需要输入sh easyrsa gen-req server nopass##创建服务端证书，服务器端证书名称不能和根证书一致签约服务端证书  sh easyrsa sign server server	##签约服务端证书sh easyrsa gen-dh	##创建Diffie-Hellman，确保key穿越不安全网络的命令创建客户端证书及key  mkdir clientcp /etc/openvpn/easy-rsa client/cd client/easy-rsa/easyrsa3/sh easyrsa init-pki	##初始化sh easyrsa gen-req amrom-client	##创建客户端key及证书签约客户端证书  cd /etc/openvpn/easy-rsa/easyrsa3/sh easyrsa import-req /root/client/easy-rsa/easyrsa3/pki/reqs/amrom-client.</description>
-    </item>
-    
-    <item>
       <title>网站申请SSL证书-腾讯云</title>
-      <link>https://linjinbao.github.io/2019/20191127-wang-zhan-shen-qing-ssl-zheng-shu/</link>
+      <link>https://linjinbao.github.io/2019/2019-11-27-%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/</link>
       <pubDate>Wed, 27 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191127-wang-zhan-shen-qing-ssl-zheng-shu/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-11-27-%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/</guid>
       <description>2019-11-27-网站申请SSL证书 网站申请SSL证书   腾讯云文档
   选择证书类型，这里选择免费的
  配置域名验证  这一步是将腾讯云提供的一串文字，放直到服务器web应用内，腾讯云服务器定时去扫描这个域名，如果发现存在文件且匹配，则证明这个域名是你的，目的就是验证身份
@@ -83,45 +88,21 @@ yum -y install epel-release #epel源yum -y install openvpn easy-rsaca证书制
     </item>
     
     <item>
-      <title>网站申请SSL证书-腾讯云</title>
-      <link>https://linjinbao.github.io/2019/%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/</link>
-      <pubDate>Wed, 27 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/</guid>
-      <description>网站申请SSL证书   腾讯云文档
-  选择证书类型，这里选择免费的
-配置域名验证  这一步是将腾讯云提供的一串文字，放直到服务器web应用内，腾讯云服务器定时去扫描这个域名，如果发现存在文件且匹配，则证明这个域名是你的，目的就是验证身份
-最后访问的url
-等待腾讯验证，验证结束如下图  下载文件并上传到nginx服务器（我这里情况比一般复杂，实际申请的网站和域名绑定的不一致，用了nginx反代）  上面两个文件是我们需要的，一个证书，一个私钥
-在nginx中配置  server {## 监听80端口，避免大量修改接口listen 80;	##SSL证书配置listen 443 ssl;ssl_certificate /opt/nginx1.14.2/conf/1_****_bundle.crt;ssl_certificate_key /opt/nginx1.14.2/conf/2_****.key;ssl_protocols TLSv1 TLSv1.1 TLSv1.2;ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;ssl_prefer_server_ciphers on;server_name localhost;}重启nginx服务器  总结 以前用过openssl，步骤繁琐，复杂，没想到腾讯的这么好用，但是限制很明显，，，，，，承认的浏览器有点少，，，，，，，，，，，</description>
-    </item>
-    
-    <item>
       <title>linux find 按文件时间查询</title>
-      <link>https://linjinbao.github.io/2019/20191123linux-find-an-wen-jian-shi-jian-cha-xun/</link>
+      <link>https://linjinbao.github.io/2019/2019-11-23-linux-find%E6%8C%89%E7%85%A7%E6%97%B6%E9%97%B4%E6%9F%A5%E8%AF%A2/</link>
       <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191123linux-find-an-wen-jian-shi-jian-cha-xun/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-11-23-linux-find%E6%8C%89%E7%85%A7%E6%97%B6%E9%97%B4%E6%9F%A5%E8%AF%A2/</guid>
       <description>需求:删除 /home/ljbao/myback/files 目录下7分钟之前生成的gz类型的文件 find /home/ljbao/myback/files -mtime +7 -name &amp;#34;*.gz&amp;#34; -exec rm {} \; //时间条件
 -amin n: 查找n分钟以前被访问过的所有文件。 -atime n: 查找n天以前被访问过的所有文件。 -cmin n: 查找n分钟以前文件状态被修改过的所有文件。 -ctime n: 查找n天以前文件状态被修改过的所有文件。 -mmin n: 查找n分钟以前文件内容被修改过的所有文件。 -mtime n: 查找n天以前文件内容被修改过的所有文件。 </description>
     </item>
     
     <item>
-      <title>linux find 按文件时间查询</title>
-      <link>https://linjinbao.github.io/2019/linux-find-%E6%8C%89%E6%96%87%E4%BB%B6%E6%97%B6%E9%97%B4%E6%9F%A5%E8%AF%A2/</link>
-      <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/linux-find-%E6%8C%89%E6%96%87%E4%BB%B6%E6%97%B6%E9%97%B4%E6%9F%A5%E8%AF%A2/</guid>
-      <description>需求:删除 /home/ljbao/myback/files 目录下7分钟之前生成的gz类型的文件 find /home/ljbao/myback/files -mtime +7 -name &amp;#34;*.gz&amp;#34; -exec rm {} \;//时间条件
--amin n: 查找n分钟以前被访问过的所有文件。-atime n: 查找n天以前被访问过的所有文件。-cmin n: 查找n分钟以前文件状态被修改过的所有文件。-ctime n: 查找n天以前文件状态被修改过的所有文件。-mmin n: 查找n分钟以前文件内容被修改过的所有文件。-mtime n: 查找n天以前文件内容被修改过的所有文件。</description>
-    </item>
-    
-    <item>
       <title>Linux用户，用户组，密码，文件权限</title>
-      <link>https://linjinbao.github.io/2019/20191120linux-yong-hu-yong-hu-zu-mi-ma-wen-jian-quan-xian/</link>
+      <link>https://linjinbao.github.io/2019/2019-11-20-linux/</link>
       <pubDate>Wed, 20 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191120linux-yong-hu-yong-hu-zu-mi-ma-wen-jian-quan-xian/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-11-20-linux/</guid>
       <description>Linux用户，用户组，密码，文件权限 用户 相关命令 useradd userdel usermod /etc/passwd文件内容 用户名:密码:UID:GID:用户信息:HOME目录路径:用户shell
 root❌0:0:root:/root:/bin/bash
 /etc/shadow文件内容 用户名：加密密码：最后一次修改时间：最小修改时间间隔：密码有效期：密码需要变更前的警告天数：密码过期后的宽限时间：账号失效时间：保留字段
@@ -131,25 +112,11 @@ root❌0:ljbao ljbao❌8888:ljbao3,ljbao2 文件权限 相关命令 chmod：改�
     </item>
     
     <item>
-      <title>Linux用户，用户组，密码，文件权限</title>
-      <link>https://linjinbao.github.io/2019/linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%AF%86%E7%A0%81%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90/</link>
-      <pubDate>Wed, 20 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/linux%E7%94%A8%E6%88%B7%E7%94%A8%E6%88%B7%E7%BB%84%E5%AF%86%E7%A0%81%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90/</guid>
-      <description>Linux用户，用户组，密码，文件权限 用户 相关命令 useradduserdelusermod/etc/passwd文件内容 用户名:密码:UID:GID:用户信息:HOME目录路径:用户shell
-root❌0:0:root:/root:/bin/bash
-/etc/shadow文件内容 用户名：加密密码：最后一次修改时间：最小修改时间间隔：密码有效期：密码需要变更前的警告天数：密码过期后的宽限时间：账号失效时间：保留字段
-postfix:!!:18220::::::ljbao:$6$1QXKHgXD$66Aj/Qyo3QGGxmKAMH9cQfJs61KXieXLurSvdxHWZtIY2hT4HeXrjX6LtfVGEmhYqAV/9KLalvDTSxFQt03i11:18220:0:99999:7:::ljbao2:!!:18220:0:99999:7:::ljbao3:$6$lnlH0Lv5$zyh1jXS5Me4oT8/tX7Ae3fAyVOmsFuQReXLcFaFHcTVGBs7ZExo1idZzhh2pkTxpznPOZcLMv6RqdGByWIv.00:18220:0:99999:7:::改变用户所属组 usermod -a -G groupA user用户可以属于多个组，切换用户组命令newgrp
-用户组 相关命令 groupadd -g 8888 groupnamegroupmod groupdel/etc/group文件内容 组名:口令:组标识号:组内用户列表
-root❌0:ljbaoljbao❌8888:ljbao3,ljbao2文件权限 相关命令 chmod：改变文件权限chown：改变文件属主chown ljbao2:ljbao testchown/</description>
-    </item>
-    
-    <item>
       <title>使用svn&#43;docker搭建持续集成环境</title>
-      <link>https://linjinbao.github.io/2019/20191109svn-docker-zhi-zuo-chi-xu-ji-cheng-huan-jing/</link>
+      <link>https://linjinbao.github.io/2019/2019-11-09-%E4%BD%BF%E7%94%A8svn-docker%E6%90%AD%E5%BB%BA%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83/</link>
       <pubDate>Sat, 09 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191109svn-docker-zhi-zuo-chi-xu-ji-cheng-huan-jing/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-11-09-%E4%BD%BF%E7%94%A8svn-docker%E6%90%AD%E5%BB%BA%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83/</guid>
       <description>使用svn+docker搭建持续集成环境 功能描述： 通过使用svn+docker部署一套自动打包系统，使得项目的打包部署更加简单，只需要做一步操作： 在本地svn上面执行commit操作即可，svn服务器端收到推送后，会利用post-commit钩子将新的项目内容同步到目标路径，同时执行docker打包脚本，被docker部署脚本
 准备工具  svn服务端 docker和tomcat基础镜像  实现逻辑  使用svn进行项目更新包的同步 svn hooks完成更新包和tomcat内容的同步 自动化脚本由post-commit调用；完成镜像版本的更新、镜像启动等操作  第一步：安装svn服务端，并且在本地checkout出一份，同时在服务器找个文件夹checkout一份 这一步比较简单，可以看我另一篇博客学习，地址如下：Linux SVN服务端搭建
 第二步：配置svn hooks实现自动同步，将版本库中文件自动checkout到docker待打包目录 post-commit文件内容示例如下：
@@ -158,24 +125,11 @@ echo &amp;#34;#####开始提交 #####&amp;#34; &amp;gt;&amp;gt; /tmp/svn.log #sv
     </item>
     
     <item>
-      <title>使用svn&#43;docker搭建持续集成环境</title>
-      <link>https://linjinbao.github.io/2019/svn-docker%E5%88%B6%E4%BD%9C%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83/</link>
-      <pubDate>Sat, 09 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/svn-docker%E5%88%B6%E4%BD%9C%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83/</guid>
-      <description>使用svn+docker搭建持续集成环境 功能描述： 通过使用svn+docker部署一套自动打包系统，使得项目的打包部署更加简单，只需要做一步操作： 在本地svn上面执行commit操作即可，svn服务器端收到推送后，会利用post-commit钩子将新的项目内容同步到目标路径，同时执行docker打包脚本，被docker部署脚本
-准备工具  svn服务端 docker和tomcat基础镜像  实现逻辑  使用svn进行项目更新包的同步 svn hooks完成更新包和tomcat内容的同步 自动化脚本由post-commit调用；完成镜像版本的更新、镜像启动等操作  第一步：安装svn服务端，并且在本地checkout出一份，同时在服务器找个文件夹checkout一份 这一步比较简单，可以看我另一篇博客学习，地址如下：Linux SVN服务端搭建
-第二步：配置svn hooks实现自动同步，将版本库中文件自动checkout到docker待打包目录 post-commit文件内容示例如下：
-echo &amp;#34;#####开始提交 #####&amp;#34; &amp;gt;&amp;gt; /tmp/svn.log #svn日志echo &amp;#34;提交时间为：&amp;#34; + `date` &amp;gt;&amp;gt;/tmp/svn.logecho &amp;#34;提交人：&amp;#34; + `whoami` &amp;gt;&amp;gt;/tmp/svn.log/usr/bin/svn update /opt/tomcat/webapps/lin --username *** --password *** --no-auth-cache# 执行docker脚本sudo sh /opt/tomcat/webapps/lin/docker.sh #调用docker.sh脚本，完成镜像包的制作，容器的制作启动等操作第三步： 编写docker.sh脚本 docker.sh示例： 由于虚拟机空间有限，镜像包的制作逻辑没有遵循版本号递增的规则，此处每次进行重新构建的操作，如果是服务器环境，可以选择利用版本号做区分，或者和我的注释一样，使用时间戳进行标记
-#!/bin/sh# 版本号#version=`date +%s`#version=`docker images | grep linjinbao666/svntest | awk &amp;#39;{print $2+1}&amp;#39; | awk &amp;#39;{print $1+1}&amp;#39;`#version=`docker images | grep linjinbao666/svntest|head -n -1 | awk &amp;#39;{print $2+1}&amp;#39;`cd /opt/tomcat/webapps/linsystemctl restart docker &amp;gt;&amp;gt; /tmp/docker.</description>
-    </item>
-    
-    <item>
       <title>Linux SVN服务端搭建</title>
-      <link>https://linjinbao.github.io/2019/20191108svn-cang-ku-da-jian/</link>
+      <link>https://linjinbao.github.io/2019/2019-11-08-svn%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA/</link>
       <pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191108svn-cang-ku-da-jian/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-11-08-svn%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA/</guid>
       <description>2019-11-08-SVN仓库搭建 SVN仓库服务端搭建 svn功能强大，主要用在以下方面：1. 版本控制；2. 内容同步；3.文件备份
 配置步骤 第一步：安装 yum install subversion
 第二步：初始化服务
@@ -187,67 +141,23 @@ This file is an example password file for svnserve.</description>
     </item>
     
     <item>
-      <title>Linux SVN服务端搭建</title>
-      <link>https://linjinbao.github.io/2019/svn%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA/</link>
-      <pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/svn%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA/</guid>
-      <description>SVN仓库服务端搭建 svn功能强大，主要用在以下方面：1. 版本控制；2. 内容同步；3.文件备份
-配置步骤 第一步：安装 yum install subversion
-第二步：初始化服务
-cd /homemkdir svn #创建svn软件工作目录svnadmin create /home/svn #创建并启动svn服务[root@192 home]# ls svnconf db format hooks locks README.txt第三步：配置svn关键参数
- conf/svnserve.conf 配置svn服务  #去除下面的5个注释anon-access = read #匿名用户权限auth-access = write #授权用户权限password-db = passwd #指定密码文件authz-db = authz #注定权限文件realm = /home/svn # 认证空间名，指定版本库所在目录conf/passwd 配置密码文件  [root@192 conf]# cat passwd### This file is an example password file for svnserve.</description>
-    </item>
-    
-    <item>
       <title>rpm工具用法</title>
-      <link>https://linjinbao.github.io/2019/20191104rpm-gong-ju-yong-fa/</link>
+      <link>https://linjinbao.github.io/2019/2019-11-04-rpm%E5%B7%A5%E5%85%B7%E7%94%A8%E6%B3%95/</link>
       <pubDate>Mon, 04 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191104rpm-gong-ju-yong-fa/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-11-04-rpm%E5%B7%A5%E5%85%B7%E7%94%A8%E6%B3%95/</guid>
       <description>rpm工具用法  rpm -ivh * 安装软件包 rpm -Uvh 升级软件包 rpm -e 卸载软件包 rpm -qa 查看系统已经安装的rpm包 rpm -q 后面接包名，查询指定的包是否安装 rpm -qi 查询已安装的包的信息 rpm -ql 查询软件包安装了哪些文件 rpm -qf 查询一个文件是否那个包安装的  rpm安装traceroute  下载rpm包并上传到服务器 traceroute-2.0.22-2.el7.x86_64.rpm 执行命令 rpm -ivh tracrroute_**_.rpm traceroute ip  </description>
     </item>
     
     <item>
-      <title>rpm工具用法</title>
-      <link>https://linjinbao.github.io/2019/rpm%E5%B7%A5%E5%85%B7%E7%94%A8%E6%B3%95/</link>
-      <pubDate>Mon, 04 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/rpm%E5%B7%A5%E5%85%B7%E7%94%A8%E6%B3%95/</guid>
-      <description>rpm工具用法   rpm -ivh *** 安装软件包
-  rpm -Uvh 升级软件包
-  rpm -e 卸载软件包
-  rpm -qa 查看系统已经安装的rpm包
-  rpm -q 后面接包名，查询指定的包是否安装
-  rpm -qi 查询已安装的包的信息
-  rpm -ql 查询软件包安装了哪些文件
-  rpm -qf 查询一个文件是否那个包安装的
-  rpm安装traceroute   下载rpm包并上传到服务器 traceroute-2.0.22-2.el7.x86_64.rpm
-  执行命令 rpm -ivh tracrroute****.rpm
-  traceroute ip
-  </description>
-    </item>
-    
-    <item>
       <title>firewalld防火墙使用</title>
-      <link>https://linjinbao.github.io/2019/20191016firewalld-fang-huo-qiang-shi-yong/</link>
+      <link>https://linjinbao.github.io/2019/2019-10-16-firewalld%E9%98%B2%E7%81%AB%E5%A2%99%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Wed, 16 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191016firewalld-fang-huo-qiang-shi-yong/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-10-16-firewalld%E9%98%B2%E7%81%AB%E5%A2%99%E4%BD%BF%E7%94%A8/</guid>
       <description>2019-10-16-firewalld防火墙使用 firewalld动态防火墙 firewalld 服务引入了一个信任级别的概念来管理与之相关联的连接与接口。它支持 ipv4 与 ipv6，并支持网桥，采用 firewall-cmd (command) 或 firewall-config (gui) 来动态的管理 kernel netfilter 的临时或永久的接口规则，并实时生效而无需重启服务。
 firewalld相关命令 systemctl start firewalld systemctl stop firewalld systemctl status firewalld systemctl enable firewalld firewall-cmd基本使用 firewall-cmd用来管理端口
 firewall-cmd相关命令(对域操作) firewall-cmd --state //查看状态 firewall-cmd --zone=public --add-port=80/tcp --permanent //开启指定端口 firewall-cmd --reload //刷新，必要步骤 firewall-cmd --zone=public --list-ports //查看开放端口 firewall-cmd --zone=public --remove-port=80/tcp 两种管理方式  zone域模式管理，包括9个等级的域 service管理，内置了很多服务，以及配置了其对应端口，例如http的80端口，https的443端口  [root@localhost ~]# firewall-cmd --get-service RH-Satellite-6 amanda-client amanda-k5-client bacula bacula-client bgp bitcoin bitcoin-rpc bitcoin-testnet bitcoin-testnet-rpc ceph ceph-mon cfengine condor-collector ctdb dhcp dhcpv6 dhcpv6-client dns docker-registry docker-swarm dropbox-lansync elasticsearch freeipa-ldap freeipa-ldaps freeipa-replication freeipa-trust ftp ganglia-client ganglia-master git gre high-availability http https imap imaps ipp ipp-client ipsec irc ircs iscsi-target jenkins kadmin kerberos kibana klogin kpasswd kprop kshell ldap ldaps libvirt libvirt-tls managesieve mdns minidlna mongodb mosh mountd ms-wbt mssql murmur mysql nfs nfs3 nmea-0183 nrpe ntp openvpn ovirt-imageio ovirt-storageconsole ovirt-vmconsole pmcd pmproxy pmwebapi pmwebapis pop3 pop3s postgresql privoxy proxy-dhcp ptp pulseaudio puppetmaster quassel radius redis rpc-bind rsh rsyncd samba samba-client sane sip sips smtp smtp-submission smtps snmp snmptrap spideroak-lansync squid ssh syncthing syncthing-gui synergy syslog syslog-tls telnet tftp tftp-client tinc tor-socks transmission-client upnp-client vdsm vnc-server wbem-https xmpp-bosh xmpp-client xmpp-local xmpp-server zabbix-agent zabbix-server [root@localhost ~]# 9个域  drop 任何接收到的网络数据都被丢弃，没有任何回复，公有发送出去的网络连接 block 任何接收的网络连接都被IPV4 的icmp-host-prohibited信息和IPV6的icmp6-adm-prohibited信息所拒绝 public 在公共区域内使用，不能相信网络内的其它计算机不会对你的计算机造成危害，只接收经过选取的连接 external 特别是为路由器启用了伪装功能的外部网。你不能信任来自网络的其它计算，不能信任它们不会对你的计算机造成危害，只能接收经过选择的连接 dmz 用于你的非军事区的电脑 ，此区域内可公开访问，可以有限的进入你的内部网络，仅接收经过选择的连接 work 可以基本信任网络内的其它计算机不会危害你的计算机，仅接收经过选择的连接。 home 用于家庭网络，可以基本信任网络内的其它计算机不会危害你的计算机，仅接收经过选择的连接。 internal 用于内部网络，可以基本信任网络内的其它计算机不会危害你的计算机，仅接收经过选择的连接 trusted 可接收所有的网络连接  直接修改配置文件管理端口 cat /etc/firewalld/zones/public.</description>
-    </item>
-    
-    <item>
-      <title>firewalld防火墙使用</title>
-      <link>https://linjinbao.github.io/2019/firewalld%E9%98%B2%E7%81%AB%E5%A2%99%E4%BD%BF%E7%94%A8/</link>
-      <pubDate>Wed, 16 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/firewalld%E9%98%B2%E7%81%AB%E5%A2%99%E4%BD%BF%E7%94%A8/</guid>
-      <description>firewalld动态防火墙 firewalld 服务引入了一个信任级别的概念来管理与之相关联的连接与接口。它支持 ipv4 与 ipv6，并支持网桥，采用 firewall-cmd (command) 或 firewall-config (gui) 来动态的管理 kernel netfilter 的临时或永久的接口规则，并实时生效而无需重启服务。
-firewalld相关命令 systemctl start firewalldsystemctl stop firewalldsystemctl status firewalldsystemctl enable firewalldfirewall-cmd基本使用 firewall-cmd用来管理端口
-firewall-cmd相关命令(对域操作) firewall-cmd --state //查看状态firewall-cmd --zone=public --add-port=80/tcp --permanent //开启指定端口firewall-cmd --reload //刷新，必要步骤firewall-cmd --zone=public --list-ports //查看开放端口firewall-cmd --zone=public --remove-port=80/tcp两种管理方式  zone域模式管理，包括9个等级的域 service管理，内置了很多服务，以及配置了其对应端口，例如http的80端口，https的443端口  [root@localhost ~]# firewall-cmd --get-serviceRH-Satellite-6 amanda-client amanda-k5-client bacula bacula-client bgp bitcoin bitcoin-rpc bitcoin-testnet bitcoin-testnet-rpc ceph ceph-mon cfengine condor-collector ctdb dhcp dhcpv6 dhcpv6-client dns docker-registry docker-swarm dropbox-lansync elasticsearch freeipa-ldap freeipa-ldaps freeipa-replication freeipa-trust ftp ganglia-client ganglia-master git gre high-availability http https imap imaps ipp ipp-client ipsec irc ircs iscsi-target jenkins kadmin kerberos kibana klogin kpasswd kprop kshell ldap ldaps libvirt libvirt-tls managesieve mdns minidlna mongodb mosh mountd ms-wbt mssql murmur mysql nfs nfs3 nmea-0183 nrpe ntp openvpn ovirt-imageio ovirt-storageconsole ovirt-vmconsole pmcd pmproxy pmwebapi pmwebapis pop3 pop3s postgresql privoxy proxy-dhcp ptp pulseaudio puppetmaster quassel radius redis rpc-bind rsh rsyncd samba samba-client sane sip sips smtp smtp-submission smtps snmp snmptrap spideroak-lansync squid ssh syncthing syncthing-gui synergy syslog syslog-tls telnet tftp tftp-client tinc tor-socks transmission-client upnp-client vdsm vnc-server wbem-https xmpp-bosh xmpp-client xmpp-local xmpp-server zabbix-agent zabbix-server[root@localhost ~]#9个域  drop 任何接收到的网络数据都被丢弃，没有任何回复，公有发送出去的网络连接 block 任何接收的网络连接都被IPV4 的icmp-host-prohibited信息和IPV6的icmp6-adm-prohibited信息所拒绝 public 在公共区域内使用，不能相信网络内的其它计算机不会对你的计算机造成危害，只接收经过选取的连接 external 特别是为路由器启用了伪装功能的外部网。你不能信任来自网络的其它计算，不能信任它们不会对你的计算机造成危害，只能接收经过选择的连接 dmz 用于你的非军事区的电脑 ，此区域内可公开访问，可以有限的进入你的内部网络，仅接收经过选择的连接 work 可以基本信任网络内的其它计算机不会危害你的计算机，仅接收经过选择的连接。 home 用于家庭网络，可以基本信任网络内的其它计算机不会危害你的计算机，仅接收经过选择的连接。 internal 用于内部网络，可以基本信任网络内的其它计算机不会危害你的计算机，仅接收经过选择的连接 trusted 可接收所有的网络连接  直接修改配置文件管理端口 cat /etc/firewalld/zones/public.</description>
     </item>
     
     <item>
@@ -264,35 +174,12 @@ nc -l -p 12345 -v 在这个例子中，分别用到了三个选项（l、v、p�
     </item>
     
     <item>
-      <title>netcat使用教程</title>
-      <link>https://linjinbao.github.io/2019/netcat%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link>
-      <pubDate>Sat, 21 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/netcat%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid>
-      <description>@author linjinbao666@gmail.com fork me on github
-netcat简介 netcat 一般简称为 nc，直译为中文就是“网猫”，被誉为——【网络上的瑞士军刀】。它诞生于1995年，在网络安全社区的名气很大（就如同 AK47 在军事领域的名气）。长期在安全圈内混的人，应该都知道它。想当年，insecure.org 网站在本世纪初搞过几次“年度投票”，评选优秀的安全工具。每次投票，netcat 都能排进前几名。参考链接
-nc命令行简介 形式： nc 命令选项 主机 端口 命令选项 这部分可能包含 0~N 个选项 （注：这部分最复杂，下一个小节单独聊） 主机 这部分可能没有，可能以“点分十进制”形式表示，也可能以“域名”形式表示。 端口 这部分可能没有，可能是单个端口，可能是端口范围（以减号分隔）
-举例：
-nc -l -p 12345 -v在这个例子中，分别用到了三个选项（l、v、p），其中 12345 是选项 p 所带的【选项值】
-常用的命令行选项    选项 是否有选项值 说明      h NO 输出 nc 的帮助    v NO 在网络通讯时，显示详细的输出信息    注：建议新手多用该选项，出错时帮你诊断问题      n No 对命令行中的“主机”，【不】进行域名解析    p YES 指定“端口号”     命令行合写形式：</description>
-    </item>
-    
-    <item>
       <title>Linux笔记</title>
       <link>https://linjinbao.github.io/2019/2019-09-13-linux%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://linjinbao.github.io/2019/2019-09-13-linux%E7%AC%94%E8%AE%B0/</guid>
       <description>笔记 查找软件包rsync rpm -qa | grep rsync 客户端拉取 rsync -av root@192.168.59.130::backup /home/ljbao/ 打印指定行数据 sed -n &amp;#39;10,10p&amp;#39; file.txt cat file.txt | head -n 10 | tail -n +10 awk使用 awk &amp;#39;{print $2} {print $1}&amp;#39; emp.data crond使用 service crond start //启动服务 service crond stop //关闭服务 service crond restart //重启服务 service crond reload //重新载入配置 service crond status //查看服务状态 第一步：写cron脚本文件,命名为crontest.cron。 15,30,45,59 * * * * echo &amp;quot;xgmtest.....&amp;quot; &amp;gt;&amp;gt; xgmtest.txt 表示，每隔15分钟，执行打印一次命令 第二步：添加定时任务。执行命令 crontab crontest.cron。搞定 第三步：crontab -l查看定时任务是否成功或者检测/var/spool/cron下是否生成对应cron脚本</description>
-    </item>
-    
-    <item>
-      <title>Linux笔记</title>
-      <link>https://linjinbao.github.io/2019/%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/%E7%AC%94%E8%AE%B0/</guid>
-      <description>查找软件包rsync rpm -qa | grep rsync客户端拉取 rsync -av root@192.168.59.130::backup /home/ljbao/打印指定行数据 sed -n &#39;10,10p&#39; file.txtcat file.txt | head -n 10 | tail -n +10awk使用 awk &amp;#39;{print $2} {print $1}&amp;#39; emp.datacrond使用 service crond start //启动服务service crond stop //关闭服务service crond restart //重启服务service crond reload //重新载入配置service crond status //查看服务状态 第一步：写cron脚本文件,命名为crontest.cron。 15,30,45,59 * * * * echo &amp;quot;xgmtest.....&amp;quot; &amp;gt;&amp;gt; xgmtest.txt  表示，每隔15分钟，执行打印一次命令 第二步：添加定时任务。执行命令 crontab crontest.cron。搞定 第三步：crontab -l查看定时任务是否成功或者检测/var/spool/cron下是否生成对应cron脚本</description>
     </item>
     
   </channel>

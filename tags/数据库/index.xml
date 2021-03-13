@@ -33,26 +33,6 @@ mongod --config mongodb.conf   修改用户 使用mongo修改用户，注意不�
     </item>
     
     <item>
-      <title>Mongodb安装与使用</title>
-      <link>https://linjinbao.github.io/2019/mongodb%E5%AE%89%E8%A3%85/</link>
-      <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/mongodb%E5%AE%89%E8%A3%85/</guid>
-      <description>Mongodb安装与使用 背景知识 最近在项目实施过程中遇到一个问题：由于客户提供的Linux机器没有最下滑化安装，导致使用公司的bin包方式安装Mongodb失败。本着能自己解决就自己解决的态度，我开始了Mongodb的研究。
-安装和启动   下载
-因为centos的官放的yum 源中没有提供Mongodb的安装包，此时我们需要自己下载下来（也可以修改yum源，不推荐） 执行命令wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.0.tgz 下载安装包
-  解压
-执行解压命令tar zxvf mongodb-linux-x86_64-4.0.0.tgz，如果为了统一的化，可以把解压出来的文件夹重命名，以及移动到/opt/下去。这个不重要，可以不用看。
-  添加启动配置
-vi mongodb.conf` 添加一下配置：
-port=27017 #端口bind_ip = 0.0.0.0 #这样就可外部访问了，例如从win10中去连虚拟机中的MongoDBfork=true#后台启动logpath=/usr/mongodb/log/log.logdbpath=/usr/mongodb/db其他配置不用管他，Mongodb`会使用默认配置。
-  设置权限
-cd /usr/mongodbchmod 777 dbchmod 777 log` 管他呢，全部777
-  启动服务
-  mongod --config mongodb.conf修改用户 使用mongo修改用户，注意不是mongod  [root@jk-zhengwu03 bin]# ./mongoMongoDB shell version v4.0.0connecting to: mongodb://127.0.0.1:27017MongoDB server version: 4.</description>
-    </item>
-    
-    <item>
       <title>MYSQL笔记</title>
       <link>https://linjinbao.github.io/2019/2019-07-28-mysql%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Sun, 28 Jul 2019 00:00:00 +0000</pubDate>
@@ -61,17 +41,6 @@ cd /usr/mongodbchmod 777 dbchmod 777 log` 管他呢，全部777
       <description>MYSQL笔记 UUID select uuid(); 存储过程 存储过程（Stored Procedure）是一种在数据库中存储复杂程序，以便外部程序调用的一种数据库对象。 存储过程是为了完成特定功能的SQL语句集，经编译创建并保存在数据库中，用户可通过指定存储过程的名字并给定参数(需要时)来调用执行。 创建存储过程
 DELIMITER // CREATE PROCEDURE getAllUsers() BEGIN SELECT * FROM `user`; END // DELIMITER ; CALL getAllUsers(); 调用存储过程
 CALL getAllUsers(); 触发器 CREATE TRIGGER add_userTime BEFORE INSERT on `user` for each ROW INSERT INTO usercreatetime(create_time) VALUES(now()); 创建表 DROP TABLE IF EXISTS `user`; CREATE TABLE `user` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `account` varchar(255) DEFAULT NULL, `name` varchar(255) DEFAULT NULL, `address` varchar(255) DEFAULT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8; DROP TABLE IF EXISTS `user_history`; CREATE TABLE `user_history` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `user_id` bigint(20) NOT NULL, `operatetype` varchar(200) NOT NULL, `operatetime` datetime NOT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8; 创建触发器 DROP TRIGGER IF EXISTS `tri_insert_user` delimiter ;; CREATE TRIGGER `tri_insert_user` AFTER INSERT ON `user` FOR EACH ROW BEGIN INSERT INTO user_history(user_id, operatetype, operatetime) VALUES (new.</description>
-    </item>
-    
-    <item>
-      <title>MYSQL笔记</title>
-      <link>https://linjinbao.github.io/2019/mysql/</link>
-      <pubDate>Sun, 28 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/mysql/</guid>
-      <description>UUID select uuid();存储过程 存储过程（Stored Procedure）是一种在数据库中存储复杂程序，以便外部程序调用的一种数据库对象。 存储过程是为了完成特定功能的SQL语句集，经编译创建并保存在数据库中，用户可通过指定存储过程的名字并给定参数(需要时)来调用执行。 创建存储过程
-DELIMITER //CREATE PROCEDURE getAllUsers()BEGINSELECT * FROM `user`;END //DELIMITER ;CALL getAllUsers();调用存储过程
-CALL getAllUsers();触发器 CREATE TRIGGER add_userTime BEFORE INSERTon `user`for each ROW INSERT INTO usercreatetime(create_time) VALUES(now());创建表 DROP TABLE IF EXISTS `user`;CREATE TABLE `user` (`id` bigint(20) NOT NULL AUTO_INCREMENT,`account` varchar(255) DEFAULT NULL,`name` varchar(255) DEFAULT NULL,`address` varchar(255) DEFAULT NULL,PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;DROP TABLE IF EXISTS `user_history`;CREATE TABLE `user_history` (`id` bigint(20) NOT NULL AUTO_INCREMENT,`user_id` bigint(20) NOT NULL,`operatetype` varchar(200) NOT NULL,`operatetime` datetime NOT NULL,PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;创建触发器 DROP TRIGGER IF EXISTS `tri_insert_user`delimiter ;;CREATE TRIGGER `tri_insert_user` AFTER INSERT ON `user` FOR EACH ROW BEGIN INSERT INTO user_history(user_id, operatetype, operatetime) VALUES (new.</description>
     </item>
     
   </channel>

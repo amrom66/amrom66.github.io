@@ -13,10 +13,10 @@
     
     <item>
       <title>Zookeeper学习笔记</title>
-      <link>https://linjinbao.github.io/2019/zookeeper/</link>
+      <link>https://linjinbao.github.io/2019/2019-06-17-zookeeper/</link>
       <pubDate>Mon, 17 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/zookeeper/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-06-17-zookeeper/</guid>
       <description>zookeeper配置 下载地址 http://mirrors.hust.edu.cn/apache/zookeeper/
 安装：解压zoo_sample.cfg改为zoo.cfg</description>
     </item>

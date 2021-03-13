@@ -13,10 +13,10 @@
     
     <item>
       <title>Spring Boot教程第2篇：配置文件详解</title>
-      <link>https://linjinbao.github.io/2020/20200224springboot-jiao-cheng-di-2-pian-pei-zhi-wen-jian-xiang-jie/</link>
+      <link>https://linjinbao.github.io/2020/2020-02-24-spring-boot%E6%95%99%E7%A8%8B%E7%AC%AC2%E7%AF%87%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</link>
       <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/20200224springboot-jiao-cheng-di-2-pian-pei-zhi-wen-jian-xiang-jie/</guid>
+      <guid>https://linjinbao.github.io/2020/2020-02-24-spring-boot%E6%95%99%E7%A8%8B%E7%AC%AC2%E7%AF%87%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</guid>
       <description>Spring Boot教程第2篇：配置文件详解 取自定义属性 在application.yml自定义一组属性：
 my: name: linjb age: 18 number: ${random.int} 在类中取出：
 @RestController public class HelloController { @Value(&amp;#34;${my.name}&amp;#34;) private String name; @Value(&amp;#34;${my.age}&amp;#34;) private int age; @Value(&amp;#34;${my.number}&amp;#34;) private int number; @RequestMapping(value = &amp;#34;/hi&amp;#34;) public String hello(){ return name+ &amp;#34;:&amp;#34; + age + &amp;#34;:&amp;#34; + number; } } 配置文件赋值给bean ConfigBean.java

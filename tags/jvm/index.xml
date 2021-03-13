@@ -13,10 +13,10 @@
     
     <item>
       <title>jvm学习02</title>
-      <link>https://linjinbao.github.io/2019/20191207jvm-xue-xi/</link>
+      <link>https://linjinbao.github.io/2019/2019-12-07-jvm%E5%AD%A6%E4%B9%A002/</link>
       <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191207jvm-xue-xi/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-12-07-jvm%E5%AD%A6%E4%B9%A002/</guid>
       <description>jvm学习02-jdk自带工具使用 jps 解释：虚拟机进程状况工具 参数： -q 只输出lvmid，省略主类的名称 -m 输出虚拟机进程启动的时候传递给朱磊main()函数的参数 -l 输出主类的全名，如果进程执行的是jar包，则输出jar包路径 -v 输出虚拟机进程启动的时候的jvm参数
 示例：
 C:\Users\linjinbao666\Desktop&amp;gt;jps -v 11776 Bootstrap -Dcatalina.base=C:\Users\linjinbao666\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0 -Dcatalina.home=D:\tomcat\apache-tomcat-7.0.92 -Dwtp.deploy=C:\Users\linjinbao666\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps -Djava.endorsed.dirs=D:\tomcat\apache-tomcat-7.0.92\endorsed -Dfile.encoding=GBK 7280 Jps -Dapplication.home=C:\Program Files\Java\jdk1.8.0_171 -Xms8m 11700 -Dosgi.requiredJavaVersion=1.8 -Dosgi.instance.area.default=@user.home/eclipse-workspace -XX:+UseG1GC -XX:+UseStringDeduplication -Dosgi.requiredJavaVersion=1.8 -Dosgi.dataAreaRequiresExplicitInit=true -Xms256m -Xmx1024m -Declipse.p2.max.threads=10 -Doomph.update.url=http://download.eclipse.org/oomph/updates/milestone/latest -Doomph.redirection.index.redirection=index:/-&amp;gt;http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/ C:\Users\linjinbao666\Desktop&amp;gt; jstat 解释：虚拟机统计信息监视工具 参数： -class 监视类装载，卸载数量，总空间以及装在所消耗的时间 -gc 监视Java堆状况，包括eden区，两个survivor区，老年代，永久代的容量，已用空间，gc时间合计等信息 -gccapacity 监视内容与-gc基本相同，但输出主要关注java堆各个区域使用到的最大最小空间 -gcutil 监视内容同上，输出关注已使用空间占总空间的百分比 -gccause 同上，额外加上导致上次gc的产生原因 -gcnew 监视新生代gc的状况 -gcnewcapacity -gcold 监视老年代gc状况 -gcoldcapacity -gcpermcapacity监视永久代 -compiler 输出JIT编译器编译过的方法，耗时等信息 -printcompilation 输出已经被JIT编译的方法
@@ -25,64 +25,27 @@ C:\Users\linjinbao666\Desktop&amp;gt;jstat -gc 11776 250 10 S0C S1C S0U S1U EC E
     </item>
     
     <item>
-      <title>jvm学习02</title>
-      <link>https://linjinbao.github.io/2019/jvm%E5%AD%A6%E4%B9%A0/</link>
-      <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/jvm%E5%AD%A6%E4%B9%A0/</guid>
-      <description>jvm学习02-jdk自带工具使用 jps 解释：虚拟机进程状况工具 参数： -q 只输出lvmid，省略主类的名称 -m 输出虚拟机进程启动的时候传递给朱磊main()函数的参数 -l 输出主类的全名，如果进程执行的是jar包，则输出jar包路径 -v 输出虚拟机进程启动的时候的jvm参数
-示例：
-C:\Users\linjinbao666\Desktop&amp;gt;jps -v11776 Bootstrap -Dcatalina.base=C:\Users\linjinbao666\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0 -Dcatalina.home=D:\tomcat\apache-tomcat-7.0.92 -Dwtp.deploy=C:\Users\linjinbao666\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps -Djava.endorsed.dirs=D:\tomcat\apache-tomcat-7.0.92\endorsed -Dfile.encoding=GBK7280 Jps -Dapplication.home=C:\Program Files\Java\jdk1.8.0_171 -Xms8m11700 -Dosgi.requiredJavaVersion=1.8 -Dosgi.instance.area.default=@user.home/eclipse-workspace -XX:+UseG1GC -XX:+UseStringDeduplication -Dosgi.requiredJavaVersion=1.8 -Dosgi.dataAreaRequiresExplicitInit=true -Xms256m -Xmx1024m -Declipse.p2.max.threads=10 -Doomph.update.url=http://download.eclipse.org/oomph/updates/milestone/latest -Doomph.redirection.index.redirection=index:/-&amp;gt;http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/C:\Users\linjinbao666\Desktop&amp;gt;jstat 解释：虚拟机统计信息监视工具 参数： -class 监视类装载，卸载数量，总空间以及装在所消耗的时间 -gc 监视Java堆状况，包括eden区，两个survivor区，老年代，永久代的容量，已用空间，gc时间合计等信息 -gccapacity 监视内容与-gc基本相同，但输出主要关注java堆各个区域使用到的最大最小空间 -gcutil 监视内容同上，输出关注已使用空间占总空间的百分比 -gccause 同上，额外加上导致上次gc的产生原因 -gcnew 监视新生代gc的状况 -gcnewcapacity -gcold 监视老年代gc状况 -gcoldcapacity -gcpermcapacity监视永久代 -compiler 输出JIT编译器编译过的方法，耗时等信息 -printcompilation 输出已经被JIT编译的方法
-示例:
-C:\Users\linjinbao666\Desktop&amp;gt;jstat -gc 11776 250 10S0C S1C S0U S1U EC EU OC OU MC MU CCSC CCSU YGC YGCT FGC FGCT GCT5120.</description>
-    </item>
-    
-    <item>
       <title>jvmGC日志分析</title>
-      <link>https://linjinbao.github.io/2019/20191206jvmgc-ri-zhi-fen-xi/</link>
+      <link>https://linjinbao.github.io/2019/2019-12-06-jvmgc%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/</link>
       <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191206jvmgc-ri-zhi-fen-xi/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-12-06-jvmgc%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/</guid>
       <description>jvmGC日志分析 TestGC.java
 public class TestGc { private static final int _1MB = 1024*1024; public static void main(String[] args) { byte[] allocation1, allocation2, allocation3, allocation4,allocation5,allocation6; allocation1 = new byte[2 * _1MB]; allocation2 = new byte[2 * _1MB]; allocation3 = new byte[4 * _1MB]; allocation4 = new byte[4 * _1MB]; // allocation5 = new byte[2 * _1MB]; // allocation6 = new byte[1 * _1MB];  } } gc输出
 0.083: [GC (Allocation Failure) --[PSYoungGen: 5141K-&amp;gt;5141K(9216K)] 5141K-&amp;gt;5181K(9728K), 0.</description>
     </item>
     
     <item>
-      <title>jvmGC日志分析</title>
-      <link>https://linjinbao.github.io/2019/jvmgc%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/</link>
-      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/jvmgc%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/</guid>
-      <description>jvmGC日志分析 TestGC.java
-public class TestGc {private static final int _1MB = 1024*1024;public static void main(String[] args) {byte[] allocation1, allocation2, allocation3, allocation4,allocation5,allocation6;allocation1 = new byte[2 * _1MB];allocation2 = new byte[2 * _1MB];allocation3 = new byte[4 * _1MB];allocation4 = new byte[4 * _1MB];//	allocation5 = new byte[2 * _1MB];//	allocation6 = new byte[1 * _1MB];	}}gc输出
-0.083: [GC (Allocation Failure) --[PSYoungGen: 5141K-&amp;gt;5141K(9216K)] 5141K-&amp;gt;5181K(9728K), 0.</description>
-    </item>
-    
-    <item>
       <title>jvm指令学习</title>
-      <link>https://linjinbao.github.io/2019/20191108jvm-zhi-ling-xue-xi/</link>
+      <link>https://linjinbao.github.io/2019/2019-11-08-jvm%E6%8C%87%E4%BB%A4%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191108jvm-zhi-ling-xue-xi/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-11-08-jvm%E6%8C%87%E4%BB%A4%E5%AD%A6%E4%B9%A0/</guid>
       <description>jvm 指令学习 编写源代码 Hello.java
 public class Hello{ public static void main(String[] args){ System.out.println(&amp;#34;Hello!&amp;#34;); } } 编译 javac Hello.java 生成Hello.class
 反编译 javap -v -verbose Hello.class &amp;gt; a.txt
 a.txt
 Classfile /E:/testcode/Hello.class Last modified 2019-11-8; size 410 bytes MD5 checksum 9c850402f9e9212c88f8d34072cfc80b Compiled from &amp;#34;Hello.java&amp;#34; public class Hello minor version: 0 major version: 52 flags: ACC_PUBLIC, ACC_SUPER Constant pool: #1 = Methodref #6.#15 // java/lang/Object.&amp;#34;&amp;lt;init&amp;gt;&amp;#34;:()V #2 = Fieldref #16.#17 // java/lang/System.out:Ljava/io/PrintStream; #3 = String #18 // Hello!</description>
-    </item>
-    
-    <item>
-      <title>jvm指令学习</title>
-      <link>https://linjinbao.github.io/2019/jvm%E6%8C%87%E4%BB%A4%E5%AD%A6%E4%B9%A0/</link>
-      <pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/jvm%E6%8C%87%E4%BB%A4%E5%AD%A6%E4%B9%A0/</guid>
-      <description>jvm 指令学习 编写源代码 Hello.java
-public class Hello{public static void main(String[] args){System.out.println(&amp;#34;Hello!&amp;#34;);}}编译 javac Hello.java 生成Hello.class
-反编译 javap -v -verbose Hello.class &amp;gt; a.txt
-a.txt
-Classfile /E:/testcode/Hello.classLast modified 2019-11-8; size 410 bytesMD5 checksum 9c850402f9e9212c88f8d34072cfc80bCompiled from &amp;quot;Hello.java&amp;quot;public class Hellominor version: 0major version: 52flags: ACC_PUBLIC, ACC_SUPERConstant pool:#1 = Methodref #6.#15 // java/lang/Object.&amp;quot;&amp;lt;init&amp;gt;&amp;quot;:()V#2 = Fieldref #16.#17 // java/lang/System.out:Ljava/io/PrintStream;#3 = String #18 // Hello!</description>
     </item>
     
   </channel>

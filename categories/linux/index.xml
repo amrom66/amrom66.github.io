@@ -13,24 +13,13 @@
     
     <item>
       <title>firewalld防火墙使用</title>
-      <link>https://linjinbao.github.io/2019/20191016firewalld-fang-huo-qiang-shi-yong/</link>
+      <link>https://linjinbao.github.io/2019/2019-10-16-firewalld%E9%98%B2%E7%81%AB%E5%A2%99%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Wed, 16 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191016firewalld-fang-huo-qiang-shi-yong/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-10-16-firewalld%E9%98%B2%E7%81%AB%E5%A2%99%E4%BD%BF%E7%94%A8/</guid>
       <description>2019-10-16-firewalld防火墙使用 firewalld动态防火墙 firewalld 服务引入了一个信任级别的概念来管理与之相关联的连接与接口。它支持 ipv4 与 ipv6，并支持网桥，采用 firewall-cmd (command) 或 firewall-config (gui) 来动态的管理 kernel netfilter 的临时或永久的接口规则，并实时生效而无需重启服务。
 firewalld相关命令 systemctl start firewalld systemctl stop firewalld systemctl status firewalld systemctl enable firewalld firewall-cmd基本使用 firewall-cmd用来管理端口
 firewall-cmd相关命令(对域操作) firewall-cmd --state //查看状态 firewall-cmd --zone=public --add-port=80/tcp --permanent //开启指定端口 firewall-cmd --reload //刷新，必要步骤 firewall-cmd --zone=public --list-ports //查看开放端口 firewall-cmd --zone=public --remove-port=80/tcp 两种管理方式  zone域模式管理，包括9个等级的域 service管理，内置了很多服务，以及配置了其对应端口，例如http的80端口，https的443端口  [root@localhost ~]# firewall-cmd --get-service RH-Satellite-6 amanda-client amanda-k5-client bacula bacula-client bgp bitcoin bitcoin-rpc bitcoin-testnet bitcoin-testnet-rpc ceph ceph-mon cfengine condor-collector ctdb dhcp dhcpv6 dhcpv6-client dns docker-registry docker-swarm dropbox-lansync elasticsearch freeipa-ldap freeipa-ldaps freeipa-replication freeipa-trust ftp ganglia-client ganglia-master git gre high-availability http https imap imaps ipp ipp-client ipsec irc ircs iscsi-target jenkins kadmin kerberos kibana klogin kpasswd kprop kshell ldap ldaps libvirt libvirt-tls managesieve mdns minidlna mongodb mosh mountd ms-wbt mssql murmur mysql nfs nfs3 nmea-0183 nrpe ntp openvpn ovirt-imageio ovirt-storageconsole ovirt-vmconsole pmcd pmproxy pmwebapi pmwebapis pop3 pop3s postgresql privoxy proxy-dhcp ptp pulseaudio puppetmaster quassel radius redis rpc-bind rsh rsyncd samba samba-client sane sip sips smtp smtp-submission smtps snmp snmptrap spideroak-lansync squid ssh syncthing syncthing-gui synergy syslog syslog-tls telnet tftp tftp-client tinc tor-socks transmission-client upnp-client vdsm vnc-server wbem-https xmpp-bosh xmpp-client xmpp-local xmpp-server zabbix-agent zabbix-server [root@localhost ~]# 9个域  drop 任何接收到的网络数据都被丢弃，没有任何回复，公有发送出去的网络连接 block 任何接收的网络连接都被IPV4 的icmp-host-prohibited信息和IPV6的icmp6-adm-prohibited信息所拒绝 public 在公共区域内使用，不能相信网络内的其它计算机不会对你的计算机造成危害，只接收经过选取的连接 external 特别是为路由器启用了伪装功能的外部网。你不能信任来自网络的其它计算，不能信任它们不会对你的计算机造成危害，只能接收经过选择的连接 dmz 用于你的非军事区的电脑 ，此区域内可公开访问，可以有限的进入你的内部网络，仅接收经过选择的连接 work 可以基本信任网络内的其它计算机不会危害你的计算机，仅接收经过选择的连接。 home 用于家庭网络，可以基本信任网络内的其它计算机不会危害你的计算机，仅接收经过选择的连接。 internal 用于内部网络，可以基本信任网络内的其它计算机不会危害你的计算机，仅接收经过选择的连接 trusted 可接收所有的网络连接  直接修改配置文件管理端口 cat /etc/firewalld/zones/public.</description>
-    </item>
-    
-    <item>
-      <title>firewalld防火墙使用</title>
-      <link>https://linjinbao.github.io/2019/firewalld%E9%98%B2%E7%81%AB%E5%A2%99%E4%BD%BF%E7%94%A8/</link>
-      <pubDate>Wed, 16 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/firewalld%E9%98%B2%E7%81%AB%E5%A2%99%E4%BD%BF%E7%94%A8/</guid>
-      <description>firewalld动态防火墙 firewalld 服务引入了一个信任级别的概念来管理与之相关联的连接与接口。它支持 ipv4 与 ipv6，并支持网桥，采用 firewall-cmd (command) 或 firewall-config (gui) 来动态的管理 kernel netfilter 的临时或永久的接口规则，并实时生效而无需重启服务。
-firewalld相关命令 systemctl start firewalldsystemctl stop firewalldsystemctl status firewalldsystemctl enable firewalldfirewall-cmd基本使用 firewall-cmd用来管理端口
-firewall-cmd相关命令(对域操作) firewall-cmd --state //查看状态firewall-cmd --zone=public --add-port=80/tcp --permanent //开启指定端口firewall-cmd --reload //刷新，必要步骤firewall-cmd --zone=public --list-ports //查看开放端口firewall-cmd --zone=public --remove-port=80/tcp两种管理方式  zone域模式管理，包括9个等级的域 service管理，内置了很多服务，以及配置了其对应端口，例如http的80端口，https的443端口  [root@localhost ~]# firewall-cmd --get-serviceRH-Satellite-6 amanda-client amanda-k5-client bacula bacula-client bgp bitcoin bitcoin-rpc bitcoin-testnet bitcoin-testnet-rpc ceph ceph-mon cfengine condor-collector ctdb dhcp dhcpv6 dhcpv6-client dns docker-registry docker-swarm dropbox-lansync elasticsearch freeipa-ldap freeipa-ldaps freeipa-replication freeipa-trust ftp ganglia-client ganglia-master git gre high-availability http https imap imaps ipp ipp-client ipsec irc ircs iscsi-target jenkins kadmin kerberos kibana klogin kpasswd kprop kshell ldap ldaps libvirt libvirt-tls managesieve mdns minidlna mongodb mosh mountd ms-wbt mssql murmur mysql nfs nfs3 nmea-0183 nrpe ntp openvpn ovirt-imageio ovirt-storageconsole ovirt-vmconsole pmcd pmproxy pmwebapi pmwebapis pop3 pop3s postgresql privoxy proxy-dhcp ptp pulseaudio puppetmaster quassel radius redis rpc-bind rsh rsyncd samba samba-client sane sip sips smtp smtp-submission smtps snmp snmptrap spideroak-lansync squid ssh syncthing syncthing-gui synergy syslog syslog-tls telnet tftp tftp-client tinc tor-socks transmission-client upnp-client vdsm vnc-server wbem-https xmpp-bosh xmpp-client xmpp-local xmpp-server zabbix-agent zabbix-server[root@localhost ~]#9个域  drop 任何接收到的网络数据都被丢弃，没有任何回复，公有发送出去的网络连接 block 任何接收的网络连接都被IPV4 的icmp-host-prohibited信息和IPV6的icmp6-adm-prohibited信息所拒绝 public 在公共区域内使用，不能相信网络内的其它计算机不会对你的计算机造成危害，只接收经过选取的连接 external 特别是为路由器启用了伪装功能的外部网。你不能信任来自网络的其它计算，不能信任它们不会对你的计算机造成危害，只能接收经过选择的连接 dmz 用于你的非军事区的电脑 ，此区域内可公开访问，可以有限的进入你的内部网络，仅接收经过选择的连接 work 可以基本信任网络内的其它计算机不会危害你的计算机，仅接收经过选择的连接。 home 用于家庭网络，可以基本信任网络内的其它计算机不会危害你的计算机，仅接收经过选择的连接。 internal 用于内部网络，可以基本信任网络内的其它计算机不会危害你的计算机，仅接收经过选择的连接 trusted 可接收所有的网络连接  直接修改配置文件管理端口 cat /etc/firewalld/zones/public.</description>
     </item>
     
     <item>
@@ -40,15 +29,6 @@ firewall-cmd相关命令(对域操作) firewall-cmd --state //查看状态firew
       
       <guid>https://linjinbao.github.io/2019/2019-09-13-linux%E7%AC%94%E8%AE%B0/</guid>
       <description>笔记 查找软件包rsync rpm -qa | grep rsync 客户端拉取 rsync -av root@192.168.59.130::backup /home/ljbao/ 打印指定行数据 sed -n &amp;#39;10,10p&amp;#39; file.txt cat file.txt | head -n 10 | tail -n +10 awk使用 awk &amp;#39;{print $2} {print $1}&amp;#39; emp.data crond使用 service crond start //启动服务 service crond stop //关闭服务 service crond restart //重启服务 service crond reload //重新载入配置 service crond status //查看服务状态 第一步：写cron脚本文件,命名为crontest.cron。 15,30,45,59 * * * * echo &amp;quot;xgmtest.....&amp;quot; &amp;gt;&amp;gt; xgmtest.txt 表示，每隔15分钟，执行打印一次命令 第二步：添加定时任务。执行命令 crontab crontest.cron。搞定 第三步：crontab -l查看定时任务是否成功或者检测/var/spool/cron下是否生成对应cron脚本</description>
-    </item>
-    
-    <item>
-      <title>Linux笔记</title>
-      <link>https://linjinbao.github.io/2019/%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/%E7%AC%94%E8%AE%B0/</guid>
-      <description>查找软件包rsync rpm -qa | grep rsync客户端拉取 rsync -av root@192.168.59.130::backup /home/ljbao/打印指定行数据 sed -n &#39;10,10p&#39; file.txtcat file.txt | head -n 10 | tail -n +10awk使用 awk &amp;#39;{print $2} {print $1}&amp;#39; emp.datacrond使用 service crond start //启动服务service crond stop //关闭服务service crond restart //重启服务service crond reload //重新载入配置service crond status //查看服务状态 第一步：写cron脚本文件,命名为crontest.cron。 15,30,45,59 * * * * echo &amp;quot;xgmtest.....&amp;quot; &amp;gt;&amp;gt; xgmtest.txt  表示，每隔15分钟，执行打印一次命令 第二步：添加定时任务。执行命令 crontab crontest.cron。搞定 第三步：crontab -l查看定时任务是否成功或者检测/var/spool/cron下是否生成对应cron脚本</description>
     </item>
     
   </channel>

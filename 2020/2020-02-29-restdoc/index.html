@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2020/2020-02-28-webhook/" />
+  <link rel="next" href="https://linjinbao.github.io/2020/2020-03-01-swagger/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2020/2020-02-29-restdoc/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Spring Boot教程第10篇：restdoc | 打工人日记
+       
+  </title>
+  <meta name="title" content="Spring Boot教程第10篇：restdoc | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Spring Boot教程第10篇：restdoc",
+    "headline" : "Spring Boot教程第10篇：restdoc",
+    "description" : "Spring Boot教程第10篇：restdoc Spring REST Docs的目标是帮助您为您的RESTful服务生成准确可读的文档。\n编写高质量的文档很困难。减轻这种困难的一种方法是使用非常适合工作的工具。为此，Spring REST Docs 默认使用Asciidoctor。Asciidoctor处理纯文本并生成HTML，进行样式化和布局以满足您的需求。如果您愿意，还可以将Spring REST Docs配置为使用Markdown。\nSpring REST Docs利用Spring MVC的测试框架 Spring WebFlux WebTestClient或 REST Assured 3编写的测试生成的代码片段。这种测试驱动的方法有助于保证服务文档的准确性。如果代码片段不正确，则生成它的测试将失败。\n pom.xml  \x26lt;?xml version=\x26quot;1.0\x26quot; encoding=\x26quot;UTF-8\x26quot;?\x26gt; \x26lt;project xmlns=\x26quot;http:\/\/maven.apache.org\/POM\/4.0.0\x26quot; xmlns:xsi=\x26quot;http:\/\/www.w3.org\/2001\/XMLSchema-instance\x26quot; xsi:schemaLocation=\x26quot;http:\/\/maven.apache.org\/POM\/4.0.0 http:\/\/maven.apache.org\/xsd\/maven-4.0.0.xsd\x26quot;\x26gt; \x26lt;parent\x26gt; \x26lt;artifactId\x26gt;learnboot\x26lt;\/artifactId\x26gt; \x26lt;groupId\x26gt;tk.amrom\x26lt;\/groupId\x26gt; \x26lt;version\x26gt;1.0-SNAPSHOT\x26lt;\/version\x26gt; \x26lt;\/parent\x26gt; \x26lt;modelVersion\x26gt;4.0.0\x26lt;\/modelVersion\x26gt; \x26lt;artifactId\x26gt;learnrestdoc\x26lt;\/artifactId\x26gt; \x26lt;dependencies\x26gt; \x26lt;dependency\x26gt; \x26lt;groupId\x26gt;org.springframework.boot\x26lt;\/groupId\x26gt; \x26lt;artifactId\x26gt;spring-boot-starter-web\x26lt;\/artifactId\x26gt; \x26lt;\/dependency\x26gt; \x26lt;dependency\x26gt; \x26lt;groupId\x26gt;org.springframework.boot\x26lt;\/groupId\x26gt; \x26lt;artifactId\x26gt;spring-boot-starter-test\x26lt;\/artifactId\x26gt; \x26lt;scope\x26gt;test\x26lt;\/scope\x26gt; \x26lt;\/dependency\x26gt; \x26lt;!-- https:\/\/mvnrepository.com\/artifact\/org.springframework.restdocs\/spring-restdocs-mockmvc --\x26gt; \x26lt;dependency\x26gt; \x26lt;groupId\x26gt;org.springframework.restdocs\x26lt;\/groupId\x26gt; \x26lt;artifactId\x26gt;spring-restdocs-mockmvc\x26lt;\/artifactId\x26gt; \x26lt;version\x26gt;2.0.4.RELEASE\x26lt;\/version\x26gt; \x26lt;scope\x26gt;test\x26lt;\/scope\x26gt; \x26lt;\/dependency\x26gt; \x26lt;\/dependencies\x26gt; \x26lt;build\x26gt; \x26lt;plugins\x26gt; \x26lt;plugin\x26gt; \x26lt;groupId\x26gt;org.springframework.boot\x26lt;\/groupId\x26gt; \x26lt;artifactId\x26gt;spring-boot-maven-plugin\x26lt;\/artifactId\x26gt; \x26lt;\/plugin\x26gt; \x26lt;plugin\x26gt; \x26lt;groupId\x26gt;org.asciidoctor\x26lt;\/groupId\x26gt; \x26lt;artifactId\x26gt;asciidoctor-maven-plugin\x26lt;\/artifactId\x26gt; \x26lt;executions\x26gt; \x26lt;execution\x26gt; \x26lt;id\x26gt;generate-docs\x26lt;\/id\x26gt; \x26lt;phase\x26gt;prepare-package\x26lt;\/phase\x26gt; \x26lt;goals\x26gt; \x26lt;goal\x26gt;process-asciidoc\x26lt;\/goal\x26gt; \x26lt;\/goals\x26gt; \x26lt;configuration\x26gt; \x26lt;sourceDocumentName\x26gt;index.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-02-29 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-02-29 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2020\/2020-02-29-restdoc\/",
+    "wordCount" : "255",
+    "keywords" : [ "spring", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Spring Boot教程第10篇：restdoc</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao</a> 时间： 
+                <span class="post-time">
+                 <time datetime=29029-02-29 itemprop="datePublished">February 29, 2020</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="spring-boot教程第10篇restdoc">Spring Boot教程第10篇：restdoc</h1>
+<p>Spring REST Docs的目标是帮助您为您的RESTful服务生成准确可读的文档。</p>
+<p>编写高质量的文档很困难。减轻这种困难的一种方法是使用非常适合工作的工具。为此，Spring REST Docs 默认使用<a href="http://asciidoctor.org/">Asciidoctor</a>。Asciidoctor处理纯文本并生成HTML，进行样式化和布局以满足您的需求。如果您愿意，还可以将Spring REST Docs配置为使用Markdown。</p>
+<p>Spring REST Docs利用Spring MVC的<a href="https://docs.spring.io/spring-framework/docs/5.0.x/spring-framework-reference/testing.html#spring-mvc-test-framework">测试框架</a> Spring WebFlux <a href="https://docs.spring.io/spring-framework/docs/5.0.x/spring-framework-reference/testing.html#webtestclient"><code>WebTestClient</code></a>或 <a href="http://www.rest-assured.io/">REST Assured 3</a>编写的<a href="https://docs.spring.io/spring-framework/docs/5.0.x/spring-framework-reference/testing.html#spring-mvc-test-framework">测试</a>生成的代码片段。这种测试驱动的方法有助于保证服务文档的准确性。如果代码片段不正确，则生成它的测试将失败。</p>
+<ol>
+<li>pom.xml</li>
+</ol>
+<pre><code class="language-markup" data-lang="markup">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;parent&gt;
+        &lt;artifactId&gt;learnboot&lt;/artifactId&gt;
+        &lt;groupId&gt;tk.amrom&lt;/groupId&gt;
+        &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+    &lt;/parent&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;artifactId&gt;learnrestdoc&lt;/artifactId&gt;
+    &lt;dependencies&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- https://mvnrepository.com/artifact/org.springframework.restdocs/spring-restdocs-mockmvc --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.restdocs&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-restdocs-mockmvc&lt;/artifactId&gt;
+            &lt;version&gt;2.0.4.RELEASE&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+
+    &lt;/dependencies&gt;
+
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+            &lt;/plugin&gt;
+
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.asciidoctor&lt;/groupId&gt;
+                &lt;artifactId&gt;asciidoctor-maven-plugin&lt;/artifactId&gt;
+                &lt;executions&gt;
+                    &lt;execution&gt;
+                        &lt;id&gt;generate-docs&lt;/id&gt;
+                        &lt;phase&gt;prepare-package&lt;/phase&gt;
+                        &lt;goals&gt;
+                            &lt;goal&gt;process-asciidoc&lt;/goal&gt;
+                        &lt;/goals&gt;
+                        &lt;configuration&gt;
+                            &lt;sourceDocumentName&gt;index.adoc&lt;/sourceDocumentName&gt;
+                            &lt;backend&gt;html&lt;/backend&gt;
+                            &lt;attributes&gt;
+                                &lt;snippets&gt;${project.build.directory}/snippets&lt;/snippets&gt;
+                            &lt;/attributes&gt;
+                        &lt;/configuration&gt;
+                    &lt;/execution&gt;
+                &lt;/executions&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+&lt;/project&gt;
+</code></pre><ol>
+<li>application.yml</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">server</span>:
+  <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">9010</span>
+<span style="color:#66d9ef">spring</span>:
+  <span style="color:#66d9ef">application</span>:
+    <span style="color:#66d9ef">name</span>: learn-restdoc
+</code></pre></div><ol>
+<li>RestDocApplication.java</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@SpringBootApplication</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RestDocApplication</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        SpringApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">run</span><span style="color:#f92672">(</span>RestDocApplication<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">,</span> args<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ol>
+<li>HomeController.java</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RestController</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HomeController</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@GetMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">public</span> Map<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> Object<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">greeting</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">return</span> Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">singletonMap</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;message&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;Hello World&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ol>
+<li>SpringbootRestdocsApplicationTests.java</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RunWith</span><span style="color:#f92672">(</span>SpringRunner<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@SpringBootTest</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SpringbootRestdocsApplicationTests</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">contextLoads</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    <span style="color:#f92672">}</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><ol>
+<li>WebLayerTest.java</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> learnrestdoc.controller.HomeController<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.junit.Test<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.junit.runner.RunWith<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> org.springframework.beans.factory.annotation.Autowired<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.test.context.junit4.SpringRunner<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> org.springframework.test.web.servlet.MockMvc<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import static</span> org.hamcrest.Matchers.containsString<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.springframework.test.web.servlet.result.MockMvcResultHandlers.print<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.springframework.test.web.servlet.result.MockMvcResultMatchers.content<span style="color:#f92672">;</span>
+<span style="color:#f92672">import static</span> org.springframework.test.web.servlet.result.MockMvcResultMatchers.status<span style="color:#f92672">;</span>
+<span style="color:#a6e22e">@RunWith</span><span style="color:#f92672">(</span>SpringRunner<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@WebMvcTest</span><span style="color:#f92672">(</span>HomeController<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@AutoConfigureRestDocs</span><span style="color:#f92672">(</span>outputDir <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;target/snippets&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WebLayerTest</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#a6e22e">@Autowired</span>
+    <span style="color:#66d9ef">private</span> MockMvc mockMvc<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@Test</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">shouldReturnDefaultMessage</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mockMvc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">perform</span><span style="color:#f92672">(</span>get<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">andDo</span><span style="color:#f92672">(</span>print<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>status<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">isOk</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andExpect</span><span style="color:#f92672">(</span>content<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">string</span><span style="color:#f92672">(</span>containsString<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Hello World&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">andDo</span><span style="color:#f92672">(</span>document<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;home&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ol>
+<li>src/main/asciidoc/index.adoc</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">This is an example output for a service running at http://localhost:8080:
+
+.request
+
+include::{snippets}/home/http-request.adoc[]
+
+.response
+
+include::{snippets}/home/http-response.adoc[]
+</code></pre></div><ol>
+<li>云顶WebLayerTest会生成target/snippets/home几个.adoc文件，如http-request.adoc，response-body.adoc等。</li>
+<li>运行打包命令，mvn package， 在打包输出目录target/generated-docs有index.html文件，打开即可看到生成的api文档。</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">This is an example output for a service running at http://localhost:8080:
+
+request
+GET / HTTP/1.1
+Host: localhost:8080
+response
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 25
+
+{&#34;message&#34;:&#34;Hello World&#34;}
+</code></pre></div><h2 id="总结">总结</h2>
+<p>spring rest doc通过运行Spring Test把每个测试结果生成adoc文件，再通过打包输出，实现了静态的api文档。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2020/2020-02-29-restdoc/>https://linjinbao.github.io/2020/2020-02-29-restdoc/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/spring/">
+                    #spring</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2020/2020-02-28-webhook/" class="prev" rel="prev" title="github webhooks配置"><i class="iconfont icon-left"></i>&nbsp;github webhooks配置</a>
+         
+        
+        <a href="https://linjinbao.github.io/2020/2020-03-01-swagger/" class="next" rel="next" title="Spring Boot教程第11篇：swagger2">Spring Boot教程第11篇：swagger2&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

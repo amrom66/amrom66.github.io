@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019/2019-12-06-node%E5%AD%A6%E4%B9%A001/" />
+  <link rel="next" href="https://linjinbao.github.io/2019/2019-12-06-git%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019/2019-12-06-jvmgc%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           jvmGC日志分析 | 打工人日记
+       
+  </title>
+  <meta name="title" content="jvmGC日志分析 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "jvmGC日志分析",
+    "headline" : "jvmGC日志分析",
+    "description" : "jvmGC日志分析 TestGC.java\npublic class TestGc { private static final int _1MB = 1024*1024; public static void main(String[] args) { byte[] allocation1, allocation2, allocation3, allocation4,allocation5,allocation6; allocation1 = new byte[2 * _1MB]; allocation2 = new byte[2 * _1MB]; allocation3 = new byte[4 * _1MB]; allocation4 = new byte[4 * _1MB]; \/\/ allocation5 = new byte[2 * _1MB]; \/\/ allocation6 = new byte[1 * _1MB];  } } gc输出\n0.083: [GC (Allocation Failure) --[PSYoungGen: 5141K-\x26gt;5141K(9216K)] 5141K-\x26gt;5181K(9728K), 0.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-06 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-12-06 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019\/2019-12-06-jvmgc%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90\/",
+    "wordCount" : "281",
+    "keywords" : [ "Java","jvm", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">jvmGC日志分析</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao</a> 时间： 
+                <span class="post-time">
+                 <time datetime=6129-12-06 itemprop="datePublished">December 6, 2019</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="jvmgc日志分析">jvmGC日志分析</h1>
+<p>TestGC.java</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestGc</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> _1MB <span style="color:#f92672">=</span> 1024<span style="color:#f92672">*</span>1024<span style="color:#f92672">;</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">byte</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span> allocation1<span style="color:#f92672">,</span> allocation2<span style="color:#f92672">,</span> allocation3<span style="color:#f92672">,</span> allocation4<span style="color:#f92672">,</span>allocation5<span style="color:#f92672">,</span>allocation6<span style="color:#f92672">;</span>
+
+        allocation1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">byte</span><span style="color:#f92672">[</span>2 <span style="color:#f92672">*</span> _1MB<span style="color:#f92672">]</span><span style="color:#f92672">;</span>
+        allocation2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">byte</span><span style="color:#f92672">[</span>2 <span style="color:#f92672">*</span> _1MB<span style="color:#f92672">]</span><span style="color:#f92672">;</span>
+        allocation3 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">byte</span><span style="color:#f92672">[</span>4 <span style="color:#f92672">*</span> _1MB<span style="color:#f92672">]</span><span style="color:#f92672">;</span>
+        allocation4 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">byte</span><span style="color:#f92672">[</span>4 <span style="color:#f92672">*</span> _1MB<span style="color:#f92672">]</span><span style="color:#f92672">;</span>
+<span style="color:#75715e">//        allocation5 = new byte[2 * _1MB];
+</span><span style="color:#75715e"></span><span style="color:#75715e">//        allocation6 = new byte[1 * _1MB];
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>gc输出</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">0.083: [GC (Allocation Failure) --[PSYoungGen: 5141K-&gt;5141K(9216K)] 5141K-&gt;5181K(9728K), 0.0009566 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+0.084: [Full GC (Ergonomics) [PSYoungGen: 5141K-&gt;4571K(9216K)] [ParOldGen: 40K-&gt;51K(512K)] 5181K-&gt;4623K(9728K), [Metaspace: 2691K-&gt;2691K(1056768K)], 0.0054408 secs] [Times: user=0.02 sys=0.00, real=0.00 secs] 
+0.091: [GC (Allocation Failure) --[PSYoungGen: 8667K-&gt;8667K(9216K)] 8719K-&gt;8823K(9728K), 0.0009663 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+0.092: [Full GC (Ergonomics) [PSYoungGen: 8667K-&gt;8588K(9216K)] [ParOldGen: 155K-&gt;128K(512K)] 8823K-&gt;8717K(9728K), [Metaspace: 2691K-&gt;2691K(1056768K)], 0.0038156 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+0.096: [GC (Allocation Failure) --[PSYoungGen: 8588K-&gt;8588K(9216K)] 8717K-&gt;8733K(9728K), 0.0006163 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+0.097: [Full GC (Allocation Failure) [PSYoungGen: 8588K-&gt;8572K(9216K)] [ParOldGen: 144K-&gt;132K(512K)] 8733K-&gt;8705K(9728K), [Metaspace: 2691K-&gt;2691K(1056768K)], 0.0039691 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+Exception in thread &#34;main&#34; java.lang.OutOfMemoryError: Java heap space
+    at demo.TestGc.main(TestGc.java:18)
+Heap
+ PSYoungGen      total 9216K, used 8704K [0x00000000ff680000, 0x0000000100000000, 0x0000000100000000)
+  eden space 8704K, 100% used [0x00000000ff680000,0x00000000fff00000,0x00000000fff00000)
+  from space 512K, 0% used [0x00000000fff80000,0x00000000fff80000,0x0000000100000000)
+  to   space 512K, 0% used [0x00000000fff00000,0x00000000fff00000,0x00000000fff80000)
+ ParOldGen       total 512K, used 133K [0x00000000ff600000, 0x00000000ff680000, 0x00000000ff680000)
+  object space 512K, 26% used [0x00000000ff600000,0x00000000ff621490,0x00000000ff680000)
+ Metaspace       used 2722K, capacity 4486K, committed 4864K, reserved 1056768K
+  class space    used 300K, capacity 386K, committed 512K, reserved 1048576K
+Java HotSpot(TM) 64-Bit Server VM warning: MaxNewSize (10240k) is equal to or greater than the entire heap (10240k).  A new max generation size of 9728k will be used.
+</code></pre></div><p>gc日志分析：</p>
+<ol>
+<li>0.083: 自从jvm启动以来，GC发生的时间</li>
+<li>[GC (Allocation Failure) &ndash;[PSYoungGen: 5141K-&gt;5141K(9216K)] GC前该内存区域已使用容量 -&gt; GC后该内存区域已使用容量（该内存区域总容量）</li>
+<li>5141K-&gt;5181K(9728K) GC前java堆已使用容量 -&gt; GC后java堆已使用容量(Java堆总容量)</li>
+<li>[Times: user=0.00 sys=0.00, real=0.00 secs] 用户消耗的CPU时间，内存态消耗的CPU时间，和操作从开始到结束所经过的墙钟时间</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2019/2019-12-06-jvmgc%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/>https://linjinbao.github.io/2019/2019-12-06-jvmgc%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/java/">
+                    #Java</a></span>
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/jvm/">
+                    #jvm</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2019/2019-12-06-node%E5%AD%A6%E4%B9%A001/" class="prev" rel="prev" title="node学习01"><i class="iconfont icon-left"></i>&nbsp;node学习01</a>
+         
+        
+        <a href="https://linjinbao.github.io/2019/2019-12-06-git%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/" class="next" rel="next" title="git分支管理">git分支管理&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

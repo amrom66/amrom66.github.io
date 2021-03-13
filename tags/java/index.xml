@@ -13,10 +13,10 @@
     
     <item>
       <title>jvm学习02</title>
-      <link>https://linjinbao.github.io/2019/20191207jvm-xue-xi/</link>
+      <link>https://linjinbao.github.io/2019/2019-12-07-jvm%E5%AD%A6%E4%B9%A002/</link>
       <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191207jvm-xue-xi/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-12-07-jvm%E5%AD%A6%E4%B9%A002/</guid>
       <description>jvm学习02-jdk自带工具使用 jps 解释：虚拟机进程状况工具 参数： -q 只输出lvmid，省略主类的名称 -m 输出虚拟机进程启动的时候传递给朱磊main()函数的参数 -l 输出主类的全名，如果进程执行的是jar包，则输出jar包路径 -v 输出虚拟机进程启动的时候的jvm参数
 示例：
 C:\Users\linjinbao666\Desktop&amp;gt;jps -v 11776 Bootstrap -Dcatalina.base=C:\Users\linjinbao666\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0 -Dcatalina.home=D:\tomcat\apache-tomcat-7.0.92 -Dwtp.deploy=C:\Users\linjinbao666\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps -Djava.endorsed.dirs=D:\tomcat\apache-tomcat-7.0.92\endorsed -Dfile.encoding=GBK 7280 Jps -Dapplication.home=C:\Program Files\Java\jdk1.8.0_171 -Xms8m 11700 -Dosgi.requiredJavaVersion=1.8 -Dosgi.instance.area.default=@user.home/eclipse-workspace -XX:+UseG1GC -XX:+UseStringDeduplication -Dosgi.requiredJavaVersion=1.8 -Dosgi.dataAreaRequiresExplicitInit=true -Xms256m -Xmx1024m -Declipse.p2.max.threads=10 -Doomph.update.url=http://download.eclipse.org/oomph/updates/milestone/latest -Doomph.redirection.index.redirection=index:/-&amp;gt;http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/ C:\Users\linjinbao666\Desktop&amp;gt; jstat 解释：虚拟机统计信息监视工具 参数： -class 监视类装载，卸载数量，总空间以及装在所消耗的时间 -gc 监视Java堆状况，包括eden区，两个survivor区，老年代，永久代的容量，已用空间，gc时间合计等信息 -gccapacity 监视内容与-gc基本相同，但输出主要关注java堆各个区域使用到的最大最小空间 -gcutil 监视内容同上，输出关注已使用空间占总空间的百分比 -gccause 同上，额外加上导致上次gc的产生原因 -gcnew 监视新生代gc的状况 -gcnewcapacity -gcold 监视老年代gc状况 -gcoldcapacity -gcpermcapacity监视永久代 -compiler 输出JIT编译器编译过的方法，耗时等信息 -printcompilation 输出已经被JIT编译的方法
@@ -25,46 +25,22 @@ C:\Users\linjinbao666\Desktop&amp;gt;jstat -gc 11776 250 10 S0C S1C S0U S1U EC E
     </item>
     
     <item>
-      <title>jvm学习02</title>
-      <link>https://linjinbao.github.io/2019/jvm%E5%AD%A6%E4%B9%A0/</link>
-      <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/jvm%E5%AD%A6%E4%B9%A0/</guid>
-      <description>jvm学习02-jdk自带工具使用 jps 解释：虚拟机进程状况工具 参数： -q 只输出lvmid，省略主类的名称 -m 输出虚拟机进程启动的时候传递给朱磊main()函数的参数 -l 输出主类的全名，如果进程执行的是jar包，则输出jar包路径 -v 输出虚拟机进程启动的时候的jvm参数
-示例：
-C:\Users\linjinbao666\Desktop&amp;gt;jps -v11776 Bootstrap -Dcatalina.base=C:\Users\linjinbao666\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0 -Dcatalina.home=D:\tomcat\apache-tomcat-7.0.92 -Dwtp.deploy=C:\Users\linjinbao666\eclipse-workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps -Djava.endorsed.dirs=D:\tomcat\apache-tomcat-7.0.92\endorsed -Dfile.encoding=GBK7280 Jps -Dapplication.home=C:\Program Files\Java\jdk1.8.0_171 -Xms8m11700 -Dosgi.requiredJavaVersion=1.8 -Dosgi.instance.area.default=@user.home/eclipse-workspace -XX:+UseG1GC -XX:+UseStringDeduplication -Dosgi.requiredJavaVersion=1.8 -Dosgi.dataAreaRequiresExplicitInit=true -Xms256m -Xmx1024m -Declipse.p2.max.threads=10 -Doomph.update.url=http://download.eclipse.org/oomph/updates/milestone/latest -Doomph.redirection.index.redirection=index:/-&amp;gt;http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/C:\Users\linjinbao666\Desktop&amp;gt;jstat 解释：虚拟机统计信息监视工具 参数： -class 监视类装载，卸载数量，总空间以及装在所消耗的时间 -gc 监视Java堆状况，包括eden区，两个survivor区，老年代，永久代的容量，已用空间，gc时间合计等信息 -gccapacity 监视内容与-gc基本相同，但输出主要关注java堆各个区域使用到的最大最小空间 -gcutil 监视内容同上，输出关注已使用空间占总空间的百分比 -gccause 同上，额外加上导致上次gc的产生原因 -gcnew 监视新生代gc的状况 -gcnewcapacity -gcold 监视老年代gc状况 -gcoldcapacity -gcpermcapacity监视永久代 -compiler 输出JIT编译器编译过的方法，耗时等信息 -printcompilation 输出已经被JIT编译的方法
-示例:
-C:\Users\linjinbao666\Desktop&amp;gt;jstat -gc 11776 250 10S0C S1C S0U S1U EC EU OC OU MC MU CCSC CCSU YGC YGCT FGC FGCT GCT5120.</description>
-    </item>
-    
-    <item>
       <title>jvmGC日志分析</title>
-      <link>https://linjinbao.github.io/2019/20191206jvmgc-ri-zhi-fen-xi/</link>
+      <link>https://linjinbao.github.io/2019/2019-12-06-jvmgc%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/</link>
       <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191206jvmgc-ri-zhi-fen-xi/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-12-06-jvmgc%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/</guid>
       <description>jvmGC日志分析 TestGC.java
 public class TestGc { private static final int _1MB = 1024*1024; public static void main(String[] args) { byte[] allocation1, allocation2, allocation3, allocation4,allocation5,allocation6; allocation1 = new byte[2 * _1MB]; allocation2 = new byte[2 * _1MB]; allocation3 = new byte[4 * _1MB]; allocation4 = new byte[4 * _1MB]; // allocation5 = new byte[2 * _1MB]; // allocation6 = new byte[1 * _1MB];  } } gc输出
 0.083: [GC (Allocation Failure) --[PSYoungGen: 5141K-&amp;gt;5141K(9216K)] 5141K-&amp;gt;5181K(9728K), 0.</description>
     </item>
     
     <item>
-      <title>jvmGC日志分析</title>
-      <link>https://linjinbao.github.io/2019/jvmgc%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/</link>
-      <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/jvmgc%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/</guid>
-      <description>jvmGC日志分析 TestGC.java
-public class TestGc {private static final int _1MB = 1024*1024;public static void main(String[] args) {byte[] allocation1, allocation2, allocation3, allocation4,allocation5,allocation6;allocation1 = new byte[2 * _1MB];allocation2 = new byte[2 * _1MB];allocation3 = new byte[4 * _1MB];allocation4 = new byte[4 * _1MB];//	allocation5 = new byte[2 * _1MB];//	allocation6 = new byte[1 * _1MB];	}}gc输出
-0.083: [GC (Allocation Failure) --[PSYoungGen: 5141K-&amp;gt;5141K(9216K)] 5141K-&amp;gt;5181K(9728K), 0.</description>
-    </item>
-    
-    <item>
       <title>java多线程处理数据表格</title>
-      <link>https://linjinbao.github.io/2019/20191203java-duo-xian-cheng-chu-li-shu-ju-biao-ge/</link>
+      <link>https://linjinbao.github.io/2019/2019-12-03-java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%A4%84%E7%90%86%E8%A1%A8%E6%A0%BC/</link>
       <pubDate>Tue, 03 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191203java-duo-xian-cheng-chu-li-shu-ju-biao-ge/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-12-03-java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%A4%84%E7%90%86%E8%A1%A8%E6%A0%BC/</guid>
       <description>java多线程处理数据表格 问题描述： 现在需要处理一个excel表格，数据量几百条，我使用多线程处理
 思路描述： 使用import java.util.concurrent.ExecutorService;和import java.util.concurrent.Executors;类实现
 核心代码：
@@ -72,64 +48,32 @@ ExecutorService e = Executors.newFixedThreadPool(10); e.submit(new Runnable() { 
     </item>
     
     <item>
-      <title>java多线程处理数据表格</title>
-      <link>https://linjinbao.github.io/2019/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC/</link>
-      <pubDate>Tue, 03 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE%E8%A1%A8%E6%A0%BC/</guid>
-      <description>java多线程处理数据表格 问题描述： 现在需要处理一个excel表格，数据量几百条，我使用多线程处理
-思路描述： 使用import java.util.concurrent.ExecutorService;和import java.util.concurrent.Executors;类实现
-核心代码：
-ExecutorService e = Executors.newFixedThreadPool(10);e.submit(new Runnable() {@Overridepublic void run() {Long id = Thread.currentThread().getId();logger.info(&amp;#34;当前线程：&amp;#34; + id);try {gr(inpath, outpath, prefix1);} catch (Exception e) {logger.error(&amp;#34;----------转化错误，请参照说明文档-------&amp;#34;);e.printStackTrace();}}});e.submit(new Runnable() {@Overridepublic void run() {Long id = Thread.currentThread().getId();logger.info(&amp;#34;当前线程：&amp;#34; + id);try {fr(inpath, outpath, prefix2, prefix3);} catch (IOException e) {logger.error(&amp;#34;----------转化错误，请参照说明文档-------&amp;#34;);e.printStackTrace();}}});e.</description>
-    </item>
-    
-    <item>
       <title>Java定时任务</title>
-      <link>https://linjinbao.github.io/2019/20191112java-ding-shi-ren-wu/</link>
+      <link>https://linjinbao.github.io/2019/2019-11-12-java%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%86%99%E6%B3%95/</link>
       <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191112java-ding-shi-ren-wu/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-11-12-java%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%86%99%E6%B3%95/</guid>
       <description>Java定时任务的几种写法 前言：cron表达式书写： cron = &amp;quot;* * * * * *&amp;quot; {秒数} {分钟} {小时} {日期} {月份} {星期} {年份(可为空)} 每个字段允许值： 秒 0-59 , - / 分 0-59 , - / 小时 0-23 , - / 日期 1-31 , - ? / L W C 月份 1-12 或者 JAN-DEC , - / 星期 1-7 或者 SUN-SAT , - ? / L C # 年 留空, 1970-2099 , - * / 符号的意义：
   表示所有值；</description>
     </item>
     
     <item>
-      <title>Java定时任务</title>
-      <link>https://linjinbao.github.io/2019/java%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</link>
-      <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/java%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/</guid>
-      <description>Java定时任务的几种写法 前言：cron表达式书写： cron = &amp;quot;* * * * * *&amp;quot; {秒数} {分钟} {小时} {日期} {月份} {星期} {年份(可为空)} 每个字段允许值： 秒 0-59 , - * / 分 0-59 , - * / 小时 0-23 , - * / 日期 1-31 , - * ? / L W C 月份 1-12 或者 JAN-DEC , - * / 星期 1-7 或者 SUN-SAT , - * ? / L C # 年 留空, 1970-2099 , - * / 符号的意义：</description>
-    </item>
-    
-    <item>
       <title>spring xml使用bean加载数据库连接池</title>
-      <link>https://linjinbao.github.io/2019/20191110spring-xml-shi-yong-bean-jia-zai-shu-ju-ku-lian-jie-chi/</link>
+      <link>https://linjinbao.github.io/2019/2019-11-10-spring-xml%E4%BD%BF%E7%94%A8bean%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/</link>
       <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191110spring-xml-shi-yong-bean-jia-zai-shu-ju-ku-lian-jie-chi/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-11-10-spring-xml%E4%BD%BF%E7%94%A8bean%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/</guid>
       <description>2019-11-10-spring xml使用bean加载数据库连接池 spring xml使用bean管理数据库连接池 ioc2.xml
 &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;beans xmlns=&amp;quot;http://www.springframework.org/schema/beans&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemaLocation=&amp;quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&amp;quot;&amp;gt; &amp;lt;bean id=&amp;quot;datasource&amp;quot; class=&amp;quot;com.mchange.v2.c3p0.ComboPooledDataSource&amp;quot;&amp;gt; &amp;lt;property name=&amp;quot;user&amp;quot; value=&amp;quot;root&amp;quot;&amp;gt;&amp;lt;/property&amp;gt; &amp;lt;property name=&amp;quot;password&amp;quot; value=&amp;quot;***&amp;quot;&amp;gt;&amp;lt;/property&amp;gt; &amp;lt;property name=&amp;quot;jdbcUrl&amp;quot; value=&amp;quot;jdbc:mysql://localhost:3306/mqtt&amp;quot;&amp;gt;&amp;lt;/property&amp;gt; &amp;lt;property name=&amp;quot;driverClass&amp;quot; value=&amp;quot;com.mysql.jdbc.Driver&amp;quot;&amp;gt;&amp;lt;/property&amp;gt; &amp;lt;/bean&amp;gt; &amp;lt;/beans&amp;gt; Test.java
 public static void main(String[] args) throws BeansException, SQLException { String fileName = &amp;#34;ioc2.xml&amp;#34;; ApplicationContext context = new ClassPathXmlApplicationContext(fileName); DataSource datasource = (DataSource) context.getBean(&amp;#34;datasource&amp;#34;); // System.out.println(datasource.getConnection());  Connection connection = datasource.getConnection(); Statement statement = connection.createStatement(); ResultSet resultSet = statement.executeQuery(&amp;#34;select * from user&amp;#34;); while (resultSet.</description>
     </item>
     
     <item>
-      <title>spring xml使用bean加载数据库连接池</title>
-      <link>https://linjinbao.github.io/2019/spring-xml%E4%BD%BF%E7%94%A8bean%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/</link>
-      <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/spring-xml%E4%BD%BF%E7%94%A8bean%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/</guid>
-      <description>spring xml使用bean管理数据库连接池 ioc2.xml
-&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt;&amp;lt;beans xmlns=&amp;#34;http://www.springframework.org/schema/beans&amp;#34;xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34;xsi:schemaLocation=&amp;#34;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&amp;#34;&amp;gt;&amp;lt;bean id=&amp;#34;datasource&amp;#34; class=&amp;#34;com.mchange.v2.c3p0.ComboPooledDataSource&amp;#34;&amp;gt;&amp;lt;property name=&amp;#34;user&amp;#34; value=&amp;#34;root&amp;#34;&amp;gt;&amp;lt;/property&amp;gt;&amp;lt;property name=&amp;#34;password&amp;#34; value=&amp;#34;***&amp;#34;&amp;gt;&amp;lt;/property&amp;gt;&amp;lt;property name=&amp;#34;jdbcUrl&amp;#34; value=&amp;#34;jdbc:mysql://localhost:3306/mqtt&amp;#34;&amp;gt;&amp;lt;/property&amp;gt;&amp;lt;property name=&amp;#34;driverClass&amp;#34; value=&amp;#34;com.mysql.jdbc.Driver&amp;#34;&amp;gt;&amp;lt;/property&amp;gt;&amp;lt;/bean&amp;gt;&amp;lt;/beans&amp;gt;Test.java
-public static void main(String[] args) throws BeansException, SQLException {String fileName = &amp;#34;ioc2.xml&amp;#34;;ApplicationContext context = new ClassPathXmlApplicationContext(fileName);DataSource datasource = (DataSource) context.getBean(&amp;#34;datasource&amp;#34;);//	System.out.println(datasource.getConnection());	Connection connection = datasource.getConnection();Statement statement = connection.createStatement();ResultSet resultSet = statement.executeQuery(&amp;#34;select * from user&amp;#34;);while (resultSet.</description>
-    </item>
-    
-    <item>
       <title>jvm指令学习</title>
-      <link>https://linjinbao.github.io/2019/20191108jvm-zhi-ling-xue-xi/</link>
+      <link>https://linjinbao.github.io/2019/2019-11-08-jvm%E6%8C%87%E4%BB%A4%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191108jvm-zhi-ling-xue-xi/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-11-08-jvm%E6%8C%87%E4%BB%A4%E5%AD%A6%E4%B9%A0/</guid>
       <description>jvm 指令学习 编写源代码 Hello.java
 public class Hello{ public static void main(String[] args){ System.out.println(&amp;#34;Hello!&amp;#34;); } } 编译 javac Hello.java 生成Hello.class
 反编译 javap -v -verbose Hello.class &amp;gt; a.txt
@@ -138,24 +82,11 @@ Classfile /E:/testcode/Hello.class Last modified 2019-11-8; size 410 bytes MD5 c
     </item>
     
     <item>
-      <title>jvm指令学习</title>
-      <link>https://linjinbao.github.io/2019/jvm%E6%8C%87%E4%BB%A4%E5%AD%A6%E4%B9%A0/</link>
-      <pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/jvm%E6%8C%87%E4%BB%A4%E5%AD%A6%E4%B9%A0/</guid>
-      <description>jvm 指令学习 编写源代码 Hello.java
-public class Hello{public static void main(String[] args){System.out.println(&amp;#34;Hello!&amp;#34;);}}编译 javac Hello.java 生成Hello.class
-反编译 javap -v -verbose Hello.class &amp;gt; a.txt
-a.txt
-Classfile /E:/testcode/Hello.classLast modified 2019-11-8; size 410 bytesMD5 checksum 9c850402f9e9212c88f8d34072cfc80bCompiled from &amp;quot;Hello.java&amp;quot;public class Hellominor version: 0major version: 52flags: ACC_PUBLIC, ACC_SUPERConstant pool:#1 = Methodref #6.#15 // java/lang/Object.&amp;quot;&amp;lt;init&amp;gt;&amp;quot;:()V#2 = Fieldref #16.#17 // java/lang/System.out:Ljava/io/PrintStream;#3 = String #18 // Hello!</description>
-    </item>
-    
-    <item>
       <title>使用工厂方法创建管理bean</title>
-      <link>https://linjinbao.github.io/2019/20191108-gong-chang-fang-fa-chuang-jian-he-guan-li-bean/</link>
+      <link>https://linjinbao.github.io/2019/2019-11-08-%E4%BD%BF%E7%94%A8%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E7%AE%A1%E7%90%86bean/</link>
       <pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191108-gong-chang-fang-fa-chuang-jian-he-guan-li-bean/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-11-08-%E4%BD%BF%E7%94%A8%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E7%AE%A1%E7%90%86bean/</guid>
       <description>使用工厂方法创建管理bean 第一部分： 静态工厂   工厂类写法：
 ```java
   public class AirPlaneStaticFactory {
@@ -166,21 +97,11 @@ Object object = context.getBean(&amp;#34;airFactory01&amp;#34;); //注意此处�
     </item>
     
     <item>
-      <title>使用工厂方法创建管理bean</title>
-      <link>https://linjinbao.github.io/2019/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E5%88%9B%E5%BB%BA%E5%92%8C%E7%AE%A1%E7%90%86bean/</link>
-      <pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E5%88%9B%E5%BB%BA%E5%92%8C%E7%AE%A1%E7%90%86bean/</guid>
-      <description>使用工厂方法创建管理bean 第一部分： 静态工厂  工厂类写法：  public class AirPlaneStaticFactory {/*** 静态工厂* @param name* @return*/public static Airplane getAirPlane(String name) {Airplane airplane = new Airplane();airplane.setFjs(&amp;#34;副驾驶&amp;#34;);airplane.setName(name);airplane.setNum(1001001);return airplane;}}xml配置注册bean  &amp;lt;!--使用工厂管理bean-satic静态管理 --&amp;gt;&amp;lt;bean name=&amp;#34;airFactory01&amp;#34; class=&amp;#34;factory.AirPlaneStaticFactory&amp;#34; factory-method=&amp;#34;getAirPlane&amp;#34;&amp;gt;&amp;lt;constructor-arg name=&amp;#34;name&amp;#34; value=&amp;#34;和风号&amp;#34;&amp;gt;&amp;lt;/constructor-arg&amp;gt;&amp;lt;/bean&amp;gt;ioc容器取出bean  Object object = context.getBean(&amp;#34;airFactory01&amp;#34;); //注意此处的参数，使用的是xml中工厂类注册的名返回值是工厂类所管理的bean，即Airplane对象
-第二部分： 实例工厂  工厂类写法  public class AirPlaneInstanceFactory {/*** 实例工厂* @param name* @return*/public Airplane getAirPlane(String name) {Airplane airplane = new Airplane();airplane.</description>
-    </item>
-    
-    <item>
       <title>Centos 7 下编译openjdk</title>
-      <link>https://linjinbao.github.io/2019/20191022openjdk-bian-yi/</link>
+      <link>https://linjinbao.github.io/2019/2019-10-22-openjdk%E7%BC%96%E8%AF%91/</link>
       <pubDate>Tue, 22 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191022openjdk-bian-yi/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-10-22-openjdk%E7%BC%96%E8%AF%91/</guid>
       <description>openjdk编译 最近在学习java虚拟机的技术，尝试下手动编译openjdk
 准备工作  CentOS7 环境 openjdk8 源码 bootstrap jdk源码（我用的是openjdk 7）  注意事项：
   目标jdk版本号比bootstrap jdk 大1
@@ -193,54 +114,21 @@ yum -y install build-essential gawk m4 libasound2-print-dev binutils libmotif3 l
     </item>
     
     <item>
-      <title>Centos 7 下编译openjdk</title>
-      <link>https://linjinbao.github.io/2019/openjdk%E7%BC%96%E8%AF%91/</link>
-      <pubDate>Tue, 22 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/openjdk%E7%BC%96%E8%AF%91/</guid>
-      <description>openjdk编译 最近在学习java虚拟机的技术，尝试下手动编译openjdk
-准备工作  CentOS7 环境 openjdk8 源码 bootstrap jdk源码（我用的是openjdk 7）  注意事项：
- 目标jdk版本号比bootstrap jdk 大1 准备可能需要安装各种编译工具  yum -y install build-essential gawk m4 libasound2-print-dev binutils libmotif3 libmotif-dev antyum install libX*准备目标jdk和bootstrap jdk ## 目标jdk，openjdk8unzip openjdk-8-src-b132-03_mar_2014.zip解压完成会得到一个openjdk文件夹，里面目录如下：
-[root@localhost openjdk8]# lltotal 348-rwxrwxrwx. 1 root root 1503 Mar 4 2014 ASSEMBLY_EXCEPTIONdrwxr-xr-x. 3 root root 89 Oct 22 14:03 builddrwxrwxrwx. 6 root root 61 Mar 4 2014 common-rwxrwxrwx.</description>
-    </item>
-    
-    <item>
       <title>base64转码</title>
-      <link>https://linjinbao.github.io/2019/20191015base64-zhuan-ma/</link>
+      <link>https://linjinbao.github.io/2019/2019-10-15-base64%E8%BD%AC%E7%A0%81/</link>
       <pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191015base64-zhuan-ma/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-10-15-base64%E8%BD%AC%E7%A0%81/</guid>
       <description>2019-10-15-base64转码 名词解释 Base64算法最早是为了解决电子邮件传输的问题的，早先的邮件传输协议中只支持ASCII码传递，如果要传输二进制文件，如图片和视频，是无法传输的，而BASE64可以将二进制文件内容编码成为只包含ASCII码的内容，这样就可以传输了。 Base64算法大家常常说成是加密算法，但准确的来说，Base64不是一种加密算法，只能算是一种基于64个字符的编码算法。 它有一个字符映射表，每个字符映射了一个十进制编码，共映射了64个字符。Base64将给定的数据经二进制转换后与字符映射表相对应，得到所谓的密文；映射表如下，映射表的最后是一个等号，是作为补位符用来补位的。
 编号 字符 编号 字符 编号 字符 编号 字符 0 A 16 Q 32 g 48 w 1 B 17 R 33 h 49 x 2 C 18 S 34 i 50 y 3 D 19 T 35 j 51 z 4 E 20 U 36 k 52 0 5 F 21 V 37 l 53 1 6 G 22 W 38 m 54 2 7 H 23 X 39 n 55 3 8 I 24 Y 40 o 56 4 9 J 25 Z 41 p 57 5 10 K 26 a 42 q 58 6 11 L 27 b 43 r 59 7 12 M 28 c 44 s 60 8 13 N 29 d 45 t 61 9 14 O 30 e 46 u 62 + 15 P 31 f 47 v 63 / JAVA中Base64编码使用 涉及jdk工具类，java.</description>
     </item>
     
     <item>
-      <title>base64转码</title>
-      <link>https://linjinbao.github.io/2019/base64%E8%BD%AC%E7%A0%81/</link>
-      <pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/base64%E8%BD%AC%E7%A0%81/</guid>
-      <description>名词解释 Base64算法最早是为了解决电子邮件传输的问题的，早先的邮件传输协议中只支持ASCII码传递，如果要传输二进制文件，如图片和视频，是无法传输的，而BASE64可以将二进制文件内容编码成为只包含ASCII码的内容，这样就可以传输了。 Base64算法大家常常说成是加密算法，但准确的来说，Base64不是一种加密算法，只能算是一种基于64个字符的编码算法。 它有一个字符映射表，每个字符映射了一个十进制编码，共映射了64个字符。Base64将给定的数据经二进制转换后与字符映射表相对应，得到所谓的密文；映射表如下，映射表的最后是一个等号，是作为补位符用来补位的。
-编号 字符 编号 字符 编号 字符 编号 字符0 A 16 Q 32 g 48 w1 B 17 R 33 h 49 x2 C 18 S 34 i 50 y3 D 19 T 35 j 51 z4 E 20 U 36 k 52 05 F 21 V 37 l 53 16 G 22 W 38 m 54 27 H 23 X 39 n 55 38 I 24 Y 40 o 56 49 J 25 Z 41 p 57 510 K 26 a 42 q 58 611 L 27 b 43 r 59 712 M 28 c 44 s 60 813 N 29 d 45 t 61 914 O 30 e 46 u 62 +15 P 31 f 47 v 63 /JAVA中Base64编码使用 涉及jdk工具类，java.</description>
-    </item>
-    
-    <item>
       <title>JAVA并发编程实战-笔记</title>
-      <link>https://linjinbao.github.io/2019/20191014java-bing-fa-bian-cheng-shi-zhan-bi-ji/</link>
+      <link>https://linjinbao.github.io/2019/2019-10-14/</link>
       <pubDate>Mon, 14 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191014java-bing-fa-bian-cheng-shi-zhan-bi-ji/</guid>
-      <description>JAVA并发编程实战-笔记 Volatile变量
- 同步的弱形式 该变量不会被缓存 不加锁 不会导致阻塞 可以修饰变量，不能修饰方法 只能保证可见性，不能保证原子性  线程封闭 访问共享的、可变的数据要求使用同步，一个可以避免同步的方法就是不共享数据。
- Ad-hoc线程限制 栈限制 ThreadLocal 不可变性   第二部分-构建并发应用 </description>
-    </item>
-    
-    <item>
-      <title>JAVA并发编程实战-笔记</title>
-      <link>https://linjinbao.github.io/2019/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98-%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Mon, 14 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98-%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-10-14/</guid>
       <description>JAVA并发编程实战-笔记 Volatile变量
  同步的弱形式 该变量不会被缓存 不加锁 不会导致阻塞 可以修饰变量，不能修饰方法 只能保证可见性，不能保证原子性  线程封闭 访问共享的、可变的数据要求使用同步，一个可以避免同步的方法就是不共享数据。
  Ad-hoc线程限制 栈限制 ThreadLocal 不可变性   第二部分-构建并发应用 </description>
@@ -248,28 +136,19 @@ yum -y install build-essential gawk m4 libasound2-print-dev binutils libmotif3 l
     
     <item>
       <title>java创建线程的7种方式</title>
-      <link>https://linjinbao.github.io/2019/20191009java-chuang-jian-xian-cheng-de-8-zhong-fang-shi/</link>
+      <link>https://linjinbao.github.io/2019/2019-10-09-java%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%847%E7%A7%8D%E6%96%B9%E5%BC%8F/</link>
       <pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191009java-chuang-jian-xian-cheng-de-8-zhong-fang-shi/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-10-09-java%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%847%E7%A7%8D%E6%96%B9%E5%BC%8F/</guid>
       <description>java创建线程的7种方式  继承Thread类并重写run()方法  public class MyThread extends Thread { @Override public void run() { System.out.println(this.getId()+this.getName()+ &amp;#34; is running&amp;#34;); } public static void main(String[] arg){ new MyThread().start(); new MyThread().start(); new MyThread().start(); new MyThread().start(); } } $ &amp;#34;C:\Program Files\Java\jdk1.8.0_171\bin\java.exe&amp;#34; 12Thread-0 is running 15Thread-3 is running 13Thread-1 is running 14Thread-2 is running Process finished with exit code 0  实现Runnable接口  public class MyThread implements Runnable{ @Override public void run() { System.out.println(Thread.currentThread().getName()+&amp;#34; is running&amp;#34;); } public static void main(String[] args){ new Thread(new MyThread()).</description>
     </item>
     
     <item>
-      <title>java创建线程的7种方式</title>
-      <link>https://linjinbao.github.io/2019/java%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%848%E7%A7%8D%E6%96%B9%E5%BC%8F/</link>
-      <pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/java%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%848%E7%A7%8D%E6%96%B9%E5%BC%8F/</guid>
-      <description>java创建线程的7种方式  继承Thread类并重写run()方法  public class MyThread extends Thread {@Overridepublic void run() {System.out.println(this.getId()+this.getName()+ &amp;#34; is running&amp;#34;);}public static void main(String[] arg){new MyThread().start();new MyThread().start();new MyThread().start();new MyThread().start();}}$ &amp;quot;C:\Program Files\Java\jdk1.8.0_171\bin\java.exe&amp;quot;12Thread-0 is running15Thread-3 is running13Thread-1 is running14Thread-2 is runningProcess finished with exit code 0实现Runnable接口  public class MyThread implements Runnable{@Overridepublic void run() {System.out.println(Thread.currentThread().getName()+&amp;#34; is running&amp;#34;);}public static void main(String[] args){new Thread(new MyThread()).</description>
-    </item>
-    
-    <item>
       <title>Android学习笔记</title>
-      <link>https://linjinbao.github.io/2019/android/</link>
+      <link>https://linjinbao.github.io/2019/2019-06-11-android/</link>
       <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/android/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-06-11-android/</guid>
       <description>Android学习 ListView package com.amrom.linjinbao.listviewtest;import android.support.v7.app.AppCompatActivity;import android.os.Bundle;import android.view.View;import android.widget.AdapterView;import android.widget.ArrayAdapter;import android.widget.ListView;import android.widget.Toast;import java.util.ArrayList;import java.util.List;public class MainActivity extends AppCompatActivity {private String[] data = {&amp;#34;Apple&amp;#34;,&amp;#34;Banana&amp;#34;, &amp;#34;Orange&amp;#34;,&amp;#34;WaterMan&amp;#34;,&amp;#34;Pear&amp;#34;,&amp;#34;Apple&amp;#34;,&amp;#34;Banana&amp;#34;, &amp;#34;Orange&amp;#34;,&amp;#34;WaterMan&amp;#34;,&amp;#34;Pear&amp;#34;,&amp;#34;Apple&amp;#34;,&amp;#34;Banana&amp;#34;, &amp;#34;Orange&amp;#34;,&amp;#34;WaterMan&amp;#34;,&amp;#34;Pear&amp;#34;,&amp;#34;Banana&amp;#34;, &amp;#34;Orange&amp;#34;,&amp;#34;WaterMan&amp;#34;,&amp;#34;Pear&amp;#34;,&amp;#34;Apple&amp;#34;,&amp;#34;Banana&amp;#34;, &amp;#34;Orange&amp;#34;,&amp;#34;WaterMan&amp;#34;,&amp;#34;Pear&amp;#34;,&amp;#34;Banana&amp;#34;, &amp;#34;Orange&amp;#34;,&amp;#34;WaterMan&amp;#34;,&amp;#34;Pear&amp;#34;,&amp;#34;Apple&amp;#34;,&amp;#34;Banana&amp;#34;, &amp;#34;Orange&amp;#34;,&amp;#34;WaterMan&amp;#34;,&amp;#34;Pear&amp;#34;,&amp;#34;Banana&amp;#34;, &amp;#34;Orange&amp;#34;,&amp;#34;WaterMan&amp;#34;,&amp;#34;Pear&amp;#34;,&amp;#34;Apple&amp;#34;,&amp;#34;Banana&amp;#34;, &amp;#34;Orange&amp;#34;,&amp;#34;WaterMan&amp;#34;,&amp;#34;Pear&amp;#34;};private List&amp;lt;Fruit&amp;gt; fruitList = new ArrayList&amp;lt;&amp;gt;();@Overrideprotected void onCreate(Bundle savedInstanceState) {super.onCreate(savedInstanceState);setContentView(R.layout.activity_main);initFruits();FruitAdapter adapter = new FruitAdapter(MainActivity.this,R.layout.fruit_item,fruitList);ListView listView = (ListView) findViewById(R.</description>
     </item>
     

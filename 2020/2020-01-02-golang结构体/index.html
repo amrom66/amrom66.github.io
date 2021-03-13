@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2020/2020-01-01-golang%E5%AE%B9%E5%99%A8/" />
+  <link rel="next" href="https://linjinbao.github.io/2020/2020-01-07-%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E9%81%97%E5%BF%98/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2020/2020-01-02-golang%E7%BB%93%E6%9E%84%E4%BD%93/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Go语言结构体（struct） | 打工人日记
+       
+  </title>
+  <meta name="title" content="Go语言结构体（struct） | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Go语言结构体（struct）",
+    "headline" : "Go语言结构体（struct）",
+    "description" : "Go语言结构体（struct） Go 语言通过用自定义的方式形成新的类型，结构体是类型中带有成员的复合类型。Go 语言使用结构体和结构体成员来描述真实世界的实体和实体对应的各种属性。\n结构体成员是由一系列的成员变量构成，这些成员变量也被称为“字段”。字段有以下特性：\n 字段拥有自己的类型和值。 字段名必须唯一。 字段的类型也可以是结构体，甚至是字段所在结构体的类型。  Go 语言中没有“类”的概念，也不支持“类”的继承等面向对象的概念。Go 语言的结构体与“类”都是复合结构体，但 Go 语言中结构体的内嵌配合接口比面向对象具有更高的扩展性和灵活性。Go 语言不仅认为结构体能拥有方法，且每种自定义类型也可以拥有自己的方法。\n定义 type 类型名 struct { 字段1 字段1类型 字段2 字段2类型 … } func main() { var p Point p.X = 10 p.Y = 10 q := new(Point) q.X = 10 q.Y = 20 fmt.Println(q) } type Point struct { X int Y int } ",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-01-02 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-01-02 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2020\/2020-01-02-golang%E7%BB%93%E6%9E%84%E4%BD%93\/",
+    "wordCount" : "57",
+    "keywords" : [ "Golang", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Go语言结构体（struct）</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao</a> 时间： 
+                <span class="post-time">
+                 <time datetime=2019-01-02 itemprop="datePublished">January 2, 2020</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="go语言结构体struct">Go语言结构体（struct）</h1>
+<p>Go 语言通过用自定义的方式形成新的类型，结构体是类型中带有成员的复合类型。Go 语言使用结构体和结构体成员来描述真实世界的实体和实体对应的各种属性。</p>
+<p>结构体成员是由一系列的成员变量构成，这些成员变量也被称为“字段”。字段有以下特性：</p>
+<ul>
+<li>字段拥有自己的类型和值。</li>
+<li>字段名必须唯一。</li>
+<li>字段的类型也可以是结构体，甚至是字段所在结构体的类型。</li>
+</ul>
+<p>Go 语言中没有“类”的概念，也不支持“类”的继承等面向对象的概念。Go 语言的结构体与“类”都是复合结构体，但 Go 语言中结构体的内嵌配合接口比面向对象具有更高的扩展性和灵活性。Go 语言不仅认为结构体能拥有方法，且每种自定义类型也可以拥有自己的方法。</p>
+<h2 id="定义">定义</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">类型名</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#a6e22e">字段1</span> <span style="color:#a6e22e">字段1类型</span>
+    <span style="color:#a6e22e">字段2</span> <span style="color:#a6e22e">字段2类型</span>
+    <span style="color:#960050;background-color:#1e0010">…</span>
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">p</span> <span style="color:#a6e22e">Point</span>
+    <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">X</span> = <span style="color:#ae81ff">10</span>
+    <span style="color:#a6e22e">p</span>.<span style="color:#a6e22e">Y</span> = <span style="color:#ae81ff">10</span>
+    <span style="color:#a6e22e">q</span> <span style="color:#f92672">:=</span> new(<span style="color:#a6e22e">Point</span>)
+    <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">X</span> = <span style="color:#ae81ff">10</span>
+    <span style="color:#a6e22e">q</span>.<span style="color:#a6e22e">Y</span> = <span style="color:#ae81ff">20</span>
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">q</span>)
+}
+<span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Point</span> <span style="color:#66d9ef">struct</span> {
+    <span style="color:#a6e22e">X</span> <span style="color:#66d9ef">int</span>
+    <span style="color:#a6e22e">Y</span> <span style="color:#66d9ef">int</span>
+}
+</code></pre></div>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2020/2020-01-02-golang%E7%BB%93%E6%9E%84%E4%BD%93/>https://linjinbao.github.io/2020/2020-01-02-golang%E7%BB%93%E6%9E%84%E4%BD%93/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/golang/">
+                    #Golang</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2020/2020-01-01-golang%E5%AE%B9%E5%99%A8/" class="prev" rel="prev" title="golang容器"><i class="iconfont icon-left"></i>&nbsp;golang容器</a>
+         
+        
+        <a href="https://linjinbao.github.io/2020/2020-01-07-%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E9%81%97%E5%BF%98/" class="next" rel="next" title="互联网的遗忘">互联网的遗忘&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

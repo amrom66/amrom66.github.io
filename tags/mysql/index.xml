@@ -13,54 +13,32 @@
     
     <item>
       <title>mysql分布式数据库01</title>
-      <link>https://linjinbao.github.io/2019/20191204mysql-fen-bu-shi-shu-ju-ku-01/</link>
+      <link>https://linjinbao.github.io/2019/2019-12-04-mysql%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
       <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191204mysql-fen-bu-shi-shu-ju-ku-01/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-12-04-mysql%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
       <description>mysql分布式事务01 分布式事务组成  资源管理器： 提供访问事务资源的方法，通常一个数据库就是一个资源管理器 事务管理器： 协调参与全局事务的各个事务。需要和参与全局事务中的所有资源管理器进行通信。 应用程序： 定义事务的边界，指定全局事务中的操作。  提交方式 两段式提交。在第一个阶段，所有参与全局事务的节点都开始准备，告诉事务管理器他们准备提交了；第二阶段，事务管理器告诉资源管理器执行commit或者时rollback，如果任意一个节点显示不能提交，则所有的节点进行回滚。
 代码示例：
  MyXid.java  public class MyXid implements Xid{ public int formatId; public byte gtrid[]; public byte bqual[]; public MyXid() { } public MyXid(int formatId, byte gtrid[], byte bqual[]) { this.formatId = formatId; this.gtrid = gtrid; this.bqual = bqual; } @Override public byte[] getBranchQualifier() { return bqual; } @Override public int getFormatId() { return formatId; } @Override public byte[] getGlobalTransactionId() { return gtrid; } }   Demo1.</description>
     </item>
     
     <item>
-      <title>mysql分布式数据库01</title>
-      <link>https://linjinbao.github.io/2019/mysql%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%9301/</link>
-      <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/mysql%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%9301/</guid>
-      <description>mysql分布式事务01 分布式事务组成  资源管理器： 提供访问事务资源的方法，通常一个数据库就是一个资源管理器 事务管理器： 协调参与全局事务的各个事务。需要和参与全局事务中的所有资源管理器进行通信。 应用程序： 定义事务的边界，指定全局事务中的操作。  提交方式 两段式提交。在第一个阶段，所有参与全局事务的节点都开始准备，告诉事务管理器他们准备提交了；第二阶段，事务管理器告诉资源管理器执行commit或者时rollback，如果任意一个节点显示不能提交，则所有的节点进行回滚。
-代码示例：
- MyXid.java  public class MyXid implements Xid{public int formatId;public byte gtrid[];public byte bqual[];public MyXid() {}public MyXid(int formatId, byte gtrid[], byte bqual[]) {this.formatId = formatId;this.gtrid = gtrid;this.bqual = bqual;}@Overridepublic byte[] getBranchQualifier() {return bqual;}@Overridepublic int getFormatId() {return formatId;}@Overridepublic byte[] getGlobalTransactionId() {return gtrid;}}Demo1.</description>
-    </item>
-    
-    <item>
       <title>mysql 定时备份</title>
-      <link>https://linjinbao.github.io/2019/20191123mysql-ding-shi-bei-fen/</link>
+      <link>https://linjinbao.github.io/2019/2019-11-23-mysql%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BD/</link>
       <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191123mysql-ding-shi-bei-fen/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-11-23-mysql%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BD/</guid>
       <description>mysql 定时备份 第一步：写备份脚本 backup_full.sh
 #!/bin/bash BACKUP_ROOT=/home/ljbao/myback BACKUP_FILEDIR=$BACKUP_ROOT/files BACKUP_LOGDIR=$BACKUP_ROOT/logs #当前日期 DATE=$(date +%Y%m%d) DATABASES=$(mysql -uroot -p*** -e &amp;#34;show databases&amp;#34; | grep -Ev &amp;#34;Database|sys|information_schema&amp;#34;) echo $DATABASES #循环数据库进行备份 for db in $DATABASES do echo echo ----------$BACKUP_FILEDIR/${db}_$DATE.sql.gz BEGIN---------- mysqldump -uroot -p*** --default-character-set=utf8 -q --lock-all-tables --flush-logs -E -R --triggers -B ${db} | gzip &amp;gt; $BACKUP_FILEDIR/${db}_$DATE.sql.gz echo ----------$BACKUP_FILEDIR/${db}_$DATE.sql.gz COMPLETE---------- echo done echo &amp;#34;back complete&amp;#34; 第二步：注册定时任务
 [root@localhost myback]# crontab -l -uroot ## 每天3点 00 3 * * * sh /home/ljbao/myback/backup_full.</description>
     </item>
     
     <item>
-      <title>mysql 定时备份</title>
-      <link>https://linjinbao.github.io/2019/mysql-%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BD/</link>
-      <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/mysql-%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BD/</guid>
-      <description>mysql 定时备份 第一步：写备份脚本 backup_full.sh
-#!/bin/bashBACKUP_ROOT=/home/ljbao/mybackBACKUP_FILEDIR=$BACKUP_ROOT/filesBACKUP_LOGDIR=$BACKUP_ROOT/logs#当前日期DATE=$(date +%Y%m%d)DATABASES=$(mysql -uroot -p*** -e &amp;#34;show databases&amp;#34; | grep -Ev &amp;#34;Database|sys|information_schema&amp;#34;)echo $DATABASES#循环数据库进行备份for db in $DATABASESdoechoecho ----------$BACKUP_FILEDIR/${db}_$DATE.sql.gz BEGIN----------mysqldump -uroot -p*** --default-character-set=utf8 -q --lock-all-tables --flush-logs -E -R --triggers -B ${db} | gzip &amp;gt; $BACKUP_FILEDIR/${db}_$DATE.sql.gzecho ----------$BACKUP_FILEDIR/${db}_$DATE.sql.gz COMPLETE----------echodoneecho &amp;#34;back complete&amp;#34;第二步：注册定时任务
-[root@localhost myback]# crontab -l -uroot## 每天3点00 3 * * * sh /home/ljbao/myback/backup_full.</description>
-    </item>
-    
-    <item>
       <title>mysql学习04</title>
-      <link>https://linjinbao.github.io/2019/20191123mysql-xue-xi-04/</link>
+      <link>https://linjinbao.github.io/2019/2019-11-23-mysql%E5%AD%A6%E4%B9%A004/</link>
       <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191123mysql-xue-xi-04/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-11-23-mysql%E5%AD%A6%E4%B9%A004/</guid>
       <description>mysql学习04-表   innodb_file_per_table ## 每张表数据可以单独放到一个表空间
 show variables like &amp;#39;innodb_file_per_table&amp;#39;;   约束 约束是为了保证数据库中的数据完整性
   实体完整性
@@ -76,45 +54,22 @@ mysql&amp;gt; select * from TABLE_CONSTRAINTS; +--------------------+-----------
     </item>
     
     <item>
-      <title>mysql学习04</title>
-      <link>https://linjinbao.github.io/2019/mysql%E5%AD%A6%E4%B9%A004/</link>
-      <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/mysql%E5%AD%A6%E4%B9%A004/</guid>
-      <description>mysql学习04-表  innodb_file_per_table ## 每张表数据可以单独放到一个表空间  show variables like &amp;#39;innodb_file_per_table&amp;#39;;约束 约束是为了保证数据库中的数据完整性   实体完整性 保证表中有一个主键。 域完整性 保证数据的值满足特定的条件。  参照完整性 保证两张表之间的关系。 InnoDB的约束：
-Primary KeyUnique KeyForign KeyDefaultNOT NULL示例：
-create table u (id int , name varchar(20) , primary key (id) , unique key (name));infomation_schema库的表TABLE_CONSTRAINTS存放了数据库所有约束
-mysql&amp;gt; select * from TABLE_CONSTRAINTS;+--------------------+-------------------+-----------------+--------------+---------------------------+-----------------+| CONSTRAINT_CATALOG | CONSTRAINT_SCHEMA | CONSTRAINT_NAME | TABLE_SCHEMA | TABLE_NAME | CONSTRAINT_TYPE |+--------------------+-------------------+-----------------+--------------+---------------------------+-----------------+| def | lin | PRIMARY | lin | u | PRIMARY KEY || def | lin | name | lin | u | UNIQUE || def | lin | PRIMARY | lin | user1 | PRIMARY KEY || def | mysql | PRIMARY | mysql | columns_priv | PRIMARY KEY || def | mysql | PRIMARY | mysql | db | PRIMARY KEY || def | mysql | PRIMARY | mysql | engine_cost | PRIMARY KEY || def | mysql | PRIMARY | mysql | event | PRIMARY KEY || def | mysql | PRIMARY | mysql | func | PRIMARY KEY || def | mysql | PRIMARY | mysql | gtid_executed | PRIMARY KEY || def | mysql | PRIMARY | mysql | help_category | PRIMARY KEY || def | mysql | name | mysql | help_category | UNIQUE || def | mysql | PRIMARY | mysql | help_keyword | PRIMARY KEY || def | mysql | name | mysql | help_keyword | UNIQUE || def | mysql | PRIMARY | mysql | help_relation | PRIMARY KEY || def | mysql | PRIMARY | mysql | help_topic | PRIMARY KEY || def | mysql | name | mysql | help_topic | UNIQUE || def | mysql | PRIMARY | mysql | innodb_index_stats | PRIMARY KEY || def | mysql | PRIMARY | mysql | innodb_table_stats | PRIMARY KEY || def | mysql | PRIMARY | mysql | ndb_binlog_index | PRIMARY KEY || def | mysql | PRIMARY | mysql | plugin | PRIMARY KEY || def | mysql | PRIMARY | mysql | proc | PRIMARY KEY || def | mysql | PRIMARY | mysql | procs_priv | PRIMARY KEY || def | mysql | PRIMARY | mysql | proxies_priv | PRIMARY KEY || def | mysql | PRIMARY | mysql | server_cost | PRIMARY KEY || def | mysql | PRIMARY | mysql | servers | PRIMARY KEY || def | mysql | PRIMARY | mysql | slave_master_info | PRIMARY KEY || def | mysql | PRIMARY | mysql | slave_relay_log_info | PRIMARY KEY || def | mysql | PRIMARY | mysql | slave_worker_info | PRIMARY KEY || def | mysql | PRIMARY | mysql | tables_priv | PRIMARY KEY || def | mysql | PRIMARY | mysql | time_zone | PRIMARY KEY || def | mysql | PRIMARY | mysql | time_zone_leap_second | PRIMARY KEY || def | mysql | PRIMARY | mysql | time_zone_name | PRIMARY KEY || def | mysql | PRIMARY | mysql | time_zone_transition | PRIMARY KEY || def | mysql | PRIMARY | mysql | time_zone_transition_type | PRIMARY KEY || def | mysql | PRIMARY | mysql | user | PRIMARY KEY || def | sys | PRIMARY | sys | sys_config | PRIMARY KEY |+--------------------+-------------------+-----------------+--------------+---------------------------+-----------------+36 rows in set (0.</description>
-    </item>
-    
-    <item>
       <title>mysql 关闭主从</title>
-      <link>https://linjinbao.github.io/2019/20191122mysql-guan-bi-zhu-cong/</link>
+      <link>https://linjinbao.github.io/2019/2019-11-22-mysql%E5%85%B3%E9%97%AD%E4%B8%BB%E4%BB%8E/</link>
       <pubDate>Fri, 22 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191122mysql-guan-bi-zhu-cong/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-11-22-mysql%E5%85%B3%E9%97%AD%E4%B8%BB%E4%BB%8E/</guid>
       <description>2019-11-22-mysql 关闭主从 mysql 关闭主从 执行STOP SLAVE语句 使用SHOW STATUS检查slave_open_temp_tables变量的值 如果值为0，使用mysqladmin shutdown命令关闭从服务器 如果值不为0，用START SLAVE重启从服务器线程 slave_open_temp_tables值显示，当前slave创建了多少临时表，注意由client显示创建的 即便是这样，在使用临时表的场景下，如果服务器宕机，将遇到不可预知的问题。 所以比较保险的做法是，创建实体表，虽然会由于分配的文件刷新到磁盘。
 mysql&amp;gt; show status like &amp;#39;%slave%&amp;#39;; +------------------------+-------+ | Variable_name | Value | +------------------------+-------+ | Com_show_slave_hosts | 0 | | Com_show_slave_status | 0 | | Com_slave_start | 0 | | Com_slave_stop | 0 | | Slave_open_temp_tables | 0 | +----------------------- mysql删除主从 进入mysql
 mysql&amp;gt; slave stop; mysql&amp;gt;reset slave; mysql&amp;gt;change master to master_user=&amp;#39;&amp;#39;, master_host=&amp;#39;&amp;#39;, master_password=&amp;#39;&amp;#39;;结果报错如下： ERROR 1210 (HY000): Incorrect arguments to MASTER_HOST 解决办法如下： mysql&amp;gt;change master to master_host=&amp;#39; &amp;#39;; 即可成功删除同步用户信息。 注意：上面的命令报错的原因，为master_host=&amp;rsquo; &#39; 里面必须有内容，即使为空，也应该用空格代替，而不能什么都不写。</description>
     </item>
     
     <item>
-      <title>mysql 关闭主从</title>
-      <link>https://linjinbao.github.io/2019/mysql-%E5%85%B3%E9%97%AD%E4%B8%BB%E4%BB%8E/</link>
-      <pubDate>Fri, 22 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/mysql-%E5%85%B3%E9%97%AD%E4%B8%BB%E4%BB%8E/</guid>
-      <description>mysql 关闭主从 执行STOP SLAVE语句 使用SHOW STATUS检查slave_open_temp_tables变量的值 如果值为0，使用mysqladmin shutdown命令关闭从服务器 如果值不为0，用START SLAVE重启从服务器线程 slave_open_temp_tables值显示，当前slave创建了多少临时表，注意由client显示创建的 即便是这样，在使用临时表的场景下，如果服务器宕机，将遇到不可预知的问题。 所以比较保险的做法是，创建实体表，虽然会由于分配的文件刷新到磁盘。
-mysql&amp;gt; show status like &amp;lsquo;%slave%&#39;; +&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;+&amp;mdash;&amp;mdash;-+ | Variable_name | Value | +&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;+&amp;mdash;&amp;mdash;-+ | Com_show_slave_hosts | 0 | | Com_show_slave_status | 0 | | Com_slave_start | 0 | | Com_slave_stop | 0 | | Slave_open_temp_tables | 0 | +&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;ndash;
-mysql删除主从 进入mysql mysql&amp;gt; slave stop; mysql&amp;gt;reset slave; mysql&amp;gt;change master to master_user=&amp;rsquo;&#39;, master_host=&amp;rsquo;&#39;, master_password=&amp;rsquo;&#39;; 结果报错如下： ERROR 1210 (HY000): Incorrect arguments to MASTER_HOST 解决办法如下： mysql&amp;gt;change master to master_host=&amp;rsquo; &amp;lsquo;;</description>
-    </item>
-    
-    <item>
       <title>mysql学习03</title>
-      <link>https://linjinbao.github.io/2019/20191122mysql-xue-xi/</link>
+      <link>https://linjinbao.github.io/2019/2019-11-22-mysql%E5%AD%A6%E4%B9%A003/</link>
       <pubDate>Fri, 22 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191122mysql-xue-xi/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-11-22-mysql%E5%AD%A6%E4%B9%A003/</guid>
       <description>第3章-mysql系统文件   查询慢查询设置
 ```sql
 show variables like &amp;lsquo;%long%&#39;;
@@ -126,41 +81,21 @@ show variables like &amp;lsquo;log_queries_not_using_indexes&amp;rsquo;; # 以�
     </item>
     
     <item>
-      <title>mysql学习03</title>
-      <link>https://linjinbao.github.io/2019/mysql%E5%AD%A6%E4%B9%A0/</link>
-      <pubDate>Fri, 22 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/mysql%E5%AD%A6%E4%B9%A0/</guid>
-      <description>第3章-mysql系统文件  查询慢查询设置  show variables like &amp;#39;%long%&amp;#39;;show variables like &amp;#39;log_slow_queries&amp;#39;;set long_query_time=1;	#1秒show variables like &amp;#39;slow_query_log&amp;#39;; # 日志是否开启show variables like &amp;#39;slow_query_log_file&amp;#39;; # 日志位置show variables like &amp;#39;log_queries_not_using_indexes&amp;#39;; # 以索引判断慢查询的sql记录存放在mysql.slow_slow中
-二进制日志  show variables like &amp;#39;datadir&amp;#39;;show variables like &amp;#39;max_binlog_size&amp;#39;;	//单个二进制文件的最大值show variables like &amp;#39;binlog_cache_size&amp;#39;;mysql&amp;gt; show variables like &amp;#39;binlog_format&amp;#39;;+---------------+-------+| Variable_name | Value |+---------------+-------+| binlog_format | ROW |	+---------------+-------+1 row in set## STATEMENT表示记录sql语句## ROW表示记录行数据## MIXED 表示兼顾以上2种pid文件  mysql&amp;gt; show variables like &amp;#39;pid_file&amp;#39;;+---------------+------------------------------------------------------------------------+| Variable_name | Value |+---------------+------------------------------------------------------------------------+| pid_file | D:\epoint_mysql_5.</description>
-    </item>
-    
-    <item>
       <title>Mysql学习系列02</title>
-      <link>https://linjinbao.github.io/2019/20191122mysql-xue-xi-xi-lie-02/</link>
+      <link>https://linjinbao.github.io/2019/2019-11-22-mysql%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%9702/</link>
       <pubDate>Fri, 22 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191122mysql-xue-xi-xi-lie-02/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-11-22-mysql%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%9702/</guid>
       <description>2019-11-22-Mysql学习系列02 mysql 报错 错误代码： 1786 Statement violates GTID consistency: CREATE TABLE ... SELECT. 错误原因 这是因为在5.6及以上的版本内，开启了 enforce_gtid_consistency=true 功能导致的，MySQL官方解释说当启用 enforce_gtid_consistency 功能的时候，MySQL只允许能够保障事务安全，并且能够被日志记录的SQL语句被执行，像create table … select 和 create temporarytable语句，以及同时更新事务表和非事务表的SQL语句或事务都不允许执行。
 解决 修改 ：SET @@GLOBAL.ENFORCE_GTID_CONSISTENCY = off;</description>
     </item>
     
     <item>
-      <title>Mysql学习系列02</title>
-      <link>https://linjinbao.github.io/2019/mysql%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%9702/</link>
-      <pubDate>Fri, 22 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/mysql%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%9702/</guid>
-      <description>mysql 报错 错误代码： 1786Statement violates GTID consistency: CREATE TABLE ... SELECT.错误原因 这是因为在5.6及以上的版本内，开启了 enforce_gtid_consistency=true 功能导致的，MySQL官方解释说当启用 enforce_gtid_consistency 功能的时候，MySQL只允许能够保障事务安全，并且能够被日志记录的SQL语句被执行，像create table … select 和 create temporarytable语句，以及同时更新事务表和非事务表的SQL语句或事务都不允许执行。
-解决 修改 ：SET @@GLOBAL.ENFORCE_GTID_CONSISTENCY = off;</description>
-    </item>
-    
-    <item>
       <title>Mysql学习系列01</title>
-      <link>https://linjinbao.github.io/2019/20191120mysql-xue-xi-xi-lie-01/</link>
+      <link>https://linjinbao.github.io/2019/2019-11-20-mysql%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%9701/</link>
       <pubDate>Wed, 20 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191120mysql-xue-xi-xi-lie-01/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-11-20-mysql%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%9701/</guid>
       <description>mysql4种事务隔离级别  Read Uncommitted(读取未提交内容)  解释： (1)所有事务都可以看到其他未提交事务的执行结果 (2)本隔离级别很少用于实际应用，因为它的性能也不比其他级别好多少 (3)该级别引发的问题是——脏读(Dirty Read)：读取到了未提交的数据
  Read Committed(读取提交内容)  解释： (1)这是大多数数据库系统的默认隔离级别（但不是MySQL默认的） (2)它满足了隔离的简单定义：一个事务只能看见已经提交事务所做的改变 (3)这种隔离级别出现的问题是——不可重复读(Nonrepeatable Read)：不可重复读意味着我们在同一个事务中执行完全相同的select语句时可能看到不一样的结果。
  Repeatable Read(可重读) 解释： (1)这是MySQL的默认事务隔离级别 (2)它确保同一事务的多个实例在并发读取数据时，会看到同样的数据行 (3)此级别可能出现的问题——幻读(Phantom Read)：当用户读取某一范围的数据行时，另一个事务又在该范围内插入了新行，当用户再读取该范围的数据行时，会发现有新的“幻影” 行 (4)InnoDB和Falcon存储引擎通过多版本并发控制(MVCC，Multiversion Concurrency Control)机制解决了该问题 Serializable(可串行化)序列化 解释： (1)这是最高的隔离级别 (2)它通过强制事务排序，使之不可能相互冲突，从而解决幻读问题。简言之,它是在每个读的数据行上加上共享锁。 (3)在这个级别，可能导致大量的超时现象和锁竞争  设置命令：
@@ -168,43 +103,20 @@ mysql&amp;gt; set @@tx_isolation=&amp;#39;Read-Uncommitted&amp;#39;; Query OK, 0
     </item>
     
     <item>
-      <title>Mysql学习系列01</title>
-      <link>https://linjinbao.github.io/2019/mysql%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%9701/</link>
-      <pubDate>Wed, 20 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/mysql%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%9701/</guid>
-      <description>mysql4种事务隔离级别  Read Uncommitted(读取未提交内容)  解释： (1)所有事务都可以看到其他未提交事务的执行结果 (2)本隔离级别很少用于实际应用，因为它的性能也不比其他级别好多少 (3)该级别引发的问题是——脏读(Dirty Read)：读取到了未提交的数据
-Read Committed(读取提交内容)  解释： (1)这是大多数数据库系统的默认隔离级别（但不是MySQL默认的） (2)它满足了隔离的简单定义：一个事务只能看见已经提交事务所做的改变 (3)这种隔离级别出现的问题是——不可重复读(Nonrepeatable Read)：不可重复读意味着我们在同一个事务中执行完全相同的select语句时可能看到不一样的结果。
- Repeatable Read(可重读) 解释： (1)这是MySQL的默认事务隔离级别 (2)它确保同一事务的多个实例在并发读取数据时，会看到同样的数据行 (3)此级别可能出现的问题——幻读(Phantom Read)：当用户读取某一范围的数据行时，另一个事务又在该范围内插入了新行，当用户再读取该范围的数据行时，会发现有新的“幻影” 行 (4)InnoDB和Falcon存储引擎通过多版本并发控制(MVCC，Multiversion Concurrency Control)机制解决了该问题
-  Serializable(可串行化)序列化 解释： (1)这是最高的隔离级别 (2)它通过强制事务排序，使之不可能相互冲突，从而解决幻读问题。简言之,它是在每个读的数据行上加上共享锁。 (3)在这个级别，可能导致大量的超时现象和锁竞争
-  设置命令：
-mysql&amp;gt; set @@tx_isolation=&#39;Read-Uncommitted&#39;;Query OK, 0 rows affectedmysql&amp;gt; select @@tx_isolation;+----------------+| @@tx_isolation |+----------------+| READ-COMMITTED |+----------------+1 row in set</description>
-    </item>
-    
-    <item>
       <title>MySQL 分库分表-ShardingSphere使用</title>
-      <link>https://linjinbao.github.io/2019/20191117mysql-fen-ku-fen-biao-shardingsphere-shi-yong/</link>
+      <link>https://linjinbao.github.io/2019/2019-11-17-shardingsphere/</link>
       <pubDate>Sun, 17 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191117mysql-fen-ku-fen-biao-shardingsphere-shi-yong/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-11-17-shardingsphere/</guid>
       <description>MySQL 分库分表-ShardingSphere使用 分库和分表的实现-java工程版  依赖项  &amp;lt;dependencies&amp;gt; &amp;lt;!-- 主要 --&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.shardingsphere&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;sharding-jdbc-core&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.0.0-RC2&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.12&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;commons-dbcp&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;commons-dbcp&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.4&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.1.41&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;io.netty&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;netty&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;3.7.0.Final&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt;  示例代码  public class ShardingSphereDemo { @Test public void test01() throws SQLException { // 配置真实数据源  Map&amp;lt;String, DataSource&amp;gt; dataSourceMap = new HashMap&amp;lt;String, DataSource&amp;gt;(); // 配置第一个数据源  BasicDataSource dataSource1 = new BasicDataSource(); dataSource1.setDriverClassName(&amp;#34;com.mysql.jdbc.Driver&amp;#34;); dataSource1.setUrl(&amp;#34;jdbc:mysql://localhost:3306/test&amp;#34;); dataSource1.</description>
     </item>
     
     <item>
-      <title>MySQL 分库分表-ShardingSphere使用</title>
-      <link>https://linjinbao.github.io/2019/mysql-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8-shardingsphere%E4%BD%BF%E7%94%A8/</link>
-      <pubDate>Sun, 17 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/mysql-%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8-shardingsphere%E4%BD%BF%E7%94%A8/</guid>
-      <description>MySQL 分库分表-ShardingSphere使用 分库和分表的实现-java工程版  依赖项  &amp;lt;dependencies&amp;gt;&amp;lt;!--主要 --&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;org.apache.shardingsphere&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;sharding-jdbc-core&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;4.0.0-RC2&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;4.12&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;commons-dbcp&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;commons-dbcp&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;1.4&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;5.1.41&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;io.netty&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;netty&amp;lt;/artifactId&amp;gt;&amp;lt;version&amp;gt;3.7.0.Final&amp;lt;/version&amp;gt;&amp;lt;/dependency&amp;gt;&amp;lt;/dependencies&amp;gt;示例代码  public class ShardingSphereDemo {@Testpublic void test01() throws SQLException {// 配置真实数据源 Map&amp;lt;String, DataSource&amp;gt; dataSourceMap = new HashMap&amp;lt;String, DataSource&amp;gt;();// 配置第一个数据源 BasicDataSource dataSource1 = new BasicDataSource();dataSource1.setDriverClassName(&amp;#34;com.mysql.jdbc.Driver&amp;#34;);dataSource1.setUrl(&amp;#34;jdbc:mysql://localhost:3306/test&amp;#34;);dataSource1.setUsername(&amp;#34;root&amp;#34;);dataSource1.setPassword(&amp;#34;Gepoint&amp;#34;);dataSourceMap.</description>
-    </item>
-    
-    <item>
       <title>MySQL索引</title>
-      <link>https://linjinbao.github.io/2019/20191106mysql-suo-yin/</link>
+      <link>https://linjinbao.github.io/2019/2019-11-06-mysql%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/</link>
       <pubDate>Wed, 06 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191106mysql-suo-yin/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-11-06-mysql%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/</guid>
       <description>MySQL索引底层实现原理 索引的本质 MySQL官方对索引的定义为：索引（Index）是帮助MySQL高效获取数据的数据结构。提取句子主干，就可以得到索引的本质：索引是数据结构。
 索引的创建 CREATE INDEX indexName ON mytable(username(length)); 查看索引 show index from tableName; 删除索引 DROP index indexName on tableName 唯一索引 唯一索引与普通索引类似，不同的就是：索引列的值必须唯一，但允许有空值。如果是组合索引，则列值的组合必须唯一。它有以下几种创建方式：
 CREATE unique index indexName on tableName(username(length)); 测试样例：
@@ -212,41 +124,20 @@ mysql&amp;gt; show index from test2; +-------+------------+----------+----------
     </item>
     
     <item>
-      <title>MySQL索引</title>
-      <link>https://linjinbao.github.io/2019/mysql%E7%B4%A2%E5%BC%95/</link>
-      <pubDate>Wed, 06 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/mysql%E7%B4%A2%E5%BC%95/</guid>
-      <description>MySQL索引底层实现原理 索引的本质 MySQL官方对索引的定义为：索引（Index）是帮助MySQL高效获取数据的数据结构。提取句子主干，就可以得到索引的本质：索引是数据结构。
-索引的创建 CREATE INDEX indexName ON mytable(username(length)); 查看索引 show index from tableName;删除索引 DROP index indexName on tableName##唯一索引 唯一索引与普通索引类似，不同的就是：索引列的值必须唯一，但允许有空值。如果是组合索引，则列值的组合必须唯一。它有以下几种创建方式：
-CREATE unique index indexName on tableName(username(length));测试样例：
-mysql&amp;gt; show index from test2;+-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+| Table | Non_unique | Key_name | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |+-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+| test2 | 1 | myIndex | 1 | name | A | 0 | 10 | NULL | | BTREE | | |+-------+------------+----------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+1 row in set</description>
-    </item>
-    
-    <item>
       <title>mysql权限设置</title>
-      <link>https://linjinbao.github.io/2019/20191105mysql-yong-hu-quan-xian-she-zhi/</link>
+      <link>https://linjinbao.github.io/2019/2019-11-05-mysql%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/</link>
       <pubDate>Tue, 05 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191105mysql-yong-hu-quan-xian-she-zhi/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-11-05-mysql%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/</guid>
       <description>mysql 用户和权限控制  添加用户  //只允许指定ip连接 create user &amp;#39;新用户名&amp;#39;@&amp;#39;localhost&amp;#39; identified by &amp;#39;密码&amp;#39;; //允许所有ip连接（用通配符%表示） create user &amp;#39;新用户名&amp;#39;@&amp;#39;%&amp;#39; identified by &amp;#39;密码&amp;#39;;  为新用户授权  //基本格式如下 grant all privileges on 数据库名.表名 to &amp;#39;新用户名&amp;#39;@&amp;#39;指定ip&amp;#39; identified by &amp;#39;新用户密码&amp;#39; ; //示例 //允许访问所有数据库下的所有表 grant all privileges on *.* to &amp;#39;新用户名&amp;#39;@&amp;#39;指定ip&amp;#39; identified by &amp;#39;新用户密码&amp;#39; ; //指定数据库下的指定表 grant all privileges on test.test to &amp;#39;新用户名&amp;#39;@&amp;#39;指定ip&amp;#39; identified by &amp;#39;新用户密码&amp;#39; ;  设置用户操作权限  //设置用户拥有所有权限也就是管理员 grant all privileges on *.* to &amp;#39;新用户名&amp;#39;@&amp;#39;指定ip&amp;#39; identified by &amp;#39;新用户密码&amp;#39; WITH GRANT OPTION; //拥有查询权限 grant select on *.</description>
     </item>
     
     <item>
-      <title>mysql权限设置</title>
-      <link>https://linjinbao.github.io/2019/mysql%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE/</link>
-      <pubDate>Tue, 05 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/mysql%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE/</guid>
-      <description>mysql 用户和权限控制  添加用户  //只允许指定ip连接create user &amp;#39;新用户名&amp;#39;@&amp;#39;localhost&amp;#39; identified by &amp;#39;密码&amp;#39;;//允许所有ip连接（用通配符%表示）create user &amp;#39;新用户名&amp;#39;@&amp;#39;%&amp;#39; identified by &amp;#39;密码&amp;#39;;为新用户授权  //基本格式如下grant all privileges on 数据库名.表名 to &amp;#39;新用户名&amp;#39;@&amp;#39;指定ip&amp;#39; identified by &amp;#39;新用户密码&amp;#39; ;//示例//允许访问所有数据库下的所有表grant all privileges on *.* to &amp;#39;新用户名&amp;#39;@&amp;#39;指定ip&amp;#39; identified by &amp;#39;新用户密码&amp;#39; ;//指定数据库下的指定表grant all privileges on test.test to &amp;#39;新用户名&amp;#39;@&amp;#39;指定ip&amp;#39; identified by &amp;#39;新用户密码&amp;#39; ;设置用户操作权限  //设置用户拥有所有权限也就是管理员grant all privileges on *.* to &amp;#39;新用户名&amp;#39;@&amp;#39;指定ip&amp;#39; identified by &amp;#39;新用户密码&amp;#39; WITH GRANT OPTION;//拥有查询权限grant select on *.</description>
-    </item>
-    
-    <item>
       <title>mysql主从配置</title>
-      <link>https://linjinbao.github.io/2019/20191101mysql-zhu-cong-pei-zhi/</link>
+      <link>https://linjinbao.github.io/2019/2019-11-01-mysql%E4%B8%BB%E4%BB%8E%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191101mysql-zhu-cong-pei-zhi/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-11-01-mysql%E4%B8%BB%E4%BB%8E%E9%85%8D%E7%BD%AE/</guid>
       <description>mysql 主从配置 分别安装主数据库和从数据库 ##下载源安装包 wget http://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm ##安装mysql源 yum localinstall mysql57-community-release-el7-11.noarch.rpm ##检查 yum 源是否安装成功 yum repolist enabled|grep &amp;#34;mysql.*-community.*&amp;#34; ##安装服务 yum install mysql-community-server ##启动MySQL systemctl enable mysqld systemctl start mysqld systemctl status mysqld 修改密码之类步骤掠过
 配置主数据库 vi /etc/my.cnf [mysqld] # 添加如下配置 # 参数必须唯一, 本例主库设置为 11 ，从库设置为 12 server_id=101 log_bin=/var/log/mysql/mysql-bin 记得检查日志目录是否存在，不存在子主动建立并授权
 重启数据库
@@ -254,38 +145,12 @@ mysql&amp;gt; show index from test2;+-------+------------+----------+----------
     </item>
     
     <item>
-      <title>mysql主从配置</title>
-      <link>https://linjinbao.github.io/2019/mysql%E4%B8%BB%E4%BB%8E%E9%85%8D%E7%BD%AE/</link>
-      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/mysql%E4%B8%BB%E4%BB%8E%E9%85%8D%E7%BD%AE/</guid>
-      <description>mysql 主从配置 分别安装主数据库和从数据库 ##下载源安装包wget http://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm##安装mysql源yum localinstall mysql57-community-release-el7-11.noarch.rpm##检查 yum 源是否安装成功yum repolist enabled|grep &amp;quot;mysql.*-community.*&amp;quot;##安装服务yum install mysql-community-server##启动MySQLsystemctl enable mysqldsystemctl start mysqldsystemctl status mysqld修改密码之类步骤掠过
-配置主数据库 vi /etc/my.cnf[mysqld]# 添加如下配置# 参数必须唯一, 本例主库设置为 11 ，从库设置为 12server_id=101log_bin=/var/log/mysql/mysql-bin记得检查日志目录是否存在，不存在子主动建立并授权
-重启数据库
-检查主库配置 mysql&amp;gt; show master;+------------------+----------+--------------+------------------+-------------------+| File | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set |+------------------+----------+--------------+------------------+-------------------+| mysql-bin.000001 | 154 | | | |+------------------+----------+--------------+------------------+-------------------+配置从库 vi /etc/my.</description>
-    </item>
-    
-    <item>
       <title>MySQL 事务</title>
-      <link>https://linjinbao.github.io/2019/20191029mysql-shi-wu/</link>
+      <link>https://linjinbao.github.io/2019/2019-10-29-mysql%E4%BA%8B%E5%8A%A1/</link>
       <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191029mysql-shi-wu/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-10-29-mysql%E4%BA%8B%E5%8A%A1/</guid>
       <description>2019-10-29-MySQL事务 MySQL事务 什么是事务 事务指的是当 DML 数据修改语句提交给数据库后，要么数据全部成功写入、如若其中某项操作失败则所有数据全部回滚到修改前状态的机制。数据库通过事务保证数据的完整性、一致性。
-ACID 一个完整的事务，必然包含了如下4个特性：原子性、一致性、隔离性、持久性。
-   类别 描述     原子性（Atomicity） 事务作为一个整体被执行，包含在其中的对数据库的操作要么全部被执行，要么都不执行。   一致性（Consistency） 事务应确保数据库的状态从一个一致状态转变成另一个一致状态。一致状态的含义是数据库应满足完整性约束。   隔离性（Isolation） 多个事务并发执行时，一个事务的执行不影响其他事务的执行   持久性（Durability） 已被提交的事务对数据库的修改应该永久保存在数据库中。    多线程并发事务问题 在多线程环境中，对于同一条数据而言可能有多个线程同时在进行修改操作，即带来了操作冲突。按照并发控制理论，要想解决冲突的问题，可以有如下两种思路：
- 避免冲突发生，如串行化，加锁等； 允许冲突发生，即允许数据有多个版本，如使用MVCC  同时，多线程事务还存在隔离性的问题，当多个事务并发执行的时候，一个事务中能否感知到另外一个事务中的数据修改。数据库理论中专门定义了一系列的术语来描述：
-   术语 简介     脏读 一个事务可以读到另外一个事务中未提交的数据。这往往会造成数据不一致   不可重复读 同一事务中两次读取同一行，数据不一致的情况称为不可重复读   幻读 同一事务中通过统计或其他汇总语句统计出来的数据不一致的情况    为解决上述问题，数据库提出了事务隔离级别来与之对应。从下表可以看出，一致性越好，并发能力越差。
-   隔离级别 脏读 不可重复读 幻读     读未提交(Read Uncommit) 有 有 有   读已提交(Read Commit) 无 有 有   可重复读(Read Uncommit) 无 无 有   串行化(Read Uncommit) 无 无 无    InnoDB 事务 在计算机领域，数据一致性、与数据崩溃恢复通常是通过 WAL（Write Ahead Log） 技术来实现的——用户如果对数据库中的数据就行了修改，必须保证日志先于数据落盘。在InnoDB 引擎中，通过binlog 与redolog 的两段提交的方式（在事务执行前先写redolog，执行结束前写binlog）保证了数据的一致性和完整性，如若数据刷盘的过程中发生了异常，那么当MySQL重启的时候，根据日志对数据进行恢复，就可以还原数据，保证数据的一致性。在MySQL中，日志文件是最重要的数据，而数据文件反而没有那么重要。</description>
-    </item>
-    
-    <item>
-      <title>MySQL 事务</title>
-      <link>https://linjinbao.github.io/2019/mysql%E4%BA%8B%E5%8A%A1/</link>
-      <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/mysql%E4%BA%8B%E5%8A%A1/</guid>
-      <description>MySQL事务 什么是事务 事务指的是当 DML 数据修改语句提交给数据库后，要么数据全部成功写入、如若其中某项操作失败则所有数据全部回滚到修改前状态的机制。数据库通过事务保证数据的完整性、一致性。
 ACID 一个完整的事务，必然包含了如下4个特性：原子性、一致性、隔离性、持久性。
    类别 描述     原子性（Atomicity） 事务作为一个整体被执行，包含在其中的对数据库的操作要么全部被执行，要么都不执行。   一致性（Consistency） 事务应确保数据库的状态从一个一致状态转变成另一个一致状态。一致状态的含义是数据库应满足完整性约束。   隔离性（Isolation） 多个事务并发执行时，一个事务的执行不影响其他事务的执行   持久性（Durability） 已被提交的事务对数据库的修改应该永久保存在数据库中。    多线程并发事务问题 在多线程环境中，对于同一条数据而言可能有多个线程同时在进行修改操作，即带来了操作冲突。按照并发控制理论，要想解决冲突的问题，可以有如下两种思路：
  避免冲突发生，如串行化，加锁等； 允许冲突发生，即允许数据有多个版本，如使用MVCC  同时，多线程事务还存在隔离性的问题，当多个事务并发执行的时候，一个事务中能否感知到另外一个事务中的数据修改。数据库理论中专门定义了一系列的术语来描述：
@@ -308,18 +173,6 @@ UPDATE mysql.user SET authentication_string = PASSWORD(&amp;#39;MyNewPass&amp;#3
     </item>
     
     <item>
-      <title>MYSQL操作笔记</title>
-      <link>https://linjinbao.github.io/2019/mysql%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Fri, 27 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/mysql%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/</guid>
-      <description>MYSQL操作笔记 修改用户密码 [官方链接]（https://dev.mysql.com/doc/mysql-windows-excerpt/5.7/en/resetting-permissions-windows.html） 方法一（老版本）：使用set password命令 格式`mysql&amp;gt; set password for username@loclhost=password(&amp;lsquo;passwd&amp;rsquo;);
-mysql&amp;gt; set password = password(&amp;#39;Gepoint&amp;#39;);Query OK, 0 rows affected (0.36 sec)方法二：使用alter命令
-alter user &amp;#39;root&amp;#39;@&amp;#39;localhost&amp;#39; identified by &amp;#39;123321&amp;#39;;方法三：修改user表
-UPDATE mysql.userSET authentication_string = PASSWORD(&amp;#39;MyNewPass&amp;#39;), password_expired = &amp;#39;N&amp;#39;WHERE User = &amp;#39;root&amp;#39; AND Host = &amp;#39;localhost&amp;#39;;FLUSH PRIVILEGES;定时任务  打开定时器  -- 开启event SET GLOBAL event_scheduler=&amp;#39;ON&amp;#39;;-- 查看定时器 SHOW VARIABLES LIKE &amp;#39;event_scheduler&amp;#39;;写存储过程供定时任务调用  DELIMITER $$ DROP PROCEDURE IF EXISTS backup_procedure $$ CREATE PROCEDURE backup_procedure()BEGINDECLARE t_error INTEGER DEFAULT 0;DECLARE CONTINUE HANDLER FOR SQLEXCEPTION SET t_error=1;START TRANSACTION;SELECT * FROM `user` INTO OUTFILE &amp;#39;f:backda.</description>
-    </item>
-    
-    <item>
       <title>MySQL一键备份脚本</title>
       <link>https://linjinbao.github.io/2019/2019-09-24-mysql%E4%B8%80%E4%BB%B6%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</link>
       <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
@@ -327,16 +180,6 @@ UPDATE mysql.userSET authentication_string = PASSWORD(&amp;#39;MyNewPass&amp;#3
       <guid>https://linjinbao.github.io/2019/2019-09-24-mysql%E4%B8%80%E4%BB%B6%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</guid>
       <description>MySQL一键备份脚本 备份脚本-Windows版本 脚本下载
 @echo off pause set year=%Date:~0,4% set month=%Date:~5,2% set day=%Date:~8,2% set address=f:\ set host=localhost set user=root set password=123321 set mysqlpath=D:\epoint_mysql_5.7.24\mysql-5.7.24-winx64\bin\mysqldump.exe set port=3306 rem 用户输入： set /p address=备份地址(例如：F:\) set /p mysqlpath=请输入MySQL安装，不输入则使用默认地址D:\epoint_mysql_5.7.24\mysql-5.7.24-winx64\bin\mysqldump.exe set /p host=请输入主机地址（默认localhost） set /p user=请输入数据库用户名：（默认root） set /p password=请输入数据库密码：(默认123321) set /p port=请输入端口号（默认3306） set /p dbname=请输入数据库名称 rem 用户输入结束： echo 用户输入结束，备份地址为%address%； 数据库用户名为：%user%；数据库密码为：%password%; pause set backupfile=%address%%year%-%month%-%day%-%dbname%.sql echo 备份文件: %backupfile% pause %mysqlpath% -u%user% -p%password% %dbname% &amp;gt; %backupfile% echo 请检查数据库备份是否成功，备份文件为%backupfile% echo 欢迎下次使用 pause exit 备份脚本-Linux版本 待续</description>
-    </item>
-    
-    <item>
-      <title>MySQL一键备份脚本</title>
-      <link>https://linjinbao.github.io/2019/mysql%E4%B8%80%E9%94%AE%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</link>
-      <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/mysql%E4%B8%80%E9%94%AE%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</guid>
-      <description>MySQL一键备份脚本 备份脚本-Windows版本 脚本下载
-@echo offpauseset year=%Date:~0,4%set month=%Date:~5,2%set day=%Date:~8,2%set address=f:\set host=localhostset user=rootset password=123321set mysqlpath=D:\epoint_mysql_5.7.24\mysql-5.7.24-winx64\bin\mysqldump.exeset port=3306rem 用户输入：set /p address=备份地址(例如：F:\)set /p mysqlpath=请输入MySQL安装，不输入则使用默认地址D:\epoint_mysql_5.7.24\mysql-5.7.24-winx64\bin\mysqldump.exeset /p host=请输入主机地址（默认localhost）set /p user=请输入数据库用户名：（默认root）set /p password=请输入数据库密码：(默认123321)set /p port=请输入端口号（默认3306）set /p dbname=请输入数据库名称rem 用户输入结束：echo 用户输入结束，备份地址为%address%； 数据库用户名为：%user%；数据库密码为：%password%; pauseset backupfile=%address%%year%-%month%-%day%-%dbname%.sqlecho 备份文件: %backupfile%pause%mysqlpath% -u%user% -p%password% %dbname% &amp;gt; %backupfile%echo 请检查数据库备份是否成功，备份文件为%backupfile%echo 欢迎下次使用pauseexit备份脚本-Linux版本 待续</description>
     </item>
     
     <item>
@@ -348,17 +191,6 @@ UPDATE mysql.userSET authentication_string = PASSWORD(&amp;#39;MyNewPass&amp;#3
       <description>MYSQL笔记 UUID select uuid(); 存储过程 存储过程（Stored Procedure）是一种在数据库中存储复杂程序，以便外部程序调用的一种数据库对象。 存储过程是为了完成特定功能的SQL语句集，经编译创建并保存在数据库中，用户可通过指定存储过程的名字并给定参数(需要时)来调用执行。 创建存储过程
 DELIMITER // CREATE PROCEDURE getAllUsers() BEGIN SELECT * FROM `user`; END // DELIMITER ; CALL getAllUsers(); 调用存储过程
 CALL getAllUsers(); 触发器 CREATE TRIGGER add_userTime BEFORE INSERT on `user` for each ROW INSERT INTO usercreatetime(create_time) VALUES(now()); 创建表 DROP TABLE IF EXISTS `user`; CREATE TABLE `user` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `account` varchar(255) DEFAULT NULL, `name` varchar(255) DEFAULT NULL, `address` varchar(255) DEFAULT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8; DROP TABLE IF EXISTS `user_history`; CREATE TABLE `user_history` ( `id` bigint(20) NOT NULL AUTO_INCREMENT, `user_id` bigint(20) NOT NULL, `operatetype` varchar(200) NOT NULL, `operatetime` datetime NOT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=utf8; 创建触发器 DROP TRIGGER IF EXISTS `tri_insert_user` delimiter ;; CREATE TRIGGER `tri_insert_user` AFTER INSERT ON `user` FOR EACH ROW BEGIN INSERT INTO user_history(user_id, operatetype, operatetime) VALUES (new.</description>
-    </item>
-    
-    <item>
-      <title>MYSQL笔记</title>
-      <link>https://linjinbao.github.io/2019/mysql/</link>
-      <pubDate>Sun, 28 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/mysql/</guid>
-      <description>UUID select uuid();存储过程 存储过程（Stored Procedure）是一种在数据库中存储复杂程序，以便外部程序调用的一种数据库对象。 存储过程是为了完成特定功能的SQL语句集，经编译创建并保存在数据库中，用户可通过指定存储过程的名字并给定参数(需要时)来调用执行。 创建存储过程
-DELIMITER //CREATE PROCEDURE getAllUsers()BEGINSELECT * FROM `user`;END //DELIMITER ;CALL getAllUsers();调用存储过程
-CALL getAllUsers();触发器 CREATE TRIGGER add_userTime BEFORE INSERTon `user`for each ROW INSERT INTO usercreatetime(create_time) VALUES(now());创建表 DROP TABLE IF EXISTS `user`;CREATE TABLE `user` (`id` bigint(20) NOT NULL AUTO_INCREMENT,`account` varchar(255) DEFAULT NULL,`name` varchar(255) DEFAULT NULL,`address` varchar(255) DEFAULT NULL,PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;DROP TABLE IF EXISTS `user_history`;CREATE TABLE `user_history` (`id` bigint(20) NOT NULL AUTO_INCREMENT,`user_id` bigint(20) NOT NULL,`operatetype` varchar(200) NOT NULL,`operatetime` datetime NOT NULL,PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;创建触发器 DROP TRIGGER IF EXISTS `tri_insert_user`delimiter ;;CREATE TRIGGER `tri_insert_user` AFTER INSERT ON `user` FOR EACH ROW BEGIN INSERT INTO user_history(user_id, operatetype, operatetime) VALUES (new.</description>
     </item>
     
   </channel>

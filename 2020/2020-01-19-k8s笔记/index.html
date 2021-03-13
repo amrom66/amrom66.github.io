@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2020/2020-01-17-12306%E6%8A%A2%E7%A5%A8/" />
+  <link rel="next" href="https://linjinbao.github.io/2020/2020-01-20-redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2020/2020-01-19-k8s%E7%AC%94%E8%AE%B0/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           kubernetes笔记 | 打工人日记
+       
+  </title>
+  <meta name="title" content="kubernetes笔记 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "kubernetes笔记",
+    "headline" : "kubernetes笔记",
+    "description" : "kubernetes笔记 第一章 作用  弹性伸缩 滚动升级 解决了容器的端口冲突问题（个人理解）  kubernetes是一个容器编排工具，其针对服务的容器化部署进行统一的编排调度。k8s可以实现，流量高峰期的自动扩容，应用版本升级时的不停机更新，重点解决的是容器的统一部署出现的IP冲突问题。\n另一种实现思想：使用nginx做统一访问入口，通过监控nginx的访问日志监控，如果发现短时间的大量访问，则调用创建并启动新的应用容器，待容器启动成功后，更新nginx配置，nginx -s reload， 不重启更新，通过nginx的负载均衡策略将流量分配到新的容器上，在整个升级更新的过程中，用户不会发现应用已经发生了变化，session使用redis进行统一存储，解决用户掉线问题。\n安装部署 yum install etcd kubernetes ##安装 systemctl start etcd ##启动文件系统 systemctl start docker ##启动docker systemctl start kube-apiserver #启动api-server（核心组件），资源调度器 systemctl start kube-controller-manager ##启动访问控制器 systemctl start kube-scheduler ##低筒任务调度器 systemctl start kubelet ##启动？ systemctl start kube-proxy ##启动代理网络服务（重点） 示例 定义mysql-rc.yaml：\napiVersion: v1 kind: ReplicationController ##类型，副本控制器 metadata: name: mysql ##rc名称 spec: replicas: 1 ##副本数量 selector: app: mysql ##标签选择 template: ##模板 metadata: labels: app: mysql spec: containers: - name: mysql image: mysql ports: - containerPort: 3306 env: - name: MYSQL_ROOT_PASSWORD value: \x26#34;123456\x26#34; 执行指令kubectl create -f mysql-rc.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-01-19 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-01-19 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2020\/2020-01-19-k8s%E7%AC%94%E8%AE%B0\/",
+    "wordCount" : "202",
+    "keywords" : [ "kubernets", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">kubernetes笔记</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao</a> 时间： 
+                <span class="post-time">
+                 <time datetime=19019-01-19 itemprop="datePublished">January 19, 2020</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="kubernetes笔记">kubernetes笔记</h1>
+<h2 id="第一章">第一章</h2>
+<h3 id="作用">作用</h3>
+<ol>
+<li>弹性伸缩</li>
+<li>滚动升级</li>
+<li><strong>解决了容器的端口冲突问题</strong>（个人理解）</li>
+</ol>
+<p>kubernetes是一个容器编排工具，其针对服务的容器化部署进行统一的编排调度。k8s可以实现，流量高峰期的自动扩容，应用版本升级时的不停机更新，重点解决的是容器的统一部署出现的IP冲突问题。</p>
+<p>另一种实现思想：使用nginx做统一访问入口，通过监控nginx的访问日志监控，如果发现短时间的大量访问，则调用创建并启动新的应用容器，待容器启动成功后，更新nginx配置，<code>nginx -s reload</code>， 不重启更新，通过nginx的负载均衡策略将流量分配到新的容器上，在整个升级更新的过程中，用户不会发现应用已经发生了变化，session使用redis进行统一存储，解决用户掉线问题。</p>
+<h3 id="安装部署">安装部署</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">yum install etcd kubernetes ##安装
+systemctl start etcd        ##启动文件系统
+systemctl start docker         ##启动docker
+systemctl start kube-apiserver    #启动api-server（核心组件），资源调度器
+systemctl start kube-controller-manager        ##启动访问控制器
+systemctl start kube-scheduler                ##低筒任务调度器
+systemctl start kubelet                        ##启动？
+systemctl start kube-proxy                    ##启动代理网络服务（重点）
+</code></pre></div><h3 id="示例">示例</h3>
+<p>定义<code>mysql-rc.yaml</code>：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">kind</span>: ReplicationController                <span style="color:#75715e">##类型，副本控制器</span>
+<span style="color:#66d9ef">metadata</span>:        
+  <span style="color:#66d9ef">name</span>: mysql                            <span style="color:#75715e">##rc名称</span>
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">replicas</span>: <span style="color:#ae81ff">1</span>                            <span style="color:#75715e">##副本数量</span>
+  <span style="color:#66d9ef">selector</span>:
+    <span style="color:#66d9ef">app</span>: mysql                            <span style="color:#75715e">##标签选择</span>
+  <span style="color:#66d9ef">template</span>:                                <span style="color:#75715e">##模板</span>
+    <span style="color:#66d9ef">metadata</span>:
+      <span style="color:#66d9ef">labels</span>:
+        <span style="color:#66d9ef">app</span>: mysql
+    <span style="color:#66d9ef">spec</span>:
+      <span style="color:#66d9ef">containers</span>:
+      - <span style="color:#66d9ef">name</span>: mysql
+        <span style="color:#66d9ef">image</span>: mysql
+        <span style="color:#66d9ef">ports</span>:
+        - <span style="color:#66d9ef">containerPort</span>: <span style="color:#ae81ff">3306</span>
+        <span style="color:#66d9ef">env</span>:
+        - <span style="color:#66d9ef">name</span>: MYSQL_ROOT_PASSWORD
+          <span style="color:#66d9ef">value</span>: <span style="color:#e6db74">&#34;123456&#34;</span>
+</code></pre></div><p>执行指令<code>kubectl create -f mysql-rc.yaml</code>创建该<code>rc</code>，执行<code>kubectl get rc</code>查询<code>rc</code>。</p>
+<p>根据<code>rc</code>（副本控制器）创建<code>pod</code>，这是推荐的步骤，也可以直接创建pod，但是没有rc控制器进行副本数量管理，不够安全。</p>
+<p>定义<code>mysql-svc.yaml</code>：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">kind</span>: Service                    <span style="color:#75715e">##类型， service</span>
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: mysql                    <span style="color:#75715e">##service的全局名称</span>
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">ports</span>:
+    - <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">3306</span>
+  <span style="color:#66d9ef">selector</span>:
+    <span style="color:#66d9ef">app</span>: mysql                    <span style="color:#75715e">##与上一步的rc中的标签一致</span>
+</code></pre></div><p>执行指令<code>kubectl create -f mysql-svc.yaml</code>创建服务，执行<code>kubectl get svc</code>查看服务</p>
+<p>服务<code>service</code>是pod的抽象，服务中定义的标点来自pod中，由rc定义。</p>
+<p>定义<code>t myweb-rc.yaml</code>：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">kind</span>: ReplicationController
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: myweb
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#75715e">#Pod的数量</span>
+  <span style="color:#66d9ef">replicas</span>: <span style="color:#ae81ff">2</span>
+  <span style="color:#75715e">#spec.selector与spec.template.metadata.labels，这两个字段必须相同，否则下一步创建RC会失败。</span>
+  <span style="color:#66d9ef">selector</span>:
+    <span style="color:#66d9ef">app</span>: myweb
+  <span style="color:#66d9ef">template</span>:
+    <span style="color:#66d9ef">metadata</span>:
+      <span style="color:#66d9ef">labels</span>:
+        <span style="color:#66d9ef">app</span>: myweb
+   <span style="color:#75715e">#容器组的定义</span>
+    <span style="color:#66d9ef">spec</span>:
+      <span style="color:#66d9ef">containers</span>:
+        <span style="color:#75715e">#容器名称</span>
+        - <span style="color:#66d9ef">name</span>: myweb
+          <span style="color:#75715e">#容器对应的镜像</span>
+          <span style="color:#66d9ef">image</span>: kubeguide/tomcat-app:v1
+          <span style="color:#66d9ef">ports</span>:
+        <span style="color:#75715e">#在8080端口上启动容器进程，PodIP与容器端口组成Endpoint，代表着一个服务进程对外通信的地址</span>
+          - <span style="color:#66d9ef">containerPort</span>: <span style="color:#ae81ff">8080</span>
+          <span style="color:#66d9ef">env</span>:
+        <span style="color:#75715e">#此处如果在未安装域名解析的情况下，会无法将mysql对应的IP解析到env环境变量中，因此先注释掉！</span>
+        <span style="color:#75715e"># - name: MYSQL_SERVICE_HOST</span>
+        <span style="color:#75715e">#   value: &#39;mysql&#39;</span>
+        <span style="color:#75715e"># - name: MYSQL_SERVICE_PORT</span>
+        <span style="color:#75715e">#   value: &#39;3306&#39;</span>
+</code></pre></div><p>执行指令<code>kubectl create -f myweb-rc.yaml</code>创建服务。</p>
+<h3 id="概念理解">概念理解</h3>
+<h4 id="pod">pod</h4>
+<p>pod （就像在鲸鱼荚或者豌豆荚中）是一组（一个或多个）容器（例如 Docker 容器），这些容器有共享存储、网络、以及怎样运行这些容器的声明。Pod 的内容总是共同定位和共同调度，并且在共享的上下文中运行。 Pod 以特定于应用的“逻辑主机”为模型，它包含一个或多个应用容器，这些容器是相对紧密的耦合在一起；在容器出现之前，在相同的物理机或虚拟机上运行意味着在相同的逻辑主机上运行。</p>
+<p>简言之：容器的集合，一组容器，容器共生命周期</p>
+<h4 id="rc">rc</h4>
+<p>replicas conroller 副本控制器，控制集群中的同一个资源的副本数量，先定义rc，有rc调度生成pod</p>
+<p>简言之：资源的定义</p>
+<h4 id="service">service</h4>
+<p>服务，对外暴露提供的服务，受制于pod，是pod的集合</p>
+<p>简言之：业务服务</p>
+<h4 id="deployment">deployment</h4>
+<p>rc的升级版</p>
+<h4 id="node">node</h4>
+<p>节点，集群由多个节点参与，一个node对应一个物理主机，node之间的通信通过ip实现。node由集群管理，实现物理主机cpu和io资源的统一调度。</p>
+<p>简言之：物理主机</p>
+<h2 id="第二章">第二章</h2>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2020/2020-01-19-k8s%E7%AC%94%E8%AE%B0/>https://linjinbao.github.io/2020/2020-01-19-k8s%E7%AC%94%E8%AE%B0/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/kubernets/">
+                    #kubernets</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2020/2020-01-17-12306%E6%8A%A2%E7%A5%A8/" class="prev" rel="prev" title="搭建12306抢票服务"><i class="iconfont icon-left"></i>&nbsp;搭建12306抢票服务</a>
+         
+        
+        <a href="https://linjinbao.github.io/2020/2020-01-20-redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" class="next" rel="next" title="redis集群搭建笔记">redis集群搭建笔记&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

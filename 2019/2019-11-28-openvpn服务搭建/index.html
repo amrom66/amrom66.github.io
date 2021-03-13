@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019/2019-11-27-%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/" />
+  <link rel="next" href="https://linjinbao.github.io/2019/2019-11-29-%E6%89%B9%E5%A4%84%E7%90%86%E8%A7%A3%E5%86%B3ie%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BE%E7%BD%AE%E9%97%AE%E9%A2%98/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019/2019-11-28-openvpn%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           openvpn服务搭建 | 打工人日记
+       
+  </title>
+  <meta name="title" content="openvpn服务搭建 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "openvpn服务搭建",
+    "headline" : "openvpn服务搭建",
+    "description" : "openvpn服务搭建 安装openvpn 和easy-rsa（制作ca证书） 方法一：\nwget http:\/\/dl.fedoraproject.org\/pub\/epel\/6\/i386\/epel-release-6-8.noarch.rpm rpm -Uvh epel-release-6-8.noarch.rpm yum install openvpn wget https:\/\/github.com\/OpenVPN\/easy-rsa\/archive\/master.zip unzip master.zip 方法二：\nyum -y install epel-release #epel源 yum -y install openvpn easy-rsa ca证书制作（重点难点）   创建目录，并复制easy-rsa 目录\nmkdir -p \/etc\/openvpn\/ cp -a easy-rsa \/etc\/openvpn\/   配置，编辑vars文件，根据自己环境配置\ncd \/etc\/openvpn\/easy-rsa\/easyrsa3 cp vars.example vars vi vars set_var EASYRSA_REQ_COUNTRY \x26#34;CN\x26#34; set_var EASYRSA_REQ_PROVINCE \x26#34;Henan\x26#34; set_var EASYRSA_REQ_CITY \x26#34;Zhengzhou\x26#34; set_var EASYRSA_REQ_ORG \x26#34;amrom\x26#34; set_var EASYRSA_REQ_EMAIL \x26#34;1576654308@qq.com\x26#34; set_var EASYRSA_REQ_OU \x26#34;My OpenVPN\x26#34;   创建服务端证书及key",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-28 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-11-28 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019\/2019-11-28-openvpn%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA\/",
+    "wordCount" : "354",
+    "keywords" : [ "Linux","vpn", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">openvpn服务搭建</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao</a> 时间： 
+                <span class="post-time">
+                 <time datetime=28119-11-28 itemprop="datePublished">November 28, 2019</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="openvpn服务搭建">openvpn服务搭建</h1>
+<h2 id="安装openvpn-和easy-rsa制作ca证书">安装openvpn 和easy-rsa（制作ca证书）</h2>
+<p>方法一：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">wget http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+
+rpm -Uvh epel-release-6-8.noarch.rpm
+
+yum install openvpn
+
+wget https://github.com/OpenVPN/easy-rsa/archive/master.zip
+
+unzip master.zip
+</code></pre></div><p>方法二：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">yum -y install epel-release     #epel源
+
+yum -y install openvpn easy-rsa
+</code></pre></div><h2 id="ca证书制作重点难点">ca证书制作（重点难点）</h2>
+<ol>
+<li>
+<p>创建目录，并复制easy-rsa 目录</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">mkdir -p /etc/openvpn/
+cp -a easy-rsa /etc/openvpn/
+</code></pre></div></li>
+<li>
+<p>配置，编辑vars文件，根据自己环境配置</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">cd /etc/openvpn/easy-rsa/easyrsa3
+cp vars.example vars
+vi vars
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">set_var EASYRSA_REQ_COUNTRY     &#34;CN&#34;
+set_var EASYRSA_REQ_PROVINCE    &#34;Henan&#34;
+set_var EASYRSA_REQ_CITY        &#34;Zhengzhou&#34;
+set_var EASYRSA_REQ_ORG         &#34;amrom&#34;
+set_var EASYRSA_REQ_EMAIL       &#34;1576654308@qq.com&#34;
+set_var EASYRSA_REQ_OU          &#34;My OpenVPN&#34;
+</code></pre></div></li>
+<li>
+<p>创建服务端证书及key</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">cd /etc/openvpn/easy-rsa/easyrsa3/
+sh easyrsa init-pki                ##初始化
+sh easyrsa build-ca                ##创建根证书，密码要记住！！！，根证书名称需要输入
+sh easyrsa gen-req server nopass##创建服务端证书，服务器端证书名称不能和根证书一致
+</code></pre></div></li>
+<li>
+<p>签约服务端证书</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">sh easyrsa sign server server    ##签约服务端证书
+sh easyrsa gen-dh                ##创建Diffie-Hellman，确保key穿越不安全网络的命令
+</code></pre></div></li>
+<li>
+<p>创建客户端证书及key</p>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">mkdir client
+cp /etc/openvpn/easy-rsa client/
+cd client/easy-rsa/easyrsa3/
+sh easyrsa init-pki                ##初始化
+sh easyrsa gen-req amrom-client    ##创建客户端key及证书
+</code></pre></div><ol>
+<li>
+<p>签约客户端证书</p>
+<p>```code</p>
+<p>cd /etc/openvpn/easy-rsa/easyrsa3/</p>
+<p>sh easyrsa import-req /root/client/easy-rsa/easyrsa3/pki/reqs/amrom-client.req amrom-client    ##导入req，上一步生成的</p>
+<p>sh easyrsa sign client amrom-client    ##签约</p>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">7. 整理文件
+将ca证书，服务端证书，服务端密钥，放置在openvpn安装目录下
+```code
+cp /etc/openvpn/easy-rsa/easyrsa3/pki/ca.crt /etc/openvpn/
+cp /etc/openvpn/easy-rsa/easyrsa3/pki/private/server.key /etc/openvpn/
+cp /etc/openvpn/easy-rsa/easyrsa3/pki/issued/server.crt /etc/openvpn/
+cp /etc/openvpn/easy-rsa/easyrsa3/pki/dh.pem /etc/openvpn/
+</code></pre></div><p>将客户端的证书、秘钥，放置在openvpn安装目录下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">cp /etc/openvpn/easy-rsa/easyrsa3/pki/ca.crt /root/client/
+cp /etc/openvpn/easy-rsa/easyrsa3/pki/issued/along.crt /root/client/
+cp /root/client/easy-rsa/easyrsa3/pki/private/along.key /root/client
+</code></pre></div><h2 id="配置openvpn服务端">配置openvpn服务端</h2>
+<p>在这里<code>/usr/share/doc/openvpn-2.3.2/sample/sample-config-files</code>找到<code>server.conf</code>默认配置文件，可以复制到openvpn安装目录下，修改以下配置项；如果有<code>;</code>的，服务是无法启动的</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">vi /etc/openvpn/server.conf
+local 0.0.0.0                 #监听地址
+port 1194                     #监听端口
+proto tcp                     #监听协议
+dev tun                     #采用路由隧道模式
+ca /etc/openvpn/ca.crt      #ca证书路径
+cert /etc/openvpn/server.crt           #服务器证书
+key /etc/openvpn/server.key          # This file should be kept secret 服务器秘钥
+dh /etc/openvpn/dh.pem                 #密钥交换协议文件
+server 10.8.0.0 255.255.255.0                            #给客户端分配地址池，注意：不能和VPN服务器内网网段有相同
+ifconfig-pool-persist ipp.txt
+push &#34;redirect-gateway def1 bypass-dhcp&#34;          #给网关
+push &#34;dhcp-option DNS 8.8.8.8&#34;                    #dhcp分配dns
+client-to-client                                   #客户端之间互相通信
+keepalive 10 120                                  #存活时间，10秒ping一次,120 如未收到响应则视为断线
+comp-lzo                                          #传输数据压缩
+max-clients 100                                 #最多允许 100 客户端连接
+user openvpn                                       #用户
+group openvpn                                      #用户组
+persist-key
+persist-tun
+status /var/log/openvpn/openvpn-status.log
+log         /var/log/openvpn/openvpn.log
+verb 3
+</code></pre></div><p>注意设置权限：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">chown -R openvpn.openvpn /var/log/openvpn/
+chown -R openvpn.openvpn /etc/openvpn/*
+</code></pre></div><h2 id="iptables-设置nat-规则和打开路由转发">iptables 设置nat 规则和打开路由转发</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -j MASQUERADE
+iptables -vnL -t nat
+vi /etc/sysctl.conf
+    net.ipv4.ip_forward = 1
+sysctl -p
+</code></pre></div><h2 id="开启openvpn服务">开启openvpn服务</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">openvpn /etc/openvpn/server.conf &amp;    //加上&amp; 表示后台运行
+</code></pre></div><h2 id="客户端配置">客户端配置</h2>
+<ol>
+<li>下载客户端需要的文件</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"> C:\Program Files\OpenVPN\config 的目录
+
+2019/11/28  00:19    &lt;DIR&gt;          .
+2019/11/28  00:19    &lt;DIR&gt;          ..
+2019/11/27  23:56             1,159 ca.crt                 ##服务器上下载下来
+2019/11/28  00:24               180 client.ovpn         ##配置项
+2019/11/19  18:08               340 README.txt         
+2019/11/27  23:56             4,425 test.crt             ##服务器上下载下来
+2019/11/27  23:56             1,704 test.key             ##服务器上下载下来
+               5 个文件          7,808 字节
+               2 个目录 59,594,248,192 可用字节
+</code></pre></div><p>client.ovpn文件内容</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">client
+dev tun
+proto tcp                         //改为tcp
+remote 192.168.200.143 1194        //OpenVPN服务器的外网IP和端口，ip和域名都行
+resolv-retry infinite
+nobind
+persist-key
+persist-tun
+ca ca.crt
+cert test.crt                     //client的证书
+key test.key                        //client的密钥
+comp-lzo
+verb 3
+</code></pre></div><ol>
+<li>
+<p>启动openvpn客户端，输入密码</p>
+<p>查看分配的ip<code>10.8.0.6</code></p>
+</li>
+</ol>
+<h2 id="总结">总结</h2>
+<ol>
+<li>证书（难点） 1.1 根证书 1.2 服务端证书 1.3 客户端证书</li>
+<li>openvpn配置 2.1 服务端配置 2.2 客户端配置</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2019/2019-11-28-openvpn%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/>https://linjinbao.github.io/2019/2019-11-28-openvpn%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</span>
+            </p>
+            
+             
+            <p class="copyright-item lincese">
+                本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+            </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/linux/">
+                    #Linux</a></span>
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/vpn/">
+                    #vpn</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2019/2019-11-27-%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/" class="prev" rel="prev" title="网站申请SSL证书-腾讯云"><i class="iconfont icon-left"></i>&nbsp;网站申请SSL证书-腾讯云</a>
+         
+        
+        <a href="https://linjinbao.github.io/2019/2019-11-29-%E6%89%B9%E5%A4%84%E7%90%86%E8%A7%A3%E5%86%B3ie%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BE%E7%BD%AE%E9%97%AE%E9%A2%98/" class="next" rel="next" title="批处理解决IE浏览器设置问题">批处理解决IE浏览器设置问题&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

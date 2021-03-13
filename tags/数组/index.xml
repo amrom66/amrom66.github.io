@@ -13,10 +13,10 @@
     
     <item>
       <title>寻找两个有序数组的中位数</title>
-      <link>https://linjinbao.github.io/2019/20191012-xun-zhao-liang-ge-you-xu-shu-zu-de-zhong-wei-shu/</link>
+      <link>https://linjinbao.github.io/2019/2019-10-12-%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/</link>
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/20191012-xun-zhao-liang-ge-you-xu-shu-zu-de-zhong-wei-shu/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-10-12-%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/</guid>
       <description>2019-10-12-寻找两个有序数组的中位数 题目描述： 给定两个大小为 m 和 n 的有序数组 nums1 和 nums2。
 请你找出这两个有序数组的中位数，并且要求算法的时间复杂度为 O(log(m + n))。
 你可以假设 nums1 和 nums2 不会同时为空。
@@ -24,21 +24,6 @@
 nums1 = [1, 3] nums2 = [2] 则中位数是 2.0 示例 2:
 nums1 = [1, 2] nums2 = [3, 4] 则中位数是 (2 + 3)/2 = 2.5 分析解答 这个题目是LeetCode上的hard题目，我的想法很简单，找出所有情况，可以提前结束循环的，就立即退出。 大概有以下几种：
  len1==0,len2!=0 len1!=0,len2==0 len1+len2为奇数 len1+len2为偶数  代码实现： package hard; import org.omg.PortableInterceptor.SYSTEM_EXCEPTION; /** * 寻找两个有序数组的中位数 */ public class H4 { public static double findMedianSortedArrays(int[] nums1, int[] nums2) { int len1 = nums1.</description>
-    </item>
-    
-    <item>
-      <title>寻找两个有序数组的中位数</title>
-      <link>https://linjinbao.github.io/2019/%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/</link>
-      <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/</guid>
-      <description>题目描述： 给定两个大小为 m 和 n 的有序数组 nums1 和 nums2。
-请你找出这两个有序数组的中位数，并且要求算法的时间复杂度为 O(log(m + n))。
-你可以假设 nums1 和 nums2 不会同时为空。
-示例 1:
-nums1 = [1, 3]nums2 = [2]则中位数是 2.0示例 2:
-nums1 = [1, 2]nums2 = [3, 4]则中位数是 (2 + 3)/2 = 2.5分析解答 这个题目是LeetCode上的hard题目，我的想法很简单，找出所有情况，可以提前结束循环的，就立即退出。 大概有以下几种：
- len1==0,len2!=0 len1!=0,len2==0 len1+len2为奇数 len1+len2为偶数  代码实现： package hard;import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;/*** 寻找两个有序数组的中位数*/ public class H4 {public static double findMedianSortedArrays(int[] nums1, int[] nums2) {int len1 = nums1.</description>
     </item>
     
     <item>
@@ -54,21 +39,6 @@ nums1 = [1, 2]nums2 = [3, 4]则中位数是 (2 + 3)/2 = 2.5分析解答 这�
  2 &amp;lt;= arr.length &amp;lt;= 10^5 -10^6 &amp;lt;= arr[i] &amp;lt;= 10^6  分析 先排序，遍历算最小差值
 代码实现
 package compete; import java.util.ArrayList; import java.util.Arrays; import java.util.List; /** * 最小绝对差 */ public class C5197 { public static List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; minimumAbsDifference(int[] arr) { if (arr.length&amp;lt;2) return null; Arrays.sort(arr); for (int i : arr){ System.</description>
-    </item>
-    
-    <item>
-      <title>第155场周赛--LeetCode</title>
-      <link>https://linjinbao.github.io/2019/%E7%AC%AC-155-%E5%9C%BA%E5%91%A8%E8%B5%9B/</link>
-      <pubDate>Sun, 22 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://linjinbao.github.io/2019/%E7%AC%AC-155-%E5%9C%BA%E5%91%A8%E8%B5%9B/</guid>
-      <description>第 155 场周赛&amp;ndash;LeetCode 第一题：最小绝对差 题目描述： 给你个整数数组 arr，其中每个元素都 不相同。 请你找到所有具有最小绝对差的元素对，并且按升序的顺序返回。 示例 1：
-输入：arr = [4,2,1,3]输出：[[1,2],[2,3],[3,4]] 示例 2：
-输入：arr = [1,3,6,10,15]输出：[[1,3]] 示例 3：
-输入：arr = [3,8,-10,23,19,-4,-14,27]输出：[[-14,-10],[19,23],[23,27]] 提示：
- 2 &amp;lt;= arr.length &amp;lt;= 10^5 -10^6 &amp;lt;= arr[i] &amp;lt;= 10^6  分析 先排序，遍历算最小差值
-代码实现
-package compete;import java.util.ArrayList;import java.util.Arrays;import java.util.List;/*** 最小绝对差*/ public class C5197 {public static List&amp;lt;List&amp;lt;Integer&amp;gt;&amp;gt; minimumAbsDifference(int[] arr) {if (arr.length&amp;lt;2) return null;Arrays.</description>
     </item>
     
   </channel>
