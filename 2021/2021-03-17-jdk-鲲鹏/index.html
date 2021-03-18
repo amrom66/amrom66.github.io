@@ -9,9 +9,9 @@
   <meta name="description" content="打工人日记">
   <meta name="keywords" content="博客 个人 日记">
   
-  <link rel="prev" href="https://linjinbao.github.io/2021/2021-03-14-%E6%B5%81%E6%B0%B4%E8%B4%A6/" />
-  <link rel="next" href="https://linjinbao.github.io/2021/2021-03-17-%E5%9B%BD%E4%BA%A7%E8%BD%AF%E4%BB%B6%E7%BB%84%E4%BB%B6%E9%80%82%E9%85%8D/" />
-  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/" />
+  <link rel="prev" href="https://linjinbao.github.io/2021/2021-03-17-mysql-%E9%B2%B2%E9%B9%8F/" />
+  <link rel="next" href="https://linjinbao.github.io/2021/2021-03-17-es-%E9%B2%B2%E9%B9%8F/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-03-17-jdk-%E9%B2%B2%E9%B9%8F/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           空镜像 | 打工人日记
+           jdk-鲲鹏 | 打工人日记
        
   </title>
-  <meta name="title" content="空镜像 | 打工人日记">
+  <meta name="title" content="jdk-鲲鹏 | 打工人日记">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/linjinbao.github.io"
     },
     "articleSection" : "posts",
-    "name" : "空镜像",
-    "headline" : "空镜像",
-    "description" : "如何将当前宿主机制作成镜像？\n答案：借助scratch 镜像\nscratch 是一个空镜像，只能用于构建其他镜像，比如你要运行一个包含所有依赖的二进制文件，如Golang 程序，可以直接使用 scratch 作为基础镜像。例如busybox的Dockerfile写法：\nFROM scratch ADD busybox.tar.xz \/ CMD [\x26quot;sh\x26quot;] 将当前机器制作成OS镜像，使用docker build即可。",
+    "name" : "jdk-鲲鹏",
+    "headline" : "jdk-鲲鹏",
+    "description" : "安装版本：1.8.0_191\n安装方式：磁盘安装\n参考链接： http:\/\/www.cloud-onlinelab.cn\/\n  下载编译好的openjdk包\nwget wget https:\/\/obs-mirror-ftp4.obs.cn-north-4.myhuaweicloud.com\/systemreliable\/OpenJDK8U-jdk_aarch64_linux_hotspot_8u191b12.tar.gz   解压\ntar -zxvf OpenJDK8U-jdk_aarch64_linux_hotspot_8u191b12.tar.gz mv jdk8u191-b12 \/opt\/   配置环境变量\n\/etc\/profile\nexport PATH=$PATH:$MYSQL_HOME\/bin export JAVA_HOME=\/opt\/jdk export PATH=$PATH:${JAVA_HOME}\/bin source \/etc\/profile\n  验证\n[root@dbmaster ~]# java -version openjdk version \x26quot;1.8.0_191\x26quot; OpenJDK Runtime Environment (AdoptOpenJDK)(build 1.8.0_191-b12) OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.191-b12, mixed mode) [root@dbmaster ~]#   ",
     "inLanguage" : "en-us",
     "author" : "linjinbao",
     "creator" : "linjinbao",
@@ -56,9 +56,9 @@
     "copyrightYear" : "2021",
     "datePublished": "2021-03-17 00:00:00 \x2b0000 UTC",
     "dateModified" : "2021-03-17 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F\/",
-    "wordCount" : "17",
-    "keywords" : [ "docker", "打工人日记"]
+    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-03-17-jdk-%E9%B2%B2%E9%B9%8F\/",
+    "wordCount" : "48",
+    "keywords" : [  "打工人日记"]
 }
 </script>
 
@@ -116,7 +116,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">空镜像</h1>
+        <h1 class="post-title" itemprop="name headline">jdk-鲲鹏</h1>
         <div class="post-meta">
                 作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao</a> 时间： 
                 <span class="post-time">
@@ -142,13 +142,36 @@
           
           
 
-          <p>如何将当前宿主机制作成镜像？</p>
-<p>答案：借助<strong>scratch 镜像</strong></p>
-<p>scratch 是一个空镜像，只能用于构建其他镜像，比如你要运行一个包含所有依赖的二进制文件，如Golang 程序，可以直接使用 scratch 作为基础镜像。例如busybox的Dockerfile写法：</p>
-<pre><code class="language-code" data-lang="code">FROM scratch
-ADD busybox.tar.xz /
-CMD [&quot;sh&quot;]
-</code></pre><p>将当前机器制作成OS镜像，使用docker build即可。</p>
+          <p><strong>安装版本</strong>：1.8.0_191</p>
+<p><strong>安装方式</strong>：磁盘安装</p>
+<p><strong>参考链接</strong>： <a href="http://www.cloud-onlinelab.cn/">http://www.cloud-onlinelab.cn/</a></p>
+<ol>
+<li>
+<p>下载编译好的openjdk包</p>
+<pre><code class="language-code" data-lang="code">wget wget https://obs-mirror-ftp4.obs.cn-north-4.myhuaweicloud.com/systemreliable/OpenJDK8U-jdk_aarch64_linux_hotspot_8u191b12.tar.gz
+</code></pre></li>
+<li>
+<p>解压</p>
+<pre><code class="language-code" data-lang="code">tar -zxvf OpenJDK8U-jdk_aarch64_linux_hotspot_8u191b12.tar.gz
+mv jdk8u191-b12 /opt/
+</code></pre></li>
+<li>
+<p>配置环境变量</p>
+<p>/etc/profile</p>
+<pre><code class="language-code" data-lang="code">export PATH=$PATH:$MYSQL_HOME/bin
+export JAVA_HOME=/opt/jdk
+export PATH=$PATH:${JAVA_HOME}/bin
+</code></pre><p>source /etc/profile</p>
+</li>
+<li>
+<p>验证</p>
+<pre><code class="language-code" data-lang="code">[root@dbmaster ~]# java -version
+openjdk version &quot;1.8.0_191&quot;
+OpenJDK Runtime Environment (AdoptOpenJDK)(build 1.8.0_191-b12)
+OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.191-b12, mixed mode)
+[root@dbmaster ~]#
+</code></pre></li>
+</ol>
 
     </div>
 
@@ -163,7 +186,7 @@ CMD [&quot;sh&quot;]
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://linjinbao.github.io/2021/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/>https://linjinbao.github.io/2021/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/</span>
+                    <a href=https://linjinbao.github.io/2021/2021-03-17-jdk-%E9%B2%B2%E9%B9%8F/>https://linjinbao.github.io/2021/2021-03-17-jdk-%E9%B2%B2%E9%B9%8F/</span>
             </p>
             
              
@@ -176,14 +199,6 @@ CMD [&quot;sh&quot;]
   
     <div class="post-tags">
         
-            <section>
-            <i class="iconfont icon-tag"></i>标签: 
-            
-            <span class="tag"><a href="https://linjinbao.github.io/tags/docker/">
-                    #docker</a></span>
-            
-            </section>
-        
         <section>
                 <a href="javascript:window.history.back();">返回</a></span> · 
                 <span><a href="https://linjinbao.github.io">主页</a></span>
@@ -192,10 +207,10 @@ CMD [&quot;sh&quot;]
 
     <div class="post-nav">
         
-        <a href="https://linjinbao.github.io/2021/2021-03-14-%E6%B5%81%E6%B0%B4%E8%B4%A6/" class="prev" rel="prev" title="日常流水账"><i class="iconfont icon-left"></i>&nbsp;日常流水账</a>
+        <a href="https://linjinbao.github.io/2021/2021-03-17-mysql-%E9%B2%B2%E9%B9%8F/" class="prev" rel="prev" title="mysql-鲲鹏"><i class="iconfont icon-left"></i>&nbsp;mysql-鲲鹏</a>
          
         
-        <a href="https://linjinbao.github.io/2021/2021-03-17-%E5%9B%BD%E4%BA%A7%E8%BD%AF%E4%BB%B6%E7%BB%84%E4%BB%B6%E9%80%82%E9%85%8D/" class="next" rel="next" title="国产软件组件适配">国产软件组件适配&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://linjinbao.github.io/2021/2021-03-17-es-%E9%B2%B2%E9%B9%8F/" class="next" rel="next" title="es-鲲鹏">es-鲲鹏&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

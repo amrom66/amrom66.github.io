@@ -12,6 +12,139 @@
     
     
     <item>
+      <title>es-鲲鹏</title>
+      <link>https://linjinbao.github.io/2021/2021-03-17-es-%E9%B2%B2%E9%B9%8F/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-03-17-es-%E9%B2%B2%E9%B9%8F/</guid>
+      <description>安装版本：6.4.2
+安装方式：磁盘安装
+  下载
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.4.2.tar.gz   解压
+tar -zxvf elasticsearch-6.4.2.tar.gz mkdir /usr/local/es mv elasticsearch-6.4.2 elasticsearch cp elasticsearch /usr/local/es/   修改配置
+/usr/local/es/elasticsearch/config/elasticsearch.yml
+cluster.name: elasticsearch node.name: node-1 path.data: /usr/local/es/elasticsearch/data path.logs: /usr/local/es/elasticsearch/logs network.host: 0.0.0.0 http.port: 9200 xpack.ml.enabled: false bootstrap.system_call_filter: false   调整系统参数
+vim /etc/security/limits.conf
+* soft nofile 65536 * hard nofile 65536 vim /etc/sysctl.conf
+vm.max_map_count=655360 sysctl -p
+  增加elastic用户
+useradd elastic chown -R elastic:elastic /usr/local/es/elasticsearch/ chmod -R 755 /usr/local/es   启动与验证</description>
+    </item>
+    
+    <item>
+      <title>jdk-鲲鹏</title>
+      <link>https://linjinbao.github.io/2021/2021-03-17-jdk-%E9%B2%B2%E9%B9%8F/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-03-17-jdk-%E9%B2%B2%E9%B9%8F/</guid>
+      <description>安装版本：1.8.0_191
+安装方式：磁盘安装
+参考链接： http://www.cloud-onlinelab.cn/
+  下载编译好的openjdk包
+wget wget https://obs-mirror-ftp4.obs.cn-north-4.myhuaweicloud.com/systemreliable/OpenJDK8U-jdk_aarch64_linux_hotspot_8u191b12.tar.gz   解压
+tar -zxvf OpenJDK8U-jdk_aarch64_linux_hotspot_8u191b12.tar.gz mv jdk8u191-b12 /opt/   配置环境变量
+/etc/profile
+export PATH=$PATH:$MYSQL_HOME/bin export JAVA_HOME=/opt/jdk export PATH=$PATH:${JAVA_HOME}/bin source /etc/profile
+  验证
+[root@dbmaster ~]# java -version openjdk version &amp;quot;1.8.0_191&amp;quot; OpenJDK Runtime Environment (AdoptOpenJDK)(build 1.8.0_191-b12) OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.191-b12, mixed mode) [root@dbmaster ~]#   </description>
+    </item>
+    
+    <item>
+      <title>mysql-鲲鹏</title>
+      <link>https://linjinbao.github.io/2021/2021-03-17-mysql-%E9%B2%B2%E9%B9%8F/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-03-17-mysql-%E9%B2%B2%E9%B9%8F/</guid>
+      <description>安装版本：5.7.27
+安装方式： 二进制安装
+  准备编译好的包
+wget https://obs.cn-north-4.myhuaweicloud.com/obs-mirror-ftp4/database/mysql-5.7.27-aarch64.tar.gz   增加用户和用户组
+groupadd -r mysql &amp;amp;&amp;amp; useradd -r -g mysql -s /sbin/nologin -M mysql   解压安装
+tar -xvf mysql-5.7.27-aarch64.tar.gz -C /usr/local/ mv /usr/local/mysql-5.7.27-aarch64 /usr/local/mysql mkdir -p /usr/local/mysql/logs chown -R mysql:mysql /usr/local/mysql ln -sf /usr/local/mysql/my.cnf /etc/my.cnf cp -rf /usr/local/mysql/extra/lib* /usr/lib64/ mv /usr/lib64/libstdc++.so.6 /usr/lib64/libstdc++.so.6.old ln -s /usr/lib64/libstdc++.so.6.0.24 /usr/lib64/libstdc++.so.6 cp -rf /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld chmod +x /etc/init.d/mysqld systemctl enable mysqld   添加环境变量
+/etc/profile</description>
+    </item>
+    
+    <item>
+      <title>nginx arm64编译安装</title>
+      <link>https://linjinbao.github.io/2021/2021-03-17-nginx-arm64/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-03-17-nginx-arm64/</guid>
+      <description>安装方式：编译安装
+  编译环境
+yum install gcc gcc-c++ make unzip pcre pcre-devel zlib zlib-devel libxml2 libxml2-devel readline readline-devel ncurses ncurses-devel perl-devel perl-ExtUtils-Embed openssl-devel -y   获取源码
+wget -c http://nginx.org/download/nginx-1.16.1.tar.gz tar -zxvf nginx-1.16.1.tar.gz   编译检查与安装
+cd nginx-1.16.1 ./configure make -j4 &amp;amp;&amp;amp; make install ##默认安装到/usr/local下   用户权限调整
+useradd nginx chown nginx:nginx /usr/local/nginx   验证安装
+cd /usr/local/nginx/sbin/ ./nginx -v ##查看版本 ./nginx ##运行 [root@dbmaster ~]# ps -aux | grep nginx root 40335 0.</description>
+    </item>
+    
+    <item>
+      <title>prometheus-node-exporter-grafana-鲲鹏</title>
+      <link>https://linjinbao.github.io/2021/2021-03-17-prometheus-node-exporter-grafana-%E9%B2%B2%E9%B9%8F/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-03-17-prometheus-node-exporter-grafana-%E9%B2%B2%E9%B9%8F/</guid>
+      <description>安装版本：prometheus-2.16.0 node-exporter-1.0.1 grafana-7.3.4
+安装方式：磁盘安装
+程序管理：systemd
+程序包下载 https://github.com/prometheus/prometheus/releases/download/v2.16.0/prometheus-2.16.0.freebsd-amd64.tar.gz
+https://github.com/prometheus/node_exporter/releases/download/v1.0.1/node_exporter-1.0.1.linux-arm64.tar.gz
+https://dl.grafana.com/oss/release/grafana-7.3.4.linux-arm64.tar.gz
+prometheus安装   上传并解压压缩包到/usr/local目录下
+[root@dbmaster local]# ls -al prometheus/ total 134924 drwxr-xr-x 5 3434 3434 156 Mar 18 11:46 . drwxr-xr-x. 21 root root 266 Mar 18 11:28 .. drwxr-xr-x 2 3434 3434 38 Feb 14 2020 console_libraries drwxr-xr-x 2 3434 3434 173 Feb 14 2020 consoles drwx------ 3 root root 51 Mar 18 11:15 data -rw-r--r-- 1 3434 3434 11357 Feb 14 2020 LICENSE -rw-r--r-- 1 3434 3434 3184 Feb 14 2020 NOTICE -rwxr-xr-x 1 3434 3434 78886010 Feb 14 2020 prometheus -rw-r--r-- 1 3434 3434 1006 Mar 18 11:46 prometheus.</description>
+    </item>
+    
+    <item>
+      <title>redis-鲲鹏</title>
+      <link>https://linjinbao.github.io/2021/2021-03-17-redis-%E9%B2%B2%E9%B9%8F/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-03-17-redis-%E9%B2%B2%E9%B9%8F/</guid>
+      <description>安装版本：4.0.3
+部署方式：单机部署
+安装方式：磁盘安装
+  下载组件依赖
+yum install -y jemalloc jemalloc-devel   下载安装包
+wget https://obs-mirror-ftp4.obs.cn-north-4.myhuaweicloud.com:443/database/redis-4.0.3-aarch64.tar.gz   解压安装
+tar -xvf redis-4.0.3-aarch64.tar.gz mv redis-4.0.3 /opt/ mv /opt/redis-4.0.3 /opt/redis   修改redis.conf配置（可选）
+  启动
+cd /opt/redis/bin redis-server   客户端连接验证
+[root@dbmaster bin]# ./redis-cli -h 127.0.0.1 -p 6379 127.0.0.1:6379&amp;gt; set name lin1 OK 127.0.0.1:6379&amp;gt; get name &amp;quot;lin1&amp;quot; 127.0.0.1:6379&amp;gt; exit   </description>
+    </item>
+    
+    <item>
+      <title>zookeeper-鲲鹏</title>
+      <link>https://linjinbao.github.io/2021/2021-03-17-zookeeper-%E9%B2%B2%E9%B9%8F/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-03-17-zookeeper-%E9%B2%B2%E9%B9%8F/</guid>
+      <description>安装版本：3.4.11
+部署方式：单机版
+安装方式：磁盘安装
+  下载安装包
+wget https://obs-mirror-ftp4.obs.cn-north-4.myhuaweicloud.com/middleware/zookeeper-3.4.11.tar.gz   解压
+tar -zxvf zookeeper-3.4.11.tar.gz cd zookeeper-3.4.11 mkdir data log mv zookeeper-3.4.11 /opt/ &amp;amp;&amp;amp; mv /opt/zookeeper-3.4.11 /opt/zookeeper   修改配置
+cd conf cp zoo_sample.cfg zoo.cfg cat zoo.cfg
+注意修改数据目录和日志目录
+# The number of milliseconds of each tick tickTime=2000 # The number of ticks that the initial # synchronization phase can take initLimit=10 # The number of ticks that can pass between # sending a request and getting an acknowledgement syncLimit=5 # the directory where the snapshot is stored.</description>
+    </item>
+    
+    <item>
+      <title>国产软件组件适配</title>
+      <link>https://linjinbao.github.io/2021/2021-03-17-%E5%9B%BD%E4%BA%A7%E8%BD%AF%E4%BB%B6%E7%BB%84%E4%BB%B6%E9%80%82%E9%85%8D/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-03-17-%E5%9B%BD%E4%BA%A7%E8%BD%AF%E4%BB%B6%E7%BB%84%E4%BB%B6%E9%80%82%E9%85%8D/</guid>
+      <description>docker arm64安装 版本：19.03
+  下载软件包
+wget -c https://download.docker.com/linux/static/stable/aarch64/docker-19.03.6.tgz   解压二进制文件
+tar -xf docker-19.03.06.tgz mv docker/* /usr/bin/   配置systemd服务
+3.1 /lib/systemd/system/docker.service
+[Unit] Description=Docker Application Container Engine Documentation=https://docs.docker.com After=network-online.target docker.socket firewalld.service Wants=network-online.target Requires=docker.socket [Service] Type=notify # the default is not to use systemd for cgroups because the delegate issues still # exists and systemd currently does not support the cgroup feature set required # for containers run by docker ExecStart=/usr/bin/dockerd -H fd:// ExecReload=/bin/kill -s HUP $MAINPID LimitNOFILE=1048576 # Having non-zero Limit*s causes performance problems due to accounting overhead # in the kernel.</description>
+    </item>
+    
+    <item>
       <title>空镜像</title>
       <link>https://linjinbao.github.io/2021/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/</link>
       <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>

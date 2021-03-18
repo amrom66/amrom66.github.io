@@ -9,9 +9,9 @@
   <meta name="description" content="打工人日记">
   <meta name="keywords" content="博客 个人 日记">
   
-  <link rel="prev" href="https://linjinbao.github.io/2021/2021-03-14-%E6%B5%81%E6%B0%B4%E8%B4%A6/" />
-  <link rel="next" href="https://linjinbao.github.io/2021/2021-03-17-%E5%9B%BD%E4%BA%A7%E8%BD%AF%E4%BB%B6%E7%BB%84%E4%BB%B6%E9%80%82%E9%85%8D/" />
-  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/" />
+  <link rel="prev" href="https://linjinbao.github.io/2021/2021-03-17-zookeeper-%E9%B2%B2%E9%B9%8F/" />
+  <link rel="next" href="https://linjinbao.github.io/2021/2021-03-17-prometheus-node-exporter-grafana-%E9%B2%B2%E9%B9%8F/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-03-17-redis-%E9%B2%B2%E9%B9%8F/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           空镜像 | 打工人日记
+           redis-鲲鹏 | 打工人日记
        
   </title>
-  <meta name="title" content="空镜像 | 打工人日记">
+  <meta name="title" content="redis-鲲鹏 | 打工人日记">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/linjinbao.github.io"
     },
     "articleSection" : "posts",
-    "name" : "空镜像",
-    "headline" : "空镜像",
-    "description" : "如何将当前宿主机制作成镜像？\n答案：借助scratch 镜像\nscratch 是一个空镜像，只能用于构建其他镜像，比如你要运行一个包含所有依赖的二进制文件，如Golang 程序，可以直接使用 scratch 作为基础镜像。例如busybox的Dockerfile写法：\nFROM scratch ADD busybox.tar.xz \/ CMD [\x26quot;sh\x26quot;] 将当前机器制作成OS镜像，使用docker build即可。",
+    "name" : "redis-鲲鹏",
+    "headline" : "redis-鲲鹏",
+    "description" : "安装版本：4.0.3\n部署方式：单机部署\n安装方式：磁盘安装\n  下载组件依赖\nyum install -y jemalloc jemalloc-devel   下载安装包\nwget https:\/\/obs-mirror-ftp4.obs.cn-north-4.myhuaweicloud.com:443\/database\/redis-4.0.3-aarch64.tar.gz   解压安装\ntar -xvf redis-4.0.3-aarch64.tar.gz mv redis-4.0.3 \/opt\/ mv \/opt\/redis-4.0.3 \/opt\/redis   修改redis.conf配置（可选）\n  启动\ncd \/opt\/redis\/bin redis-server   客户端连接验证\n[root@dbmaster bin]# .\/redis-cli -h 127.0.0.1 -p 6379 127.0.0.1:6379\x26gt; set name lin1 OK 127.0.0.1:6379\x26gt; get name \x26quot;lin1\x26quot; 127.0.0.1:6379\x26gt; exit   ",
     "inLanguage" : "en-us",
     "author" : "linjinbao",
     "creator" : "linjinbao",
@@ -56,9 +56,9 @@
     "copyrightYear" : "2021",
     "datePublished": "2021-03-17 00:00:00 \x2b0000 UTC",
     "dateModified" : "2021-03-17 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F\/",
-    "wordCount" : "17",
-    "keywords" : [ "docker", "打工人日记"]
+    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-03-17-redis-%E9%B2%B2%E9%B9%8F\/",
+    "wordCount" : "46",
+    "keywords" : [  "打工人日记"]
 }
 </script>
 
@@ -116,7 +116,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">空镜像</h1>
+        <h1 class="post-title" itemprop="name headline">redis-鲲鹏</h1>
         <div class="post-meta">
                 作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao</a> 时间： 
                 <span class="post-time">
@@ -142,13 +142,42 @@
           
           
 
-          <p>如何将当前宿主机制作成镜像？</p>
-<p>答案：借助<strong>scratch 镜像</strong></p>
-<p>scratch 是一个空镜像，只能用于构建其他镜像，比如你要运行一个包含所有依赖的二进制文件，如Golang 程序，可以直接使用 scratch 作为基础镜像。例如busybox的Dockerfile写法：</p>
-<pre><code class="language-code" data-lang="code">FROM scratch
-ADD busybox.tar.xz /
-CMD [&quot;sh&quot;]
-</code></pre><p>将当前机器制作成OS镜像，使用docker build即可。</p>
+          <p><strong>安装版本</strong>：4.0.3</p>
+<p><strong>部署方式</strong>：单机部署</p>
+<p><strong>安装方式</strong>：磁盘安装</p>
+<ol>
+<li>
+<p>下载组件依赖</p>
+<pre><code class="language-code" data-lang="code">yum install -y jemalloc jemalloc-devel
+</code></pre></li>
+<li>
+<p>下载安装包</p>
+<pre><code class="language-code" data-lang="code">wget https://obs-mirror-ftp4.obs.cn-north-4.myhuaweicloud.com:443/database/redis-4.0.3-aarch64.tar.gz
+</code></pre></li>
+<li>
+<p>解压安装</p>
+<pre><code class="language-code" data-lang="code">tar -xvf  redis-4.0.3-aarch64.tar.gz 
+mv redis-4.0.3 /opt/
+mv /opt/redis-4.0.3 /opt/redis
+</code></pre></li>
+<li>
+<p>修改redis.conf配置（可选）</p>
+</li>
+<li>
+<p>启动</p>
+<pre><code class="language-code" data-lang="code">cd /opt/redis/bin
+redis-server 
+</code></pre></li>
+<li>
+<p>客户端连接验证</p>
+<pre><code class="language-code" data-lang="code">[root@dbmaster bin]# ./redis-cli -h 127.0.0.1 -p 6379
+127.0.0.1:6379&gt; set name lin1
+OK
+127.0.0.1:6379&gt; get name
+&quot;lin1&quot;
+127.0.0.1:6379&gt; exit
+</code></pre></li>
+</ol>
 
     </div>
 
@@ -163,7 +192,7 @@ CMD [&quot;sh&quot;]
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://linjinbao.github.io/2021/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/>https://linjinbao.github.io/2021/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/</span>
+                    <a href=https://linjinbao.github.io/2021/2021-03-17-redis-%E9%B2%B2%E9%B9%8F/>https://linjinbao.github.io/2021/2021-03-17-redis-%E9%B2%B2%E9%B9%8F/</span>
             </p>
             
              
@@ -176,14 +205,6 @@ CMD [&quot;sh&quot;]
   
     <div class="post-tags">
         
-            <section>
-            <i class="iconfont icon-tag"></i>标签: 
-            
-            <span class="tag"><a href="https://linjinbao.github.io/tags/docker/">
-                    #docker</a></span>
-            
-            </section>
-        
         <section>
                 <a href="javascript:window.history.back();">返回</a></span> · 
                 <span><a href="https://linjinbao.github.io">主页</a></span>
@@ -192,10 +213,10 @@ CMD [&quot;sh&quot;]
 
     <div class="post-nav">
         
-        <a href="https://linjinbao.github.io/2021/2021-03-14-%E6%B5%81%E6%B0%B4%E8%B4%A6/" class="prev" rel="prev" title="日常流水账"><i class="iconfont icon-left"></i>&nbsp;日常流水账</a>
+        <a href="https://linjinbao.github.io/2021/2021-03-17-zookeeper-%E9%B2%B2%E9%B9%8F/" class="prev" rel="prev" title="zookeeper-鲲鹏"><i class="iconfont icon-left"></i>&nbsp;zookeeper-鲲鹏</a>
          
         
-        <a href="https://linjinbao.github.io/2021/2021-03-17-%E5%9B%BD%E4%BA%A7%E8%BD%AF%E4%BB%B6%E7%BB%84%E4%BB%B6%E9%80%82%E9%85%8D/" class="next" rel="next" title="国产软件组件适配">国产软件组件适配&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://linjinbao.github.io/2021/2021-03-17-prometheus-node-exporter-grafana-%E9%B2%B2%E9%B9%8F/" class="next" rel="next" title="prometheus-node-exporter-grafana-鲲鹏">prometheus-node-exporter-grafana-鲲鹏&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

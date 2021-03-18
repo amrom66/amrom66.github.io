@@ -9,9 +9,9 @@
   <meta name="description" content="打工人日记">
   <meta name="keywords" content="博客 个人 日记">
   
-  <link rel="prev" href="https://linjinbao.github.io/2021/2021-03-14-%E6%B5%81%E6%B0%B4%E8%B4%A6/" />
-  <link rel="next" href="https://linjinbao.github.io/2021/2021-03-17-%E5%9B%BD%E4%BA%A7%E8%BD%AF%E4%BB%B6%E7%BB%84%E4%BB%B6%E9%80%82%E9%85%8D/" />
-  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/" />
+  <link rel="prev" href="https://linjinbao.github.io/2021/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/" />
+  <link rel="next" href="https://linjinbao.github.io/2021/2021-03-17-zookeeper-%E9%B2%B2%E9%B9%8F/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-03-17-%E5%9B%BD%E4%BA%A7%E8%BD%AF%E4%BB%B6%E7%BB%84%E4%BB%B6%E9%80%82%E9%85%8D/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           空镜像 | 打工人日记
+           国产软件组件适配 | 打工人日记
        
   </title>
-  <meta name="title" content="空镜像 | 打工人日记">
+  <meta name="title" content="国产软件组件适配 | 打工人日记">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/linjinbao.github.io"
     },
     "articleSection" : "posts",
-    "name" : "空镜像",
-    "headline" : "空镜像",
-    "description" : "如何将当前宿主机制作成镜像？\n答案：借助scratch 镜像\nscratch 是一个空镜像，只能用于构建其他镜像，比如你要运行一个包含所有依赖的二进制文件，如Golang 程序，可以直接使用 scratch 作为基础镜像。例如busybox的Dockerfile写法：\nFROM scratch ADD busybox.tar.xz \/ CMD [\x26quot;sh\x26quot;] 将当前机器制作成OS镜像，使用docker build即可。",
+    "name" : "国产软件组件适配",
+    "headline" : "国产软件组件适配",
+    "description" : "docker arm64安装 版本：19.03\n  下载软件包\nwget -c https:\/\/download.docker.com\/linux\/static\/stable\/aarch64\/docker-19.03.6.tgz   解压二进制文件\ntar -xf docker-19.03.06.tgz mv docker\/* \/usr\/bin\/   配置systemd服务\n3.1 \/lib\/systemd\/system\/docker.service\n[Unit] Description=Docker Application Container Engine Documentation=https:\/\/docs.docker.com After=network-online.target docker.socket firewalld.service Wants=network-online.target Requires=docker.socket [Service] Type=notify # the default is not to use systemd for cgroups because the delegate issues still # exists and systemd currently does not support the cgroup feature set required # for containers run by docker ExecStart=\/usr\/bin\/dockerd -H fd:\/\/ ExecReload=\/bin\/kill -s HUP $MAINPID LimitNOFILE=1048576 # Having non-zero Limit*s causes performance problems due to accounting overhead # in the kernel.",
     "inLanguage" : "en-us",
     "author" : "linjinbao",
     "creator" : "linjinbao",
@@ -56,9 +56,9 @@
     "copyrightYear" : "2021",
     "datePublished": "2021-03-17 00:00:00 \x2b0000 UTC",
     "dateModified" : "2021-03-17 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F\/",
-    "wordCount" : "17",
-    "keywords" : [ "docker", "打工人日记"]
+    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-03-17-%E5%9B%BD%E4%BA%A7%E8%BD%AF%E4%BB%B6%E7%BB%84%E4%BB%B6%E9%80%82%E9%85%8D\/",
+    "wordCount" : "191",
+    "keywords" : [  "打工人日记"]
 }
 </script>
 
@@ -116,7 +116,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">空镜像</h1>
+        <h1 class="post-title" itemprop="name headline">国产软件组件适配</h1>
         <div class="post-meta">
                 作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao</a> 时间： 
                 <span class="post-time">
@@ -142,13 +142,81 @@
           
           
 
-          <p>如何将当前宿主机制作成镜像？</p>
-<p>答案：借助<strong>scratch 镜像</strong></p>
-<p>scratch 是一个空镜像，只能用于构建其他镜像，比如你要运行一个包含所有依赖的二进制文件，如Golang 程序，可以直接使用 scratch 作为基础镜像。例如busybox的Dockerfile写法：</p>
-<pre><code class="language-code" data-lang="code">FROM scratch
-ADD busybox.tar.xz /
-CMD [&quot;sh&quot;]
-</code></pre><p>将当前机器制作成OS镜像，使用docker build即可。</p>
+          <h3 id="docker-arm64安装">docker arm64安装</h3>
+<p><strong>版本</strong>：19.03</p>
+<ol>
+<li>
+<p>下载软件包</p>
+<pre><code class="language-code" data-lang="code">wget -c https://download.docker.com/linux/static/stable/aarch64/docker-19.03.6.tgz
+</code></pre></li>
+<li>
+<p>解压二进制文件</p>
+<pre><code class="language-code" data-lang="code">tar -xf docker-19.03.06.tgz
+mv docker/* /usr/bin/
+</code></pre></li>
+<li>
+<p>配置systemd服务</p>
+<p>3.1  /lib/systemd/system/docker.service</p>
+<pre><code class="language-code" data-lang="code">[Unit]
+Description=Docker Application Container Engine
+Documentation=https://docs.docker.com
+After=network-online.target docker.socket firewalld.service
+Wants=network-online.target
+Requires=docker.socket
+   
+[Service]
+Type=notify
+# the default is not to use systemd for cgroups because the delegate issues still
+# exists and systemd currently does not support the cgroup feature set required
+# for containers run by docker
+ExecStart=/usr/bin/dockerd -H fd://
+ExecReload=/bin/kill -s HUP $MAINPID
+LimitNOFILE=1048576
+# Having non-zero Limit*s causes performance problems due to accounting overhead
+# in the kernel. We recommend using cgroups to do container-local accounting.
+LimitNPROC=infinity
+LimitCORE=infinity
+# Uncomment TasksMax if your systemd version supports it.
+# Only systemd 226 and above support this version.
+#TasksMax=infinity
+TimeoutStartSec=0
+# set delegate yes so that systemd does not reset the cgroups of docker containers
+Delegate=yes
+# kill only the docker process, not all processes in the cgroup
+KillMode=process
+# restart the docker process if it exits prematurely
+Restart=on-failure
+StartLimitBurst=3
+StartLimitInterval=60s
+   
+[Install]
+WantedBy=multi-user.target
+</code></pre><p>3.2 /lib/systemd/system/docker.socket</p>
+<pre><code class="language-code" data-lang="code">[Unit]
+Description=Docker Socket for the API
+PartOf=docker.service
+   
+[Socket]
+ListenStream=/var/run/docker.sock
+SocketMode=0660
+SocketUser=root
+SocketGroup=docker
+   
+[Install]
+WantedBy=sockets.target
+</code></pre></li>
+<li>
+<p>新建用户和组</p>
+<pre><code class="language-code" data-lang="code">groupadd docker 
+useradd docker -g docker
+</code></pre></li>
+<li>
+<p>启动docker服务</p>
+<pre><code class="language-code" data-lang="code">systemctl daemon-reload
+systemctl start docker
+docker version
+</code></pre></li>
+</ol>
 
     </div>
 
@@ -163,7 +231,7 @@ CMD [&quot;sh&quot;]
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://linjinbao.github.io/2021/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/>https://linjinbao.github.io/2021/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/</span>
+                    <a href=https://linjinbao.github.io/2021/2021-03-17-%E5%9B%BD%E4%BA%A7%E8%BD%AF%E4%BB%B6%E7%BB%84%E4%BB%B6%E9%80%82%E9%85%8D/>https://linjinbao.github.io/2021/2021-03-17-%E5%9B%BD%E4%BA%A7%E8%BD%AF%E4%BB%B6%E7%BB%84%E4%BB%B6%E9%80%82%E9%85%8D/</span>
             </p>
             
              
@@ -176,14 +244,6 @@ CMD [&quot;sh&quot;]
   
     <div class="post-tags">
         
-            <section>
-            <i class="iconfont icon-tag"></i>标签: 
-            
-            <span class="tag"><a href="https://linjinbao.github.io/tags/docker/">
-                    #docker</a></span>
-            
-            </section>
-        
         <section>
                 <a href="javascript:window.history.back();">返回</a></span> · 
                 <span><a href="https://linjinbao.github.io">主页</a></span>
@@ -192,10 +252,10 @@ CMD [&quot;sh&quot;]
 
     <div class="post-nav">
         
-        <a href="https://linjinbao.github.io/2021/2021-03-14-%E6%B5%81%E6%B0%B4%E8%B4%A6/" class="prev" rel="prev" title="日常流水账"><i class="iconfont icon-left"></i>&nbsp;日常流水账</a>
+        <a href="https://linjinbao.github.io/2021/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/" class="prev" rel="prev" title="空镜像"><i class="iconfont icon-left"></i>&nbsp;空镜像</a>
          
         
-        <a href="https://linjinbao.github.io/2021/2021-03-17-%E5%9B%BD%E4%BA%A7%E8%BD%AF%E4%BB%B6%E7%BB%84%E4%BB%B6%E9%80%82%E9%85%8D/" class="next" rel="next" title="国产软件组件适配">国产软件组件适配&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://linjinbao.github.io/2021/2021-03-17-zookeeper-%E9%B2%B2%E9%B9%8F/" class="next" rel="next" title="zookeeper-鲲鹏">zookeeper-鲲鹏&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

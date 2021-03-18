@@ -9,9 +9,9 @@
   <meta name="description" content="打工人日记">
   <meta name="keywords" content="博客 个人 日记">
   
-  <link rel="prev" href="https://linjinbao.github.io/2021/2021-03-14-%E6%B5%81%E6%B0%B4%E8%B4%A6/" />
-  <link rel="next" href="https://linjinbao.github.io/2021/2021-03-17-%E5%9B%BD%E4%BA%A7%E8%BD%AF%E4%BB%B6%E7%BB%84%E4%BB%B6%E9%80%82%E9%85%8D/" />
-  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/" />
+  <link rel="prev" href="https://linjinbao.github.io/2021/2021-03-17-prometheus-node-exporter-grafana-%E9%B2%B2%E9%B9%8F/" />
+  <link rel="next" href="https://linjinbao.github.io/2021/2021-03-17-mysql-%E9%B2%B2%E9%B9%8F/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-03-17-nginx-arm64/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           空镜像 | 打工人日记
+           nginx arm64编译安装 | 打工人日记
        
   </title>
-  <meta name="title" content="空镜像 | 打工人日记">
+  <meta name="title" content="nginx arm64编译安装 | 打工人日记">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/linjinbao.github.io"
     },
     "articleSection" : "posts",
-    "name" : "空镜像",
-    "headline" : "空镜像",
-    "description" : "如何将当前宿主机制作成镜像？\n答案：借助scratch 镜像\nscratch 是一个空镜像，只能用于构建其他镜像，比如你要运行一个包含所有依赖的二进制文件，如Golang 程序，可以直接使用 scratch 作为基础镜像。例如busybox的Dockerfile写法：\nFROM scratch ADD busybox.tar.xz \/ CMD [\x26quot;sh\x26quot;] 将当前机器制作成OS镜像，使用docker build即可。",
+    "name" : "nginx arm64编译安装",
+    "headline" : "nginx arm64编译安装",
+    "description" : "安装方式：编译安装\n  编译环境\nyum install gcc gcc-c\x2b\x2b make unzip pcre pcre-devel zlib zlib-devel libxml2 libxml2-devel readline readline-devel ncurses ncurses-devel perl-devel perl-ExtUtils-Embed openssl-devel -y   获取源码\nwget -c http:\/\/nginx.org\/download\/nginx-1.16.1.tar.gz tar -zxvf nginx-1.16.1.tar.gz   编译检查与安装\ncd nginx-1.16.1 .\/configure make -j4 \x26amp;\x26amp; make install ##默认安装到\/usr\/local下   用户权限调整\nuseradd nginx chown nginx:nginx \/usr\/local\/nginx   验证安装\ncd \/usr\/local\/nginx\/sbin\/ .\/nginx -v ##查看版本 .\/nginx ##运行 [root@dbmaster ~]# ps -aux | grep nginx root 40335 0.",
     "inLanguage" : "en-us",
     "author" : "linjinbao",
     "creator" : "linjinbao",
@@ -56,9 +56,9 @@
     "copyrightYear" : "2021",
     "datePublished": "2021-03-17 00:00:00 \x2b0000 UTC",
     "dateModified" : "2021-03-17 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F\/",
-    "wordCount" : "17",
-    "keywords" : [ "docker", "打工人日记"]
+    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-03-17-nginx-arm64\/",
+    "wordCount" : "128",
+    "keywords" : [  "打工人日记"]
 }
 </script>
 
@@ -116,7 +116,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">空镜像</h1>
+        <h1 class="post-title" itemprop="name headline">nginx arm64编译安装</h1>
         <div class="post-meta">
                 作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao</a> 时间： 
                 <span class="post-time">
@@ -142,13 +142,49 @@
           
           
 
-          <p>如何将当前宿主机制作成镜像？</p>
-<p>答案：借助<strong>scratch 镜像</strong></p>
-<p>scratch 是一个空镜像，只能用于构建其他镜像，比如你要运行一个包含所有依赖的二进制文件，如Golang 程序，可以直接使用 scratch 作为基础镜像。例如busybox的Dockerfile写法：</p>
-<pre><code class="language-code" data-lang="code">FROM scratch
-ADD busybox.tar.xz /
-CMD [&quot;sh&quot;]
-</code></pre><p>将当前机器制作成OS镜像，使用docker build即可。</p>
+          <p><strong>安装方式</strong>：编译安装</p>
+<ol>
+<li>
+<p>编译环境</p>
+<pre><code class="language-code" data-lang="code">yum install gcc gcc-c++ make unzip pcre pcre-devel zlib zlib-devel libxml2 libxml2-devel  readline readline-devel ncurses ncurses-devel perl-devel perl-ExtUtils-Embed openssl-devel -y
+</code></pre></li>
+<li>
+<p>获取源码</p>
+<pre><code class="language-code" data-lang="code">wget -c http://nginx.org/download/nginx-1.16.1.tar.gz
+tar -zxvf nginx-1.16.1.tar.gz
+</code></pre></li>
+<li>
+<p>编译检查与安装</p>
+<pre><code class="language-code" data-lang="code">cd nginx-1.16.1
+./configure
+make -j4 &amp;&amp; make install   ##默认安装到/usr/local下
+</code></pre></li>
+<li>
+<p>用户权限调整</p>
+<pre><code class="language-code" data-lang="code">useradd nginx
+chown nginx:nginx /usr/local/nginx
+</code></pre></li>
+<li>
+<p>验证安装</p>
+<pre><code class="language-code" data-lang="code">cd /usr/local/nginx/sbin/
+./nginx -v  ##查看版本
+./nginx ##运行
+</code></pre><pre><code class="language-code" data-lang="code">[root@dbmaster ~]# ps -aux | grep nginx
+root       40335  0.0  0.0   5248  1536 ?        Ss   11:25   0:00 nginx: master process ./nginx
+nobody     40337  0.0  0.0   6464  3712 ?        S    11:25   0:00 nginx: worker process
+root       40466  0.0  0.0 214016  1600 pts/0    S+   11:30   0:00 grep --color=auto nginx
+[root@dbmaster ~]# netstat -tunlp | grep 80
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      40335/nginx: master
+[root@dbmaster ~]# curl 127.0.0.1
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;403 Forbidden&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;center&gt;&lt;h1&gt;403 Forbidden&lt;/h1&gt;&lt;/center&gt;
+&lt;hr&gt;&lt;center&gt;nginx/1.16.1&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></li>
+</ol>
 
     </div>
 
@@ -163,7 +199,7 @@ CMD [&quot;sh&quot;]
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://linjinbao.github.io/2021/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/>https://linjinbao.github.io/2021/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/</span>
+                    <a href=https://linjinbao.github.io/2021/2021-03-17-nginx-arm64/>https://linjinbao.github.io/2021/2021-03-17-nginx-arm64/</span>
             </p>
             
              
@@ -176,14 +212,6 @@ CMD [&quot;sh&quot;]
   
     <div class="post-tags">
         
-            <section>
-            <i class="iconfont icon-tag"></i>标签: 
-            
-            <span class="tag"><a href="https://linjinbao.github.io/tags/docker/">
-                    #docker</a></span>
-            
-            </section>
-        
         <section>
                 <a href="javascript:window.history.back();">返回</a></span> · 
                 <span><a href="https://linjinbao.github.io">主页</a></span>
@@ -192,10 +220,10 @@ CMD [&quot;sh&quot;]
 
     <div class="post-nav">
         
-        <a href="https://linjinbao.github.io/2021/2021-03-14-%E6%B5%81%E6%B0%B4%E8%B4%A6/" class="prev" rel="prev" title="日常流水账"><i class="iconfont icon-left"></i>&nbsp;日常流水账</a>
+        <a href="https://linjinbao.github.io/2021/2021-03-17-prometheus-node-exporter-grafana-%E9%B2%B2%E9%B9%8F/" class="prev" rel="prev" title="prometheus-node-exporter-grafana-鲲鹏"><i class="iconfont icon-left"></i>&nbsp;prometheus-node-exporter-grafana-鲲鹏</a>
          
         
-        <a href="https://linjinbao.github.io/2021/2021-03-17-%E5%9B%BD%E4%BA%A7%E8%BD%AF%E4%BB%B6%E7%BB%84%E4%BB%B6%E9%80%82%E9%85%8D/" class="next" rel="next" title="国产软件组件适配">国产软件组件适配&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://linjinbao.github.io/2021/2021-03-17-mysql-%E9%B2%B2%E9%B9%8F/" class="next" rel="next" title="mysql-鲲鹏">mysql-鲲鹏&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

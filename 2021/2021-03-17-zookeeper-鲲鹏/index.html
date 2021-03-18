@@ -9,9 +9,9 @@
   <meta name="description" content="打工人日记">
   <meta name="keywords" content="博客 个人 日记">
   
-  <link rel="prev" href="https://linjinbao.github.io/2021/2021-03-14-%E6%B5%81%E6%B0%B4%E8%B4%A6/" />
-  <link rel="next" href="https://linjinbao.github.io/2021/2021-03-17-%E5%9B%BD%E4%BA%A7%E8%BD%AF%E4%BB%B6%E7%BB%84%E4%BB%B6%E9%80%82%E9%85%8D/" />
-  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/" />
+  <link rel="prev" href="https://linjinbao.github.io/2021/2021-03-17-%E5%9B%BD%E4%BA%A7%E8%BD%AF%E4%BB%B6%E7%BB%84%E4%BB%B6%E9%80%82%E9%85%8D/" />
+  <link rel="next" href="https://linjinbao.github.io/2021/2021-03-17-redis-%E9%B2%B2%E9%B9%8F/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-03-17-zookeeper-%E9%B2%B2%E9%B9%8F/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           空镜像 | 打工人日记
+           zookeeper-鲲鹏 | 打工人日记
        
   </title>
-  <meta name="title" content="空镜像 | 打工人日记">
+  <meta name="title" content="zookeeper-鲲鹏 | 打工人日记">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/linjinbao.github.io"
     },
     "articleSection" : "posts",
-    "name" : "空镜像",
-    "headline" : "空镜像",
-    "description" : "如何将当前宿主机制作成镜像？\n答案：借助scratch 镜像\nscratch 是一个空镜像，只能用于构建其他镜像，比如你要运行一个包含所有依赖的二进制文件，如Golang 程序，可以直接使用 scratch 作为基础镜像。例如busybox的Dockerfile写法：\nFROM scratch ADD busybox.tar.xz \/ CMD [\x26quot;sh\x26quot;] 将当前机器制作成OS镜像，使用docker build即可。",
+    "name" : "zookeeper-鲲鹏",
+    "headline" : "zookeeper-鲲鹏",
+    "description" : "安装版本：3.4.11\n部署方式：单机版\n安装方式：磁盘安装\n  下载安装包\nwget https:\/\/obs-mirror-ftp4.obs.cn-north-4.myhuaweicloud.com\/middleware\/zookeeper-3.4.11.tar.gz   解压\ntar -zxvf zookeeper-3.4.11.tar.gz cd zookeeper-3.4.11 mkdir data log mv zookeeper-3.4.11 \/opt\/ \x26amp;\x26amp; mv \/opt\/zookeeper-3.4.11 \/opt\/zookeeper   修改配置\ncd conf cp zoo_sample.cfg zoo.cfg cat zoo.cfg\n注意修改数据目录和日志目录\n# The number of milliseconds of each tick tickTime=2000 # The number of ticks that the initial # synchronization phase can take initLimit=10 # The number of ticks that can pass between # sending a request and getting an acknowledgement syncLimit=5 # the directory where the snapshot is stored.",
     "inLanguage" : "en-us",
     "author" : "linjinbao",
     "creator" : "linjinbao",
@@ -56,9 +56,9 @@
     "copyrightYear" : "2021",
     "datePublished": "2021-03-17 00:00:00 \x2b0000 UTC",
     "dateModified" : "2021-03-17 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F\/",
-    "wordCount" : "17",
-    "keywords" : [ "docker", "打工人日记"]
+    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-03-17-zookeeper-%E9%B2%B2%E9%B9%8F\/",
+    "wordCount" : "185",
+    "keywords" : [  "打工人日记"]
 }
 </script>
 
@@ -116,7 +116,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">空镜像</h1>
+        <h1 class="post-title" itemprop="name headline">zookeeper-鲲鹏</h1>
         <div class="post-meta">
                 作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao</a> 时间： 
                 <span class="post-time">
@@ -142,13 +142,70 @@
           
           
 
-          <p>如何将当前宿主机制作成镜像？</p>
-<p>答案：借助<strong>scratch 镜像</strong></p>
-<p>scratch 是一个空镜像，只能用于构建其他镜像，比如你要运行一个包含所有依赖的二进制文件，如Golang 程序，可以直接使用 scratch 作为基础镜像。例如busybox的Dockerfile写法：</p>
-<pre><code class="language-code" data-lang="code">FROM scratch
-ADD busybox.tar.xz /
-CMD [&quot;sh&quot;]
-</code></pre><p>将当前机器制作成OS镜像，使用docker build即可。</p>
+          <p><strong>安装版本</strong>：3.4.11</p>
+<p><strong>部署方式</strong>：单机版</p>
+<p><strong>安装方式</strong>：磁盘安装</p>
+<ol>
+<li>
+<p>下载安装包</p>
+<pre><code class="language-code" data-lang="code">wget https://obs-mirror-ftp4.obs.cn-north-4.myhuaweicloud.com/middleware/zookeeper-3.4.11.tar.gz
+</code></pre></li>
+<li>
+<p>解压</p>
+<pre><code class="language-code" data-lang="code">tar -zxvf zookeeper-3.4.11.tar.gz
+cd zookeeper-3.4.11
+mkdir data log
+mv zookeeper-3.4.11 /opt/ &amp;&amp; mv /opt/zookeeper-3.4.11 /opt/zookeeper
+</code></pre></li>
+<li>
+<p>修改配置</p>
+<p>cd conf
+cp zoo_sample.cfg zoo.cfg
+cat zoo.cfg</p>
+<p>注意修改数据目录和日志目录</p>
+<pre><code class="language-code" data-lang="code"> # The number of milliseconds of each tick
+tickTime=2000
+# The number of ticks that the initial
+# synchronization phase can take
+initLimit=10
+# The number of ticks that can pass between
+# sending a request and getting an acknowledgement
+syncLimit=5
+# the directory where the snapshot is stored.
+# do not use /tmp for storage, /tmp here is just
+# example sakes.
+dataDir=../data
+# the port at which the clients will connect
+dataLogDir=../logs
+clientPort=2181
+# the maximum number of client connections.
+# increase this if you need to handle more clients
+#maxClientCnxns=60
+#
+# Be sure to read the maintenance section of the
+# administrator guide before turning on autopurge.
+#
+# http://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_maintenance
+#
+# The number of snapshots to retain in dataDir
+#autopurge.snapRetainCount=3
+# Purge task interval in hours
+# Set to &quot;0&quot; to disable auto purge feature
+#autopurge.purgeInterval=1
+</code></pre></li>
+<li>
+<p>环境变量</p>
+<p>/etc/profile</p>
+<pre><code class="language-code" data-lang="code">export ZOOKEEPER_HOME=/opt/zookeeper
+export PATH=$ZOOKEEPER_HOME/bin:$PATH
+</code></pre></li>
+<li>
+<p>启动与验证</p>
+<pre><code class="language-code" data-lang="code">./zkServer.sh start 
+./zkServer.sh start 
+curl 127.0.0.1:2181
+</code></pre></li>
+</ol>
 
     </div>
 
@@ -163,7 +220,7 @@ CMD [&quot;sh&quot;]
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://linjinbao.github.io/2021/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/>https://linjinbao.github.io/2021/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/</span>
+                    <a href=https://linjinbao.github.io/2021/2021-03-17-zookeeper-%E9%B2%B2%E9%B9%8F/>https://linjinbao.github.io/2021/2021-03-17-zookeeper-%E9%B2%B2%E9%B9%8F/</span>
             </p>
             
              
@@ -176,14 +233,6 @@ CMD [&quot;sh&quot;]
   
     <div class="post-tags">
         
-            <section>
-            <i class="iconfont icon-tag"></i>标签: 
-            
-            <span class="tag"><a href="https://linjinbao.github.io/tags/docker/">
-                    #docker</a></span>
-            
-            </section>
-        
         <section>
                 <a href="javascript:window.history.back();">返回</a></span> · 
                 <span><a href="https://linjinbao.github.io">主页</a></span>
@@ -192,10 +241,10 @@ CMD [&quot;sh&quot;]
 
     <div class="post-nav">
         
-        <a href="https://linjinbao.github.io/2021/2021-03-14-%E6%B5%81%E6%B0%B4%E8%B4%A6/" class="prev" rel="prev" title="日常流水账"><i class="iconfont icon-left"></i>&nbsp;日常流水账</a>
+        <a href="https://linjinbao.github.io/2021/2021-03-17-%E5%9B%BD%E4%BA%A7%E8%BD%AF%E4%BB%B6%E7%BB%84%E4%BB%B6%E9%80%82%E9%85%8D/" class="prev" rel="prev" title="国产软件组件适配"><i class="iconfont icon-left"></i>&nbsp;国产软件组件适配</a>
          
         
-        <a href="https://linjinbao.github.io/2021/2021-03-17-%E5%9B%BD%E4%BA%A7%E8%BD%AF%E4%BB%B6%E7%BB%84%E4%BB%B6%E9%80%82%E9%85%8D/" class="next" rel="next" title="国产软件组件适配">国产软件组件适配&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://linjinbao.github.io/2021/2021-03-17-redis-%E9%B2%B2%E9%B9%8F/" class="next" rel="next" title="redis-鲲鹏">redis-鲲鹏&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
