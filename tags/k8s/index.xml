@@ -39,6 +39,15 @@ apiVersion: v1 kind: Pod metadata: name: downward spec: containers: - name: main
     </item>
     
     <item>
+      <title>k8s in action 阅读笔记</title>
+      <link>https://linjinbao.github.io/2021/2021-01-28-k8s-in-action-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-01-28-k8s-in-action-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</guid>
+      <description>如何保证多次请求命中同一个pod？  If you execute the same command a few more times, you should hit a different pod with every invocation, because the service proxy normally forwards each connection to a randomly selected backing pod, even if the connections are coming from the same client. If, on the other hand, you want all requests made by a certain client to be redirected to the same pod every time, you can set the service’s sessionAffinity property to ClientIP (instead of None, which is the default), as shown in the following listing</description>
+    </item>
+    
+    <item>
       <title>flannel网络部署</title>
       <link>https://linjinbao.github.io/2020/2020-01-25-flannel%E7%BD%91%E7%BB%9C/</link>
       <pubDate>Sat, 25 Jan 2020 00:00:00 +0000</pubDate>

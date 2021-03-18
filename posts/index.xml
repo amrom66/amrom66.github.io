@@ -180,6 +180,47 @@ FROM scratch ADD busybox.tar.xz / CMD [&amp;quot;sh&amp;quot;] 将当前机器�
     </item>
     
     <item>
+      <title>面试题总结</title>
+      <link>https://linjinbao.github.io/2021/2021-02-24-%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Wed, 24 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-02-24-%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93/</guid>
+      <description>MySQL数据库慢查询问题排查方法 查询慢查询数量 一般来说一个正常运行的MySQL服务器，每分钟的慢查询在个位数是正常的，偶尔飙升到两位数也不是不能接受，接近100系统可能就有问题了，但是还能勉强用。这几次出问题慢查询的数量已经到了1000多。
+慢查询的数量保存在mysql库里面的slow_log表。
+SELECT * FROM slow_log where start_time &amp;gt; &amp;#39;2019/05/19 00:00:00&amp;#39;; 这样就能查出一天以来的慢查询了。
+查看当前进行的查询状态 大家应该都比较常用show processlist来查看当前系统中正在执行的查询，其实这些数据也保存在information_schema库里面的processlist表，因此如果要做条件查询，直接查询这张表更方便。
+比如查看当前所有的process
+select * from information_schema.processlist 查看当前正在进行的查询并按照已经执行时间倒排
+select * from information_schema.processlist where info is not null order by time desc 正常运行的数据库，因为一条查询的执行速度很快，被我们的select抓到的info不是null的查询数量会很少。我们这样负荷很大的库一般也就只能查到几条。如果一次能查到info非空的查询有几十条，那么也可以认为系统出问题了。
+系统问题和定位 当我们察觉到系统变慢之后，马上用慢查询和查看processlist的方式做了检查，结果发现每分钟慢查询数量飙升到1000多，同时淤积了大量的查询在执行中。
+因为当务之急是尽快恢复系统的正常运行，因此影响最直接的做法是在processlist的查询结果中，查看有多少哪些查询处于lock状态，或者已经执行了很长时间，把这些process用kill指令干掉。通过不停的杀死这些可能会引发系统阻塞的process，最终能够暂时让系统逐步恢复到正常状态，当然这只是权宜之计。
+此外，最重要的当然是分析到底是哪些查询为什么会引发系统阻塞，我们还是使用慢查询来做分析。
+慢查询表查询结果里面有几个比较重要的指标：
+start_time 开始时间，要通过这个参数，配合系统出问题的时间，定位哪些查询是罪魁祸首。
+query_time 查询时间
+rows_sent 和 rows_examined发送的结果数以及查询扫过的行数，这两个值特别重要，特别是 rows_examined。基本上就能告诉我们，哪个查询是需要注意的“大”查询。
+实际操作中，我们也是把有大量rows_examined的查询一个个拿出来分析，添加索引，修改查询语句的编写，来彻底的解决问题。</description>
+    </item>
+    
+    <item>
+      <title>八股文笔记</title>
+      <link>https://linjinbao.github.io/2021/2021-02-23-%E5%85%AB%E8%82%A1%E6%96%87%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-02-23-%E5%85%AB%E8%82%A1%E6%96%87%E7%AC%94%E8%AE%B0/</guid>
+      <description>redis知识 简介 简单来说 Redis 就是一个使用 C 语言开发的数据库，不过与传统数据库不同的是 Redis 的数据是存在内存中的 ，也就是它是内存数据库，所以读写速度非常快，因此 Redis 被广泛应用于缓存方向。
+另外，Redis 除了做缓存之外，Redis 也经常用来做分布式锁，甚至是消息队列。
+Redis 提供了多种数据类型来支持不同的业务场景。Redis 还支持事务 、持久化、Lua 脚本、多种集群方案
+分布式缓存常见的技术选型方案 分布式缓存的话，使用的比较多的主要是 Memcached 和 Redis。不过，现在基本没有看过还有项目使用 Memcached 来做缓存，都是直接用 Redis。
+Memcached 是分布式缓存最开始兴起的那会，比较常用的。后来，随着 Redis 的发展，大家慢慢都转而使用更加强大的 Redis 了。
+分布式缓存主要解决的是单机缓存的容量受服务器限制并且无法保存通用的信息。因为，本地缓存只在当前服务里有效，比如如果你部署了两个相同的服务，他们两者之间的缓存数据是无法共同的。
+Redis 和 Memcached 的区别和共同点 现在公司一般都是用 Redis 来实现缓存，而且 Redis 自身也越来越强大了！不过，了解 Redis 和 Memcached 的区别和共同点，有助于我们在做相应的技术选型的时候，能够做到有理有据！
+共同点 ：
+ 都是基于内存的数据库，一般都用来当做缓存使用。 都有过期策略。 两者的性能都非常高。  区别 ：
+ Redis 支持更丰富的数据类型（支持更复杂的应用场景）。Redis 不仅仅支持简单的 k/v 类型的数据，同时还提供 list，set，zset，hash 等数据结构的存储。Memcached 只支持最简单的 k/v 数据类型。 Redis 支持数据的持久化，可以将内存中的数据保持在磁盘中，重启的时候可以再次加载进行使用,而 Memecache 把数据全部存在内存之中。 Redis 有灾难恢复机制。 因为可以把缓存中的数据持久化到磁盘上。 Redis 在服务器内存使用完之后，可以将不用的数据放到磁盘上。但是，Memcached 在服务器内存使用完之后，就会直接报异常。 Memcached 没有原生的集群模式，需要依靠客户端来实现往集群中分片写入数据；但是 Redis 目前是原生支持 cluster 模式的.</description>
+    </item>
+    
+    <item>
       <title>面试题</title>
       <link>https://linjinbao.github.io/2021/2021-02-23-%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
       <pubDate>Tue, 23 Feb 2021 00:00:00 +0000</pubDate>
@@ -211,6 +252,35 @@ apiVersion: v1 kind: Pod metadata: name: downward spec: containers: - name: main
     </item>
     
     <item>
+      <title>gitlab部署全流程记录</title>
+      <link>https://linjinbao.github.io/2021/2021-02-04-gitlab%E9%83%A8%E7%BD%B2%E5%85%A8%E6%B5%81%E7%A8%8B%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Thu, 04 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-02-04-gitlab%E9%83%A8%E7%BD%B2%E5%85%A8%E6%B5%81%E7%A8%8B%E8%AE%B0%E5%BD%95/</guid>
+      <description>术语解释： 1. Gitlab GitLab是一个利用Ruby on Rails开发的开源应用程序，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。 它拥有与GitHub类似的功能，能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序（Wall）进行交流。它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。
+2. Gitlab-CI Gitlab-CI是GitLab Continuous Integration（Gitlab持续集成）的简称。 从Gitlab的8.0版本开始，gitlab就全面集成了Gitlab-CI,并且对所有项目默认开启。 只要在项目仓库的根目录添加.gitlab-ci.yml文件，并且配置了Runner（运行器），那么每一次合并请求（MR）或者push都会触发CI pipeline。
+3. Gitlab-runner Gitlab-runner是.gitlab-ci.yml脚本的运行器，Gitlab-runner是基于Gitlab-CI的API进行构建的相互隔离的机器（或虚拟机）。GitLab Runner 不需要和Gitlab安装在同一台机器上，但是考虑到GitLab Runner的资源消耗问题和安全问题，也不建议这两者安装在同一台机器上。
+Gitlab Runner分为两种，Shared runners和Specific runners。 Specific runners只能被指定的项目使用，Shared runners则可以运行所有开启 Allow shared runners选项的项目。
+4. Pipelines Pipelines是定义于.gitlab-ci.yml中的不同阶段的不同任务。 我把Pipelines理解为流水线，流水线包含有多个阶段（stages），每个阶段包含有一个或多个工序（jobs），比如先购料、组装、测试、包装再上线销售，每一次push或者MR都要经过流水线之后才可以合格出厂。而.gitlab-ci.yml正是定义了这条流水线有哪些阶段，每个阶段要做什么事。
+5. Badges 徽章，当Pipelines执行完成，会生成徽章，你可以将这些徽章加入到你的README.md文件或者你的网站。
+徽章的链接形如： http://example.gitlab.com/namespace/project/badges/branch/build.svg
+部署实现 第一步：helm部署gitlab命令：
+helm install gitlab gitlab/ --timeout 600s --set global.hosts.domain=linjb.com --set certmanager-issuer.email=1576654308@qq.com --set global.hosts.gitlab.https=false --set global.hosts.https=false --set global.ingress.tls.enabled=false 第二步：在coredns中配置域名的解析为集群内地址。
+第三步：登录集群：
+root账号为：kubectl get secret -gitlab-initial-root-password -ojsonpath=&amp;rsquo;{.data.password}&amp;rsquo; | base64 &amp;ndash;decode ; echo</description>
+    </item>
+    
+    <item>
+      <title>k8s修改dns解析</title>
+      <link>https://linjinbao.github.io/2021/2021-02-04-k8s%E4%BF%AE%E6%94%B9dns%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Thu, 04 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-02-04-k8s%E4%BF%AE%E6%94%B9dns%E8%A7%A3%E6%9E%90/</guid>
+      <description>K8S 使用的 DNS 是 Core DNS，可以在这里添加新的域名、IP
+kubectl get cm -n kube-system NAME DATA AGE coredns 2 33d extension-apiserver-authentication 6 33d kube-proxy 2 33d kubeadm-config 2 33d kubelet-config-1.16 1 33d kubectl edit cm coredns -n kube-system apiVersion: v1 data: Corefile: | .:53 { errors health ready kubernetes cluster.local in-addr.arpa ip6.arpa { pods insecure fallthrough in-addr.arpa ip6.arpa ttl 30 } hosts { 172.16.3.203 registry.linjb.com 172.16.3.203 minio.linjb.com 172.16.3.203 gitlab.linjb.com fallthrough } prometheus :9153 forward .</description>
+    </item>
+    
+    <item>
       <title>PromQL语法学习</title>
       <link>https://linjinbao.github.io/2021/2021-02-03-promql%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Wed, 03 Feb 2021 00:00:00 +0000</pubDate>
@@ -226,6 +296,53 @@ apiVersion: v1 kind: Pod metadata: name: downward spec: containers: - name: main
     </item>
     
     <item>
+      <title>子网掩码表示</title>
+      <link>https://linjinbao.github.io/2021/2021-02-01-%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E8%A1%A8%E7%A4%BA/</link>
+      <pubDate>Mon, 01 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-02-01-%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E8%A1%A8%E7%A4%BA/</guid>
+      <description>示例：
+192.168.2.0/24 表示 固定前24位，后8位可以任意变动，所以表示的ip段为192.168.2.0-192.168.2.255。
+192.168.2.0/24 表示 固定前26位，后6位可以任意变动，所以表示的ip共有2^6-2个。</description>
+    </item>
+    
+    <item>
+      <title>spring boot 切换到postgress数据库-jpa版</title>
+      <link>https://linjinbao.github.io/2021/2021-01-29-spring-boot-%E5%88%87%E6%8D%A2%E5%88%B0postgress%E6%95%B0%E6%8D%AE%E5%BA%93-jpa%E7%89%88/</link>
+      <pubDate>Fri, 29 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-01-29-spring-boot-%E5%88%87%E6%8D%A2%E5%88%B0postgress%E6%95%B0%E6%8D%AE%E5%BA%93-jpa%E7%89%88/</guid>
+      <description>适用范围  基于spring boot 2.0 orm框架使用jpa  无法修改原先的任何代码。
+操作步骤  修改pom文件加入依赖  pom.xml
+&amp;lt;!--https://mvnrepository.com/artifact/org.postgresql/postgresql --&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.postgresql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;postgresql&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;42.2.18&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; 修改pom文件，新增profile环境  pom.xml
+&amp;lt;!--postgress配置--&amp;gt; &amp;lt;profile&amp;gt; &amp;lt;id&amp;gt;pg&amp;lt;/id&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;profile.active&amp;gt;pg&amp;lt;/profile.active&amp;gt; &amp;lt;/properties&amp;gt; &amp;lt;/profile&amp;gt; 新增application-pg.yaml配置  application-pg.yaml
+server: port: 9006 servlet: context-path: /applicationmonitor spring: datasource: url: jdbc:postgresql://*.16.3.*:*/monitor username: *** password: *** driver-class-name: org.postgresql.Driver application: name: applicationmonitor profiles: active: @profile.active@ jpa: database-platform: org.hibernate.dialect.PostgreSQL95Dialect hibernate: ddl-auto: update show-sql: true database: postgresql kubernetes: admin-conf: classpath:k8s/admin-pg.conf 此处建议覆盖application.yaml中的所有配置项。注意driver-class-name和database-platform等postgress特有配置项。
+检查关键字  postgress中的关键字与mysql不同，需要特别注意，例如postgress中的user无法直接使用，需要使用反引号标记。</description>
+    </item>
+    
+    <item>
+      <title>k8s in action 阅读笔记</title>
+      <link>https://linjinbao.github.io/2021/2021-01-28-k8s-in-action-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-01-28-k8s-in-action-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</guid>
+      <description>如何保证多次请求命中同一个pod？  If you execute the same command a few more times, you should hit a different pod with every invocation, because the service proxy normally forwards each connection to a randomly selected backing pod, even if the connections are coming from the same client. If, on the other hand, you want all requests made by a certain client to be redirected to the same pod every time, you can set the service’s sessionAffinity property to ClientIP (instead of None, which is the default), as shown in the following listing</description>
+    </item>
+    
+    <item>
+      <title>外部服务创建</title>
+      <link>https://linjinbao.github.io/2021/2021-01-28-%E5%A4%96%E9%83%A8%E6%9C%8D%E5%8A%A1%E5%88%9B%E5%BB%BA/</link>
+      <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-01-28-%E5%A4%96%E9%83%A8%E6%9C%8D%E5%8A%A1%E5%88%9B%E5%BB%BA/</guid>
+      <description>简介 k8s中的资源类型Service用作代理Pod，一般来说需要在Service中定义selector才可以绑定到对应pod上。存在一种特殊的service，即不指定selector的service。这种类型的service一般用作代理外部服务。例如集群外存在mysql服务，这时想要映射到集群内部地址使用，此时即可使用这种service。
+要点  service不指定selector 创建endpoints与service同名  此时即可完成绑定
+示例：
+external-service.yaml
+--- apiVersion: v1 kind: Service metadata: name: external-service spec: type: NodePort ports: - port: 80 --- apiVersion: v1 kind: Endpoints metadata: name: external-service subsets: - addresses: - ip: 172.16.21.180 ports: - port: 3306 root@master:~/endpoints# kubectl get svc NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE external-service NodePort 10.254.139.74 &amp;lt;none&amp;gt; 80:51080/TCP 12h 此时通过访问$NODE_IP:51080即可访问原先的172.16.21.180:3306</description>
+    </item>
+    
+    <item>
       <title>k8s部署的实用命令</title>
       <link>https://linjinbao.github.io/2021/2021-01-08-k8s%E9%83%A8%E7%BD%B2%E7%9A%84%E5%AE%9E%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Fri, 08 Jan 2021 00:00:00 +0000</pubDate>
@@ -235,6 +352,47 @@ apiVersion: v1 kind: Pod metadata: name: downward spec: containers: - name: main
  containerd生成默认配置  containerd config default &amp;gt; /etc/containerd/config.toml 修改后最终文件：
 config.toml
 version = 2 root = &amp;#34;/var/lib/containerd&amp;#34; state = &amp;#34;/run/containerd&amp;#34; plugin_dir = &amp;#34;&amp;#34; disabled_plugins = [] required_plugins = [] oom_score = 0 [grpc] address = &amp;#34;/run/containerd/containerd.sock&amp;#34; tcp_address = &amp;#34;&amp;#34; tcp_tls_cert = &amp;#34;&amp;#34; tcp_tls_key = &amp;#34;&amp;#34; uid = 0 gid = 0 max_recv_message_size = 16777216 max_send_message_size = 16777216 [ttrpc] address = &amp;#34;&amp;#34; uid = 0 gid = 0 [debug] address = &amp;#34;&amp;#34; uid = 0 gid = 0 level = &amp;#34;&amp;#34; [metrics] address = &amp;#34;&amp;#34; grpc_histogram = false [cgroup] path = &amp;#34;&amp;#34; [timeouts] &amp;#34;io.</description>
+    </item>
+    
+    <item>
+      <title>jdk1.15编译</title>
+      <link>https://linjinbao.github.io/2020/2020-12-30-jdk1.15%E7%BC%96%E8%AF%91/</link>
+      <pubDate>Wed, 30 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2020/2020-12-30-jdk1.15%E7%BC%96%E8%AF%91/</guid>
+      <description>github下载项目  https://github.com/openjdk/jdk
+安装依赖  yum -y install build-essential gawk m4 libasound2-print-dev binutils libmotif3 libmotif-dev ant yum install libX* yum install fontconfig-devel yum install autoconf yum install -y centos-release-scl yum install -y devtoolset-7 yum install libXtst-devel libXt-devel libXrender-devel libXrandr-devel libXi-devel -y yum install cups-devel yum install fontconfig-devel yum install alsa-lib-devel -y 编译  make images
+[root@node2 jdk-master]# make Building target &#39;default (exploded-image)&#39; in configuration &#39;linux-x86_64-server-release&#39; Compiling 8 files for BUILD_TOOLS_LANGTOOLS Warning: No SCM configuration present and no .</description>
+    </item>
+    
+    <item>
+      <title>k8s 1.19 部署脚本</title>
+      <link>https://linjinbao.github.io/2020/2020-12-30-k8s-1.19-%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Wed, 30 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2020/2020-12-30-k8s-1.19-%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC/</guid>
+      <description>1. 概述 采用裸机部署的方式，主要组件版本如下：
+   组件 版本 发布时间     kubernetes 1.19.6 2020-12-18   etcd v3.4.3    crictl v1.19.0 2020-08-28   containerd v1.4.3 2020-12-01   runc v1.0.0-rc92 2020-08-06   calico     coredns     dashboard     kube-prometheus v0.7.0 2020-12-10   cni-plugins v0.9.0 2020-12-10   metrics-server v0.4.1 2020-11-18    主要配置策略：</description>
+    </item>
+    
+    <item>
+      <title>哈希函数</title>
+      <link>https://linjinbao.github.io/2020/2020-12-29-%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Tue, 29 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2020/2020-12-29-%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/</guid>
+      <description>哈希函数又称散列函数，是一种从任何一种数据中创建小的数字“指纹”的方法。散列函数把消息或数据压缩成摘要，使得数据量变小，将数据的格式固定下来。该函数将数据打乱混合，重新创建一个叫做散列值（hash values，hash codes，hash sums，或hashes）的指纹。散列值通常用一个短的随机字母和数字组成的字符串来代表。[1]好的散列函数在输入域中很少出现散列冲突。在散列表和数据处理中，不抑制冲突来区别数据，会使得数据库记录更难找到。
+如今，散列算法也被用来加密存在数据库中的密码（password）字符串，由于散列算法所计算出来的散列值（Hash Value）具有不可逆（无法逆向演算回原本的数值）的性质，因此可有效的保护密码。
+散列函数的性质 所有散列函数都有如下一个基本特性：如果两个散列值是不相同的（根据同一函数），那么这两个散列值的原始输入也是不相同的。这个特性是散列函数具有确定性的结果，具有这种性质的散列函数称为单向散列函数。但另一方面，散列函数的输入和输出不是唯一对应关系的，如果两个散列值相同，两个输入值很可能是相同的，但也可能不同，这种情况称为“散列碰撞（collision）”，这通常是两个不同长度的输入值，刻意计算出相同的输出值。输入一些数据计算出散列值，然后部分改变输入值，一个具有强混淆特性的散列函数会产生一个完全不同的散列值。
+典型的散列函数都有非常大的定义域，比如SHA-2最高接受(264-1)/8长度的字节字符串。同时散列函数一定有着有限的值域，比如固定长度的比特串。在某些情况下，散列函数可以设计成具有相同大小的定义域和值域间的单射。在密码学中，散列函数必须具有不可逆性。
+散列函数的应用 由于散列函数的应用的多样性，它们经常是专为某一应用而设计的。例如，加密散列函数假设存在一个要找到具有相同散列值的原始输入的敌人。一个设计优秀的加密散列函数是一个“单向”操作：对于给定的散列值，没有实用的方法可以计算出一个原始输入，也就是说很难伪造。为加密散列为目的设计的函数，如SHA-2，被广泛的用作检验散列函数。这样软件下载的时候，就会对照验证代码之后才下载正确的文件部分。此代码不会因为环境因素的变化，如机器配置或者IP地址的改变而有变动。以保证源文件的安全性。
+错误监测和修复函数主要用于辨别数据被随机的过程所扰乱的事例。当散列函数被用于校验和的时候，可以用相对较短(但不能短于某个安全参数, 通常不能短于160位)的散列值来验证任意长度的数据是否被更改过。
+冲突解决   开放地址法：
+以发生冲突的哈希地址为输入，通过某种哈希冲突函数得到一个新的空闲的哈希地址的方法
+。有以下几种方式：
+ 线性探查法：从发生冲突的地址开始，依次探查下一个地址，直到找到一个空闲单元。 平方探查法：设冲突地址为d0，则探查序列为：d0+1^2,d0-1^2,d0+2^2…    拉链法：
+把所有的同义词用单链表链接起来。在这种方法下，哈希表每个单元中存放的不再是元素本身，而是相应同义词单链表的头指针。HashMap就是使用这种方法解决冲突的。
+  </description>
     </item>
     
     <item>
@@ -275,6 +433,55 @@ brew install git-lfs git lfs install git rm --cached bin/bin/kubelet. ##清除�
     </item>
     
     <item>
+      <title>ingress部署文档</title>
+      <link>https://linjinbao.github.io/2020/2020-11-17-ingress%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3/</link>
+      <pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2020/2020-11-17-ingress%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3/</guid>
+      <description>deploy.yaml
+apiVersion: v1 kind: Namespace metadata: name: ingress-nginx labels: app.kubernetes.io/name: ingress-nginx app.kubernetes.io/instance: ingress-nginx --- # Source: ingress-nginx/templates/controller-serviceaccount.yaml apiVersion: v1 kind: ServiceAccount metadata: labels: helm.sh/chart: ingress-nginx-2.0.1 app.kubernetes.io/name: ingress-nginx app.kubernetes.io/instance: ingress-nginx app.kubernetes.io/version: 0.31.1 app.kubernetes.io/managed-by: Helm app.kubernetes.io/component: controller name: ingress-nginx namespace: ingress-nginx --- # Source: ingress-nginx/templates/controller-configmap.yaml apiVersion: v1 kind: ConfigMap metadata: labels: helm.sh/chart: ingress-nginx-2.0.1 app.kubernetes.io/name: ingress-nginx app.kubernetes.io/instance: ingress-nginx app.kubernetes.io/version: 0.31.1 app.kubernetes.io/managed-by: Helm app.kubernetes.io/component: controller name: ingress-nginx-controller namespace: ingress-nginx data: --- # Source: ingress-nginx/templates/clusterrole.yaml apiVersion: rbac.</description>
+    </item>
+    
+    <item>
+      <title>sonar代码检查工具使用说明-研发人员</title>
+      <link>https://linjinbao.github.io/2020/2020-11-17-sonar%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E-%E7%A0%94%E5%8F%91%E4%BA%BA%E5%91%98/</link>
+      <pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2020/2020-11-17-sonar%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E-%E7%A0%94%E5%8F%91%E4%BA%BA%E5%91%98/</guid>
+      <description>**！ 注意此文档为测试文档，让大家提前使用并熟悉下代码检查的工作原理，后续会集成到jenkins中 **
+1. 背景说明 代码检查是项目开发过程中的重要组成，及时的代码检查可以帮助规避掉多数的简单漏洞和潜在bug。本文旨在讲解如何使用sonar的代码检查工具进行代码检查。支持语言：html js java 等
+2. maven操作演示 2.1 在maven的settings.xml中做如下配置， pluginGroups在settings标签下：
+&amp;lt;pluginGroups&amp;gt; &amp;lt;pluginGroup&amp;gt;org.sonarsource.scanner.maven&amp;lt;/pluginGroup&amp;gt; &amp;lt;/pluginGroups&amp;gt; 2.2 profile中加入sonar的环境配置：
+&amp;lt;profile&amp;gt; &amp;lt;id&amp;gt;sonar&amp;lt;/id&amp;gt; &amp;lt;activation&amp;gt; &amp;lt;activeByDefault&amp;gt;true&amp;lt;/activeByDefault&amp;gt; &amp;lt;/activation&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;sonar.host.url&amp;gt; &amp;lt;!--sonar服务地址 --&amp;gt; http://10.20.250.23:31821 &amp;lt;/sonar.host.url&amp;gt; &amp;lt;sonar.login&amp;gt;admin&amp;lt;/sonar.login&amp;gt; &amp;lt;sonar.password&amp;gt;admin&amp;lt;/sonar.password&amp;gt; &amp;lt;sonar.inclusions&amp;gt;**/*.java,**/*.xml&amp;lt;/sonar.inclusions&amp;gt; &amp;lt;/properties&amp;gt; &amp;lt;/profile&amp;gt; 2.3 激活sonar环境配置
+&amp;lt;activeProfiles&amp;gt; &amp;lt;activeProfile&amp;gt;sonar&amp;lt;/activeProfile&amp;gt; &amp;lt;/activeProfiles&amp;gt; 2.4 执行代码检查命令
+mvn clean install sonar:sonar 2.5 登录sonar web查看代码检查情况
+3. 前端扫描操作演示 前端需要下载扫描器使用，参见链接下载：
+http://10.20.250.23:31821/documentation/analysis/scan/sonarscanner/
+windows版本：
+第一步： 下载windows scanner客户端，见附件：sonar-scanner-cli-4.5.0.2216-windows.zip
+第二步： 解压并配置环境变量
+第三步：重启终端
+mac版本：
+第一步： 下载windows scanner客户端，见附件：sonar-scanner-cli-4.5.0.2216-macosx.zip
+第二步： 解压并配置环境变量
+第三步：重启终端
+linux版本：
+第一步： 下载windows scanner客户端，见附件：sonar-scanner-cli-4.</description>
+    </item>
+    
+    <item>
+      <title>整合sonar代码检查</title>
+      <link>https://linjinbao.github.io/2020/2020-11-17-%E6%95%B4%E5%90%88sonar%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5/</link>
+      <pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2020/2020-11-17-%E6%95%B4%E5%90%88sonar%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5/</guid>
+      <description>内容概要：
+ postgres部署 sonar部署 插件安装 整合sonar和maven 整合和sonar和idea 整合sonar和eclipse 整合sonar和jenkins  1. postgress部署 采用k8s持久化部署
+postgress.yaml
+--- apiVersion: v1 kind: ConfigMap metadata: name: postgres-config labels: app: postgres data: POSTGRES_DB: postgresdb POSTGRES_USER: postgresadmin POSTGRES_PASSWORD: admin123 kind: PersistentVolume --- apiVersion: v1 metadata: name: postgres-pv-volume labels: type: local app: postgres spec: storageClassName: manual capacity: storage: 5Gi accessModes: - ReadWriteMany hostPath: path: &amp;#34;/mnt/data&amp;#34; --- kind: PersistentVolumeClaim apiVersion: v1 metadata: name: postgres-pv-claim labels: app: postgres spec: storageClassName: manual accessModes: - ReadWriteMany resources: requests: storage: 5Gi apiVersion: apps/v1 kind: Deployment metadata: name: postgres spec: replicas: 1 selector: matchLabels: app: postgres template: metadata: labels: app: postgres spec: containers: - name: postgres image: postgres:10.</description>
+    </item>
+    
+    <item>
       <title>containerd手动导入镜像</title>
       <link>https://linjinbao.github.io/2020/2020-11-16-containerd%E6%89%8B%E5%8A%A8%E5%AF%BC%E5%85%A5%E9%95%9C%E5%83%8F/</link>
       <pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate>
@@ -294,6 +501,19 @@ docker save k8s.gcr.io/pause -o pause.tar ctr -n &amp;lt;namespace&amp;gt; image
       <guid>https://linjinbao.github.io/2020/2020-11-15-linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
       <description>原文地址: https://github.com/xjh22222228/linux-manual
 目录  文件操作  head tail ls pwd wc find mkdir mktemp chattr more paste stat grep touch cd rm rmdir cp cat mv locate open source tree ln file   系统管理  nohup watch ping which shutdown reboot uptime crontab uname ifconfig whereis chmod lsof chown systemctl service free type alias time jobs &amp;amp;   系统进程  ps pstree top netstat kill killall   用户管理  useradd userdel passwd chpasswd chsh chfn usermod users who w last su whoami   环境变量  printenv set export unset   压缩、解压  zip unzip gzip bzip2 tar   加解密  md5sum base64   网络  ssh wget curl scp rsync   磁盘  df du   包管理  yum apt-get   其他  目录名称含义 重定向输入和输出 管道 echo date man sleep history xargs cal expr bc timeout exit vim basename read tee clear    文件操作 head 显示文件的头部内容，如果不指定参数默认显示10行</description>
+    </item>
+    
+    <item>
+      <title>nginx拦截空reffer</title>
+      <link>https://linjinbao.github.io/2020/2020-11-10-nginx%E6%8B%A6%E6%88%AA%E7%A9%BAreffer/</link>
+      <pubDate>Tue, 10 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2020/2020-11-10-nginx%E6%8B%A6%E6%88%AA%E7%A9%BAreffer/</guid>
+      <description>背景解释 web系统出现垂直越权的现象，具体表现为，低权限账户登录后，直接请求高权限的接口可以获取数据，原因在于后台并没有实现对接口的权限校验，只是在菜单上简单隐藏。
+解决方案 方案一：引入完善的权限框架，例如shiro
+方案二：nginx控制reffer，禁止直接访问
+配置实例：
+location /login.html { root D:\code2\fdmp-pages; autoindex on; index index.html; } location / { valid_referers server_names ~.; ##校验所有请求的reffer if ($invalid_referer) {	##非法则返回403 return 403; } root D:\code2\fdmp-pages; autoindex on; index index.html; } </description>
     </item>
     
     <item>
