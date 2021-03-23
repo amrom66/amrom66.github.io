@@ -9,9 +9,9 @@
   <meta name="description" content="打工人日记">
   <meta name="keywords" content="博客 个人 日记">
   
-  <link rel="prev" href="https://linjinbao.github.io/2021/2021-03-18-hortonworks-%E9%B2%B2%E9%B9%8F/" />
-  <link rel="next" href="https://linjinbao.github.io/2021/2021-03-22-tar%E6%89%93%E5%8C%85%E7%8E%B0%E6%9C%89%E7%9A%84%E7%B3%BB%E7%BB%9F/" />
-  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/" />
+  <link rel="prev" href="https://linjinbao.github.io/2021/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/" />
+  
+  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-03-22-tar%E6%89%93%E5%8C%85%E7%8E%B0%E6%9C%89%E7%9A%84%E7%B3%BB%E7%BB%9F/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           git单独忽略一个文件的历史提交 | 打工人日记
+           tar打包现有的系统 | 打工人日记
        
   </title>
-  <meta name="title" content="git单独忽略一个文件的历史提交 | 打工人日记">
+  <meta name="title" content="tar打包现有的系统 | 打工人日记">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/linjinbao.github.io"
     },
     "articleSection" : "posts",
-    "name" : "git单独忽略一个文件的历史提交",
-    "headline" : "git单独忽略一个文件的历史提交",
-    "description" : "使用场景：\n将一个重要文件，勿加入git的版本管理中了，后续又更新了好多版本，此时想要去除该文件的所有历史提交。\n 方案一：删除所有git记录 方案二：单独删除该文件的历史记录  方案二操作如下：\ngit filter-branch --force --index-filter \x27git rm --cached --ignore-unmatch visitor-consumer\/src\/main\/java\/com\/fline\/util\/SMSUtil.java\x27 --prune-empty --tag-name-filter cat -- --all git push origin --force --all git push origin --force --tags git for-each-ref --format=\x27delete %(refname)\x27 refs\/original | git update-ref --stdin git reflog expire --expire=now --all git gc --prune=now ",
+    "name" : "tar打包现有的系统",
+    "headline" : "tar打包现有的系统",
+    "description" : "选择一个系统，在根目录下将已有系统打包成tar文件：\ntar -cvpf \/tmp\/system.tar --directory=\/ --exclude=proc --exclude=sys --exclude=dev --exclude=run --exclude=boot --exclude=\/opt\/software . 导入方式一：\ncat system.tar | docker import - redhat:6.5 导入方式二：\n使用docker build\nDockerfile\nFROM scratch ADD system.tar \/ CMD [\x26quot;sh\x26quot;] docker build -t linjinbao66\/euler:0.0.1 .",
     "inLanguage" : "en-us",
     "author" : "linjinbao",
     "creator" : "linjinbao",
@@ -54,11 +54,11 @@
     "accountablePerson" : "linjinbao",
     "copyrightHolder" : "linjinbao",
     "copyrightYear" : "2021",
-    "datePublished": "2021-03-19 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2021-03-19 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4\/",
-    "wordCount" : "46",
-    "keywords" : [ "git", "打工人日记"]
+    "datePublished": "2021-03-22 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-03-22 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-03-22-tar%E6%89%93%E5%8C%85%E7%8E%B0%E6%9C%89%E7%9A%84%E7%B3%BB%E7%BB%9F\/",
+    "wordCount" : "36",
+    "keywords" : [  "打工人日记"]
 }
 </script>
 
@@ -116,11 +116,11 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">git单独忽略一个文件的历史提交</h1>
+        <h1 class="post-title" itemprop="name headline">tar打包现有的系统</h1>
         <div class="post-meta">
                 作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao</a> 时间： 
                 <span class="post-time">
-                 <time datetime=19039-03-19 itemprop="datePublished">March 19, 2021</time>
+                 <time datetime=22039-03-22 itemprop="datePublished">March 22, 2021</time>
                 </span>
                 分类： 
                 
@@ -142,25 +142,18 @@
           
           
 
-          <p>使用场景：</p>
-<p>将一个重要文件，勿加入git的版本管理中了，后续又更新了好多版本，此时想要去除该文件的所有历史提交。</p>
-<ul>
-<li>方案一：删除所有git记录</li>
-<li>方案二：单独删除该文件的历史记录</li>
-</ul>
-<p>方案二操作如下：</p>
-<pre><code class="language-code" data-lang="code">git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch visitor-consumer/src/main/java/com/fline/util/SMSUtil.java' --prune-empty --tag-name-filter cat -- --all
+          <p>选择一个系统，在根目录下将已有系统打包成tar文件：</p>
+<pre><code class="language-code" data-lang="code">tar -cvpf /tmp/system.tar --directory=/ --exclude=proc --exclude=sys --exclude=dev --exclude=run --exclude=boot --exclude=/opt/software .
+</code></pre><p>导入方式一：</p>
+<pre><code class="language-code" data-lang="code">cat system.tar | docker import - redhat:6.5
+</code></pre><p>导入方式二：</p>
+<p>使用docker build</p>
+<p>Dockerfile</p>
+<pre><code class="language-code" data-lang="code">FROM scratch
+ADD system.tar /
+CMD [&quot;sh&quot;]
+</code></pre><p>docker build -t linjinbao66/euler:0.0.1 .</p>
 
-git push origin --force --all
-
-git push origin --force --tags
-
-git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin
-
-git reflog expire --expire=now --all
-
-git gc --prune=now
-</code></pre>
     </div>
 
     <div class="post-copyright">
@@ -174,7 +167,7 @@ git gc --prune=now
              
             <p class="copyright-item">
                     <span>Link:</span>
-                    <a href=https://linjinbao.github.io/2021/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/>https://linjinbao.github.io/2021/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/</span>
+                    <a href=https://linjinbao.github.io/2021/2021-03-22-tar%E6%89%93%E5%8C%85%E7%8E%B0%E6%9C%89%E7%9A%84%E7%B3%BB%E7%BB%9F/>https://linjinbao.github.io/2021/2021-03-22-tar%E6%89%93%E5%8C%85%E7%8E%B0%E6%9C%89%E7%9A%84%E7%B3%BB%E7%BB%9F/</span>
             </p>
             
              
@@ -187,14 +180,6 @@ git gc --prune=now
   
     <div class="post-tags">
         
-            <section>
-            <i class="iconfont icon-tag"></i>标签: 
-            
-            <span class="tag"><a href="https://linjinbao.github.io/tags/git/">
-                    #git</a></span>
-            
-            </section>
-        
         <section>
                 <a href="javascript:window.history.back();">返回</a></span> · 
                 <span><a href="https://linjinbao.github.io">主页</a></span>
@@ -203,10 +188,8 @@ git gc --prune=now
 
     <div class="post-nav">
         
-        <a href="https://linjinbao.github.io/2021/2021-03-18-hortonworks-%E9%B2%B2%E9%B9%8F/" class="prev" rel="prev" title="hortonworks-鲲鹏"><i class="iconfont icon-left"></i>&nbsp;hortonworks-鲲鹏</a>
+        <a href="https://linjinbao.github.io/2021/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/" class="prev" rel="prev" title="git单独忽略一个文件的历史提交"><i class="iconfont icon-left"></i>&nbsp;git单独忽略一个文件的历史提交</a>
          
-        
-        <a href="https://linjinbao.github.io/2021/2021-03-22-tar%E6%89%93%E5%8C%85%E7%8E%B0%E6%9C%89%E7%9A%84%E7%B3%BB%E7%BB%9F/" class="next" rel="next" title="tar打包现有的系统">tar打包现有的系统&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

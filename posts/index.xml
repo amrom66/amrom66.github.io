@@ -6,10 +6,24 @@
     <description>Recent content in Posts on 打工人日记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Mar 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://linjinbao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>tar打包现有的系统</title>
+      <link>https://linjinbao.github.io/2021/2021-03-22-tar%E6%89%93%E5%8C%85%E7%8E%B0%E6%9C%89%E7%9A%84%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-03-22-tar%E6%89%93%E5%8C%85%E7%8E%B0%E6%9C%89%E7%9A%84%E7%B3%BB%E7%BB%9F/</guid>
+      <description>选择一个系统，在根目录下将已有系统打包成tar文件：
+tar -cvpf /tmp/system.tar --directory=/ --exclude=proc --exclude=sys --exclude=dev --exclude=run --exclude=boot --exclude=/opt/software . 导入方式一：
+cat system.tar | docker import - redhat:6.5 导入方式二：
+使用docker build
+Dockerfile
+FROM scratch ADD system.tar / CMD [&amp;quot;sh&amp;quot;] docker build -t linjinbao66/euler:0.0.1 .</description>
+    </item>
     
     <item>
       <title>git单独忽略一个文件的历史提交</title>
