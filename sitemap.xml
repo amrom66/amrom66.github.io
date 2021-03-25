@@ -2,9 +2,9 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
-      <loc>https://linjinbao.github.io/posts/</loc>
+      <loc>https://linjinbao.github.io/2021/2021-03-25-k8s%E6%95%B4%E5%90%88glusterfs%E5%81%9A%E5%90%8E%E7%AB%AF%E5%AD%98%E5%82%A8/</loc>
       
-      <lastmod>2021-03-22T00:00:00+00:00</lastmod>
+      <lastmod>2021-03-25T00:00:00+00:00</lastmod>
       
       
       
@@ -12,9 +12,29 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/2021/2021-03-22-tar%E6%89%93%E5%8C%85%E7%8E%B0%E6%9C%89%E7%9A%84%E7%B3%BB%E7%BB%9F/</loc>
+      <loc>https://linjinbao.github.io/tags/kubernetes/</loc>
       
-      <lastmod>2021-03-22T00:00:00+00:00</lastmod>
+      <lastmod>2021-03-25T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://linjinbao.github.io/posts/</loc>
+      
+      <lastmod>2021-03-25T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://linjinbao.github.io/tags/</loc>
+      
+      <lastmod>2021-03-25T00:00:00+00:00</lastmod>
       
       
       
@@ -23,6 +43,16 @@
   
     <url>
       <loc>https://linjinbao.github.io/</loc>
+      
+      <lastmod>2021-03-25T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://linjinbao.github.io/2021/2021-03-22-tar%E6%89%93%E5%8C%85%E7%8E%B0%E6%9C%89%E7%9A%84%E7%B3%BB%E7%BB%9F/</loc>
       
       <lastmod>2021-03-22T00:00:00+00:00</lastmod>
       
@@ -43,16 +73,6 @@
   
     <url>
       <loc>https://linjinbao.github.io/2021/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/</loc>
-      
-      <lastmod>2021-03-19T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://linjinbao.github.io/tags/</loc>
       
       <lastmod>2021-03-19T00:00:00+00:00</lastmod>
       
@@ -233,16 +253,6 @@
   
     <url>
       <loc>https://linjinbao.github.io/tags/k8s/</loc>
-      
-      <lastmod>2021-02-07T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://linjinbao.github.io/tags/kubernetes/</loc>
       
       <lastmod>2021-02-07T00:00:00+00:00</lastmod>
       
@@ -2372,7 +2382,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/tags/%E7%AC%94%E8%AE%B0/</loc>
+      <loc>https://linjinbao.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
       
       <lastmod>2019-10-14T00:00:00+00:00</lastmod>
       
@@ -2382,7 +2392,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
+      <loc>https://linjinbao.github.io/tags/%E7%AC%94%E8%AE%B0/</loc>
       
       <lastmod>2019-10-14T00:00:00+00:00</lastmod>
       
@@ -2902,7 +2912,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
+      <loc>https://linjinbao.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
       
       <lastmod>2019-09-21T00:00:00+00:00</lastmod>
       
@@ -2912,7 +2922,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
+      <loc>https://linjinbao.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
       
       <lastmod>2019-09-21T00:00:00+00:00</lastmod>
       
@@ -3122,7 +3132,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/tags/javascript/</loc>
+      <loc>https://linjinbao.github.io/categories/javascript/</loc>
       
       <lastmod>2019-06-24T00:00:00+00:00</lastmod>
       
@@ -3132,7 +3142,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/categories/javascript/</loc>
+      <loc>https://linjinbao.github.io/tags/javascript/</loc>
       
       <lastmod>2019-06-24T00:00:00+00:00</lastmod>
       
@@ -3255,14 +3265,6 @@
       <loc>https://linjinbao.github.io/2019/2019-04-05-%E4%BF%AE%E5%A4%8Doffice%E6%96%87%E4%BB%B6%E9%BB%98%E8%AE%A4%E5%9B%BE%E6%A0%87/</loc>
       
       <lastmod>2019-04-05T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://linjinbao.github.io/1/2021-03-35-k8s%E6%95%B4%E5%90%88glusterfs%E5%81%9A%E5%90%8E%E7%AB%AF%E5%AD%98%E5%82%A8/</loc>
       
       
       
