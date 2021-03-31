@@ -6,10 +6,20 @@
     <description>Recent content in Posts on 打工人日记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 30 Mar 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://linjinbao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CKA考试准备</title>
+      <link>https://linjinbao.github.io/2021/2021-03-30-cka%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/</link>
+      <pubDate>Tue, 30 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-03-30-cka%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/</guid>
+      <description>准备CKA证书考试：
+ k8s官网文档翻译 k8s官网实践 reddit社区交流  </description>
+    </item>
     
     <item>
       <title>k8s整合glusterfs做后端存储</title>
