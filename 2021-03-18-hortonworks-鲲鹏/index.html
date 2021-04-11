@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2021-03-17-es-%E9%B2%B2%E9%B9%8F/" />
+  <link rel="next" href="https://linjinbao.github.io/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2021-03-18-hortonworks-%E9%B2%B2%E9%B9%8F/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           hortonworks-鲲鹏 | 打工人日记
+       
+  </title>
+  <meta name="title" content="hortonworks-鲲鹏 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "",
+    "name" : "hortonworks-鲲鹏",
+    "headline" : "hortonworks-鲲鹏",
+    "description" : "安装方式：磁盘安装\n安装版本：0.5.4\n参考文档：https:\/\/registry-project.readthedocs.io\/en\/latest\/install.html#centos-redhat\n  下载压缩包并解压\nwget https:\/\/github.com\/hortonworks\/registry\/releases\/download\/0.5.4\/hortonworks-registry-0.5.4.tar.gz [root@dbmaster local]# ls -al hortonworks\/ total 36 drwx------ 8 root root 140 Mar 18 16:12 .",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-03-18 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-03-18 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2021-03-18-hortonworks-%E9%B2%B2%E9%B9%8F\/",
+    "wordCount" : "188",
+    "keywords" : [  "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<div class="post-warp archive">
+    <h2 class="post-title" style="text-align:right;padding-bottom:2em">hortonworks-鲲鹏</h2>
+    <div class="post-content">
+        <p><strong>安装方式</strong>：磁盘安装</p>
+<p><strong>安装版本</strong>：0.5.4</p>
+<p><strong>参考文档</strong>：https://registry-project.readthedocs.io/en/latest/install.html#centos-redhat</p>
+<ol>
+<li>
+<p>下载压缩包并解压</p>
+<pre><code class="language-code" data-lang="code">wget https://github.com/hortonworks/registry/releases/download/0.5.4/hortonworks-registry-0.5.4.tar.gz
+   
+[root@dbmaster local]# ls -al hortonworks/
+total 36
+drwx------   8 root root    140 Mar 18 16:12 .
+drwxr-xr-x. 22 root root    285 Mar 18 15:55 ..
+drwx------   2 root root     54 Mar 18 15:55 bin
+drwxrwxrwx   4  502 games    92 Aug 30  2018 bootstrap
+drwx------   2 root root    251 Mar 18 16:11 conf
+drwx------   3 root root     29 Mar 18 15:55 examples
+drwx------   2 root root  12288 Mar 18 16:04 libs
+-rw-r--r--   1  502 games 11325 Jan 17  2017 LICENSE.txt
+drwx------   2 root root     66 Mar 18 16:12 logs
+-rw-r--r--   1  502 games   728 Apr 25  2017 NOTICE.txt
+-rw-r--r--   1  502 games  2063 Aug 30  2018 README.md
+[root@dbmaster local]#
+</code></pre></li>
+<li>
+<p>准备mysql驱动</p>
+<pre><code class="language-code" data-lang="code">cp mysql-connector-java-*.jar libs
+cp mysql-connector-java-*.jar bootstrap/lib
+</code></pre></li>
+<li>
+<p>配置conf/registry.yaml</p>
+<pre><code class="language-code" data-lang="code">...
+storageProviderConfiguration:
+ providerClass:&quot;com.hortonworks.registries.storage.impl.jdbc.JdbcStorageManager&quot;
+   properties:
+     db.type: &quot;mysql&quot;
+     queryTimeoutInSecs: 30
+     db.properties:
+       dataSourceClassName: &quot;com.mysql.jdbc.jdbc2.optional.MysqlDataSource&quot;
+       dataSource.url: &quot;jdbc:mysql://localhost/schema_registry&quot;
+       dataSource.user:&quot;registry_user&quot;
+       dataSource.password: &quot;registry_password&quot;
+</code></pre></li>
+<li>
+<p>初始化</p>
+<pre><code class="language-code" data-lang="code">$REGISTRY_HOME/bootstrap/boostrap-storage.sh create
+$REGISTRY_HOME/bootstrap/boostrap-storage.sh migrate
+$REGISTRY_HOME/bootstrap/boostrap-storage.sh validate
+</code></pre></li>
+<li>
+<p>启动</p>
+<pre><code class="language-code" data-lang="code">sudo ./bin/registry start
+</code></pre></li>
+<li>
+<p>验证</p>
+<p>由于9090端口被prometheus占用，此处我改成了19090和19091端口</p>
+<pre><code class="language-code" data-lang="code">[root@dbmaster hortonworks]# curl 127.0.0.1:19091
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;
+        &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Metrics&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Operational Menu&lt;/h1&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;/metrics?pretty=true&quot;&gt;Metrics&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/ping&quot;&gt;Ping&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/threads&quot;&gt;Threads&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/healthcheck?pretty=true&quot;&gt;Healthcheck&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/pprof&quot;&gt;CPU Profile&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;/pprof?state=blocked&quot;&gt;CPU Contention&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></li>
+</ol>
+
+    </div>
+</div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

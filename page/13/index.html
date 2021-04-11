@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+	<meta name="generator" content="Hugo 0.64.1" />
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  
+  
+  <link rel="canonical" href="https://linjinbao.github.io/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           打工人日记
+       
+  </title>
+  <meta name="title" content="打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+    <link href="https://linjinbao.github.io/index.xml" rel="alternate" type="application/rss+xml" title="打工人日记" />
+    <link href="https://linjinbao.github.io/index.xml" rel="feed" type="application/rss+xml" title="打工人日记" />
+  
+  
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "https:\/\/linjinbao.github.io\/",
+    "name": "打工人日记",
+    "author": {
+        "@type": "Person",
+        "name": "linjinbao"
+    },
+    "description": "打工人日记",
+}
+</script>
+ 
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+  	
+  	
+<div class="post-warp">
+	<div class="intro">
+    
+    
+    
+    <div class="avatar">
+        <a href="/"> <img src="/images/me/avatar.jpg"> </a>
+    </div>
+    
+    
+    <h2 class="description">
+       Across the great wall, we can reach the world
+    </h2>
+    
+ 
+</div>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-20-linux/">Linux用户，用户组，密码，文件权限</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				Linux用户，用户组，密码，文件权限 用户 相关命令 useradd userdel usermod /etc/passwd文件内容 用户名:密码:UID:GID:用户信息:HOME目录路径:用户shell
+root❌0:0:root:/root:/bin/bash
+/etc/shadow文件内容 用户名：加密密码：最后一次修改时间：最小修改时间间隔：密码有效期：密码需要变更前的警告天数：密码过期后的宽限时间：账号失效时间：保留字段
+postfix:!!:18220:::::: ljbao:$6$1QXKHgXD$66Aj/Qyo3QGGxmKAMH9cQfJs61KXieXLurSvdxHWZtIY2hT4HeXrjX6LtfVGEmhYqAV/9KLalvDTSxFQt03i11:18220:0:99999:7::: ljbao2:!!:18220:0:99999:7::: ljbao3:$6$lnlH0Lv5$zyh1jXS5Me4oT8/tX7Ae3fAyVOmsFuQReXLcFaFHcTVGBs7ZExo1idZzhh2pkTxpznPOZcLMv6RqdGByWIv.00:18220:0:99999:7::: 改变用户所属组 usermod -a -G groupA user 用户可以属于多个组，切换用户组命令newgrp
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-11-20 itemprop="datePublished">November 20, 2019</time>
+                </span>
+                in
+                
+        </div>
+				
+				<div class="post-tags">
+        		
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/linux/">
+               	 #Linux</a></span>
+        		
+				</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-20-mysql%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%9701/">Mysql学习系列01</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				mysql4种事务隔离级别  Read Uncommitted(读取未提交内容)  解释： (1)所有事务都可以看到其他未提交事务的执行结果 (2)本隔离级别很少用于实际应用，因为它的性能也不比其他级别好多少 (3)该级别引发的问题是——脏读(Dirty Read)：读取到了未提交的数据
+Read Committed(读取提交内容)  解释： (1)这是大多数数据库系统的默认隔离级别（但不是MySQL默认的） (2)它满足了隔离的简单定义：一个事务只能看见已经提交事务所做的改变 (3)这种隔离级别出现的问题是——不可重复读(Nonrepeatable Read)：不可重复读意味着我们在同一个事务中执行完全相同的select语句时可能看到不一样的结果。
+Repeatable Read(可重读) 解释： (1)这是MySQL的默认事务隔离级别 (2)它确保同一事务的多个实例在并发读取数据时，会看到同样的数据行 (3)此级别可能出现的问题——幻读(Phantom Read)：当用户读取某一范围的数据行时，另一个事务又在该范围内插入了新行，当用户再读取该范围的数据行时，会发现有新的“幻影” 行 (4)InnoDB和Falcon存储引擎通过多版本并发控制(MVCC，Multiversion Concurrency Control)机制解决了该问题 Serializable(可串行化)序列化 解释： (1)这是最高的隔离级别 (2)它通过强制事务排序，使之不可能相互冲突，从而解决幻读问题。简言之,它是在每个读的数据行上加上共享锁。 (3)在这个级别，可能导致大量的超时现象和锁竞争  设置命令：
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-11-20 itemprop="datePublished">November 20, 2019</time>
+                </span>
+                in
+                
+        </div>
+				
+				<div class="post-tags">
+        		
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/mysql/">
+               	 #Mysql</a></span>
+        		
+				</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-17-shardingsphere/">MySQL 分库分表-ShardingSphere使用</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				MySQL 分库分表-ShardingSphere使用 分库和分表的实现-java工程版  依赖项  &lt;dependencies&gt; &lt;!&ndash; 主要 &ndash;&gt; &lt;dependency&gt; &lt;groupId&gt;org.apache.shardingsphere&lt;/groupId&gt; &lt;artifactId&gt;sharding-jdbc-core&lt;/artifactId&gt; &lt;version&gt;4.0.0-RC2&lt;/version&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;junit&lt;/groupId&gt; &lt;artifactId&gt;junit&lt;/artifactId&gt; &lt;version&gt;4.12&lt;/version&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;commons-dbcp&lt;/groupId&gt; &lt;artifactId&gt;commons-dbcp&lt;/artifactId&gt; &lt;version&gt;1.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-11-17 itemprop="datePublished">November 17, 2019</time>
+                </span>
+                in
+                
+        </div>
+				
+				<div class="post-tags">
+        		
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/spring/">
+               	 #Spring</a></span>
+        		
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/mysql/">
+               	 #Mysql</a></span>
+        		
+				</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-16-linux%E6%B5%81%E9%87%8F%E6%A3%80%E6%B5%8B%E5%B7%A5%E5%85%B7-vnstat%E4%BD%BF%E7%94%A8/">Linux流量检测工具-vnstat使用</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				2019-11-16-Linux流量检测工具-vnstat使用 安装 yum install epel-release -y &amp;&amp; yum install -y vnstat 为指定网卡创建监控数据库 vnstat -u -i eth0 #网卡名，使用 ip a查看 流量查看命令 vnstat -d #每日统计 vnstat -m #每月统计 实时监控 vnstat -l -i eth0 Monitoring eth0.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-11-16 itemprop="datePublished">November 16, 2019</time>
+                </span>
+                in
+                
+        </div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-15-jenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A002/">Jenkins持续集成工具学习02</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				2019-11-15-Jenkins持续集成工具学习02 安装教程见上一节 jenkins持续集成工具学习01
+使用-重点 项目的完整发布过程如下：
+拉取源码-&gt;maven编译-&gt;部署/推送部署
+安装git
+yum install git   安装maven
+yum install maven   安装maven Integration插件
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-11-15 itemprop="datePublished">November 15, 2019</time>
+                </span>
+                in
+                
+        </div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-14-spring%E4%BA%8B%E5%8A%A1/">Spring事务</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				Spring事务 JdbcTemplate Spring 提供的JDBC模板 1. tx.xml
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:tx=&quot;http://www.springframework.org/schema/tx&quot; xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans <a href="http://www.springframework.org/schema/beans/spring-beans.xsd">http://www.springframework.org/schema/beans/spring-beans.xsd</a> <a href="http://www.springframework.org/schema/tx">http://www.springframework.org/schema/tx</a> <a href="http://www.springframework.org/schema/tx/spring-tx-4.3.xsd&amp;quot;">http://www.springframework.org/schema/tx/spring-tx-4.3.xsd&amp;quot;</a>&gt; &lt;bean id=&quot;datasource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;&gt; &lt;property name=&quot;user&quot; value=&quot;root&quot;&gt;&lt;/property&gt; &lt;property name=&quot;password&quot; value=&quot;Gepoint&quot;&gt;&lt;/property&gt; &lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:mysql://localhost:3306/mqtt&quot;&gt;&lt;/property&gt; &lt;property name=&quot;driverClass&quot; value=&quot;com.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-11-14 itemprop="datePublished">November 14, 2019</time>
+                </span>
+                in
+                
+        </div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-13-ftp%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/">ftp服务器搭建</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				ftp服务器搭建  安装软件  yum install -y vsftpd  配置  vi vsftpd.conf
+anonymous_enable=NO #不允许匿名用户登陆 local_enable=YES #vsftpd所在系统的用户可以登录vsftpd write_enable=YES #允许使用任何可以修改文件系统的FTP的指令 local_umask=002 #匿名用户新增文件的umask数值 anon_upload_enable=NO #匿名用户不可以上传文件 anon_mkdir_write_enable=NO #匿名用户不可以修改文件 xferlog_enable=YES #启用一个日志文件，用于详细记录上传和下载。 use_localtime=YES #使用本地时间而不是GMT vsftpd_log_file=/var/log/vsftpd.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-11-13 itemprop="datePublished">November 13, 2019</time>
+                </span>
+                in
+                
+        </div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-12-java%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%86%99%E6%B3%95/">Java定时任务</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				Java定时任务的几种写法 前言：cron表达式书写： cron = &quot;* * * * * *&quot; {秒数} {分钟} {小时} {日期} {月份} {星期} {年份(可为空)} 每个字段允许值： 秒 0-59 , - / 分 0-59 , - / 小时 0-23 , - / 日期 1-31 , - ?
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-11-12 itemprop="datePublished">November 12, 2019</time>
+                </span>
+                in
+                
+        </div>
+				
+				<div class="post-tags">
+        		
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/java/">
+               	 #Java</a></span>
+        		
+				</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-12-%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8Bspring-aop/">面向切面编程SpringAOP</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				<p>面向切面编程SpringAOP  注解方式实现aop，xml配置  名称空间xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot; &lt;context:component-scan base-package=&quot;tk.amrom&quot;&gt;&lt;/context:component-scan&gt; &lt;aop:aspectj-autoproxy&gt; &lt;/aop:aspectj-autoproxy&gt;   LogUtil.java</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  <span style="color:#a6e22e">@Aspect</span> <span style="color:#a6e22e">@Component</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LogUtil</span> <span style="color:#f92672">{</span></code></pre></div>
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-11-12 itemprop="datePublished">November 12, 2019</time>
+                </span>
+                in
+                
+        </div>
+				
+				<div class="post-tags">
+        		
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/spring/">
+               	 #Spring</a></span>
+        		
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/aop/">
+               	 #AOP</a></span>
+        		
+				</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-11-jenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A001/">Jenkins持续集成工具学习01</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				2019-11-11-Jenkins持续集成工具学习01 Jenkins持续集成工具学习01  安装Jenkins并启动  docker安装：
+docker pull jenkins docker run \ -u root \ &ndash;rm \ -d \ -p 8080:8080 \ -p 50000:50000 \ -v jenkins-data:/var/jenkins_home \ -v /var/run/docker.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-11-11 itemprop="datePublished">November 11, 2019</time>
+                </span>
+                in
+                
+        </div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-11-%E4%BD%BF%E7%94%A8apache-poi%E6%93%8D%E4%BD%9Cexcel/">简单操作excel apache POI使用</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				使用apace POI操作excel   pom依赖
+&lt;dependency&gt; &lt;groupId&gt;org.apache.poi&lt;/groupId&gt; &lt;artifactId&gt;poi&lt;/artifactId&gt; &lt;version&gt;3.8&lt;/version&gt; &lt;/dependency&gt;   部分java 代码
+//部分代码 FileSystemView fsv = FileSystemView.getFileSystemView(); String desktop = fsv.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-11-11 itemprop="datePublished">November 11, 2019</time>
+                </span>
+                in
+                
+        </div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-10-spring-xml%E4%BD%BF%E7%94%A8bean%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/">spring xml使用bean加载数据库连接池</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				2019-11-10-spring xml使用bean加载数据库连接池 spring xml使用bean管理数据库连接池 ioc2.xml
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans <a href="http://www.springframework.org/schema/beans/spring-beans.xsd&amp;quot;">http://www.springframework.org/schema/beans/spring-beans.xsd&amp;quot;</a>&gt; &lt;bean id=&quot;datasource&quot; class=&quot;com.mchange.v2.c3p0.ComboPooledDataSource&quot;&gt; &lt;property name=&quot;user&quot; value=&quot;root&quot;&gt;&lt;/property&gt; &lt;property name=&quot;password&quot; value=&quot;***&quot;&gt;&lt;/property&gt; &lt;property name=&quot;jdbcUrl&quot; value=&quot;jdbc:mysql://localhost:3306/mqtt&quot;&gt;&lt;/property&gt; &lt;property name=&quot;driverClass&quot; value=&quot;com.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-11-10 itemprop="datePublished">November 10, 2019</time>
+                </span>
+                in
+                
+        </div>
+				
+				<div class="post-tags">
+        		
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/spring/">
+               	 #Spring</a></span>
+        		
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/java/">
+               	 #Java</a></span>
+        		
+				</div>
+				
+			</div>
+		</article>
+	
+
+	
+
+<ul class="pagination">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item ">
+        <span class="page-link">
+            <a href="/">1</a></li>
+        </span>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item "><span class="page-link" aria-hidden="true">&hellip;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item ">
+        <span class="page-link">
+            <a href="/page/11/">11</a></li>
+        </span>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item ">
+        <span class="page-link">
+            <a href="/page/12/">12</a></li>
+        </span>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item active">
+        <span class="page-link">
+            <a href="/page/13/">13</a></li>
+        </span>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item ">
+        <span class="page-link">
+            <a href="/page/14/">14</a></li>
+        </span>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item ">
+        <span class="page-link">
+            <a href="/page/15/">15</a></li>
+        </span>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item "><span class="page-link" aria-hidden="true">&hellip;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item ">
+        <span class="page-link">
+            <a href="/page/19/">19</a></li>
+        </span>
+    
+    
+    
+    
+</ul>
+
+</div>
+
+  
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+    
+    <script src="/js/vendor_main.min.js" async=""></script>
+
+
+
+     </div>
+  </body>
+</html>

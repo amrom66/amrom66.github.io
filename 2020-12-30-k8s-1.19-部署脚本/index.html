@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2020-12-29-%E5%93%88%E5%B8%8C%E5%87%BD%E6%95%B0/" />
+  <link rel="next" href="https://linjinbao.github.io/2020-12-30-jdk1.15%E7%BC%96%E8%AF%91/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2020-12-30-k8s-1.19-%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           k8s 1.19 部署脚本 | 打工人日记
+       
+  </title>
+  <meta name="title" content="k8s 1.19 部署脚本 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "",
+    "name" : "k8s 1.19 部署脚本",
+    "headline" : "k8s 1.19 部署脚本",
+    "description" : "1. 概述 采用裸机部署的方式，主要组件版本如下：\n   组件 版本 发布时间     kubernetes 1.19.6 2020-12-18   etcd v3.4.3    crictl v1.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-12-30 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-12-30 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2020-12-30-k8s-1.19-%E9%83%A8%E7%BD%B2%E8%84%9A%E6%9C%AC\/",
+    "wordCount" : "272",
+    "keywords" : [  "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<div class="post-warp archive">
+    <h2 class="post-title" style="text-align:right;padding-bottom:2em">k8s 1.19 部署脚本</h2>
+    <div class="post-content">
+        <h2 id="1-概述">1. 概述</h2>
+<p>采用裸机部署的方式，主要组件版本如下：</p>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>版本</th>
+<th>发布时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kubernetes</td>
+<td>1.19.6</td>
+<td>2020-12-18</td>
+</tr>
+<tr>
+<td>etcd</td>
+<td>v3.4.3</td>
+<td></td>
+</tr>
+<tr>
+<td>crictl</td>
+<td>v1.19.0</td>
+<td>2020-08-28</td>
+</tr>
+<tr>
+<td>containerd</td>
+<td>v1.4.3</td>
+<td>2020-12-01</td>
+</tr>
+<tr>
+<td>runc</td>
+<td>v1.0.0-rc92</td>
+<td>2020-08-06</td>
+</tr>
+<tr>
+<td>calico</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>coredns</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>dashboard</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>kube-prometheus</td>
+<td>v0.7.0</td>
+<td>2020-12-10</td>
+</tr>
+<tr>
+<td>cni-plugins</td>
+<td>v0.9.0</td>
+<td>2020-12-10</td>
+</tr>
+<tr>
+<td><a href="bitnami/metrics-server:0.4.1">metrics-server</a></td>
+<td>v0.4.1</td>
+<td>2020-11-18</td>
+</tr>
+</tbody>
+</table>
+<p>主要配置策略：</p>
+<p>kube-apiserver：</p>
+<ul>
+<li>使用节点本地 nginx 4 层透明代理实现高可用；</li>
+<li>关闭非安全端口 8080 和匿名访问；</li>
+<li>在安全端口 6443 接收 https 请求；</li>
+<li>严格的认证和授权策略 (x509、token、RBAC)；</li>
+<li>开启 bootstrap token 认证，支持 kubelet TLS bootstrapping；</li>
+<li>使用 https 访问 kubelet、etcd，加密通信；</li>
+</ul>
+<p>kube-controller-manager：</p>
+<ul>
+<li>3 节点高可用；</li>
+<li>关闭非安全端口，在安全端口 10252 接收 https 请求；</li>
+<li>使用 kubeconfig 访问 apiserver 的安全端口；</li>
+<li>自动 approve kubelet 证书签名请求 (CSR)，证书过期后自动轮转；</li>
+<li>各 controller 使用自己的 ServiceAccount 访问 apiserver；</li>
+</ul>
+<p>kube-scheduler：</p>
+<ul>
+<li>3 节点高可用；</li>
+<li>使用 kubeconfig 访问 apiserver 的安全端口；</li>
+</ul>
+<p>kubelet：</p>
+<ul>
+<li>使用 kubeadm 动态创建 bootstrap token，而不是在 apiserver 中静态配置；</li>
+<li>使用 TLS bootstrap 机制自动生成 client 和 server 证书，过期后自动轮转；</li>
+<li>在 KubeletConfiguration 类型的 JSON 文件配置主要参数；</li>
+<li>关闭只读端口，在安全端口 10250 接收 https 请求，对请求进行认证和授权，拒绝匿名访问和非授权访问；</li>
+<li>使用 kubeconfig 访问 apiserver 的安全端口；</li>
+</ul>
+<p>kube-proxy：</p>
+<ul>
+<li>使用 kubeconfig 访问 apiserver 的安全端口；</li>
+<li>在 KubeProxyConfiguration 类型的 JSON 文件配置主要参数；</li>
+<li>使用 ipvs 代理模式；</li>
+</ul>
+<p>集群插件：</p>
+<ul>
+<li>DNS：使用功能、性能更好的 coredns；</li>
+<li>Dashboard：支持登录认证；</li>
+<li>Metric：metrics-server，使用 https 访问 kubelet 安全端口；</li>
+<li>Log：loki；</li>
+<li>Registry 镜像库：docker-registry、harbor；</li>
+</ul>
+<h2 id="2-初始化系统和全局变量">2. 初始化系统和全局变量</h2>
+<p>命令执行</p>
+<pre><code class="language-code" data-lang="code">hostnamectl set-hostname master				 		##设置主机名
+127.0.0.1 VM-16-16-centos VM-16-16-centos master 	##加入hosts
+
+ssh-keygen 											##生成ssh证书
+ssh-copy-id root@master 							##免密登录
+
+yum install -y epel-release							##安装依赖包
+yum install -y chrony conntrack ipvsadm ipset jq iptables curl sysstat libseccomp wget socat git
+
+systemctl stop firewalld							##关闭防火墙
+systemctl disable firewalld
+iptables -F &amp;&amp; iptables -X &amp;&amp; iptables -F -t nat &amp;&amp; iptables -X -t nat
+iptables -P FORWARD ACCEPT
+
+swapoff -a											##关闭swap分区
+sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab 
+
+setenforce 0										##关闭selinux
+sed -i 's/^SELINUX=.*/SELINUX=disabled/' /etc/selinux/config
+
+cat &gt; kubernetes.conf &lt;&lt;EOF							##优化内核参数
+net.bridge.bridge-nf-call-iptables=1
+net.bridge.bridge-nf-call-ip6tables=1
+net.ipv4.ip_forward=1
+net.ipv4.tcp_tw_recycle=0
+net.ipv4.neigh.default.gc_thresh1=1024
+net.ipv4.neigh.default.gc_thresh1=2048
+net.ipv4.neigh.default.gc_thresh1=4096
+vm.swappiness=0
+vm.overcommit_memory=1
+vm.panic_on_oom=0
+fs.inotify.max_user_instances=8192
+fs.inotify.max_user_watches=1048576
+fs.file-max=52706963
+fs.nr_open=52706963
+net.ipv6.conf.all.disable_ipv6=1
+net.netfilter.nf_conntrack_max=2310720
+EOF
+cp kubernetes.conf  /etc/sysctl.d/kubernetes.conf
+sysctl -p /etc/sysctl.d/kubernetes.conf
+
+systemctl stop postfix &amp;&amp; systemctl disable postfix		##关闭无用服务
+</code></pre><h2 id="3-资源文件准备">3. 资源文件准备</h2>
+<pre><code class="language-code" data-lang="code">mkdir -p /opt/k8s/{bin,work} /etc/{kubernetes,etcd}/cert ##创建文件夹 运行文件都在/opt目录下，证书文件在/etc下
+</code></pre>
+    </div>
+</div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019-11-23-mysql%E5%AD%A6%E4%B9%A004/" />
+  <link rel="next" href="https://linjinbao.github.io/2019-11-23-linux-find%E6%8C%89%E7%85%A7%E6%97%B6%E9%97%B4%E6%9F%A5%E8%AF%A2/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019-11-23-mysql%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BD/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           mysql 定时备份 | 打工人日记
+       
+  </title>
+  <meta name="title" content="mysql 定时备份 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "",
+    "name" : "mysql 定时备份",
+    "headline" : "mysql 定时备份",
+    "description" : "mysql 定时备份 第一步：写备份脚本 backup_full.sh\n#!\/bin\/bash BACKUP_ROOT=\/home\/ljbao\/myback BACKUP_FILEDIR=$BACKUP_ROOT\/files BACKUP_LOGDIR=$BACKUP_ROOT\/logs #当前日期 DATE=$(date \x2b%Y%m%d) DATABASES=$(mysql -uroot -p*** -e \x26#34;show databases\x26#34; | grep -Ev \x26#34;Database|sys|information_schema\x26#34;) echo $DATABASES #循环数据库进行备份 for db in $DATABASES do echo echo ----------$BACKUP_FILEDIR\/${db}_$DATE.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-23 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-11-23 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019-11-23-mysql%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BD\/",
+    "wordCount" : "131",
+    "keywords" : [ "mysql", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<div class="post-warp archive">
+    <h2 class="post-title" style="text-align:right;padding-bottom:2em">mysql 定时备份</h2>
+    <div class="post-content">
+        <h1 id="mysql-定时备份">mysql 定时备份</h1>
+<p>第一步：写备份脚本 backup_full.sh</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#!/bin/bash
+
+BACKUP_ROOT=/home/ljbao/myback
+BACKUP_FILEDIR=$BACKUP_ROOT/files
+BACKUP_LOGDIR=$BACKUP_ROOT/logs
+
+
+#当前日期
+DATE=$(date +%Y%m%d)
+
+DATABASES=$(mysql -uroot -p***  -e &#34;show databases&#34; | grep -Ev &#34;Database|sys|information_schema&#34;)
+
+echo $DATABASES
+
+#循环数据库进行备份
+for db in $DATABASES
+do
+echo
+echo ----------$BACKUP_FILEDIR/${db}_$DATE.sql.gz BEGIN----------
+mysqldump -uroot -p***  --default-character-set=utf8 -q --lock-all-tables --flush-logs -E -R --triggers -B ${db} | gzip &gt; $BACKUP_FILEDIR/${db}_$DATE.sql.gz
+echo ----------$BACKUP_FILEDIR/${db}_$DATE.sql.gz COMPLETE----------
+echo
+done
+
+echo &#34;back complete&#34;
+</code></pre></div><p>第二步：注册定时任务</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[root@localhost myback]# crontab -l -uroot
+
+## 每天3点
+00 3 * * * sh /home/ljbao/myback/backup_full.sh
+</code></pre></div><p>第三步：编写清理脚本 clean_backup_full.sh</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># !/bin/bash
+
+## 清理7天前的备份
+find /home/ljbao/myback/files -mtime +7 -name &#34;*.gz&#34; -exec rm {} \;
+</code></pre></div><p>第四步：注册定时清理</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[root@localhost myback]# crontab -l -u root
+
+00 3 * * * sh /home/ljbao/myback/backup_full.sh
+
+00 1 * * * sh /home/ljbao/myback/clean_backup_full.sh
+</code></pre></div><h2 id="备注mysql全量备份">备注：MySQL全量备份</h2>
+<p>mysqldump -E -R &ndash;triggers &ndash;single-transaction &ndash;master-data=2 &ndash;default-character-set=utf8 -u root -p 库名 &gt; /tmp/库名.sql<br>
+-R表示导出function和procedure -E表示导出事件 -x 给所有表加读锁（可选择是否读锁）会自动解锁 -master-data=2 是锁表操作 &ndash;single-transaction 不锁表备份，将备份的操作放到一个事务里进行</p>
+
+    </div>
+</div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

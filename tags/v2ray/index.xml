@@ -13,29 +13,17 @@
     
     <item>
       <title>v2ray全步骤记录</title>
-      <link>https://linjinbao.github.io/2020/2020-12-10-v2ray%E5%85%A8%E6%AD%A5%E9%AA%A4%E8%AE%B0%E5%BD%95/</link>
+      <link>https://linjinbao.github.io/2020-12-10-v2ray%E5%85%A8%E6%AD%A5%E9%AA%A4%E8%AE%B0%E5%BD%95/</link>
       <pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-12-10-v2ray%E5%85%A8%E6%AD%A5%E9%AA%A4%E8%AE%B0%E5%BD%95/</guid>
+      <guid>https://linjinbao.github.io/2020-12-10-v2ray%E5%85%A8%E6%AD%A5%E9%AA%A4%E8%AE%B0%E5%BD%95/</guid>
       <description>背景介绍 由于不可描述的原因，国内的网络长期针对谷歌等网站进行屏蔽，导致国内网络与世界脱轨，形成局域网，并且，时有民众因为“私自搭建非法网络信道”罪名被处罚。但是，作为程序员，本身非常依赖信息的获取，由此产生了搭建VPN的需求。注意，由于国情限制，此操作只可以私下小规模使用，并伴随牢狱风险。
 条件准备  国外VPS，建议vultr，国内的VPS由于处在大环境下，不会提供访问境外网络的服务，并有记录流量日志的行为。 VPN选择，在v2ray和trojan中进行选择，建议v2ray。 域名准备（可选），使用域名方便配合CDN代理进行源站伪装，避免IP被直接墙掉。  操作步骤 第一步：注册vultr账号： https://www.vultr.com；
 第二步：充值金额，新账号，一般会有$100的额度，所以一般无需充值，用完再充值；
 第三步：部署一台机器
 ![截屏2020-12-10 下午1.02.19](/Users/linjinbao/Desktop/截屏2020-12-10 下午1.02.19.png)
 选择Deploy New Server
-机器位置选择美国，（亚洲的很多机器IP无法使用，如果能找到可用的亚洲最好）
-![image-20201210130601325](/Users/linjinbao/Library/Application Support/typora-user-images/image-20201210130601325.png)
-机器类型选择centos或者debian系的，根据自己的情况而定；大小一般选择最低配的，注意不要选择IPV6 Only的，我们需要IPV4地址，如果你能确定自己的宽带运营商已经全面支持IPV6也可以使用纯IPv6机器，一般情况下我们选择IPV4，可以双线（v4+v6）访问。
-![image-20201210130950665](/Users/linjinbao/Library/Application Support/typora-user-images/image-20201210130950665.png)
-其他的配置一般不用管，点击Deploy Now即可。
-第四步：在机器上安装v2ray服务端，由于原生的github v2ray配置非常复杂，我们这里采用别人封装好的交互式配置安装，
-原版V2ray github地址：https://github.com/v2fly/v2ray-core
-简易安装脚本：https://github.com/233boy/v2ray/tree/master
-后续信息见Wiki，PS：不要使用该Wiki中的VPS购买，原因是搬瓦工不可以包月购买，且不可以随意更换IP，一旦IP被GFW加入黑明单，则损失惨重。Vultr允许随时新建机器和更换IP，灵活性高。
-第五步：下载V2ray客户端，一般使用V2rayN
-第六步：配置CDN代理（可选）
-CDN代理不能使用阿里云，腾讯云等国内厂商，可以使用Cloudflare的免费服务。
- 申请域名 可以去https://www.freenom.com/申请免费的tk域名使用 将域名的DNS解析服务交由Cloudflare托管 在Cloudflare控制台中配置A记录解析，ipv6需要配置AAAA记录解析。 将第五步生成的配置中ip地址替换成域名。  </description>
+机器位置选择美国，（亚洲的很多机器IP无法使用，如果能找到可用的亚洲最好）</description>
     </item>
     
   </channel>

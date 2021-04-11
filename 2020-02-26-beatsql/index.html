@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2020-02-26-jpa/" />
+  <link rel="next" href="https://linjinbao.github.io/2020-02-27-tx/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2020-02-26-beatsql/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Spring Boot教程第5篇：beatsql | 打工人日记
+       
+  </title>
+  <meta name="title" content="Spring Boot教程第5篇：beatsql | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "",
+    "name" : "Spring Boot教程第5篇：beatsql",
+    "headline" : "Spring Boot教程第5篇：beatsql",
+    "description" : "Spring Boot教程第5篇：beatsql BeetSql是一个全功能DAO工具， 同时具有Hibernate 优点 \x26amp; Mybatis优点功能，适用于承认以SQL为中心，同时又需求工具能自动能生成大量常用的SQL的应用。\nbeatlsql 优点  开发效率  无需注解，自动使用大量内置SQL，轻易完成增删改查功能，节省50%的开发工作量 数据模型支持Pojo，也支持Map\/List这种快速模型，也支持混合模型 SQL 模板基于Beetl实现，更容易写和调试，以及扩展   维护性  SQL 以更简洁的方式，Markdown方式集中管理，同时方便程序开发和数据库SQL调试。 可以自动将sql文件映射为dao接口类 灵活直观的支持支持一对一，一对多，多对多关系映射而不引入复杂的OR Mapping概念和技术。 具备Interceptor功能，可以调试，性能诊断SQL，以及扩展其他功能   其他  内置支持主从数据库支持的开源工具 支持跨数据库平台，开发者所需工作减少到最小，目前跨数据库支持mysql,postgres,oracle,sqlserver,h2,sqllite,DB2.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-02-26 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-02-26 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2020-02-26-beatsql\/",
+    "wordCount" : "27",
+    "keywords" : [ "spring", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<div class="post-warp archive">
+    <h2 class="post-title" style="text-align:right;padding-bottom:2em">Spring Boot教程第5篇：beatsql</h2>
+    <div class="post-content">
+        <h1 id="spring-boot教程第5篇beatsql">Spring Boot教程第5篇：beatsql</h1>
+<p>BeetSql是一个全功能DAO工具， 同时具有Hibernate 优点 &amp; Mybatis优点功能，适用于承认以SQL为中心，同时又需求工具能自动能生成大量常用的SQL的应用。</p>
+<h2 id="beatlsql-优点">beatlsql 优点</h2>
+<ul>
+<li>开发效率
+<ul>
+<li>无需注解，自动使用大量内置SQL，轻易完成增删改查功能，节省50%的开发工作量</li>
+<li>数据模型支持Pojo，也支持Map/List这种快速模型，也支持混合模型</li>
+<li>SQL 模板基于Beetl实现，更容易写和调试，以及扩展</li>
+</ul>
+</li>
+<li>维护性
+<ul>
+<li>SQL 以更简洁的方式，Markdown方式集中管理，同时方便程序开发和数据库SQL调试。</li>
+<li>可以自动将sql文件映射为dao接口类</li>
+<li>灵活直观的支持支持一对一，一对多，多对多关系映射而不引入复杂的OR Mapping概念和技术。</li>
+<li>具备Interceptor功能，可以调试，性能诊断SQL，以及扩展其他功能</li>
+</ul>
+</li>
+<li>其他
+<ul>
+<li>内置支持主从数据库支持的开源工具</li>
+<li>支持跨数据库平台，开发者所需工作减少到最小，目前跨数据库支持mysql,postgres,oracle,sqlserver,h2,sqllite,DB2.</li>
+</ul>
+</li>
+</ul>
+<h3 id="总结">总结</h3>
+<p>不好用！！！！</p>
+<p>文档地址：<a href="http://ibeetl.com/guide/#/beetlsql">http://ibeetl.com/guide/#/beetlsql</a></p>
+
+    </div>
+</div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

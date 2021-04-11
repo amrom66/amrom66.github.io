@@ -13,21 +13,17 @@
     
     <item>
       <title>GitHub博客教程</title>
-      <link>https://linjinbao.github.io/2019/2019-09-23-%E5%8D%9A%E5%AE%A2/</link>
+      <link>https://linjinbao.github.io/2019-09-23-%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-09-23-%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>https://linjinbao.github.io/2019-09-23-%E5%8D%9A%E5%AE%A2/</guid>
       <description>GitHub博客 作为一名程序员，每天的学习必不可少，但是，如果只是乱糟糟的学习，而不懂得如何去记笔记，那效率可想而知。一个技术博客，是大多数程序员的必须品。漂亮的博客，让工作顺心，让学习更有效率，更有动力。今天，我来教大家如何利用GitHub提供的免费服务，打造自己的专属博客，白嫖美滋滋。
 前期准备；   GitHub账号
   Hugo 软件
   Git客户端
   掌握Markdown语法
 需要准备的东西就是这么多，账号去官网注册就行，几个软件下载安装就可以，具体怎么安装，以及如何跨平台啥的，这里不作阐述。需要注意的是Markdown语法一定要会，起码简单的语法懂得，因为写文章都要用Markdown来写，.md是他的标志。
-  第一篇文章 准备好以上条件后，我们来写一篇博客
- 建立博客目录  在硬盘目录建立一个空文件夹，可以任意命名，我这里是F:\，我放在了F盘根目录
- 使用hugo生成站点  打开cmd，cd到F:\目录
-$ hugo new site amrom 此时在F:\下的目录结构如下：
-F:\&amp;gt;tree 卷 新加卷 的文件夹 PATH 列表 卷序列号为 F4A2-CDCD F:. └─amrom ├─archetypes ├─content │ ├─posts │ └─resources │ └─_gen │ ├─assets │ └─images ├─data ├─layouts ├─public ├─static │ └─images │ └─me └─themes ├─hyde │ ├─archetypes │ ├─images │ ├─layouts │ │ ├─partials │ │ └─_default │ └─static │ └─css ├─material-design │ ├─archetypes │ ├─images │ ├─layouts │ │ ├─partials │ │ └─_default │ └─static │ ├─css │ ├─font │ │ ├─material-design-icons │ │ └─roboto │ ├─images │ └─js ├─public │ ├─categories │ └─tags └─resources └─_gen ├─assets └─images F:\&amp;gt; 此处重点看文件夹目录和一级二级目录，因为我个目录结构和最初的变化过了，多了很多东西，例如下面的hyde和material-design是我下载自定义的主题</description>
+  第一篇文章 准备好以上条件后，我们来写一篇博客</description>
     </item>
     
   </channel>

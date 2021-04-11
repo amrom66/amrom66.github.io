@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019-11-01-mysql%E4%B8%BB%E4%BB%8E%E9%85%8D%E7%BD%AE/" />
+  <link rel="next" href="https://linjinbao.github.io/2019-11-05-nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019-11-04-rpm%E5%B7%A5%E5%85%B7%E7%94%A8%E6%B3%95/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           rpm工具用法 | 打工人日记
+       
+  </title>
+  <meta name="title" content="rpm工具用法 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "",
+    "name" : "rpm工具用法",
+    "headline" : "rpm工具用法",
+    "description" : "rpm工具用法  rpm -ivh * 安装软件包 rpm -Uvh 升级软件包 rpm -e 卸载软件包 rpm -qa 查看系统已经安装的rpm包 rpm -q 后面接包名，查询指定的包是否安装 rpm -qi 查询已安装的包的信息 rpm -ql 查询软件包安装了哪些文件 rpm -qf 查询一个文件是否那个包安装的  rpm安装traceroute  下载rpm包并上传到服务器 traceroute-2.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-04 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-11-04 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019-11-04-rpm%E5%B7%A5%E5%85%B7%E7%94%A8%E6%B3%95\/",
+    "wordCount" : "35",
+    "keywords" : [ "Linux", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<div class="post-warp archive">
+    <h2 class="post-title" style="text-align:right;padding-bottom:2em">rpm工具用法</h2>
+    <div class="post-content">
+        <h1 id="rpm工具用法">rpm工具用法</h1>
+<ol>
+<li>rpm -ivh <em>*</em> 安装软件包</li>
+<li>rpm -Uvh 升级软件包</li>
+<li>rpm -e 卸载软件包</li>
+<li>rpm -qa 查看系统已经安装的rpm包</li>
+<li>rpm -q 后面接包名，查询指定的包是否安装</li>
+<li>rpm -qi 查询已安装的包的信息</li>
+<li>rpm -ql 查询软件包安装了哪些文件</li>
+<li>rpm -qf 查询一个文件是否那个包安装的</li>
+</ol>
+<h2 id="rpm安装traceroute">rpm安装traceroute</h2>
+<ol>
+<li>下载rpm包并上传到服务器 <a href="https://raw.githubusercontent.com/linjinbao666/resources/master/%E8%BD%AF%E4%BB%B6%E9%93%BE%E6%8E%A5/traceroute-2.0.22-2.el7.x86_64.rpm">traceroute-2.0.22-2.el7.x86_64.rpm</a></li>
+<li>执行命令 rpm -ivh tracrroute_**_.rpm</li>
+<li>traceroute ip</li>
+</ol>
+
+    </div>
+</div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

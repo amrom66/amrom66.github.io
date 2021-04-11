@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019-12-07-docker%E9%83%A8%E7%BD%B2wordpress/" />
+  <link rel="next" href="https://linjinbao.github.io/2019-12-09-springmvc%E5%AD%A6%E4%B9%A002/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019-12-08-springmvc%E5%AD%A6%E4%B9%A001/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           SpringMVC学习01 | 打工人日记
+       
+  </title>
+  <meta name="title" content="SpringMVC学习01 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "",
+    "name" : "SpringMVC学习01",
+    "headline" : "SpringMVC学习01",
+    "description" : "SpringMVC学习01 ant风格url spring官方解释\n\/** * In a Servlet environment only: the path mapping URIs (e.g. \x26#34;\/myPath.do\x26#34;). * Ant-style path patterns are also supported (e.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-08 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-12-08 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019-12-08-springmvc%E5%AD%A6%E4%B9%A001\/",
+    "wordCount" : "231",
+    "keywords" : [ "SpringMVC", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<div class="post-warp archive">
+    <h2 class="post-title" style="text-align:right;padding-bottom:2em">SpringMVC学习01</h2>
+    <div class="post-content">
+        <h1 id="springmvc学习01">SpringMVC学习01</h1>
+<h2 id="ant风格url">ant风格url</h2>
+<p>spring官方解释</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">/**
+ * In a Servlet environment only: the path mapping URIs (e.g. &#34;/myPath.do&#34;).
+ * Ant-style path patterns are also supported (e.g. &#34;/myPath/*.do&#34;).
+ * At the method level, relative paths (e.g. &#34;edit.do&#34;) are supported within
+ * the primary mapping expressed at the type level. Path mapping URIs may
+ * contain placeholders (e.g. &#34;/${connect}&#34;)
+ * &lt;p&gt;&lt;b&gt;Supported at the type level as well as at the method level!&lt;/b&gt;
+ * When used at the type level, all method-level mappings inherit
+ * this primary mapping, narrowing it for a specific handler method.
+ * @see org.springframework.web.bind.annotation.ValueConstants#DEFAULT_NONE
+ * @since 4.2
+ */
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * ? 匹配一个字符
+</span><span style="color:#75715e"> * * 匹配任意多个字符或者一层路径
+</span><span style="color:#75715e"> * ** 多层路径
+</span><span style="color:#75715e"> * 
+</span><span style="color:#75715e"> * @return
+</span><span style="color:#75715e"> */</span>
+<span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/antTest0?&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">antTest01</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="路径占位符">路径占位符</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/user/{id}&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">antTest01</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@PathVariable</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;id&#34;</span><span style="color:#f92672">)</span>String id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="rest风格-重点">REST风格-重点</h2>
+<p><strong>Resources</strong>  Respresentation ** State Transfre 资源表现层状态转化</p>
+<p>操作步骤： 1. web.xml加入HiddenHttpMethodFilter web.xml</p>
+<pre><code class="language-markup" data-lang="markup">&lt;filter&gt;
+    &lt;filter-name&gt;hiddenHttpMethodFilter&lt;/filter-name&gt;
+    &lt;filter-class&gt;org.springframework.web.filter.HiddenHttpMethodFilter&lt;/filter-class&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+    &lt;filter-name&gt;hiddenHttpMethodFilter&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+</code></pre><ol>
+<li>
+<p>Controller注解指定请求类型 BookController.java</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Controller</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
+
+ <span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/book&#34;</span><span style="color:#f92672">,</span> method <span style="color:#f92672">=</span> RequestMethod<span style="color:#f92672">.</span><span style="color:#a6e22e">POST</span><span style="color:#f92672">)</span>
+ <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">addBook</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+     System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;新增了图书&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+     <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;success&#34;</span><span style="color:#f92672">;</span>
+ <span style="color:#f92672">}</span>
+
+ <span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/book/{bid}&#34;</span><span style="color:#f92672">,</span> method <span style="color:#f92672">=</span> RequestMethod<span style="color:#f92672">.</span><span style="color:#a6e22e">DELETE</span><span style="color:#f92672">)</span>
+ <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">deleteBook</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@PathVariable</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;bid&#34;</span><span style="color:#f92672">)</span> Integer id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+     System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;删除了&#34;</span> <span style="color:#f92672">+</span>id<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;图书&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+     <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;success&#34;</span><span style="color:#f92672">;</span>
+ <span style="color:#f92672">}</span>
+
+ <span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/book/{bid}&#34;</span><span style="color:#f92672">,</span> method <span style="color:#f92672">=</span> RequestMethod<span style="color:#f92672">.</span><span style="color:#a6e22e">GET</span><span style="color:#f92672">)</span>
+ <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getBook</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@PathVariable</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;bid&#34;</span><span style="color:#f92672">)</span> Integer id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+     System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;查询到&#34;</span><span style="color:#f92672">+</span>id<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;图书&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+     <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;success&#34;</span><span style="color:#f92672">;</span>
+ <span style="color:#f92672">}</span>
+
+ <span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/book/{bid}&#34;</span><span style="color:#f92672">,</span> method <span style="color:#f92672">=</span> RequestMethod<span style="color:#f92672">.</span><span style="color:#a6e22e">PUT</span><span style="color:#f92672">)</span>
+ <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">updateBook</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@PathVariable</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;bid&#34;</span><span style="color:#f92672">)</span> Integer id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+     System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;修改&#34;</span> <span style="color:#f92672">+</span>id<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;图书&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+     <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;success&#34;</span><span style="color:#f92672">;</span>
+ <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+<li>
+<p>页面指定_method index.jsp</p>
+<p>```html</p>
+</li>
+</ol>
+<p>```</p>
+<p>问题：在高版本tomcat上，会不支持put，和delete请求</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">解决方式：
+1.加入 @ResponseBody 注解。 
+2.请求先转给一个Controller,再返回jsp页面。 
+3.tomcat换到7.0以及以下版本。
+</code></pre></div>
+    </div>
+</div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

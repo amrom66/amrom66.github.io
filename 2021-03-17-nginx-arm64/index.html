@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2021-03-17-prometheus-node-exporter-grafana-%E9%B2%B2%E9%B9%8F/" />
+  <link rel="next" href="https://linjinbao.github.io/2021-03-17-mysql-%E9%B2%B2%E9%B9%8F/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2021-03-17-nginx-arm64/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           nginx arm64编译安装 | 打工人日记
+       
+  </title>
+  <meta name="title" content="nginx arm64编译安装 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "",
+    "name" : "nginx arm64编译安装",
+    "headline" : "nginx arm64编译安装",
+    "description" : "安装方式：编译安装\n  编译环境\nyum install gcc gcc-c\x2b\x2b make unzip pcre pcre-devel zlib zlib-devel libxml2 libxml2-devel readline readline-devel ncurses ncurses-devel perl-devel perl-ExtUtils-Embed openssl-devel -y   获取源码",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-03-17 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-03-17 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2021-03-17-nginx-arm64\/",
+    "wordCount" : "128",
+    "keywords" : [  "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<div class="post-warp archive">
+    <h2 class="post-title" style="text-align:right;padding-bottom:2em">nginx arm64编译安装</h2>
+    <div class="post-content">
+        <p><strong>安装方式</strong>：编译安装</p>
+<ol>
+<li>
+<p>编译环境</p>
+<pre><code class="language-code" data-lang="code">yum install gcc gcc-c++ make unzip pcre pcre-devel zlib zlib-devel libxml2 libxml2-devel  readline readline-devel ncurses ncurses-devel perl-devel perl-ExtUtils-Embed openssl-devel -y
+</code></pre></li>
+<li>
+<p>获取源码</p>
+<pre><code class="language-code" data-lang="code">wget -c http://nginx.org/download/nginx-1.16.1.tar.gz
+tar -zxvf nginx-1.16.1.tar.gz
+</code></pre></li>
+<li>
+<p>编译检查与安装</p>
+<pre><code class="language-code" data-lang="code">cd nginx-1.16.1
+./configure
+make -j4 &amp;&amp; make install   ##默认安装到/usr/local下
+</code></pre></li>
+<li>
+<p>用户权限调整</p>
+<pre><code class="language-code" data-lang="code">useradd nginx
+chown nginx:nginx /usr/local/nginx
+</code></pre></li>
+<li>
+<p>验证安装</p>
+<pre><code class="language-code" data-lang="code">cd /usr/local/nginx/sbin/
+./nginx -v  ##查看版本
+./nginx ##运行
+</code></pre><pre><code class="language-code" data-lang="code">[root@dbmaster ~]# ps -aux | grep nginx
+root       40335  0.0  0.0   5248  1536 ?        Ss   11:25   0:00 nginx: master process ./nginx
+nobody     40337  0.0  0.0   6464  3712 ?        S    11:25   0:00 nginx: worker process
+root       40466  0.0  0.0 214016  1600 pts/0    S+   11:30   0:00 grep --color=auto nginx
+[root@dbmaster ~]# netstat -tunlp | grep 80
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      40335/nginx: master
+[root@dbmaster ~]# curl 127.0.0.1
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;403 Forbidden&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;center&gt;&lt;h1&gt;403 Forbidden&lt;/h1&gt;&lt;/center&gt;
+&lt;hr&gt;&lt;center&gt;nginx/1.16.1&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></li>
+</ol>
+
+    </div>
+</div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

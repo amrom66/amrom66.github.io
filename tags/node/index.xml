@@ -13,20 +13,20 @@
     
     <item>
       <title>node学习01</title>
-      <link>https://linjinbao.github.io/2019/2019-12-06-node%E5%AD%A6%E4%B9%A001/</link>
+      <link>https://linjinbao.github.io/2019-12-06-node%E5%AD%A6%E4%B9%A001/</link>
       <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-12-06-node%E5%AD%A6%E4%B9%A001/</guid>
-      <description>node操作mysql 第一步：引入mysql模块 var mysql = require(&#39;mysql&#39;);第二步：建立连接 var connection = mysql.createConnection({host:&#39;localhost&#39;,user: &#39;root&#39;,password: &#39;Gepoint&#39;,database: &#39;mqtt&#39;});connection.connect();第三步：执行sql操作 var sql = &#39;SELECT * FROM user&#39;;var sql_insert = &amp;quot;insert into user(userid, username, userpass)&amp;quot; +&amp;quot;values(&#39;1151301118&#39;, &#39;ljabo&#39;, &#39;123321&#39;)&amp;quot;;connection.query(sql_insert)var sql_update = &amp;quot;UPDATE USER SET userpass = ? WHERE id = ? &amp;quot;;var mysqlParms = [&#39;gggg3&#39;, &#39;2&#39;] connection.query(sql_update, mysqlParms)connection.query(sql,function (err, result) {if(err){console.log(&#39;[SELECT ERROR] - &#39;, err.</description>
+      <guid>https://linjinbao.github.io/2019-12-06-node%E5%AD%A6%E4%B9%A001/</guid>
+      <description>node操作mysql 第一步：引入mysql模块 var mysql = require(&#39;mysql&#39;);第二步：建立连接 var connection = mysql.createConnection({host:&#39;localhost&#39;,user: &#39;root&#39;,password: &#39;Gepoint&#39;,database: &#39;mqtt&#39;});connection.</description>
     </item>
     
     <item>
       <title>node学习01</title>
-      <link>https://linjinbao.github.io/2019/2019-12-06-node%E6%93%8D%E4%BD%9Cmysql/</link>
+      <link>https://linjinbao.github.io/2019-12-06-node%E6%93%8D%E4%BD%9Cmysql/</link>
       <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-12-06-node%E6%93%8D%E4%BD%9Cmysql/</guid>
-      <description>node操作mysql 第一步：引入mysql模块 var mysql = require(&amp;#39;mysql&amp;#39;); 第二步：建立连接 var connection = mysql.createConnection( { host:&amp;#39;localhost&amp;#39;, user: &amp;#39;root&amp;#39;, password: &amp;#39;Gepoint&amp;#39;, database: &amp;#39;mqtt&amp;#39; }); connection.connect(); 第三步：执行sql操作 var sql = &amp;#39;SELECT * FROM user&amp;#39;; var sql_insert = &amp;#34;insert into user(userid, username, userpass)&amp;#34; + &amp;#34;values(&amp;#39;1151301118&amp;#39;, &amp;#39;ljabo&amp;#39;, &amp;#39;123321&amp;#39;)&amp;#34;; connection.query(sql_insert) var sql_update = &amp;#34;UPDATE USER SET userpass = ? WHERE id = ? &amp;#34;; var mysqlParms = [&amp;#39;gggg3&amp;#39;, &amp;#39;2&amp;#39;] connection.query(sql_update, mysqlParms) connection.query(sql,function (err, result) { if(err){ console.log(&amp;#39;[SELECT ERROR] - &amp;#39;, err.</description>
+      <guid>https://linjinbao.github.io/2019-12-06-node%E6%93%8D%E4%BD%9Cmysql/</guid>
+      <description>node操作mysql 第一步：引入mysql模块 var mysql = require(&amp;#39;mysql&amp;#39;); 第二步：建立连接 var connection = mysql.createConnection( { host:&amp;#39;localhost&amp;#39;, user: &amp;#39;root&amp;#39;, password: &amp;#39;Gepoint&amp;#39;, database: &amp;#39;mqtt&amp;#39; }); connection.</description>
     </item>
     
   </channel>

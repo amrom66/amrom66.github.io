@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2020-11-19-%E6%B5%8B%E8%AF%95%E5%A3%81%E7%BA%B8/" />
+  <link rel="next" href="https://linjinbao.github.io/2020-09-05-spring-%E4%BD%BF%E7%94%A8websocket%E4%B8%BB%E5%8A%A8%E6%8E%A8%E9%80%81%E6%97%A5%E5%BF%97%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2020-08-31-%E8%B8%A9%E5%9D%91spring-boot%E6%89%93jar%E5%8C%85/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           踩坑spring boot打jar包 | 打工人日记
+       
+  </title>
+  <meta name="title" content="踩坑spring boot打jar包 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "",
+    "name" : "踩坑spring boot打jar包",
+    "headline" : "踩坑spring boot打jar包",
+    "description" : "问题描述 一般来说使用spring 默认的打包，java -jar，会无法运行，出现目标属性中没有清单的提示，此时需要修改写pom的打包插件。\n解决 \x26lt;plugin\x26gt;\r\x26lt;groupId\x26gt;org.springframework.boot\x26lt;\/groupId\x26gt;\r\x26lt;artifactId\x26gt;spring-boot-maven-plugin\x26lt;\/artifactId\x26gt;\r\x26lt;version\x26gt;${spring.version}\x26lt;\/version\x26gt;\r\x26lt;configuration\x26gt;\r\x26lt;mainClass\x26gt;ecs.Application\x26lt;\/mainClass\x26gt; \/\/启动类\r\x26lt;layout\x26gt;JAR\x26lt;\/layout\x26gt;\r\x26lt;executable\x26gt;true\x26lt;\/executable\x26gt;\r\x26lt;\/configuration\x26gt;\r\x26lt;executions\x26gt;\r\x26lt;execution\x26gt;\r\x26lt;goals\x26gt;\r\x26lt;goal\x26gt;repackage\x26lt;\/goal\x26gt;\r\x26lt;\/goals\x26gt;\r\x26lt;\/execution\x26gt;\r\x26lt;\/executions\x26gt;\r\x26lt;\/plugin\x26gt;\r使用如上配置会将所有以来全部打包的jar中，可以直接运行。",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-08-31 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-08-31 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2020-08-31-%E8%B8%A9%E5%9D%91spring-boot%E6%89%93jar%E5%8C%85\/",
+    "wordCount" : "27",
+    "keywords" : [  "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<div class="post-warp archive">
+    <h2 class="post-title" style="text-align:right;padding-bottom:2em">踩坑spring boot打jar包</h2>
+    <div class="post-content">
+        <h3 id="问题描述">问题描述</h3>
+<p>一般来说使用spring 默认的打包，<code>java -jar</code>，会无法运行，出现目标属性中没有清单的提示，此时需要修改写pom的打包插件。</p>
+<h3 id="解决">解决</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;plugin</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
+    <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>spring-boot-maven-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+    <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>${spring.version}<span style="color:#f92672">&lt;/version&gt;</span>
+    <span style="color:#f92672">&lt;configuration</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;mainClass</span><span style="color:#f92672">&gt;</span>ecs.Application<span style="color:#f92672">&lt;/mainClass&gt;</span> //启动类
+        <span style="color:#f92672">&lt;layout</span><span style="color:#f92672">&gt;</span>JAR<span style="color:#f92672">&lt;/layout&gt;</span>
+        <span style="color:#f92672">&lt;executable</span><span style="color:#f92672">&gt;</span>true<span style="color:#f92672">&lt;/executable&gt;</span>
+    <span style="color:#f92672">&lt;/configuration&gt;</span>
+    <span style="color:#f92672">&lt;executions</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;execution</span><span style="color:#f92672">&gt;</span>
+            <span style="color:#f92672">&lt;goals</span><span style="color:#f92672">&gt;</span>
+                <span style="color:#f92672">&lt;goal</span><span style="color:#f92672">&gt;</span>repackage<span style="color:#f92672">&lt;/goal&gt;</span>
+            <span style="color:#f92672">&lt;/goals&gt;</span>
+        <span style="color:#f92672">&lt;/execution&gt;</span>
+    <span style="color:#f92672">&lt;/executions&gt;</span>
+<span style="color:#f92672">&lt;/plugin&gt;</span>
+</code></pre></div><p>使用如上配置会将所有以来全部打包的jar中，可以直接运行。</p>
+<h3 id="运行是指定配置文件">运行是指定配置文件</h3>
+<p>在jar包同级下建立config文件夹，spring boot启动的时候会首先读取config文件夹下的内容。</p>
+
+    </div>
+</div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

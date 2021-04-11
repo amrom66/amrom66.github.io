@@ -13,100 +13,88 @@
     
     <item>
       <title>k8s整合glusterfs做后端存储</title>
-      <link>https://linjinbao.github.io/2021/2021-03-25-k8s%E6%95%B4%E5%90%88glusterfs%E5%81%9A%E5%90%8E%E7%AB%AF%E5%AD%98%E5%82%A8/</link>
+      <link>https://linjinbao.github.io/2021-03-25-k8s%E6%95%B4%E5%90%88glusterfs%E5%81%9A%E5%90%8E%E7%AB%AF%E5%AD%98%E5%82%A8/</link>
       <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2021/2021-03-25-k8s%E6%95%B4%E5%90%88glusterfs%E5%81%9A%E5%90%8E%E7%AB%AF%E5%AD%98%E5%82%A8/</guid>
+      <guid>https://linjinbao.github.io/2021-03-25-k8s%E6%95%B4%E5%90%88glusterfs%E5%81%9A%E5%90%8E%E7%AB%AF%E5%AD%98%E5%82%A8/</guid>
       <description>安装glusterfs和heketi
-#所有存储服务器下载安装glusterfs yum install centos-release-gluster -y yum install glusterfs-server -y #启动 systemctl start glusterd #安装heketi yum install -y heketi heketi-client   部署gluster集群
-gluster peer probe node0 gluster peer probe node1 gluster peer probe node2 gluster peer status mkdir /data/gluster/data -p gluster volume create glusterfs_volume replica 3 node0:/data/gluster/data node1:/data/gluster/data node2:/data/gluster/data force gluster volume info gluster volume start glusterfs_volume yum install -y glusterfs glusterfs-fuse   配置heketi
-[root@node0 ~]# cat /etc/heketi/heketi.</description>
+#所有存储服务器下载安装glusterfs yum install centos-release-gluster -y yum install glusterfs-server -y #启动 systemctl start glusterd #安装heketi yum install -y heketi heketi-client   部署gluster集群</description>
     </item>
     
     <item>
       <title>pod获取自身参数</title>
-      <link>https://linjinbao.github.io/2021/2021-02-07-pod%E8%8E%B7%E5%8F%96%E8%87%AA%E8%BA%AB%E5%8F%82%E6%95%B0/</link>
+      <link>https://linjinbao.github.io/2021-02-07-pod%E8%8E%B7%E5%8F%96%E8%87%AA%E8%BA%AB%E5%8F%82%E6%95%B0/</link>
       <pubDate>Sun, 07 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2021/2021-02-07-pod%E8%8E%B7%E5%8F%96%E8%87%AA%E8%BA%AB%E5%8F%82%E6%95%B0/</guid>
+      <guid>https://linjinbao.github.io/2021-02-07-pod%E8%8E%B7%E5%8F%96%E8%87%AA%E8%BA%AB%E5%8F%82%E6%95%B0/</guid>
       <description>简介 很多场景下，我们想要在容器运行的时候获取该副本本身的一些信息，例如副本的名称（名称由rc自动分配），当前运行的节点名，当前副本的IP等等信息，k8s为这类场景提供了解决方案。
 示例：
 downward-api-env.yaml
-apiVersion: v1 kind: Pod metadata: name: downward spec: containers: - name: main image: busybox imagePullPolicy: IfNotPresent command: [&amp;#34;sleep&amp;#34;, &amp;#34;9999999&amp;#34;] resources: requests: cpu: 15m memory: 5Mi limits: cpu: 100m memory: 200Mi env: - name: POD_NAME ##副本名称 valueFrom: fieldRef: fieldPath: metadata.name - name: POD_NAMESPACE ##副本运行的名称空间 valueFrom: fieldRef: fieldPath: metadata.namespace - name: POD_IP ##副本的当前IP valueFrom: fieldRef: fieldPath: status.podIP - name: NODE_NAME ##副本运行的节点名称 valueFrom: fieldRef: fieldPath: spec.nodeName - name: SERVICE_ACCOUNT ##sa valueFrom: fieldRef: fieldPath: spec.</description>
+apiVersion: v1 kind: Pod metadata: name: downward spec: containers: - name: main image: busybox imagePullPolicy: IfNotPresent command: [&amp;#34;sleep&amp;#34;, &amp;#34;9999999&amp;#34;] resources: requests: cpu: 15m memory: 5Mi limits: cpu: 100m memory: 200Mi env: - name: POD_NAME ##副本名称 valueFrom: fieldRef: fieldPath: metadata.</description>
     </item>
     
     <item>
       <title>PromQL语法学习</title>
-      <link>https://linjinbao.github.io/2021/2021-02-03-promql%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://linjinbao.github.io/2021-02-03-promql%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Wed, 03 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2021/2021-02-03-promql%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/</guid>
-      <description> 直接指标查询  表达式：node_load1表示查询当前1分钟的负载，仅使用指标查询。
+      <guid>https://linjinbao.github.io/2021-02-03-promql%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/</guid>
+      <description>直接指标查询  表达式：node_load1表示查询当前1分钟的负载，仅使用指标查询。
  函数查询  表达式：rate(node_cpu[2m])，表示查询单位时间（2分钟）内样本数据的增长率。
 表达式：rate(node_load1[2m])，表示每2分钟内指标node_load1表示的指标的增长率。
 结果：
-{container=&amp;quot;kube-rbac-proxy&amp;quot;, endpoint=&amp;quot;https&amp;quot;, instance=&amp;quot;docker-desktop&amp;quot;, job=&amp;quot;node-exporter&amp;quot;, namespace=&amp;quot;monitoring&amp;quot;, pod=&amp;quot;node-exporter-sd26w&amp;quot;, service=&amp;quot;node-exporter&amp;quot;} 0.02933333333333333  排除指定标签影响  以上表达式查询出来的结果中都会由多个标签表示，例如上述的结果由container,endpoint,instance,job,namespace,pod,service,标签共同表示以上标签如果有任何不同，则认为属于两条记录。如果要忽略某一标签的印象，则需要使用without排除：
-表达式：avg without(instance,namespace) (rate(node_load1[2m]))表示排除标签instance,namespace的影响。结果如下：
-{container=&amp;quot;kube-rbac-proxy&amp;quot;, endpoint=&amp;quot;https&amp;quot;, job=&amp;quot;node-exporter&amp;quot;, pod=&amp;quot;node-exporter-sd26w&amp;quot;, service=&amp;quot;node-exporter&amp;quot;} 0.02933333333333333 </description>
+{container=&amp;quot;kube-rbac-proxy&amp;quot;, endpoint=&amp;quot;https&amp;quot;, instance=&amp;quot;docker-desktop&amp;quot;, job=&amp;quot;node-exporter&amp;quot;, namespace=&amp;quot;monitoring&amp;quot;, pod=&amp;quot;node-exporter-sd26w&amp;quot;, service=&amp;quot;node-exporter&amp;quot;} 0.02933333333333333  排除指定标签影响  以上表达式查询出来的结果中都会由多个标签表示，例如上述的结果由container,endpoint,instance,job,namespace,pod,service,标签共同表示以上标签如果有任何不同，则认为属于两条记录。如果要忽略某一标签的印象，则需要使用without排除：</description>
     </item>
     
     <item>
       <title>k8s in action 阅读笔记</title>
-      <link>https://linjinbao.github.io/2021/2021-01-28-k8s-in-action-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</link>
+      <link>https://linjinbao.github.io/2021-01-28-k8s-in-action-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2021/2021-01-28-k8s-in-action-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</guid>
-      <description>如何保证多次请求命中同一个pod？  If you execute the same command a few more times, you should hit a different pod with every invocation, because the service proxy normally forwards each connection to a randomly selected backing pod, even if the connections are coming from the same client. If, on the other hand, you want all requests made by a certain client to be redirected to the same pod every time, you can set the service’s sessionAffinity property to ClientIP (instead of None, which is the default), as shown in the following listing</description>
+      <guid>https://linjinbao.github.io/2021-01-28-k8s-in-action-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</guid>
+      <description>如何保证多次请求命中同一个pod？  If you execute the same command a few more times, you should hit a different pod with every invocation, because the service proxy normally forwards each connection to a randomly selected backing pod, even if the connections are coming from the same client.</description>
     </item>
     
     <item>
       <title>flannel网络部署</title>
-      <link>https://linjinbao.github.io/2020/2020-01-25-flannel%E7%BD%91%E7%BB%9C/</link>
+      <link>https://linjinbao.github.io/2020-01-25-flannel%E7%BD%91%E7%BB%9C/</link>
       <pubDate>Sat, 25 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-01-25-flannel%E7%BD%91%E7%BB%9C/</guid>
-      <description>flannel网络部署 简介 Flannel is a simple and easy way to configure a layer 3 network fabric designed for Kubernetes. Flannel runs a small, single binary agent called flanneld on each host, and is responsible for allocating a subnet lease to each host out of a larger, preconfigured address space. Flannel uses either the Kubernetes API or etcd directly to store the network configuration, the allocated subnets, and any auxiliary data (such as the host&amp;rsquo;s public IP).</description>
+      <guid>https://linjinbao.github.io/2020-01-25-flannel%E7%BD%91%E7%BB%9C/</guid>
+      <description>flannel网络部署 简介 Flannel is a simple and easy way to configure a layer 3 network fabric designed for Kubernetes. Flannel runs a small, single binary agent called flanneld on each host, and is responsible for allocating a subnet lease to each host out of a larger, preconfigured address space.</description>
     </item>
     
     <item>
       <title>k8s完整搭建文档</title>
-      <link>https://linjinbao.github.io/2020/2020-01-25-k8s%E6%90%AD%E5%BB%BA/</link>
+      <link>https://linjinbao.github.io/2020-01-25-k8s%E6%90%AD%E5%BB%BA/</link>
       <pubDate>Sat, 25 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-01-25-k8s%E6%90%AD%E5%BB%BA/</guid>
+      <guid>https://linjinbao.github.io/2020-01-25-k8s%E6%90%AD%E5%BB%BA/</guid>
       <description>k8s完整搭建文档 2. 准备事项 机器环境：centos7.6 主节点：192.168.126.135 从节点：192.168.126.136， 192.168.126.137 2.1 机器hostname设置
-hostnamectl set-hostname etcd1 # 192.168.126.135机器执行 hostnamectl set-hostname etcd2 # 192.168.126.136机器执行 hostnamectl set-hostname etcd3 # 192.168.126.137机器执行 2.2 机器hosts设置 省略 配置完成如下：
-cat /etc/hosts: 127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4 ::1 localhost localhost.localdomain localhost6 localhost6.localdomain6 192.168.126.135 etcd1 192.168.126.136 etcd2 192.168.126.137 etcd3 2.3 安装必要的软件
-yum install kubernetes-master etcd flannel -y # etcd1执行 yum install kubernetes-node etcd docker flannel *rhsm* -y #etcd2执行 yum install kubernetes-node etcd docker flannel *rhsm* -y #etcd3执行 2.</description>
+hostnamectl set-hostname etcd1 # 192.168.126.135机器执行 hostnamectl set-hostname etcd2 # 192.168.126.136机器执行 hostnamectl set-hostname etcd3 # 192.</description>
     </item>
     
     <item>
       <title>etcd使用</title>
-      <link>https://linjinbao.github.io/2020/2020-01-24-etcd%E4%BD%BF%E7%94%A8/</link>
+      <link>https://linjinbao.github.io/2020-01-24-etcd%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-01-24-etcd%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://linjinbao.github.io/2020-01-24-etcd%E4%BD%BF%E7%94%A8/</guid>
       <description>etcd使用 简介 etcd是CoreOS团队于2013年6月发起的开源项目，它的目标是构建一个高可用的分布式键值(key-value)数据库。etcd内部采用raft协议作为一致性算法，etcd基于Go语言实现。 etcd作为服务发现系统，有以下的特点： 简单：安装配置简单，而且提供了HTTP API进行交互，使用也很简单 安全：支持SSL证书验证 快速：根据官方提供的benchmark数据，单实例支持每秒2k+读操作 可靠：采用raft算法，实现分布式系统数据的可用性和一致性
 etcd项目地址：https://github.com/coreos/etcd/
 应用场景 etcd比较多的应用场景是用于服务发现，服务发现(Service Discovery)要解决的是分布式系统中最常见的问题之一，即在同一个分布式集群中的进程或服务如何才能找到对方并建立连接。 从本质上说，服务发现就是要了解集群中是否有进程在监听upd或者tcp端口，并且通过名字就可以进行查找和链接。 要解决服务发现的问题，需要下面三大支柱，缺一不可。
   一个强一致性、高可用的服务存储目录。
 基于Ralf算法的etcd天生就是这样一个强一致性、高可用的服务存储目录。
-  一种注册服务和健康服务健康状况的机制。
-用户可以在etcd中注册服务，并且对注册的服务配置key TTL，定时保持服务的心跳以达到监控健康状态的效果。
-  一种查找和连接服务的机制。
-通过在etcd指定的主题下注册的服务业能在对应的主题下查找到。为了确保连接，我们可以在每个服务机器上都部署一个proxy模式的etcd，这样就可以确保访问etcd集群的服务都能够互相连接。
-  etcd安装部署 yum install etcd -y 默认配置文件在/etc/etcd/etcd.conf
-etcd.conf 192.168.126.135节点配置：
-#[Member] #ETCD_CORS=&amp;#34;&amp;#34; ETCD_DATA_DIR=&amp;#34;/var/lib/etcd/default.etcd&amp;#34; #ETCD_WAL_DIR=&amp;#34;&amp;#34; ETCD_LISTEN_PEER_URLS=&amp;#34;http://192.168.126.135:2380&amp;#34; ##修改 ETCD_LISTEN_CLIENT_URLS=&amp;#34;http://0.0.0.0:2379&amp;#34; ##修改 #ETCD_MAX_SNAPSHOTS=&amp;#34;5&amp;#34; #ETCD_MAX_WALS=&amp;#34;5&amp;#34; ETCD_NAME=&amp;#34;etcd1&amp;#34; ##修改 #ETCD_SNAPSHOT_COUNT=&amp;#34;100000&amp;#34; #ETCD_HEARTBEAT_INTERVAL=&amp;#34;100&amp;#34; #ETCD_ELECTION_TIMEOUT=&amp;#34;1000&amp;#34; #ETCD_QUOTA_BACKEND_BYTES=&amp;#34;0&amp;#34; #ETCD_MAX_REQUEST_BYTES=&amp;#34;1572864&amp;#34; #ETCD_GRPC_KEEPALIVE_MIN_TIME=&amp;#34;5s&amp;#34; #ETCD_GRPC_KEEPALIVE_INTERVAL=&amp;#34;2h0m0s&amp;#34; #ETCD_GRPC_KEEPALIVE_TIMEOUT=&amp;#34;20s&amp;#34; # #[Clustering] ETCD_INITIAL_ADVERTISE_PEER_URLS=&amp;#34;http://192.168.126.135:2380&amp;#34; ##修改 ETCD_ADVERTISE_CLIENT_URLS=&amp;#34;http://0.0.0.0:2379&amp;#34; ##修改 #ETCD_DISCOVERY=&amp;#34;&amp;#34; #ETCD_DISCOVERY_FALLBACK=&amp;#34;proxy&amp;#34; #ETCD_DISCOVERY_PROXY=&amp;#34;&amp;#34; #ETCD_DISCOVERY_SRV=&amp;#34;&amp;#34; ETCD_INITIAL_CLUSTER=&amp;#34;etcd1=http://192.168.126.135:2380,etcd2=http://192.168.126.136:2380&amp;#34; ##修改 ETCD_INITIAL_CLUSTER_TOKEN=&amp;#34;etcd-cluster&amp;#34; ##修改 ETCD_INITIAL_CLUSTER_STATE=&amp;#34;new&amp;#34; ##修改 #ETCD_STRICT_RECONFIG_CHECK=&amp;#34;true&amp;#34; #ETCD_ENABLE_V2=&amp;#34;true&amp;#34; # #[Proxy] #ETCD_PROXY=&amp;#34;off&amp;#34; #ETCD_PROXY_FAILURE_WAIT=&amp;#34;5000&amp;#34; #ETCD_PROXY_REFRESH_INTERVAL=&amp;#34;30000&amp;#34; #ETCD_PROXY_DIAL_TIMEOUT=&amp;#34;1000&amp;#34; #ETCD_PROXY_WRITE_TIMEOUT=&amp;#34;5000&amp;#34; #ETCD_PROXY_READ_TIMEOUT=&amp;#34;0&amp;#34; # #[Security] #ETCD_CERT_FILE=&amp;#34;&amp;#34; #ETCD_KEY_FILE=&amp;#34;&amp;#34; #ETCD_CLIENT_CERT_AUTH=&amp;#34;false&amp;#34; #ETCD_TRUSTED_CA_FILE=&amp;#34;&amp;#34; #ETCD_AUTO_TLS=&amp;#34;false&amp;#34; #ETCD_PEER_CERT_FILE=&amp;#34;&amp;#34; #ETCD_PEER_KEY_FILE=&amp;#34;&amp;#34; #ETCD_PEER_CLIENT_CERT_AUTH=&amp;#34;false&amp;#34; #ETCD_PEER_TRUSTED_CA_FILE=&amp;#34;&amp;#34; #ETCD_PEER_AUTO_TLS=&amp;#34;false&amp;#34; # #[Logging] #ETCD_DEBUG=&amp;#34;false&amp;#34; #ETCD_LOG_PACKAGE_LEVELS=&amp;#34;&amp;#34; #ETCD_LOG_OUTPUT=&amp;#34;default&amp;#34; # #[Unsafe] #ETCD_FORCE_NEW_CLUSTER=&amp;#34;false&amp;#34; # #[Version] #ETCD_VERSION=&amp;#34;false&amp;#34; #ETCD_AUTO_COMPACTION_RETENTION=&amp;#34;0&amp;#34; # #[Profiling] #ETCD_ENABLE_PPROF=&amp;#34;false&amp;#34; #ETCD_METRICS=&amp;#34;basic&amp;#34; # #[Auth] #ETCD_AUTH_TOKEN=&amp;#34;simple&amp;#34; 节点192.</description>
+  一种注册服务和健康服务健康状况的机制。</description>
     </item>
     
     <item>
       <title>kubernetes笔记</title>
-      <link>https://linjinbao.github.io/2020/2020-01-22-k8s%E7%AC%94%E8%AE%B0/</link>
+      <link>https://linjinbao.github.io/2020-01-22-k8s%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Wed, 22 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-01-22-k8s%E7%AC%94%E8%AE%B0/</guid>
-      <description>kubernetes笔记 问题描述：通过定义rc创建pod，会出现无法创建的问题 [root@localhost ~]# kubectl describe rc mysql Name: mysql Namespace: default Image(s): mysql Selector: app=mysql Labels: app=mysql Replicas: 0 current / 1 desired Pods Status: 0 Running / 0 Waiting / 0 Succeeded / 0 Failed No volumes. Events: FirstSeen LastSeen Count From SubObjectPath Type Reason Message --------- -------- ----- ---- ------------- -------- ------ ------- 11m 4m 18 {replication-controller } Warning FailedCreate Error creating: No API token found for service account &amp;#34;default&amp;#34;, retry after the token is automatically created and added to the service account [root@localhost ~]# ll 解决方案 出现问题的原因的安全认证配置，解决方案有两个，第一修改安全配置，第二，指定安全密钥</description>
+      <guid>https://linjinbao.github.io/2020-01-22-k8s%E7%AC%94%E8%AE%B0/</guid>
+      <description>kubernetes笔记 问题描述：通过定义rc创建pod，会出现无法创建的问题 [root@localhost ~]# kubectl describe rc mysql Name: mysql Namespace: default Image(s): mysql Selector: app=mysql Labels: app=mysql Replicas: 0 current / 1 desired Pods Status: 0 Running / 0 Waiting / 0 Succeeded / 0 Failed No volumes.</description>
     </item>
     
   </channel>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019-09-24-mongodb/" />
+  <link rel="next" href="https://linjinbao.github.io/2019-09-25-rabbitmqwindows/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019-09-25-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           牛客网题目-树的子结构 | 打工人日记
+       
+  </title>
+  <meta name="title" content="牛客网题目-树的子结构 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "",
+    "name" : "牛客网题目-树的子结构",
+    "headline" : "牛客网题目-树的子结构",
+    "description" : "2019-09-25-树的子结构 题目名称：树的子结构 题目描述 输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）\n分析： 第一想法是递归，只要是树，我就上递归。分析情况有以下3种：\n 当前root1节点=当前root2节点 当前root1节点！=当前root2节点，但是root1.left和root2节点相等 当前root1节点！=当前root2节点，但是root1.right和root2节点相等  所以需要一个辅助函数helper\npublic static boolean hasSubtree(TreeNode root1, TreeNode root2) { if (root1==null || root2==null) return false; \/\/三种情况  return helper(root1,root2) || hasSubtree(root1.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-09-25 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-09-25 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019-09-25-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84\/",
+    "wordCount" : "57",
+    "keywords" : [ "算法","nowcoder", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<div class="post-warp archive">
+    <h2 class="post-title" style="text-align:right;padding-bottom:2em">牛客网题目-树的子结构</h2>
+    <div class="post-content">
+        <h1 id="2019-09-25-树的子结构">2019-09-25-树的子结构</h1>
+<h2 id="题目名称树的子结构">题目名称：树的子结构</h2>
+<h2 id="题目描述">题目描述</h2>
+<p>输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）</p>
+<h2 id="分析">分析：</h2>
+<p>第一想法是递归，<strong>只要是树，我就上递归</strong>。分析情况有以下3种：</p>
+<ol>
+<li>当前<code>root1</code>节点=当前<code>root2</code>节点</li>
+<li>当前<code>root1</code>节点！=当前<code>root2</code>节点，但是<code>root1.left</code>和<code>root2</code>节点相等</li>
+<li>当前<code>root1</code>节点！=当前<code>root2</code>节点，但是<code>root1.right</code>和<code>root2</code>节点相等</li>
+</ol>
+<p>所以需要一个辅助函数<code>helper</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">hasSubtree</span><span style="color:#f92672">(</span>TreeNode root1<span style="color:#f92672">,</span> TreeNode root2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>root1<span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#66d9ef">null</span> <span style="color:#f92672">|</span><span style="color:#f92672">|</span> root2<span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+        <span style="color:#75715e">//三种情况
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> helper<span style="color:#f92672">(</span>root1<span style="color:#f92672">,</span>root2<span style="color:#f92672">)</span> <span style="color:#f92672">|</span><span style="color:#f92672">|</span> hasSubtree<span style="color:#f92672">(</span>root1<span style="color:#f92672">.</span><span style="color:#a6e22e">left</span><span style="color:#f92672">,</span> root2<span style="color:#f92672">)</span> <span style="color:#f92672">|</span><span style="color:#f92672">|</span> hasSubtree<span style="color:#f92672">(</span>root1<span style="color:#f92672">.</span><span style="color:#a6e22e">right</span><span style="color:#f92672">,</span>root2<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#75715e">//递归检查
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">helper</span><span style="color:#f92672">(</span>TreeNode root1<span style="color:#f92672">,</span> TreeNode root2<span style="color:#f92672">)</span><span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>root2<span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>root1<span style="color:#f92672">=</span><span style="color:#f92672">=</span><span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>root1<span style="color:#f92672">.</span><span style="color:#a6e22e">val</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span>root2<span style="color:#f92672">.</span><span style="color:#a6e22e">val</span><span style="color:#f92672">)</span><span style="color:#66d9ef">return</span> helper<span style="color:#f92672">(</span>root1<span style="color:#f92672">.</span><span style="color:#a6e22e">left</span><span style="color:#f92672">,</span>root2<span style="color:#f92672">.</span><span style="color:#a6e22e">left</span><span style="color:#f92672">)</span><span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span>helper<span style="color:#f92672">(</span>root1<span style="color:#f92672">.</span><span style="color:#a6e22e">right</span><span style="color:#f92672">,</span>root2<span style="color:#f92672">.</span><span style="color:#a6e22e">right</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+</code></pre></div><h2 id="总结">总结</h2>
+<p>遇到二叉树，递归总没错</p>
+
+    </div>
+</div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

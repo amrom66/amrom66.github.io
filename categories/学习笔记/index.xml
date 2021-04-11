@@ -13,21 +13,21 @@
     
     <item>
       <title>Zookeeper学习笔记</title>
-      <link>https://linjinbao.github.io/2019/2019-06-17-zookeeper/</link>
+      <link>https://linjinbao.github.io/2019-06-17-zookeeper/</link>
       <pubDate>Mon, 17 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-06-17-zookeeper/</guid>
+      <guid>https://linjinbao.github.io/2019-06-17-zookeeper/</guid>
       <description>zookeeper配置 下载地址 http://mirrors.hust.edu.cn/apache/zookeeper/
 安装：解压zoo_sample.cfg改为zoo.cfg</description>
     </item>
     
     <item>
       <title>Android学习笔记</title>
-      <link>https://linjinbao.github.io/2019/2019-06-11-android/</link>
+      <link>https://linjinbao.github.io/2019-06-11-android/</link>
       <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-06-11-android/</guid>
-      <description>Android学习 ListView package com.amrom.linjinbao.listviewtest;import android.support.v7.app.AppCompatActivity;import android.os.Bundle;import android.view.View;import android.widget.AdapterView;import android.widget.ArrayAdapter;import android.widget.ListView;import android.widget.Toast;import java.util.ArrayList;import java.util.List;public class MainActivity extends AppCompatActivity {private String[] data = {&amp;#34;Apple&amp;#34;,&amp;#34;Banana&amp;#34;, &amp;#34;Orange&amp;#34;,&amp;#34;WaterMan&amp;#34;,&amp;#34;Pear&amp;#34;,&amp;#34;Apple&amp;#34;,&amp;#34;Banana&amp;#34;, &amp;#34;Orange&amp;#34;,&amp;#34;WaterMan&amp;#34;,&amp;#34;Pear&amp;#34;,&amp;#34;Apple&amp;#34;,&amp;#34;Banana&amp;#34;, &amp;#34;Orange&amp;#34;,&amp;#34;WaterMan&amp;#34;,&amp;#34;Pear&amp;#34;,&amp;#34;Banana&amp;#34;, &amp;#34;Orange&amp;#34;,&amp;#34;WaterMan&amp;#34;,&amp;#34;Pear&amp;#34;,&amp;#34;Apple&amp;#34;,&amp;#34;Banana&amp;#34;, &amp;#34;Orange&amp;#34;,&amp;#34;WaterMan&amp;#34;,&amp;#34;Pear&amp;#34;,&amp;#34;Banana&amp;#34;, &amp;#34;Orange&amp;#34;,&amp;#34;WaterMan&amp;#34;,&amp;#34;Pear&amp;#34;,&amp;#34;Apple&amp;#34;,&amp;#34;Banana&amp;#34;, &amp;#34;Orange&amp;#34;,&amp;#34;WaterMan&amp;#34;,&amp;#34;Pear&amp;#34;,&amp;#34;Banana&amp;#34;, &amp;#34;Orange&amp;#34;,&amp;#34;WaterMan&amp;#34;,&amp;#34;Pear&amp;#34;,&amp;#34;Apple&amp;#34;,&amp;#34;Banana&amp;#34;, &amp;#34;Orange&amp;#34;,&amp;#34;WaterMan&amp;#34;,&amp;#34;Pear&amp;#34;};private List&amp;lt;Fruit&amp;gt; fruitList = new ArrayList&amp;lt;&amp;gt;();@Overrideprotected void onCreate(Bundle savedInstanceState) {super.onCreate(savedInstanceState);setContentView(R.layout.activity_main);initFruits();FruitAdapter adapter = new FruitAdapter(MainActivity.this,R.layout.fruit_item,fruitList);ListView listView = (ListView) findViewById(R.</description>
+      <guid>https://linjinbao.github.io/2019-06-11-android/</guid>
+      <description>Android学习 ListView package com.amrom.linjinbao.listviewtest;import android.support.v7.app.AppCompatActivity;import android.os.Bundle;import android.view.View;import android.widget.AdapterView;import android.widget.ArrayAdapter;import android.widget.ListView;import android.widget.Toast;import java.util.ArrayList;import java.</description>
     </item>
     
   </channel>

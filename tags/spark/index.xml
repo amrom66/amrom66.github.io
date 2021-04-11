@@ -13,15 +13,14 @@
     
     <item>
       <title>hive on spark 测试</title>
-      <link>https://linjinbao.github.io/2020/2020-01-09-hive/</link>
+      <link>https://linjinbao.github.io/2020-01-09-hive/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-01-09-hive/</guid>
+      <guid>https://linjinbao.github.io/2020-01-09-hive/</guid>
       <description>hive on spark 测试 准备工作： 建库：
 create database db2; 建表：
 sql语句：
-create table tb1(id int , name string); 测试1：插入单条数据 insert into tb1(id, name) values(10, &amp;#39;linjb&amp;#39;); 执行结果：1秒
-Status: Running (Hive on Spark job[1]) Job Progress Format CurrentTime StageId_StageAttemptId: SucceededTasksCount(+RunningTasksCount-FailedTasksCount)/TotalTasksCount [StageCost] -------------------------------------------------------------------------------------- STAGES ATTEMPT STATUS TOTAL COMPLETED RUNNING PENDING FAILED -------------------------------------------------------------------------------------- Stage-1 ........ 0 FINISHED 1 1 0 0 0 -------------------------------------------------------------------------------------- STAGES: 01/01 [==========================&amp;gt;&amp;gt;] 100% ELAPSED TIME: 1.00 s -------------------------------------------------------------------------------------- Status: Finished successfully in 1.</description>
+create table tb1(id int , name string); 测试1：插入单条数据 insert into tb1(id, name) values(10, &amp;#39;linjb&amp;#39;); 执行结果：1秒</description>
     </item>
     
   </channel>

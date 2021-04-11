@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2021-03-18-hortonworks-%E9%B2%B2%E9%B9%8F/" />
+  <link rel="next" href="https://linjinbao.github.io/2021-03-22-tar%E6%89%93%E5%8C%85%E7%8E%B0%E6%9C%89%E7%9A%84%E7%B3%BB%E7%BB%9F/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           git单独忽略一个文件的历史提交 | 打工人日记
+       
+  </title>
+  <meta name="title" content="git单独忽略一个文件的历史提交 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "",
+    "name" : "git单独忽略一个文件的历史提交",
+    "headline" : "git单独忽略一个文件的历史提交",
+    "description" : "使用场景：\n将一个重要文件，勿加入git的版本管理中了，后续又更新了好多版本，此时想要去除该文件的所有历史提交。\n 方案一：删除所有git记录 方案二：单独删除该文件的历史记录  方案二操作如下：\ngit filter-branch --force --index-filter \x27git rm --cached --ignore-unmatch visitor-consumer\/src\/main\/java\/com\/fline\/util\/SMSUtil.java\x27 --prune-empty --tag-name-filter cat -- --all git push origin --force --all git push origin --force --tags git for-each-ref --format=\x27delete %(refname)\x27 refs\/original | git update-ref --stdin git reflog expire --expire=now --all git gc --prune=now ",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-03-19 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-03-19 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4\/",
+    "wordCount" : "46",
+    "keywords" : [ "git", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<div class="post-warp archive">
+    <h2 class="post-title" style="text-align:right;padding-bottom:2em">git单独忽略一个文件的历史提交</h2>
+    <div class="post-content">
+        <p>使用场景：</p>
+<p>将一个重要文件，勿加入git的版本管理中了，后续又更新了好多版本，此时想要去除该文件的所有历史提交。</p>
+<ul>
+<li>方案一：删除所有git记录</li>
+<li>方案二：单独删除该文件的历史记录</li>
+</ul>
+<p>方案二操作如下：</p>
+<pre><code class="language-code" data-lang="code">git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch visitor-consumer/src/main/java/com/fline/util/SMSUtil.java' --prune-empty --tag-name-filter cat -- --all
+
+git push origin --force --all
+
+git push origin --force --tags
+
+git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin
+
+git reflog expire --expire=now --all
+
+git gc --prune=now
+</code></pre>
+    </div>
+</div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

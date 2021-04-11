@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2021-03-17-zookeeper-%E9%B2%B2%E9%B9%8F/" />
+  <link rel="next" href="https://linjinbao.github.io/2021-03-17-prometheus-node-exporter-grafana-%E9%B2%B2%E9%B9%8F/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2021-03-17-redis-%E9%B2%B2%E9%B9%8F/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           redis-鲲鹏 | 打工人日记
+       
+  </title>
+  <meta name="title" content="redis-鲲鹏 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "",
+    "name" : "redis-鲲鹏",
+    "headline" : "redis-鲲鹏",
+    "description" : "安装版本：4.0.3\n部署方式：单机部署\n安装方式：磁盘安装\n  下载组件依赖\nyum install -y jemalloc jemalloc-devel   下载安装包\nwget https:\/\/obs-mirror-ftp4.obs.cn-north-4.myhuaweicloud.com:443\/database\/redis-4.0.3-aarch64.tar.gz   解压安装\ntar -xvf redis-4.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-03-17 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-03-17 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2021-03-17-redis-%E9%B2%B2%E9%B9%8F\/",
+    "wordCount" : "46",
+    "keywords" : [  "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<div class="post-warp archive">
+    <h2 class="post-title" style="text-align:right;padding-bottom:2em">redis-鲲鹏</h2>
+    <div class="post-content">
+        <p><strong>安装版本</strong>：4.0.3</p>
+<p><strong>部署方式</strong>：单机部署</p>
+<p><strong>安装方式</strong>：磁盘安装</p>
+<ol>
+<li>
+<p>下载组件依赖</p>
+<pre><code class="language-code" data-lang="code">yum install -y jemalloc jemalloc-devel
+</code></pre></li>
+<li>
+<p>下载安装包</p>
+<pre><code class="language-code" data-lang="code">wget https://obs-mirror-ftp4.obs.cn-north-4.myhuaweicloud.com:443/database/redis-4.0.3-aarch64.tar.gz
+</code></pre></li>
+<li>
+<p>解压安装</p>
+<pre><code class="language-code" data-lang="code">tar -xvf  redis-4.0.3-aarch64.tar.gz 
+mv redis-4.0.3 /opt/
+mv /opt/redis-4.0.3 /opt/redis
+</code></pre></li>
+<li>
+<p>修改redis.conf配置（可选）</p>
+</li>
+<li>
+<p>启动</p>
+<pre><code class="language-code" data-lang="code">cd /opt/redis/bin
+redis-server 
+</code></pre></li>
+<li>
+<p>客户端连接验证</p>
+<pre><code class="language-code" data-lang="code">[root@dbmaster bin]# ./redis-cli -h 127.0.0.1 -p 6379
+127.0.0.1:6379&gt; set name lin1
+OK
+127.0.0.1:6379&gt; get name
+&quot;lin1&quot;
+127.0.0.1:6379&gt; exit
+</code></pre></li>
+</ol>
+
+    </div>
+</div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

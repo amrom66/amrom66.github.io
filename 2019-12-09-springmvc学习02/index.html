@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019-12-08-springmvc%E5%AD%A6%E4%B9%A001/" />
+  <link rel="next" href="https://linjinbao.github.io/2019-12-22-java%E6%93%8D%E4%BD%9C/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019-12-09-springmvc%E5%AD%A6%E4%B9%A002/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           SpringMVC学习02 | 打工人日记
+       
+  </title>
+  <meta name="title" content="SpringMVC学习02 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "",
+    "name" : "SpringMVC学习02",
+    "headline" : "SpringMVC学习02",
+    "description" : "SpringMVC学习02 获取请求 @RequestParam(\x26#34;userid\x26#34;) String userid; \/\/获取请求参数 @RequestHeader(\x26#34;User-Agent\x26#34;)String userAgent; \/\/获取请求头 @CookieValue(value = \x26#34;JSESSIONID\x26#34;, required = false); \/\/获取Cookie 解决乱码 web.xml\n\x26lt;filter\x26gt; \x26lt;filter-name\x26gt;characterEncodingFilter\x26lt;\/filter-name\x26gt; \x26lt;filter-class\x26gt;org.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-09 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-12-09 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019-12-09-springmvc%E5%AD%A6%E4%B9%A002\/",
+    "wordCount" : "96",
+    "keywords" : [ "Spring", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<div class="post-warp archive">
+    <h2 class="post-title" style="text-align:right;padding-bottom:2em">SpringMVC学习02</h2>
+    <div class="post-content">
+        <h1 id="springmvc学习02">SpringMVC学习02</h1>
+<h2 id="获取请求">获取请求</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RequestParam</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;userid&#34;</span><span style="color:#f92672">)</span> String userid<span style="color:#f92672">;</span>                    <span style="color:#75715e">//获取请求参数
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">@RequestHeader</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;User-Agent&#34;</span><span style="color:#f92672">)</span>String userAgent<span style="color:#f92672">;</span>            <span style="color:#75715e">//获取请求头
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">@CookieValue</span><span style="color:#f92672">(</span>value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;JSESSIONID&#34;</span><span style="color:#f92672">,</span> required <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>    <span style="color:#75715e">//获取Cookie
+</span></code></pre></div><h2 id="解决乱码">解决乱码</h2>
+<p>web.xml</p>
+<pre><code class="language-markup" data-lang="markup">&lt;filter&gt;
+    &lt;filter-name&gt;characterEncodingFilter&lt;/filter-name&gt;
+    &lt;filter-class&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;/filter-class&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;encoding&lt;/param-name&gt;
+        &lt;param-value&gt;UTF-8&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;forceEncoding&lt;/param-name&gt;
+        &lt;param-value&gt;true&lt;/param-value&gt;
+    &lt;/init-param&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+    &lt;filter-name&gt;characterEncodingFilter&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+</code></pre><p>注意：要求字符编码Filter在其他filter之前</p>
+<h2 id="数据输出">数据输出</h2>
+<p>** Map</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/handle01&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">handle01</span><span style="color:#f92672">(</span>Map map<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;访问了handle01&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;msg&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;你好&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;success&#34;</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>** Model</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/handle01&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">handle01</span><span style="color:#f92672">(</span>Model model<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;访问了handle01&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    model<span style="color:#f92672">.</span><span style="color:#a6e22e">addAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;msg&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;modelsss&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;success&#34;</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>** ModelMap</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/handle01&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">handle01</span><span style="color:#f92672">(</span>ModelMap modelMap<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;访问了handle01&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    modelMap<span style="color:#f92672">.</span><span style="color:#a6e22e">addAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;msg&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;modelsss&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;success&#34;</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="返回类型使用modelandview">返回类型使用ModelAndView</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/handle01&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> ModelAndView <span style="color:#a6e22e">handle01</span><span style="color:#f92672">(</span>ModelMap modelMap<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;访问了handle01&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    modelMap<span style="color:#f92672">.</span><span style="color:#a6e22e">addAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;msg&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;modelsss&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    ModelAndView modelAndView <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ModelAndView<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;success&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>    <span style="color:#75715e">//success指定目标地址
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> modelAndView<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div>
+    </div>
+</div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019-09-27-mysql%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/" />
+  <link rel="next" href="https://linjinbao.github.io/2019-09-28-react/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019-09-27-leetcode%E7%AE%97%E6%B3%95%E9%A2%98-%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           LeetCode算法题-合并区间 | 打工人日记
+       
+  </title>
+  <meta name="title" content="LeetCode算法题-合并区间 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "",
+    "name" : "LeetCode算法题-合并区间",
+    "headline" : "LeetCode算法题-合并区间",
+    "description" : "2019-09-27-LeetCode算法题-合并区间 LeetCode算法题-合并区间 题目描述： 给出一个区间的集合，请合并所有重叠的区间。\n示例 1: 输入: [[1,3],[2,6],[8,10],[15,18]] 输出: [[1,6],[8,10],[15,18]] 解释: 区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6]. 示例 2: 输入: [[1,4],[4,5]] 输出: [[1,5]] 解释: 区间 [1,4] 和 [4,5] 可被视为重叠区间。 思路分析：",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-09-27 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-09-27 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019-09-27-leetcode%E7%AE%97%E6%B3%95%E9%A2%98-%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4\/",
+    "wordCount" : "129",
+    "keywords" : [ "算法","leetcode","中等", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<div class="post-warp archive">
+    <h2 class="post-title" style="text-align:right;padding-bottom:2em">LeetCode算法题-合并区间</h2>
+    <div class="post-content">
+        <h1 id="2019-09-27-leetcode算法题-合并区间">2019-09-27-LeetCode算法题-合并区间</h1>
+<h2 id="leetcode算法题-合并区间">LeetCode算法题-合并区间</h2>
+<p>题目描述： 给出一个区间的集合，请合并所有重叠的区间。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">示例 1:
+
+输入: [[1,3],[2,6],[8,10],[15,18]]
+输出: [[1,6],[8,10],[15,18]]
+解释: 区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6].
+
+示例 2:
+
+输入: [[1,4],[4,5]]
+输出: [[1,5]]
+解释: 区间 [1,4] 和 [4,5] 可被视为重叠区间。
+</code></pre></div><p>思路分析：</p>
+<ol>
+<li>
+<p>对给出的二维数组进行排序，使得满足每一组第一个元素都小于等于后面一组第一个元素，例如这种形式：<code>[[1,3],[2,6],[8,10]]</code>。</p>
+<p><code>[[1,3],[8,10],[2,6]]</code>这种形式则需要调整。</p>
+</li>
+<li>
+<p>贪心给出一个新的结果二维数组，每次去和已知数组比较，发生重合则重组后加入结果数组，否则则将已知数组的拷贝过来。</p>
+</li>
+</ol>
+<p>代码如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span> <span style="color:#a6e22e">merge</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span> intervals<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>intervals<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">=</span><span style="color:#f92672">=</span>0<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span><span style="color:#f92672">{</span><span style="color:#f92672">}</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>intervals<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span> <span style="color:#f92672">=</span><span style="color:#f92672">=</span>1<span style="color:#f92672">)</span> <span style="color:#66d9ef">return</span> intervals<span style="color:#f92672">;</span>
+        <span style="color:#75715e">//处理输入，使得每一个里面的第一个元素递增
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>0<span style="color:#f92672">;</span> i<span style="color:#f92672">&lt;</span>intervals<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">-</span>1<span style="color:#f92672">;</span> i<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span>0<span style="color:#f92672">;</span> j<span style="color:#f92672">&lt;</span>intervals<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">-</span>1<span style="color:#f92672">-</span>i<span style="color:#f92672">;</span> j<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>
+                <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>intervals<span style="color:#f92672">[</span>j<span style="color:#f92672">]</span><span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">&gt;</span> intervals<span style="color:#f92672">[</span>j<span style="color:#f92672">+</span>1<span style="color:#f92672">]</span><span style="color:#f92672">[</span>0<span style="color:#f92672">]</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>
+                    <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span> tmp <span style="color:#f92672">=</span> intervals<span style="color:#f92672">[</span>j<span style="color:#f92672">]</span><span style="color:#f92672">;</span>
+                    intervals<span style="color:#f92672">[</span>j<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> intervals<span style="color:#f92672">[</span>j<span style="color:#f92672">+</span>1<span style="color:#f92672">]</span><span style="color:#f92672">;</span>
+                    intervals<span style="color:#f92672">[</span>j<span style="color:#f92672">+</span>1<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> tmp<span style="color:#f92672">;</span>
+                <span style="color:#f92672">}</span>
+            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span> out <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>intervals<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">]</span><span style="color:#f92672">[</span>2<span style="color:#f92672">]</span><span style="color:#f92672">;</span>
+        out<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> intervals<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">int</span> count1 <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span>1<span style="color:#f92672">;</span> i<span style="color:#f92672">&lt;</span>intervals<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>out<span style="color:#f92672">[</span>count1<span style="color:#f92672">]</span><span style="color:#f92672">[</span>1<span style="color:#f92672">]</span> <span style="color:#f92672">&lt;</span> intervals<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span><span style="color:#f92672">[</span>0<span style="color:#f92672">]</span><span style="color:#f92672">)</span> out<span style="color:#f92672">[</span><span style="color:#f92672">+</span><span style="color:#f92672">+</span>count1<span style="color:#f92672">]</span><span style="color:#f92672">=</span>intervals<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span><span style="color:#f92672">;</span>
+            <span style="color:#66d9ef">else</span> out<span style="color:#f92672">[</span>count1<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span><span style="color:#f92672">{</span>out<span style="color:#f92672">[</span>count1<span style="color:#f92672">]</span><span style="color:#f92672">[</span>0<span style="color:#f92672">]</span><span style="color:#f92672">,</span> Math<span style="color:#f92672">.</span><span style="color:#a6e22e">max</span><span style="color:#f92672">(</span>intervals<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span><span style="color:#f92672">[</span>1<span style="color:#f92672">]</span><span style="color:#f92672">,</span>out<span style="color:#f92672">[</span>count1<span style="color:#f92672">]</span><span style="color:#f92672">[</span>1<span style="color:#f92672">]</span><span style="color:#f92672">)</span><span style="color:#f92672">}</span><span style="color:#f92672">;</span>
+        <span style="color:#f92672">}</span>
+        <span style="color:#66d9ef">return</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">copyOfRange</span><span style="color:#f92672">(</span>out<span style="color:#f92672">,</span>0<span style="color:#f92672">,</span>count1<span style="color:#f92672">+</span>1<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+    <span style="color:#f92672">}</span>
+</code></pre></div><h2 id="总结">总结</h2>
+<p>这种方法第2步不花时间，重点是第一步的冒泡排序时间太多了。这一题是<strong>中等</strong>难度题目，难度还是有的。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">执行结果：
+通过
+显示详情
+执行用时 :205 ms, 在所有 Java 提交中击败了7.40% 的用户
+内存消耗 :51.4 MB, 在所有 Java 提交中击败了12.37%的用户
+</code></pre></div>
+    </div>
+</div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019-07-29-redis%E7%AC%94%E8%AE%B0/" />
+  <link rel="next" href="https://linjinbao.github.io/2019-09-14-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019-09-13-linux%E7%AC%94%E8%AE%B0/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Linux笔记 | 打工人日记
+       
+  </title>
+  <meta name="title" content="Linux笔记 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "",
+    "name" : "Linux笔记",
+    "headline" : "Linux笔记",
+    "description" : "笔记 查找软件包rsync rpm -qa | grep rsync 客户端拉取 rsync -av root@192.168.59.130::backup \/home\/ljbao\/ 打印指定行数据 sed -n \x26#39;10,10p\x26#39; file.txt cat file.txt | head -n 10 | tail -n \x2b10 awk使用 awk \x26#39;{print $2} {print $1}\x26#39; emp.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-09-13 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-09-13 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019-09-13-linux%E7%AC%94%E8%AE%B0\/",
+    "wordCount" : "258",
+    "keywords" : [ "笔记","后端开发","Linux","shell", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<div class="post-warp archive">
+    <h2 class="post-title" style="text-align:right;padding-bottom:2em">Linux笔记</h2>
+    <div class="post-content">
+        <h1 id="笔记">笔记</h1>
+<h2 id="查找软件包rsync">查找软件包rsync</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">rpm -qa | grep rsync
+</code></pre></div><h2 id="客户端拉取">客户端拉取</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"> rsync -av root@192.168.59.130::backup /home/ljbao/
+</code></pre></div><h2 id="打印指定行数据">打印指定行数据</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">sed -n &#39;10,10p&#39; file.txt
+cat file.txt | head -n 10 | tail -n +10
+</code></pre></div><h2 id="awk使用">awk使用</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">awk &#39;{print $2} {print $1}&#39; emp.data
+</code></pre></div><h2 id="crond使用">crond使用</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">    service crond start    //启动服务
+　　    service crond stop     //关闭服务
+　    service crond restart  //重启服务
+　　    service crond reload   //重新载入配置
+　　    service crond status   //查看服务状态
+</code></pre></div><p>第一步：写<code>cron</code>脚本文件,命名为<code>crontest.cron</code>。 <code>15,30,45,59 * * * * echo &quot;xgmtest.....&quot; &gt;&gt; xgmtest.txt</code> 表示，每隔15分钟，执行打印一次命令 第二步：添加定时任务。执行命令 <code>crontab crontest.cron</code>。搞定 第三步：<code>crontab -l</code>查看定时任务是否成功或者检测<code>/var/spool/cron</code>下是否生成对应<code>cron</code>脚本</p>
+<p>脚本实例：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">0 6 * * * echo &#34;Good morning.&#34; &gt;&gt; /tmp/test.txt //注意单纯echo，从屏幕上看不到任何输出，因为cron把任何输出都email到root的信箱了。
+0 */2 * * * echo &#34;Have a break now.&#34; &gt;&gt; /tmp/test.txt  
+0 23-7/2，8 * * * echo &#34;Have a good dream&#34; &gt;&gt; /tmp/test.txt
+0 11 4 * 1-3 command line
+0 4 1 1 * command line SHELL=/bin/bash PATH=/sbin:/bin:/usr/sbin:/usr/bin MAILTO=root //如果出现错误，或者有数据输出，数据作为邮件发给这个帐号 HOME=/ 
+01 * * * * root run-parts /etc/cron.hourly
+02 4 * * * root run-parts /etc/cron.daily 
+22 4 * * 0 root run-parts /etc/cron.weekly 
+42 4 1 * * root run-parts /etc/cron.monthly 
+5，15，25，35，45，55 16，17，18 * * * command
+00 15 * * 1，3，5 shutdown -r +5
+10，40 * * * * innd/bbslink
+</code></pre></div><p>第 1 列分钟 1～59</p>
+<p>第 2 列小时 1～23（0 表示子夜）</p>
+<p>第 3 列日 1～31</p>
+<p>第 4 列月 1～12</p>
+<p>第 5 列星期 0～6（0 表示星期天）</p>
+<p>第 6 列要运行的命令</p>
+<p>分 时 日 月 星期 要运行的命令</p>
+<p><code>30 21 * * * /usr/local/apache/bin/apachectl restart</code></p>
+<p>上面的例子表示每晚的 21:30 重启 apache。</p>
+<h2 id="mysql定时备份">MySQL定时备份</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">vim DatabaseName.sh
+/usr/local/mysql/bin/mysqldump -uusername -ppassword DatabaseName &gt; /home/backup/DatabaseName_$(date +%Y%m%d_%H%M%S).sql
+/usr/local/mysql/bin/mysqldump -uusername -ppassword DatabaseName | gzip &gt; /home/backup/DatabaseName_$(date +%Y%m%d_%H%M%S).sql.gz
+</code></pre></div><p><strong>注意</strong>：</p>
+<p>把<code>username</code> 替换为实际的用户名； 把 <code>password</code>替换为实际的密码； 把 <code>DatabaseName</code> 替换为实际的数据库名；</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">chmod u+x DatabaseName.sh
+crontab -e
+01   3 * * * root/home/backup/DatabaseName.sh
+</code></pre></div>
+    </div>
+</div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

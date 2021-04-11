@@ -13,11 +13,11 @@
     
     <item>
       <title>flannel网络部署</title>
-      <link>https://linjinbao.github.io/2020/2020-01-25-flannel%E7%BD%91%E7%BB%9C/</link>
+      <link>https://linjinbao.github.io/2020-01-25-flannel%E7%BD%91%E7%BB%9C/</link>
       <pubDate>Sat, 25 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-01-25-flannel%E7%BD%91%E7%BB%9C/</guid>
-      <description>flannel网络部署 简介 Flannel is a simple and easy way to configure a layer 3 network fabric designed for Kubernetes. Flannel runs a small, single binary agent called flanneld on each host, and is responsible for allocating a subnet lease to each host out of a larger, preconfigured address space. Flannel uses either the Kubernetes API or etcd directly to store the network configuration, the allocated subnets, and any auxiliary data (such as the host&amp;rsquo;s public IP).</description>
+      <guid>https://linjinbao.github.io/2020-01-25-flannel%E7%BD%91%E7%BB%9C/</guid>
+      <description>flannel网络部署 简介 Flannel is a simple and easy way to configure a layer 3 network fabric designed for Kubernetes. Flannel runs a small, single binary agent called flanneld on each host, and is responsible for allocating a subnet lease to each host out of a larger, preconfigured address space.</description>
     </item>
     
   </channel>

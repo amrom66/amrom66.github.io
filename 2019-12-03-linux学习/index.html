@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019-12-02-mysql%E5%AD%A6%E4%B9%A007/" />
+  <link rel="next" href="https://linjinbao.github.io/2019-12-03-java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%A4%84%E7%90%86%E8%A1%A8%E6%A0%BC/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019-12-03-linux%E5%AD%A6%E4%B9%A0/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Linux命令学习 | 打工人日记
+       
+  </title>
+  <meta name="title" content="Linux命令学习 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "",
+    "name" : "Linux命令学习",
+    "headline" : "Linux命令学习",
+    "description" : "Linux命令学习 更新yum源 cd \/ect\/yum.repos.d\/CentOS-Base.repo mv \/etc\/yum.repos.d\/CentOS-Base.repo \/etc\/yum.repos.d\/CentOS-Base.repo.backup wget -O \/etc\/yum.repos.d\/CentOS-Base.repo http:\/\/mirrors.aliyun.com\/repo\/Centos-7.repo yum makecache yum -y update Linux系统监控命令  top命令  top - 14:10:24 up 83 days, 22:45, 1 user, load average: 0.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-03 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-12-03 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019-12-03-linux%E5%AD%A6%E4%B9%A0\/",
+    "wordCount" : "496",
+    "keywords" : [ "Linux", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<div class="post-warp archive">
+    <h2 class="post-title" style="text-align:right;padding-bottom:2em">Linux命令学习</h2>
+    <div class="post-content">
+        <h1 id="linux命令学习">Linux命令学习</h1>
+<h2 id="更新yum源">更新yum源</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">cd /ect/yum.repos.d/CentOS-Base.repo
+mv  /etc/yum.repos.d/CentOS-Base.repo  /etc/yum.repos.d/CentOS-Base.repo.backup
+
+wget -O  /etc/yum.repos.d/CentOS-Base.repo  http://mirrors.aliyun.com/repo/Centos-7.repo
+
+yum makecache
+
+yum -y update
+</code></pre></div><h2 id="linux系统监控命令">Linux系统监控命令</h2>
+<ol>
+<li>top命令</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">top - 14:10:24 up 83 days, 22:45,  1 user,  load average: 0.00, 0.03, 0.05
+Tasks: 105 total,   1 running, 104 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  3.1 sy,  0.0 ni, 96.9 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  1014856 total,   115416 free,   508424 used,   391016 buff/cache
+KiB Swap:        0 total,        0 free,        0 used.   358212 avail Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+ 1882 root      20   0  159940   2096   1472 R   6.2  0.2   0:00.01 top
+    1 root      20   0  128196   5360   2732 S   0.0  0.5  10:39.84 systemd
+    2 root      20   0       0      0      0 S   0.0  0.0   0:01.59 kthreadd
+    3 root      20   0       0      0      0 S   0.0  0.0   0:06.67 ksoftirqd/0
+    5 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H
+    7 root      rt   0       0      0      0 S   0.0  0.0   0:12.07 migration/0
+    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh
+    9 root      20   0       0      0      0 S   0.0  0.0   2:12.40 rcu_sched
+   10 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 lru-add-drain
+   11 root      rt   0       0      0      0 S   0.0  0.0   0:28.64 watchdog/0
+   12 root      rt   0       0      0      0 S   0.0  0.0   0:21.85 watchdog/1
+   13 root      rt   0       0      0      0 S   0.0  0.0   0:11.15 migration/1
+   14 root      20   0       0      0      0 S   0.0  0.0   0:05.78 ksoftirqd/1
+   16 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/1:0H
+   18 root      20   0       0      0      0 S   0.0  0.0   0:00.00 kdevtmpfs
+   19 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 netns
+   20 root      20   0       0      0      0 S   0.0  0.0   0:02.45 khungtaskd
+   21 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 writeback
+   22 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kintegrityd
+   23 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 bioset
+   24 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 bioset
+   25 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 bioset
+   26 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kblockd
+   27 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 md
+   28 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 edac-poller
+   29 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 watchdogd
+   36 root      20   0       0      0      0 S   0.0  0.0   1:32.96 kswapd0
+   37 root      25   5       0      0      0 S   0.0  0.0   0:00.00 ksmd
+</code></pre></div><p>参数： M,t</p>
+<ol>
+<li>vmstat命令</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[root@instance-1 openvpn]# vmstat 2 10
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 1  0      0 267344      0 256004    0    0     9     4    2    0  0  0 100  0  0
+ 0  0      0 267344      0 256024    0    0     0     0  193  274  0  0 100  0  0
+</code></pre></div><p>参数解释：<code>2</code>表示间隔时间，<code>10</code>表示次数</p>
+
+    </div>
+</div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

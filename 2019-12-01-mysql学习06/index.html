@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019-11-30-linux%E5%AD%A6%E4%B9%A0/" />
+  <link rel="next" href="https://linjinbao.github.io/2019-12-02-mysql%E5%AD%A6%E4%B9%A007/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019-12-01-mysql%E5%AD%A6%E4%B9%A006/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           mysql 学习06-锁 | 打工人日记
+       
+  </title>
+  <meta name="title" content="mysql 学习06-锁 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "",
+    "name" : "mysql 学习06-锁",
+    "headline" : "mysql 学习06-锁",
+    "description" : "mysql 学习06-锁 什么是锁 锁是数据库系统的一个关键特性，锁机制用于管理共享资源的并发访问。InnoDB是行级锁。\nSELECT * from information_schema.INNODB_TRX ##啥看事务 SELECT * FROM information_schema.INNODB_LOCKS ##查看锁 show processlist; ##查看线程 show full processlist; show open tables from ***; show status like \x26#39;%lock%\x26#39;; ##查看服务器状态 show variables like \x26#39;%timeout%\x26#39;; ## SELECT * FROM INFORMATION_SCHEMA.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-12-01 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-12-01 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019-12-01-mysql%E5%AD%A6%E4%B9%A006\/",
+    "wordCount" : "70",
+    "keywords" : [  "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<div class="post-warp archive">
+    <h2 class="post-title" style="text-align:right;padding-bottom:2em">mysql 学习06-锁</h2>
+    <div class="post-content">
+        <h1 id="mysql-学习06-锁">mysql 学习06-锁</h1>
+<h2 id="什么是锁">什么是锁</h2>
+<p>锁是数据库系统的一个关键特性，锁机制用于管理共享资源的并发访问。InnoDB是行级锁。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">from</span> information_schema.INNODB_TRX   <span style="color:#f92672">#</span><span style="color:#f92672">#</span><span style="color:#960050;background-color:#1e0010">啥</span><span style="color:#960050;background-color:#1e0010">看</span><span style="color:#960050;background-color:#1e0010">事</span><span style="color:#960050;background-color:#1e0010">务</span>
+
+<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> information_schema.INNODB_LOCKS  <span style="color:#f92672">#</span><span style="color:#f92672">#</span><span style="color:#960050;background-color:#1e0010">查</span><span style="color:#960050;background-color:#1e0010">看</span><span style="color:#960050;background-color:#1e0010">锁</span>
+
+<span style="color:#66d9ef">show</span> processlist;    <span style="color:#f92672">#</span><span style="color:#f92672">#</span><span style="color:#960050;background-color:#1e0010">查</span><span style="color:#960050;background-color:#1e0010">看</span><span style="color:#960050;background-color:#1e0010">线</span><span style="color:#960050;background-color:#1e0010">程</span>
+
+<span style="color:#66d9ef">show</span> <span style="color:#66d9ef">full</span> processlist;
+
+<span style="color:#66d9ef">show</span> <span style="color:#66d9ef">open</span> tables <span style="color:#66d9ef">from</span> <span style="color:#f92672">*</span><span style="color:#f92672">*</span><span style="color:#f92672">*</span>;
+
+<span style="color:#66d9ef">show</span> status <span style="color:#66d9ef">like</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%lock%</span><span style="color:#e6db74">&#39;</span>;    <span style="color:#f92672">#</span><span style="color:#f92672">#</span><span style="color:#960050;background-color:#1e0010">查</span><span style="color:#960050;background-color:#1e0010">看</span><span style="color:#960050;background-color:#1e0010">服</span><span style="color:#960050;background-color:#1e0010">务</span><span style="color:#960050;background-color:#1e0010">器</span><span style="color:#960050;background-color:#1e0010">状</span><span style="color:#960050;background-color:#1e0010">态</span>
+
+<span style="color:#66d9ef">show</span> variables <span style="color:#66d9ef">like</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%timeout%</span><span style="color:#e6db74">&#39;</span>;    <span style="color:#f92672">#</span><span style="color:#f92672">#</span>
+
+<span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> INFORMATION_SCHEMA.INNODB_LOCK_WAITS; <span style="color:#f92672">#</span><span style="color:#f92672">#</span><span style="color:#960050;background-color:#1e0010">查</span><span style="color:#960050;background-color:#1e0010">看</span><span style="color:#960050;background-color:#1e0010">等</span><span style="color:#960050;background-color:#1e0010">待</span><span style="color:#960050;background-color:#1e0010">锁</span><span style="color:#960050;background-color:#1e0010">的</span><span style="color:#960050;background-color:#1e0010">事</span><span style="color:#960050;background-color:#1e0010">务</span>
+</code></pre></div><h2 id="innodb_automic_lock_mode参数设置"><code>innodb_automic_lock_mode</code>参数设置</h2>
+<p>innodb_automic_lock_mode=1 默认设置，对于能够在插入前确定行数的语句，innodb使用互斥量<code>mutex</code>对内存中的计数器进行累加的操作；对于插入前不能确定行数的语句，执行传统的锁机制，会发生阻塞。 innodb_automic_lock_mode=0 5.1.22版本之前的设置，表锁机制，会发生阻塞 innodb_automic_lock_mode=2 全部执行互斥量方式，性能最高，但是问题在于并发插入的时候，导致增长的值不连续</p>
+<h2 id="s锁共享锁和x锁排他锁">S锁（共享锁）和X锁（排他锁）</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">lock</span> <span style="color:#66d9ef">table</span> <span style="color:#66d9ef">user</span> <span style="color:#66d9ef">read</span>;    <span style="color:#f92672">#</span><span style="color:#f92672">#</span> <span style="color:#960050;background-color:#1e0010">锁</span><span style="color:#960050;background-color:#1e0010">定</span><span style="color:#960050;background-color:#1e0010">读</span>
+locl <span style="color:#66d9ef">table</span> <span style="color:#66d9ef">user</span> <span style="color:#66d9ef">write</span>;    <span style="color:#f92672">#</span><span style="color:#f92672">#</span> <span style="color:#960050;background-color:#1e0010">锁</span><span style="color:#960050;background-color:#1e0010">定</span><span style="color:#960050;background-color:#1e0010">写</span>
+unlock tables;            <span style="color:#f92672">#</span><span style="color:#f92672">#</span> <span style="color:#960050;background-color:#1e0010">释</span><span style="color:#960050;background-color:#1e0010">放</span><span style="color:#960050;background-color:#1e0010">锁</span>
+</code></pre></div><p>当锁定读的时候，其他线程可以读数据，但是不能修改数据；当锁定写的时候，其他线程不能读也不能写。</p>
+<h2 id="锁带来的问题">锁带来的问题</h2>
+<ol>
+<li>丢失更新</li>
+<li>脏读</li>
+</ol>
+<h2 id="锁升级">锁升级</h2>
+<p>锁升级是指将当前锁的颗粒度降低。举例来说，数据库可以把一个表的1000个行锁升级成一个页锁，或者将页锁升级成表锁。锁升级会带来性能的下降。</p>
+
+    </div>
+</div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

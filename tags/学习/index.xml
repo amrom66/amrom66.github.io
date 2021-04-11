@@ -13,13 +13,11 @@
     
     <item>
       <title>webpack学习</title>
-      <link>https://linjinbao.github.io/2019/2019-10-10-webpack/</link>
+      <link>https://linjinbao.github.io/2019-10-10-webpack/</link>
       <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-10-10-webpack/</guid>
-      <description>webpack学习 安装 //全局安装 npm install -g webpack npm install -g webpack-cli npm install --save lodash //安装到你的项目目录 npm install --save-dev webpack 创建package.json文件 npm init 创建目录结构 webpack-demo |- /dist |- index.html |- /src |- index.js |- package.json src/index.js
-function component() { var element = document.createElement(&amp;#39;div&amp;#39;); // Lodash（目前通过一个 script 脚本引入）对于执行这一行是必需的 element.innerHTML = _.join([&amp;#39;Hello&amp;#39;, &amp;#39;webpack&amp;#39;], &amp;#39; &amp;#39;); return element; } document.body.appendChild(component()); dist/index.html
-&amp;lt;!doctype html&amp;gt; &amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;title&amp;gt;起步&amp;lt;/title&amp;gt; &amp;lt;script src=&amp;#34;https://unpkg.com/lodash@4.16.6&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;script src=&amp;#34;./src/index.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; package.</description>
+      <guid>https://linjinbao.github.io/2019-10-10-webpack/</guid>
+      <description>webpack学习 安装 //全局安装 npm install -g webpack npm install -g webpack-cli npm install --save lodash //安装到你的项目目录 npm install --save-dev webpack 创建package.</description>
     </item>
     
   </channel>

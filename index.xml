@@ -9,12 +9,1039 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Posts</title>
-      <link>https://linjinbao.github.io/posts/</link>
+      <title>CKA考试准备</title>
+      <link>https://linjinbao.github.io/2021-03-30-cka%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/</link>
       <pubDate>Tue, 30 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/posts/</guid>
-      <description></description>
+      <guid>https://linjinbao.github.io/2021-03-30-cka%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/</guid>
+      <description>&lt;p&gt;准备CKA证书考试：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;k8s官网文档翻译&lt;/li&gt;
+&lt;li&gt;k8s官网实践&lt;/li&gt;
+&lt;li&gt;reddit社区交流&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>k8s整合glusterfs做后端存储</title>
+      <link>https://linjinbao.github.io/2021-03-25-k8s%E6%95%B4%E5%90%88glusterfs%E5%81%9A%E5%90%8E%E7%AB%AF%E5%AD%98%E5%82%A8/</link>
+      <pubDate>Thu, 25 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021-03-25-k8s%E6%95%B4%E5%90%88glusterfs%E5%81%9A%E5%90%8E%E7%AB%AF%E5%AD%98%E5%82%A8/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;安装glusterfs和heketi&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;#所有存储服务器下载安装glusterfs
+yum install centos-release-gluster -y
+yum install glusterfs-server -y
+   
+#启动
+systemctl  start glusterd 
+   
+#安装heketi
+yum install -y heketi heketi-client
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;部署gluster集群&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;gluster peer probe node0
+gluster peer probe node1
+gluster peer probe node2
+   
+gluster peer status
+   
+mkdir /data/gluster/data -p
+   
+gluster volume create glusterfs_volume replica 3 node0:/data/gluster/data node1:/data/gluster/data node2:/data/gluster/data force
+   
+gluster volume info
+   
+gluster volume start glusterfs_volume
+   
+yum install -y glusterfs glusterfs-fuse
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;配置heketi&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;[root@node0 ~]# cat /etc/heketi/heketi.json 
+{
+  &amp;quot;_port_comment&amp;quot;: &amp;quot;Heketi Server Port Number&amp;quot;,
+  &amp;quot;port&amp;quot;: &amp;quot;8080&amp;quot;,
+   
+  &amp;quot;_use_auth&amp;quot;: &amp;quot;Enable JWT authorization. Please enable for deployment&amp;quot;,
+  &amp;quot;use_auth&amp;quot;: false,
+   
+  &amp;quot;_jwt&amp;quot;: &amp;quot;Private keys for access&amp;quot;,
+  &amp;quot;jwt&amp;quot;: {
+    &amp;quot;_admin&amp;quot;: &amp;quot;Admin has access to all APIs&amp;quot;,
+    &amp;quot;admin&amp;quot;: {
+      &amp;quot;key&amp;quot;: &amp;quot;My Secret&amp;quot;
+    },
+    &amp;quot;_user&amp;quot;: &amp;quot;User only has access to /volumes endpoint&amp;quot;,
+    &amp;quot;user&amp;quot;: {
+      &amp;quot;key&amp;quot;: &amp;quot;My Secret&amp;quot;
+    }
+  },
+   
+  &amp;quot;_glusterfs_comment&amp;quot;: &amp;quot;GlusterFS Configuration&amp;quot;,
+  &amp;quot;glusterfs&amp;quot;: {
+    &amp;quot;_executor_comment&amp;quot;: [
+      &amp;quot;Execute plugin. Possible choices: mock, ssh&amp;quot;,
+      &amp;quot;mock: This setting is used for testing and development.&amp;quot;,
+      &amp;quot;      It will not send commands to any node.&amp;quot;,
+      &amp;quot;ssh:  This setting will notify Heketi to ssh to the nodes.&amp;quot;,
+      &amp;quot;      It will need the values in sshexec to be configured.&amp;quot;,
+      &amp;quot;kubernetes: Communicate with GlusterFS containers over&amp;quot;,
+      &amp;quot;            Kubernetes exec api.&amp;quot;
+    ],
+    &amp;quot;executor&amp;quot;: &amp;quot;mock&amp;quot;,
+   
+    &amp;quot;_sshexec_comment&amp;quot;: &amp;quot;SSH username and private key file information&amp;quot;,
+    &amp;quot;sshexec&amp;quot;: {
+      &amp;quot;keyfile&amp;quot;: &amp;quot;/etc/heketi/heketi_key&amp;quot;,
+      &amp;quot;user&amp;quot;: &amp;quot;root&amp;quot;,
+      &amp;quot;port&amp;quot;: &amp;quot;22&amp;quot;,
+      &amp;quot;fstab&amp;quot;: &amp;quot;/etc/fstab&amp;quot;
+    },
+   
+    &amp;quot;_kubeexec_comment&amp;quot;: &amp;quot;Kubernetes configuration&amp;quot;,
+    &amp;quot;kubeexec&amp;quot;: {
+      &amp;quot;host&amp;quot; :&amp;quot;https://127.0.0.1:8443&amp;quot;,
+      &amp;quot;cert&amp;quot; : &amp;quot;/path/to/crt.file&amp;quot;,
+      &amp;quot;insecure&amp;quot;: false,
+      &amp;quot;user&amp;quot;: &amp;quot;kubernetes username&amp;quot;,
+      &amp;quot;password&amp;quot;: &amp;quot;password for kubernetes user&amp;quot;,
+      &amp;quot;namespace&amp;quot;: &amp;quot;OpenShift project or Kubernetes namespace&amp;quot;,
+      &amp;quot;fstab&amp;quot;: &amp;quot;Optional: Specify fstab file on node.  Default is /etc/fstab&amp;quot;
+    },
+   
+    &amp;quot;_db_comment&amp;quot;: &amp;quot;Database file name&amp;quot;,
+    &amp;quot;db&amp;quot;: &amp;quot;/var/lib/heketi/heketi.db&amp;quot;,
+   
+    &amp;quot;_loglevel_comment&amp;quot;: [
+      &amp;quot;Set log level. Choices are:&amp;quot;,
+      &amp;quot;  none, critical, error, warning, info, debug&amp;quot;,
+      &amp;quot;Default is warning&amp;quot;
+    ],
+    &amp;quot;loglevel&amp;quot; : &amp;quot;debug&amp;quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;配置免密登陆&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;#设置heketi免密访问GlusterFS
+[root@master heketi]# ssh-keygen -t rsa -q -f /etc/heketi/heketi_key -N &amp;quot;&amp;quot;
+[root@master heketi]# chown heketi:heketi /etc/heketi/heketi_key
+   
+#分发公钥
+[root@master heketi]# ssh-copy-id -i /etc/heketi/heketi_key.pub root@master
+[root@master heketi]# ssh-copy-id -i /etc/heketi/heketi_key.pub root@node1
+#将秘钥充master服务器复制到node1服务器上
+[root@master heketi]# rsync -avz /etc/heketi/heketi_key root@node1:/etc/heketi/
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;启动heketi&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;systemctl enable heketi
+systemctl restart heketi
+systemctl status heketi
+   
+[root@master ~]# curl http://localhost:8080/hello
+Hello from Heketi
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;设置集群&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;[root@node0 ~]# cat /etc/heketi/topology.json 
+{
+    &amp;quot;clusters&amp;quot;: [
+        {
+            &amp;quot;nodes&amp;quot;: [
+                {
+                    &amp;quot;node&amp;quot;: {
+                        &amp;quot;hostnames&amp;quot;: {
+                            &amp;quot;manage&amp;quot;: [
+                                &amp;quot;192.168.90.219&amp;quot;
+                            ],
+                            &amp;quot;storage&amp;quot;: [
+                                &amp;quot;192.168.90.219&amp;quot;
+                            ]
+                        },
+                        &amp;quot;zone&amp;quot;: 1
+                    },
+                    &amp;quot;devices&amp;quot;: [
+                        &amp;quot;/dev/vdb&amp;quot;
+                    ]
+                },
+                {
+                    &amp;quot;node&amp;quot;: {
+                        &amp;quot;hostnames&amp;quot;: {
+                            &amp;quot;manage&amp;quot;: [
+                                &amp;quot;192.168.90.217&amp;quot;
+                            ],
+                            &amp;quot;storage&amp;quot;: [
+                                &amp;quot;192.168.90.217&amp;quot;
+                            ]
+                        },
+                        &amp;quot;zone&amp;quot;: 2
+                    },
+                    &amp;quot;devices&amp;quot;: [
+                        &amp;quot;/dev/vdb&amp;quot;
+                    ]
+                },
+                {
+                    &amp;quot;node&amp;quot;: {
+                        &amp;quot;hostnames&amp;quot;: {
+                            &amp;quot;manage&amp;quot;: [
+                                &amp;quot;192.168.90.216&amp;quot;
+                            ],
+                            &amp;quot;storage&amp;quot;: [
+                                &amp;quot;192.168.90.216&amp;quot;
+                            ]
+                        },
+                        &amp;quot;zone&amp;quot;: 3
+                    },
+                    &amp;quot;devices&amp;quot;: [
+                        &amp;quot;/dev/vdb&amp;quot;
+                    ]
+                }
+            ]
+        }
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通过topology.json组建GlusterFS集群&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;[root@master ~]# heketi-cli --server http://localhost:8080 --user admin --secret admin@key topology load --json=/etc/heketi/topology.json
+Creating cluster ... ID: 2865ef5ac77aae777bbfaf3f27e456ef
+    Allowing file volumes on cluster.
+    Allowing block volumes on cluster.
+    Creating node 172.16.208.210 ... ID: 474894862effef22952e7c0d4542605b
+        Adding device /dev/vdb ... OK
+    Creating node 172.16.208.211 ... ID: 156c6b793ef761f68b317d0cfe8e7ec1
+        Adding device /dev/vdb ... OK
+           
+           
+[root@master ~]# heketi-cli --server http://localhost:8080 --user admin --secret admin@key topology info
+   
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;配置StorageClass&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;[root@master ~]# cat  gluster-heketi-secret.yaml 
+apiVersion: v1
+kind: Secret
+metadata:
+  name: heketi-secret
+  namespace: default
+data:
+  # base64 encoded password. E.g.: echo -n &amp;quot;mypassword&amp;quot; | base64
+  key: *
+type: kubernetes.io/glusterfs
+   
+[root@master ~]# kubectl  apply -f gluster-heketi-secret.yaml 
+secret/heketi-secret created
+   
+[root@master ~]# cat  gluster-heketi-storageclass.yaml 
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: gluster-heketi-storageclass
+provisioner: kubernetes.io/glusterfs
+reclaimPolicy: Delete
+parameters:
+  resturl: &amp;quot;http://192.168.*.*:8080&amp;quot;
+  restauthenabled: &amp;quot;true&amp;quot;
+  restuser: &amp;quot;admin&amp;quot;
+  secretNamespace: &amp;quot;default&amp;quot;
+  secretName: &amp;quot;heketi-secret&amp;quot;
+  volumetype: &amp;quot;replicate:2&amp;quot;
+   
+[root@master ~]# kubectl apply -f  gluster-heketi-storageclass.yaml 
+storageclass.storage.k8s.io/gluster-heketi-storageclass created
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;测试&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;[root@master ~]# cat test-pvc.yaml 
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: test-claim
+  annotations:
+    volume.beta.kubernetes.io/storage-class: &amp;quot;gluster-heketi-storageclass&amp;quot;
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>tar打包现有的系统</title>
+      <link>https://linjinbao.github.io/2021-03-22-tar%E6%89%93%E5%8C%85%E7%8E%B0%E6%9C%89%E7%9A%84%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Mon, 22 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021-03-22-tar%E6%89%93%E5%8C%85%E7%8E%B0%E6%9C%89%E7%9A%84%E7%B3%BB%E7%BB%9F/</guid>
+      <description>&lt;p&gt;选择一个系统，在根目录下将已有系统打包成tar文件：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;tar -cvpf /tmp/system.tar --directory=/ --exclude=proc --exclude=sys --exclude=dev --exclude=run --exclude=boot --exclude=/opt/software .
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;导入方式一：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;cat system.tar | docker import - redhat:6.5
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;导入方式二：&lt;/p&gt;
+&lt;p&gt;使用docker build&lt;/p&gt;
+&lt;p&gt;Dockerfile&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;FROM scratch
+ADD system.tar /
+CMD [&amp;quot;sh&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;docker build -t linjinbao66/euler:0.0.1 .&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>git单独忽略一个文件的历史提交</title>
+      <link>https://linjinbao.github.io/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/</link>
+      <pubDate>Fri, 19 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/</guid>
+      <description>&lt;p&gt;使用场景：&lt;/p&gt;
+&lt;p&gt;将一个重要文件，勿加入git的版本管理中了，后续又更新了好多版本，此时想要去除该文件的所有历史提交。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;方案一：删除所有git记录&lt;/li&gt;
+&lt;li&gt;方案二：单独删除该文件的历史记录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方案二操作如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;git filter-branch --force --index-filter &#39;git rm --cached --ignore-unmatch visitor-consumer/src/main/java/com/fline/util/SMSUtil.java&#39; --prune-empty --tag-name-filter cat -- --all
+
+git push origin --force --all
+
+git push origin --force --tags
+
+git for-each-ref --format=&#39;delete %(refname)&#39; refs/original | git update-ref --stdin
+
+git reflog expire --expire=now --all
+
+git gc --prune=now
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+    <item>
+      <title>hortonworks-鲲鹏</title>
+      <link>https://linjinbao.github.io/2021-03-18-hortonworks-%E9%B2%B2%E9%B9%8F/</link>
+      <pubDate>Thu, 18 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021-03-18-hortonworks-%E9%B2%B2%E9%B9%8F/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;安装方式&lt;/strong&gt;：磁盘安装&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;安装版本&lt;/strong&gt;：0.5.4&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;参考文档&lt;/strong&gt;：https://registry-project.readthedocs.io/en/latest/install.html#centos-redhat&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;下载压缩包并解压&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;wget https://github.com/hortonworks/registry/releases/download/0.5.4/hortonworks-registry-0.5.4.tar.gz
+   
+[root@dbmaster local]# ls -al hortonworks/
+total 36
+drwx------   8 root root    140 Mar 18 16:12 .
+drwxr-xr-x. 22 root root    285 Mar 18 15:55 ..
+drwx------   2 root root     54 Mar 18 15:55 bin
+drwxrwxrwx   4  502 games    92 Aug 30  2018 bootstrap
+drwx------   2 root root    251 Mar 18 16:11 conf
+drwx------   3 root root     29 Mar 18 15:55 examples
+drwx------   2 root root  12288 Mar 18 16:04 libs
+-rw-r--r--   1  502 games 11325 Jan 17  2017 LICENSE.txt
+drwx------   2 root root     66 Mar 18 16:12 logs
+-rw-r--r--   1  502 games   728 Apr 25  2017 NOTICE.txt
+-rw-r--r--   1  502 games  2063 Aug 30  2018 README.md
+[root@dbmaster local]#
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;准备mysql驱动&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;cp mysql-connector-java-*.jar libs
+cp mysql-connector-java-*.jar bootstrap/lib
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;配置conf/registry.yaml&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;...
+storageProviderConfiguration:
+ providerClass:&amp;quot;com.hortonworks.registries.storage.impl.jdbc.JdbcStorageManager&amp;quot;
+   properties:
+     db.type: &amp;quot;mysql&amp;quot;
+     queryTimeoutInSecs: 30
+     db.properties:
+       dataSourceClassName: &amp;quot;com.mysql.jdbc.jdbc2.optional.MysqlDataSource&amp;quot;
+       dataSource.url: &amp;quot;jdbc:mysql://localhost/schema_registry&amp;quot;
+       dataSource.user:&amp;quot;registry_user&amp;quot;
+       dataSource.password: &amp;quot;registry_password&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;初始化&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;$REGISTRY_HOME/bootstrap/boostrap-storage.sh create
+$REGISTRY_HOME/bootstrap/boostrap-storage.sh migrate
+$REGISTRY_HOME/bootstrap/boostrap-storage.sh validate
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;启动&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;sudo ./bin/registry start
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;验证&lt;/p&gt;
+&lt;p&gt;由于9090端口被prometheus占用，此处我改成了19090和19091端口&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;[root@dbmaster hortonworks]# curl 127.0.0.1:19091
+&amp;lt;!DOCTYPE HTML PUBLIC &amp;quot;-//W3C//DTD HTML 4.01 Transitional//EN&amp;quot;
+        &amp;quot;http://www.w3.org/TR/html4/loose.dtd&amp;quot;&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;
+  &amp;lt;title&amp;gt;Metrics&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+  &amp;lt;h1&amp;gt;Operational Menu&amp;lt;/h1&amp;gt;
+  &amp;lt;ul&amp;gt;
+    &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;/metrics?pretty=true&amp;quot;&amp;gt;Metrics&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+    &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;/ping&amp;quot;&amp;gt;Ping&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+    &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;/threads&amp;quot;&amp;gt;Threads&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+    &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;/healthcheck?pretty=true&amp;quot;&amp;gt;Healthcheck&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+    &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;/pprof&amp;quot;&amp;gt;CPU Profile&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+    &amp;lt;li&amp;gt;&amp;lt;a href=&amp;quot;/pprof?state=blocked&amp;quot;&amp;gt;CPU Contention&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+  &amp;lt;/ul&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>es-鲲鹏</title>
+      <link>https://linjinbao.github.io/2021-03-17-es-%E9%B2%B2%E9%B9%8F/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021-03-17-es-%E9%B2%B2%E9%B9%8F/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;安装版本&lt;/strong&gt;：6.4.2&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;安装方式&lt;/strong&gt;：磁盘安装&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;下载&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.4.2.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;解压&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;tar -zxvf elasticsearch-6.4.2.tar.gz 
+mkdir /usr/local/es
+mv elasticsearch-6.4.2 elasticsearch
+cp elasticsearch /usr/local/es/
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;修改配置&lt;/p&gt;
+&lt;p&gt;/usr/local/es/elasticsearch/config/elasticsearch.yml&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;cluster.name: elasticsearch
+node.name: node-1
+path.data: /usr/local/es/elasticsearch/data
+path.logs: /usr/local/es/elasticsearch/logs
+network.host: 0.0.0.0
+http.port: 9200
+xpack.ml.enabled: false
+bootstrap.system_call_filter: false
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;调整系统参数&lt;/p&gt;
+&lt;p&gt;vim /etc/security/limits.conf&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;* soft nofile 65536
+* hard nofile 65536
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;vim /etc/sysctl.conf&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;vm.max_map_count=655360
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;sysctl -p&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;增加elastic用户&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;useradd elastic
+chown -R elastic:elastic /usr/local/es/elasticsearch/
+chmod -R 755 /usr/local/es
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;启动与验证&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;sh /usr/local/es/elasticsearch/bin/elasticsearch
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;[root@dbmaster config]# curl 175.5.12.56:9200
+{
+  &amp;quot;name&amp;quot; : &amp;quot;node-1&amp;quot;,
+  &amp;quot;cluster_name&amp;quot; : &amp;quot;my-application&amp;quot;,
+  &amp;quot;cluster_uuid&amp;quot; : &amp;quot;9sBZLqjsTS-ltvtaaTBCIA&amp;quot;,
+  &amp;quot;version&amp;quot; : {
+    &amp;quot;number&amp;quot; : &amp;quot;6.4.2&amp;quot;,
+    &amp;quot;build_flavor&amp;quot; : &amp;quot;default&amp;quot;,
+    &amp;quot;build_type&amp;quot; : &amp;quot;tar&amp;quot;,
+    &amp;quot;build_hash&amp;quot; : &amp;quot;04711c2&amp;quot;,
+    &amp;quot;build_date&amp;quot; : &amp;quot;2018-09-26T13:34:09.098244Z&amp;quot;,
+    &amp;quot;build_snapshot&amp;quot; : false,
+    &amp;quot;lucene_version&amp;quot; : &amp;quot;7.4.0&amp;quot;,
+    &amp;quot;minimum_wire_compatibility_version&amp;quot; : &amp;quot;5.6.0&amp;quot;,
+    &amp;quot;minimum_index_compatibility_version&amp;quot; : &amp;quot;5.0.0&amp;quot;
+  },
+  &amp;quot;tagline&amp;quot; : &amp;quot;You Know, for Search&amp;quot;
+}
+[root@dbmaster config]#
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>jdk-鲲鹏</title>
+      <link>https://linjinbao.github.io/2021-03-17-jdk-%E9%B2%B2%E9%B9%8F/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021-03-17-jdk-%E9%B2%B2%E9%B9%8F/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;安装版本&lt;/strong&gt;：1.8.0_191&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;安装方式&lt;/strong&gt;：磁盘安装&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;参考链接&lt;/strong&gt;： &lt;a href=&#34;http://www.cloud-onlinelab.cn/&#34;&gt;http://www.cloud-onlinelab.cn/&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;下载编译好的openjdk包&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;wget wget https://obs-mirror-ftp4.obs.cn-north-4.myhuaweicloud.com/systemreliable/OpenJDK8U-jdk_aarch64_linux_hotspot_8u191b12.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;解压&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;tar -zxvf OpenJDK8U-jdk_aarch64_linux_hotspot_8u191b12.tar.gz
+mv jdk8u191-b12 /opt/
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;配置环境变量&lt;/p&gt;
+&lt;p&gt;/etc/profile&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;export PATH=$PATH:$MYSQL_HOME/bin
+export JAVA_HOME=/opt/jdk
+export PATH=$PATH:${JAVA_HOME}/bin
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;source /etc/profile&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;验证&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;[root@dbmaster ~]# java -version
+openjdk version &amp;quot;1.8.0_191&amp;quot;
+OpenJDK Runtime Environment (AdoptOpenJDK)(build 1.8.0_191-b12)
+OpenJDK 64-Bit Server VM (AdoptOpenJDK)(build 25.191-b12, mixed mode)
+[root@dbmaster ~]#
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>mysql-鲲鹏</title>
+      <link>https://linjinbao.github.io/2021-03-17-mysql-%E9%B2%B2%E9%B9%8F/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021-03-17-mysql-%E9%B2%B2%E9%B9%8F/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;安装版本&lt;/strong&gt;：5.7.27&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;安装方式&lt;/strong&gt;： 二进制安装&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;准备编译好的包&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;wget https://obs.cn-north-4.myhuaweicloud.com/obs-mirror-ftp4/database/mysql-5.7.27-aarch64.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;增加用户和用户组&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;groupadd -r mysql &amp;amp;&amp;amp; useradd -r -g mysql -s /sbin/nologin -M mysql
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;解压安装&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;tar -xvf mysql-5.7.27-aarch64.tar.gz -C /usr/local/
+mv /usr/local/mysql-5.7.27-aarch64 /usr/local/mysql
+mkdir -p /usr/local/mysql/logs
+chown -R mysql:mysql /usr/local/mysql
+ln -sf /usr/local/mysql/my.cnf /etc/my.cnf
+cp -rf /usr/local/mysql/extra/lib* /usr/lib64/
+mv /usr/lib64/libstdc++.so.6 /usr/lib64/libstdc++.so.6.old
+ln -s /usr/lib64/libstdc++.so.6.0.24 /usr/lib64/libstdc++.so.6
+cp -rf /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld
+chmod +x /etc/init.d/mysqld
+systemctl enable mysqld
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;添加环境变量&lt;/p&gt;
+&lt;p&gt;/etc/profile&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;export MYSQL_HOME=/usr/local/mysql
+export PATH=$PATH:$MYSQL_HOME/bin
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;source /etc/profile&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;初始化与启动&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;mysqld --initialize-insecure --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data
+systemctl start mysqld
+systemctl status mysqld
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>nginx arm64编译安装</title>
+      <link>https://linjinbao.github.io/2021-03-17-nginx-arm64/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021-03-17-nginx-arm64/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;安装方式&lt;/strong&gt;：编译安装&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;编译环境&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;yum install gcc gcc-c++ make unzip pcre pcre-devel zlib zlib-devel libxml2 libxml2-devel  readline readline-devel ncurses ncurses-devel perl-devel perl-ExtUtils-Embed openssl-devel -y
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;获取源码&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;wget -c http://nginx.org/download/nginx-1.16.1.tar.gz
+tar -zxvf nginx-1.16.1.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;编译检查与安装&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;cd nginx-1.16.1
+./configure
+make -j4 &amp;amp;&amp;amp; make install   ##默认安装到/usr/local下
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;用户权限调整&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;useradd nginx
+chown nginx:nginx /usr/local/nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;验证安装&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;cd /usr/local/nginx/sbin/
+./nginx -v  ##查看版本
+./nginx ##运行
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;[root@dbmaster ~]# ps -aux | grep nginx
+root       40335  0.0  0.0   5248  1536 ?        Ss   11:25   0:00 nginx: master process ./nginx
+nobody     40337  0.0  0.0   6464  3712 ?        S    11:25   0:00 nginx: worker process
+root       40466  0.0  0.0 214016  1600 pts/0    S+   11:30   0:00 grep --color=auto nginx
+[root@dbmaster ~]# netstat -tunlp | grep 80
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      40335/nginx: master
+[root@dbmaster ~]# curl 127.0.0.1
+&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;403 Forbidden&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;center&amp;gt;&amp;lt;h1&amp;gt;403 Forbidden&amp;lt;/h1&amp;gt;&amp;lt;/center&amp;gt;
+&amp;lt;hr&amp;gt;&amp;lt;center&amp;gt;nginx/1.16.1&amp;lt;/center&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>prometheus-node-exporter-grafana-鲲鹏</title>
+      <link>https://linjinbao.github.io/2021-03-17-prometheus-node-exporter-grafana-%E9%B2%B2%E9%B9%8F/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021-03-17-prometheus-node-exporter-grafana-%E9%B2%B2%E9%B9%8F/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;安装版本&lt;/strong&gt;：prometheus-2.16.0 node-exporter-1.0.1 grafana-7.3.4&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;安装方式&lt;/strong&gt;：磁盘安装&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;程序管理&lt;/strong&gt;：systemd&lt;/p&gt;
+&lt;h2 id=&#34;程序包下载&#34;&gt;程序包下载&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/prometheus/prometheus/releases/download/v2.16.0/prometheus-2.16.0.freebsd-amd64.tar.gz&#34;&gt;https://github.com/prometheus/prometheus/releases/download/v2.16.0/prometheus-2.16.0.freebsd-amd64.tar.gz&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/prometheus/node_exporter/releases/download/v1.0.1/node_exporter-1.0.1.linux-arm64.tar.gz&#34;&gt;https://github.com/prometheus/node_exporter/releases/download/v1.0.1/node_exporter-1.0.1.linux-arm64.tar.gz&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://dl.grafana.com/oss/release/grafana-7.3.4.linux-arm64.tar.gz&#34;&gt;https://dl.grafana.com/oss/release/grafana-7.3.4.linux-arm64.tar.gz&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;prometheus安装&#34;&gt;prometheus安装&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;上传并解压压缩包到/usr/local目录下&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;[root@dbmaster local]# ls -al prometheus/
+total 134924
+drwxr-xr-x   5 3434 3434      156 Mar 18 11:46 .
+drwxr-xr-x. 21 root root      266 Mar 18 11:28 ..
+drwxr-xr-x   2 3434 3434       38 Feb 14  2020 console_libraries
+drwxr-xr-x   2 3434 3434      173 Feb 14  2020 consoles
+drwx------   3 root root       51 Mar 18 11:15 data
+-rw-r--r--   1 3434 3434    11357 Feb 14  2020 LICENSE
+-rw-r--r--   1 3434 3434     3184 Feb 14  2020 NOTICE
+-rwxr-xr-x   1 3434 3434 78886010 Feb 14  2020 prometheus
+-rw-r--r--   1 3434 3434     1006 Mar 18 11:46 prometheus.yml
+-rwxr-xr-x   1 3434 3434 46227944 Feb 14  2020 promtool
+-rwxr-xr-x   1 3434 3434 13019920 Feb 14  2020 tsdb
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;修改配置文件prometheus.yml&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;...
+##  修改监听的网卡
+    static_configs:
+    - targets: [&#39;0.0.0.0:9090&#39;]
+   
+## 以下配置为node-exporter
+  - job_name: &#39;server&#39;
+    static_configs:
+      - targets: [&#39;175.5.12.56:9100&#39;]
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;编写systemd文件prometheus.service&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;[Unit]
+Description=Prometheus
+Documentation=https://prometheus.io/
+After=network.target
+   
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/prometheus/prometheus --config.file=/usr/local/prometheus/prometheus.yml
+Restart=on-failure
+   
+[Install]
+WantedBy=multi-user.target
+&lt;/code&gt;&lt;/pre&gt;&lt;ol&gt;
+&lt;li&gt;启动并验证服务&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;systemctl start prometheus
+[root@dbmaster prometheus]# curl 127.0.0.1:9090
+&amp;lt;a href=&amp;quot;/graph&amp;quot;&amp;gt;Found&amp;lt;/a&amp;gt;.
+   
+[root@dbmaster prometheus]#
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;node-exporter安装&#34;&gt;node-exporter安装&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;上传文件到/usr/local并解压&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;[root@dbmaster local]# ls -al node_exporter/
+total 18376
+drwxr-xr-x   2 3434 3434       56 Jun 16  2020 .
+drwxr-xr-x. 21 root root      266 Mar 18 11:28 ..
+-rw-r--r--   1 3434 3434    11357 Jun 16  2020 LICENSE
+-rwxr-xr-x   1 3434 3434 18800055 Jun 16  2020 node_exporter
+-rw-r--r--   1 3434 3434      463 Jun 16  2020 NOTICE
+[root@dbmaster local]#
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;编写systemd文件node_exporter.service&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;[Unit]
+Description=node_exporter
+Documentation=https://prometheus.io/
+After=network.target
+   
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/node_exporter/node_exporter
+Restart=on-failure
+   
+[Install]
+WantedBy=multi-user.target
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;启动并验证服务&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;systemctl start node_exporter
+   
+[root@dbmaster node_exporter]# curl http://175.5.12.56:9100/
+&amp;lt;html&amp;gt;
+                        &amp;lt;head&amp;gt;&amp;lt;title&amp;gt;Node Exporter&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;
+                        &amp;lt;body&amp;gt;
+                        &amp;lt;h1&amp;gt;Node Exporter&amp;lt;/h1&amp;gt;
+                        &amp;lt;p&amp;gt;&amp;lt;a href=&amp;quot;/metrics&amp;quot;&amp;gt;Metrics&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;
+                        &amp;lt;/body&amp;gt;
+                        &amp;lt;/html&amp;gt;[root@dbmaster node_exporter]#
+[root@dbmaster node_exporter]#
+   
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;grafana安装&#34;&gt;grafana安装&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;上传到/usr/local并解压&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;[root@dbmaster local]# ls -al grafana/
+total 28
+drwx------   8 root root   157 Mar 18 11:49 .
+drwxr-xr-x. 21 root root   266 Mar 18 11:28 ..
+drwxr-xr-x   2 root root    96 Nov 24 22:31 bin
+drwxr-xr-x   3 root root   107 Mar 18 11:49 conf
+drwx------   5 root root    61 Mar 18 11:59 data
+-rw-r--r--   1 root root 11343 Nov 24 22:20 LICENSE
+-rw-r--r--   1 root root   108 Nov 24 22:20 NOTICE.md
+drwxr-xr-x   3 root root    22 Nov 24 22:31 plugins-bundled
+drwxr-xr-x  12 root root   155 Nov 24 22:31 public
+-rw-r--r--   1 root root  2799 Nov 24 22:20 README.md
+drwxr-xr-x   2 root root  4096 Nov 24 22:31 scripts
+-rw-r--r--   1 root root     5 Nov 24 22:31 VERSION
+[root@dbmaster local]#
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;编写systemd文件grafana.service&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;[Unit]
+Description=Grafana instance
+Documentation=http://docs.grafana.org
+Wants=network-online.target
+After=network-online.target
+   
+[Service]
+User=root
+Type=notify
+Restart=on-failure
+WorkingDirectory=/usr/local/grafana
+RuntimeDirectory=grafana
+RuntimeDirectoryMode=0750
+ExecStart=/usr/local/grafana/bin/grafana-server --config=/usr/local/grafana/conf/defaults.ini
+LimitNOFILE=10000
+TimeoutStopSec=20
+   
+[Install]
+WantedBy=multi-user.target
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;启动并验证&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;systemctl start grafana 
+   
+[root@dbmaster ~]# systemctl status grafana
+● grafana.service - Grafana instance
+   Loaded: loaded (/usr/lib/systemd/system/grafana.service; disabled; vendor preset: disabled)
+   Active: active (running) since Thu 2021-03-18 12:26:38 CST; 2min 5s ago
+     Docs: http://docs.grafana.org
+ Main PID: 78311 (grafana-server)
+    Tasks: 37
+   Memory: 60.1M
+   CGroup: /system.slice/grafana.service
+           └─78311 /usr/local/grafana/bin/grafana-server --config=/usr/local/grafana/conf/defaults.ini
+   
+Mar 18 12:26:38 dbmaster grafana-server[78311]: t=2021-03-18T12:26:38+0800 lvl=info msg=&amp;quot;Path Plugins&amp;quot; logger=settings path=/usr/loc&amp;gt;
+Mar 18 12:26:38 dbmaster grafana-server[78311]: t=2021-03-18T12:26:38+0800 lvl=info msg=&amp;quot;Path Provisioning&amp;quot; logger=settings path=/us&amp;gt;
+Mar 18 12:26:38 dbmaster grafana-server[78311]: t=2021-03-18T12:26:38+0800 lvl=info msg=&amp;quot;App mode production&amp;quot; logger=settings
+Mar 18 12:26:38 dbmaster grafana-server[78311]: t=2021-03-18T12:26:38+0800 lvl=info msg=&amp;quot;Connecting to DB&amp;quot; logger=sqlstore dbtype=sq&amp;gt;
+Mar 18 12:26:38 dbmaster grafana-server[78311]: t=2021-03-18T12:26:38+0800 lvl=info msg=&amp;quot;Starting DB migrations&amp;quot; logger=migrator
+Mar 18 12:26:38 dbmaster grafana-server[78311]: t=2021-03-18T12:26:38+0800 lvl=info msg=&amp;quot;Starting plugin search&amp;quot; logger=plugins
+Mar 18 12:26:38 dbmaster grafana-server[78311]: t=2021-03-18T12:26:38+0800 lvl=info msg=&amp;quot;Registering plugin&amp;quot; logger=plugins id=input
+Mar 18 12:26:38 dbmaster systemd[1]: Started Grafana instance.
+Mar 18 12:26:38 dbmaster grafana-server[78311]: t=2021-03-18T12:26:38+0800 lvl=info msg=&amp;quot;HTTP Server Listen&amp;quot; logger=http.server addr&amp;gt;
+Mar 18 12:28:26 dbmaster grafana-server[78311]: t=2021-03-18T12:28:26+0800 lvl=info msg=&amp;quot;Request Completed&amp;quot; logger=context userId=0 &amp;gt;
+   
+[root@dbmaster ~]# curl 127.0.0.1:3000
+&amp;lt;a href=&amp;quot;/login&amp;quot;&amp;gt;Found&amp;lt;/a&amp;gt;.
+   
+[root@dbmaster ~]#
+   
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>redis-鲲鹏</title>
+      <link>https://linjinbao.github.io/2021-03-17-redis-%E9%B2%B2%E9%B9%8F/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021-03-17-redis-%E9%B2%B2%E9%B9%8F/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;安装版本&lt;/strong&gt;：4.0.3&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;部署方式&lt;/strong&gt;：单机部署&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;安装方式&lt;/strong&gt;：磁盘安装&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;下载组件依赖&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;yum install -y jemalloc jemalloc-devel
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下载安装包&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;wget https://obs-mirror-ftp4.obs.cn-north-4.myhuaweicloud.com:443/database/redis-4.0.3-aarch64.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;解压安装&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;tar -xvf  redis-4.0.3-aarch64.tar.gz 
+mv redis-4.0.3 /opt/
+mv /opt/redis-4.0.3 /opt/redis
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;修改redis.conf配置（可选）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;启动&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;cd /opt/redis/bin
+redis-server 
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;客户端连接验证&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;[root@dbmaster bin]# ./redis-cli -h 127.0.0.1 -p 6379
+127.0.0.1:6379&amp;gt; set name lin1
+OK
+127.0.0.1:6379&amp;gt; get name
+&amp;quot;lin1&amp;quot;
+127.0.0.1:6379&amp;gt; exit
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>zookeeper-鲲鹏</title>
+      <link>https://linjinbao.github.io/2021-03-17-zookeeper-%E9%B2%B2%E9%B9%8F/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021-03-17-zookeeper-%E9%B2%B2%E9%B9%8F/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;安装版本&lt;/strong&gt;：3.4.11&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;部署方式&lt;/strong&gt;：单机版&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;安装方式&lt;/strong&gt;：磁盘安装&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;下载安装包&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;wget https://obs-mirror-ftp4.obs.cn-north-4.myhuaweicloud.com/middleware/zookeeper-3.4.11.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;解压&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;tar -zxvf zookeeper-3.4.11.tar.gz
+cd zookeeper-3.4.11
+mkdir data log
+mv zookeeper-3.4.11 /opt/ &amp;amp;&amp;amp; mv /opt/zookeeper-3.4.11 /opt/zookeeper
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;修改配置&lt;/p&gt;
+&lt;p&gt;cd conf
+cp zoo_sample.cfg zoo.cfg
+cat zoo.cfg&lt;/p&gt;
+&lt;p&gt;注意修改数据目录和日志目录&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt; # The number of milliseconds of each tick
+tickTime=2000
+# The number of ticks that the initial
+# synchronization phase can take
+initLimit=10
+# The number of ticks that can pass between
+# sending a request and getting an acknowledgement
+syncLimit=5
+# the directory where the snapshot is stored.
+# do not use /tmp for storage, /tmp here is just
+# example sakes.
+dataDir=../data
+# the port at which the clients will connect
+dataLogDir=../logs
+clientPort=2181
+# the maximum number of client connections.
+# increase this if you need to handle more clients
+#maxClientCnxns=60
+#
+# Be sure to read the maintenance section of the
+# administrator guide before turning on autopurge.
+#
+# http://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_maintenance
+#
+# The number of snapshots to retain in dataDir
+#autopurge.snapRetainCount=3
+# Purge task interval in hours
+# Set to &amp;quot;0&amp;quot; to disable auto purge feature
+#autopurge.purgeInterval=1
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;环境变量&lt;/p&gt;
+&lt;p&gt;/etc/profile&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;export ZOOKEEPER_HOME=/opt/zookeeper
+export PATH=$ZOOKEEPER_HOME/bin:$PATH
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;启动与验证&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;./zkServer.sh start 
+./zkServer.sh start 
+curl 127.0.0.1:2181
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>国产软件组件适配</title>
+      <link>https://linjinbao.github.io/2021-03-17-%E5%9B%BD%E4%BA%A7%E8%BD%AF%E4%BB%B6%E7%BB%84%E4%BB%B6%E9%80%82%E9%85%8D/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021-03-17-%E5%9B%BD%E4%BA%A7%E8%BD%AF%E4%BB%B6%E7%BB%84%E4%BB%B6%E9%80%82%E9%85%8D/</guid>
+      <description>&lt;h3 id=&#34;docker-arm64安装&#34;&gt;docker arm64安装&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;版本&lt;/strong&gt;：19.03&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;下载软件包&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;wget -c https://download.docker.com/linux/static/stable/aarch64/docker-19.03.6.tgz
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;解压二进制文件&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;tar -xf docker-19.03.06.tgz
+mv docker/* /usr/bin/
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;配置systemd服务&lt;/p&gt;
+&lt;p&gt;3.1  /lib/systemd/system/docker.service&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;[Unit]
+Description=Docker Application Container Engine
+Documentation=https://docs.docker.com
+After=network-online.target docker.socket firewalld.service
+Wants=network-online.target
+Requires=docker.socket
+   
+[Service]
+Type=notify
+# the default is not to use systemd for cgroups because the delegate issues still
+# exists and systemd currently does not support the cgroup feature set required
+# for containers run by docker
+ExecStart=/usr/bin/dockerd -H fd://
+ExecReload=/bin/kill -s HUP $MAINPID
+LimitNOFILE=1048576
+# Having non-zero Limit*s causes performance problems due to accounting overhead
+# in the kernel. We recommend using cgroups to do container-local accounting.
+LimitNPROC=infinity
+LimitCORE=infinity
+# Uncomment TasksMax if your systemd version supports it.
+# Only systemd 226 and above support this version.
+#TasksMax=infinity
+TimeoutStartSec=0
+# set delegate yes so that systemd does not reset the cgroups of docker containers
+Delegate=yes
+# kill only the docker process, not all processes in the cgroup
+KillMode=process
+# restart the docker process if it exits prematurely
+Restart=on-failure
+StartLimitBurst=3
+StartLimitInterval=60s
+   
+[Install]
+WantedBy=multi-user.target
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;3.2 /lib/systemd/system/docker.socket&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;[Unit]
+Description=Docker Socket for the API
+PartOf=docker.service
+   
+[Socket]
+ListenStream=/var/run/docker.sock
+SocketMode=0660
+SocketUser=root
+SocketGroup=docker
+   
+[Install]
+WantedBy=sockets.target
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;新建用户和组&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;groupadd docker 
+useradd docker -g docker
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;启动docker服务&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;systemctl daemon-reload
+systemctl start docker
+docker version
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>空镜像</title>
+      <link>https://linjinbao.github.io/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/</link>
+      <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/</guid>
+      <description>&lt;p&gt;如何将当前宿主机制作成镜像？&lt;/p&gt;
+&lt;p&gt;答案：借助&lt;strong&gt;scratch 镜像&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;scratch 是一个空镜像，只能用于构建其他镜像，比如你要运行一个包含所有依赖的二进制文件，如Golang 程序，可以直接使用 scratch 作为基础镜像。例如busybox的Dockerfile写法：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-code&#34; data-lang=&#34;code&#34;&gt;FROM scratch
+ADD busybox.tar.xz /
+CMD [&amp;quot;sh&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;将当前机器制作成OS镜像，使用docker build即可。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>日常流水账</title>
+      <link>https://linjinbao.github.io/2021-03-14-%E6%B5%81%E6%B0%B4%E8%B4%A6/</link>
+      <pubDate>Sun, 14 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021-03-14-%E6%B5%81%E6%B0%B4%E8%B4%A6/</guid>
+      <description>&lt;p&gt;今日花钱：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;午饭18&lt;/li&gt;
+&lt;li&gt;晚饭14&lt;/li&gt;
+&lt;/ol&gt;
+</description>
     </item>
     
   </channel>

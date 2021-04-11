@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019-10-30-mybatis-generator%E4%BD%BF%E7%94%A8/" />
+  <link rel="next" href="https://linjinbao.github.io/2019-11-04-rpm%E5%B7%A5%E5%85%B7%E7%94%A8%E6%B3%95/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019-11-01-mysql%E4%B8%BB%E4%BB%8E%E9%85%8D%E7%BD%AE/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           mysql主从配置 | 打工人日记
+       
+  </title>
+  <meta name="title" content="mysql主从配置 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "",
+    "name" : "mysql主从配置",
+    "headline" : "mysql主从配置",
+    "description" : "mysql 主从配置 分别安装主数据库和从数据库 ##下载源安装包 wget http:\/\/dev.mysql.com\/get\/mysql57-community-release-el7-11.noarch.rpm ##安装mysql源 yum localinstall mysql57-community-release-el7-11.noarch.rpm ##检查 yum 源是否安装成功 yum repolist enabled|grep \x26#34;mysql.*-community.*\x26#34; ##安装服务 yum install mysql-community-server ##启动MySQL systemctl enable mysqld systemctl start mysqld systemctl status mysqld 修改密码之类步骤掠过",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-01 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-11-01 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019-11-01-mysql%E4%B8%BB%E4%BB%8E%E9%85%8D%E7%BD%AE\/",
+    "wordCount" : "330",
+    "keywords" : [ "MYSQL", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<div class="post-warp archive">
+    <h2 class="post-title" style="text-align:right;padding-bottom:2em">mysql主从配置</h2>
+    <div class="post-content">
+        <h1 id="mysql-主从配置">mysql 主从配置</h1>
+<h2 id="分别安装主数据库和从数据库">分别安装主数据库和从数据库</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##下载源安装包
+wget http://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
+
+##安装mysql源
+yum localinstall mysql57-community-release-el7-11.noarch.rpm
+
+##检查 yum 源是否安装成功
+yum repolist enabled|grep &#34;mysql.*-community.*&#34;
+
+##安装服务
+yum install mysql-community-server
+
+##启动MySQL
+
+systemctl enable mysqld
+systemctl start mysqld
+systemctl status mysqld
+</code></pre></div><p>修改密码之类步骤掠过</p>
+<h2 id="配置主数据库">配置主数据库</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">vi /etc/my.cnf
+
+[mysqld]
+
+# 添加如下配置
+# 参数必须唯一, 本例主库设置为 11 ，从库设置为 12
+server_id=101
+log_bin=/var/log/mysql/mysql-bin
+</code></pre></div><p>记得检查日志目录是否存在，不存在子主动建立并授权</p>
+<p>重启数据库</p>
+<h2 id="检查主库配置">检查主库配置</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">mysql&gt; show master;
++------------------+----------+--------------+------------------+-------------------+
+| File             | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set |
++------------------+----------+--------------+------------------+-------------------+
+| mysql-bin.000001 |      154 |              |                  |                   |
++------------------+----------+--------------+------------------+-------------------+
+</code></pre></div><h2 id="配置从库">配置从库</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">vi /etc/my.cnf
+
+[mysqld]
+
+# 添加如下配置
+# 参数必须唯一, 本例主库设置为 11 ，从库设置为 12
+server_id=12
+log_bin=/var/log/mysql/mysql-bin
+</code></pre></div><p>重启数据库</p>
+<h2 id="进入从库数据库配置">进入从库数据库配置</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">mysql&gt; CHANGE MASTER TO MASTER_HOST=&#39;192.168.200.136&#39;,
+    -&gt; MASTER_USER=&#39;admin&#39;,
+    -&gt; MASTER_PASSWORD=&#39;admin&#39;,
+    #此选项初始化设置时需要跟主库中的一致。设置好后，如果主
+    #库发生重启等，不需再次设置，从库会跟着更新
+    -&gt; MASTER_LOG_FILE=&#39;mysql-bin.000001&#39;,
+    # master Position的值
+    -&gt; MASTER_LOG_POS=154;
+</code></pre></div><h2 id="检查从库配置">检查从库配置</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">mysql&gt; show slave status \G;
+
+mysql&gt; show slave status \G;
+*************************** 1. row ***************************
+               Slave_IO_State: Waiting for master to send event
+                  Master_Host: 192.168.200.136
+                  Master_User: admin
+                  Master_Port: 3306
+                Connect_Retry: 60
+              Master_Log_File: mysql-bin.000001
+          Read_Master_Log_Pos: 307
+               Relay_Log_File: relay.000003
+                Relay_Log_Pos: 473
+        Relay_Master_Log_File: mysql-bin.000001
+             Slave_IO_Running: Yes
+            Slave_SQL_Running: Yes
+              Replicate_Do_DB:
+          Replicate_Ignore_DB:
+           Replicate_Do_Table:
+       Replicate_Ignore_Table:
+      Replicate_Wild_Do_Table:
+  Replicate_Wild_Ignore_Table:
+                   Last_Errno: 0
+                   Last_Error:
+                 Skip_Counter: 0
+          Exec_Master_Log_Pos: 307
+              Relay_Log_Space: 670
+              Until_Condition: None
+               Until_Log_File:
+                Until_Log_Pos: 0
+           Master_SSL_Allowed: No
+           Master_SSL_CA_File:
+           Master_SSL_CA_Path:
+              Master_SSL_Cert:
+            Master_SSL_Cipher:
+               Master_SSL_Key:
+        Seconds_Behind_Master: 0
+Master_SSL_Verify_Server_Cert: No
+                Last_IO_Errno: 0
+                Last_IO_Error:
+               Last_SQL_Errno: 0
+               Last_SQL_Error:
+  Replicate_Ignore_Server_Ids:
+             Master_Server_Id: 101
+                  Master_UUID: 22e13cbe-fc77-11e9-bb6f-000c2917f163
+             Master_Info_File: mysql.slave_master_info
+                    SQL_Delay: 0
+          SQL_Remaining_Delay: NULL
+      Slave_SQL_Running_State: Slave has read all relay log; waiting for more updates
+           Master_Retry_Count: 86400
+                  Master_Bind:
+      Last_IO_Error_Timestamp:
+     Last_SQL_Error_Timestamp:
+               Master_SSL_Crl:
+           Master_SSL_Crlpath:
+           Retrieved_Gtid_Set:
+            Executed_Gtid_Set: 3f897ce8-ea3b-11e9-adfc-9c5a4443c08a:1-2575
+                Auto_Position: 0
+         Replicate_Rewrite_DB:
+                 Channel_Name:
+           Master_TLS_Version:
+1 row in set (0.00 sec)
+
+ERROR:
+No query specified
+
+mysql&gt; start slave;
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+</code></pre></div><p><strong>错误提示</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">The replication receiver thread cannot start because the master has GTID_MODE = OFF and this server has GTID_MODE = ON.
+</code></pre></div><p>解决方案： 这个报错是因为主库和从库配置了不同的<code>GTID</code>策略，修改相同即可。</p>
+<h2 id="启动从库">启动从库</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">mysql&gt; start slave;
+</code></pre></div><h2 id="效果演示">效果演示</h2>
+<p>主库创建数据库<code>hello2</code>,从库自动同步创建了<code>hello2</code></p>
+<p>从库数据库示意：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">mysql&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| bjkfq              |
+| docker_mysql       |
+| hello2             |
+| mqtt               |
+| mqtt2              |
+| mqtt3              |
+| my                 |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+11 rows in set (0.00 sec)
+</code></pre></div><h2 id="重点难点总结">重点难点总结</h2>
+<ol>
+<li>主库和从库都要配置<code>server_id</code></li>
+<li>注意在主库中为从库设置远程访问账户和密码</li>
+</ol>
+<p>over</p>
+
+    </div>
+</div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

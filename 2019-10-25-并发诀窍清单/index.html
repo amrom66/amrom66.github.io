@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019-10-23-linux%E7%BD%91%E5%8D%A1%E9%85%8D%E7%BD%AE/" />
+  <link rel="next" href="https://linjinbao.github.io/2019-10-25-java%E5%A0%86%E6%BA%A2%E5%87%BA%E6%BC%94%E7%A4%BA/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019-10-25-%E5%B9%B6%E5%8F%91%E8%AF%80%E7%AA%8D%E6%B8%85%E5%8D%95/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           并发诀窍清单 | 打工人日记
+       
+  </title>
+  <meta name="title" content="并发诀窍清单 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "",
+    "name" : "并发诀窍清单",
+    "headline" : "并发诀窍清单",
+    "description" : "并发诀窍清单-摘自《java并发编程实践》   可变状态\n所有并发问题都归结为如何协调并发状态，可变状态越少，保证线程安全就越容易\n  尽量将域声明称final类型，除非他们的需要是可变的。\n  不可变对象天生是线程安全的。\n  不可变对象极大的减轻了并发编程的压力，他们简单而且安全，可以在没有锁的情况下自由的共享。\n  封装使得管理复杂度变得更可行。\n在对象中封装数据，使得他们更加容易的保持不变；在对象中封装同步，使他更能够遵循同步规则。\n  用锁来守护每一个可变变量",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-10-25 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-10-25 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019-10-25-%E5%B9%B6%E5%8F%91%E8%AF%80%E7%AA%8D%E6%B8%85%E5%8D%95\/",
+    "wordCount" : "15",
+    "keywords" : [  "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<div class="post-warp archive">
+    <h2 class="post-title" style="text-align:right;padding-bottom:2em">并发诀窍清单</h2>
+    <div class="post-content">
+        <h1 id="并发诀窍清单-摘自java并发编程实践">并发诀窍清单-摘自《java并发编程实践》</h1>
+<ol>
+<li>
+<p>可变状态</p>
+<p>所有并发问题都归结为如何协调并发状态，可变状态越少，保证线程安全就越容易</p>
+</li>
+<li>
+<p>尽量将域声明称<code>final</code>类型，除非他们的需要是可变的。</p>
+</li>
+<li>
+<p>不可变对象天生是线程安全的。</p>
+</li>
+<li>
+<p>不可变对象极大的减轻了并发编程的压力，他们简单而且安全，可以在没有锁的情况下自由的共享。</p>
+</li>
+<li>
+<p>封装使得管理复杂度变得更可行。</p>
+<p>在对象中封装数据，使得他们更加容易的保持不变；在对象中封装同步，使他更能够遵循同步规则。</p>
+</li>
+<li>
+<p>用锁来守护每一个可变变量</p>
+</li>
+<li>
+<p>对同一不变约束中的所有变量都使用相同的锁。</p>
+</li>
+<li>
+<p>在运行复合操作期间持有锁。</p>
+</li>
+<li>
+<p>在非同步的多线程情况下，访问可变变量额程序是存在隐患的。</p>
+</li>
+<li>
+<p>不要依赖于可以需要同步的小聪明。</p>
+</li>
+<li>
+<p>在设计过程中就考虑线程安全，或者在文档中明确的说明它不是想成安全的。</p>
+</li>
+<li>
+<p>文档化同步策略</p>
+</li>
+</ol>
+
+    </div>
+</div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

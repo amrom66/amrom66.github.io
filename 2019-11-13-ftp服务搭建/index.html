@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019-11-12-java%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%86%99%E6%B3%95/" />
+  <link rel="next" href="https://linjinbao.github.io/2019-11-14-spring%E4%BA%8B%E5%8A%A1/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019-11-13-ftp%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           ftp服务器搭建 | 打工人日记
+       
+  </title>
+  <meta name="title" content="ftp服务器搭建 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "",
+    "name" : "ftp服务器搭建",
+    "headline" : "ftp服务器搭建",
+    "description" : "ftp服务器搭建  安装软件  yum install -y vsftpd  配置  vi vsftpd.conf\nanonymous_enable=NO #不允许匿名用户登陆 local_enable=YES #vsftpd所在系统的用户可以登录vsftpd write_enable=YES #允许使用任何可以修改文件系统的FTP的指令 local_umask=002 #匿名用户新增文件的umask数值 anon_upload_enable=NO #匿名用户不可以上传文件 anon_mkdir_write_enable=NO #匿名用户不可以修改文件 xferlog_enable=YES #启用一个日志文件，用于详细记录上传和下载。 use_localtime=YES #使用本地时间而不是GMT vsftpd_log_file=\/var\/log\/vsftpd.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-13 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-11-13 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019-11-13-ftp%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA\/",
+    "wordCount" : "72",
+    "keywords" : [  "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<div class="post-warp archive">
+    <h2 class="post-title" style="text-align:right;padding-bottom:2em">ftp服务器搭建</h2>
+    <div class="post-content">
+        <h1 id="ftp服务器搭建">ftp服务器搭建</h1>
+<ol>
+<li>安装软件</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">yum install -y vsftpd
+</code></pre></div><ol>
+<li>配置</li>
+</ol>
+<p>vi vsftpd.conf</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">anonymous_enable=NO                    #不允许匿名用户登陆 
+local_enable=YES                       #vsftpd所在系统的用户可以登录vsftpd 
+write_enable=YES                       #允许使用任何可以修改文件系统的FTP的指令 
+local_umask=002                        #匿名用户新增文件的umask数值 
+anon_upload_enable=NO                  #匿名用户不可以上传文件 
+anon_mkdir_write_enable=NO             #匿名用户不可以修改文件 
+xferlog_enable=YES                     #启用一个日志文件，用于详细记录上传和下载。                
+use_localtime=YES                      #使用本地时间而不是GMT 
+vsftpd_log_file=/var/log/vsftpd.log    #vsftpd日志存放位置 
+dual_log_enable=YES                    #用户登陆日志 
+connect_from_port_20=YES               #开启20端口      
+xferlog_file=/var/log/xferlog          #记录上传下载文件的日志 
+xferlog_std_format=YES                #记录日志使用标准格式 
+idle_session_timeout=600              #登陆之后超时时间60秒，登陆之后，一分钟不操作，就会断开连接。 
+chroot_local_user=YES                  #用于指定用户列表文件中的用户,是否允许切换到上级目录      
+listen=YES                            #开启监听 
+pam_service_name=vsftpd.vu            #验证文件的名字 
+userlist_enable=YES                    #允许由userlist_file指定文件中的用户登录FTP服务器                    
+tcp_wrappers=YES                      #支持tcp_wrappers,限制访问(/etc/hosts.allow,/etc/hosts.deny) 
+guest_enable=YES                      #起用虚拟用户 
+guest_username=guest                  #虚拟用户名 
+
+#user_config_dir=/etc/vsftpd/vsftpuser  #虚拟用户配置文件路径 
+local_root=        /opt/tomcat/logs             #自定义ftp上传路径（注意文件夹权限）,给开发下载日志看
+pasv_min_port=35000  
+pasv_max_port=45000 
+pasv_enable=YES 
+pasv_promiscuous=YES 
+anon_other_write_enable=YES
+</code></pre></div><h2 id="添加ftp账户">添加ftp账户</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">useradd -d /home/ftpUser/ -g epointgroup -s /sbin/nologin hqa
+passwd ftpUser
+</code></pre></div>
+    </div>
+</div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

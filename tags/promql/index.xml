@@ -13,17 +13,15 @@
     
     <item>
       <title>PromQL语法学习</title>
-      <link>https://linjinbao.github.io/2021/2021-02-03-promql%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://linjinbao.github.io/2021-02-03-promql%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Wed, 03 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2021/2021-02-03-promql%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/</guid>
-      <description> 直接指标查询  表达式：node_load1表示查询当前1分钟的负载，仅使用指标查询。
+      <guid>https://linjinbao.github.io/2021-02-03-promql%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/</guid>
+      <description>直接指标查询  表达式：node_load1表示查询当前1分钟的负载，仅使用指标查询。
  函数查询  表达式：rate(node_cpu[2m])，表示查询单位时间（2分钟）内样本数据的增长率。
 表达式：rate(node_load1[2m])，表示每2分钟内指标node_load1表示的指标的增长率。
 结果：
-{container=&amp;quot;kube-rbac-proxy&amp;quot;, endpoint=&amp;quot;https&amp;quot;, instance=&amp;quot;docker-desktop&amp;quot;, job=&amp;quot;node-exporter&amp;quot;, namespace=&amp;quot;monitoring&amp;quot;, pod=&amp;quot;node-exporter-sd26w&amp;quot;, service=&amp;quot;node-exporter&amp;quot;} 0.02933333333333333  排除指定标签影响  以上表达式查询出来的结果中都会由多个标签表示，例如上述的结果由container,endpoint,instance,job,namespace,pod,service,标签共同表示以上标签如果有任何不同，则认为属于两条记录。如果要忽略某一标签的印象，则需要使用without排除：
-表达式：avg without(instance,namespace) (rate(node_load1[2m]))表示排除标签instance,namespace的影响。结果如下：
-{container=&amp;quot;kube-rbac-proxy&amp;quot;, endpoint=&amp;quot;https&amp;quot;, job=&amp;quot;node-exporter&amp;quot;, pod=&amp;quot;node-exporter-sd26w&amp;quot;, service=&amp;quot;node-exporter&amp;quot;} 0.02933333333333333 </description>
+{container=&amp;quot;kube-rbac-proxy&amp;quot;, endpoint=&amp;quot;https&amp;quot;, instance=&amp;quot;docker-desktop&amp;quot;, job=&amp;quot;node-exporter&amp;quot;, namespace=&amp;quot;monitoring&amp;quot;, pod=&amp;quot;node-exporter-sd26w&amp;quot;, service=&amp;quot;node-exporter&amp;quot;} 0.02933333333333333  排除指定标签影响  以上表达式查询出来的结果中都会由多个标签表示，例如上述的结果由container,endpoint,instance,job,namespace,pod,service,标签共同表示以上标签如果有任何不同，则认为属于两条记录。如果要忽略某一标签的印象，则需要使用without排除：</description>
     </item>
     
   </channel>

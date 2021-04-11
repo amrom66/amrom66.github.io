@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+	<meta name="generator" content="Hugo 0.64.1" />
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  
+  
+  <link rel="canonical" href="https://linjinbao.github.io/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           打工人日记
+       
+  </title>
+  <meta name="title" content="打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+    <link href="https://linjinbao.github.io/index.xml" rel="alternate" type="application/rss+xml" title="打工人日记" />
+    <link href="https://linjinbao.github.io/index.xml" rel="feed" type="application/rss+xml" title="打工人日记" />
+  
+  
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "https:\/\/linjinbao.github.io\/",
+    "name": "打工人日记",
+    "author": {
+        "@type": "Person",
+        "name": "linjinbao"
+    },
+    "description": "打工人日记",
+}
+</script>
+ 
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+  	
+  	
+<div class="post-warp">
+	<div class="intro">
+    
+    
+    
+    <div class="avatar">
+        <a href="/"> <img src="/images/me/avatar.jpg"> </a>
+    </div>
+    
+    
+    <h2 class="description">
+       Across the great wall, we can reach the world
+    </h2>
+    
+ 
+</div>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-10-25-java%E5%A0%86%E6%BA%A2%E5%87%BA%E6%BC%94%E7%A4%BA/">java堆溢出演示</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				java堆溢出演示-OutOfMemoryError jvm 参数 -Xms20m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError 代码示例 import java.util.ArrayList; import java.util.List; public class HeapOOM { static class OOMObject{ } public static void main(String[] args) { List&lt;OOMObject&gt; list = new ArrayList&lt;&gt;(); while(true) { list.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-10-25 itemprop="datePublished">October 25, 2019</time>
+                </span>
+                in
+                
+        </div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-10-25-%E5%B9%B6%E5%8F%91%E8%AF%80%E7%AA%8D%E6%B8%85%E5%8D%95/">并发诀窍清单</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				并发诀窍清单-摘自《java并发编程实践》   可变状态
+所有并发问题都归结为如何协调并发状态，可变状态越少，保证线程安全就越容易
+尽量将域声明称final类型，除非他们的需要是可变的。
+不可变对象天生是线程安全的。
+不可变对象极大的减轻了并发编程的压力，他们简单而且安全，可以在没有锁的情况下自由的共享。
+封装使得管理复杂度变得更可行。
+在对象中封装数据，使得他们更加容易的保持不变；在对象中封装同步，使他更能够遵循同步规则。
+用锁来守护每一个可变变量
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-10-25 itemprop="datePublished">October 25, 2019</time>
+                </span>
+                in
+                
+        </div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-10-23-linux%E7%BD%91%E5%8D%A1%E9%85%8D%E7%BD%AE/">Linux 网卡配置</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				Linux 网卡配置 1：临时修改： 1.1：修改IP地址 ifconfig eth0 192.168.100.100
+1.2：修改网关地址 route add default gw 192.168.100.1 dev eth0
+1.3：修改DNS echo &quot;nameserver 8.8.8.8&quot; &gt;&gt; /etc/resolv.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-10-23 itemprop="datePublished">October 23, 2019</time>
+                </span>
+                in
+                
+        </div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-10-23-%E6%95%B4%E6%95%B0%E8%BD%AC%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97/">整数传罗马数字</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				整数传罗马数字-leetcode算法题 题目描述
+罗马数字包含以下七种字符： I， V， X， L，C，D 和 M。
+字符 数值 I 1 V 5 X 10 L 50 C 100 D 500 M 1000 例如， 罗马数字 2 写做 II ，即为两个并列的 1。12 写做 XII ，即为 X + II 。 27 写做 XXVII, 即为 XX + V + II 。
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-10-23 itemprop="datePublished">October 23, 2019</time>
+                </span>
+                in
+                
+        </div>
+				
+				<div class="post-tags">
+        		
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/leetcode/">
+               	 #LeetCode</a></span>
+        		
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E7%AE%97%E6%B3%95/">
+               	 #算法</a></span>
+        		
+				</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-10-23-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/">最长公共前缀</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				LeetCode 算法题-最长公共前缀 题目描述： 编写一个函数来查找字符串数组中的最长公共前缀。
+如果不存在公共前缀，返回空字符串 “&quot;。
+示例 1: 输入: [&quot;flower&quot;,&quot;flow&quot;,&quot;flight&quot;] 输出: &quot;fl&quot; 示例 2: 输入: [&quot;dog&quot;,&quot;racecar&quot;,&quot;car&quot;] 输出: &quot;&quot; 解释: 输入不存在公共前缀。 说明:
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-10-23 itemprop="datePublished">October 23, 2019</time>
+                </span>
+                in
+                
+        </div>
+				
+				<div class="post-tags">
+        		
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/leetcode/">
+               	 #LeetCode</a></span>
+        		
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E7%AE%97%E6%B3%95/">
+               	 #算法</a></span>
+        		
+				</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-10-22-openjdk%E7%BC%96%E8%AF%91/">Centos 7 下编译openjdk</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				openjdk编译 最近在学习java虚拟机的技术，尝试下手动编译openjdk
+准备工作  CentOS7 环境 openjdk8 源码 bootstrap jdk源码（我用的是openjdk 7）  注意事项：
+目标jdk版本号比bootstrap jdk 大1
+准备可能需要安装各种编译工具
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-10-22 itemprop="datePublished">October 22, 2019</time>
+                </span>
+                in
+                
+        </div>
+				
+				<div class="post-tags">
+        		
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/java/">
+               	 #Java</a></span>
+        		
+				</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-10-22-%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/">日常学习</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				2019-10-22-日常笔记 Linux分卷压缩和解压缩 1.将分卷的文件合并成一个文件
+cat inpectWeb.zip.* &gt; inspectWeb.zip
+2.解压合并后的文件
+unzip -zvf inspectWeb.zip
+CCache安装 wget <a href="https://www.samba.org//ftp/ccache/ccache-3.6.tar.xz">https://www.samba.org//ftp/ccache/ccache-3.6.tar.xz</a> tar -xvf ccache-3.6.tar.xz cd ccache-3.6 ./configure -prefix=/var/ccache make -j8 make install ln -s /var/ccache/bin/ccache /usr/bin/ccache
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-10-22 itemprop="datePublished">October 22, 2019</time>
+                </span>
+                in
+                
+        </div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-10-21-%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9/">删除排序数组中的重复项</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				删除排序数组中的重复项 题目描述 给定一个排序数组，你需要在原地删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。
+不要使用额外的数组空间，你必须在原地修改输入数组并在使用 O(1) 额外空间的条件下完成。
+示例 1:
+给定数组 nums = [1,1,2],
+函数应该返回新的长度 2, 并且原数组 nums 的前两个元素被修改为 1, 2。
+你不需要考虑数组中超出新长度后面的元素。
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-10-21 itemprop="datePublished">October 21, 2019</time>
+                </span>
+                in
+                
+        </div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-10-18-linux%E4%BF%AE%E6%94%B9%E7%A3%81%E7%9B%98%E5%A4%A7%E5%B0%8F/">Vmware虚拟机Linux修改磁盘大小</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				Linux修改磁盘大小 注明： 1. 教程是在Vmware虚拟机环境下制作 2. 真机和这个差不多，只是第一步不一样
+第一步 在Vmware中进行分配磁盘大小 如图所示： 第二步：fdisk命令 fdisk /dev/sda p　查看已分区数量（我看到有两个 /dev/sda1 /dev/sda2） n　新增加一个分区 p　分区类型我们选择为主分区 分区号输入3（因为1,2已经用过了,sda1是分区1,sda2是分区2,sda3分区3） 回车　默认（起始扇区） 回车　默认（结束扇区） t　修改分区类型 选分区3 8e　修改为LVM（8e就是LVM） w　写分区表 q　完成，退出fdisk命令 第三步：添加新LVM到已有的LVM组，实现扩容 lvm　进入lvm管理 lvm&gt;pvcreate /dev/sda3　这是初始化刚才的分区3 lvm&gt;vgextend centos /dev/sda3 将初始化过的分区加入到虚拟卷组centos (卷和卷组的命令可以通过 vgdisplay ) vm&gt;vgdisplay lvm&gt;lvextend -l+6793 /dev/mapper/centos-root　扩展已有卷的容量（6793 是通过vgdisplay查看free PE /Site的大小） lvm&gt;pvdisplay 查看卷容量，这时你会看到一个很大的卷了 lvm&gt;quit 退出 第四步：文件系统的扩容 xfs_growfs /dev/mapper/centos-root 查看结果-扩容了30G [root@192-168-200-130 ~]# df -h Filesystem Size Used Avail Use% Mounted on /dev/mapper/centos-root 47G 17G 31G 36% / devtmpfs 475M 0 475M 0% /dev tmpfs 487M 0 487M 0% /dev/shm tmpfs 487M 7.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-10-18 itemprop="datePublished">October 18, 2019</time>
+                </span>
+                in
+                
+        </div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-10-17-docker%E5%AE%8C%E6%95%B4%E6%89%93%E5%8C%85%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE/">Docker完整打包一个项目</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				2019-10-17-Docker完整打包一个项目 Docker完整打包项目 使用Docker打包一个完整的项目，开箱即用的那种 包含以下内容：
+MySQL，完整数据库 Tomcat web系统mqtt  项目背景 说明： 这个项目是我以前做的一个项目，关于物联网Iot的项目，包含web端和设备端； web端运行在浏览器，是系统的后台，设备端运行在智能设备上（智能香薰仪）；项目使用阿里云的IotSDK和其提供的云端api； 项目不够成熟，希望大家指点
+示意图：
+设备端 &lt;=&gt; 阿里云 &lt;=&gt; 服务端
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-10-17 itemprop="datePublished">October 17, 2019</time>
+                </span>
+                in
+                
+        </div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-10-16-firewalld%E9%98%B2%E7%81%AB%E5%A2%99%E4%BD%BF%E7%94%A8/">firewalld防火墙使用</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				2019-10-16-firewalld防火墙使用 firewalld动态防火墙 firewalld 服务引入了一个信任级别的概念来管理与之相关联的连接与接口。它支持 ipv4 与 ipv6，并支持网桥，采用 firewall-cmd (command) 或 firewall-config (gui) 来动态的管理 kernel netfilter 的临时或永久的接口规则，并实时生效而无需重启服务。
+firewalld相关命令 systemctl start firewalld systemctl stop firewalld systemctl status firewalld systemctl enable firewalld firewall-cmd基本使用 firewall-cmd用来管理端口
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-10-16 itemprop="datePublished">October 16, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://linjinbao.github.io/categories/linux/"> Linux </a>
+                        
+                </span>
+        </div>
+				
+				<div class="post-tags">
+        		
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/linux/">
+               	 #Linux</a></span>
+        		
+				</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-10-16-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0/">leetcode题目-罗马数字转整数</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				2019-10-16-罗马数字转整数 题目描述 罗马数字包含以下七种字符: I， V， X， L，C，D 和 M。
+字符 数值 I 1 V 5 X 10 L 50 C 100 D 500 M 1000
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2019-10-16 itemprop="datePublished">October 16, 2019</time>
+                </span>
+                in
+                <i class="iconfont icon-folder"></i>
+                <span class="post-category">
+                        <a href="https://linjinbao.github.io/categories/leetcode/"> LeetCode </a>
+                        <a href="https://linjinbao.github.io/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
+                        
+                </span>
+        </div>
+				
+				<div class="post-tags">
+        		
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E7%AE%97%E6%B3%95/">
+               	 #算法</a></span>
+        		
+				</div>
+				
+			</div>
+		</article>
+	
+
+	
+
+<ul class="pagination">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item ">
+        <span class="page-link">
+            <a href="/">1</a></li>
+        </span>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item "><span class="page-link" aria-hidden="true">&hellip;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item ">
+        <span class="page-link">
+            <a href="/page/13/">13</a></li>
+        </span>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item ">
+        <span class="page-link">
+            <a href="/page/14/">14</a></li>
+        </span>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item active">
+        <span class="page-link">
+            <a href="/page/15/">15</a></li>
+        </span>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item ">
+        <span class="page-link">
+            <a href="/page/16/">16</a></li>
+        </span>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item ">
+        <span class="page-link">
+            <a href="/page/17/">17</a></li>
+        </span>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item "><span class="page-link" aria-hidden="true">&hellip;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item ">
+        <span class="page-link">
+            <a href="/page/19/">19</a></li>
+        </span>
+    
+    
+    
+    
+</ul>
+
+</div>
+
+  
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+    
+    <script src="/js/vendor_main.min.js" async=""></script>
+
+
+
+     </div>
+  </body>
+</html>

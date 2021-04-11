@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2020-01-30-%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/" />
+  <link rel="next" href="https://linjinbao.github.io/2020-02-03-kettle%E7%AC%94%E8%AE%B0/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2020-02-03-%E5%8D%81%E6%AC%A1%E6%96%B9%E5%89%8D%E7%AB%AF/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           十次方前端笔记 | 打工人日记
+       
+  </title>
+  <meta name="title" content="十次方前端笔记 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "",
+    "name" : "十次方前端笔记",
+    "headline" : "十次方前端笔记",
+    "description" : "十次方前端笔记 第一章  nodejs的使用 webpack的使用  第二章 API文档与模拟数据接口 RESTful  资源（Resources） 表现层（Representation） 状态转化（State Transfer）  解释：每一个URI代表一种资源；客户端和服务器之间，传递这种资源的某种表现层；客户端通过四个HTTP动词，对服务器端资源进行操作，实现\x26quot;表现层状态转化\x26rdquo;\nSwagger 部署步骤：1）下载解压swagger-editor 2）npm install ‐g http‐server 3） http‐server swagger‐editor 4）浏览器打开： http:\/\/localhost:8080",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-02-03 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-02-03 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2020-02-03-%E5%8D%81%E6%AC%A1%E6%96%B9%E5%89%8D%E7%AB%AF\/",
+    "wordCount" : "23",
+    "keywords" : [  "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<div class="post-warp archive">
+    <h2 class="post-title" style="text-align:right;padding-bottom:2em">十次方前端笔记</h2>
+    <div class="post-content">
+        <h1 id="十次方前端笔记">十次方前端笔记</h1>
+<h2 id="第一章">第一章</h2>
+<ul>
+<li>nodejs的使用</li>
+<li>webpack的使用</li>
+</ul>
+<h2 id="第二章-api文档与模拟数据接口">第二章 API文档与模拟数据接口</h2>
+<h3 id="restful">RESTful</h3>
+<ul>
+<li>资源（Resources）</li>
+<li>表现层（Representation）</li>
+<li>状态转化（State Transfer）</li>
+</ul>
+<p>解释：每一个URI代表一种资源；客户端和服务器之间，传递这种资源的某种表现层；客户端通过四个HTTP动词，对服务器端资源进行操作，实现&quot;表现层状态转化&rdquo;</p>
+<h3 id="swagger">Swagger</h3>
+<p>部署步骤：1）下载解压swagger-editor 2）npm install ‐g http‐server 3） http‐server swagger‐editor 4）浏览器打开： <a href="http://localhost:8080">http://localhost:8080</a></p>
+
+    </div>
+</div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

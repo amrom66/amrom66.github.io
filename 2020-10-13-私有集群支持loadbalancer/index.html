@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2020-10-09-maven-%E6%89%93%E5%8C%85%E5%A4%9A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" />
+  <link rel="next" href="https://linjinbao.github.io/2020-10-13-acme.sh%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2020-10-13-%E7%A7%81%E6%9C%89%E9%9B%86%E7%BE%A4%E6%94%AF%E6%8C%81loadbalancer/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           私有集群支持loadbalancer | 打工人日记
+       
+  </title>
+  <meta name="title" content="私有集群支持loadbalancer | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "",
+    "name" : "私有集群支持loadbalancer",
+    "headline" : "私有集群支持loadbalancer",
+    "description" : "k8s 使本地集群支持 LoadBalancer 服务 为了使本地集群支持 LoadBalancer 服务，可以参考以下两种实现方案：\n keepalived-cloud-provider metalLB  这里我们选择使用 metalLB。\nmetalLB 的部署很简单，直接使用 yaml 文件部署：\nkubectl apply -f https:\/\/raw.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao",
+    "creator" : "linjinbao",
+    "publisher": "linjinbao",
+    "accountablePerson" : "linjinbao",
+    "copyrightHolder" : "linjinbao",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-10-13 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-10-13 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2020-10-13-%E7%A7%81%E6%9C%89%E9%9B%86%E7%BE%A4%E6%94%AF%E6%8C%81loadbalancer\/",
+    "wordCount" : "632",
+    "keywords" : [  "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<div class="post-warp archive">
+    <h2 class="post-title" style="text-align:right;padding-bottom:2em">私有集群支持loadbalancer</h2>
+    <div class="post-content">
+        <h2 id="k8s-使本地集群支持-loadbalancer-服务">k8s 使本地集群支持 LoadBalancer 服务</h2>
+<p>为了使本地集群支持 <code>LoadBalancer</code> 服务，可以参考以下两种实现方案：</p>
+<ul>
+<li><a href="https://github.com/munnerz/keepalived-cloud-provider">keepalived-cloud-provider</a></li>
+<li><a href="https://github.com/google/metallb">metalLB</a></li>
+</ul>
+<p>这里我们选择使用 <code>metalLB</code>。</p>
+<p>metalLB 的部署很简单，直接使用 yaml 文件部署：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">kubectl apply -f https://raw.githubusercontent.com/google/metallb/v0.8.3/manifests/metallb.yaml
+</code></pre></div><p>具体参考 <a href="https://metallb.universe.tf/installation/">https://metallb.universe.tf/installation/</a></p>
+<p>部署完成后需要为 LoadBalancer 服务选择一个特定的 IP 地址池，这里通过 configmap 来创建。</p>
+<p>下面是一个简单示例：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ cat metallb-cm.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: metallb-system
+  name: config
+data:
+  config: |
+    address-pools:
+    - name: default
+      protocol: layer2
+      addresses:
+      - 192.168.1.58-192.168.1.60
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl create -f metallb-cm.yaml
+</code></pre></div><h2 id="测试">测试</h2>
+<p>创建一个 Nginx 的服务，服务类型为 <code>LoadBalancer</code>：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: apps/v1beta2
+<span style="color:#66d9ef">kind</span>: Deployment
+metadata:
+  <span style="color:#66d9ef">name</span>: nginx
+spec:
+  selector:
+    matchLabels:
+      <span style="color:#66d9ef">app</span>: nginx
+  template:
+    metadata:
+      labels:
+        <span style="color:#66d9ef">app</span>: nginx
+    spec:
+      containers:
+      - <span style="color:#66d9ef">name</span>: nginx
+        <span style="color:#66d9ef">image</span>: nginx:<span style="color:#ae81ff">1</span>
+        ports:
+        - <span style="color:#66d9ef">name</span>: http
+          <span style="color:#66d9ef">containerPort</span>: <span style="color:#ae81ff">80</span>
+
+---
+<span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">kind</span>: Service
+metadata:
+  <span style="color:#66d9ef">name</span>: nginx
+spec:
+  ports:
+  - <span style="color:#66d9ef">name</span>: http
+    <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">80</span>
+    <span style="color:#66d9ef">protocol</span>: TCP
+    <span style="color:#66d9ef">targetPort</span>: <span style="color:#ae81ff">80</span>
+  selector:
+    <span style="color:#66d9ef">app</span>: nginx
+  <span style="color:#66d9ef">type</span>: LoadBalancer
+</code></pre></div><p>服务创建运行之后，可以列出服务信息：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">kubectl get svc
+NAME       TYPE           CLUSTER-IP      EXTERNAL-IP     PORT<span style="color:#f92672">(</span>S<span style="color:#f92672">)</span>         AGE
+kube-dns   ClusterIP      10.96.0.10      &lt;none&gt;          53/UDP,53/TCP   7d
+nginx      LoadBalancer   10.96.245.212   10.211.55.240   80:32207/TCP    54m
+</code></pre></div><p>这里就发现，LoadBalancer 类型的服务，分配到了我们地址池中的第一个 IP。</p>
+<h2 id="附录">附录</h2>
+<p><a href="https://raw.githubusercontent.com/google/metallb/v0.8.3/manifests/metallb.yaml">https://raw.githubusercontent.com/google/metallb/v0.8.3/manifests/metallb.yaml</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">kind</span>: Namespace
+metadata:
+  labels:
+    <span style="color:#66d9ef">app</span>: metallb
+  <span style="color:#66d9ef">name</span>: metallb-system
+---
+<span style="color:#66d9ef">apiVersion</span>: policy/v1beta1
+<span style="color:#66d9ef">kind</span>: PodSecurityPolicy
+metadata:
+  labels:
+    <span style="color:#66d9ef">app</span>: metallb
+  <span style="color:#66d9ef">name</span>: speaker
+  <span style="color:#66d9ef">namespace</span>: metallb-system
+spec:
+  <span style="color:#66d9ef">allowPrivilegeEscalation</span>: <span style="color:#66d9ef">false</span>
+  allowedCapabilities:
+  - NET_ADMIN
+  - NET_RAW
+  - SYS_ADMIN
+  fsGroup:
+    <span style="color:#66d9ef">rule</span>: RunAsAny
+  <span style="color:#66d9ef">hostNetwork</span>: <span style="color:#66d9ef">true</span>
+  hostPorts:
+  - <span style="color:#66d9ef">max</span>: <span style="color:#ae81ff">7472</span>
+    <span style="color:#66d9ef">min</span>: <span style="color:#ae81ff">7472</span>
+  <span style="color:#66d9ef">privileged</span>: <span style="color:#66d9ef">true</span>
+  runAsUser:
+    <span style="color:#66d9ef">rule</span>: RunAsAny
+  seLinux:
+    <span style="color:#66d9ef">rule</span>: RunAsAny
+  supplementalGroups:
+    <span style="color:#66d9ef">rule</span>: RunAsAny
+  volumes:
+  - <span style="color:#e6db74">&#39;*&#39;</span>
+---
+<span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">kind</span>: ServiceAccount
+metadata:
+  labels:
+    <span style="color:#66d9ef">app</span>: metallb
+  <span style="color:#66d9ef">name</span>: controller
+  <span style="color:#66d9ef">namespace</span>: metallb-system
+---
+<span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">kind</span>: ServiceAccount
+metadata:
+  labels:
+    <span style="color:#66d9ef">app</span>: metallb
+  <span style="color:#66d9ef">name</span>: speaker
+  <span style="color:#66d9ef">namespace</span>: metallb-system
+---
+<span style="color:#66d9ef">apiVersion</span>: rbac.authorization.k8s.io/v1
+<span style="color:#66d9ef">kind</span>: ClusterRole
+metadata:
+  labels:
+    <span style="color:#66d9ef">app</span>: metallb
+  <span style="color:#66d9ef">name</span>: metallb-system:controller
+rules:
+- apiGroups:
+  - <span style="color:#e6db74">&#39;&#39;</span>
+  resources:
+  - services
+  verbs:
+  - get
+  - list
+  - watch
+  - update
+- apiGroups:
+  - <span style="color:#e6db74">&#39;&#39;</span>
+  resources:
+  - services/status
+  verbs:
+  - update
+- apiGroups:
+  - <span style="color:#e6db74">&#39;&#39;</span>
+  resources:
+  - events
+  verbs:
+  - create
+  - patch
+---
+<span style="color:#66d9ef">apiVersion</span>: rbac.authorization.k8s.io/v1
+<span style="color:#66d9ef">kind</span>: ClusterRole
+metadata:
+  labels:
+    <span style="color:#66d9ef">app</span>: metallb
+  <span style="color:#66d9ef">name</span>: metallb-system:speaker
+rules:
+- apiGroups:
+  - <span style="color:#e6db74">&#39;&#39;</span>
+  resources:
+  - services
+  - endpoints
+  - nodes
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - <span style="color:#e6db74">&#39;&#39;</span>
+  resources:
+  - events
+  verbs:
+  - create
+  - patch
+- apiGroups:
+  - extensions
+  resourceNames:
+  - speaker
+  resources:
+  - podsecuritypolicies
+  verbs:
+  - use
+---
+<span style="color:#66d9ef">apiVersion</span>: rbac.authorization.k8s.io/v1
+<span style="color:#66d9ef">kind</span>: Role
+metadata:
+  labels:
+    <span style="color:#66d9ef">app</span>: metallb
+  <span style="color:#66d9ef">name</span>: config-watcher
+  <span style="color:#66d9ef">namespace</span>: metallb-system
+rules:
+- apiGroups:
+  - <span style="color:#e6db74">&#39;&#39;</span>
+  resources:
+  - configmaps
+  verbs:
+  - get
+  - list
+  - watch
+---
+<span style="color:#66d9ef">apiVersion</span>: rbac.authorization.k8s.io/v1
+<span style="color:#66d9ef">kind</span>: ClusterRoleBinding
+metadata:
+  labels:
+    <span style="color:#66d9ef">app</span>: metallb
+  <span style="color:#66d9ef">name</span>: metallb-system:controller
+roleRef:
+  <span style="color:#66d9ef">apiGroup</span>: rbac.authorization.k8s.io
+  <span style="color:#66d9ef">kind</span>: ClusterRole
+  <span style="color:#66d9ef">name</span>: metallb-system:controller
+subjects:
+- <span style="color:#66d9ef">kind</span>: ServiceAccount
+  <span style="color:#66d9ef">name</span>: controller
+  <span style="color:#66d9ef">namespace</span>: metallb-system
+---
+<span style="color:#66d9ef">apiVersion</span>: rbac.authorization.k8s.io/v1
+<span style="color:#66d9ef">kind</span>: ClusterRoleBinding
+metadata:
+  labels:
+    <span style="color:#66d9ef">app</span>: metallb
+  <span style="color:#66d9ef">name</span>: metallb-system:speaker
+roleRef:
+  <span style="color:#66d9ef">apiGroup</span>: rbac.authorization.k8s.io
+  <span style="color:#66d9ef">kind</span>: ClusterRole
+  <span style="color:#66d9ef">name</span>: metallb-system:speaker
+subjects:
+- <span style="color:#66d9ef">kind</span>: ServiceAccount
+  <span style="color:#66d9ef">name</span>: speaker
+  <span style="color:#66d9ef">namespace</span>: metallb-system
+---
+<span style="color:#66d9ef">apiVersion</span>: rbac.authorization.k8s.io/v1
+<span style="color:#66d9ef">kind</span>: RoleBinding
+metadata:
+  labels:
+    <span style="color:#66d9ef">app</span>: metallb
+  <span style="color:#66d9ef">name</span>: config-watcher
+  <span style="color:#66d9ef">namespace</span>: metallb-system
+roleRef:
+  <span style="color:#66d9ef">apiGroup</span>: rbac.authorization.k8s.io
+  <span style="color:#66d9ef">kind</span>: Role
+  <span style="color:#66d9ef">name</span>: config-watcher
+subjects:
+- <span style="color:#66d9ef">kind</span>: ServiceAccount
+  <span style="color:#66d9ef">name</span>: controller
+- <span style="color:#66d9ef">kind</span>: ServiceAccount
+  <span style="color:#66d9ef">name</span>: speaker
+---
+<span style="color:#66d9ef">apiVersion</span>: apps/v1
+<span style="color:#66d9ef">kind</span>: DaemonSet
+metadata:
+  labels:
+    <span style="color:#66d9ef">app</span>: metallb
+    <span style="color:#66d9ef">component</span>: speaker
+  <span style="color:#66d9ef">name</span>: speaker
+  <span style="color:#66d9ef">namespace</span>: metallb-system
+spec:
+  selector:
+    matchLabels:
+      <span style="color:#66d9ef">app</span>: metallb
+      <span style="color:#66d9ef">component</span>: speaker
+  template:
+    metadata:
+      annotations:
+        <span style="color:#66d9ef">prometheus.io/port</span>: <span style="color:#e6db74">&#39;7472&#39;</span>
+        <span style="color:#66d9ef">prometheus.io/scrape</span>: <span style="color:#e6db74">&#39;true&#39;</span>
+      labels:
+        <span style="color:#66d9ef">app</span>: metallb
+        <span style="color:#66d9ef">component</span>: speaker
+    spec:
+      containers:
+      - args:
+        - --port=<span style="color:#ae81ff">7472</span>
+        - --config=config
+        env:
+        - <span style="color:#66d9ef">name</span>: METALLB_NODE_NAME
+          valueFrom:
+            fieldRef:
+              <span style="color:#66d9ef">fieldPath</span>: spec.nodeName
+        - <span style="color:#66d9ef">name</span>: METALLB_HOST
+          valueFrom:
+            fieldRef:
+              <span style="color:#66d9ef">fieldPath</span>: status.hostIP
+        <span style="color:#66d9ef">image</span>: metallb/speaker:v0<span style="color:#ae81ff">.8</span><span style="color:#ae81ff">.2</span>
+        <span style="color:#66d9ef">imagePullPolicy</span>: IfNotPresent
+        <span style="color:#66d9ef">name</span>: speaker
+        ports:
+        - <span style="color:#66d9ef">containerPort</span>: <span style="color:#ae81ff">7472</span>
+          <span style="color:#66d9ef">name</span>: monitoring
+        resources:
+          limits:
+            <span style="color:#66d9ef">cpu</span>: 100m
+            <span style="color:#66d9ef">memory</span>: 100Mi
+        securityContext:
+          <span style="color:#66d9ef">allowPrivilegeEscalation</span>: <span style="color:#66d9ef">false</span>
+          capabilities:
+            add:
+            - NET_ADMIN
+            - NET_RAW
+            - SYS_ADMIN
+            drop:
+            - ALL
+          <span style="color:#66d9ef">readOnlyRootFilesystem</span>: <span style="color:#66d9ef">true</span>
+      <span style="color:#66d9ef">hostNetwork</span>: <span style="color:#66d9ef">true</span>
+      nodeSelector:
+        <span style="color:#66d9ef">beta.kubernetes.io/os</span>: linux
+      <span style="color:#66d9ef">serviceAccountName</span>: speaker
+      <span style="color:#66d9ef">terminationGracePeriodSeconds</span>: <span style="color:#ae81ff">0</span>
+      tolerations:
+      - <span style="color:#66d9ef">effect</span>: NoSchedule
+        <span style="color:#66d9ef">key</span>: node-role.kubernetes.io/master
+---
+<span style="color:#66d9ef">apiVersion</span>: apps/v1
+<span style="color:#66d9ef">kind</span>: Deployment
+metadata:
+  labels:
+    <span style="color:#66d9ef">app</span>: metallb
+    <span style="color:#66d9ef">component</span>: controller
+  <span style="color:#66d9ef">name</span>: controller
+  <span style="color:#66d9ef">namespace</span>: metallb-system
+spec:
+  <span style="color:#66d9ef">revisionHistoryLimit</span>: <span style="color:#ae81ff">3</span>
+  selector:
+    matchLabels:
+      <span style="color:#66d9ef">app</span>: metallb
+      <span style="color:#66d9ef">component</span>: controller
+  template:
+    metadata:
+      annotations:
+        <span style="color:#66d9ef">prometheus.io/port</span>: <span style="color:#e6db74">&#39;7472&#39;</span>
+        <span style="color:#66d9ef">prometheus.io/scrape</span>: <span style="color:#e6db74">&#39;true&#39;</span>
+      labels:
+        <span style="color:#66d9ef">app</span>: metallb
+        <span style="color:#66d9ef">component</span>: controller
+    spec:
+      containers:
+      - args:
+        - --port=<span style="color:#ae81ff">7472</span>
+        - --config=config
+        <span style="color:#66d9ef">image</span>: metallb/controller:v0<span style="color:#ae81ff">.8</span><span style="color:#ae81ff">.2</span>
+        <span style="color:#66d9ef">imagePullPolicy</span>: IfNotPresent
+        <span style="color:#66d9ef">name</span>: controller
+        ports:
+        - <span style="color:#66d9ef">containerPort</span>: <span style="color:#ae81ff">7472</span>
+          <span style="color:#66d9ef">name</span>: monitoring
+        resources:
+          limits:
+            <span style="color:#66d9ef">cpu</span>: 100m
+            <span style="color:#66d9ef">memory</span>: 100Mi
+        securityContext:
+          <span style="color:#66d9ef">allowPrivilegeEscalation</span>: <span style="color:#66d9ef">false</span>
+          capabilities:
+            drop:
+            - all
+          <span style="color:#66d9ef">readOnlyRootFilesystem</span>: <span style="color:#66d9ef">true</span>
+      nodeSelector:
+        <span style="color:#66d9ef">beta.kubernetes.io/os</span>: linux
+      securityContext:
+        <span style="color:#66d9ef">runAsNonRoot</span>: <span style="color:#66d9ef">true</span>
+        <span style="color:#66d9ef">runAsUser</span>: <span style="color:#ae81ff">65534</span>
+      <span style="color:#66d9ef">serviceAccountName</span>: controller
+      <span style="color:#66d9ef">terminationGracePeriodSeconds</span>: <span style="color:#ae81ff">0</span>
+</code></pre></div>
+    </div>
+</div>
+
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
