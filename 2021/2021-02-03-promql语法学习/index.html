@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2021/2021-02-01-%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E8%A1%A8%E7%A4%BA/" />
+  <link rel="next" href="https://linjinbao.github.io/2021/2021-02-04-k8s%E4%BF%AE%E6%94%B9dns%E8%A7%A3%E6%9E%90/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-02-03-promql%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           PromQL语法学习 | 打工人日记
+       
+  </title>
+  <meta name="title" content="PromQL语法学习 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "PromQL语法学习",
+    "headline" : "PromQL语法学习",
+    "description" : "直接指标查询  表达式：node_load1表示查询当前1分钟的负载，仅使用指标查询。\n 函数查询  表达式：rate(node_cpu[2m])，表示查询单位时间（2分钟）内样本数据的增长率。\n表达式：rate(node_load1[2m])，表示每2分钟内指标node_load1表示的指标的增长率。\n结果：\n{container=\x26quot;kube-rbac-proxy\x26quot;, endpoint=\x26quot;https\x26quot;, instance=\x26quot;docker-desktop\x26quot;, job=\x26quot;node-exporter\x26quot;, namespace=\x26quot;monitoring\x26quot;, pod=\x26quot;node-exporter-sd26w\x26quot;, service=\x26quot;node-exporter\x26quot;} 0.02933333333333333  排除指定标签影响  以上表达式查询出来的结果中都会由多个标签表示，例如上述的结果由container,endpoint,instance,job,namespace,pod,service,标签共同表示以上标签如果有任何不同，则认为属于两条记录。如果要忽略某一标签的印象，则需要使用without排除：",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-02-03 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-02-03 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-02-03-promql%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0\/",
+    "wordCount" : "25",
+    "keywords" : [ "PromQL","k8s","kubernetes", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">PromQL语法学习</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=3029-02-03 itemprop="datePublished">February 3, 2021</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <ul>
+<li>直接指标查询</li>
+</ul>
+<p>表达式：<code>node_load1</code>表示查询当前1分钟的负载，仅使用指标查询。</p>
+<ul>
+<li>函数查询</li>
+</ul>
+<p>表达式：<code>rate(node_cpu[2m])</code>，表示查询单位时间（2分钟）内样本数据的增长率。</p>
+<p>表达式：<code>rate(node_load1[2m])</code>，表示每2分钟内指标node_load1表示的指标的增长率。</p>
+<p>结果：</p>
+<pre><code class="language-code" data-lang="code">{container=&quot;kube-rbac-proxy&quot;, endpoint=&quot;https&quot;, instance=&quot;docker-desktop&quot;, job=&quot;node-exporter&quot;, namespace=&quot;monitoring&quot;, pod=&quot;node-exporter-sd26w&quot;, service=&quot;node-exporter&quot;}
+0.02933333333333333
+</code></pre><ul>
+<li>排除指定标签影响</li>
+</ul>
+<p>以上表达式查询出来的结果中都会由多个标签表示，例如上述的结果由<code>container,endpoint,instance,job,namespace,pod,service</code>,标签共同表示以上标签如果有任何不同，则认为属于两条记录。如果要忽略某一标签的印象，则需要使用without排除：</p>
+<p>表达式：<code>avg without(instance,namespace) (rate(node_load1[2m]))</code>表示排除标签<code>instance,namespace</code>的影响。结果如下：</p>
+<pre><code class="language-code" data-lang="code">{container=&quot;kube-rbac-proxy&quot;, endpoint=&quot;https&quot;, job=&quot;node-exporter&quot;, pod=&quot;node-exporter-sd26w&quot;, service=&quot;node-exporter&quot;}
+0.02933333333333333
+</code></pre>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2021/2021-02-03-promql%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/>https://linjinbao.github.io/2021/2021-02-03-promql%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/promql/">
+                    #PromQL</a></span>
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/k8s/">
+                    #k8s</a></span>
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/kubernetes/">
+                    #kubernetes</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2021/2021-02-01-%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E8%A1%A8%E7%A4%BA/" class="prev" rel="prev" title="子网掩码表示"><i class="iconfont icon-left"></i>&nbsp;子网掩码表示</a>
+         
+        
+        <a href="https://linjinbao.github.io/2021/2021-02-04-k8s%E4%BF%AE%E6%94%B9dns%E8%A7%A3%E6%9E%90/" class="next" rel="next" title="k8s修改dns解析">k8s修改dns解析&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= "title"
+        label= "utterance"
+        theme= 'github-light'
+        crossorigin="anonymous"
+        async>
+  </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2021/2021-03-17-jdk-%E9%B2%B2%E9%B9%8F/" />
+  <link rel="next" href="https://linjinbao.github.io/2021/2021-03-18-hortonworks-%E9%B2%B2%E9%B9%8F/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-03-17-es-%E9%B2%B2%E9%B9%8F/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           es-鲲鹏 | 打工人日记
+       
+  </title>
+  <meta name="title" content="es-鲲鹏 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "es-鲲鹏",
+    "headline" : "es-鲲鹏",
+    "description" : "安装版本：6.4.2\n安装方式：磁盘安装\n  下载\nwget https:\/\/artifacts.elastic.co\/downloads\/elasticsearch\/elasticsearch-6.4.2.tar.gz   解压\ntar -zxvf elasticsearch-6.4.2.tar.gz mkdir \/usr\/local\/es mv elasticsearch-6.4.2 elasticsearch cp elasticsearch \/usr\/local\/es\/   修改配置",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-03-17 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-03-17 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-03-17-es-%E9%B2%B2%E9%B9%8F\/",
+    "wordCount" : "119",
+    "keywords" : [  "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">es-鲲鹏</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=17039-03-17 itemprop="datePublished">March 17, 2021</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p><strong>安装版本</strong>：6.4.2</p>
+<p><strong>安装方式</strong>：磁盘安装</p>
+<ol>
+<li>
+<p>下载</p>
+<pre><code class="language-code" data-lang="code">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.4.2.tar.gz
+</code></pre></li>
+<li>
+<p>解压</p>
+<pre><code class="language-code" data-lang="code">tar -zxvf elasticsearch-6.4.2.tar.gz 
+mkdir /usr/local/es
+mv elasticsearch-6.4.2 elasticsearch
+cp elasticsearch /usr/local/es/
+</code></pre></li>
+<li>
+<p>修改配置</p>
+<p>/usr/local/es/elasticsearch/config/elasticsearch.yml</p>
+<pre><code class="language-code" data-lang="code">cluster.name: elasticsearch
+node.name: node-1
+path.data: /usr/local/es/elasticsearch/data
+path.logs: /usr/local/es/elasticsearch/logs
+network.host: 0.0.0.0
+http.port: 9200
+xpack.ml.enabled: false
+bootstrap.system_call_filter: false
+</code></pre></li>
+<li>
+<p>调整系统参数</p>
+<p>vim /etc/security/limits.conf</p>
+<pre><code class="language-code" data-lang="code">* soft nofile 65536
+* hard nofile 65536
+</code></pre><p>vim /etc/sysctl.conf</p>
+<pre><code class="language-code" data-lang="code">vm.max_map_count=655360
+</code></pre><p>sysctl -p</p>
+</li>
+<li>
+<p>增加elastic用户</p>
+<pre><code class="language-code" data-lang="code">useradd elastic
+chown -R elastic:elastic /usr/local/es/elasticsearch/
+chmod -R 755 /usr/local/es
+</code></pre></li>
+<li>
+<p>启动与验证</p>
+<pre><code class="language-code" data-lang="code">sh /usr/local/es/elasticsearch/bin/elasticsearch
+</code></pre><pre><code class="language-code" data-lang="code">[root@dbmaster config]# curl 175.5.12.56:9200
+{
+  &quot;name&quot; : &quot;node-1&quot;,
+  &quot;cluster_name&quot; : &quot;my-application&quot;,
+  &quot;cluster_uuid&quot; : &quot;9sBZLqjsTS-ltvtaaTBCIA&quot;,
+  &quot;version&quot; : {
+    &quot;number&quot; : &quot;6.4.2&quot;,
+    &quot;build_flavor&quot; : &quot;default&quot;,
+    &quot;build_type&quot; : &quot;tar&quot;,
+    &quot;build_hash&quot; : &quot;04711c2&quot;,
+    &quot;build_date&quot; : &quot;2018-09-26T13:34:09.098244Z&quot;,
+    &quot;build_snapshot&quot; : false,
+    &quot;lucene_version&quot; : &quot;7.4.0&quot;,
+    &quot;minimum_wire_compatibility_version&quot; : &quot;5.6.0&quot;,
+    &quot;minimum_index_compatibility_version&quot; : &quot;5.0.0&quot;
+  },
+  &quot;tagline&quot; : &quot;You Know, for Search&quot;
+}
+[root@dbmaster config]#
+</code></pre></li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2021/2021-03-17-es-%E9%B2%B2%E9%B9%8F/>https://linjinbao.github.io/2021/2021-03-17-es-%E9%B2%B2%E9%B9%8F/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2021/2021-03-17-jdk-%E9%B2%B2%E9%B9%8F/" class="prev" rel="prev" title="jdk-鲲鹏"><i class="iconfont icon-left"></i>&nbsp;jdk-鲲鹏</a>
+         
+        
+        <a href="https://linjinbao.github.io/2021/2021-03-18-hortonworks-%E9%B2%B2%E9%B9%8F/" class="next" rel="next" title="hortonworks-鲲鹏">hortonworks-鲲鹏&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= "title"
+        label= "utterance"
+        theme= 'github-light'
+        crossorigin="anonymous"
+        async>
+  </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

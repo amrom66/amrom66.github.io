@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019/2019-11-26-%E4%B8%AA%E4%BA%BA%E9%82%AE%E7%AE%B1%E6%90%AD%E5%BB%BA/" />
+  <link rel="next" href="https://linjinbao.github.io/2019/2019-11-28-openvpn%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019/2019-11-27-%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           网站申请SSL证书-腾讯云 | 打工人日记
+       
+  </title>
+  <meta name="title" content="网站申请SSL证书-腾讯云 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "网站申请SSL证书-腾讯云",
+    "headline" : "网站申请SSL证书-腾讯云",
+    "description" : "2019-11-27-网站申请SSL证书 网站申请SSL证书   腾讯云文档\n  选择证书类型，这里选择免费的\n 配置域名验证  这一步是将腾讯云提供的一串文字，放直到服务器web应用内，腾讯云服务器定时去扫描这个域名，如果发现存在文件且匹配，则证明这个域名是你的，目的就是验证身份\n最后访问的url\n 等待腾讯验证，验证结束如下图   下载文件并上传到nginx服务器（我这里情况比一般复杂，实际申请的网站和域名绑定的不一致，用了nginx反代）  上面两个文件是我们需要的，一个证书，一个私钥",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-27 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-11-27 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019\/2019-11-27-%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6\/",
+    "wordCount" : "39",
+    "keywords" : [ "Linux","网站", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">网站申请SSL证书-腾讯云</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=27119-11-27 itemprop="datePublished">November 27, 2019</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="2019-11-27-网站申请ssl证书">2019-11-27-网站申请SSL证书</h1>
+<h2 id="网站申请ssl证书">网站申请SSL证书</h2>
+<ol>
+<li>
+<p><a href="https://cloud.tencent.com/document/product/400/6814">腾讯云文档</a></p>
+<p><img src="https://raw.githubusercontent.com/linjinbao666/resources/master/amromPicture/%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A61.png" alt="image-20191127152224164"></p>
+</li>
+</ol>
+<p>选择证书类型，这里选择免费的</p>
+<p><img src="https://raw.githubusercontent.com/linjinbao666/resources/master/amromPicture/%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A62.png" alt="image-20191127152250852"></p>
+<p><img src="https://raw.githubusercontent.com/linjinbao666/resources/master/amromPicture/%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A63.png" alt="image-20191127152309659"></p>
+<ol>
+<li>配置域名验证</li>
+</ol>
+<p>这一步是将腾讯云提供的一串文字，放直到服务器web应用内，腾讯云服务器定时去扫描这个域名，如果发现存在文件且匹配，则证明这个域名是你的，目的就是验证身份</p>
+<p>最后访问的<a href="http://172.25.136.242:8088/.well-known/pki-validation/fileauth.txt%20">url</a></p>
+<p><img src="https://raw.githubusercontent.com/linjinbao666/resources/master/amromPicture/%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A64.png" alt="image-20191127152752829"></p>
+<ol>
+<li>等待腾讯验证，验证结束如下图</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/linjinbao666/resources/master/amromPicture/%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A65.png" alt="image-20191127152917264"></p>
+<ol>
+<li>下载文件并上传到nginx服务器（我这里情况比一般复杂，实际申请的网站和域名绑定的不一致，用了nginx反代）</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/linjinbao666/resources/master/amromPicture/%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A66.png" alt="image-20191127153102726"></p>
+<p>上面两个文件是我们需要的，一个证书，一个私钥</p>
+<ol>
+<li>在nginx中配置</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">server {
+                ## 监听80端口，避免大量修改接口
+                listen       80;    
+                ##SSL证书配置
+                listen  443 ssl;
+                ssl_certificate /opt/nginx1.14.2/conf/1_****_bundle.crt;
+                ssl_certificate_key /opt/nginx1.14.2/conf/2_****.key;
+                ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+                ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
+                ssl_prefer_server_ciphers on;
+                server_name  localhost;
+        }
+</code></pre></div><ol>
+<li>重启nginx服务器</li>
+</ol>
+<h2 id="总结">总结</h2>
+<p>以前用过openssl，步骤繁琐，复杂，没想到腾讯的这么好用，但是限制很明显，，，，，，承认的浏览器有点少，，，，，，，，，，，</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2019/2019-11-27-%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/>https://linjinbao.github.io/2019/2019-11-27-%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/linux/">
+                    #Linux</a></span>
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/%E7%BD%91%E7%AB%99/">
+                    #网站</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2019/2019-11-26-%E4%B8%AA%E4%BA%BA%E9%82%AE%E7%AE%B1%E6%90%AD%E5%BB%BA/" class="prev" rel="prev" title="个人邮箱服务器搭建"><i class="iconfont icon-left"></i>&nbsp;个人邮箱服务器搭建</a>
+         
+        
+        <a href="https://linjinbao.github.io/2019/2019-11-28-openvpn%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" class="next" rel="next" title="openvpn服务搭建">openvpn服务搭建&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= "title"
+        label= "utterance"
+        theme= 'github-light'
+        crossorigin="anonymous"
+        async>
+  </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

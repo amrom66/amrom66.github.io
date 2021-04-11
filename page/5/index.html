@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noodp"/>
-  <meta name="author" content="linjinbao">
+  <meta name="author" content="linjinbao66">
   <meta name="description" content="打工人日记">
   <meta name="keywords" content="博客 个人 日记">
   
@@ -47,7 +47,7 @@
     "name": "打工人日记",
     "author": {
         "@type": "Person",
-        "name": "linjinbao"
+        "name": "linjinbao66"
     },
     "description": "打工人日记",
 }
@@ -69,13 +69,13 @@
         <div class="menu navbar-right">
                 
                 
-                <a class="menu-item" href="/posts/" title="">博客</a>
+                <a class="menu-item active" href="/" title="">博客</a>
                 
                 <a class="menu-item" href="/categories/" title="">分类</a>
                 
                 <a class="menu-item" href="/tags/" title="">标签</a>
                 
-                <a class="menu-item" href="/about/" title="关于">关于</a>
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
                 
         </div>
     </div>
@@ -92,13 +92,13 @@
           <div class="menu" id="mobile-menu">
                 
                 
-                <a class="menu-item" href="/posts/" title="">博客</a>
+                <a class="menu-item active" href="/" title="">博客</a>
                 
                 <a class="menu-item" href="/categories/" title="">分类</a>
                 
                 <a class="menu-item" href="/tags/" title="">标签</a>
                 
-                <a class="menu-item" href="/about/" title="关于">关于</a>
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
                 
         </div>
     </div>
@@ -128,21 +128,19 @@
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-10-13-%E7%A7%81%E6%9C%89%E9%9B%86%E7%BE%A4%E6%94%AF%E6%8C%81loadbalancer/">私有集群支持loadbalancer</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-30-cka%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/">CKA考试准备</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				k8s 使本地集群支持 LoadBalancer 服务 为了使本地集群支持 LoadBalancer 服务，可以参考以下两种实现方案：
-keepalived-cloud-provider metalLB  这里我们选择使用 metalLB。
-metalLB 的部署很简单，直接使用 yaml 文件部署：
-kubectl apply -f https://raw.
+				准备CKA证书考试：
+ k8s官网文档翻译 k8s官网实践 reddit社区交流  
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2020-10-13 itemprop="datePublished">October 13, 2020</time>
+                <time datetime=2021-03-30 itemprop="datePublished">March 30, 2021</time>
                 </span>
                 in
                 
@@ -154,196 +152,19 @@ kubectl apply -f https://raw.
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-10-09-maven-%E6%89%93%E5%8C%85%E5%A4%9A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">maven 打包多环境配置</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-25-k8s%E6%95%B4%E5%90%88glusterfs%E5%81%9A%E5%90%8E%E7%AB%AF%E5%AD%98%E5%82%A8/">k8s整合glusterfs做后端存储</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				前言 在开发中，我们经常会遇到环境问题。例如，开发环境和测试环境和线上环境，其数据库配置等各不相同。针对这种情况，一般我们采用的方式有一下几种：1. 打包后手动替换配置文件；2. 打包后使用CI工具解压-替换-压缩；3. 使用maven profile功能，打包时候就完成环境的分发。初级（菜鸟）一般使用方式1比较多，方式2则是运维喜欢做的事情，而方式3才是最为优雅的方式。本文采用maven profile的方式，结合spring profile，实现打包后即可运行，无需修改文件的效果。
-操作步骤  配置pom.xml  &lt;profiles&gt;&lt;profile&gt;&lt;id&gt;dev&lt;/id&gt;&lt;!&ndash;dev为唯一名称，用于标识区分&ndash;&gt;&lt;properties&gt;&lt;!&ndash;profile.active可以换成别的，是一个环境变量值，用于整合srping profile&ndash;&gt;&lt;profile.active&gt;dev&lt;/profile.active&gt;&lt;/properties&gt;&lt;activation&gt;&lt;activeByDefault&gt;true&lt;/activeByDefault&gt;&lt;/activation&gt;&lt;/profile&gt;&lt;profile&gt;&lt;id&gt;test&lt;/id&gt;&lt;properties&gt;&lt;profile.
+				安装glusterfs和heketi
+#所有存储服务器下载安装glusterfs yum install centos-release-gluster -y yum install glusterfs-server -y #启动 systemctl start glusterd #安装heketi yum install -y heketi heketi-client   部署gluster集群
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2020-10-09 itemprop="datePublished">October 9, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-09-22-kubernetes%E8%87%AA%E5%AE%9A%E4%B9%89%E8%B5%84%E6%BA%90prometheusrule%E7%9A%84%E4%BD%BF%E7%94%A8/">kubernetes自定义资源PrometheusRule的使用</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				第一步 部署prometheus operator环境 git地址：https://github.com/prometheus-operator/kube-prometheus.git
-选用适用自己k8s版本的release，例如我k8s是1.13的，所以我选择了release-o.1。
-部署文件都在manifests/文件夹下，直接一键部署就行。
-第二步 修改alertmanager告警配置 由于内置的告警方式不符合需求，所以需要修改下，加入邮箱和webhook配置。
-alertmanager.yaml
-global:resolve_timeout: 5msmtp_smarthost: 'smtp.163.com:25'smtp_from: '<em><strong>@163.com'smtp_auth_username: '</strong></em>@163.com'smtp_auth_password: '***'smtp_hello: '163.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-09-22 itemprop="datePublished">September 22, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-09-05-spring-%E4%BD%BF%E7%94%A8websocket%E4%B8%BB%E5%8A%A8%E6%8E%A8%E9%80%81%E6%97%A5%E5%BF%97%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA/">spring 使用websocket主动推送日志到页面展示</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				简介 Java程序运行的时候会产生大量的日志，有的是自己主动打印的，有些的第三方包中打印的日志，一些场景下需要将程序执行过程中的日志主动推送出去，例如使用docker-java制作镜像的时候，我需要将制作过程大日志输出到页面，用来判断制作过程。
-相关流程  logback日志切割 阻塞队列/环形队列处理并发读写 websocket推送  方案一实现 很明显，日志需要通过log4j等日志框架收集。我们需要自定义一个过滤器，处理需要的日志信息，在过滤器中将日志存到阻塞队列或者环形队列。配置如下：
-logback.xml
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;&lt;configuration scan=&quot;true&quot; scanPeriod=&quot;3 seconds&quot;&gt;&lt;!&ndash;设置日志输出为控制台&ndash;&gt;&lt;include resource=&quot;org/springframework/boot/logging/logback/defaults.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-09-05 itemprop="datePublished">September 5, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-08-31-%E8%B8%A9%E5%9D%91spring-boot%E6%89%93jar%E5%8C%85/">踩坑spring boot打jar包</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				问题描述 一般来说使用spring 默认的打包，java -jar，会无法运行，出现目标属性中没有清单的提示，此时需要修改写pom的打包插件。
-解决 &lt;plugin&gt;&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;&lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;&lt;version&gt;${spring.version}&lt;/version&gt;&lt;configuration&gt;&lt;mainClass&gt;ecs.Application&lt;/mainClass&gt; //启动类&lt;layout&gt;JAR&lt;/layout&gt;&lt;executable&gt;true&lt;/executable&gt;&lt;/configuration&gt;&lt;executions&gt;&lt;execution&gt;&lt;goals&gt;&lt;goal&gt;repackage&lt;/goal&gt;&lt;/goals&gt;&lt;/execution&gt;&lt;/executions&gt;&lt;/plugin&gt;使用如上配置会将所有以来全部打包的jar中，可以直接运行。
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-08-31 itemprop="datePublished">August 31, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-11-19-%E6%B5%8B%E8%AF%95%E5%A3%81%E7%BA%B8/">测试壁纸</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   <p><img src="images/MischwaldFuessen_ROW2474656135_1920x1080.jpg" class="featured_image"></p>
-       				 
-       			 
-				插入图片
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-08-19 itemprop="datePublished">August 19, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-08-04-helm%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/">helm使用笔记</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				安装仓库 helm repo add stable <a href="https://kubernetes-charts.storage.googleapis.com/">https://kubernetes-charts.storage.googleapis.com/</a>helm repo add bitnami <a href="https://charts.bitnami.com/bitnami">https://charts.bitnami.com/bitnami</a>helm repo add incubator <a href="https://kubernetes-charts-incubator.storage.googleapis.com/">https://kubernetes-charts-incubator.storage.googleapis.com/</a>helm repo update # Make sure we get the latest list of chartshelm repo list搜索 helm search repo stable ##在stable仓库中搜索所有可用的chartshelm search hub tomcat ##安装 helm install stable/mysql &ndash;generate-name ## 安装MySQL并自动生成名称helm show all stable/mysql ##显示charts内容hem pull stable/mysql 下载远程仓库的charts到本地，下载下来的是mysql-1.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-08-04 itemprop="datePublished">August 4, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-07-21-apm%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E4%B8%8E%E5%AE%9E%E8%B7%B5/">apm技术选型与实践</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				apm 简介 APM应用性能管理（Application Performance Management）主要指对企业的关键业务应用进行监测、优化，提高企业应用的可靠性和质量，保证用户得到良好的服务，降低IT总成本。
-从实际的应用场景上，APM可以在以下方面为我们提供帮助：
-最终用户体验评估和优化，提升用户体验，提高应用DAU和留存 链路监控，线路优化 机房选型，第三方服务（CDN、云服务、推送等）选型 竞品性能对标 劫持分析和优化 实时告警和通知 业务流程代码级的监控和优化 业务压测和性能剖析 快速发现和定位性能问题，减少业务故障恢复时间  目前主流的apm产品，Pinpoint，SkyWalking， zipkin。
-其中，SkyWalking原生支持es存储，所以此次选择SkyWalking技术方案。
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-07-21 itemprop="datePublished">July 21, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-07-17-%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/">新的开始</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				新的开始 面试了两次
-端点 腾讯  感觉，能力还是不够，研究不够深入的全当做会的写在简历上了。
-面试题整理
-[mysql]联合索引字段顺序会产生影响吗？什么情况下需要建索引？什么情况下不建？mysql 查看连接数和进程数?慢查询是什么？[linux]Linux 端口数一共多少，怎么确定的？sh 和 bash 的区别脚本首行的#!
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-07-17 itemprop="datePublished">July 17, 2020</time>
+                <time datetime=2021-03-25 itemprop="datePublished">March 25, 2021</time>
                 </span>
                 in
                 
@@ -351,8 +172,8 @@ logback.xml
 				
 				<div class="post-tags">
         		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E9%9D%A2%E8%AF%95/">
-               	 #面试</a></span>
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/kubernetes/">
+               	 #kubernetes</a></span>
         		
 				</div>
 				
@@ -362,23 +183,20 @@ logback.xml
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-03-10-%E4%B8%AD%E6%96%87%E5%9F%9F%E5%90%8D%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E7%A0%81%E9%97%AE%E9%A2%98/">中文域名浏览器解码问题</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-22-tar%E6%89%93%E5%8C%85%E7%8E%B0%E6%9C%89%E7%9A%84%E7%B3%BB%E7%BB%9F/">tar打包现有的系统</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				2020-03-10-中文域名浏览器解码问题 测试域名 https://985保研群.linjinbao66.tk/ 二级域名是中文，已经设置过dns服务商的解析。
-问题发现  从浏览器复制出来  可以发现复制的东西变了：
-<a href="https://xn--985-bm0el25p5qj.linjinbao66.tk/">https://xn--985-bm0el25p5qj.linjinbao66.tk/</a> 域名中的中文被，xn–985-bm0el25p5qj替换了
-原因解释 早期的DNS（Domain Name System）是只支持英文域名解析。在IDNs（国际化域名Internationalized Domain Names）推出以后，为了保证兼容以前的DNS，所以，对IDNs进行punycode转码，转码后的punycode就由26个字母+10个数字，还有“-”组成。
-Punycode是一个根据RFC 3492标准而制定的编码系统,主要用於把域名从地方语言所采用的Unicode编码转换成为可用於DNS系统的编码。Punycode可以防止IDN欺骗。
-浏览器对punycode的支持 目前，因为操作系统的核心都是英文组成，DNS服务器的解析也是由英文代码交换，所以DNS服务器上并不支持直接的中文域名解析，所有中文域名的解析都需要转成punycode码，然后由DNS解析punycode码。其实目前所说和各种浏览器完美支持中文域名，只是浏览器软里面主动加入了中文域名自动转码，不需要原来的再次安装中文域名转码控件来完成整个流程。
+				选择一个系统，在根目录下将已有系统打包成tar文件：
+tar -cvpf /tmp/system.tar --directory=/ --exclude=proc --exclude=sys --exclude=dev --exclude=run --exclude=boot --exclude=/opt/software . 导入方式一：
+cat system.tar | docker import - redhat:6.5 导入方式二：
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2020-03-10 itemprop="datePublished">March 10, 2020</time>
+                <time datetime=2021-03-22 itemprop="datePublished">March 22, 2021</time>
                 </span>
                 in
                 
@@ -390,24 +208,32 @@ Punycode是一个根据RFC 3492标准而制定的编码系统,主要用於把域
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-03-09-golang-%E8%AF%BB%E5%8F%96%E6%B5%81%E6%93%8D%E4%BD%9C/">golang 读取流操作</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/">git单独忽略一个文件的历史提交</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				2020-03-09-golang-读取流操作 读取控制台输入 使用fmt.Sscanf
-示例代码：
-package main import &quot;fmt&quot; var ( firstName string lastName string s string i int f float32 input = &quot;56.
+				使用场景：
+将一个重要文件，勿加入git的版本管理中了，后续又更新了好多版本，此时想要去除该文件的所有历史提交。
+ 方案一：删除所有git记录 方案二：单独删除该文件的历史记录  方案二操作如下：
+git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch visitor-consumer/src/main/java/com/fline/util/SMSUtil.java' --prune-empty --tag-name-filter cat -- --all git push origin --force --all git push origin --force --tags git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin git reflog expire --expire=now --all git gc --prune=now 
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2020-03-09 itemprop="datePublished">March 9, 2020</time>
+                <time datetime=2021-03-19 itemprop="datePublished">March 19, 2021</time>
                 </span>
                 in
                 
         </div>
+				
+				<div class="post-tags">
+        		
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/git/">
+               	 #git</a></span>
+        		
+				</div>
 				
 			</div>
 		</article>
@@ -415,18 +241,22 @@ package main import &quot;fmt&quot; var ( firstName string lastName string s str
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-03-09-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96/">服务器内存优化</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-18-hortonworks-%E9%B2%B2%E9%B9%8F/">hortonworks-鲲鹏</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				2020-03-09-服务器内存优化  释放缓存  sync echo 3 &gt; /proc/sys/vm/drop_caches  排序  ps -eo pmem,pcpu,rss,vsize,args | sort -k 1 -r | less  查看启动的服务  systemctl list-unit-files &ndash;type=service &ndash;state=enabled
+				安装方式：磁盘安装
+安装版本：0.5.4
+参考文档：https://registry-project.readthedocs.io/en/latest/install.html#centos-redhat
+  下载压缩包并解压
+wget https://github.com/hortonworks/registry/releases/download/0.5.4/hortonworks-registry-0.5.4.tar.gz [root@dbmaster local]# ls -al hortonworks/ total 36 drwx------ 8 root root 140 Mar 18 16:12 .
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2020-03-09 itemprop="datePublished">March 9, 2020</time>
+                <time datetime=2021-03-18 itemprop="datePublished">March 18, 2021</time>
                 </span>
                 in
                 
@@ -649,9 +479,45 @@ package main import &quot;fmt&quot; var ( firstName string lastName string s str
         
     
     
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
     <li class="page-item ">
         <span class="page-link">
-            <a href="/page/19/">19</a></li>
+            <a href="/page/23/">23</a></li>
         </span>
     
     
@@ -675,7 +541,7 @@ package main import &quot;fmt&quot; var ( firstName string lastName string s str
     	 <i class="iconfont icon-love"></i> 
          </span>
          
-            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
          
 
          

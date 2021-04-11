@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noodp"/>
-  <meta name="author" content="linjinbao">
+  <meta name="author" content="linjinbao66">
   <meta name="description" content="打工人日记">
   <meta name="keywords" content="博客 个人 日记">
   
@@ -47,7 +47,7 @@
     "name": "打工人日记",
     "author": {
         "@type": "Person",
-        "name": "linjinbao"
+        "name": "linjinbao66"
     },
     "description": "打工人日记",
 }
@@ -69,13 +69,13 @@
         <div class="menu navbar-right">
                 
                 
-                <a class="menu-item" href="/posts/" title="">博客</a>
+                <a class="menu-item active" href="/" title="">博客</a>
                 
                 <a class="menu-item" href="/categories/" title="">分类</a>
                 
                 <a class="menu-item" href="/tags/" title="">标签</a>
                 
-                <a class="menu-item" href="/about/" title="关于">关于</a>
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
                 
         </div>
     </div>
@@ -92,13 +92,13 @@
           <div class="menu" id="mobile-menu">
                 
                 
-                <a class="menu-item" href="/posts/" title="">博客</a>
+                <a class="menu-item active" href="/" title="">博客</a>
                 
                 <a class="menu-item" href="/categories/" title="">分类</a>
                 
                 <a class="menu-item" href="/tags/" title="">标签</a>
                 
-                <a class="menu-item" href="/about/" title="关于">关于</a>
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
                 
         </div>
     </div>
@@ -128,18 +128,101 @@
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-12-06-git%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/">git分支管理</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-30-cka%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/">CKA考试准备</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				git分支管理 基本命令   git branch git branch *** ：创建分支，名称为*** git branch：显示当前分枝，和本地分支 git branch -a：显示所有，包含远程分支 git branch -d dev：删除分支 git branch -vv ：查看本地分支对应的远程分支 git branch -m oldName newName：重命名
+				准备CKA证书考试：
+ k8s官网文档翻译 k8s官网实践 reddit社区交流  
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2019-12-06 itemprop="datePublished">December 6, 2019</time>
+                <time datetime=2021-03-30 itemprop="datePublished">March 30, 2021</time>
+                </span>
+                in
+                
+        </div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-25-k8s%E6%95%B4%E5%90%88glusterfs%E5%81%9A%E5%90%8E%E7%AB%AF%E5%AD%98%E5%82%A8/">k8s整合glusterfs做后端存储</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				安装glusterfs和heketi
+#所有存储服务器下载安装glusterfs yum install centos-release-gluster -y yum install glusterfs-server -y #启动 systemctl start glusterd #安装heketi yum install -y heketi heketi-client   部署gluster集群
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2021-03-25 itemprop="datePublished">March 25, 2021</time>
+                </span>
+                in
+                
+        </div>
+				
+				<div class="post-tags">
+        		
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/kubernetes/">
+               	 #kubernetes</a></span>
+        		
+				</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-22-tar%E6%89%93%E5%8C%85%E7%8E%B0%E6%9C%89%E7%9A%84%E7%B3%BB%E7%BB%9F/">tar打包现有的系统</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				选择一个系统，在根目录下将已有系统打包成tar文件：
+tar -cvpf /tmp/system.tar --directory=/ --exclude=proc --exclude=sys --exclude=dev --exclude=run --exclude=boot --exclude=/opt/software . 导入方式一：
+cat system.tar | docker import - redhat:6.5 导入方式二：
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2021-03-22 itemprop="datePublished">March 22, 2021</time>
+                </span>
+                in
+                
+        </div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/">git单独忽略一个文件的历史提交</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				使用场景：
+将一个重要文件，勿加入git的版本管理中了，后续又更新了好多版本，此时想要去除该文件的所有历史提交。
+ 方案一：删除所有git记录 方案二：单独删除该文件的历史记录  方案二操作如下：
+git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch visitor-consumer/src/main/java/com/fline/util/SMSUtil.java' --prune-empty --tag-name-filter cat -- --all git push origin --force --all git push origin --force --tags git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin git reflog expire --expire=now --all git gc --prune=now 
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2021-03-19 itemprop="datePublished">March 19, 2021</time>
                 </span>
                 in
                 
@@ -158,325 +241,22 @@
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-12-06-jvmgc%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/">jvmGC日志分析</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-18-hortonworks-%E9%B2%B2%E9%B9%8F/">hortonworks-鲲鹏</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				jvmGC日志分析 TestGC.java
-public class TestGc { private static final int _1MB = 1024*1024; public static void main(String[] args) { byte[] allocation1, allocation2, allocation3, allocation4,allocation5,allocation6; allocation1 = new byte[2 * _1MB]; allocation2 = new byte[2 * _1MB]; allocation3 = new byte[4 * _1MB]; allocation4 = new byte[4 * _1MB]; // allocation5 = new byte[2 * _1MB]; // allocation6 = new byte[1 * _1MB];  } } gc输出
+				安装方式：磁盘安装
+安装版本：0.5.4
+参考文档：https://registry-project.readthedocs.io/en/latest/install.html#centos-redhat
+  下载压缩包并解压
+wget https://github.com/hortonworks/registry/releases/download/0.5.4/hortonworks-registry-0.5.4.tar.gz [root@dbmaster local]# ls -al hortonworks/ total 36 drwx------ 8 root root 140 Mar 18 16:12 .
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2019-12-06 itemprop="datePublished">December 6, 2019</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/java/">
-               	 #Java</a></span>
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/jvm/">
-               	 #jvm</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-12-06-node%E5%AD%A6%E4%B9%A001/">node学习01</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				node操作mysql 第一步：引入mysql模块 var mysql = require(&lsquo;mysql&rsquo;);第二步：建立连接 var connection = mysql.createConnection({host:&lsquo;localhost&rsquo;,user: &lsquo;root&rsquo;,password: &lsquo;Gepoint&rsquo;,database: &lsquo;mqtt&rsquo;});connection.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-12-06 itemprop="datePublished">December 6, 2019</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/node/">
-               	 #node</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-12-06-node%E6%93%8D%E4%BD%9Cmysql/">node学习01</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				node操作mysql 第一步：引入mysql模块 var mysql = require('mysql'); 第二步：建立连接 var connection = mysql.createConnection( { host:'localhost', user: 'root', password: 'Gepoint', database: 'mqtt' }); connection.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-12-06 itemprop="datePublished">December 6, 2019</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/node/">
-               	 #node</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-12-05-linux%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E6%9F%A5%E7%9C%8B/">Linux学习</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				Linux 端口占用查看  ss查看  ss -lntpd | grep :22 示例：
-[root@jk-zhengwu03 ~]# ss -lntpd Netid State Recv-Q Send-Q Local Address:Port Peer Address:Port tcp LISTEN 0 128 *:27017 <em>:</em> users:((&quot;mongod&quot;,pid=5175,fd=11)) tcp LISTEN 0 128 *:22 <em>:</em> users:((&quot;sshd&quot;,pid=1399,fd=3)) tcp LISTEN 0 100 127.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-12-05 itemprop="datePublished">December 5, 2019</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/linux/">
-               	 #Linux</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-12-05-linux%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/">Linux端口扫描</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				2019-12-05-Linux端口扫描 Linux扫描网段主机是否可通  单纯扫描  ##!/bin/sh declare -i I=1 declare -i S=100 while [ $I -le $S ] ; do IP=&quot;192.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-12-05 itemprop="datePublished">December 5, 2019</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/linux/">
-               	 #Linux</a></span>
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/shell/">
-               	 #shell</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-12-04-mysql%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93/">mysql分布式数据库01</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				mysql分布式事务01 分布式事务组成  资源管理器： 提供访问事务资源的方法，通常一个数据库就是一个资源管理器 事务管理器： 协调参与全局事务的各个事务。需要和参与全局事务中的所有资源管理器进行通信。 应用程序： 定义事务的边界，指定全局事务中的操作。  提交方式 两段式提交。在第一个阶段，所有参与全局事务的节点都开始准备，告诉事务管理器他们准备提交了；第二阶段，事务管理器告诉资源管理器执行commit或者时rollback，如果任意一个节点显示不能提交，则所有的节点进行回滚。
-代码示例：
-MyXid.java  public class MyXid implements Xid{ public int formatId; public byte gtrid[]; public byte bqual[]; public MyXid() { } public MyXid(int formatId, byte gtrid[], byte bqual[]) { this.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-12-04 itemprop="datePublished">December 4, 2019</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/mysql/">
-               	 #Mysql</a></span>
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/">
-               	 #分布式</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-12-03-java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%A4%84%E7%90%86%E8%A1%A8%E6%A0%BC/">java多线程处理数据表格</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				java多线程处理数据表格 问题描述： 现在需要处理一个excel表格，数据量几百条，我使用多线程处理
-思路描述： 使用import java.util.concurrent.ExecutorService;和import java.util.concurrent.Executors;类实现
-核心代码：
-ExecutorService e = Executors.newFixedThreadPool(10); e.submit(new Runnable() { @Override public void run() { Long id = Thread.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-12-03 itemprop="datePublished">December 3, 2019</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/java/">
-               	 #Java</a></span>
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-               	 #多线程</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-12-03-linux%E5%AD%A6%E4%B9%A0/">Linux命令学习</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				Linux命令学习 更新yum源 cd /ect/yum.repos.d/CentOS-Base.repo mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup wget -O /etc/yum.repos.d/CentOS-Base.repo <a href="http://mirrors.aliyun.com/repo/Centos-7.repo">http://mirrors.aliyun.com/repo/Centos-7.repo</a> yum makecache yum -y update Linux系统监控命令  top命令  top - 14:10:24 up 83 days, 22:45, 1 user, load average: 0.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-12-03 itemprop="datePublished">December 3, 2019</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/linux/">
-               	 #Linux</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-12-02-mysql%E5%AD%A6%E4%B9%A007/">mysql学习07-事务</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				mysql学习07-事务 事务是数据库区别于文件系统的重要特性，来保证数据库的完整性——要么都做修改，要么都不做。 Innodb存储引擎中的事务完全符合ACID的特性。
-原子性 一致性 隔离性 持久性  事务的实现  redo 在innodb存储引擎中，事务日志通过重做日志文件和日志缓冲文件实现。当一个事务开始时，会记录该事务的一个LSN，当事务执行的时候，会往innodb存储引擎的日志缓冲里插入事务日志；当事务提交时候，必须将日志缓冲写入磁盘。也就是在写数据前，需要先写日志。这种方式称作预写日志方式。 innodb通过预写日志的方式保证事务的完整性。 undo 重做日志记录了事务的行为，可以很好的对其进行“重做”。但是事务y有时需要撤销，这时需要undo。
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-12-02 itemprop="datePublished">December 2, 2019</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-12-01-mysql%E5%AD%A6%E4%B9%A006/">mysql 学习06-锁</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				mysql 学习06-锁 什么是锁 锁是数据库系统的一个关键特性，锁机制用于管理共享资源的并发访问。InnoDB是行级锁。
-SELECT * from information_schema.INNODB_TRX ##啥看事务 SELECT * FROM information_schema.INNODB_LOCKS ##查看锁 show processlist; ##查看线程 show full processlist; show open tables from ***; show status like '%lock%'; ##查看服务器状态 show variables like '%timeout%'; ## SELECT * FROM INFORMATION_SCHEMA.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-12-01 itemprop="datePublished">December 1, 2019</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-30-linux%E5%AD%A6%E4%B9%A0/">Linux 学习191130</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				Linux 学习 curl 命令 wget -r -p -np -k -nc -c <a href="http://tomcat.apache.org/tomcat-9.0-doc">http://tomcat.apache.org/tomcat-9.0-doc</a> wget -r -p -np -k <a href="http://xxx.com/xxx">http://xxx.com/xxx</a> 实时刷新命令 watch -d -n 1 cat ***.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-11-30 itemprop="datePublished">November 30, 2019</time>
+                <time datetime=2021-03-18 itemprop="datePublished">March 18, 2021</time>
                 </span>
                 in
                 
@@ -699,9 +479,45 @@ SELECT * from information_schema.INNODB_TRX ##啥看事务 SELECT * FROM informa
         
     
     
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
     <li class="page-item ">
         <span class="page-link">
-            <a href="/page/19/">19</a></li>
+            <a href="/page/23/">23</a></li>
         </span>
     
     
@@ -725,7 +541,7 @@ SELECT * from information_schema.INNODB_TRX ##啥看事务 SELECT * FROM informa
     	 <i class="iconfont icon-love"></i> 
          </span>
          
-            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
          
 
          

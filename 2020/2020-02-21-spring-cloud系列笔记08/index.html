@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2020/2020-02-21-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B009/" />
+  <link rel="next" href="https://linjinbao.github.io/2020/2020-02-21-centos7%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2020/2020-02-21-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B008/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           spring cloud系列笔记-08 | 打工人日记
+       
+  </title>
+  <meta name="title" content="spring cloud系列笔记-08 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "spring cloud系列笔记-08",
+    "headline" : "spring cloud系列笔记-08",
+    "description" : "spring cloud系列笔记-08 Spring Cloud Bus Spring Cloud Bus 将分布式的节点用轻量的消息代理连接起来。它可以用于广播配置文件的更改或者服务之间的通讯，也可以用于监控。本文要讲述的是用Spring Cloud Bus实现通知微服务架构的配置文件的更改。\n pom.xml  \x26lt;!-- https:\/\/mvnrepository.com\/artifact\/org.springframework.cloud\/spring-cloud-starter-bus-amqp --\x26gt; \x26lt;dependency\x26gt; \x26lt;groupId\x26gt;org.springframework.cloud\x26lt;\/groupId\x26gt; \x26lt;artifactId\x26gt;spring-cloud-starter-bus-amqp\x26lt;\/artifactId\x26gt; \x26lt;\/dependency\x26gt;  bootstrap.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-02-21 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-02-21 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2020\/2020-02-21-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B008\/",
+    "wordCount" : "55",
+    "keywords" : [ "spring", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">spring cloud系列笔记-08</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=21029-02-21 itemprop="datePublished">February 21, 2020</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="spring-cloud系列笔记-08-spring-cloud-bus">spring cloud系列笔记-08 Spring Cloud Bus</h1>
+<p>Spring Cloud Bus 将分布式的节点用轻量的消息代理连接起来。它可以用于广播配置文件的更改或者服务之间的通讯，也可以用于监控。本文要讲述的是用Spring Cloud Bus实现通知微服务架构的配置文件的更改。</p>
+<ol>
+<li>pom.xml</li>
+</ol>
+<pre><code class="language-markup" data-lang="markup">&lt;!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-bus-amqp --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-bus-amqp&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre><ol>
+<li>bootstrap.yml</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">eureka</span>:
+  <span style="color:#66d9ef">client</span>:
+    <span style="color:#66d9ef">service-url</span>:
+      <span style="color:#66d9ef">defaultZone</span>: http://localhost:<span style="color:#ae81ff">8761</span>/eureka/
+<span style="color:#66d9ef">spring</span>:
+  <span style="color:#66d9ef">application</span>:
+    <span style="color:#66d9ef">name</span>: config-client
+  <span style="color:#66d9ef">cloud</span>:
+    <span style="color:#66d9ef">config</span>:
+      <span style="color:#66d9ef">label</span>: master
+      <span style="color:#66d9ef">profile</span>: dev
+      <span style="color:#66d9ef">discovery</span>:
+        <span style="color:#66d9ef">enabled</span>: <span style="color:#66d9ef">true</span>
+        <span style="color:#66d9ef">service-id</span>: config-server
+<span style="color:#66d9ef">server</span>:
+  <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">8771</span>
+</code></pre></div><ol>
+<li>application.yml</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">server</span>:
+  <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">8771</span>
+<span style="color:#66d9ef">spring</span>:
+  <span style="color:#66d9ef">rabbitmq</span>:
+    <span style="color:#66d9ef">host</span>: <span style="color:#ae81ff">192.168</span><span style="color:#ae81ff">.126</span><span style="color:#ae81ff">.138</span>
+    <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">5672</span>
+</code></pre></div><p>spring bus的主要作用是，实现配置变动时无需重启服务(config-server)，使用rabbitmq进行消息订阅，手动刷新的地址：<code>http://localhost:8771/actuator/bus-refresh</code>。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2020/2020-02-21-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B008/>https://linjinbao.github.io/2020/2020-02-21-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B008/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/spring/">
+                    #spring</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2020/2020-02-21-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B009/" class="prev" rel="prev" title="spring cloud系列笔记-09"><i class="iconfont icon-left"></i>&nbsp;spring cloud系列笔记-09</a>
+         
+        
+        <a href="https://linjinbao.github.io/2020/2020-02-21-centos7%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93/" class="next" rel="next" title="cent7修改仓库">cent7修改仓库&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= "title"
+        label= "utterance"
+        theme= 'github-light'
+        crossorigin="anonymous"
+        async>
+  </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

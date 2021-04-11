@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noodp"/>
-  <meta name="author" content="linjinbao">
+  <meta name="author" content="linjinbao66">
   <meta name="description" content="打工人日记">
   <meta name="keywords" content="博客 个人 日记">
   
@@ -47,7 +47,7 @@
     "name": "打工人日记",
     "author": {
         "@type": "Person",
-        "name": "linjinbao"
+        "name": "linjinbao66"
     },
     "description": "打工人日记",
 }
@@ -69,13 +69,13 @@
         <div class="menu navbar-right">
                 
                 
-                <a class="menu-item" href="/posts/" title="">博客</a>
+                <a class="menu-item active" href="/" title="">博客</a>
                 
                 <a class="menu-item" href="/categories/" title="">分类</a>
                 
                 <a class="menu-item" href="/tags/" title="">标签</a>
                 
-                <a class="menu-item" href="/about/" title="关于">关于</a>
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
                 
         </div>
     </div>
@@ -92,13 +92,13 @@
           <div class="menu" id="mobile-menu">
                 
                 
-                <a class="menu-item" href="/posts/" title="">博客</a>
+                <a class="menu-item active" href="/" title="">博客</a>
                 
                 <a class="menu-item" href="/categories/" title="">分类</a>
                 
                 <a class="menu-item" href="/tags/" title="">标签</a>
                 
-                <a class="menu-item" href="/about/" title="关于">关于</a>
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
                 
         </div>
     </div>
@@ -128,39 +128,23 @@
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-10-10-%E7%89%9B%E5%AE%A2%E7%BD%91-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/">包含min函数的栈</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-30-cka%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/">CKA考试准备</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				牛客网题目-包含min函数的栈 题目描述 定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为O（1））。
-解法一 双栈实现，数据栈加最小值栈 代码如下：
-import java.util.Stack; public class Solution { Stack&lt;Integer&gt; dataStack = new Stack(); Stack&lt;Integer&gt; minStack = new Stack&lt;&gt;(); public void push(int node) { dataStack.
+				准备CKA证书考试：
+ k8s官网文档翻译 k8s官网实践 reddit社区交流  
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2019-10-10 itemprop="datePublished">October 10, 2019</time>
+                <time datetime=2021-03-30 itemprop="datePublished">March 30, 2021</time>
                 </span>
                 in
-                <i class="iconfont icon-folder"></i>
-                <span class="post-category">
-                        <a href="https://linjinbao.github.io/categories/%E6%A0%88/"> 栈 </a>
-                        <a href="https://linjinbao.github.io/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
-                        
-                </span>
+                
         </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E7%89%9B%E5%AE%A2%E7%BD%91/">
-               	 #牛客网</a></span>
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E6%A0%88/">
-               	 #栈</a></span>
-        		
-				</div>
 				
 			</div>
 		</article>
@@ -168,57 +152,19 @@ import java.util.Stack; public class Solution { Stack&lt;Integer&gt; dataStack =
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-10-09-java%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%847%E7%A7%8D%E6%96%B9%E5%BC%8F/">java创建线程的7种方式</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-25-k8s%E6%95%B4%E5%90%88glusterfs%E5%81%9A%E5%90%8E%E7%AB%AF%E5%AD%98%E5%82%A8/">k8s整合glusterfs做后端存储</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				java创建线程的7种方式  继承Thread类并重写run()方法  public class MyThread extends Thread { @Override public void run() { System.out.println(this.getId()+this.getName()+ &quot; is running&quot;); } public static void main(String[] arg){ new MyThread().
+				安装glusterfs和heketi
+#所有存储服务器下载安装glusterfs yum install centos-release-gluster -y yum install glusterfs-server -y #启动 systemctl start glusterd #安装heketi yum install -y heketi heketi-client   部署gluster集群
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2019-10-09 itemprop="datePublished">October 9, 2019</time>
-                </span>
-                in
-                <i class="iconfont icon-folder"></i>
-                <span class="post-category">
-                        <a href="https://linjinbao.github.io/categories/java/"> java </a>
-                        <a href="https://linjinbao.github.io/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"> 多线程 </a>
-                        
-                </span>
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/java/">
-               	 #java</a></span>
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-               	 #多线程</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-10-03-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87/"></a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				多线程计算圆周率 使用公式1-1/3+1/5……
-代码示例 package learn; import java.math.BigDecimal; import java.util.ArrayList; import java.util.concurrent.*; /** * 多线程计算圆周率 */ public class Pie { public static double sum = 0.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-10-03 itemprop="datePublished">October 3, 2019</time>
+                <time datetime=2021-03-25 itemprop="datePublished">March 25, 2021</time>
                 </span>
                 in
                 
@@ -226,8 +172,8 @@ import java.util.Stack; public class Solution { Stack&lt;Integer&gt; dataStack =
 				
 				<div class="post-tags">
         		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-               	 #多线程</a></span>
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/kubernetes/">
+               	 #kubernetes</a></span>
         		
 				</div>
 				
@@ -237,44 +183,55 @@ import java.util.Stack; public class Solution { Stack&lt;Integer&gt; dataStack =
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-09-29-leetcode-156/">LeetCode周赛-第 156 场</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-22-tar%E6%89%93%E5%8C%85%E7%8E%B0%E6%9C%89%E7%9A%84%E7%B3%BB%E7%BB%9F/">tar打包现有的系统</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				LeetCode周赛-第 156 场  排名630 / 1432
-题目名称：
-独一无二的出现次数
-题目描述：
-给你一个整数数组 arr，请你帮忙统计数组中每个数的出现次数。 如果每个数的出现次数都是独一无二的，就返回 true；否则返回 false。
-示例 1：
-输入：arr = [1,2,2,1,1,3] 输出：true 解释：在该数组中，1 出现了 3 次，2 出现了 2 次，3 只出现了 1 次。没有两个数的出现次数相同。 示例 2：
+				选择一个系统，在根目录下将已有系统打包成tar文件：
+tar -cvpf /tmp/system.tar --directory=/ --exclude=proc --exclude=sys --exclude=dev --exclude=run --exclude=boot --exclude=/opt/software . 导入方式一：
+cat system.tar | docker import - redhat:6.5 导入方式二：
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2019-09-29 itemprop="datePublished">September 29, 2019</time>
+                <time datetime=2021-03-22 itemprop="datePublished">March 22, 2021</time>
                 </span>
                 in
-                <i class="iconfont icon-folder"></i>
-                <span class="post-category">
-                        <a href="https://linjinbao.github.io/categories/leetcode/"> Leetcode </a>
-                        <a href="https://linjinbao.github.io/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
-                        
+                
+        </div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/">git单独忽略一个文件的历史提交</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				使用场景：
+将一个重要文件，勿加入git的版本管理中了，后续又更新了好多版本，此时想要去除该文件的所有历史提交。
+ 方案一：删除所有git记录 方案二：单独删除该文件的历史记录  方案二操作如下：
+git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch visitor-consumer/src/main/java/com/fline/util/SMSUtil.java' --prune-empty --tag-name-filter cat -- --all git push origin --force --all git push origin --force --tags git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin git reflog expire --expire=now --all git gc --prune=now 
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2021-03-19 itemprop="datePublished">March 19, 2021</time>
                 </span>
+                in
+                
         </div>
 				
 				<div class="post-tags">
         		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/leetcode/">
-               	 #Leetcode</a></span>
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E7%AE%97%E6%B3%95/">
-               	 #算法</a></span>
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-               	 #字符串</a></span>
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/git/">
+               	 #git</a></span>
         		
 				</div>
 				
@@ -284,320 +241,26 @@ import java.util.Stack; public class Solution { Stack&lt;Integer&gt; dataStack =
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-09-28-react/">React学习笔记</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-18-hortonworks-%E9%B2%B2%E9%B9%8F/">hortonworks-鲲鹏</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				React学习 JSF语法概述 const element = &lt;h1&gt;Hello, world!&lt;/h1&gt;; 这个有趣的标签语法既不是字符串也不是 HTML。
-它被称为 JSX，是一个 JavaScript 的语法扩展。我们建议在 React 中配合使用 JSX，JSX 可以很好地描述 UI 应该呈现出它应有交互的本质形式。JSX 可能会使人联想到模版语言，但它具有 JavaScript 的全部功能。
+				安装方式：磁盘安装
+安装版本：0.5.4
+参考文档：https://registry-project.readthedocs.io/en/latest/install.html#centos-redhat
+  下载压缩包并解压
+wget https://github.com/hortonworks/registry/releases/download/0.5.4/hortonworks-registry-0.5.4.tar.gz [root@dbmaster local]# ls -al hortonworks/ total 36 drwx------ 8 root root 140 Mar 18 16:12 .
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2019-09-28 itemprop="datePublished">September 28, 2019</time>
+                <time datetime=2021-03-18 itemprop="datePublished">March 18, 2021</time>
                 </span>
                 in
-                <i class="iconfont icon-folder"></i>
-                <span class="post-category">
-                        <a href="https://linjinbao.github.io/categories/%E7%AC%94%E8%AE%B0/"> 笔记 </a>
-                        
-                </span>
+                
         </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/react/">
-               	 #React</a></span>
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E7%AC%94%E8%AE%B0/">
-               	 #笔记</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-09-27-leetcode%E7%AE%97%E6%B3%95%E9%A2%98-%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/">LeetCode算法题-合并区间</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				2019-09-27-LeetCode算法题-合并区间 LeetCode算法题-合并区间 题目描述： 给出一个区间的集合，请合并所有重叠的区间。
-示例 1: 输入: [[1,3],[2,6],[8,10],[15,18]] 输出: [[1,6],[8,10],[15,18]] 解释: 区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6]. 示例 2: 输入: [[1,4],[4,5]] 输出: [[1,5]] 解释: 区间 [1,4] 和 [4,5] 可被视为重叠区间。 思路分析：
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-09-27 itemprop="datePublished">September 27, 2019</time>
-                </span>
-                in
-                <i class="iconfont icon-folder"></i>
-                <span class="post-category">
-                        <a href="https://linjinbao.github.io/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
-                        <a href="https://linjinbao.github.io/categories/leetcode/"> leetcode </a>
-                        
-                </span>
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E7%AE%97%E6%B3%95/">
-               	 #算法</a></span>
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/leetcode/">
-               	 #leetcode</a></span>
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E4%B8%AD%E7%AD%89/">
-               	 #中等</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-09-27-mysql%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/">MYSQL操作笔记</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				MYSQL操作笔记 修改用户密码 [官方链接]（https://dev.mysql.com/doc/mysql-windows-excerpt/5.7/en/resetting-permissions-windows.html） 方法一（老版本）：使用set password命令 格式`mysql&gt; set password for username@loclhost=password(‘passwd’);
-mysql&gt; set password = password('Gepoint'); Query OK, 0 rows affected (0.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-09-27 itemprop="datePublished">September 27, 2019</time>
-                </span>
-                in
-                <i class="iconfont icon-folder"></i>
-                <span class="post-category">
-                        <a href="https://linjinbao.github.io/categories/%E7%AC%94%E8%AE%B0/"> 笔记 </a>
-                        
-                </span>
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/mysql/">
-               	 #MYSQL</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-09-26-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8A%A0%E5%85%A5%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/">博客加入评论功能</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				2019-09-26-个人博客加入评论功能 个人博客加入评论功能 实现思路： 使用第三方存储，白嫖美滋滋
-按照姑苏流白的教程，我使用Valine的评论系统
-配置Valine  注册 登录账号 略过 建立应用 配置应用keys，配置项：AppID， AppKey  修改博客配置  修改config.toml配置  加入以下内容：</p>
-<h1 id="valine">Valine.</h1>
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-09-26 itemprop="datePublished">September 26, 2019</time>
-                </span>
-                in
-                <i class="iconfont icon-folder"></i>
-                <span class="post-category">
-                        <a href="https://linjinbao.github.io/categories/%E6%95%99%E7%A8%8B/"> 教程 </a>
-                        
-                </span>
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E6%95%99%E7%A8%8B/">
-               	 #教程</a></span>
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E5%8D%9A%E5%AE%A2/">
-               	 #博客</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-09-26-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%95%9C%E5%83%8F/">牛客网-二叉树的镜像</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				二叉树镜像 题目描述 操作给定的二叉树，将其变换为源二叉树的镜像。
-分析： 想到递归，对每一个节点有4种情况：
-当前节点为空 当前节点不为空，左子树为空 当前节点不为空，右子树为空 当前节点不为空，左右子树都为空  很显然2,3两点可以重合
-那么递归退出条件就是1和4
-代码 代码如下，测试通过
-public static void mirror(TreeNode root) { if (root==null)return; if (root.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-09-26 itemprop="datePublished">September 26, 2019</time>
-                </span>
-                in
-                <i class="iconfont icon-folder"></i>
-                <span class="post-category">
-                        <a href="https://linjinbao.github.io/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
-                        
-                </span>
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E7%AE%97%E6%B3%95/">
-               	 #算法</a></span>
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E9%93%BE%E8%A1%A8/">
-               	 #链表</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-09-25-rabbitmqwindows/">RabbitMq安装部署</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				RabbitMq-Windows版本部署 软件下载  otp_win64_R16B03-1.exe rabbitmq-server-3.6.9.exe  软件安装一路下一步，全部使用默认地址
-启动服务 进入C:\Program Files (x86)\RabbitMQ Server\rabbitmq_server-3.4.1\sbin目录，运行cmd，输入命令rabbitmq-plugins enable rabbitmq_management：
-C:\Program Files\RabbitMQ Server\rabbitmq_server-3.6.9\sbin&gt; rabbitmq-plugins enable rabbitmq_management The following plugins have been enabled: amqp_client cowlib cowboy rabbitmq_web_dispatch rabbitmq_management_agent rabbitmq_management Applying plugin configuration to rabbit@DESKTOP-I1CQLLJ.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-09-25 itemprop="datePublished">September 25, 2019</time>
-                </span>
-                in
-                <i class="iconfont icon-folder"></i>
-                <span class="post-category">
-                        <a href="https://linjinbao.github.io/categories/%E6%95%99%E7%A8%8B/"> 教程 </a>
-                        
-                </span>
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/rabbitmq/">
-               	 #RabbitMq</a></span>
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E5%AE%89%E8%A3%85/">
-               	 #安装</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-09-25-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/">牛客网题目-树的子结构</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				2019-09-25-树的子结构 题目名称：树的子结构 题目描述 输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）
-分析： 第一想法是递归，只要是树，我就上递归。分析情况有以下3种：
-当前root1节点=当前root2节点 当前root1节点！=当前root2节点，但是root1.left和root2节点相等 当前root1节点！=当前root2节点，但是root1.right和root2节点相等  所以需要一个辅助函数helper
-public static boolean hasSubtree(TreeNode root1, TreeNode root2) { if (root1==null || root2==null) return false; //三种情况  return helper(root1,root2) || hasSubtree(root1.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-09-25 itemprop="datePublished">September 25, 2019</time>
-                </span>
-                in
-                <i class="iconfont icon-folder"></i>
-                <span class="post-category">
-                        <a href="https://linjinbao.github.io/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
-                        
-                </span>
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E7%AE%97%E6%B3%95/">
-               	 #算法</a></span>
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/nowcoder/">
-               	 #nowcoder</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-09-24-mongodb/">Mongodb安装与使用</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				Mongodb安装与使用 背景知识 最近在项目实施过程中遇到一个问题：由于客户提供的Linux机器没有最下滑化安装，导致使用公司的bin包方式安装Mongodb失败。本着能自己解决就自己解决的态度，我开始了Mongodb的研究。
-安装和启动   下载
-因为centos的官放的yum源中没有提供Mongodb的安装包，此时我们需要自己下载下来（也可以修改yum源，不推荐） 执行命令wget <a href="https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.0.tgz">https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.0.tgz</a> 下载安装包
-解压
-执行解压命令tar zxvf mongodb-linux-x86_64-4.0.0.tgz，如果为了统一的化，可以把解压出来的文件夹重命名，以及移动到/opt/下去。这个不重要，可以不用看。
-添加启动配置
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-09-24 itemprop="datePublished">September 24, 2019</time>
-                </span>
-                in
-                <i class="iconfont icon-folder"></i>
-                <span class="post-category">
-                        <a href="https://linjinbao.github.io/categories/%E6%95%99%E7%A8%8B/"> 教程 </a>
-                        
-                </span>
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/mongodb/">
-               	 #Mongodb</a></span>
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-               	 #数据库</a></span>
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E6%95%99%E7%A8%8B/">
-               	 #教程</a></span>
-        		
-				</div>
 				
 			</div>
 		</article>
@@ -817,6 +480,49 @@ public static boolean hasSubtree(TreeNode root1, TreeNode root2) { if (root1==nu
     
     
     
+    
+    
+        
+        
+    
+    
+    <li class="page-item "><span class="page-link" aria-hidden="true">&hellip;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item ">
+        <span class="page-link">
+            <a href="/page/23/">23</a></li>
+        </span>
+    
+    
+    
+    
 </ul>
 
 </div>
@@ -835,7 +541,7 @@ public static boolean hasSubtree(TreeNode root1, TreeNode root2) { if (root1==nu
     	 <i class="iconfont icon-love"></i> 
          </span>
          
-            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
          
 
          

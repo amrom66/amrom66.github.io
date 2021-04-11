@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2020/2020-02-20-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0-05/" />
+  <link rel="next" href="https://linjinbao.github.io/2020/2020-02-21-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B009/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2020/2020-02-20-nat/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           NAT转发软路由 | 打工人日记
+       
+  </title>
+  <meta name="title" content="NAT转发软路由 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "NAT转发软路由",
+    "headline" : "NAT转发软路由",
+    "description" : "NAT转发软路由 配置NAT 转发软路由 # 开启 NAT 转发 firewall-cmd --permanent --zone=public --add-masquerade # 开放 DNS 使用的 53 端口，UDP # 必须，否则其他机器无法进行域名解析 firewall-cmd --zone=public --add-port=80\/tcp --permanent # 检查是否允许 NAT 转发 firewall-cmd --query-masquerade # 禁止防火墙 NAT 转发 firewall-cmd --remove-masquerade 端口转发 # 将80端口的流量转发至8080 firewall-cmd --add-forward-port=port=80:proto=tcp:toport=8080 # 将80端口的流量转发至192.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-02-20 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-02-20 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2020\/2020-02-20-nat\/",
+    "wordCount" : "59",
+    "keywords" : [ "nat", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">NAT转发软路由</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=20029-02-20 itemprop="datePublished">February 20, 2020</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="nat转发软路由">NAT转发软路由</h1>
+<h2 id="配置nat-转发软路由">配置NAT 转发软路由</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># 开启 NAT 转发
+firewall-cmd --permanent --zone=public --add-masquerade
+
+# 开放 DNS 使用的 53 端口，UDP
+# 必须，否则其他机器无法进行域名解析
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+
+# 检查是否允许 NAT 转发
+firewall-cmd --query-masquerade
+# 禁止防火墙 NAT 转发
+firewall-cmd --remove-masquerade
+</code></pre></div><h2 id="端口转发">端口转发</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># 将80端口的流量转发至8080
+firewall-cmd --add-forward-port=port=80:proto=tcp:toport=8080
+
+# 将80端口的流量转发至192.168.0.1
+firewall-cmd --add-forward-port=proto=80:proto=tcp:toaddr=192.168.0.1
+
+# 将80端口的流量转发至192.168.0.1的8080端口
+firewall-cmd --add-forward-port=proto=80:proto=tcp:toaddr=192.168.0.1:toport=8080
+
+# 移除转发规则
+firewall-cmd --remove-forward-port=port=80:proto=tcp:toport=8080
+firewall-cmd --remove-forward-port=port=81:proto=tcp:toport=8080
+
+# 查看转发规则
+firewall-cmd --list-forward-ports
+</code></pre></div><p>注意：配置端口转发后，端口无需开启，例如，转发A端口到B端口，则A端口无需开启，B端口开启即可。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2020/2020-02-20-nat/>https://linjinbao.github.io/2020/2020-02-20-nat/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/nat/">
+                    #nat</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2020/2020-02-20-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0-05/" class="prev" rel="prev" title="spring cloud系列笔记-05"><i class="iconfont icon-left"></i>&nbsp;spring cloud系列笔记-05</a>
+         
+        
+        <a href="https://linjinbao.github.io/2020/2020-02-21-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B009/" class="next" rel="next" title="spring cloud系列笔记-09">spring cloud系列笔记-09&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= "title"
+        label= "utterance"
+        theme= 'github-light'
+        crossorigin="anonymous"
+        async>
+  </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

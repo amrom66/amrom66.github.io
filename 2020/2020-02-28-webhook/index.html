@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2020/2020-02-28-dns/" />
+  <link rel="next" href="https://linjinbao.github.io/2020/2020-02-29-restdoc/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2020/2020-02-28-webhook/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           github webhooks配置 | 打工人日记
+       
+  </title>
+  <meta name="title" content="github webhooks配置 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "github webhooks配置",
+    "headline" : "github webhooks配置",
+    "description" : "webhooks 自动部署 原理 利用Github在仓库进行操作时，可以通过配置webhook向服务器发送请求，在服务器端接到请求后，使用脚本来自动进行git pull操作。即，当我在本地机器A进行一个push操作到github，github会在这个操作结束后，发起一个POST请求到机器B，机器B收到这个请求后，执行同步操作，git fetch等等，因为使用的web服务，交换的数据格式为json等，所以叫webhooks，web钩子。\n准备工作  VPS （独立IP），或者能请求到的http服务网址就行，服务受自己控制 nodeJS  第一步 在机器B编写webhooks服务 webhooks服务可以使用Java Web，也可以使用Node，只要可以监听端口，并接收响应web请求就可以。\n我这里使用的Node的简易的Web服务。\nwebhook.js\nvar http=require(\x26#39;http\x26#39;) var createHandler = require(\x26#39;github-webhook-handler\x26#39;) var handler = createHandler({ path: \x26#39;\/\x26#39;, secret: \x26#39;****\x26#39; }) \/\/ 上面的 secret 保持和 GitHub 后台设置的一致 function run_cmd(cmd, args, callback) { var spawn = require(\x26#39;child_process\x26#39;).",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-02-28 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-02-28 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2020\/2020-02-28-webhook\/",
+    "wordCount" : "177",
+    "keywords" : [ "github", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">github webhooks配置</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=28029-02-28 itemprop="datePublished">February 28, 2020</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="webhooks-自动部署">webhooks 自动部署</h1>
+<h2 id="原理">原理</h2>
+<p>利用Github在仓库进行操作时，可以通过配置webhook向服务器发送请求，在服务器端接到请求后，使用脚本来自动进行git pull操作。即，当我在本地机器A进行一个push操作到github，github会在这个操作结束后，发起一个POST请求到机器B，机器B收到这个请求后，执行同步操作，git fetch等等，因为使用的web服务，交换的数据格式为json等，所以叫webhooks，web钩子。</p>
+<h2 id="准备工作">准备工作</h2>
+<ol>
+<li>VPS （独立IP），或者能请求到的http服务网址就行，服务受自己控制</li>
+<li>nodeJS</li>
+</ol>
+<h2 id="第一步-在机器b编写webhooks服务">第一步 在机器B编写webhooks服务</h2>
+<p>webhooks服务可以使用Java Web，也可以使用Node，只要可以监听端口，并接收响应web请求就可以。</p>
+<p>我这里使用的Node的简易的Web服务。</p>
+<p>webhook.js</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">http</span><span style="color:#f92672">=</span><span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;http&#39;</span>)
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">createHandler</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;github-webhook-handler&#39;</span>)
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">handler</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createHandler</span>({ <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/&#39;</span>, <span style="color:#a6e22e">secret</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;****&#39;</span> })
+<span style="color:#75715e">// 上面的 secret 保持和 GitHub 后台设置的一致
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">run_cmd</span>(<span style="color:#a6e22e">cmd</span>, <span style="color:#a6e22e">args</span>, <span style="color:#a6e22e">callback</span>) {
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">spawn</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;child_process&#39;</span>).<span style="color:#a6e22e">spawn</span>;
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">child</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">spawn</span>(<span style="color:#a6e22e">cmd</span>, <span style="color:#a6e22e">args</span>);
+  <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">resp</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+  <span style="color:#a6e22e">child</span>.<span style="color:#a6e22e">stdout</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;data&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">buffer</span>) { <span style="color:#a6e22e">resp</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">buffer</span>.<span style="color:#a6e22e">toString</span>(); });
+  <span style="color:#a6e22e">child</span>.<span style="color:#a6e22e">stdout</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;end&#39;</span>, <span style="color:#66d9ef">function</span>() { <span style="color:#a6e22e">callback</span> (<span style="color:#a6e22e">resp</span>) });
+}
+<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">createServer</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#a6e22e">handler</span>(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">err</span>) {
+    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">statusCode</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">404</span>
+    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">end</span>(<span style="color:#e6db74">&#39;no such location&#39;</span>)
+  })
+}).<span style="color:#a6e22e">listen</span>(<span style="color:#ae81ff">7777</span>)
+<span style="color:#a6e22e">handler</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;error&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">err</span>) {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#39;Error:&#39;</span>, <span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">message</span>)
+})
+<span style="color:#a6e22e">handler</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;push&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">event</span>) {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Received a push event for %s to %s&#39;</span>,
+    <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">payload</span>.<span style="color:#a6e22e">repository</span>.<span style="color:#a6e22e">name</span>,
+    <span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">payload</span>.<span style="color:#a6e22e">ref</span>);
+    <span style="color:#a6e22e">run_cmd</span>(<span style="color:#e6db74">&#39;sh&#39;</span>, [<span style="color:#e6db74">&#39;./deploy.sh&#39;</span>,<span style="color:#a6e22e">event</span>.<span style="color:#a6e22e">payload</span>.<span style="color:#a6e22e">repository</span>.<span style="color:#a6e22e">name</span>], <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">text</span>){ <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">text</span>) });
+})
+</code></pre></div><h2 id="第二步-编写deploysh脚本">第二步 编写deploy.sh脚本</h2>
+<p>deploy.sh</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">WEB_PATH=&#39;/root/blog/linjinbao66&#39;    ## 网站目录
+echo &#34;start deployment&#34;
+cd $WEB_PATH
+echo &#34;fetching from remote...&#34;
+# 为了避免冲突，强制更新本地文件
+git fetch --all
+git reset --hard origin/master
+echo &#34;done&#34;
+</code></pre></div><h2 id="第三步-启动node服务">第三步 启动node服务</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">npm i -g github-webhook-handler
+npm i pm2 -g
+npm link github-webhook-handler
+pm2 start webhook.js
+</code></pre></div><h2 id="第四步-创建本地仓库-并连接远程git仓库">第四步 创建本地仓库 并连接远程git仓库</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">mkdir linjinbao66
+git init 
+git remote add ***
+</code></pre></div><h2 id="第五步-在gitub网站申请webhooks-secret">第五步 在gitub网站申请webhooks secret</h2>
+<p>申请到的Secret，替换第一步的Secret的值，或者使用第一步的Secret作为申请的Secret，只要保证一致即可。</p>
+<p><a href="https://developer.github.com/webhooks">官方Guide</a></p>
+<h2 id="测试">测试</h2>
+<p>在机器A上执行git push 试试，可以在WebHooks 的Recent Deliveries中看到记录。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2020/2020-02-28-webhook/>https://linjinbao.github.io/2020/2020-02-28-webhook/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/github/">
+                    #github</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2020/2020-02-28-dns/" class="prev" rel="prev" title="自建DNS配置记录"><i class="iconfont icon-left"></i>&nbsp;自建DNS配置记录</a>
+         
+        
+        <a href="https://linjinbao.github.io/2020/2020-02-29-restdoc/" class="next" rel="next" title="Spring Boot教程第10篇：restdoc">Spring Boot教程第10篇：restdoc&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= "title"
+        label= "utterance"
+        theme= 'github-light'
+        crossorigin="anonymous"
+        async>
+  </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

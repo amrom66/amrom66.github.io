@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noodp"/>
-  <meta name="author" content="linjinbao">
+  <meta name="author" content="linjinbao66">
   <meta name="description" content="打工人日记">
   <meta name="keywords" content="博客 个人 日记">
   
@@ -47,7 +47,7 @@
     "name": "打工人日记",
     "author": {
         "@type": "Person",
-        "name": "linjinbao"
+        "name": "linjinbao66"
     },
     "description": "打工人日记",
 }
@@ -69,13 +69,13 @@
         <div class="menu navbar-right">
                 
                 
-                <a class="menu-item" href="/posts/" title="">博客</a>
+                <a class="menu-item active" href="/" title="">博客</a>
                 
                 <a class="menu-item" href="/categories/" title="">分类</a>
                 
                 <a class="menu-item" href="/tags/" title="">标签</a>
                 
-                <a class="menu-item" href="/about/" title="关于">关于</a>
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
                 
         </div>
     </div>
@@ -92,13 +92,13 @@
           <div class="menu" id="mobile-menu">
                 
                 
-                <a class="menu-item" href="/posts/" title="">博客</a>
+                <a class="menu-item active" href="/" title="">博客</a>
                 
                 <a class="menu-item" href="/categories/" title="">分类</a>
                 
                 <a class="menu-item" href="/tags/" title="">标签</a>
                 
-                <a class="menu-item" href="/about/" title="关于">关于</a>
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
                 
         </div>
     </div>
@@ -128,19 +128,43 @@
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-29-%E6%89%B9%E5%A4%84%E7%90%86%E8%A7%A3%E5%86%B3ie%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BE%E7%BD%AE%E9%97%AE%E9%A2%98/">批处理解决IE浏览器设置问题</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-30-cka%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/">CKA考试准备</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				2019-11-29-批处理解决IE浏览器设置问题 功能集合.bat
-@echo off title ★ IEl浏览器设置，请先确保浏览器是IE11 ，否则会有设置无法生效 ★ echo 正在启用IE的 ActiveX控件、JAVA脚本、活动脚本，请稍候&hellip; ping 127.0.0.1 -n 2 &gt;nul 2&gt;nul set bl=0 :setreg if &quot;%bl%&quot;==&quot;3&quot; goto ex set regpath=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones%bl% cls echo 本脚本可快速启用IE的 ActiveX控件、JAVA脚本、活动脚本 echo 正在进行 ZONE%bl% 的设置.
+				准备CKA证书考试：
+ k8s官网文档翻译 k8s官网实践 reddit社区交流  
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2019-11-29 itemprop="datePublished">November 29, 2019</time>
+                <time datetime=2021-03-30 itemprop="datePublished">March 30, 2021</time>
+                </span>
+                in
+                
+        </div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-25-k8s%E6%95%B4%E5%90%88glusterfs%E5%81%9A%E5%90%8E%E7%AB%AF%E5%AD%98%E5%82%A8/">k8s整合glusterfs做后端存储</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				安装glusterfs和heketi
+#所有存储服务器下载安装glusterfs yum install centos-release-gluster -y yum install glusterfs-server -y #启动 systemctl start glusterd #安装heketi yum install -y heketi heketi-client   部署gluster集群
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2021-03-25 itemprop="datePublished">March 25, 2021</time>
                 </span>
                 in
                 
@@ -148,8 +172,8 @@
 				
 				<div class="post-tags">
         		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/dos/">
-               	 #dos</a></span>
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/kubernetes/">
+               	 #kubernetes</a></span>
         		
 				</div>
 				
@@ -159,20 +183,46 @@
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-28-openvpn%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/">openvpn服务搭建</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-22-tar%E6%89%93%E5%8C%85%E7%8E%B0%E6%9C%89%E7%9A%84%E7%B3%BB%E7%BB%9F/">tar打包现有的系统</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				openvpn服务搭建 安装openvpn 和easy-rsa（制作ca证书） 方法一：
-wget <a href="http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm">http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm</a> rpm -Uvh epel-release-6-8.noarch.rpm yum install openvpn wget <a href="https://github.com/OpenVPN/easy-rsa/archive/master.zip">https://github.com/OpenVPN/easy-rsa/archive/master.zip</a> unzip master.zip 方法二：
-yum -y install epel-release #epel源 yum -y install openvpn easy-rsa ca证书制作（重点难点）   创建目录，并复制easy-rsa 目录
+				选择一个系统，在根目录下将已有系统打包成tar文件：
+tar -cvpf /tmp/system.tar --directory=/ --exclude=proc --exclude=sys --exclude=dev --exclude=run --exclude=boot --exclude=/opt/software . 导入方式一：
+cat system.tar | docker import - redhat:6.5 导入方式二：
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2019-11-28 itemprop="datePublished">November 28, 2019</time>
+                <time datetime=2021-03-22 itemprop="datePublished">March 22, 2021</time>
+                </span>
+                in
+                
+        </div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/">git单独忽略一个文件的历史提交</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				使用场景：
+将一个重要文件，勿加入git的版本管理中了，后续又更新了好多版本，此时想要去除该文件的所有历史提交。
+ 方案一：删除所有git记录 方案二：单独删除该文件的历史记录  方案二操作如下：
+git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch visitor-consumer/src/main/java/com/fline/util/SMSUtil.java' --prune-empty --tag-name-filter cat -- --all git push origin --force --all git push origin --force --tags git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin git reflog expire --expire=now --all git gc --prune=now 
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2021-03-19 itemprop="datePublished">March 19, 2021</time>
                 </span>
                 in
                 
@@ -180,11 +230,8 @@ yum -y install epel-release #epel源 yum -y install openvpn easy-rsa ca证书制
 				
 				<div class="post-tags">
         		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/linux/">
-               	 #Linux</a></span>
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/vpn/">
-               	 #vpn</a></span>
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/git/">
+               	 #git</a></span>
         		
 				</div>
 				
@@ -194,312 +241,22 @@ yum -y install epel-release #epel源 yum -y install openvpn easy-rsa ca证书制
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-27-%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/">网站申请SSL证书-腾讯云</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-18-hortonworks-%E9%B2%B2%E9%B9%8F/">hortonworks-鲲鹏</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				2019-11-27-网站申请SSL证书 网站申请SSL证书   腾讯云文档
-选择证书类型，这里选择免费的
-配置域名验证  这一步是将腾讯云提供的一串文字，放直到服务器web应用内，腾讯云服务器定时去扫描这个域名，如果发现存在文件且匹配，则证明这个域名是你的，目的就是验证身份
-最后访问的url
-等待腾讯验证，验证结束如下图   下载文件并上传到nginx服务器（我这里情况比一般复杂，实际申请的网站和域名绑定的不一致，用了nginx反代）  上面两个文件是我们需要的，一个证书，一个私钥
+				安装方式：磁盘安装
+安装版本：0.5.4
+参考文档：https://registry-project.readthedocs.io/en/latest/install.html#centos-redhat
+  下载压缩包并解压
+wget https://github.com/hortonworks/registry/releases/download/0.5.4/hortonworks-registry-0.5.4.tar.gz [root@dbmaster local]# ls -al hortonworks/ total 36 drwx------ 8 root root 140 Mar 18 16:12 .
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2019-11-27 itemprop="datePublished">November 27, 2019</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/linux/">
-               	 #Linux</a></span>
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/%E7%BD%91%E7%AB%99/">
-               	 #网站</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-26-%E4%B8%AA%E4%BA%BA%E9%82%AE%E7%AE%B1%E6%90%AD%E5%BB%BA/">个人邮箱服务器搭建</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				个人邮箱服务器搭建 参考文档http://doc.ewomail.com/docs/ewomail/webmail_login
-搭建环境要求：</p>
-<ol>
-<li>系统没有安装nginx,mysql并且相关端口未占用 2. 端口要求： #端口TCP 8000，8010，8020，25，143，993，995，587，110，109，22，80，465 学习的话直接关闭防火墙systemctl stop firewalld
-第一步：配置主机名 set-hostname mail.amrom.tk
-第二步：拉取源码并安装 yum -y install git cd /root git clone https://gitee.</li>
-</ol>
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-11-26 itemprop="datePublished">November 26, 2019</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-25-nginx%E4%BB%A3%E7%90%86%E9%97%AE%E9%A2%98/">nginx代理出来的页面使用IE无法加载png问题</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				nginx代理出来的页面使用IE无法加载png问题 问题描述： 使用nginx对站点进行反代，其他都正常，但是有个png图片无法加载。排查了情况如下： 1. 其他浏览器正常 2. IE在内网正常，访问原始地址 3. IE在外网异常，访问nginx代理后地址
-问题分析： 检查F12，发现图片状态码200，已经加载出来，但是没有渲染出来，推测是由于安全策略问题；比对内网header和外网访问header，发现区别在外网多了个X-Content-Type-Options: nosniff，估计问题在这。
-问题解决： 在nginx代理中，去掉add_header X-Content-Type-Options nosniff;配置项 问题解决
-总结 X-Content-Type-Options nosniff是什么？
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-11-25 itemprop="datePublished">November 25, 2019</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/http/">
-               	 #http</a></span>
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/nginx/">
-               	 #nginx</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-23-linux-find%E6%8C%89%E7%85%A7%E6%97%B6%E9%97%B4%E6%9F%A5%E8%AF%A2/">linux find 按文件时间查询</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				需求:删除 /home/ljbao/myback/files 目录下7分钟之前生成的gz类型的文件 find /home/ljbao/myback/files -mtime +7 -name &quot;*.gz&quot; -exec rm {} ; //时间条件
--amin n: 查找n分钟以前被访问过的所有文件。 -atime n: 查找n天以前被访问过的所有文件。 -cmin n: 查找n分钟以前文件状态被修改过的所有文件。 -ctime n: 查找n天以前文件状态被修改过的所有文件。 -mmin n: 查找n分钟以前文件内容被修改过的所有文件。 -mtime n: 查找n天以前文件内容被修改过的所有文件。
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-11-23 itemprop="datePublished">November 23, 2019</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/linux/">
-               	 #Linux</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-23-mysql%E5%AE%9A%E6%97%B6%E5%A4%87%E4%BB%BD/">mysql 定时备份</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				mysql 定时备份 第一步：写备份脚本 backup_full.sh
-#!/bin/bash BACKUP_ROOT=/home/ljbao/myback BACKUP_FILEDIR=$BACKUP_ROOT/files BACKUP_LOGDIR=$BACKUP_ROOT/logs #当前日期 DATE=$(date +%Y%m%d) DATABASES=$(mysql -uroot -p*** -e &quot;show databases&quot; | grep -Ev &quot;Database|sys|information_schema&quot;) echo $DATABASES #循环数据库进行备份 for db in $DATABASES do echo echo &mdash;&mdash;&mdash;-$BACKUP_FILEDIR/${db}_$DATE.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-11-23 itemprop="datePublished">November 23, 2019</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/mysql/">
-               	 #mysql</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-23-mysql%E5%AD%A6%E4%B9%A004/">mysql学习04</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				mysql学习04-表   innodb_file_per_table ## 每张表数据可以单独放到一个表空间
-show variables like 'innodb_file_per_table';   约束 约束是为了保证数据库中的数据完整性
-实体完整性
-保证表中有一个主键。
-域完整性
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-11-23 itemprop="datePublished">November 23, 2019</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/mysql/">
-               	 #mysql</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-22-mysql%E5%85%B3%E9%97%AD%E4%B8%BB%E4%BB%8E/">mysql 关闭主从</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				2019-11-22-mysql 关闭主从 mysql 关闭主从 执行STOP SLAVE语句 使用SHOW STATUS检查slave_open_temp_tables变量的值 如果值为0，使用mysqladmin shutdown命令关闭从服务器 如果值不为0，用START SLAVE重启从服务器线程 slave_open_temp_tables值显示，当前slave创建了多少临时表，注意由client显示创建的 即便是这样，在使用临时表的场景下，如果服务器宕机，将遇到不可预知的问题。 所以比较保险的做法是，创建实体表，虽然会由于分配的文件刷新到磁盘。
-mysql&gt; show status like '%slave%'; +&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;+&mdash;&mdash;-+ | Variable_name | Value | +&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;+&mdash;&mdash;-+ | Com_show_slave_hosts | 0 | | Com_show_slave_status | 0 | | Com_slave_start | 0 | | Com_slave_stop | 0 | | Slave_open_temp_tables | 0 | +&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash; mysql删除主从 进入mysql
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-11-22 itemprop="datePublished">November 22, 2019</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/mysql/">
-               	 #mysql</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-22-mysql%E5%AD%A6%E4%B9%A003/">mysql学习03</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				<p>第3章-mysql系统文件   查询慢查询设置</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">show</span> variables <span style="color:#66d9ef">like</span> <span style="color:#f92672">&amp;</span>lsquo;<span style="color:#f92672">%</span>long<span style="color:#f92672">%</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">;
-</span><span style="color:#e6db74">show variables like &amp;lsquo;log_slow_queries&amp;rsquo;;
-</span><span style="color:#e6db74">set long_query_time=1; #1秒
-</span><span style="color:#e6db74">  show variables like &amp;lsquo;slow_query_log&amp;rsquo;; # 日志是否开启 show variables like &amp;lsquo;slow_query_log_file&amp;rsquo;; # 日志位置</span></code></pre></div>
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-11-22 itemprop="datePublished">November 22, 2019</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/mysql/">
-               	 #Mysql</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-22-mysql%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%9702/">Mysql学习系列02</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				2019-11-22-Mysql学习系列02 mysql 报错 错误代码： 1786 Statement violates GTID consistency: CREATE TABLE &hellip; SELECT. 错误原因 这是因为在5.6及以上的版本内，开启了 enforce_gtid_consistency=true 功能导致的，MySQL官方解释说当启用 enforce_gtid_consistency 功能的时候，MySQL只允许能够保障事务安全，并且能够被日志记录的SQL语句被执行，像create table … select 和 create temporarytable语句，以及同时更新事务表和非事务表的SQL语句或事务都不允许执行。
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-11-22 itemprop="datePublished">November 22, 2019</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/mysql/">
-               	 #Mysql</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2019-11-22-mysql%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95sql/">mysql配置记录sql</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				2019-11-22-mysql配置记录sql 1.修改配置文件，my.cnf
-#vi /etc/my.cnf log =/mysql/mysqls.log #慢查询语句 ,time 单位是秒 log-slow-queries = /mysql/slowquery.log long_query_time = 1  查看正在执行的SQL语句，用 processlist，缺点是，时时变化，不易观察到需要的SQL 。  mysql&gt; use information_schema; mysql&gt; select * from PROCESSLIST where info is not null; 3.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-11-22 itemprop="datePublished">November 22, 2019</time>
+                <time datetime=2021-03-18 itemprop="datePublished">March 18, 2021</time>
                 </span>
                 in
                 
@@ -722,9 +479,45 @@ mysql&gt; show status like '%slave%'; +&mdash;&mdash;&mdash;&mdash;&mdash;&mdash
         
     
     
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
     <li class="page-item ">
         <span class="page-link">
-            <a href="/page/19/">19</a></li>
+            <a href="/page/23/">23</a></li>
         </span>
     
     
@@ -748,7 +541,7 @@ mysql&gt; show status like '%slave%'; +&mdash;&mdash;&mdash;&mdash;&mdash;&mdash
     	 <i class="iconfont icon-love"></i> 
          </span>
          
-            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
          
 
          

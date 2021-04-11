@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019/2019-11-12-%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8Bspring-aop/" />
+  <link rel="next" href="https://linjinbao.github.io/2019/2019-11-13-ftp%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019/2019-11-12-java%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%86%99%E6%B3%95/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Java定时任务 | 打工人日记
+       
+  </title>
+  <meta name="title" content="Java定时任务 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Java定时任务",
+    "headline" : "Java定时任务",
+    "description" : "Java定时任务的几种写法 前言：cron表达式书写： cron = \x26quot;* * * * * *\x26quot; {秒数} {分钟} {小时} {日期} {月份} {星期} {年份(可为空)} 每个字段允许值： 秒 0-59 , - \/ 分 0-59 , - \/ 小时 0-23 , - \/ 日期 1-31 , - ?",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-12 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-11-12 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019\/2019-11-12-java%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%86%99%E6%B3%95\/",
+    "wordCount" : "546",
+    "keywords" : [ "Java", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Java定时任务</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=12119-11-12 itemprop="datePublished">November 12, 2019</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="java定时任务的几种写法">Java定时任务的几种写法</h1>
+<p>前言：cron表达式书写： <code>cron = &quot;* * * * * *&quot;</code> {秒数} {分钟} {小时} {日期} {月份} {星期} {年份(可为空)} 每个字段允许值： 秒 0-59 , -  <em>/ 分 0-59 , -</em>  / 小时 0-23 , -  <em>/ 日期 1-31 , -</em>  ? / L W C 月份 1-12 或者 JAN-DEC , -  <em>/ 星期 1-7 或者 SUN-SAT , -</em>  ? / L C # 年 留空, 1970-2099 , - * / 符号的意义：</p>
+<ul>
+<li>
+<p>表示所有值；</p>
+<p>? 表示未说明的值，即不关心它为何值；</p>
+</li>
+<li>
+<p>表示一个指定的范围；</p>
+<p>, 表示附加一个可能值；</p>
+<p>/ 符号前表示开始时间，符号后表示每次递增的值；</p>
+<p>表达式示例:</p>
+<p>```code</p>
+<p><em>/5</em>   __ * ? 每隔5秒执行一次</p>
+<p>0 <em>/1</em>   __ ? 每隔1分钟执行一次</p>
+<p>0 0 5-15  __ ? 每天5-15点整点触发</p>
+<p>0 0/3  __ * ? 每三分钟触发一次</p>
+<p>0 0-5 14  __ ? 在每天下午2点到下午2:05期间的每1分钟触发</p>
+<p>0 0/5 14  __ ? 在每天下午2点到下午2:55期间的每5分钟触发</p>
+<p>0 0/5 14,18  __ ? 在每天下午2点到2:55期间和下午6点到6:55期间的每5分钟触发</p>
+<p>0 0/30 9-17  __ ? 朝九晚五工作时间内每半小时</p>
+<p>0 0 10,14,16  __ ? 每天上午10点，下午2点，4点</p>
+</li>
+</ul>
+<p>0 0 12 ?  <em>WED 表示每个星期三中午12点 0 0 17 ?</em>  TUES,THUR,SAT 每周二、四、六下午五点 0 10,44 14 ? 3 WED 每年三月的星期三的下午2:10和2:44触发 0 15 10 ?  <em>MON-FRI 周一至周五的上午10:15触发 0 0 23 L</em>  ? 每月最后一天23点执行一次 0 15 10 L  <em>? 每月最后一日的上午10:15触发 0 15 10 ?</em>  6L 每月的最后一个星期五上午10:15触发 0 15 10  __ ? 2005 2005年的每天上午10:15触发 0 15 10 ?  <em>6L 2002-2005 2002年至2005年的每月的最后一个星期五上午10:15触发 0 15 10 ?</em>  6#3 每月的第三个星期五上午10:15触发</p>
+<p>&ldquo;30  __  __ ?&rdquo; 每半分钟触发任务 &ldquo;30 10  __  <em>?&rdquo; 每小时的10分30秒触发任务 &ldquo;30 10 1</em>   <em>?&rdquo; 每天1点10分30秒触发任务 &ldquo;30 10 1 20</em>  ?&rdquo; 每月20号1点10分30秒触发任务 &ldquo;30 10 1 20 10 ? <em>&rdquo; 每年10月20号1点10分30秒触发任务 &ldquo;30 10 1 20 10 ? 2011&rdquo; 2011年10月20号1点10分30秒触发任务 &ldquo;30 10 1 ? 10</em>  2011&rdquo; 2011年10月每天1点10分30秒触发任务 &ldquo;30 10 1 ? 10 SUN 2011&rdquo; 2011年10月每周日1点10分30秒触发任务 &ldquo;15,30,45  __  __ ?&rdquo; 每15秒，30秒，45秒时触发任务 &ldquo;15-45  __  __ ?&rdquo; 15到45秒内，每秒都触发任务 &ldquo;15/5  __  __ ?&rdquo; 每分钟的每15秒开始触发，每隔5秒触发一次 &ldquo;15-30/5  __  __ ?&rdquo; 每分钟的15秒到30秒之间开始触发，每隔5秒触发一次 &ldquo;0 0/3  __  <em>?&rdquo; 每小时的第0分0秒开始，每三分钟触发一次 &ldquo;0 15 10 ?</em>  MON-FRI&rdquo; 星期一到星期五的10点15分0秒触发任务 &ldquo;0 15 10 L  <em>?&rdquo; 每个月最后一天的10点15分0秒触发任务 &ldquo;0 15 10 LW</em>  ?&rdquo; 每个月最后一个工作日的10点15分0秒触发任务 &ldquo;0 15 10 ?  <em>5L&rdquo; 每个月最后一个星期四的10点15分0秒触发任务 &ldquo;0 15 10 ?</em>  5#3&rdquo; 每个月第三周的星期四的10点15分0秒触发任务</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">## 第一种：Timer
+```java
+public class TestTimer {
+    @Test
+    public void test01() {
+        new Timer(&#34;hello&#34;).schedule(new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println(&#34;现在是：&#34; + new Date().toLocaleString());
+            }
+        }, 1000,3000);
+    }
+
+
+    public static void main(String[] args) {
+        new TestTimer().test01();
+    }
+}
+</code></pre></div><h2 id="第二种scheduledexecutorservice">第二种：ScheduledExecutorService</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test02</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    ScheduledExecutorService scheduledExecutorService <span style="color:#f92672">=</span> Executors<span style="color:#f92672">.</span><span style="color:#a6e22e">newScheduledThreadPool</span><span style="color:#f92672">(</span>10<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    scheduledExecutorService<span style="color:#f92672">.</span><span style="color:#a6e22e">scheduleAtFixedRate</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Runnable<span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        <span style="color:#a6e22e">@Override</span>
+        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;系统现在时间是2：&#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">new</span> Date<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">toLocaleString</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">}</span><span style="color:#f92672">,</span> 1<span style="color:#f92672">,</span>1<span style="color:#f92672">,</span> TimeUnit<span style="color:#f92672">.</span><span style="color:#a6e22e">SECONDS</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="第三种springtask">第三种：SpringTask</h2>
+<p>1.基于xml配置的方式</p>
+<p>task.xml</p>
+<pre><code class="language-markup" data-lang="markup">&lt;bean id=&quot;myTask&quot; class=&quot;schedule.MyTask&quot;&gt;&lt;/bean&gt;
+
+&lt;task:scheduled-tasks&gt;
+    &lt;task:scheduled ref=&quot;myTask&quot; method=&quot;cron&quot; cron=&quot;0/5 * * * * ?&quot;/&gt;
+&lt;/task:scheduled-tasks&gt;
+</code></pre><p>MyTask.java</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Component</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyTask</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> Logger log <span style="color:#f92672">=</span> LoggerFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">getLogger</span><span style="color:#f92672">(</span>MyTask<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> count<span style="color:#f92672">;</span>
+     <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">cron</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+         log<span style="color:#f92672">.</span><span style="color:#a6e22e">info</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;spring task execute times {}&#34;</span><span style="color:#f92672">,</span> count<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+         log<span style="color:#f92672">.</span><span style="color:#a6e22e">info</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;现在是：&#34;</span><span style="color:#f92672">+</span> <span style="color:#66d9ef">new</span> Date<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+     <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>TestTask.java</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestTask</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">static</span> ApplicationContext context <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ClassPathXmlApplicationContext<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;task.xml&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+        MyTask myTask <span style="color:#f92672">=</span> context<span style="color:#f92672">.</span><span style="color:#a6e22e">getBean</span><span style="color:#f92672">(</span>schedule<span style="color:#f92672">.</span><span style="color:#a6e22e">MyTask</span><span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ol>
+<li>
+<p>基于注解的实现</p>
+<p>task.xml</p>
+<pre><code class="language-markup" data-lang="markup">&lt;task:annotation-driven/&gt;&lt;!-- 开启task注解 --&gt;
+</code></pre></li>
+</ol>
+<p>mytask.java</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Scheduled</span><span style="color:#f92672">(</span>cron <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0/5 * * * * ?&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">cron</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+    log<span style="color:#f92672">.</span><span style="color:#a6e22e">info</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;spring task execute times {}&#34;</span><span style="color:#f92672">,</span> count<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    log<span style="color:#f92672">.</span><span style="color:#a6e22e">info</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;现在是：&#34;</span> <span style="color:#f92672">+</span> <span style="color:#66d9ef">new</span> Date<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="第四种quortz定时任务">第四种：quortz定时任务</h2>
+<p>MyJob.java</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyJob</span> <span style="color:#66d9ef">implements</span> Job<span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Override</span>
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">execute</span><span style="color:#f92672">(</span>JobExecutionContext arg0<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> JobExecutionException <span style="color:#f92672">{</span>
+         String printTime <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> SimpleDateFormat<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;yy-MM-dd HH-mm-ss&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">format</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Date<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+            System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;PrintWordsJob start at:&#34;</span> <span style="color:#f92672">+</span> printTime <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, prints: Hello Job-&#34;</span> 
+         <span style="color:#f92672">+</span> <span style="color:#66d9ef">new</span> Random<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">nextInt</span><span style="color:#f92672">(</span>100<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>TestQuartz.java</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestQuartz</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> args<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> SchedulerException<span style="color:#f92672">,</span> InterruptedException <span style="color:#f92672">{</span>
+        SchedulerFactory schedulerFactory <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StdSchedulerFactory<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        Scheduler scheduler <span style="color:#f92672">=</span> schedulerFactory<span style="color:#f92672">.</span><span style="color:#a6e22e">getScheduler</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        JobDetail jobDetail <span style="color:#f92672">=</span> JobBuilder<span style="color:#f92672">.</span><span style="color:#a6e22e">newJob</span><span style="color:#f92672">(</span>MyJob<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">withIdentity</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;job1&#34;</span><span style="color:#f92672">,</span><span style="color:#e6db74">&#34;group1&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        Trigger trigger <span style="color:#f92672">=</span> TriggerBuilder<span style="color:#f92672">.</span><span style="color:#a6e22e">newTrigger</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">withIdentity</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;trigger1&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;triggerGroup1&#34;</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">startNow</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+                <span style="color:#f92672">.</span><span style="color:#a6e22e">withSchedule</span><span style="color:#f92672">(</span>SimpleScheduleBuilder<span style="color:#f92672">.</span><span style="color:#a6e22e">simpleSchedule</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">.</span><span style="color:#a6e22e">withIntervalInSeconds</span><span style="color:#f92672">(</span>2<span style="color:#f92672">)</span>
+                        <span style="color:#f92672">.</span><span style="color:#a6e22e">repeatSecondlyForTotalCount</span><span style="color:#f92672">(</span>20<span style="color:#f92672">)</span><span style="color:#f92672">)</span>
+                        <span style="color:#f92672">.</span><span style="color:#a6e22e">build</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        scheduler<span style="color:#f92672">.</span><span style="color:#a6e22e">scheduleJob</span><span style="color:#f92672">(</span>jobDetail<span style="color:#f92672">,</span>trigger<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;............scheduler start!............&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+        scheduler<span style="color:#f92672">.</span><span style="color:#a6e22e">start</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2019/2019-11-12-java%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%86%99%E6%B3%95/>https://linjinbao.github.io/2019/2019-11-12-java%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%86%99%E6%B3%95/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/java/">
+                    #Java</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2019/2019-11-12-%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8Bspring-aop/" class="prev" rel="prev" title="面向切面编程SpringAOP"><i class="iconfont icon-left"></i>&nbsp;面向切面编程SpringAOP</a>
+         
+        
+        <a href="https://linjinbao.github.io/2019/2019-11-13-ftp%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" class="next" rel="next" title="ftp服务器搭建">ftp服务器搭建&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= "title"
+        label= "utterance"
+        theme= 'github-light'
+        crossorigin="anonymous"
+        async>
+  </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

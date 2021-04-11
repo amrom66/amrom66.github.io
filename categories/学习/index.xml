@@ -13,10 +13,10 @@
     
     <item>
       <title>webpack学习</title>
-      <link>https://linjinbao.github.io/2019-10-10-webpack/</link>
+      <link>https://linjinbao.github.io/2019/2019-10-10-webpack/</link>
       <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019-10-10-webpack/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-10-10-webpack/</guid>
       <description>webpack学习 安装 //全局安装 npm install -g webpack npm install -g webpack-cli npm install --save lodash //安装到你的项目目录 npm install --save-dev webpack 创建package.</description>
     </item>
     

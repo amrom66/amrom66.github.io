@@ -13,10 +13,10 @@
     
     <item>
       <title>java创建线程的7种方式</title>
-      <link>https://linjinbao.github.io/2019-10-09-java%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%847%E7%A7%8D%E6%96%B9%E5%BC%8F/</link>
+      <link>https://linjinbao.github.io/2019/2019-10-09-java%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%847%E7%A7%8D%E6%96%B9%E5%BC%8F/</link>
       <pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019-10-09-java%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%847%E7%A7%8D%E6%96%B9%E5%BC%8F/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-10-09-java%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%847%E7%A7%8D%E6%96%B9%E5%BC%8F/</guid>
       <description>java创建线程的7种方式  继承Thread类并重写run()方法  public class MyThread extends Thread { @Override public void run() { System.out.println(this.getId()+this.getName()+ &amp;#34; is running&amp;#34;); } public static void main(String[] arg){ new MyThread().</description>
     </item>
     

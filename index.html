@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noodp"/>
-  <meta name="author" content="linjinbao">
+  <meta name="author" content="linjinbao66">
   <meta name="description" content="打工人日记">
   <meta name="keywords" content="博客 个人 日记">
   
@@ -47,7 +47,7 @@
     "name": "打工人日记",
     "author": {
         "@type": "Person",
-        "name": "linjinbao"
+        "name": "linjinbao66"
     },
     "description": "打工人日记",
 }
@@ -69,13 +69,13 @@
         <div class="menu navbar-right">
                 
                 
-                <a class="menu-item" href="/posts/" title="">博客</a>
+                <a class="menu-item active" href="/" title="">博客</a>
                 
                 <a class="menu-item" href="/categories/" title="">分类</a>
                 
                 <a class="menu-item" href="/tags/" title="">标签</a>
                 
-                <a class="menu-item" href="/about/" title="关于">关于</a>
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
                 
         </div>
     </div>
@@ -92,13 +92,13 @@
           <div class="menu" id="mobile-menu">
                 
                 
-                <a class="menu-item" href="/posts/" title="">博客</a>
+                <a class="menu-item active" href="/" title="">博客</a>
                 
                 <a class="menu-item" href="/categories/" title="">分类</a>
                 
                 <a class="menu-item" href="/tags/" title="">标签</a>
                 
-                <a class="menu-item" href="/about/" title="关于">关于</a>
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
                 
         </div>
     </div>
@@ -128,14 +128,14 @@
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021-03-30-cka%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/">CKA考试准备</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-30-cka%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/">CKA考试准备</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
 				准备CKA证书考试：
-k8s官网文档翻译 k8s官网实践 reddit社区交流
+ k8s官网文档翻译 k8s官网实践 reddit社区交流  
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
@@ -152,7 +152,7 @@ k8s官网文档翻译 k8s官网实践 reddit社区交流
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021-03-25-k8s%E6%95%B4%E5%90%88glusterfs%E5%81%9A%E5%90%8E%E7%AB%AF%E5%AD%98%E5%82%A8/">k8s整合glusterfs做后端存储</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-25-k8s%E6%95%B4%E5%90%88glusterfs%E5%81%9A%E5%90%8E%E7%AB%AF%E5%AD%98%E5%82%A8/">k8s整合glusterfs做后端存储</a></h1>
 			</header>
 			<div class="post-content">
 				 
@@ -183,14 +183,14 @@ k8s官网文档翻译 k8s官网实践 reddit社区交流
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021-03-22-tar%E6%89%93%E5%8C%85%E7%8E%B0%E6%9C%89%E7%9A%84%E7%B3%BB%E7%BB%9F/">tar打包现有的系统</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-22-tar%E6%89%93%E5%8C%85%E7%8E%B0%E6%9C%89%E7%9A%84%E7%B3%BB%E7%BB%9F/">tar打包现有的系统</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
 				选择一个系统，在根目录下将已有系统打包成tar文件：
-tar -cvpf /tmp/system.tar &ndash;directory=/ &ndash;exclude=proc &ndash;exclude=sys &ndash;exclude=dev &ndash;exclude=run &ndash;exclude=boot &ndash;exclude=/opt/software . 导入方式一：
+tar -cvpf /tmp/system.tar --directory=/ --exclude=proc --exclude=sys --exclude=dev --exclude=run --exclude=boot --exclude=/opt/software . 导入方式一：
 cat system.tar | docker import - redhat:6.5 导入方式二：
 			</div>
 			<div class="post-footer">
@@ -208,7 +208,7 @@ cat system.tar | docker import - redhat:6.5 导入方式二：
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/">git单独忽略一个文件的历史提交</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/">git单独忽略一个文件的历史提交</a></h1>
 			</header>
 			<div class="post-content">
 				 
@@ -216,8 +216,8 @@ cat system.tar | docker import - redhat:6.5 导入方式二：
        			 
 				使用场景：
 将一个重要文件，勿加入git的版本管理中了，后续又更新了好多版本，此时想要去除该文件的所有历史提交。
-方案一：删除所有git记录 方案二：单独删除该文件的历史记录  方案二操作如下：
-git filter-branch &ndash;force &ndash;index-filter &lsquo;git rm &ndash;cached &ndash;ignore-unmatch visitor-consumer/src/main/java/com/fline/util/SMSUtil.java&rsquo; &ndash;prune-empty &ndash;tag-name-filter cat &ndash; &ndash;all git push origin &ndash;force &ndash;all git push origin &ndash;force &ndash;tags git for-each-ref &ndash;format='delete %(refname)&rsquo; refs/original | git update-ref &ndash;stdin git reflog expire &ndash;expire=now &ndash;all git gc &ndash;prune=now
+ 方案一：删除所有git记录 方案二：单独删除该文件的历史记录  方案二操作如下：
+git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch visitor-consumer/src/main/java/com/fline/util/SMSUtil.java' --prune-empty --tag-name-filter cat -- --all git push origin --force --all git push origin --force --tags git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin git reflog expire --expire=now --all git gc --prune=now 
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
@@ -241,7 +241,7 @@ git filter-branch &ndash;force &ndash;index-filter &lsquo;git rm &ndash;cached &
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021-03-18-hortonworks-%E9%B2%B2%E9%B9%8F/">hortonworks-鲲鹏</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-18-hortonworks-%E9%B2%B2%E9%B9%8F/">hortonworks-鲲鹏</a></h1>
 			</header>
 			<div class="post-content">
 				 
@@ -250,207 +250,13 @@ git filter-branch &ndash;force &ndash;index-filter &lsquo;git rm &ndash;cached &
 				安装方式：磁盘安装
 安装版本：0.5.4
 参考文档：https://registry-project.readthedocs.io/en/latest/install.html#centos-redhat
-下载压缩包并解压
-wget <a href="https://github.com/hortonworks/registry/releases/download/0.5.4/hortonworks-registry-0.5.4.tar.gz">https://github.com/hortonworks/registry/releases/download/0.5.4/hortonworks-registry-0.5.4.tar.gz</a> [root@dbmaster local]# ls -al hortonworks/ total 36 drwx&mdash;&mdash; 8 root root 140 Mar 18 16:12 .
+  下载压缩包并解压
+wget https://github.com/hortonworks/registry/releases/download/0.5.4/hortonworks-registry-0.5.4.tar.gz [root@dbmaster local]# ls -al hortonworks/ total 36 drwx------ 8 root root 140 Mar 18 16:12 .
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
                 <time datetime=2021-03-18 itemprop="datePublished">March 18, 2021</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021-03-17-es-%E9%B2%B2%E9%B9%8F/">es-鲲鹏</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				安装版本：6.4.2
-安装方式：磁盘安装
-下载
-wget <a href="https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.4.2.tar.gz">https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.4.2.tar.gz</a>   解压
-tar -zxvf elasticsearch-6.4.2.tar.gz mkdir /usr/local/es mv elasticsearch-6.4.2 elasticsearch cp elasticsearch /usr/local/es/   修改配置
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2021-03-17 itemprop="datePublished">March 17, 2021</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021-03-17-jdk-%E9%B2%B2%E9%B9%8F/">jdk-鲲鹏</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				安装版本：1.8.0_191
-安装方式：磁盘安装
-参考链接： <a href="http://www.cloud-onlinelab.cn/">http://www.cloud-onlinelab.cn/</a>
-下载编译好的openjdk包
-wget wget <a href="https://obs-mirror-ftp4.obs.cn-north-4.myhuaweicloud.com/systemreliable/OpenJDK8U-jdk_aarch64_linux_hotspot_8u191b12.tar.gz">https://obs-mirror-ftp4.obs.cn-north-4.myhuaweicloud.com/systemreliable/OpenJDK8U-jdk_aarch64_linux_hotspot_8u191b12.tar.gz</a>   解压
-tar -zxvf OpenJDK8U-jdk_aarch64_linux_hotspot_8u191b12.tar.gz mv jdk8u191-b12 /opt/   配置环境变量
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2021-03-17 itemprop="datePublished">March 17, 2021</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021-03-17-mysql-%E9%B2%B2%E9%B9%8F/">mysql-鲲鹏</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				安装版本：5.7.27
-安装方式： 二进制安装
-准备编译好的包
-wget <a href="https://obs.cn-north-4.myhuaweicloud.com/obs-mirror-ftp4/database/mysql-5.7.27-aarch64.tar.gz">https://obs.cn-north-4.myhuaweicloud.com/obs-mirror-ftp4/database/mysql-5.7.27-aarch64.tar.gz</a>   增加用户和用户组
-groupadd -r mysql &amp;&amp; useradd -r -g mysql -s /sbin/nologin -M mysql   解压安装
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2021-03-17 itemprop="datePublished">March 17, 2021</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021-03-17-nginx-arm64/">nginx arm64编译安装</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				安装方式：编译安装
-编译环境
-yum install gcc gcc-c++ make unzip pcre pcre-devel zlib zlib-devel libxml2 libxml2-devel readline readline-devel ncurses ncurses-devel perl-devel perl-ExtUtils-Embed openssl-devel -y   获取源码
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2021-03-17 itemprop="datePublished">March 17, 2021</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021-03-17-prometheus-node-exporter-grafana-%E9%B2%B2%E9%B9%8F/">prometheus-node-exporter-grafana-鲲鹏</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				安装版本：prometheus-2.16.0 node-exporter-1.0.1 grafana-7.3.4
-安装方式：磁盘安装
-程序管理：systemd
-程序包下载 <a href="https://github.com/prometheus/prometheus/releases/download/v2.16.0/prometheus-2.16.0.freebsd-amd64.tar.gz">https://github.com/prometheus/prometheus/releases/download/v2.16.0/prometheus-2.16.0.freebsd-amd64.tar.gz</a>
-<a href="https://github.com/prometheus/node_exporter/releases/download/v1.0.1/node_exporter-1.0.1.linux-arm64.tar.gz">https://github.com/prometheus/node_exporter/releases/download/v1.0.1/node_exporter-1.0.1.linux-arm64.tar.gz</a>
-<a href="https://dl.grafana.com/oss/release/grafana-7.3.4.linux-arm64.tar.gz">https://dl.grafana.com/oss/release/grafana-7.3.4.linux-arm64.tar.gz</a>
-prometheus安装   上传并解压压缩包到/usr/local目录下
-[root@dbmaster local]# ls -al prometheus/ total 134924 drwxr-xr-x 5 3434 3434 156 Mar 18 11:46 .
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2021-03-17 itemprop="datePublished">March 17, 2021</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021-03-17-redis-%E9%B2%B2%E9%B9%8F/">redis-鲲鹏</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				安装版本：4.0.3
-部署方式：单机部署
-安装方式：磁盘安装
-下载组件依赖
-yum install -y jemalloc jemalloc-devel   下载安装包
-wget <a href="https://obs-mirror-ftp4.obs.cn-north-4.myhuaweicloud.com">https://obs-mirror-ftp4.obs.cn-north-4.myhuaweicloud.com</a>:443/database/redis-4.0.3-aarch64.tar.gz   解压安装
-tar -xvf redis-4.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2021-03-17 itemprop="datePublished">March 17, 2021</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021-03-17-zookeeper-%E9%B2%B2%E9%B9%8F/">zookeeper-鲲鹏</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				安装版本：3.4.11
-部署方式：单机版
-安装方式：磁盘安装
-下载安装包
-wget <a href="https://obs-mirror-ftp4.obs.cn-north-4.myhuaweicloud.com/middleware/zookeeper-3.4.11.tar.gz">https://obs-mirror-ftp4.obs.cn-north-4.myhuaweicloud.com/middleware/zookeeper-3.4.11.tar.gz</a>   解压
-tar -zxvf zookeeper-3.4.11.tar.gz cd zookeeper-3.4.11 mkdir data log mv zookeeper-3.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2021-03-17 itemprop="datePublished">March 17, 2021</time>
                 </span>
                 in
                 
@@ -656,9 +462,45 @@ tar -zxvf zookeeper-3.4.11.tar.gz cd zookeeper-3.4.11 mkdir data log mv zookeepe
         
     
     
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
     <li class="page-item ">
         <span class="page-link">
-            <a href="/page/19/">19</a></li>
+            <a href="/page/23/">23</a></li>
         </span>
     
     
@@ -682,7 +524,7 @@ tar -zxvf zookeeper-3.4.11.tar.gz cd zookeeper-3.4.11 mkdir data log mv zookeepe
     	 <i class="iconfont icon-love"></i> 
          </span>
          
-            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
          
 
          

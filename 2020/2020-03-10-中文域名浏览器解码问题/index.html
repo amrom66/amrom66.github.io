@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2020/2020-03-09-golang-%E8%AF%BB%E5%8F%96%E6%B5%81%E6%93%8D%E4%BD%9C/" />
+  <link rel="next" href="https://linjinbao.github.io/2020/2020-07-17-%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2020/2020-03-10-%E4%B8%AD%E6%96%87%E5%9F%9F%E5%90%8D%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E7%A0%81%E9%97%AE%E9%A2%98/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           中文域名浏览器解码问题 | 打工人日记
+       
+  </title>
+  <meta name="title" content="中文域名浏览器解码问题 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "中文域名浏览器解码问题",
+    "headline" : "中文域名浏览器解码问题",
+    "description" : "2020-03-10-中文域名浏览器解码问题 测试域名 https:\/\/985保研群.linjinbao66.tk\/ 二级域名是中文，已经设置过dns服务商的解析。\n问题发现  从浏览器复制出来  可以发现复制的东西变了：\nhttps:\/\/xn--985-bm0el25p5qj.linjinbao66.tk\/ 域名中的中文被，xn\x26ndash;985-bm0el25p5qj替换了\n原因解释 早期的DNS（Domain Name System）是只支持英文域名解析。在IDNs（国际化域名Internationalized Domain Names）推出以后，为了保证兼容以前的DNS，所以，对IDNs进行punycode转码，转码后的punycode就由26个字母\x2b10个数字，还有“-”组成。\nPunycode是一个根据RFC 3492标准而制定的编码系统,主要用於把域名从地方语言所采用的Unicode编码转换成为可用於DNS系统的编码。Punycode可以防止IDN欺骗。\n浏览器对punycode的支持 目前，因为操作系统的核心都是英文组成，DNS服务器的解析也是由英文代码交换，所以DNS服务器上并不支持直接的中文域名解析，所有中文域名的解析都需要转成punycode码，然后由DNS解析punycode码。其实目前所说和各种浏览器完美支持中文域名，只是浏览器软里面主动加入了中文域名自动转码，不需要原来的再次安装中文域名转码控件来完成整个流程。",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-03-10 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-03-10 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2020\/2020-03-10-%E4%B8%AD%E6%96%87%E5%9F%9F%E5%90%8D%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E7%A0%81%E9%97%AE%E9%A2%98\/",
+    "wordCount" : "23",
+    "keywords" : [  "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">中文域名浏览器解码问题</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=10039-03-10 itemprop="datePublished">March 10, 2020</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="2020-03-10-中文域名浏览器解码问题">2020-03-10-中文域名浏览器解码问题</h1>
+<h2 id="测试域名">测试域名</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">https://985保研群.linjinbao66.tk/
+</code></pre></div><p>二级域名是中文，已经设置过dns服务商的解析。</p>
+<h2 id="问题发现">问题发现</h2>
+<ol>
+<li>从浏览器复制出来</li>
+</ol>
+<p>可以发现复制的东西变了：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">https://xn--985-bm0el25p5qj.linjinbao66.tk/
+</code></pre></div><p>域名中的中文被，xn&ndash;985-bm0el25p5qj替换了</p>
+<h2 id="原因解释">原因解释</h2>
+<p>早期的DNS（Domain Name System）是只支持英文域名解析。在IDNs（国际化域名Internationalized Domain Names）推出以后，为了保证兼容以前的DNS，所以，对IDNs进行punycode转码，转码后的punycode就由26个字母+10个数字，还有“-”组成。</p>
+<p>Punycode是一个根据RFC 3492标准而制定的编码系统,主要用於把域名从地方语言所采用的Unicode编码转换成为可用於DNS系统的编码。Punycode可以防止IDN欺骗。</p>
+<p><strong>浏览器对punycode的支持</strong> 目前，因为操作系统的核心都是英文组成，DNS服务器的解析也是由英文代码交换，所以DNS服务器上并不支持直接的中文域名解析，所有中文域名的解析都需要转成punycode码，然后由DNS解析punycode码。其实目前所说和各种浏览器完美支持中文域名，只是浏览器软里面主动加入了中文域名自动转码，不需要原来的再次安装中文域名转码控件来完成整个流程。</p>
+<h2 id="在线工具">在线工具</h2>
+<p><a href="http://tools.jb51.net/punycode/index.php">http://tools.jb51.net/punycode/index.php</a></p>
+<p>PS：cloudflare似乎不支持中文域名的加密模式，即使用中文域名不要使用cloudflade为你套ssl证书，</p>
+<p>报错526</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2020/2020-03-10-%E4%B8%AD%E6%96%87%E5%9F%9F%E5%90%8D%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E7%A0%81%E9%97%AE%E9%A2%98/>https://linjinbao.github.io/2020/2020-03-10-%E4%B8%AD%E6%96%87%E5%9F%9F%E5%90%8D%E6%B5%8F%E8%A7%88%E5%99%A8%E8%A7%A3%E7%A0%81%E9%97%AE%E9%A2%98/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2020/2020-03-09-golang-%E8%AF%BB%E5%8F%96%E6%B5%81%E6%93%8D%E4%BD%9C/" class="prev" rel="prev" title="golang 读取流操作"><i class="iconfont icon-left"></i>&nbsp;golang 读取流操作</a>
+         
+        
+        <a href="https://linjinbao.github.io/2020/2020-07-17-%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/" class="next" rel="next" title="新的开始">新的开始&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= "title"
+        label= "utterance"
+        theme= 'github-light'
+        crossorigin="anonymous"
+        async>
+  </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

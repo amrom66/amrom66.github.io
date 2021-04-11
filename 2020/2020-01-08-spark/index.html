@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2020/2020-01-07-%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E9%81%97%E5%BF%98/" />
+  <link rel="next" href="https://linjinbao.github.io/2020/2020-01-09-hive/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2020/2020-01-08-spark/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           spark on hive 踩坑 | 打工人日记
+       
+  </title>
+  <meta name="title" content="spark on hive 踩坑 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "spark on hive 踩坑",
+    "headline" : "spark on hive 踩坑",
+    "description" : "spark on hive 踩坑 搭建hadoop环境 掠过\n搭建hive环境 掠过\n搭建spark  注意版本兼容  在pom文件中查看\n 下载spark-2.0.0-bin-hadoop2.4-without-hive版本，without-hive必须  我的版本 hive:2.3.6 spark :spark-2.0.0-bin-hadoop2.4-without-hive hadoop:2.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-01-08 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-01-08 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2020\/2020-01-08-spark\/",
+    "wordCount" : "117",
+    "keywords" : [ "hadoop", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">spark on hive 踩坑</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=8019-01-08 itemprop="datePublished">January 8, 2020</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="spark-on-hive-踩坑">spark on hive 踩坑</h1>
+<h3 id="搭建hadoop环境">搭建hadoop环境</h3>
+<p>掠过</p>
+<h2 id="搭建hive环境">搭建hive环境</h2>
+<p>掠过</p>
+<h2 id="搭建spark">搭建spark</h2>
+<ol>
+<li>注意版本兼容</li>
+</ol>
+<p>在pom文件中查看</p>
+<ol>
+<li>下载<code>spark-2.0.0-bin-hadoop2.4-without-hive</code>版本，without-hive必须</li>
+</ol>
+<p>我的版本 hive:2.3.6 spark :spark-2.0.0-bin-hadoop2.4-without-hive hadoop:2.7</p>
+<ol>
+<li>
+<p>复制jar包</p>
+<ul>
+<li>cp scala-library-<em>*</em>.jar /hive_home/lib/</li>
+<li>cp spark-core_<em>*</em>.jar /hive_home/lib/</li>
+<li>cp spark-network-common_<em>*</em>.jar /hive_home/lib/</li>
+<li>chill-java chill jackson-module-paranamer jackson-module-scala jersey-container-servlet-core</li>
+<li>jersey-server  json4s-ast  kryo-shaded  minlog  scala-xml  spark-launcher</li>
+<li>spark-network-shuffle  spark-unsafe  xbean-asm5-shaded</li>
+</ul>
+<p>从spark的jars文件夹中复制过去</p>
+</li>
+<li>
+<p>配置hive-site.xml</p>
+<pre><code class="language-markup" data-lang="markup">&lt;property&gt;
+    &lt;name&gt;hive.enable.spark.execution.engine&lt;/name&gt;
+    &lt;value&gt;true&lt;/value&gt;
+  &lt;/property&gt;
+  &lt;property&gt;
+    &lt;name&gt;spark.master&lt;/name&gt;
+    &lt;--! &lt;value&gt;spark://localhost:7077&lt;/value&gt; --&gt;
+    &lt;value&gt;local&lt;/value&gt;
+    &lt;description/&gt;
+  &lt;/property&gt;
+&lt;property&gt;
+    &lt;name&gt;hive.execution.engine&lt;/name&gt;
+    &lt;value&gt;spark&lt;/value&gt;
+    &lt;description&gt;
+      Expects one of [mr, tez, spark].
+      Chooses execution engine. Options are: mr (Map reduce, default), tez, spark. While MR
+      remains the default engine for historical reasons, it is itself a historical engine
+      and is deprecated in Hive 2 line. It may be removed without further warning.
+    &lt;/description&gt;
+</code></pre></li>
+</ol>
+<h3 id="hadoop的坑">hadoop的坑</h3>
+<p>如果<code>Datanode</code>存活数量少于1个，则无法提交job，原因，hdfs文件系统异常（可能是执行了多次初始化，或者断点，网络变动等原因）</p>
+<p>解决方法：</p>
+<p>找到hdfs-site.xml</p>
+<pre><code class="language-markup" data-lang="markup">&lt;property&gt;    
+    &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;    
+    &lt;value&gt;file:/hadoop/data/dfs/datanode&lt;/value&gt;  
+&lt;/property&gt;
+</code></pre><p>将<code>/hadoop/data</code>下所有内容清空，然后重新执行<code>hadoop namenode -format</code>初始化文件系统</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2020/2020-01-08-spark/>https://linjinbao.github.io/2020/2020-01-08-spark/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/hadoop/">
+                    #hadoop</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2020/2020-01-07-%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E9%81%97%E5%BF%98/" class="prev" rel="prev" title="互联网的遗忘"><i class="iconfont icon-left"></i>&nbsp;互联网的遗忘</a>
+         
+        
+        <a href="https://linjinbao.github.io/2020/2020-01-09-hive/" class="next" rel="next" title="hive on spark 测试">hive on spark 测试&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= "title"
+        label= "utterance"
+        theme= 'github-light'
+        crossorigin="anonymous"
+        async>
+  </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

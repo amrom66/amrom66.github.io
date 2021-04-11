@@ -13,19 +13,19 @@
     
     <item>
       <title>node学习01</title>
-      <link>https://linjinbao.github.io/2019-12-06-node%E5%AD%A6%E4%B9%A001/</link>
+      <link>https://linjinbao.github.io/2019/2019-12-06-node%E5%AD%A6%E4%B9%A001/</link>
       <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019-12-06-node%E5%AD%A6%E4%B9%A001/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-12-06-node%E5%AD%A6%E4%B9%A001/</guid>
       <description>node操作mysql 第一步：引入mysql模块 var mysql = require(&#39;mysql&#39;);第二步：建立连接 var connection = mysql.createConnection({host:&#39;localhost&#39;,user: &#39;root&#39;,password: &#39;Gepoint&#39;,database: &#39;mqtt&#39;});connection.</description>
     </item>
     
     <item>
       <title>node学习01</title>
-      <link>https://linjinbao.github.io/2019-12-06-node%E6%93%8D%E4%BD%9Cmysql/</link>
+      <link>https://linjinbao.github.io/2019/2019-12-06-node%E6%93%8D%E4%BD%9Cmysql/</link>
       <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019-12-06-node%E6%93%8D%E4%BD%9Cmysql/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-12-06-node%E6%93%8D%E4%BD%9Cmysql/</guid>
       <description>node操作mysql 第一步：引入mysql模块 var mysql = require(&amp;#39;mysql&amp;#39;); 第二步：建立连接 var connection = mysql.createConnection( { host:&amp;#39;localhost&amp;#39;, user: &amp;#39;root&amp;#39;, password: &amp;#39;Gepoint&amp;#39;, database: &amp;#39;mqtt&amp;#39; }); connection.</description>
     </item>
     

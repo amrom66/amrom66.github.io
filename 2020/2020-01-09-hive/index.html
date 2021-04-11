@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2020/2020-01-08-spark/" />
+  <link rel="next" href="https://linjinbao.github.io/2020/2020-01-15-hive%E7%AC%94%E8%AE%B0/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2020/2020-01-09-hive/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           hive on spark 测试 | 打工人日记
+       
+  </title>
+  <meta name="title" content="hive on spark 测试 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "hive on spark 测试",
+    "headline" : "hive on spark 测试",
+    "description" : "hive on spark 测试 准备工作： 建库：\ncreate database db2; 建表：\nsql语句：\ncreate table tb1(id int , name string); 测试1：插入单条数据 insert into tb1(id, name) values(10, \x26#39;linjb\x26#39;); 执行结果：1秒",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-01-09 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-01-09 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2020\/2020-01-09-hive\/",
+    "wordCount" : "150",
+    "keywords" : [ "spark","hadoop","hive", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">hive on spark 测试</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=9019-01-09 itemprop="datePublished">January 9, 2020</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="hive-on-spark-测试">hive on spark 测试</h1>
+<p>准备工作： 建库：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">database</span> db2;
+</code></pre></div><p>建表：</p>
+<p>sql语句：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">table</span> tb1(id int , name string);
+</code></pre></div><h3 id="测试1插入单条数据">测试1：插入单条数据</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">insert</span> <span style="color:#66d9ef">into</span> tb1(id, name) <span style="color:#66d9ef">values</span>(<span style="color:#ae81ff">10</span>, <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">linjb</span><span style="color:#e6db74">&#39;</span>);
+</code></pre></div><p>执行结果：1秒</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Status: Running (Hive on Spark job[1])
+Job Progress Format
+CurrentTime StageId_StageAttemptId: SucceededTasksCount(+RunningTasksCount-FailedTasksCount)/TotalTasksCount [StageCost]
+--------------------------------------------------------------------------------------
+          STAGES   ATTEMPT        STATUS  TOTAL  COMPLETED  RUNNING  PENDING  FAILED
+--------------------------------------------------------------------------------------
+Stage-1 ........         0      FINISHED      1          1        0        0       0
+--------------------------------------------------------------------------------------
+STAGES: 01/01    [==========================&gt;&gt;] 100%  ELAPSED TIME: 1.00 s
+--------------------------------------------------------------------------------------
+Status: Finished successfully in 1.00 seconds
+Loading data to table db2.tb1
+</code></pre></div><h3 id="测试2修改表结构">测试2：修改表结构</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">alter</span> <span style="color:#66d9ef">table</span> tb1 change id userid int ;
+</code></pre></div><p>不经过spark</p>
+<h3 id="测试3从物理机文件导入数据">测试3：从物理机文件导入数据</h3>
+<p>data.txt</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">201,dd,3,1,guangzhou
+123,aa,2,0,hangzhou
+245,bb,3,1,beijing
+789,cc,2,0,shanghai
+201,dd,3,1,guangzhou
+123,aa,2,0,hangzhou
+245,bb,3,1,beijing
+789,cc,2,0,shanghai
+201,dd,3,1,guangzhou
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#75715e">---建表
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">table</span> tb4(id int, name string, age int, tel string, city string) <span style="color:#66d9ef">row</span> format delimited fields terminated <span style="color:#66d9ef">by</span> <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">,</span><span style="color:#e6db74">&#39;</span> stored <span style="color:#66d9ef">as</span> textfile;
+<span style="color:#75715e">---导入数据
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">load</span> <span style="color:#66d9ef">data</span> <span style="color:#66d9ef">local</span> inpath <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">/root/data.txt</span><span style="color:#e6db74">&#39;</span> <span style="color:#66d9ef">into</span> <span style="color:#66d9ef">table</span> tb2;
+<span style="color:#75715e">---从hdfs导入
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">load</span> <span style="color:#66d9ef">data</span> inpath <span style="color:#e6db74">&#39;</span><span style="color:#e6db74">/user/hive/warehouse/db2.db/data.txt</span><span style="color:#e6db74">&#39;</span> <span style="color:#66d9ef">into</span> <span style="color:#66d9ef">table</span> tb2;
+</code></pre></div><p>文件大小：1.9G 执行耗时：11秒</p>
+<h3 id="测试4统计查询">测试4：统计查询</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">select</span> <span style="color:#66d9ef">count</span>(<span style="color:#f92672">*</span>) <span style="color:#66d9ef">from</span> tb4;
+</code></pre></div><p>使用mr引擎：无法执行出结果，等待507s后手动取消任务， 使用spark引擎：35秒执行结束</p>
+<h2 id="总结使用spark引擎替换mr引擎可以很大提升sql语句执行效率">总结：使用spark引擎替换mr引擎可以很大提升sql语句执行效率</h2>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2020/2020-01-09-hive/>https://linjinbao.github.io/2020/2020-01-09-hive/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/spark/">
+                    #spark</a></span>
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/hadoop/">
+                    #hadoop</a></span>
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/hive/">
+                    #hive</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2020/2020-01-08-spark/" class="prev" rel="prev" title="spark on hive 踩坑"><i class="iconfont icon-left"></i>&nbsp;spark on hive 踩坑</a>
+         
+        
+        <a href="https://linjinbao.github.io/2020/2020-01-15-hive%E7%AC%94%E8%AE%B0/" class="next" rel="next" title="hive笔记">hive笔记&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= "title"
+        label= "utterance"
+        theme= 'github-light'
+        crossorigin="anonymous"
+        async>
+  </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

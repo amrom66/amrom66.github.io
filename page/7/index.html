@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noodp"/>
-  <meta name="author" content="linjinbao">
+  <meta name="author" content="linjinbao66">
   <meta name="description" content="打工人日记">
   <meta name="keywords" content="博客 个人 日记">
   
@@ -47,7 +47,7 @@
     "name": "打工人日记",
     "author": {
         "@type": "Person",
-        "name": "linjinbao"
+        "name": "linjinbao66"
     },
     "description": "打工人日记",
 }
@@ -69,13 +69,13 @@
         <div class="menu navbar-right">
                 
                 
-                <a class="menu-item" href="/posts/" title="">博客</a>
+                <a class="menu-item active" href="/" title="">博客</a>
                 
                 <a class="menu-item" href="/categories/" title="">分类</a>
                 
                 <a class="menu-item" href="/tags/" title="">标签</a>
                 
-                <a class="menu-item" href="/about/" title="关于">关于</a>
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
                 
         </div>
     </div>
@@ -92,13 +92,13 @@
           <div class="menu" id="mobile-menu">
                 
                 
-                <a class="menu-item" href="/posts/" title="">博客</a>
+                <a class="menu-item active" href="/" title="">博客</a>
                 
                 <a class="menu-item" href="/categories/" title="">分类</a>
                 
                 <a class="menu-item" href="/tags/" title="">标签</a>
                 
-                <a class="menu-item" href="/about/" title="关于">关于</a>
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
                 
         </div>
     </div>
@@ -128,22 +128,43 @@
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-02-25-go/">go install和go build</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-30-cka%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/">CKA考试准备</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				go install和go build go run go run ***.xml 解释：直接运行，不生成文件
-go build 解释：生成.exe文件
-go install 解释：生成exe，并且安装到$GOPATH下的bin中，类似于maven install
-实例：
-配置gopath  C:\Users\linji&gt;echo %GOPATH% C:\Users\linji\go  在gopath目录下创建目录 src、pkg、bin  ​ |–&lt;%GOPATH%&gt; ​ |– ​ |– ​ |–mypkg.
+				准备CKA证书考试：
+ k8s官网文档翻译 k8s官网实践 reddit社区交流  
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2020-02-25 itemprop="datePublished">February 25, 2020</time>
+                <time datetime=2021-03-30 itemprop="datePublished">March 30, 2021</time>
+                </span>
+                in
+                
+        </div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-25-k8s%E6%95%B4%E5%90%88glusterfs%E5%81%9A%E5%90%8E%E7%AB%AF%E5%AD%98%E5%82%A8/">k8s整合glusterfs做后端存储</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				安装glusterfs和heketi
+#所有存储服务器下载安装glusterfs yum install centos-release-gluster -y yum install glusterfs-server -y #启动 systemctl start glusterd #安装heketi yum install -y heketi heketi-client   部署gluster集群
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2021-03-25 itemprop="datePublished">March 25, 2021</time>
                 </span>
                 in
                 
@@ -151,8 +172,8 @@ go install 解释：生成exe，并且安装到$GOPATH下的bin中，类似于ma
 				
 				<div class="post-tags">
         		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/golang/">
-               	 #golang</a></span>
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/kubernetes/">
+               	 #kubernetes</a></span>
         		
 				</div>
 				
@@ -162,20 +183,46 @@ go install 解释：生成exe，并且安装到$GOPATH下的bin中，类似于ma
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-02-24-spring-boot%E6%95%99%E7%A8%8B%E7%AC%AC2%E7%AF%87%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/">Spring Boot教程第2篇：配置文件详解</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-22-tar%E6%89%93%E5%8C%85%E7%8E%B0%E6%9C%89%E7%9A%84%E7%B3%BB%E7%BB%9F/">tar打包现有的系统</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				Spring Boot教程第2篇：配置文件详解 取自定义属性 在application.yml自定义一组属性：
-my: name: linjb age: 18 number: ${random.int} 在类中取出：
-@RestController public class HelloController { @Value(&quot;${my.name}&quot;) private String name; @Value(&quot;${my.
+				选择一个系统，在根目录下将已有系统打包成tar文件：
+tar -cvpf /tmp/system.tar --directory=/ --exclude=proc --exclude=sys --exclude=dev --exclude=run --exclude=boot --exclude=/opt/software . 导入方式一：
+cat system.tar | docker import - redhat:6.5 导入方式二：
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2020-02-24 itemprop="datePublished">February 24, 2020</time>
+                <time datetime=2021-03-22 itemprop="datePublished">March 22, 2021</time>
+                </span>
+                in
+                
+        </div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/">git单独忽略一个文件的历史提交</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				使用场景：
+将一个重要文件，勿加入git的版本管理中了，后续又更新了好多版本，此时想要去除该文件的所有历史提交。
+ 方案一：删除所有git记录 方案二：单独删除该文件的历史记录  方案二操作如下：
+git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch visitor-consumer/src/main/java/com/fline/util/SMSUtil.java' --prune-empty --tag-name-filter cat -- --all git push origin --force --all git push origin --force --tags git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin git reflog expire --expire=now --all git gc --prune=now 
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2021-03-19 itemprop="datePublished">March 19, 2021</time>
                 </span>
                 in
                 
@@ -183,8 +230,8 @@ my: name: linjb age: 18 number: ${random.int} 在类中取出：
 				
 				<div class="post-tags">
         		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/springboot/">
-               	 #springboot</a></span>
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/git/">
+               	 #git</a></span>
         		
 				</div>
 				
@@ -194,313 +241,26 @@ my: name: linjb age: 18 number: ${random.int} 在类中取出：
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-02-21-centos7%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93/">cent7修改仓库</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-18-hortonworks-%E9%B2%B2%E9%B9%8F/">hortonworks-鲲鹏</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				2020-02-21-centos7修改仓库  首先备份  /etc/yum.repos.d/CentOS-Base.repo mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup  进入yum源配置文件所在文件夹  [root@localhost yum.repos.d]# cd /etc/yum.repos.d/
+				安装方式：磁盘安装
+安装版本：0.5.4
+参考文档：https://registry-project.readthedocs.io/en/latest/install.html#centos-redhat
+  下载压缩包并解压
+wget https://github.com/hortonworks/registry/releases/download/0.5.4/hortonworks-registry-0.5.4.tar.gz [root@dbmaster local]# ls -al hortonworks/ total 36 drwx------ 8 root root 140 Mar 18 16:12 .
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2020-02-21 itemprop="datePublished">February 21, 2020</time>
+                <time datetime=2021-03-18 itemprop="datePublished">March 18, 2021</time>
                 </span>
                 in
                 
         </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/linux/">
-               	 #Linux</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-02-21-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B008/">spring cloud系列笔记-08</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				spring cloud系列笔记-08 Spring Cloud Bus Spring Cloud Bus 将分布式的节点用轻量的消息代理连接起来。它可以用于广播配置文件的更改或者服务之间的通讯，也可以用于监控。本文要讲述的是用Spring Cloud Bus实现通知微服务架构的配置文件的更改。
-pom.xml  &lt;!&ndash; <a href="https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-bus-amqp">https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-bus-amqp</a> &ndash;&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-starter-bus-amqp&lt;/artifactId&gt; &lt;/dependency&gt;  bootstrap.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-02-21 itemprop="datePublished">February 21, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/spring/">
-               	 #spring</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-02-21-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B009/">spring cloud系列笔记-09</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				spring cloud系列笔记-09 Sleuth 服务追踪组件zipkin，Spring Cloud Sleuth集成了zipkin组件。Spring Cloud Sleuth 主要功能就是在分布式系统中提供追踪解决方案，并且兼容支持了 zipkin，你只需要在pom文件中引入相应的依赖即可。
-服务追踪分析 微服务架构上通过业务来划分服务的，通过REST调用，对外暴露的一个接口，可能需要很多个服务协同才能完成这个接口功能，如果链路上任何一个服务出现问题或者网络超时，都会形成导致接口调用失败。随着业务的不断扩张，服务之间互相调用会越来越复杂。
-术语  Span：基本工作单元，例如，在一个新建的span中发送一个RPC等同于发送一个回应请求给RPC，span通过一个64位ID唯一标识，trace以另一个64位ID表示，span还有其他数据信息，比如摘要、时间戳事件、关键值注释(tags)、span的ID、以及进度ID(通常是IP地址) span在不断的启动和停止，同时记录了时间信息，当你创建了一个span，你必须在未来的某个时刻停止它。 Trace：一系列spans组成的一个树状结构，例如，如果你正在跑一个分布式大数据工程，你可能需要创建一个trace。 Annotation：用来及时记录一个事件的存在，一些核心annotations用来定义一个请求的开始和结束  cs - Client Sent -客户端发起一个请求，这个annotion描述了这个span的开始 sr - Server Received -服务端获得请求并准备开始处理它，如果将其sr减去cs时间戳便可得到网络延迟 ss - Server Sent -注解表明请求处理的完成(当请求返回客户端)，如果ss减去sr时间戳便可得到服务端需要的处理请求时间 cr - Client Received -表明span的结束，客户端成功接收到服务端的回复，如果cr减去cs时间戳便可得到客户端从服务端获取回复的所有所需时间 将Span和Trace在一个系统中使用Zipkin注解的过程图形化：    zipkin服务端部署 下载zipkin-server-2.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-02-21 itemprop="datePublished">February 21, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/spring/">
-               	 #spring</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-02-20-nat/">NAT转发软路由</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				NAT转发软路由 配置NAT 转发软路由 # 开启 NAT 转发 firewall-cmd &ndash;permanent &ndash;zone=public &ndash;add-masquerade # 开放 DNS 使用的 53 端口，UDP # 必须，否则其他机器无法进行域名解析 firewall-cmd &ndash;zone=public &ndash;add-port=80/tcp &ndash;permanent # 检查是否允许 NAT 转发 firewall-cmd &ndash;query-masquerade # 禁止防火墙 NAT 转发 firewall-cmd &ndash;remove-masquerade 端口转发 # 将80端口的流量转发至8080 firewall-cmd &ndash;add-forward-port=port=80:proto=tcp:toport=8080 # 将80端口的流量转发至192.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-02-20 itemprop="datePublished">February 20, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/nat/">
-               	 #nat</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-02-20-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0-05/">spring cloud系列笔记-05</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				spring cloud系列笔记-05 Zuul 在Spring Cloud微服务系统中，一种常见的负载均衡方式是，客户端的请求首先经过负载均衡（zuul、Ngnix），再到达服务网关（zuul集群），然后再到具体的服。，服务统一注册到高可用的服务注册中心集群，服务的所有的配置文件由配置服务管理（下一篇文章讲述），配置服务的配置文件放在git仓库，方便开发人员随时改配置。
-简介 Zuul的主要功能是路由转发和过滤器。路由功能是微服务的一部分，比如／api/user转发到到user服务，/api/shop转发到到shop服务。zuul默认和Ribbon结合实现了负载均衡的功能。
-项目搭建  pom.xml  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 <a href="http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;">http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;</a>&gt; &lt;parent&gt; &lt;artifactId&gt;learncloud&lt;/artifactId&gt; &lt;groupId&gt;tk.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-02-20 itemprop="datePublished">February 20, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/spring/">
-               	 #spring</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-02-20-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B006/">spring cloud系列笔记-06</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				spring cloud系列笔记-06 config 简介 在分布式系统中，由于服务数量巨多，为了方便服务配置文件统一管理，实时更新，所以需要分布式配置中心组件。在Spring Cloud中，有分布式配置中心组件spring cloud config ，它支持配置服务放在配置服务的内存中（即本地），也支持放在远程Git仓库中。在spring cloud config 组件中，分两个角色，一是config server，二是config client。
-config-server config服务端，用于从git读取配置
-pom.xml  &lt;?xml version=&quot;1.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-02-20 itemprop="datePublished">February 20, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/spring/">
-               	 #spring</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-02-19-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B004/">spring cloud系列笔记-04</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				spring cloud系列笔记-04 Hystrix 简介 在微服务架构中，根据业务来拆分成一个个的服务，服务与服务之间可以相互调用（RPC），在Spring Cloud可以用RestTemplate+Ribbon和Feign来调用。为了保证其高可用，单个服务通常会集群部署。由于网络原因或者自身的原因，服务并不能保证100%可用，如果单个服务出现问题，调用这个服务就会出现线程阻塞，此时若有大量的请求涌入，Servlet容器的线程资源会被消耗完毕，导致服务瘫痪。服务与服务之间的依赖性，故障会传播，会对整个微服务系统造成灾难性的严重后果，这就是服务故障的“雪崩”效应。
-为了解决这个问题，业界提出了断路器模型。
-在ribbon使用熔断器 改造service-ribbon代码
-pom.xml  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 <a href="http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;">http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;</a>&gt; &lt;parent&gt; &lt;artifactId&gt;learncloud&lt;/artifactId&gt; &lt;groupId&gt;tk.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-02-19 itemprop="datePublished">February 19, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/spring/">
-               	 #spring</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-02-18-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B001/">spring cloud系列笔记-01</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				spring cloud系列笔记-01 Eureka 创建注册中心  pom.xml  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 <a href="https://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;">https://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;</a>&gt; &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt; &lt;parent&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt; &lt;version&gt;2.2.4.RELEASE&lt;/version&gt; &lt;relativePath/&gt; &lt;!
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-02-18 itemprop="datePublished">February 18, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/spring/">
-               	 #spring</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-02-18-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B002/">spring cloud系列笔记-02</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				spring cloud系列笔记-02 Ribbon 简介 ribbon是一个负载均衡客户端，可以很好的控制htt和tcp的一些行为。Feign默认集成了ribbon。
-ribbon 已经默认实现了这些配置bean：
-IClientConfig ribbonClientConfig: DefaultClientConfigImpl IRule ribbonRule: ZoneAvoidanceRule IPing ribbonPing: NoOpPing ServerList ribbonServerList: ConfigurationBasedServerList ServerListFilter ribbonServerListFilter: ZonePreferenceServerListFilter ILoadBalancer ribbonLoadBalancer: ZoneAwareLoadBalancer  准备工作：
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-02-18 itemprop="datePublished">February 18, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/spring/">
-               	 #spring</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-02-18-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B003/">spring cloud系列笔记-03</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				spring cloud系列笔记-03 Feign 简介 Feign是一个声明式的伪Http客户端，它使得写Http客户端变得更简单。使用Feign，只需要创建一个接口并注解。它具有可插拔的注解特性，可使用Feign 注解和JAX-RS注解。Feign支持可插拔的编码器和解码器。Feign默认集成了Ribbon，并和Eureka结合，默认实现了负载均衡的效果。
-简而言之：
-Feign 采用的是基于接口的注解 Feign 整合了ribbon  准备工作  创建注册中心 在注册中心中注册两个相同服务名，端口号不同的服务  feign配置  pom.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-02-18 itemprop="datePublished">February 18, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/spring/">
-               	 #spring</a></span>
-        		
-				</div>
 				
 			</div>
 		</article>
@@ -719,9 +479,45 @@ Feign 采用的是基于接口的注解 Feign 整合了ribbon  准备工作  创
         
     
     
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
     <li class="page-item ">
         <span class="page-link">
-            <a href="/page/19/">19</a></li>
+            <a href="/page/23/">23</a></li>
         </span>
     
     
@@ -745,7 +541,7 @@ Feign 采用的是基于接口的注解 Feign 整合了ribbon  准备工作  创
     	 <i class="iconfont icon-love"></i> 
          </span>
          
-            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
          
 
          

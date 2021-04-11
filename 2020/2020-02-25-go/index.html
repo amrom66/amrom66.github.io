@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2020/2020-02-24-spring-boot%E6%95%99%E7%A8%8B%E7%AC%AC2%E7%AF%87%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/" />
+  <link rel="next" href="https://linjinbao.github.io/2020/2020-02-26-jpa/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2020/2020-02-25-go/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           go install和go build | 打工人日记
+       
+  </title>
+  <meta name="title" content="go install和go build | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "go install和go build",
+    "headline" : "go install和go build",
+    "description" : "go install和go build go run go run ***.xml 解释：直接运行，不生成文件\ngo build 解释：生成.exe文件\ngo install 解释：生成exe，并且安装到$GOPATH下的bin中，类似于maven install\n实例：\n 配置gopath  C:\\Users\\linji\x26gt;echo %GOPATH% C:\\Users\\linji\\go  在gopath目录下创建目录 src、pkg、bin  ​ |\x26ndash;\x26lt;%GOPATH%\x26gt; ​ |\x26ndash; ​ |\x26ndash; ​ |\x26ndash;mypkg.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-02-25 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-02-25 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2020\/2020-02-25-go\/",
+    "wordCount" : "175",
+    "keywords" : [ "golang", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">go install和go build</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=25029-02-25 itemprop="datePublished">February 25, 2020</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="go-install和go-build">go install和go build</h1>
+<h3 id="go-run">go run</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">go</span> <span style="color:#a6e22e">run</span> <span style="color:#f92672">*</span><span style="color:#f92672">*</span><span style="color:#f92672">*</span>.<span style="color:#a6e22e">xml</span>
+</code></pre></div><p>解释：直接运行，不生成文件</p>
+<h3 id="go-build">go build</h3>
+<p>解释：生成<code>.exe</code>文件</p>
+<h3 id="go-install">go install</h3>
+<p>解释：生成<code>exe</code>，并且安装到<code>$GOPATH</code>下的bin中，类似于<code>maven install</code></p>
+<p>实例：</p>
+<ol>
+<li>配置<code>gopath</code></li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">C:\Users\linji&gt;echo %GOPATH%
+C:\Users\linji\go
+</code></pre></div><ol>
+<li>在gopath目录下创建目录 src、pkg、bin</li>
+</ol>
+<p>​ |&ndash;&lt;%GOPATH%&gt; ​ |&ndash; ​ |&ndash; ​ |&ndash;mypkg.go ​ |&ndash; ​ |&ndash;mytest.go ​ |&ndash; ​ |&ndash;</p>
+<ol>
+<li><strong>mypkg.go</strong> 内容如下：</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">mypkg</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Myfunc</span>() {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Myfunc&#34;</span>)
+}
+</code></pre></div><ol>
+<li><strong>mytest.go</strong> 内容如下：</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;mypkg&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">mypkg</span>.<span style="color:#a6e22e">Myfunc</span>()
+}
+</code></pre></div><ol>
+<li><strong>go run 命令测试：</strong></li>
+</ol>
+<p>进入到 src 目录下，依次执行 go run mytest/mytest.go 命令和 go run mypkg/mypkg.go 命令。</p>
+<p>运行完毕后，没有产生额外文件。</p>
+<p>mytest.go 为 main 包，所以可以运行；mypkg.go 不是 main 包，所以无法运行。</p>
+<ol>
+<li><strong>go build 命令测试：</strong></li>
+</ol>
+<p>进入到 src 目录下，执行 go build mypkg/mypkg.go 命令。</p>
+<p>编译 mypkg.go 文件后，没有产生额外文件。</p>
+<p>进入到 src 目录下，执行 go build mytest/mytest.go 命令。</p>
+<p>编译 mytest.go 文件后，会在 src目录下（即当前目录下）生成 mytest.exe 文件</p>
+<ol>
+<li><strong>go install 命令测试</strong></li>
+</ol>
+<p>进入到 mypkg 目录下，执行 go install 命令。（也可以在 src 目录下执行 go install mypkg 命令）</p>
+<p>go install 命令执行后，在 $GOPATH/pkg/windows_amd64 目录下生成一个名字为 mypkg.a 的包文件。</p>
+<p>进入到 mytest 目录下，执行 go install 命令。（也可以在 src 目录下执行 go install mytest 命令）</p>
+<p>go install 命令执行后，在 $GOPATH/pkg/windows_amd64 目录下生成一个名字为 mypkg.a 的包文件，在 $GOPATH/bin 目录下生成一个名字为 mytest.exe 的可执行文件。</p>
+<h2 id="总结">总结</h2>
+<p>go run：go run 编译并直接运行程序，它会产生一个临时文件（但不会生成 .exe 文件），直接在命令行输出程序执行结果，方便用户调试。</p>
+<p>go build：go build 用于测试编译包，主要检查是否会有编译错误，如果是一个可执行文件的源码（即是 main 包），就会直接生成一个可执行文件。</p>
+<p>go install：go install 的作用有两步：第一步是编译导入的包文件，所有导入的包文件编译完才会编译主程序；第二步是将编译后生成的可执行文件放到 bin 目录下（$GOPATH/bin），编译后的包文件放到 pkg 目录下（$GOPATH/pkg）。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2020/2020-02-25-go/>https://linjinbao.github.io/2020/2020-02-25-go/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/golang/">
+                    #golang</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2020/2020-02-24-spring-boot%E6%95%99%E7%A8%8B%E7%AC%AC2%E7%AF%87%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/" class="prev" rel="prev" title="Spring Boot教程第2篇：配置文件详解"><i class="iconfont icon-left"></i>&nbsp;Spring Boot教程第2篇：配置文件详解</a>
+         
+        
+        <a href="https://linjinbao.github.io/2020/2020-02-26-jpa/" class="next" rel="next" title="Spring-Boot教程第4篇：JPA">Spring-Boot教程第4篇：JPA&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= "title"
+        label= "utterance"
+        theme= 'github-light'
+        crossorigin="anonymous"
+        async>
+  </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

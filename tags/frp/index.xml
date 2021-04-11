@@ -13,10 +13,10 @@
     
     <item>
       <title>frp内网穿透</title>
-      <link>https://linjinbao.github.io/2020-01-29-frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</link>
+      <link>https://linjinbao.github.io/2020/2020-01-29-frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</link>
       <pubDate>Wed, 29 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020-01-29-frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</guid>
+      <guid>https://linjinbao.github.io/2020/2020-01-29-frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</guid>
       <description>frp内网穿透 下载 github主页：https://github.com/fatedier/frp/blob/master/README_zh.md
 服务端配置 服务端指的是有公网IP的机器
 frps.ini

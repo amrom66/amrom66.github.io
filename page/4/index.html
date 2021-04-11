@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noodp"/>
-  <meta name="author" content="linjinbao">
+  <meta name="author" content="linjinbao66">
   <meta name="description" content="打工人日记">
   <meta name="keywords" content="博客 个人 日记">
   
@@ -47,7 +47,7 @@
     "name": "打工人日记",
     "author": {
         "@type": "Person",
-        "name": "linjinbao"
+        "name": "linjinbao66"
     },
     "description": "打工人日记",
 }
@@ -69,13 +69,13 @@
         <div class="menu navbar-right">
                 
                 
-                <a class="menu-item" href="/posts/" title="">博客</a>
+                <a class="menu-item active" href="/" title="">博客</a>
                 
                 <a class="menu-item" href="/categories/" title="">分类</a>
                 
                 <a class="menu-item" href="/tags/" title="">标签</a>
                 
-                <a class="menu-item" href="/about/" title="关于">关于</a>
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
                 
         </div>
     </div>
@@ -92,13 +92,13 @@
           <div class="menu" id="mobile-menu">
                 
                 
-                <a class="menu-item" href="/posts/" title="">博客</a>
+                <a class="menu-item active" href="/" title="">博客</a>
                 
                 <a class="menu-item" href="/categories/" title="">分类</a>
                 
                 <a class="menu-item" href="/tags/" title="">标签</a>
                 
-                <a class="menu-item" href="/about/" title="关于">关于</a>
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
                 
         </div>
     </div>
@@ -128,19 +128,19 @@
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-11-16-containerd%E6%89%8B%E5%8A%A8%E5%AF%BC%E5%85%A5%E9%95%9C%E5%83%8F/">containerd手动导入镜像</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-30-cka%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/">CKA考试准备</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				众所周知，k8s.gcr.io 长期被墙，导致 k8s 的基础容器 pause 经常无法获取。k8s docker 可使用代理服拉取，再利用 docker tag 解决问题
-docker pull mirrorgooglecontainers/pause:3.1 docker tag mirrorgooglecontainers/pause:3.1 k8s.gcr.io/pause:3.1 我在 k8s 集群中尝试使用 containerd 作为 CRI，发现镜像下载和导入与 docker 存在一些区别，大致如下：
+				准备CKA证书考试：
+ k8s官网文档翻译 k8s官网实践 reddit社区交流  
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2020-11-16 itemprop="datePublished">November 16, 2020</time>
+                <time datetime=2021-03-30 itemprop="datePublished">March 30, 2021</time>
                 </span>
                 in
                 
@@ -152,19 +152,51 @@ docker pull mirrorgooglecontainers/pause:3.1 docker tag mirrorgooglecontainers/p
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-11-15-linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">linux常用命令</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-25-k8s%E6%95%B4%E5%90%88glusterfs%E5%81%9A%E5%90%8E%E7%AB%AF%E5%AD%98%E5%82%A8/">k8s整合glusterfs做后端存储</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				原文地址: <a href="https://github.com/xjh22222228/linux-manual">https://github.com/xjh22222228/linux-manual</a>
-目录  文件操作  head tail ls pwd wc find mkdir mktemp chattr more paste stat grep touch cd rm rmdir cp cat mv locate open source tree ln file   系统管理  nohup watch ping which shutdown reboot uptime crontab uname ifconfig whereis chmod lsof chown systemctl service free type alias time jobs &amp;   系统进程  ps pstree top netstat kill killall   用户管理  useradd userdel passwd chpasswd chsh chfn usermod users who w last su whoami   环境变量  printenv set export unset   压缩、解压  zip unzip gzip bzip2 tar   加解密  md5sum base64   网络  ssh wget curl scp rsync   磁盘  df du   包管理  yum apt-get   其他  目录名称含义 重定向输入和输出 管道 echo date man sleep history xargs cal expr bc timeout exit vim basename read tee clear    文件操作 head 显示文件的头部内容，如果不指定参数默认显示10行
+				安装glusterfs和heketi
+#所有存储服务器下载安装glusterfs yum install centos-release-gluster -y yum install glusterfs-server -y #启动 systemctl start glusterd #安装heketi yum install -y heketi heketi-client   部署gluster集群
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2020-11-15 itemprop="datePublished">November 15, 2020</time>
+                <time datetime=2021-03-25 itemprop="datePublished">March 25, 2021</time>
+                </span>
+                in
+                
+        </div>
+				
+				<div class="post-tags">
+        		
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/kubernetes/">
+               	 #kubernetes</a></span>
+        		
+				</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-22-tar%E6%89%93%E5%8C%85%E7%8E%B0%E6%9C%89%E7%9A%84%E7%B3%BB%E7%BB%9F/">tar打包现有的系统</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				选择一个系统，在根目录下将已有系统打包成tar文件：
+tar -cvpf /tmp/system.tar --directory=/ --exclude=proc --exclude=sys --exclude=dev --exclude=run --exclude=boot --exclude=/opt/software . 导入方式一：
+cat system.tar | docker import - redhat:6.5 导入方式二：
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2021-03-22 itemprop="datePublished">March 22, 2021</time>
                 </span>
                 in
                 
@@ -176,26 +208,32 @@ docker pull mirrorgooglecontainers/pause:3.1 docker tag mirrorgooglecontainers/p
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-11-10-nginx%E6%8B%A6%E6%88%AA%E7%A9%BAreffer/">nginx拦截空reffer</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/">git单独忽略一个文件的历史提交</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				背景解释 web系统出现垂直越权的现象，具体表现为，低权限账户登录后，直接请求高权限的接口可以获取数据，原因在于后台并没有实现对接口的权限校验，只是在菜单上简单隐藏。
-解决方案 方案一：引入完善的权限框架，例如shiro
-方案二：nginx控制reffer，禁止直接访问
-配置实例：
-location /login.html { root D:\code2\fdmp-pages; autoindex on; index index.html; } location / { valid_referers server_names ~.
+				使用场景：
+将一个重要文件，勿加入git的版本管理中了，后续又更新了好多版本，此时想要去除该文件的所有历史提交。
+ 方案一：删除所有git记录 方案二：单独删除该文件的历史记录  方案二操作如下：
+git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch visitor-consumer/src/main/java/com/fline/util/SMSUtil.java' --prune-empty --tag-name-filter cat -- --all git push origin --force --all git push origin --force --tags git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin git reflog expire --expire=now --all git gc --prune=now 
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2020-11-10 itemprop="datePublished">November 10, 2020</time>
+                <time datetime=2021-03-19 itemprop="datePublished">March 19, 2021</time>
                 </span>
                 in
                 
         </div>
+				
+				<div class="post-tags">
+        		
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/git/">
+               	 #git</a></span>
+        		
+				</div>
 				
 			</div>
 		</article>
@@ -203,219 +241,22 @@ location /login.html { root D:\code2\fdmp-pages; autoindex on; index index.html;
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/about/">关于</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-18-hortonworks-%E9%B2%B2%E9%B9%8F/">hortonworks-鲲鹏</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				Across the great wall, we can reach the world.
-越过长城，走向世界。
+				安装方式：磁盘安装
+安装版本：0.5.4
+参考文档：https://registry-project.readthedocs.io/en/latest/install.html#centos-redhat
+  下载压缩包并解压
+wget https://github.com/hortonworks/registry/releases/download/0.5.4/hortonworks-registry-0.5.4.tar.gz [root@dbmaster local]# ls -al hortonworks/ total 36 drwx------ 8 root root 140 Mar 18 16:12 .
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2020-11-03 itemprop="datePublished">November 3, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-10-16-k8s-1.16%E4%BA%8C%E8%BF%9B%E5%88%B6%E9%83%A8%E7%BD%B2/">k8s-1.16二进制部署</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				<ol>
-<li>初始化系统和全局变量 设置主机名 hostnamectl set-hostname node2 # 将 node2 替换为当前主机名如果 DNS 不支持主机名称解析，还需要在每台机器的 /etc/hosts 文件中添加主机名和 IP 的对应关系：
-cat &gt;&gt; /etc/hosts &lt;&lt;EOF10.</li>
-</ol>
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-10-16 itemprop="datePublished">October 16, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-10-16-k8s%E7%9A%84rbac%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/">k8s的rbac权限控制</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				简介 rbac权限控制是role based access control的简写，中文名基于角色的权限控制。
-RBAC API 对象 Kubernetes有一个很基本的特性就是它的所有资源对象都是模型化的 API 对象，允许执行 CRUD(Create、Read、Update、Delete)操作(也就是我们常说的增、删、改、查操作)，比如下面的这下资源：
-Pods ConfigMaps Deployments Nodes Secrets Namespaces  上面这些资源对象的可能存在的操作有：
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-10-16 itemprop="datePublished">October 16, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-10-15-k8s-%E6%98%A0%E5%B0%84%E5%A4%96%E9%83%A8%E6%9C%8D%E5%8A%A1/">k8s 映射外部服务</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				简介 集群内的应用有时候需要调用外部的服务，我们知道集群内部服务调用都是通过 Service 互相访问，那么针对外部的服务是否也可以保持统一使用 Service 呢？答案是肯定的，通过 Service 访问外部服务，除了方式统一以外，还能带来其他好处。如配置统一，不同环境（空间）相同应用访问外部不同环境的数据库，可以通过 Service 映射保持两边配置统一，达到不同空间应用通过相同 Service Name 访问不同的外部数据库。
-配置文件 mysql-180.yaml
-apiVersion: v1kind: Servicemetadata:name: mysqlspec:type: LoadBalancerports: - port: 40010targetPort: 40010&mdash;apiVersion: v1kind: Endpointsmetadata:name: mysqlsubsets:- addresses:- ip: 45.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-10-15 itemprop="datePublished">October 15, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-10-15-kubeadm%E9%83%A8%E7%BD%B21.13.1/">kubeadm部署1.13.1</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				<ol>
-<li>配置阿里云yum源 /etc/yum.repos.d/kubernetes.repo
-[kubernetes]name=Kubernetes Repobaseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/gpgcheck=1gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpgenabled=1##添加gpg验证wget <a href="https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg">https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg</a>rpm &ndash;import rpm-package-key.gpg2. 安装基本工具 yum install kubectl-1.</li>
-</ol>
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-10-15 itemprop="datePublished">October 15, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-10-14-k8s%E9%83%A8%E7%BD%B2traefik2.2/">k8s部署traefik2.2</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				简介 步骤列表：
-创建命名空间 创建CRD资源 创建RBAC权限 创建traefik配置文件 给节点打标签 部署traefik 部署dashboard  1. 创建命名空间 kubectl create ns ingress-traefiktraefik相关的资源都部署在ingress-traefik名称空间下
-2. 创建CRD资源 Traefik 2.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-10-14 itemprop="datePublished">October 14, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-10-14-linux-cgroups%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">linux cgroups简单使用</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				简介 cgroups 是Linux内核提供的一种可以限制单个进程或者多个进程所使用资源的机制，可以对 cpu，内存等资源实现精细化的控制，目前越来越火的轻量级容器 Docker 就使用了 cgroups 提供的资源限制能力来完成cpu，内存等部分的资源控制。另外，开发者也可以使用 cgroups 提供的精细化控制能力，限制某一个或者某一组进程的资源使用。比如在一个既部署了前端 web 服务，也部署了后端计算模块的八核服务器上，可以使用 cgroups 限制 web server 仅可以使用其中的六个核，把剩下的两个核留给后端计算模块。
-简单理解：cgroups可以实现cpu和内存的机器资源的精细化控制，比如限制使用10%的cpu资源，使用100M内存等功能。Docker容器运行时通过参数指定内存和cpu占用功能就是基于这个实现的。
-主要作用 实现 cgroups 的主要目的是为不同用户层面的资源管理提供一个统一化的接口。从单个任务的资源控制到操作系统层面的虚拟化，cgroups 提供了四大功能：
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-10-14 itemprop="datePublished">October 14, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-10-14-mvn%E4%B8%80%E4%B8%AA%E6%89%93%E5%8C%85%E9%94%99%E8%AF%AF/">mvn一个打包错误</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				错误描述 [INFO] BUILD FAILURE[INFO] &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;[INFO] Total time: 6.271 s[INFO] Finished at: 2020-10-14T17:06:23+08:00[INFO] Final Memory: 41M/358M[INFO] &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;[ERROR] Failed to execute goal org.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-10-14 itemprop="datePublished">October 14, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-10-13-acme.sh%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6/">acme.sh申请证书</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				简介 acme.sh 实现了 acme 协议, 可以从 letsencrypt 生成免费的证书.
-主要步骤:
-安装 acme.sh 生成证书 安装证书 配置nginx 更新 出错怎么办, 如何调试 吊销，移除证书  1.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-10-13 itemprop="datePublished">October 13, 2020</time>
+                <time datetime=2021-03-18 itemprop="datePublished">March 18, 2021</time>
                 </span>
                 in
                 
@@ -636,9 +477,45 @@ apiVersion: v1kind: Servicemetadata:name: mysqlspec:type: LoadBalancerport
         
     
     
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
     <li class="page-item ">
         <span class="page-link">
-            <a href="/page/19/">19</a></li>
+            <a href="/page/23/">23</a></li>
         </span>
     
     
@@ -662,7 +539,7 @@ apiVersion: v1kind: Servicemetadata:name: mysqlspec:type: LoadBalancerport
     	 <i class="iconfont icon-love"></i> 
          </span>
          
-            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
          
 
          

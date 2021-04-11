@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019/2019-11-06-mysql%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" />
+  <link rel="next" href="https://linjinbao.github.io/2019/2019-11-08-%E4%BD%BF%E7%94%A8%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E7%AE%A1%E7%90%86bean/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019/2019-11-07-ioc%E6%B3%A8%E5%85%A5%E6%96%B9%E5%BC%8F/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           IOC注入方式 | 打工人日记
+       
+  </title>
+  <meta name="title" content="IOC注入方式 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "IOC注入方式",
+    "headline" : "IOC注入方式",
+    "description" : "2019-11-07-IOC注入方式 IOC注入多种复杂类型 简单类型注入 Person.java\npublic class Person { private Integer id; private String name; private String gender; ... } ioc.xml",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-07 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-11-07 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019\/2019-11-07-ioc%E6%B3%A8%E5%85%A5%E6%96%B9%E5%BC%8F\/",
+    "wordCount" : "259",
+    "keywords" : [ "Spring", "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">IOC注入方式</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=7119-11-07 itemprop="datePublished">November 7, 2019</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="2019-11-07-ioc注入方式">2019-11-07-IOC注入方式</h1>
+<h2 id="ioc注入多种复杂类型">IOC注入多种复杂类型</h2>
+<h3 id="简单类型注入">简单类型注入</h3>
+<p>Person.java</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> Integer id<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String gender<span style="color:#f92672">;</span>
+    <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>ioc.xml</p>
+<pre><code class="language-markup" data-lang="markup">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+
+    &lt;bean id = &quot;Person01&quot; class=&quot;entity.Person&quot;&gt;
+        &lt;property name=&quot;id&quot; value=&quot;1151301118&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;name&quot; value=&quot;linjinbao&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;gender&quot; value=&quot;男&quot;&gt;&lt;/property&gt;
+    &lt;/bean&gt;
+&lt;/beans&gt;
+</code></pre><h3 id="注入另一个bean">注入另一个bean</h3>
+<p>Person.java</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> Integer id<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> String gender<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> Car car<span style="color:#f92672">;</span>    <span style="color:#75715e">//另外一个bean
+</span><span style="color:#75715e"></span>    <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Car.java</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Car</span> <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">double</span> price<span style="color:#f92672">;</span>
+    <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>ioc.xml</p>
+<pre><code class="language-markup" data-lang="markup">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+
+    &lt;bean id = &quot;Person01&quot; class=&quot;entity.Person&quot;&gt;
+        &lt;property name=&quot;id&quot; value=&quot;1151301118&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;name&quot; value=&quot;linjinbao&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;gender&quot; value=&quot;男&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;car&quot;&gt;
+            &lt;bean class=&quot;entity.Car&quot;&gt;
+                &lt;property name=&quot;name&quot; value=&quot;宝马&quot;&gt;&lt;/property&gt;
+                &lt;property name=&quot;price&quot; value=&quot;100000.00&quot;&gt;&lt;/property&gt;
+            &lt;/bean&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+&lt;/beans&gt;
+</code></pre><h3 id="注入另一个bean方式二引用ref">注入另一个bean（方式二，引用ref）</h3>
+<pre><code class="language-markup" data-lang="markup">...
+&lt;bean id = &quot;Person02&quot; class=&quot;entity.Person&quot;&gt;
+    &lt;property name=&quot;id&quot; value=&quot;1151301119&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;name&quot; value=&quot;linjinbao66&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;gender&quot; value=&quot;女&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;car&quot; ref=&quot;Car01&quot;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+</code></pre><h3 id="注入复杂类型-包括list-和-map">注入复杂类型 包括List 和 Map</h3>
+<pre><code class="language-markup" data-lang="markup">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+
+    &lt;bean id = &quot;Person03&quot; class=&quot;entity.Person&quot;&gt;
+        &lt;property name=&quot;id&quot; value=&quot;1151301120&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;name&quot; value=&quot;linjinbao666&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;gender&quot; value=&quot;男&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;car&quot; ref=&quot;Car01&quot;&gt;&lt;/property&gt;
+        &lt;property name=&quot;books&quot;&gt;
+            &lt;list&gt;
+                &lt;bean class=&quot;entity.Book&quot;&gt;
+                    &lt;property name=&quot;name&quot; value=&quot;西游记&quot;&gt;&lt;/property&gt;
+                    &lt;property name=&quot;price&quot; value=&quot;100&quot;&gt;&lt;/property&gt;
+                    &lt;property name=&quot;author&quot; value=&quot;吴承恩&quot;&gt;&lt;/property&gt;
+                &lt;/bean&gt;
+                &lt;bean class=&quot;entity.Book&quot;&gt;
+                    &lt;property name=&quot;name&quot; value=&quot;西游记&quot;&gt;&lt;/property&gt;
+                    &lt;property name=&quot;price&quot; value=&quot;100&quot;&gt;&lt;/property&gt;
+                    &lt;property name=&quot;author&quot; value=&quot;吴承恩&quot;&gt;&lt;/property&gt;
+                &lt;/bean&gt;
+            &lt;/list&gt;
+        &lt;/property&gt;
+        &lt;property name=&quot;maps&quot;&gt;
+            &lt;map&gt;
+                &lt;entry key=&quot;msg&quot; value=&quot;hello&quot;&gt;&lt;/entry&gt;
+                &lt;entry key=&quot;car&quot;&gt;
+                    &lt;bean class=&quot;entity.Car&quot;&gt;
+                        &lt;property name=&quot;name&quot; value=&quot;桑塔纳&quot;&gt;&lt;/property&gt;
+                        &lt;property name=&quot;price&quot; value=&quot;100000.00&quot;&gt;&lt;/property&gt;
+                    &lt;/bean&gt;
+                &lt;/entry&gt;
+            &lt;/map&gt;
+        &lt;/property&gt;
+    &lt;/bean&gt;
+
+
+&lt;/beans&gt;
+</code></pre><h2 id="总结">总结</h2>
+<p>SpringIOC反向代理， 通过解析xml配置文件，来加载bean，实体类中的属性体现在bean中就是</p>
+<p>重点： 复杂类型不能直接在<code>value</code>中体现</p>
+<ol>
+<li>
+<p>简单类型直接：<code>&lt;property name=&quot;name&quot; value=&quot;西游记&quot;&gt;&lt;/property&gt;</code></p>
+</li>
+<li>
+<p>自己定义的bean类型：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">&lt;bean class=&#34;entity.Book&#34;&gt;
+ &lt;property name=&#34;name&#34; value=&#34;西游记&#34;&gt;&lt;/property&gt;
+ &lt;property name=&#34;price&#34; value=&#34;100&#34;&gt;&lt;/property&gt;
+ &lt;property name=&#34;author&#34; value=&#34;吴承恩&#34;&gt;&lt;/property&gt;
+&lt;/bean&gt;
+</code></pre></div></li>
+<li>
+<p>map， list， set等复杂类型：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">&lt;property name=&#34;maps&#34;&gt;
+ &lt;map&gt;
+     &lt;entry key=&#34;msg&#34; value=&#34;hello&#34;&gt;&lt;/entry&gt;
+     &lt;entry key=&#34;car&#34;&gt;
+         &lt;bean class=&#34;entity.Car&#34;&gt;
+             &lt;property name=&#34;name&#34; value=&#34;桑塔纳&#34;&gt;&lt;/property&gt;
+             &lt;property name=&#34;price&#34; value=&#34;100000.00&#34;&gt;&lt;/property&gt;
+         &lt;/bean&gt;
+     &lt;/entry&gt;
+ &lt;/map&gt;
+&lt;/property&gt;
+</code></pre></div></li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>Author:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://linjinbao.github.io/2019/2019-11-07-ioc%E6%B3%A8%E5%85%A5%E6%96%B9%E5%BC%8F/>https://linjinbao.github.io/2019/2019-11-07-ioc%E6%B3%A8%E5%85%A5%E6%96%B9%E5%BC%8F/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/spring/">
+                    #Spring</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2019/2019-11-06-mysql%E7%B4%A2%E5%BC%95%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" class="prev" rel="prev" title="MySQL索引"><i class="iconfont icon-left"></i>&nbsp;MySQL索引</a>
+         
+        
+        <a href="https://linjinbao.github.io/2019/2019-11-08-%E4%BD%BF%E7%94%A8%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E7%AE%A1%E7%90%86bean/" class="next" rel="next" title="使用工厂方法创建管理bean">使用工厂方法创建管理bean&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+		  
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= "title"
+        label= "utterance"
+        theme= 'github-light'
+        crossorigin="anonymous"
+        async>
+  </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

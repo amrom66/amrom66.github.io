@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noodp"/>
-  <meta name="author" content="linjinbao">
+  <meta name="author" content="linjinbao66">
   <meta name="description" content="打工人日记">
   <meta name="keywords" content="博客 个人 日记">
   
@@ -47,7 +47,7 @@
     "name": "打工人日记",
     "author": {
         "@type": "Person",
-        "name": "linjinbao"
+        "name": "linjinbao66"
     },
     "description": "打工人日记",
 }
@@ -69,13 +69,13 @@
         <div class="menu navbar-right">
                 
                 
-                <a class="menu-item" href="/posts/" title="">博客</a>
+                <a class="menu-item active" href="/" title="">博客</a>
                 
                 <a class="menu-item" href="/categories/" title="">分类</a>
                 
                 <a class="menu-item" href="/tags/" title="">标签</a>
                 
-                <a class="menu-item" href="/about/" title="关于">关于</a>
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
                 
         </div>
     </div>
@@ -92,13 +92,13 @@
           <div class="menu" id="mobile-menu">
                 
                 
-                <a class="menu-item" href="/posts/" title="">博客</a>
+                <a class="menu-item active" href="/" title="">博客</a>
                 
                 <a class="menu-item" href="/categories/" title="">分类</a>
                 
                 <a class="menu-item" href="/tags/" title="">标签</a>
                 
-                <a class="menu-item" href="/about/" title="关于">关于</a>
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
                 
         </div>
     </div>
@@ -128,21 +128,19 @@
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-03-08-git/">git 问题</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-30-cka%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/">CKA考试准备</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				2020-03-08-git-问题 问题描述 git 合并的时候无法合并，提示：
-fatal: refusing to merge unrelated histories 原因解释 出现这个问题的最主要原因还是在于本地仓库和远程仓库实际上是独立的两个仓库。假如我之前是直接clone的方式在本地建立起远程github仓库的克隆本地仓库就不会有这问题了。
-查阅了一下资料，发现可以在pull命令后紧接着使用–allow-unrelated-history选项来解决问题（该选项可以合并两个独立启动仓库的历史）。
-解决方案 git merge &ndash;squash fline &ndash;allow-unrelated-histories
+				准备CKA证书考试：
+ k8s官网文档翻译 k8s官网实践 reddit社区交流  
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2020-03-08 itemprop="datePublished">March 8, 2020</time>
+                <time datetime=2021-03-30 itemprop="datePublished">March 30, 2021</time>
                 </span>
                 in
                 
@@ -154,43 +152,19 @@ fatal: refusing to merge unrelated histories 原因解释 出现这个问题的�
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-03-04-js/">JS回调的理解</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-25-k8s%E6%95%B4%E5%90%88glusterfs%E5%81%9A%E5%90%8E%E7%AB%AF%E5%AD%98%E5%82%A8/">k8s整合glusterfs做后端存储</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				代码示例 /** * 模块引入 */ var fs = require('fs'), path = require('path'), http = require('http'); var MIME = { '.css':'text/css', '.
+				安装glusterfs和heketi
+#所有存储服务器下载安装glusterfs yum install centos-release-gluster -y yum install glusterfs-server -y #启动 systemctl start glusterd #安装heketi yum install -y heketi heketi-client   部署gluster集群
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2020-03-04 itemprop="datePublished">March 4, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-03-02-spring-docker/">Spring Boot教程第24篇：整合docker</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				Spring Boot教程第24篇：整合docker 在idea中使用docker插件，使用远程docker服务器打包。
-在远程机器，linux上安装docker并开启docker远程访问。  /usr/lib/systemd/system/docker.service
-[Unit] Description=Docker Application Container Engine Documentation=http://docs.docker.com After=network.target Wants=docker-storage-setup.service Requires=docker-cleanup.timer [Service] Type=notify NotifyAccess=main EnvironmentFile=-/run/containers/registries.conf EnvironmentFile=-/etc/sysconfig/docker EnvironmentFile=-/etc/sysconfig/docker-storage EnvironmentFile=-/etc/sysconfig/docker-network Environment=GOTRACEBACK=crash Environment=DOCKER_HTTP_HOST_COMPAT=1 Environment=PATH=/usr/libexec/docker:/usr/bin:/usr/sbin ExecStart=/usr/bin/dockerd-current \ &ndash;add-runtime docker-runc=/usr/libexec/docker/docker-runc-current \ &ndash;default-runtime=docker-runc \ &ndash;exec-opt native.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-03-02 itemprop="datePublished">March 2, 2020</time>
+                <time datetime=2021-03-25 itemprop="datePublished">March 25, 2021</time>
                 </span>
                 in
                 
@@ -198,8 +172,8 @@ fatal: refusing to merge unrelated histories 原因解释 出现这个问题的�
 				
 				<div class="post-tags">
         		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/spring/">
-               	 #spring</a></span>
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/kubernetes/">
+               	 #kubernetes</a></span>
         		
 				</div>
 				
@@ -209,20 +183,20 @@ fatal: refusing to merge unrelated histories 原因解释 出现这个问题的�
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-03-01-apidoc/">apidoc 写法</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-22-tar%E6%89%93%E5%8C%85%E7%8E%B0%E6%9C%89%E7%9A%84%E7%B3%BB%E7%BB%9F/">tar打包现有的系统</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				apidoc 写法 简介 apidoc通过在你代码的注释来生成api文档的。它对代码没有侵入性，只需要你写好相关的注释即可，并且它仅通过写简单的配置就可以生成高颜值的api接口页面。它基于node.js，所以你需要安装node.js环境。node.js安装，点击这里。这里就不介绍。
-安装 npm install apidoc -g 配置写法 apidoc.json作为apidoc配置文件
-{ &quot;name&quot;: &quot;example&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;description&quot;: &quot;A basic apiDoc example&quot; } 注释写法 /** * @api {POST} /register 注册用户 * @apiGroup Users * @apiVersion 0.
+				选择一个系统，在根目录下将已有系统打包成tar文件：
+tar -cvpf /tmp/system.tar --directory=/ --exclude=proc --exclude=sys --exclude=dev --exclude=run --exclude=boot --exclude=/opt/software . 导入方式一：
+cat system.tar | docker import - redhat:6.5 导入方式二：
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2020-03-01 itemprop="datePublished">March 1, 2020</time>
+                <time datetime=2021-03-22 itemprop="datePublished">March 22, 2021</time>
                 </span>
                 in
                 
@@ -234,19 +208,21 @@ fatal: refusing to merge unrelated histories 原因解释 出现这个问题的�
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-03-01-swagger/">Spring Boot教程第11篇：swagger2</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/">git单独忽略一个文件的历史提交</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				swagger2学习 swagger,中文“拽”的意思。它是一个功能强大的api框架，它的集成非常简单，不仅提供了在线文档的查阅，而且还提供了在线文档的测试。另外swagger很容易构建restful风格的api，简单优雅帅气，正如它的名字。
-pom.xml  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 <a href="http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;">http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;</a>&gt; &lt;parent&gt; &lt;artifactId&gt;learnboot&lt;/artifactId&gt; &lt;groupId&gt;tk.amrom&lt;/groupId&gt; &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt; &lt;/parent&gt; &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt; &lt;artifactId&gt;learnswagger2&lt;/artifactId&gt; &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.
+				使用场景：
+将一个重要文件，勿加入git的版本管理中了，后续又更新了好多版本，此时想要去除该文件的所有历史提交。
+ 方案一：删除所有git记录 方案二：单独删除该文件的历史记录  方案二操作如下：
+git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch visitor-consumer/src/main/java/com/fline/util/SMSUtil.java' --prune-empty --tag-name-filter cat -- --all git push origin --force --all git push origin --force --tags git for-each-ref --format='delete %(refname)' refs/original | git update-ref --stdin git reflog expire --expire=now --all git gc --prune=now 
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2020-03-01 itemprop="datePublished">March 1, 2020</time>
+                <time datetime=2021-03-19 itemprop="datePublished">March 19, 2021</time>
                 </span>
                 in
                 
@@ -254,8 +230,8 @@ pom.xml  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;pr
 				
 				<div class="post-tags">
         		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/spring/">
-               	 #spring</a></span>
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/git/">
+               	 #git</a></span>
         		
 				</div>
 				
@@ -265,214 +241,22 @@ pom.xml  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;pr
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-02-29-restdoc/">Spring Boot教程第10篇：restdoc</a></h1>
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-03-18-hortonworks-%E9%B2%B2%E9%B9%8F/">hortonworks-鲲鹏</a></h1>
 			</header>
 			<div class="post-content">
 				 
 				   
        			 
-				Spring Boot教程第10篇：restdoc Spring REST Docs的目标是帮助您为您的RESTful服务生成准确可读的文档。
-编写高质量的文档很困难。减轻这种困难的一种方法是使用非常适合工作的工具。为此，Spring REST Docs 默认使用Asciidoctor。Asciidoctor处理纯文本并生成HTML，进行样式化和布局以满足您的需求。如果您愿意，还可以将Spring REST Docs配置为使用Markdown。
-Spring REST Docs利用Spring MVC的测试框架 Spring WebFlux WebTestClient或 REST Assured 3编写的测试生成的代码片段。这种测试驱动的方法有助于保证服务文档的准确性。如果代码片段不正确，则生成它的测试将失败。
+				安装方式：磁盘安装
+安装版本：0.5.4
+参考文档：https://registry-project.readthedocs.io/en/latest/install.html#centos-redhat
+  下载压缩包并解压
+wget https://github.com/hortonworks/registry/releases/download/0.5.4/hortonworks-registry-0.5.4.tar.gz [root@dbmaster local]# ls -al hortonworks/ total 36 drwx------ 8 root root 140 Mar 18 16:12 .
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
                 <span class="post-time">
-                <time datetime=2020-02-29 itemprop="datePublished">February 29, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/spring/">
-               	 #spring</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-02-28-webhook/">github webhooks配置</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				webhooks 自动部署 原理 利用Github在仓库进行操作时，可以通过配置webhook向服务器发送请求，在服务器端接到请求后，使用脚本来自动进行git pull操作。即，当我在本地机器A进行一个push操作到github，github会在这个操作结束后，发起一个POST请求到机器B，机器B收到这个请求后，执行同步操作，git fetch等等，因为使用的web服务，交换的数据格式为json等，所以叫webhooks，web钩子。
-准备工作  VPS （独立IP），或者能请求到的http服务网址就行，服务受自己控制 nodeJS  第一步 在机器B编写webhooks服务 webhooks服务可以使用Java Web，也可以使用Node，只要可以监听端口，并接收响应web请求就可以。
-我这里使用的Node的简易的Web服务。
-webhook.js
-var http=require('http') var createHandler = require('github-webhook-handler') var handler = createHandler({ path: '/', secret: '****' }) // 上面的 secret 保持和 GitHub 后台设置的一致 function run_cmd(cmd, args, callback) { var spawn = require('child_process').
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-02-28 itemprop="datePublished">February 28, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/github/">
-               	 #github</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-02-28-dns/">自建DNS配置记录</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				自建DNS解析服务器 安装软件
-yum -y install bind bind-chroot bind-utils systemctl start named systemctl enable named 端口开放：53 和 953
-netstat -antup | grep named 配置：/etc/named.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-02-28 itemprop="datePublished">February 28, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/dns/">
-               	 #dns</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-02-27-mybatis/">Spring Boot教程第6篇：springboot 整合mybatis</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				Spring Boot教程第6篇：springboot 整合mybatis 前言：spring boot 与mybatis整合严格要求版本，即
-&lt;dependency&gt; &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt; &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt; &lt;version&gt;2.1.1&lt;/version&gt; &lt;/dependency&gt; mybatis的坐标依赖的spring版本需要在maven仓库查看，如当前版本需要使用springboot 2.1.9.RELEASE版本
-pom.xml  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;project xmlns=&quot;http://maven.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-02-27 itemprop="datePublished">February 27, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/mybatis/">
-               	 #mybatis</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-02-27-tx/">Spring-Boot教程第7篇：springboot-tx 事务</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				Spring-Boot教程第7篇：springboot-tx 事务 基于mybatis整合开启事务很简单，注解 @Transactional，该注解放在service层，可以注解在类上，也可以放在方法上
-示例：
-@Service @Transactional public class AccountService { @Autowired private AccountMapper accountMapper; public int add(String name, double money) { return accountMapper.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-02-27 itemprop="datePublished">February 27, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/spring/">
-               	 #spring</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-02-26-beatsql/">Spring Boot教程第5篇：beatsql</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				Spring Boot教程第5篇：beatsql BeetSql是一个全功能DAO工具， 同时具有Hibernate 优点 &amp; Mybatis优点功能，适用于承认以SQL为中心，同时又需求工具能自动能生成大量常用的SQL的应用。
-beatlsql 优点  开发效率  无需注解，自动使用大量内置SQL，轻易完成增删改查功能，节省50%的开发工作量 数据模型支持Pojo，也支持Map/List这种快速模型，也支持混合模型 SQL 模板基于Beetl实现，更容易写和调试，以及扩展   维护性  SQL 以更简洁的方式，Markdown方式集中管理，同时方便程序开发和数据库SQL调试。 可以自动将sql文件映射为dao接口类 灵活直观的支持支持一对一，一对多，多对多关系映射而不引入复杂的OR Mapping概念和技术。 具备Interceptor功能，可以调试，性能诊断SQL，以及扩展其他功能   其他  内置支持主从数据库支持的开源工具 支持跨数据库平台，开发者所需工作减少到最小，目前跨数据库支持mysql,postgres,oracle,sqlserver,h2,sqllite,DB2.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-02-26 itemprop="datePublished">February 26, 2020</time>
-                </span>
-                in
-                
-        </div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://linjinbao.github.io/tags/spring/">
-               	 #spring</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2020-02-26-jpa/">Spring-Boot教程第4篇：JPA</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				Spring-Boot教程第4篇：JPA JPA全称Java Persistence API.JPA通过JDK 5.0注解或XML描述对象－关系表的映射关系，并将运行期的实体对象持久化到数据库中。
-JPA 的目标之一是制定一个可以由很多供应商实现的API，并且开发人员可以编码来实现该API，而不是使用私有供应商特有的API。
-JPA是需要Provider来实现其功能的，Hibernate就是JPA Provider中很强的一个，应该说无人能出其右。从功能上来说，JPA就是Hibernate功能的一个子集。
-pom.xml  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 <a href="http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;">http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;</a>&gt; &lt;parent&gt; &lt;artifactId&gt;learnboot&lt;/artifactId&gt; &lt;groupId&gt;tk.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-02-26 itemprop="datePublished">February 26, 2020</time>
+                <time datetime=2021-03-18 itemprop="datePublished">March 18, 2021</time>
                 </span>
                 in
                 
@@ -695,9 +479,45 @@ pom.xml  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;pr
         
     
     
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
     <li class="page-item ">
         <span class="page-link">
-            <a href="/page/19/">19</a></li>
+            <a href="/page/23/">23</a></li>
         </span>
     
     
@@ -721,7 +541,7 @@ pom.xml  &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; &lt;pr
     	 <i class="iconfont icon-love"></i> 
          </span>
          
-            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao</a>  </span> 
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
          
 
          

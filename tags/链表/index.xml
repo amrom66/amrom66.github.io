@@ -13,10 +13,10 @@
     
     <item>
       <title>牛客网-二叉树的镜像</title>
-      <link>https://linjinbao.github.io/2019-09-26-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%95%9C%E5%83%8F/</link>
+      <link>https://linjinbao.github.io/2019/2019-09-26-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%95%9C%E5%83%8F/</link>
       <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019-09-26-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%95%9C%E5%83%8F/</guid>
+      <guid>https://linjinbao.github.io/2019/2019-09-26-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%95%9C%E5%83%8F/</guid>
       <description>二叉树镜像 题目描述 操作给定的二叉树，将其变换为源二叉树的镜像。
 分析： 想到递归，对每一个节点有4种情况：
  当前节点为空 当前节点不为空，左子树为空 当前节点不为空，右子树为空 当前节点不为空，左右子树都为空  很显然2,3两点可以重合
