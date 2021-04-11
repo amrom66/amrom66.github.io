@@ -234,28 +234,6 @@
           
 		  
 		  
-<div id="gitalk-container"></div>
-<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-<script>
-  const gitalk = new Gitalk({
-    clientID: 'e1653573025747c675e8',
-    clientSecret: '5db9f5b94b923e92aa33d991ed0e63ff529e9ec4',
-    repo: 'linjinbao.github.io',
-    owner: 'linjinbao',
-    admin: ['linjinbao'],
-    id: location.pathname, 
-    distractionFreeMode: false 
-  });
-  (function() {
-    if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-      document.getElementById('gitalk-container').innerHTML = 'Gitalk comments not available by default when the website is previewed locally.';
-      return;
-    }
-    gitalk.render('gitalk-container');
-  })();
-</script>
-
 
     </div>
 </article>
