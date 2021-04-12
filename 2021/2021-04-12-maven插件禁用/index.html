@@ -9,9 +9,9 @@
   <meta name="description" content="打工人日记">
   <meta name="keywords" content="博客 个人 日记">
   
-  <link rel="prev" href="https://linjinbao.github.io/2021/2021-03-30-cka%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/" />
-  <link rel="next" href="https://linjinbao.github.io/2021/2021-04-12-maven%E6%8F%92%E4%BB%B6%E7%A6%81%E7%94%A8/" />
-  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-04-11-%E6%B5%8B%E8%AF%95%E5%A3%81%E7%BA%B8/" />
+  <link rel="prev" href="https://linjinbao.github.io/2021/2021-04-11-%E6%B5%8B%E8%AF%95%E5%A3%81%E7%BA%B8/" />
+  
+  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-04-12-maven%E6%8F%92%E4%BB%B6%E7%A6%81%E7%94%A8/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           测试壁纸 | 打工人日记
+           maven插件禁用 | 打工人日记
        
   </title>
-  <meta name="title" content="测试壁纸 | 打工人日记">
+  <meta name="title" content="maven插件禁用 | 打工人日记">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/linjinbao.github.io"
     },
     "articleSection" : "posts",
-    "name" : "测试壁纸",
-    "headline" : "测试壁纸",
-    "description" : "插入图片",
+    "name" : "maven插件禁用",
+    "headline" : "maven插件禁用",
+    "description" : "一个maven打包错误：\n[ERROR] Failed to execute goal pl.project13.maven:git-commit-id-plugin:2.2.5:revision (default) on project scheduler-server-dao: Could not complete Mojo execution...: Unable to find commits until some tag: Walk failure.",
     "inLanguage" : "en-us",
     "author" : "linjinbao66",
     "creator" : "linjinbao66",
@@ -54,10 +54,10 @@
     "accountablePerson" : "linjinbao66",
     "copyrightHolder" : "linjinbao66",
     "copyrightYear" : "2021",
-    "datePublished": "2021-04-11 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2021-04-11 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-04-11-%E6%B5%8B%E8%AF%95%E5%A3%81%E7%BA%B8\/",
-    "wordCount" : "1",
+    "datePublished": "2021-04-12 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-04-12 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-04-12-maven%E6%8F%92%E4%BB%B6%E7%A6%81%E7%94%A8\/",
+    "wordCount" : "119",
     "keywords" : [  "打工人日记"]
 }
 </script>
@@ -116,11 +116,11 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">测试壁纸</h1>
+        <h1 class="post-title" itemprop="name headline">maven插件禁用</h1>
         <div class="post-meta">
                 作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
                 <span class="post-time">
-                 <time datetime=11049-04-11 itemprop="datePublished">April 11, 2021</time>
+                 <time datetime=12049-04-12 itemprop="datePublished">April 12, 2021</time>
                 </span>
                 分类： 
                 
@@ -130,10 +130,7 @@
         
 
         
-            
-        
 
-        <img src="/images/MischwaldFuessen_ROW2474656135_1920x1080.jpg" class="featured_image">
         
         
      
@@ -145,8 +142,29 @@
           
           
 
-          <p>插入图片</p>
-<p><img src="/images/MischwaldFuessen_ROW2474656135_1920x1080.jpg" alt="ss"></p>
+          <p>一个maven打包错误：</p>
+<pre><code class="language-code" data-lang="code">[ERROR] Failed to execute goal pl.project13.maven:git-commit-id-plugin:2.2.5:revision (default) on project scheduler-server-dao: Could not complete Mojo execution...: Unable to find commits until some tag: Walk failure. Missing commit a4ae6e8f03140a20d126fdcb285b108452964bda -&gt; [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn &lt;goals&gt; -rf :scheduler-server-dao
+</code></pre><p>看错误日志描述为插件<code>git-commit-id-plugin</code>的错误，该插件会在打包的文件加上commitid，如果这个commitid丢失了则无法读取。</p>
+<p>git issue <a href="https://github.com/git-commit-id/git-commit-id-maven-plugin/issues/61">https://github.com/git-commit-id/git-commit-id-maven-plugin/issues/61</a></p>
+<p>解决方案有以下几种：</p>
+<ol>
+<li>升级插件版本：2.2.5 -&gt; 3.0.0</li>
+<li>git中修复commitid</li>
+<li>删除或者禁用pom中的该插件</li>
+</ol>
+<p>此处着重讲第3种，因为可以通用：</p>
+<p>在打包命令后加入：<code>-Dmaven.gitcommitid.skip=true</code></p>
+<p>完整命令为：<code>mvn clean package -U -Dmaven.test.skip=true -DSHUXI_VERSION=5.1.2  -Dmaven.gitcommitid.skip=true </code></p>
+<p>此命令的通用性在于maven打包的-D参数，表示环境变量</p>
 
     </div>
 
@@ -170,10 +188,8 @@
 
     <div class="post-nav">
         
-        <a href="https://linjinbao.github.io/2021/2021-03-30-cka%E8%80%83%E8%AF%95%E5%87%86%E5%A4%87/" class="prev" rel="prev" title="CKA考试准备"><i class="iconfont icon-left"></i>&nbsp;CKA考试准备</a>
+        <a href="https://linjinbao.github.io/2021/2021-04-11-%E6%B5%8B%E8%AF%95%E5%A3%81%E7%BA%B8/" class="prev" rel="prev" title="测试壁纸"><i class="iconfont icon-left"></i>&nbsp;测试壁纸</a>
          
-        
-        <a href="https://linjinbao.github.io/2021/2021-04-12-maven%E6%8F%92%E4%BB%B6%E7%A6%81%E7%94%A8/" class="next" rel="next" title="maven插件禁用">maven插件禁用&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
@@ -222,9 +238,8 @@
 
 
     
-     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
-      
-     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
     
   
 
