@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2020/2020-03-04-js/" />
+  <link rel="next" href="https://linjinbao.github.io/2020/2020-03-09-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2020/2020-03-08-git/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           git 问题 | 打工人日记
+       
+  </title>
+  <meta name="title" content="git 问题 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "git 问题",
+    "headline" : "git 问题",
+    "description" : "2020-03-08-git-问题 问题描述 git 合并的时候无法合并，提示：\nfatal: refusing to merge unrelated histories 原因解释 出现这个问题的最主要原因还是在于本地仓库和远程仓库实际上是独立的两个仓库。假如我之前是直接clone的方式在本地建立起远程github仓库的克隆本地仓库就不会有这问题了。\n查阅了一下资料，发现可以在pull命令后紧接着使用\x26ndash;allow-unrelated-history选项来解决问题（该选项可以合并两个独立启动仓库的历史）。\n解决方案 git merge --squash fline --allow-unrelated-histories ",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-03-08 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-03-08 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2020\/2020-03-08-git\/",
+    "wordCount" : "19",
+    "keywords" : [  "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">git 问题</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=8039-03-08 itemprop="datePublished">March 8, 2020</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="2020-03-08-git-问题">2020-03-08-git-问题</h1>
+<h2 id="问题描述">问题描述</h2>
+<p>git 合并的时候无法合并，提示：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">fatal: refusing to merge unrelated histories
+</code></pre></div><h2 id="原因解释">原因解释</h2>
+<p>出现这个问题的最主要原因还是在于本地仓库和远程仓库实际上是独立的两个仓库。假如我之前是直接clone的方式在本地建立起远程github仓库的克隆本地仓库就不会有这问题了。</p>
+<p>查阅了一下资料，发现可以在pull命令后紧接着使用&ndash;allow-unrelated-history选项来解决问题（该选项可以合并两个独立启动仓库的历史）。</p>
+<h2 id="解决方案">解决方案</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">git merge --squash fline --allow-unrelated-histories
+</code></pre></div>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>作者:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2020/2020-03-04-js/" class="prev" rel="prev" title="JS回调的理解"><i class="iconfont icon-left"></i>&nbsp;JS回调的理解</a>
+         
+        
+        <a href="https://linjinbao.github.io/2020/2020-03-09-%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96/" class="next" rel="next" title="服务器内存优化">服务器内存优化&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= 'title'
+        label= 'utterance'
+        theme= 'github-light'
+        crossorigin="anonymous"
+        async>
+  </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

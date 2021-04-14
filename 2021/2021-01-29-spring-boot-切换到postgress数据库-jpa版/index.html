@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2021/2021-01-28-k8s-in-action-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" />
+  <link rel="next" href="https://linjinbao.github.io/2021/2021-02-01-%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E8%A1%A8%E7%A4%BA/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-01-29-spring-boot-%E5%88%87%E6%8D%A2%E5%88%B0postgress%E6%95%B0%E6%8D%AE%E5%BA%93-jpa%E7%89%88/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           spring boot 切换到postgress数据库-jpa版 | 打工人日记
+       
+  </title>
+  <meta name="title" content="spring boot 切换到postgress数据库-jpa版 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "spring boot 切换到postgress数据库-jpa版",
+    "headline" : "spring boot 切换到postgress数据库-jpa版",
+    "description" : "适用范围  基于spring boot 2.0 orm框架使用jpa  无法修改原先的任何代码。\n操作步骤  修改pom文件加入依赖  pom.xml\n\x26lt;!--https:\/\/mvnrepository.com\/artifact\/org.postgresql\/postgresql --\x26gt; \x26lt;dependency\x26gt; \x26lt;groupId\x26gt;org.postgresql\x26lt;\/groupId\x26gt; \x26lt;artifactId\x26gt;postgresql\x26lt;\/artifactId\x26gt; \x26lt;version\x26gt;42.2.18\x26lt;\/version\x26gt; \x26lt;\/dependency\x26gt; 修改pom文件，新增profile环境  pom.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-01-29 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-01-29 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-01-29-spring-boot-%E5%88%87%E6%8D%A2%E5%88%B0postgress%E6%95%B0%E6%8D%AE%E5%BA%93-jpa%E7%89%88\/",
+    "wordCount" : "87",
+    "keywords" : [  "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">spring boot 切换到postgress数据库-jpa版</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=29019-01-29 itemprop="datePublished">January 29, 2021</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="适用范围">适用范围</h2>
+<ol>
+<li>基于spring boot 2.0</li>
+<li>orm框架使用jpa</li>
+</ol>
+<p>无法修改原先的任何代码。</p>
+<h2 id="操作步骤">操作步骤</h2>
+<ol>
+<li>修改pom文件加入依赖</li>
+</ol>
+<p>pom.xml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> https://mvnrepository.com/artifact/org.postgresql/postgresql </span><span style="color:#75715e">--&gt;</span>
+        <span style="color:#f92672">&lt;dependency</span><span style="color:#f92672">&gt;</span>
+            <span style="color:#f92672">&lt;groupId</span><span style="color:#f92672">&gt;</span>org.postgresql<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>postgresql<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>42.2.18<span style="color:#f92672">&lt;/version&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+</code></pre></div><ol start="2">
+<li>修改pom文件，新增profile环境</li>
+</ol>
+<p>pom.xml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;!--</span><span style="color:#75715e">postgress配置</span><span style="color:#75715e">--&gt;</span>
+        <span style="color:#f92672">&lt;profile</span><span style="color:#f92672">&gt;</span>
+            <span style="color:#f92672">&lt;id</span><span style="color:#f92672">&gt;</span>pg<span style="color:#f92672">&lt;/id&gt;</span>
+            <span style="color:#f92672">&lt;properties</span><span style="color:#f92672">&gt;</span>
+                <span style="color:#f92672">&lt;profile.active</span><span style="color:#f92672">&gt;</span>pg<span style="color:#f92672">&lt;/profile.active&gt;</span>
+            <span style="color:#f92672">&lt;/properties&gt;</span>
+        <span style="color:#f92672">&lt;/profile&gt;</span>
+</code></pre></div><ol start="3">
+<li>新增application-pg.yaml配置</li>
+</ol>
+<p>application-pg.yaml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">server</span>:
+  <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">9006</span>
+  <span style="color:#66d9ef">servlet</span>:
+    <span style="color:#66d9ef">context-path</span>: /applicationmonitor
+<span style="color:#66d9ef">spring</span>:
+  <span style="color:#66d9ef">datasource</span>:
+    <span style="color:#66d9ef">url</span>: jdbc:postgresql://<span style="color:#75715e">*.16.3.*:*/monitor</span>
+    <span style="color:#66d9ef">username</span>: <span style="color:#75715e">***</span>
+    <span style="color:#66d9ef">password</span>: <span style="color:#75715e">***</span>
+    <span style="color:#66d9ef">driver-class-name</span>: org.postgresql.Driver
+  <span style="color:#66d9ef">application</span>:
+    <span style="color:#66d9ef">name</span>: applicationmonitor
+  <span style="color:#66d9ef">profiles</span>:
+    <span style="color:#66d9ef">active</span>: @profile.active@
+  <span style="color:#66d9ef">jpa</span>:
+    <span style="color:#66d9ef">database-platform</span>: org.hibernate.dialect.PostgreSQL95Dialect
+    <span style="color:#66d9ef">hibernate</span>:
+      <span style="color:#66d9ef">ddl-auto</span>: update
+    <span style="color:#66d9ef">show-sql</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#66d9ef">database</span>: postgresql
+
+<span style="color:#66d9ef">kubernetes</span>:
+  <span style="color:#66d9ef">admin-conf</span>: classpath:k8s/admin-pg.conf
+  
+</code></pre></div><p>此处建议覆盖application.yaml中的所有配置项。注意<code>driver-class-name</code>和<code>database-platform</code>等postgress特有配置项。</p>
+<ol start="4">
+<li>检查关键字</li>
+</ol>
+<p>postgress中的关键字与mysql不同，需要特别注意，例如postgress中的<code>user</code>无法直接使用，需要使用反引号标记。</p>
+<p>示例：</p>
+<pre><code class="language-code" data-lang="code">@NotNull(message = &quot;user不能为空&quot;)
+@Column(name = &quot;`user`&quot;)
+@ApiModelProperty(required = true, value = &quot;用户信息&quot;, example = &quot;admin&quot;)
+private String user;
+</code></pre><p>经过以上改动，项目可以兼容运行在MySQL和postgress数据下。</p>
+<h2 id="备注">备注</h2>
+<p>postgress不支持<code>createDatabaseIfNotExist=true</code>的自动建库写法，需要数据库管理员主动创建数据库。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>作者:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2021/2021-01-28-k8s-in-action-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" class="prev" rel="prev" title="k8s in action 阅读笔记"><i class="iconfont icon-left"></i>&nbsp;k8s in action 阅读笔记</a>
+         
+        
+        <a href="https://linjinbao.github.io/2021/2021-02-01-%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%E8%A1%A8%E7%A4%BA/" class="next" rel="next" title="子网掩码表示">子网掩码表示&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= 'title'
+        label= 'utterance'
+        theme= 'github-light'
+        crossorigin="anonymous"
+        async>
+  </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

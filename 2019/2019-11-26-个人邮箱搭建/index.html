@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019/2019-11-25-nginx%E4%BB%A3%E7%90%86%E9%97%AE%E9%A2%98/" />
+  <link rel="next" href="https://linjinbao.github.io/2019/2019-11-27-%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019/2019-11-26-%E4%B8%AA%E4%BA%BA%E9%82%AE%E7%AE%B1%E6%90%AD%E5%BB%BA/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           个人邮箱服务器搭建 | 打工人日记
+       
+  </title>
+  <meta name="title" content="个人邮箱服务器搭建 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "个人邮箱服务器搭建",
+    "headline" : "个人邮箱服务器搭建",
+    "description" : "个人邮箱服务器搭建 参考文档http:\/\/doc.ewomail.com\/docs\/ewomail\/webmail_login\n搭建环境要求：\n1. 系统没有安装nginx,mysql并且相关端口未占用 2. 端口要求： #端口TCP 8000，8010，8020，25，143，993，995，587，110，109，22，80，465 学习的话直接关闭防火墙systemctl stop firewalld\n第一步：配置主机名 set-hostname mail.amrom.tk\n第二步：拉取源码并安装 yum -y install git cd \/root git clone https:\/\/gitee.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-26 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-11-26 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019\/2019-11-26-%E4%B8%AA%E4%BA%BA%E9%82%AE%E7%AE%B1%E6%90%AD%E5%BB%BA\/",
+    "wordCount" : "42",
+    "keywords" : [  "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">个人邮箱服务器搭建</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=26119-11-26 itemprop="datePublished">November 26, 2019</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="个人邮箱服务器搭建">个人邮箱服务器搭建</h1>
+<p>参考文档<code>http://doc.ewomail.com/docs/ewomail/webmail_login</code></p>
+<p>搭建环境要求：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">1. 系统没有安装nginx,mysql并且相关端口未占用
+2. 端口要求：
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">#端口TCP
+8000，8010，8020，25，143，993，995，587，110，109，22，80，465
+</code></pre></div><p>学习的话直接关闭防火墙<code>systemctl stop firewalld</code></p>
+<h2 id="第一步配置主机名">第一步：配置主机名</h2>
+<p><code>set-hostname mail.amrom.tk</code></p>
+<h2 id="第二步拉取源码并安装">第二步：拉取源码并安装</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">yum -y install git
+cd /root
+git clone https://gitee.com/laowu5/EwoMail.git
+cd /root/EwoMail/install
+</code></pre></div><h2 id="需要输入一个邮箱域名不需要前缀列如下面的amromtk">需要输入一个邮箱域名，不需要前缀，列如下面的amrom.tk</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">sh ./start.sh amrom.tk
+</code></pre></div><h2 id="第三步配置域名解析">第三步：配置域名解析</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">127.0.0.1 mail.amrom.tk smtp.amrom.tk imap.amrom.tk
+</code></pre></div><h2 id="访问地址">访问地址</h2>
+<p>邮箱管理后台：<a href="http://IP:8010">http://IP:8010</a> （默认账号admin，密码ewomail123）</p>
+<p>web邮件系统：<a href="http://IP:8000">http://IP:8000</a></p>
+<h2 id="更进一步">更进一步</h2>
+<p>到目前位置，邮件服务器只能主动发出邮件，并且有可能被拒收，因为上面的域名<code>amrom.tk</code>只有本机认识，如果需要能够收到邮件，则需要购买这个域名，有钱就去万网买，没钱就tk域名走起</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>作者:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2019/2019-11-25-nginx%E4%BB%A3%E7%90%86%E9%97%AE%E9%A2%98/" class="prev" rel="prev" title="nginx代理出来的页面使用IE无法加载png问题"><i class="iconfont icon-left"></i>&nbsp;nginx代理出来的页面使用IE无法加载png问题</a>
+         
+        
+        <a href="https://linjinbao.github.io/2019/2019-11-27-%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/" class="next" rel="next" title="网站申请SSL证书-腾讯云">网站申请SSL证书-腾讯云&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= 'title'
+        label= 'utterance'
+        theme= 'github-light'
+        crossorigin="anonymous"
+        async>
+  </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2020/2020-10-14-linux-cgroups%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" />
+  <link rel="next" href="https://linjinbao.github.io/2020/2020-10-15-kubeadm%E9%83%A8%E7%BD%B21.13.1/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2020/2020-10-14-k8s%E9%83%A8%E7%BD%B2traefik2.2/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           k8s部署traefik2.2 | 打工人日记
+       
+  </title>
+  <meta name="title" content="k8s部署traefik2.2 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "k8s部署traefik2.2",
+    "headline" : "k8s部署traefik2.2",
+    "description" : "简介 步骤列表：\n 创建命名空间 创建CRD资源 创建RBAC权限 创建traefik配置文件 给节点打标签 部署traefik 部署dashboard  1. 创建命名空间 kubectl create ns ingress-traefik\rtraefik相关的资源都部署在ingress-traefik名称空间下\n2. 创建CRD资源 Traefik 2.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-10-14 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-10-14 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2020\/2020-10-14-k8s%E9%83%A8%E7%BD%B2traefik2.2\/",
+    "wordCount" : "605",
+    "keywords" : [  "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">k8s部署traefik2.2</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=14109-10-14 itemprop="datePublished">October 14, 2020</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="简介">简介</h2>
+<p>步骤列表：</p>
+<ol>
+<li>创建命名空间</li>
+<li>创建CRD资源</li>
+<li>创建RBAC权限</li>
+<li>创建traefik配置文件</li>
+<li>给节点打标签</li>
+<li>部署traefik</li>
+<li>部署dashboard</li>
+</ol>
+<h2 id="1-创建命名空间">1. 创建命名空间</h2>
+<pre><code class="language-code" data-lang="code">kubectl create ns ingress-traefik
+</code></pre><p>traefik相关的资源都部署在ingress-traefik名称空间下</p>
+<h2 id="2-创建crd资源">2. 创建CRD资源</h2>
+<p>Traefik 2.0版本后开始使用CRD来对资源进行管理配置，所以我们需要先创建CRD资源。</p>
+<p>traefik-crd.yaml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e">## IngressRoute</span>
+<span style="color:#66d9ef">apiVersion</span>: apiextensions.k8s.io/v1beta1
+<span style="color:#66d9ef">kind</span>: CustomResourceDefinition
+metadata:
+  <span style="color:#66d9ef">name</span>: ingressroutes.traefik.containo.us
+spec:
+  <span style="color:#66d9ef">scope</span>: Namespaced
+  <span style="color:#66d9ef">group</span>: traefik.containo.us
+  <span style="color:#66d9ef">version</span>: v1alpha1
+  names:
+    <span style="color:#66d9ef">kind</span>: IngressRoute
+    <span style="color:#66d9ef">plural</span>: ingressroutes
+    <span style="color:#66d9ef">singular</span>: ingressroute
+---
+<span style="color:#75715e">## IngressRouteTCP</span>
+<span style="color:#66d9ef">apiVersion</span>: apiextensions.k8s.io/v1beta1
+<span style="color:#66d9ef">kind</span>: CustomResourceDefinition
+metadata:
+  <span style="color:#66d9ef">name</span>: ingressroutetcps.traefik.containo.us
+spec:
+  <span style="color:#66d9ef">scope</span>: Namespaced
+  <span style="color:#66d9ef">group</span>: traefik.containo.us
+  <span style="color:#66d9ef">version</span>: v1alpha1
+  names:
+    <span style="color:#66d9ef">kind</span>: IngressRouteTCP
+    <span style="color:#66d9ef">plural</span>: ingressroutetcps
+    <span style="color:#66d9ef">singular</span>: ingressroutetcp
+---
+<span style="color:#75715e">## Middleware</span>
+<span style="color:#66d9ef">apiVersion</span>: apiextensions.k8s.io/v1beta1
+<span style="color:#66d9ef">kind</span>: CustomResourceDefinition
+metadata:
+  <span style="color:#66d9ef">name</span>: middlewares.traefik.containo.us
+spec:
+  <span style="color:#66d9ef">scope</span>: Namespaced
+  <span style="color:#66d9ef">group</span>: traefik.containo.us
+  <span style="color:#66d9ef">version</span>: v1alpha1
+  names:
+    <span style="color:#66d9ef">kind</span>: Middleware
+    <span style="color:#66d9ef">plural</span>: middlewares
+    <span style="color:#66d9ef">singular</span>: middleware
+---
+<span style="color:#66d9ef">apiVersion</span>: apiextensions.k8s.io/v1beta1
+<span style="color:#66d9ef">kind</span>: CustomResourceDefinition
+metadata:
+  <span style="color:#66d9ef">name</span>: tlsoptions.traefik.containo.us
+spec:
+  <span style="color:#66d9ef">scope</span>: Namespaced
+  <span style="color:#66d9ef">group</span>: traefik.containo.us
+  <span style="color:#66d9ef">version</span>: v1alpha1
+  names:
+    <span style="color:#66d9ef">kind</span>: TLSOption
+    <span style="color:#66d9ef">plural</span>: tlsoptions
+    <span style="color:#66d9ef">singular</span>: tlsoption
+---
+<span style="color:#75715e">## TraefikService</span>
+<span style="color:#66d9ef">apiVersion</span>: apiextensions.k8s.io/v1beta1
+<span style="color:#66d9ef">kind</span>: CustomResourceDefinition
+metadata:
+  <span style="color:#66d9ef">name</span>: traefikservices.traefik.containo.us
+spec:
+  <span style="color:#66d9ef">scope</span>: Namespaced
+  <span style="color:#66d9ef">group</span>: traefik.containo.us
+  <span style="color:#66d9ef">version</span>: v1alpha1
+  names:
+    <span style="color:#66d9ef">kind</span>: TraefikService
+    <span style="color:#66d9ef">plural</span>: traefikservices
+    <span style="color:#66d9ef">singular</span>: traefikservice
+
+---
+<span style="color:#75715e">## TraefikTLSStore</span>
+<span style="color:#66d9ef">apiVersion</span>: apiextensions.k8s.io/v1beta1
+<span style="color:#66d9ef">kind</span>: CustomResourceDefinition
+metadata:
+  <span style="color:#66d9ef">name</span>: tlsstores.traefik.containo.us
+spec:
+  <span style="color:#66d9ef">scope</span>: Namespaced
+  <span style="color:#66d9ef">group</span>: traefik.containo.us
+  <span style="color:#66d9ef">version</span>: v1alpha1
+  names:
+    <span style="color:#66d9ef">kind</span>: TLSStore
+    <span style="color:#66d9ef">plural</span>: tlsstores
+    <span style="color:#66d9ef">singular</span>: tlsstore
+
+---
+<span style="color:#75715e">## IngressRouteUDP</span>
+<span style="color:#66d9ef">apiVersion</span>: apiextensions.k8s.io/v1beta1
+<span style="color:#66d9ef">kind</span>: CustomResourceDefinition
+metadata:
+  <span style="color:#66d9ef">name</span>: ingressrouteudps.traefik.containo.us 
+spec:
+  <span style="color:#66d9ef">scope</span>: Namespaced
+  <span style="color:#66d9ef">group</span>: traefik.containo.us
+  <span style="color:#66d9ef">version</span>: v1alpha1
+  names:
+    <span style="color:#66d9ef">kind</span>: IngressRouteUDP
+    <span style="color:#66d9ef">plural</span>: ingressrouteudps
+    <span style="color:#66d9ef">singular</span>: ingressrouteudp
+</code></pre></div><p>创建指令：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">kubectl apply -f traefik-crd.yaml
+
+root@instance-1:~/traefik-my# kubectl get crd
+NAME                                   CREATED AT
+addons.k3s.cattle.io                   2020-10-13T09:39:18Z
+helmcharts.helm.cattle.io              2020-10-13T09:39:18Z
+ingressroutes.traefik.containo.us      2020-10-13T12:47:03Z
+ingressroutetcps.traefik.containo.us   2020-10-13T12:47:03Z
+middlewares.traefik.containo.us        2020-10-13T12:47:03Z
+tlsoptions.traefik.containo.us         2020-10-13T12:47:03Z
+traefikservices.traefik.containo.us    2020-10-13T12:47:03Z
+tlsstores.traefik.containo.us          2020-10-13T12:47:03Z
+ingressrouteudps.traefik.containo.us   2020-10-13T12:47:03Z
+
+</code></pre></div><p>上面的输出重点看<code>ingressroutes.traefik.containo.us</code>和<code>ingressroutetcps.traefik.containo.us  </code>以及<code>middlewares.traefik.containo.us</code>3条。</p>
+<h2 id="3-创建rbac权限">3. 创建RBAC权限</h2>
+<p>traefik-rbac.yaml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">kind</span>: ServiceAccount
+metadata:
+  <span style="color:#66d9ef">namespace</span>: ingress-traefik 
+  <span style="color:#66d9ef">name</span>: traefik-ingress-controller
+---
+<span style="color:#66d9ef">kind</span>: ClusterRole
+<span style="color:#66d9ef">apiVersion</span>: rbac.authorization.k8s.io/v1beta1
+metadata:
+  <span style="color:#66d9ef">name</span>: traefik-ingress-controller
+rules:
+  - <span style="color:#66d9ef">apiGroups</span>: [<span style="color:#e6db74">&#34;&#34;</span>]
+    <span style="color:#66d9ef">resources</span>: [<span style="color:#e6db74">&#34;services&#34;</span>,<span style="color:#e6db74">&#34;endpoints&#34;</span>,<span style="color:#e6db74">&#34;secrets&#34;</span>]
+    <span style="color:#66d9ef">verbs</span>: [<span style="color:#e6db74">&#34;get&#34;</span>,<span style="color:#e6db74">&#34;list&#34;</span>,<span style="color:#e6db74">&#34;watch&#34;</span>]
+  - <span style="color:#66d9ef">apiGroups</span>: [<span style="color:#e6db74">&#34;extensions&#34;</span>]
+    <span style="color:#66d9ef">resources</span>: [<span style="color:#e6db74">&#34;ingresses&#34;</span>]
+    <span style="color:#66d9ef">verbs</span>: [<span style="color:#e6db74">&#34;get&#34;</span>,<span style="color:#e6db74">&#34;list&#34;</span>,<span style="color:#e6db74">&#34;watch&#34;</span>]
+  - <span style="color:#66d9ef">apiGroups</span>: [<span style="color:#e6db74">&#34;extensions&#34;</span>]
+    <span style="color:#66d9ef">resources</span>: [<span style="color:#e6db74">&#34;ingresses/status&#34;</span>]
+    <span style="color:#66d9ef">verbs</span>: [<span style="color:#e6db74">&#34;update&#34;</span>]
+  - <span style="color:#66d9ef">apiGroups</span>: [<span style="color:#e6db74">&#34;traefik.containo.us&#34;</span>]
+    <span style="color:#66d9ef">resources</span>: [<span style="color:#e6db74">&#34;middlewares&#34;</span>]
+    <span style="color:#66d9ef">verbs</span>: [<span style="color:#e6db74">&#34;get&#34;</span>,<span style="color:#e6db74">&#34;list&#34;</span>,<span style="color:#e6db74">&#34;watch&#34;</span>]
+  - <span style="color:#66d9ef">apiGroups</span>: [<span style="color:#e6db74">&#34;traefik.containo.us&#34;</span>]
+    <span style="color:#66d9ef">resources</span>: [<span style="color:#e6db74">&#34;ingressroutes&#34;</span>,<span style="color:#e6db74">&#34;traefikservices&#34;</span>]
+    <span style="color:#66d9ef">verbs</span>: [<span style="color:#e6db74">&#34;get&#34;</span>,<span style="color:#e6db74">&#34;list&#34;</span>,<span style="color:#e6db74">&#34;watch&#34;</span>]
+  - <span style="color:#66d9ef">apiGroups</span>: [<span style="color:#e6db74">&#34;traefik.containo.us&#34;</span>]
+    <span style="color:#66d9ef">resources</span>: [<span style="color:#e6db74">&#34;ingressroutetcps&#34;</span>,<span style="color:#e6db74">&#34;ingressrouteudps&#34;</span>]
+    <span style="color:#66d9ef">verbs</span>: [<span style="color:#e6db74">&#34;get&#34;</span>,<span style="color:#e6db74">&#34;list&#34;</span>,<span style="color:#e6db74">&#34;watch&#34;</span>]
+  - <span style="color:#66d9ef">apiGroups</span>: [<span style="color:#e6db74">&#34;traefik.containo.us&#34;</span>]
+    <span style="color:#66d9ef">resources</span>: [<span style="color:#e6db74">&#34;tlsoptions&#34;</span>,<span style="color:#e6db74">&#34;tlsstores&#34;</span>]
+    <span style="color:#66d9ef">verbs</span>: [<span style="color:#e6db74">&#34;get&#34;</span>,<span style="color:#e6db74">&#34;list&#34;</span>,<span style="color:#e6db74">&#34;watch&#34;</span>]
+---
+<span style="color:#66d9ef">kind</span>: ClusterRoleBinding
+<span style="color:#66d9ef">apiVersion</span>: rbac.authorization.k8s.io/v1beta1
+metadata:
+  <span style="color:#66d9ef">name</span>: traefik-ingress-controller
+roleRef:
+  <span style="color:#66d9ef">apiGroup</span>: rbac.authorization.k8s.io
+  <span style="color:#66d9ef">kind</span>: ClusterRole
+  <span style="color:#66d9ef">name</span>: traefik-ingress-controller
+subjects:
+  - <span style="color:#66d9ef">kind</span>: ServiceAccount
+    <span style="color:#66d9ef">name</span>: traefik-ingress-controller
+    <span style="color:#66d9ef">namespace</span>: ingress-traefik
+</code></pre></div><p>创建指令：</p>
+<pre><code class="language-code" data-lang="code">kubectl apply -f traefik-rbac.yaml
+</code></pre><h2 id="4-创建traefik配置文件">4. 创建traefik配置文件</h2>
+<p>traefik-config.yaml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">kind</span>: ConfigMap
+<span style="color:#66d9ef">apiVersion</span>: v1
+metadata:
+  <span style="color:#66d9ef">name</span>: traefik-config
+  <span style="color:#66d9ef">namespace</span>: ingress-traefik
+data:
+  <span style="color:#66d9ef">traefik.yaml</span>: |<span style="color:#e6db74">-
+</span><span style="color:#e6db74">   </span><span style="color:#e6db74"> </span><span style="color:#e6db74">serversTransport:</span>
+      <span style="color:#66d9ef">insecureSkipVerify</span>: <span style="color:#66d9ef">true</span>
+    api:
+      <span style="color:#66d9ef">insecure</span>: <span style="color:#66d9ef">true</span>
+      <span style="color:#66d9ef">dashboard</span>: <span style="color:#66d9ef">true</span>
+      <span style="color:#66d9ef">debug</span>: <span style="color:#66d9ef">true</span>
+    metrics:
+      <span style="color:#66d9ef">prometheus</span>: <span style="color:#e6db74">&#34;&#34;</span>
+    entryPoints:
+      web:
+        <span style="color:#66d9ef">address</span>: <span style="color:#e6db74">&#34;:80&#34;</span>
+      websecure:
+        <span style="color:#66d9ef">address</span>: <span style="color:#e6db74">&#34;:443&#34;</span>
+    providers:
+      <span style="color:#66d9ef">kubernetesCRD</span>: <span style="color:#e6db74">&#34;&#34;</span>
+    log:
+      <span style="color:#66d9ef">filePath</span>: <span style="color:#e6db74">&#34;&#34;</span>
+      <span style="color:#66d9ef">level</span>: error
+      <span style="color:#66d9ef">format</span>: json
+    accessLog:
+      <span style="color:#66d9ef">filePath</span>: <span style="color:#e6db74">&#34;&#34;</span>
+      <span style="color:#66d9ef">format</span>: json
+      <span style="color:#66d9ef">bufferingSize</span>: <span style="color:#ae81ff">0</span>
+      filters:
+        <span style="color:#66d9ef">retryAttempts</span>: <span style="color:#66d9ef">true</span>
+        <span style="color:#66d9ef">minDuration</span>: <span style="color:#ae81ff">20</span>
+      fields:
+        <span style="color:#66d9ef">defaultMode</span>: keep
+        names:
+          <span style="color:#66d9ef">ClientUsername</span>: drop
+        headers:
+          <span style="color:#66d9ef">defaultMode</span>: keep
+          names:
+            <span style="color:#66d9ef">User-Agent</span>: redact
+            <span style="color:#66d9ef">Authorization</span>: drop
+            <span style="color:#66d9ef">Content-Type</span>: keep
+</code></pre></div><p>创建ConfigMap:</p>
+<pre><code class="language-code" data-lang="code">kubectl apply -f traefik-config.yaml
+</code></pre><h2 id="5-给节点打标签">5. 给节点打标签</h2>
+<p>由于是 Kubernetes DeamonSet 这种方式部署 Traefik，所以需要提前给节点设置 Label，这样当程序部署时 Pod 会自动调度到设置 Label 的点上。我们需要的标签是<code>IngressProxy=true</code>。</p>
+<pre><code class="language-code" data-lang="code">kubectl label nodes instance-1 IngressProxy=true
+</code></pre><p>查看节点标签：</p>
+<pre><code class="language-code" data-lang="code">root@instance-1:~/traefik-my# kubectl get nodes --show-labels 
+NAME         STATUS   ROLES    AGE   VERSION        LABELS
+instance-1   Ready    master   16h   v1.18.9+k3s1   IngressProxy=true,beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=k3s,beta.kubernetes.io/os=linux,k3s.io/hostname=instance-1,k3s.io/internal-ip=10.170.0.3,kubernetes.io/arch=amd64,kubernetes.io/hostname=instance-1,kubernetes.io/os=linux,node-role.kubernetes.io/master=true,node.kubernetes.io/instance-type=k3s
+</code></pre><h2 id="6-部署traefik">6. 部署traefik</h2>
+<p>很多时候我们会采用DS方式部署，并且设置网络为hostNetwork=True，这样方便流量进入。但是在这里我采用的是service的loadbalancer进行暴露。</p>
+<p>traefik-svc.yaml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">kind</span>: Service
+metadata:
+  <span style="color:#66d9ef">name</span>: traefik
+  <span style="color:#66d9ef">namespace</span>: ingress-traefik
+spec:
+  <span style="color:#66d9ef">type</span>: LoadBalancer
+  ports:
+    - <span style="color:#66d9ef">name</span>: web
+      <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">80</span>
+    - <span style="color:#66d9ef">name</span>: websecure
+      <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">443</span>
+    - <span style="color:#66d9ef">name</span>: admin
+      <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">8080</span>
+  selector:
+    <span style="color:#66d9ef">app</span>: traefik
+</code></pre></div><p>traefik-ds.yaml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: apps/v1
+<span style="color:#66d9ef">kind</span>: DaemonSet
+metadata:
+  <span style="color:#66d9ef">name</span>: traefik-ingress-controller
+  <span style="color:#66d9ef">namespace</span>: ingress-traefik
+  labels:
+    <span style="color:#66d9ef">app</span>: traefik
+spec:
+  selector:
+    matchLabels:
+      <span style="color:#66d9ef">app</span>: traefik
+  template:
+    metadata:
+      <span style="color:#66d9ef">name</span>: traefik
+      labels:
+        <span style="color:#66d9ef">app</span>: traefik
+    spec:
+      <span style="color:#66d9ef">serviceAccountName</span>: traefik-ingress-controller
+      <span style="color:#66d9ef">terminationGracePeriodSeconds</span>: <span style="color:#ae81ff">1</span>
+      containers:
+        - <span style="color:#66d9ef">image</span>: registry.cn-hangzhou.aliyuncs.com/rookieops/traefik:v2<span style="color:#ae81ff">.2</span><span style="color:#ae81ff">.0</span>
+          <span style="color:#66d9ef">name</span>: traefik-ingress-lb
+          ports:
+            - <span style="color:#66d9ef">name</span>: web
+              <span style="color:#66d9ef">containerPort</span>: <span style="color:#ae81ff">80</span>
+            - <span style="color:#66d9ef">name</span>: websecure
+              <span style="color:#66d9ef">containerPort</span>: <span style="color:#ae81ff">443</span>
+            - <span style="color:#66d9ef">name</span>: admin
+              <span style="color:#66d9ef">containerPort</span>: <span style="color:#ae81ff">8080</span>
+          resources:
+            limits:
+              <span style="color:#66d9ef">cpu</span>: 2000m
+              <span style="color:#66d9ef">memory</span>: 1024Mi
+            requests:
+              <span style="color:#66d9ef">cpu</span>: 1000m
+              <span style="color:#66d9ef">memory</span>: 1024Mi
+          securityContext:
+            capabilities:
+              drop:
+                - ALL
+              add:
+                - NET_BIND_SERVICE
+          args:
+            - --configfile=/config/traefik.yaml
+          volumeMounts:
+            - <span style="color:#66d9ef">mountPath</span>: <span style="color:#e6db74">&#34;/config&#34;</span>
+              <span style="color:#66d9ef">name</span>: <span style="color:#e6db74">&#34;config&#34;</span>
+      volumes:
+        - <span style="color:#66d9ef">name</span>: config
+          configMap:
+            <span style="color:#66d9ef">name</span>: traefik-config 
+      <span style="color:#66d9ef">tolerations</span>:              <span style="color:#75715e">#设置容忍所有污点，防止节点被设置污点</span>
+        - <span style="color:#66d9ef">operator</span>: <span style="color:#e6db74">&#34;Exists&#34;</span>
+      <span style="color:#66d9ef">nodeSelector</span>:             <span style="color:#75715e">#设置node筛选器，在特定label的节点上启动</span>
+        <span style="color:#66d9ef">IngressProxy</span>: <span style="color:#e6db74">&#34;true&#34;</span>
+</code></pre></div><p>执行创建命令：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">kubectl apply -f traefik-svc.yaml
+kubectl apply -f traefik-ds.yaml
+</code></pre></div><h2 id="7-部署dashboard">7. 部署dashboard</h2>
+<p>traefik-dashboard-route.yaml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: traefik.containo.us/v1alpha1
+<span style="color:#66d9ef">kind</span>: IngressRoute
+metadata:
+  <span style="color:#66d9ef">name</span>: traefik-dashboard-route
+  <span style="color:#66d9ef">namespace</span>: ingress-traefik
+spec:
+  entryPoints:
+    - web
+  routes:
+    - <span style="color:#66d9ef">match</span>: Host(`traefik.fline88.com`)
+      <span style="color:#66d9ef">kind</span>: Rule
+      services:
+        - <span style="color:#66d9ef">name</span>: traefik
+          <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">8080</span>
+</code></pre></div><p>注意此处设置了匹配域名<code>traefik.fline88.com</code>，如果没有域名，可以将这行注释掉，然后直接通过ip访问即可</p>
+<p>执行命令：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">kubectl apply -f traefik-dashboard-route.yaml
+</code></pre></div><h2 id="访问测试">访问测试</h2>
+<p>访问<code>ip:port/dashboard</code>即可。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>作者:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2020/2020-10-14-linux-cgroups%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" class="prev" rel="prev" title="linux cgroups简单使用"><i class="iconfont icon-left"></i>&nbsp;linux cgroups简单使用</a>
+         
+        
+        <a href="https://linjinbao.github.io/2020/2020-10-15-kubeadm%E9%83%A8%E7%BD%B21.13.1/" class="next" rel="next" title="kubeadm部署1.13.1">kubeadm部署1.13.1&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= 'title'
+        label= 'utterance'
+        theme= 'github-light'
+        crossorigin="anonymous"
+        async>
+  </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

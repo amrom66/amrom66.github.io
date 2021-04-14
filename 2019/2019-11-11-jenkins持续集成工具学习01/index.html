@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2019/2019-11-11-%E4%BD%BF%E7%94%A8apache-poi%E6%93%8D%E4%BD%9Cexcel/" />
+  <link rel="next" href="https://linjinbao.github.io/2019/2019-11-12-%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8Bspring-aop/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2019/2019-11-11-jenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A001/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           Jenkins持续集成工具学习01 | 打工人日记
+       
+  </title>
+  <meta name="title" content="Jenkins持续集成工具学习01 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "Jenkins持续集成工具学习01",
+    "headline" : "Jenkins持续集成工具学习01",
+    "description" : "2019-11-11-Jenkins持续集成工具学习01 Jenkins持续集成工具学习01  安装Jenkins并启动  docker安装：\ndocker pull jenkins docker run \\ -u root \\ --rm \\ -d \\ -p 8080:8080 \\ -p 50000:50000 \\ -v jenkins-data:\/var\/jenkins_home \\ -v \/var\/run\/docker.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-11-11 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-11-11 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2019\/2019-11-11-jenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A001\/",
+    "wordCount" : "46",
+    "keywords" : [  "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Jenkins持续集成工具学习01</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=11119-11-11 itemprop="datePublished">November 11, 2019</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="2019-11-11-jenkins持续集成工具学习01">2019-11-11-Jenkins持续集成工具学习01</h1>
+<h2 id="jenkins持续集成工具学习01">Jenkins持续集成工具学习01</h2>
+<ol>
+<li>安装Jenkins并启动</li>
+</ol>
+<p>docker安装：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">docker pull jenkins
+docker run \
+  -u root \
+  --rm \  
+  -d \ 
+  -p 8080:8080 \ 
+  -p 50000:50000 \ 
+  -v jenkins-data:/var/jenkins_home \ 
+  -v /var/run/docker.sock:/var/run/docker.sock \ 
+  jenkinsci
+</code></pre></div><p>yum安装：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+sudo yum install jenkins
+</code></pre></div><ol>
+<li>访问浏览器<code>IP:8080</code>进行系统配置</li>
+</ol>
+<h2 id="使用-重点"><strong>使用-重点</strong></h2>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>作者:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2019/2019-11-11-%E4%BD%BF%E7%94%A8apache-poi%E6%93%8D%E4%BD%9Cexcel/" class="prev" rel="prev" title="简单操作excel apache POI使用"><i class="iconfont icon-left"></i>&nbsp;简单操作excel apache POI使用</a>
+         
+        
+        <a href="https://linjinbao.github.io/2019/2019-11-12-%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8Bspring-aop/" class="next" rel="next" title="面向切面编程SpringAOP">面向切面编程SpringAOP&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= 'title'
+        label= 'utterance'
+        theme= 'github-light'
+        crossorigin="anonymous"
+        async>
+  </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

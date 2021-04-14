@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2021/2021-02-04-k8s%E4%BF%AE%E6%94%B9dns%E8%A7%A3%E6%9E%90/" />
+  <link rel="next" href="https://linjinbao.github.io/2021/2021-02-07-pod%E8%8E%B7%E5%8F%96%E8%87%AA%E8%BA%AB%E5%8F%82%E6%95%B0/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-02-04-gitlab%E9%83%A8%E7%BD%B2%E5%85%A8%E6%B5%81%E7%A8%8B%E8%AE%B0%E5%BD%95/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           gitlab部署全流程记录 | 打工人日记
+       
+  </title>
+  <meta name="title" content="gitlab部署全流程记录 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "gitlab部署全流程记录",
+    "headline" : "gitlab部署全流程记录",
+    "description" : "术语解释： 1. Gitlab GitLab是一个利用Ruby on Rails开发的开源应用程序，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。 它拥有与GitHub类似的功能，能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序（Wall）进行交流。它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。\n2. Gitlab-CI Gitlab-CI是GitLab Continuous Integration（Gitlab持续集成）的简称。 从Gitlab的8.0版本开始，gitlab就全面集成了Gitlab-CI,并且对所有项目默认开启。 只要在项目仓库的根目录添加.gitlab-ci.yml文件，并且配置了Runner（运行器），那么每一次合并请求（MR）或者push都会触发CI pipeline。\n3. Gitlab-runner Gitlab-runner是.gitlab-ci.yml脚本的运行器，Gitlab-runner是基于Gitlab-CI的API进行构建的相互隔离的机器（或虚拟机）。GitLab Runner 不需要和Gitlab安装在同一台机器上，但是考虑到GitLab Runner的资源消耗问题和安全问题，也不建议这两者安装在同一台机器上。",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-02-04 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-02-04 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-02-04-gitlab%E9%83%A8%E7%BD%B2%E5%85%A8%E6%B5%81%E7%A8%8B%E8%AE%B0%E5%BD%95\/",
+    "wordCount" : "493",
+    "keywords" : [  "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">gitlab部署全流程记录</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=4029-02-04 itemprop="datePublished">February 4, 2021</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="术语解释">术语解释：</h2>
+<h3 id="1-gitlab">1. Gitlab</h3>
+<p>GitLab是一个利用Ruby on Rails开发的开源应用程序，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。
+它拥有与GitHub类似的功能，能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序（Wall）进行交流。它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。</p>
+<h3 id="2-gitlab-ci">2. Gitlab-CI</h3>
+<p><a href="https://docs.gitlab.com/ce/ci/quick_start/README.html">Gitlab-CI</a>是GitLab Continuous Integration（Gitlab持续集成）的简称。
+从Gitlab的8.0版本开始，gitlab就全面集成了Gitlab-CI,并且对所有项目默认开启。
+只要在项目仓库的根目录添加<code>.gitlab-ci.yml</code>文件，并且配置了Runner（运行器），那么每一次合并请求（MR）或者push都会触发CI <a href="https://docs.gitlab.com/ce/ci/pipelines.html">pipeline</a>。</p>
+<h3 id="3-gitlab-runner">3. Gitlab-runner</h3>
+<p><a href="https://docs.gitlab.com/ce/ci/runners/README.html">Gitlab-runner</a>是<code>.gitlab-ci.yml</code>脚本的运行器，Gitlab-runner是基于Gitlab-CI的API进行构建的相互隔离的机器（或虚拟机）。GitLab Runner 不需要和Gitlab安装在同一台机器上，但是考虑到GitLab Runner的资源消耗问题和安全问题，也不建议这两者安装在同一台机器上。</p>
+<p>Gitlab Runner分为两种，Shared runners和Specific runners。
+Specific runners只能被指定的项目使用，Shared runners则可以运行所有开启<code> Allow shared runners</code>选项的项目。</p>
+<h3 id="4-pipelines">4. Pipelines</h3>
+<p>Pipelines是定义于<code>.gitlab-ci.yml</code>中的不同阶段的不同任务。
+我把<a href="https://docs.gitlab.com/ce/ci/pipelines.html">Pipelines</a>理解为流水线，流水线包含有多个阶段（<a href="https://docs.gitlab.com/ce/ci/yaml/README.html#stages">stages</a>），每个阶段包含有一个或多个工序（<a href="https://docs.gitlab.com/ce/ci/yaml/README.html#jobs">jobs</a>），比如先购料、组装、测试、包装再上线销售，每一次push或者MR都要经过流水线之后才可以合格出厂。而<code>.gitlab-ci.yml</code>正是定义了这条流水线有哪些阶段，每个阶段要做什么事。</p>
+<h3 id="5-badges">5. Badges</h3>
+<p><a href="https://docs.gitlab.com/ce/ci/pipelines.html#badges">徽章</a>，当Pipelines执行完成，会生成徽章，你可以将这些徽章加入到你的README.md文件或者你的网站。</p>
+<p>徽章的链接形如：
+<code>http://example.gitlab.com/namespace/project/badges/branch/build.svg</code></p>
+<h2 id="部署实现">部署实现</h2>
+<p>第一步：helm部署gitlab命令：</p>
+<pre><code class="language-code" data-lang="code">helm install gitlab gitlab/  --timeout 600s --set global.hosts.domain=linjb.com --set certmanager-issuer.email=1576654308@qq.com --set global.hosts.gitlab.https=false  --set global.hosts.https=false --set global.ingress.tls.enabled=false
+</code></pre><p>第二步：在coredns中配置域名的解析为集群内地址。</p>
+<p>第三步：登录集群：</p>
+<p>root账号为：kubectl get secret <!-- raw HTML omitted -->-gitlab-initial-root-password -ojsonpath=&rsquo;{.data.password}&rsquo; | base64 &ndash;decode ; echo</p>
+<p>第四步：登录集群后的操作</p>
+<ul>
+<li>设置允许本机IP的流量访问</li>
+<li>查看gitlab-runner是否正常</li>
+<li>配置operation即k8s，用作CD</li>
+</ul>
+<pre><code class="language-code" data-lang="code">kubectl apply -f gitlab-admin-service-account.yaml
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: gitlab
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: gitlab-admin
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: gitlab
+    namespace: kube-system
+---
+
+kubectl get secrets | grep default-token
+kubectl get secret default-token-v2n9k   -o jsonpath=&quot;{['data']['ca\.crt']}&quot; | base64 --decode
+</code></pre><h2 id="hub与gitlab-runner配置调整">hub与gitlab-runner配置调整</h2>
+<p>gitlb-runner需要设置非TLS，此处为私有仓库。</p>
+<pre><code class="language-code" data-lang="code">runners:
+  config: |
+    [[runners]]
+      url = &quot;10.20.250.21&quot;
+      token = &quot;&quot;
+      [runners.docker]
+        tls_verify = false
+        image = &quot;docker:19.03.12&quot;
+        privileged = true
+        disable_cache = false
+        volumes = [&quot;/cache&quot;]
+      [runners.kubernetes]
+        image = &quot;ubuntu:20.04&quot;
+        privileged = true
+      [[runners.kubernetes.volumes.empty_dir]]
+        name = &quot;docker-certs&quot;
+        mount_path = &quot;/certs/client&quot;
+        medium = &quot;Memory&quot;
+
+</code></pre><h2 id="使用示例">使用示例</h2>
+<p>第一步：项目跟目录新建.gitlab-ci.yml文件</p>
+<p>.gitlab-ci.yml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">---
+推送到docker.io的配置
+---
+<span style="color:#66d9ef">stages</span>:
+  - docker-build
+
+<span style="color:#75715e"># This file is a template, and might need editing before it works on your project.</span>
+<span style="color:#66d9ef">docker-build</span>:
+  <span style="color:#75715e"># Official docker image.</span>
+  <span style="color:#66d9ef">image</span>: docker:<span style="color:#ae81ff">19.03</span><span style="color:#ae81ff">.12</span>
+  <span style="color:#66d9ef">stage</span>: docker-build
+  <span style="color:#66d9ef">services</span>:
+   - <span style="color:#66d9ef">name</span>: docker:<span style="color:#ae81ff">19.03</span><span style="color:#ae81ff">.12</span>-dind
+  <span style="color:#66d9ef">variables</span>:
+    <span style="color:#75715e"># Tell docker CLI how to talk to Docker daemon; see</span>
+    <span style="color:#75715e"># https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#use-docker-in-docker-executor</span>
+    <span style="color:#66d9ef">DOCKER_HOST</span>: tcp://docker:<span style="color:#ae81ff">2375</span>
+    <span style="color:#75715e"># Use the overlayfs driver for improved performance:</span>
+    <span style="color:#66d9ef">DOCKER_DRIVER</span>: overlay2
+    <span style="color:#66d9ef">DOCKER_TLS_CERTDIR</span>: <span style="color:#e6db74">&#34;&#34;</span>
+    
+  <span style="color:#66d9ef">before_script</span>:
+    - docker info
+    - docker login -u <span style="color:#75715e">**</span> -p <span style="color:#75715e">**</span> docker.io
+  <span style="color:#66d9ef">script</span>:
+    - docker build -t linjinbao66/my-nginx .
+    - docker push linjinbao66/my-nginx 
+  <span style="color:#66d9ef">only</span>:
+    - master
+</code></pre></div><pre><code class="language-code" data-lang="code">---
+推送到私有仓库的配置
+---
+stages:
+  - docker-build
+
+# This file is a template, and might need editing before it works on your project.
+docker-build:
+  # Official docker image.
+  image: docker:19.03.12
+  stage: docker-build
+  services:
+   - name: docker:19.03.12-dind
+     command: [ &quot;--insecure-registry=10.20.250.21&quot; ]
+  variables:
+    # Tell docker CLI how to talk to Docker daemon; see
+    # https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#use-docker-in-docker-executor
+    DOCKER_HOST: tcp://docker:2375
+    # Use the overlayfs driver for improved performance:
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: &quot;&quot;
+    
+  before_script:
+    - docker info
+    - docker login -u * -p * 10.20.250.21
+  script:
+    - docker build --pull -t 10.20.250.21/library/my-nginx .
+    - docker push 10.20.250.21/library/my-nginx
+  only:
+    - master
+</code></pre><p>第二步：新建Dockerfile文件</p>
+<p>Dockerfile</p>
+<pre><code class="language-code" data-lang="code">FROM busybox
+RUN echo &quot;my-busybox&quot;
+</code></pre><p>提交之后即可触发编译。</p>
+<p>部分日志：</p>
+<pre><code class="language-code" data-lang="code"> Product License: Community Engine
+$ docker login -u admin -p Admin@harbor2020 10.20.250.21
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+Login Succeeded
+$ docker build --pull -t 10.20.250.21/library/my-nginx .
+Step 1/2 : FROM busybox
+latest: Pulling from library/busybox
+4c892f00285e: Pulling fs layer
+4c892f00285e: Verifying Checksum
+4c892f00285e: Download complete
+4c892f00285e: Pull complete
+Digest: sha256:e1488cb900233d035575f0a7787448cb1fa93bed0ccc0d4efc1963d7d72a8f17
+Status: Downloaded newer image for busybox:latest
+ ---&gt; 22667f53682a
+Step 2/2 : RUN echo &quot;my-busybox&quot;
+ ---&gt; Running in dff9b51d1aeb
+my-busybox
+Removing intermediate container dff9b51d1aeb
+ ---&gt; 15b007c1b2cb
+Successfully built 15b007c1b2cb
+Successfully tagged 10.20.250.21/library/my-nginx:latest
+$ docker push 10.20.250.21/library/my-nginx
+The push refers to repository [10.20.250.21/library/my-nginx]
+6b245f040973: Preparing
+6b245f040973: Pushed
+latest: digest: sha256:966c710cf6a56d9817370b9fe2608cbec4c5b5b52fb5e3952d9b63f5149974dd size: 527
+Job succeeded
+</code></pre>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>作者:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2021/2021-02-04-k8s%E4%BF%AE%E6%94%B9dns%E8%A7%A3%E6%9E%90/" class="prev" rel="prev" title="k8s修改dns解析"><i class="iconfont icon-left"></i>&nbsp;k8s修改dns解析</a>
+         
+        
+        <a href="https://linjinbao.github.io/2021/2021-02-07-pod%E8%8E%B7%E5%8F%96%E8%87%AA%E8%BA%AB%E5%8F%82%E6%95%B0/" class="next" rel="next" title="pod获取自身参数">pod获取自身参数&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= 'title'
+        label= 'utterance'
+        theme= 'github-light'
+        crossorigin="anonymous"
+        async>
+  </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

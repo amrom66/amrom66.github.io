@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2021/2021-04-11-%E6%B5%8B%E8%AF%95%E5%A3%81%E7%BA%B8/" />
+  <link rel="next" href="https://linjinbao.github.io/2021/2021-04-14-%E5%88%86%E4%BA%AB/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-04-12-maven%E6%8F%92%E4%BB%B6%E7%A6%81%E7%94%A8/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           maven插件禁用 | 打工人日记
+       
+  </title>
+  <meta name="title" content="maven插件禁用 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "maven插件禁用",
+    "headline" : "maven插件禁用",
+    "description" : "一个maven打包错误：\n[ERROR] Failed to execute goal pl.project13.maven:git-commit-id-plugin:2.2.5:revision (default) on project scheduler-server-dao: Could not complete Mojo execution...: Unable to find commits until some tag: Walk failure.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-04-12 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-04-12 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-04-12-maven%E6%8F%92%E4%BB%B6%E7%A6%81%E7%94%A8\/",
+    "wordCount" : "119",
+    "keywords" : [  "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">maven插件禁用</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=12049-04-12 itemprop="datePublished">April 12, 2021</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>一个maven打包错误：</p>
+<pre><code class="language-code" data-lang="code">[ERROR] Failed to execute goal pl.project13.maven:git-commit-id-plugin:2.2.5:revision (default) on project scheduler-server-dao: Could not complete Mojo execution...: Unable to find commits until some tag: Walk failure. Missing commit a4ae6e8f03140a20d126fdcb285b108452964bda -&gt; [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn &lt;goals&gt; -rf :scheduler-server-dao
+</code></pre><p>看错误日志描述为插件<code>git-commit-id-plugin</code>的错误，该插件会在打包的文件加上commitid，如果这个commitid丢失了则无法读取。</p>
+<p>git issue <a href="https://github.com/git-commit-id/git-commit-id-maven-plugin/issues/61">https://github.com/git-commit-id/git-commit-id-maven-plugin/issues/61</a></p>
+<p>解决方案有以下几种：</p>
+<ol>
+<li>升级插件版本：2.2.5 -&gt; 3.0.0</li>
+<li>git中修复commitid</li>
+<li>删除或者禁用pom中的该插件</li>
+</ol>
+<p>此处着重讲第3种，因为可以通用：</p>
+<p>在打包命令后加入：<code>-Dmaven.gitcommitid.skip=true</code></p>
+<p>完整命令为：<code>mvn clean package -U -Dmaven.test.skip=true -DSHUXI_VERSION=5.1.2  -Dmaven.gitcommitid.skip=true </code></p>
+<p>此命令的通用性在于maven打包的-D参数，表示环境变量</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>作者:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2021/2021-04-11-%E6%B5%8B%E8%AF%95%E5%A3%81%E7%BA%B8/" class="prev" rel="prev" title="测试壁纸"><i class="iconfont icon-left"></i>&nbsp;测试壁纸</a>
+         
+        
+        <a href="https://linjinbao.github.io/2021/2021-04-14-%E5%88%86%E4%BA%AB/" class="next" rel="next" title="分享">分享&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= 'title'
+        label= 'utterance'
+        theme= 'github-light'
+        crossorigin="anonymous"
+        async>
+  </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

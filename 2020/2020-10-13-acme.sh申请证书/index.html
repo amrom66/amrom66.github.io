@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工人日记">
+  <meta name="keywords" content="博客 个人 日记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2020/2020-10-13-%E7%A7%81%E6%9C%89%E9%9B%86%E7%BE%A4%E6%94%AF%E6%8C%81loadbalancer/" />
+  <link rel="next" href="https://linjinbao.github.io/2020/2020-10-14-mvn%E4%B8%80%E4%B8%AA%E6%89%93%E5%8C%85%E9%94%99%E8%AF%AF/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2020/2020-10-13-acme.sh%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           acme.sh申请证书 | 打工人日记
+       
+  </title>
+  <meta name="title" content="acme.sh申请证书 | 打工人日记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "acme.sh申请证书",
+    "headline" : "acme.sh申请证书",
+    "description" : "简介 acme.sh 实现了 acme 协议, 可以从 letsencrypt 生成免费的证书.\n主要步骤:\n 安装 acme.sh 生成证书 安装证书 配置nginx 更新 出错怎么办, 如何调试 吊销，移除证书  1.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-10-13 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-10-13 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2020\/2020-10-13-acme.sh%E7%94%B3%E8%AF%B7%E8%AF%81%E4%B9%A6\/",
+    "wordCount" : "234",
+    "keywords" : [  "打工人日记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工人日记</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">acme.sh申请证书</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=13109-10-13 itemprop="datePublished">October 13, 2020</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="简介">简介</h2>
+<p><strong>acme.sh</strong> 实现了 <code>acme</code> 协议, 可以从 letsencrypt 生成免费的证书.</p>
+<p>主要步骤:</p>
+<ol>
+<li>安装 <strong>acme.sh</strong></li>
+<li>生成证书</li>
+<li>安装证书</li>
+<li>配置nginx</li>
+<li>更新</li>
+<li>出错怎么办, 如何调试</li>
+<li>吊销，移除证书</li>
+</ol>
+<h2 id="1-安装">1. 安装</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">curl  https://get.acme.sh | sh
+</code></pre></div><h2 id="2-生成证书">2. 生成证书</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">acme.sh  --issue  -d blog.linjinbao66.tk --webroot  /root/linjinbao666.github.io
+</code></pre></div><p>只需要指定域名, 并指定域名所在的网站根目录. <strong>acme.sh</strong> 会全自动的生成验证文件, 并放到网站的根目录, 然后自动完成验证. 最后会聪明的删除验证文件. 整个过程没有任何副作用。此处的webroot需要在nginx配置文件中指定为root位置。示例：</p>
+<pre><code class="language-code" data-lang="code">server {
+    listen 80;
+    listen [::]:80;
+    server_name blog.linjinbao66.tk;
+    root /root/linjinbao666.github.io;
+    location /{
+    	proxy_pass http://127.0.0.1:9010;
+    }
+}
+</code></pre><p>** 注意上述配置中的root**。</p>
+<h2 id="3-安装证书">3. 安装证书</h2>
+<p>前面证书生成以后, 接下来需要把证书 copy 到真正需要用它的地方.</p>
+<p>注意, 默认生成的证书都放在安装目录下: <code>~/.acme.sh/</code>, 请不要直接使用此目录下的文件, 例如: 不要直接让 nginx/apache 的配置文件使用这下面的文件. 这里面的文件都是内部使用, 而且目录结构可能会变化.</p>
+<p>正确的使用方法是使用 <code>--install-cert</code> 命令,并指定目标位置, 然后证书文件会被copy到相应的位置, 例如:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">acme.sh --install-cert -d blog.linjinbao66.tk <span style="color:#ae81ff">\</span>
+--key-file       /data/blog/key.pem  <span style="color:#ae81ff">\</span>
+--fullchain-file /data/blog/cert.pem <span style="color:#ae81ff">\</span>
+--reloadcmd     <span style="color:#e6db74">&#34;service nginx force-reload&#34;</span>
+</code></pre></div><ul>
+<li>注意此处的安装证书只是在目标地址生成了一个<code>key.pem</code>文件和一个<code>cert.pem</code>文件，如果路径中的<code>blog</code>没有创建，则会出错。</li>
+</ul>
+<h2 id="4-配置nginx">4. 配置nginx</h2>
+<p>以上步骤，只是生成了所需要的证书文件，<code>key.pem</code>和<code>cert.pem</code>，真正使用起来还必须使用配置到nginx配置里面。实例：</p>
+<pre><code class="language-code" data-lang="code">server {
+        listen 443;
+        server_name blog.linjinbao66.tk;
+        ssl on;
+        ssl_certificate   /data/blog/cert.pem;
+        ssl_certificate_key  /data/blog/key.pem;
+        ssl_session_timeout 5m;
+        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+        ssl_prefer_server_ciphers on;
+        location / {
+            proxy_pass http://127.0.0.1:9010;
+        }
+}
+</code></pre><h2 id="5-更新">5. 更新</h2>
+<p>目前证书在 60 天以后会自动更新, 你无需任何操作. 今后有可能会缩短这个时间, 不过都是自动的, 你不用关心。</p>
+<p>目前由于 acme 协议和 letsencrypt CA 都在频繁的更新, 因此 acme.sh 也经常更新以保持同步.</p>
+<p>升级 acme.sh 到最新版 :</p>
+<pre><code class="language-pseudocode" data-lang="pseudocode">acme.sh --upgrade
+</code></pre><p>如果你不想手动升级, 可以开启自动升级:</p>
+<pre><code class="language-pseudocode" data-lang="pseudocode">acme.sh  --upgrade  --auto-upgrade
+</code></pre><p>之后, acme.sh 就会自动保持更新了.</p>
+<p>你也可以随时关闭自动更新:</p>
+<pre><code class="language-pseudocode" data-lang="pseudocode">acme.sh --upgrade  --auto-upgrade  0
+</code></pre><h2 id="出错处理">出错处理</h2>
+<p>如果出错, 请添加 debug log：</p>
+<pre><code class="language-pseudocode" data-lang="pseudocode">acme.sh  --issue  .....  --debug 
+</code></pre><p>或者：</p>
+<pre><code class="language-pseudocode" data-lang="pseudocode">acme.sh  --issue  .....  --debug  2
+</code></pre><h2 id="7-吊销移除证书">7. 吊销，移除证书</h2>
+<p>命令<code>acme.sh --list</code>列出所有证书：</p>
+<pre><code class="language-code" data-lang="code">root@instance-1:~# acme.sh --list
+Main_Domain          KeyLength  SAN_Domains  Created                       Renew
+blog.linjinbao66.tk  &quot;&quot;         no           Tue Oct 13 05:43:45 UTC 2020  Sat Dec 12 05:43:45 UTC 2020
+linjinbao66.tk       &quot;ec-256&quot;   no           Sat Oct  3 19:00:18 UTC 2020  Wed Dec  2 19:00:18 UTC 2020
+</code></pre><p>命令<code>acme.sh --revoke -d blog.linjinbao66.tk --ecc</code> 吊销证书。</p>
+<p>命令<code>acme.sh --remove -d blog.linjinbao66.tk --ecc</code> 移除证书</p>
+<p>参考地址：<a href="https://github.com/acmesh-official">acmesh-official</a>/<strong><a href="https://github.com/acmesh-official/acme.sh">acme.sh</a></strong></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>作者:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2020/2020-10-13-%E7%A7%81%E6%9C%89%E9%9B%86%E7%BE%A4%E6%94%AF%E6%8C%81loadbalancer/" class="prev" rel="prev" title="私有集群支持loadbalancer"><i class="iconfont icon-left"></i>&nbsp;私有集群支持loadbalancer</a>
+         
+        
+        <a href="https://linjinbao.github.io/2020/2020-10-14-mvn%E4%B8%80%E4%B8%AA%E6%89%93%E5%8C%85%E9%94%99%E8%AF%AF/" class="next" rel="next" title="mvn一个打包错误">mvn一个打包错误&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= 'title'
+        label= 'utterance'
+        theme= 'github-light'
+        crossorigin="anonymous"
+        async>
+  </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
