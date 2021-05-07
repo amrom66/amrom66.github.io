@@ -9,9 +9,9 @@
   <meta name="description" content="打工人日记">
   <meta name="keywords" content="博客 个人 日记">
   
-  <link rel="prev" href="https://linjinbao.github.io/2021/2021-04-14-%E5%88%86%E4%BA%AB/" />
-  <link rel="next" href="https://linjinbao.github.io/2021/2021-05-07-helm-minio/" />
-  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-05-05-%E4%BB%80%E4%B9%88%E6%98%AFdevops/" />
+  <link rel="prev" href="https://linjinbao.github.io/2021/2021-05-05-%E4%BB%80%E4%B9%88%E6%98%AFdevops/" />
+  
+  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-05-07-helm-minio/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           什么是DevOps | 打工人日记
+           helm minio | 打工人日记
        
   </title>
-  <meta name="title" content="什么是DevOps | 打工人日记">
+  <meta name="title" content="helm minio | 打工人日记">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/linjinbao.github.io"
     },
     "articleSection" : "posts",
-    "name" : "什么是DevOps",
-    "headline" : "什么是DevOps",
-    "description" : "什么是DevOps：\n维基百科的解释：https:\/\/en.wikipedia.org\/wiki\/DevOps\n DevOps is a set of practices that combines software development (Dev) and IT operations (Ops). It aims to shorten the systems development life cycle and provide continuous delivery with high software quality.",
+    "name" : "helm minio",
+    "headline" : "helm minio",
+    "description" : "minio部署 helm repo add minio https:\/\/helm.min.io\/ helm install minio \\ --namespace minio --create-namespace \\ --set accessKey=minio,secretKey=minio123 \\ --set mode=standalone \\ --set service.",
     "inLanguage" : "en-us",
     "author" : "linjinbao66",
     "creator" : "linjinbao66",
@@ -54,10 +54,10 @@
     "accountablePerson" : "linjinbao66",
     "copyrightHolder" : "linjinbao66",
     "copyrightYear" : "2021",
-    "datePublished": "2021-05-05 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2021-05-05 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-05-05-%E4%BB%80%E4%B9%88%E6%98%AFdevops\/",
-    "wordCount" : "58",
+    "datePublished": "2021-05-07 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-05-07 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-05-07-helm-minio\/",
+    "wordCount" : "186",
     "keywords" : [  "打工人日记"]
 }
 </script>
@@ -119,11 +119,11 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">什么是DevOps</h1>
+        <h1 class="post-title" itemprop="name headline">helm minio</h1>
         <div class="post-meta">
                 作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
                 <span class="post-time">
-                 <time datetime=5059-05-05 itemprop="datePublished">May 5, 2021</time>
+                 <time datetime=7059-05-07 itemprop="datePublished">May 7, 2021</time>
                 </span>
                 分类： 
                 
@@ -145,17 +145,47 @@
           
           
 
-          <p>什么是DevOps：</p>
-<p>维基百科的解释：https://en.wikipedia.org/wiki/DevOps</p>
-<hr>
-<p>DevOps is a set of practices that combines software development (Dev) and IT operations (Ops). It aims to shorten the systems development life cycle and provide continuous delivery with high software quality.[1][2] DevOps is complementary with Agile software development; several DevOps aspects came from the Agile methodology.</p>
-<p>DevOps是结合了软件开发（Dev）和IT运营（Ops）的一组实践。 它旨在缩短系统开发生命周期并提供具有高质量软件的连续交付。[1] [2] DevOps是对敏捷软件开发的补充； DevOps的几个方面都来自敏捷方法论。</p>
-<hr>
-<p>亚马逊的解释：https://aws.amazon.com/cn/devops/what-is-devops/</p>
-<hr>
-<p>DevOps 集文化理念、实践和工具于一身，可以提高组织高速交付应用程序和服务的能力，与使用传统软件开发和基础设施管理流程相比，能够帮助组织更快地发展和改进产品。这种速度使组织能够更好地服务其客户，并在市场上更高效地参与竞争。</p>
-<hr>
-<p>总结：DevOps结合开发与运维，目标在于实现产品的持续交付。对于DevOps而言，单一程序开发完成并不意味着任务结束，后续的部署，使用前的调试也是需要关注的点。</p>
+          <h2 id="minio部署">minio部署</h2>
+<pre><code class="language-code" data-lang="code">helm repo add minio https://helm.min.io/
+</code></pre><pre><code class="language-code" data-lang="code">helm install minio \
+  --namespace minio --create-namespace \
+  --set accessKey=minio,secretKey=minio123 \
+  --set mode=standalone \
+  --set service.type=NodePort \
+  --set persistence.enabled=true \
+  --set persistence.size=10Gi \
+  --set persistence.storageClass=managed-nfs-storage \
+  minio/minio
+</code></pre><pre><code class="language-code" data-lang="code">NAME: minio
+LAST DEPLOYED: Fri May  7 14:22:02 2021
+NAMESPACE: minio
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+NOTES:
+Minio can be accessed via port 9000 on the following DNS name from within your cluster:
+minio.minio.svc.cluster.local
+
+To access Minio from localhost, run the below commands:
+
+  1. export POD_NAME=$(kubectl get pods --namespace minio -l &quot;release=minio&quot; -o jsonpath=&quot;{.items[0].metadata.name}&quot;)
+
+  2. kubectl port-forward $POD_NAME 9000 --namespace minio
+
+Read more about port forwarding here: http://kubernetes.io/docs/user-guide/kubectl/kubectl_port-forward/
+
+You can now access Minio server on http://localhost:9000. Follow the below steps to connect to Minio server with mc client:
+
+  1. Download the Minio mc client - https://docs.minio.io/docs/minio-client-quickstart-guide
+
+  2. Get the ACCESS_KEY=$(kubectl get secret minio -o jsonpath=&quot;{.data.accesskey}&quot; | base64 --decode) and the SECRET_KEY=$(kubectl get secret minio -o jsonpath=&quot;{.data.secretkey}&quot; | base64 --decode)
+
+  3. mc alias set minio-local http://localhost:9000 &quot;$ACCESS_KEY&quot; &quot;$SECRET_KEY&quot; --api s3v4
+
+  4. mc ls minio-local
+
+Alternately, you can use your browser or the Minio SDK to access the server - https://docs.minio.io/categories/17
+</code></pre><h2 id="minio-operator部署">minio operator部署</h2>
 
     </div>
 
@@ -179,10 +209,8 @@
 
     <div class="post-nav">
         
-        <a href="https://linjinbao.github.io/2021/2021-04-14-%E5%88%86%E4%BA%AB/" class="prev" rel="prev" title="分享"><i class="iconfont icon-left"></i>&nbsp;分享</a>
+        <a href="https://linjinbao.github.io/2021/2021-05-05-%E4%BB%80%E4%B9%88%E6%98%AFdevops/" class="prev" rel="prev" title="什么是DevOps"><i class="iconfont icon-left"></i>&nbsp;什么是DevOps</a>
          
-        
-        <a href="https://linjinbao.github.io/2021/2021-05-07-helm-minio/" class="next" rel="next" title="helm minio">helm minio&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

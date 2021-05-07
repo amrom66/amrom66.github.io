@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 打工人日记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 May 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 07 May 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://linjinbao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>helm minio</title>
+      <link>https://linjinbao.github.io/2021/2021-05-07-helm-minio/</link>
+      <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-05-07-helm-minio/</guid>
+      <description>minio部署 helm repo add minio https://helm.min.io/ helm install minio \ --namespace minio --create-namespace \ --set accessKey=minio,secretKey=minio123 \ --set mode=standalone \ --set service.</description>
+    </item>
     
     <item>
       <title>什么是DevOps</title>
