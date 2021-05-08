@@ -9,9 +9,9 @@
   <meta name="description" content="打工人日记">
   <meta name="keywords" content="博客 个人 日记">
   
-  <link rel="prev" href="https://linjinbao.github.io/2021/2021-05-05-%E4%BB%80%E4%B9%88%E6%98%AFdevops/" />
-  <link rel="next" href="https://linjinbao.github.io/2021/2021-05-07-frp%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E7%9A%84%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8/" />
-  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-05-07-helm-minio/" />
+  <link rel="prev" href="https://linjinbao.github.io/2021/2021-05-07-helm-minio/" />
+  
+  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-05-07-frp%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E7%9A%84%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           helm minio | 打工人日记
+           frp反向代理的实际应用 | 打工人日记
        
   </title>
-  <meta name="title" content="helm minio | 打工人日记">
+  <meta name="title" content="frp反向代理的实际应用 | 打工人日记">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/linjinbao.github.io"
     },
     "articleSection" : "posts",
-    "name" : "helm minio",
-    "headline" : "helm minio",
-    "description" : "minio部署 helm repo add minio https:\/\/helm.min.io\/ helm install minio \\ --namespace minio --create-namespace \\ --set accessKey=minio,secretKey=minio123 \\ --set mode=standalone \\ --set service.",
+    "name" : "frp反向代理的实际应用",
+    "headline" : "frp反向代理的实际应用",
+    "description" : "frp介绍 frp是一个实现内网穿透的程序，通过客户端（内网）与服务端（外网）建立的持续信道，实现内网程序映射到外网。其原理大致为：服务端坚挺固定的几个端口；流量到达服务端端口；流量交给客户端处理，客户端转发流量到指定服务。\n示例  服务端  \/etc\/systemd\/system\/frps.service\n[Unit] Description=Frp Server Service After=network.target [Service] Type=simple User=root Restart=on-failure RestartSec=600s ExecStart=\/usr\/local\/bin\/frps -c \/etc\/frp\/frps.ini [Install] WantedBy=multi-user.",
     "inLanguage" : "en-us",
     "author" : "linjinbao66",
     "creator" : "linjinbao66",
@@ -56,8 +56,8 @@
     "copyrightYear" : "2021",
     "datePublished": "2021-05-07 00:00:00 \x2b0000 UTC",
     "dateModified" : "2021-05-07 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-05-07-helm-minio\/",
-    "wordCount" : "186",
+    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-05-07-frp%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E7%9A%84%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8\/",
+    "wordCount" : "200",
     "keywords" : [  "打工人日记"]
 }
 </script>
@@ -119,7 +119,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">helm minio</h1>
+        <h1 class="post-title" itemprop="name headline">frp反向代理的实际应用</h1>
         <div class="post-meta">
                 作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
                 <span class="post-time">
@@ -145,47 +145,122 @@
           
           
 
-          <h2 id="minio部署">minio部署</h2>
-<pre><code class="language-code" data-lang="code">helm repo add minio https://helm.min.io/
-</code></pre><pre><code class="language-code" data-lang="code">helm install minio \
-  --namespace minio --create-namespace \
-  --set accessKey=minio,secretKey=minio123 \
-  --set mode=standalone \
-  --set service.type=NodePort \
-  --set persistence.enabled=true \
-  --set persistence.size=10Gi \
-  --set persistence.storageClass=managed-nfs-storage \
-  minio/minio
-</code></pre><pre><code class="language-code" data-lang="code">NAME: minio
-LAST DEPLOYED: Fri May  7 14:22:02 2021
-NAMESPACE: minio
-STATUS: deployed
-REVISION: 1
-TEST SUITE: None
-NOTES:
-Minio can be accessed via port 9000 on the following DNS name from within your cluster:
-minio.minio.svc.cluster.local
+          <h2 id="frp介绍">frp介绍</h2>
+<p>frp是一个实现内网穿透的程序，通过客户端（内网）与服务端（外网）建立的持续信道，实现内网程序映射到外网。其原理大致为：服务端坚挺固定的几个端口；流量到达服务端端口；流量交给客户端处理，客户端转发流量到指定服务。</p>
+<h2 id="示例">示例</h2>
+<ol>
+<li>服务端</li>
+</ol>
+<p>/etc/systemd/system/frps.service</p>
+<pre><code class="language-code" data-lang="code">[Unit]
+Description=Frp Server Service
+After=network.target
 
-To access Minio from localhost, run the below commands:
+[Service]
+Type=simple
+User=root
+Restart=on-failure
+RestartSec=600s
+ExecStart=/usr/local/bin/frps -c /etc/frp/frps.ini
 
-  1. export POD_NAME=$(kubectl get pods --namespace minio -l &quot;release=minio&quot; -o jsonpath=&quot;{.items[0].metadata.name}&quot;)
+[Install]
+WantedBy=multi-user.target
+</code></pre><p>/etc/frp/frps.ini</p>
+<pre><code class="language-code" data-lang="code">[common]
+bind_port = 37000
+vhost_http_port = 8080
+vhost_https_port = 8443
+dashboard_addr = 0.0.0.0
+dashboard_port = 37500
+dashboard_user = ***
+dashboard_pwd = ***
+</code></pre><p>bind_port表示frp服务端与客户端建立通信使用的端口；vhost_http_port表示使用http服务的时候使用的端口；dashboard_port是面板的端口。</p>
+<p>以上配置完成后，frp会占用，37000，8080，8443，37500端口</p>
+<ol start="2">
+<li>客户端</li>
+</ol>
+<p>/etc/systemd/system/frpc.service</p>
+<pre><code class="language-code" data-lang="code">[Unit]
+Description=Frp Client Service
+After=network.target
 
-  2. kubectl port-forward $POD_NAME 9000 --namespace minio
+[Service]
+Type=simple
+User=nobody
+Restart=on-failure
+RestartSec=10s
+ExecStart=/usr/local/bin/frpc -c /etc/frp/frpc.ini
+ExecReload=/usr/local/bin/frpc reload -c /etc/frp/frpc.ini
 
-Read more about port forwarding here: http://kubernetes.io/docs/user-guide/kubectl/kubectl_port-forward/
+[Install]
+WantedBy=multi-user.target
+</code></pre><p>/etc/frp/frpc.ini</p>
+<pre><code class="language-code" data-lang="code">[common]
+server_addr = 149.28.60.76
+server_port = 37000
 
-You can now access Minio server on http://localhost:9000. Follow the below steps to connect to Minio server with mc client:
+[harbor80]
+type = http
+local_ip = 10.254.194.208
+local_port = 80
+custom_domains = harbor.amrom.tk
 
-  1. Download the Minio mc client - https://docs.minio.io/docs/minio-client-quickstart-guide
+[gitlab80]
+type = http
+local_ip = 10.254.128.141
+local_port = 80
+custom_domains = gitlab.amrom.tk
 
-  2. Get the ACCESS_KEY=$(kubectl get secret minio -o jsonpath=&quot;{.data.accesskey}&quot; | base64 --decode) and the SECRET_KEY=$(kubectl get secret minio -o jsonpath=&quot;{.data.secretkey}&quot; | base64 --decode)
+[minio80]
+type = http
+local_ip = 10.254.223.170
+local_port = 9000
+custom_domains = minio.amrom.tk
 
-  3. mc alias set minio-local http://localhost:9000 &quot;$ACCESS_KEY&quot; &quot;$SECRET_KEY&quot; --api s3v4
+[k8s80]
+type = http
+local_ip = 10.254.48.82
+local_port = 80
+custom_domains = ui.amrom.tk
 
-  4. mc ls minio-local
+[tour80]
+type = http
+local_ip = 10.254.37.240
+local_port = 3999
+custom_domains = tour.amrom.tk
 
-Alternately, you can use your browser or the Minio SDK to access the server - https://docs.minio.io/categories/17
-</code></pre><h2 id="minio-operator部署">minio operator部署</h2>
+</code></pre><p>客户端不会占用任何端口，以上配置表示客户端通过37000与服务端建立连接，同时监听了内网的gitlab80，minio80，k8s80，tour80服务，服务之间通过域名区分。</p>
+<ol start="3">
+<li>nginx</li>
+</ol>
+<p>一般来说，不建议直接暴露frp服务出来，使用nginx反代处理效果更好。</p>
+<p>minio.conf</p>
+<pre><code class="language-code" data-lang="code">server {
+  listen 80;
+  listen 443 ssl http2;
+  server_name minio.amrom.tk;
+  ssl_certificate    /etc/nginx/conf.d/ssl/1_harbor.amrom.tk_bundle.crt;
+  ssl_certificate_key    /etc/nginx/conf.d/ssl/2_harbor.amrom.tk.key;
+  ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3;
+  ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
+  ssl_prefer_server_ciphers on;
+  ssl_session_cache shared:SSL:10m;
+  ssl_session_timeout 10m;
+  error_page 497  https://$host$request_uri;
+
+  location / {
+       proxy_pass  http://127.0.0.1:8080;
+       proxy_ssl_server_name on;
+       proxy_redirect off;
+       proxy_ssl_verify off;
+       proxy_set_header X-Real-IP $remote_addr;
+       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+       proxy_set_header Host $http_host;
+       proxy_set_header X-NginX-Proxy true;
+  }
+}
+</code></pre><p>nginx的配置根据不同的server_name生成，location注意要转发host到请求头中，frp服务端根据该请求头决定交给哪个客户端服务处理。</p>
+<p>经过以上配置后，frp服务隐藏在nginx后，可以嵌套cdn进一步隐藏真实ip。</p>
 
     </div>
 
@@ -209,10 +284,8 @@ Alternately, you can use your browser or the Minio SDK to access the server - ht
 
     <div class="post-nav">
         
-        <a href="https://linjinbao.github.io/2021/2021-05-05-%E4%BB%80%E4%B9%88%E6%98%AFdevops/" class="prev" rel="prev" title="什么是DevOps"><i class="iconfont icon-left"></i>&nbsp;什么是DevOps</a>
+        <a href="https://linjinbao.github.io/2021/2021-05-07-helm-minio/" class="prev" rel="prev" title="helm minio"><i class="iconfont icon-left"></i>&nbsp;helm minio</a>
          
-        
-        <a href="https://linjinbao.github.io/2021/2021-05-07-frp%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E7%9A%84%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8/" class="next" rel="next" title="frp反向代理的实际应用">frp反向代理的实际应用&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

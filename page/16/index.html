@@ -131,6 +131,31 @@
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-05-07-frp%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E7%9A%84%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8/">frp反向代理的实际应用</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				frp介绍 frp是一个实现内网穿透的程序，通过客户端（内网）与服务端（外网）建立的持续信道，实现内网程序映射到外网。其原理大致为：服务端坚挺固定的几个端口；流量到达服务端端口；流量交给客户端处理，客户端转发流量到指定服务。
+示例  服务端  /etc/systemd/system/frps.service
+[Unit] Description=Frp Server Service After=network.target [Service] Type=simple User=root Restart=on-failure RestartSec=600s ExecStart=/usr/local/bin/frps -c /etc/frp/frps.ini [Install] WantedBy=multi-user.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2021-05-07 itemprop="datePublished">May 7, 2021</time>
+                </span>
+                in
+                
+        </div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
 				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-05-07-helm-minio/">helm minio</a></h1>
 			</header>
 			<div class="post-content">
@@ -215,30 +240,6 @@
 				<div class="post-meta">
                 <span class="post-time">
                 <time datetime=2021-04-12 itemprop="datePublished">April 12, 2021</time>
-                </span>
-                in
-                
-        </div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-04-11-%E6%B5%8B%E8%AF%95%E5%A3%81%E7%BA%B8/">测试壁纸</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   <p><img src="/images/MischwaldFuessen_ROW2474656135_1920x1080.jpg" class="featured_image"></p>
-       				 
-       			 
-				插入图片
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2021-04-11 itemprop="datePublished">April 11, 2021</time>
                 </span>
                 in
                 

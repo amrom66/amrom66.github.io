@@ -12,6 +12,17 @@
     
     
     <item>
+      <title>frp反向代理的实际应用</title>
+      <link>https://linjinbao.github.io/2021/2021-05-07-frp%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E7%9A%84%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-05-07-frp%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E7%9A%84%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8/</guid>
+      <description>frp介绍 frp是一个实现内网穿透的程序，通过客户端（内网）与服务端（外网）建立的持续信道，实现内网程序映射到外网。其原理大致为：服务端坚挺固定的几个端口；流量到达服务端端口；流量交给客户端处理，客户端转发流量到指定服务。
+示例  服务端  /etc/systemd/system/frps.service
+[Unit] Description=Frp Server Service After=network.target [Service] Type=simple User=root Restart=on-failure RestartSec=600s ExecStart=/usr/local/bin/frps -c /etc/frp/frps.ini [Install] WantedBy=multi-user.</description>
+    </item>
+    
+    <item>
       <title>helm minio</title>
       <link>https://linjinbao.github.io/2021/2021-05-07-helm-minio/</link>
       <pubDate>Fri, 07 May 2021 00:00:00 +0000</pubDate>
