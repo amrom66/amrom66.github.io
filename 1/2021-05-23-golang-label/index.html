@@ -9,9 +9,9 @@
   <meta name="description" content="打工人日记">
   <meta name="keywords" content="博客 个人 日记">
   
-  <link rel="prev" href="https://linjinbao.github.io/2019/2019-11-26-%E4%B8%AA%E4%BA%BA%E9%82%AE%E7%AE%B1%E6%90%AD%E5%BB%BA/" />
-  <link rel="next" href="https://linjinbao.github.io/2019/2019-11-28-openvpn%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" />
-  <link rel="canonical" href="https://linjinbao.github.io/2019/2019-11-27-%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/" />
+  
+  <link rel="next" href="https://linjinbao.github.io/2019/2019-04-05-%E4%BF%AE%E5%A4%8Doffice%E6%96%87%E4%BB%B6%E9%BB%98%E8%AE%A4%E5%9B%BE%E6%A0%87/" />
+  <link rel="canonical" href="https://linjinbao.github.io/1/2021-05-23-golang-label/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           网站申请SSL证书-腾讯云 | 打工人日记
+           golang label | 打工人日记
        
   </title>
-  <meta name="title" content="网站申请SSL证书-腾讯云 | 打工人日记">
+  <meta name="title" content="golang label | 打工人日记">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,21 +44,21 @@
          "@id": "https:\/\/linjinbao.github.io"
     },
     "articleSection" : "posts",
-    "name" : "网站申请SSL证书-腾讯云",
-    "headline" : "网站申请SSL证书-腾讯云",
-    "description" : "2019-11-27-网站申请SSL证书 网站申请SSL证书   腾讯云文档\n  选择证书类型，这里选择免费的\n 配置域名验证  这一步是将腾讯云提供的一串文字，放直到服务器web应用内，腾讯云服务器定时去扫描这个域名，如果发现存在文件且匹配，则证明这个域名是你的，目的就是验证身份\n最后访问的url\n 等待腾讯验证，验证结束如下图   下载文件并上传到nginx服务器（我这里情况比一般复杂，实际申请的网站和域名绑定的不一致，用了nginx反代）  上面两个文件是我们需要的，一个证书，一个私钥",
+    "name" : "golang label",
+    "headline" : "golang label",
+    "description" : "在Golang中能使用Label的有goto, break, continue.,这篇文章就介绍下Golang中Label使用和注意点.\n注意点:\n Label在continue, break中是可选的, 但是在goto中是必须的 作用范围: 定义Label的函数体内. Label可以声明在函数体的任何位置, 不管Label声明在调用点的前面还是后面.  示例：\nimport ( \x26#34;fmt\x26#34; \x26#34;math\/rand\x26#34; \x26#34;time\x26#34; ) func main() { rand.",
     "inLanguage" : "en-us",
     "author" : "linjinbao66",
     "creator" : "linjinbao66",
     "publisher": "linjinbao66",
     "accountablePerson" : "linjinbao66",
     "copyrightHolder" : "linjinbao66",
-    "copyrightYear" : "2019",
-    "datePublished": "2019-11-27 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2019-11-27 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/linjinbao.github.io\/2019\/2019-11-27-%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6\/",
-    "wordCount" : "39",
-    "keywords" : [ "Linux","网站", "打工人日记"]
+    "copyrightYear" : "0001",
+    "datePublished": "0001-01-01 00:00:00 \x2b0000 UTC",
+    "dateModified" : "0001-01-01 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/1\/2021-05-23-golang-label\/",
+    "wordCount" : "70",
+    "keywords" : [  "打工人日记"]
 }
 </script>
 
@@ -119,11 +119,11 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">网站申请SSL证书-腾讯云</h1>
+        <h1 class="post-title" itemprop="name headline">golang label</h1>
         <div class="post-meta">
                 作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
                 <span class="post-time">
-                 <time datetime=27119-11-27 itemprop="datePublished">November 27, 2019</time>
+                 <time datetime=1019-01-01 itemprop="datePublished">January 1, 0001</time>
                 </span>
                 分类： 
                 
@@ -132,8 +132,6 @@
     <div class="post-content">
         
 
-        
-            
         
 
         
@@ -147,53 +145,44 @@
           
           
 
-          <h1 id="2019-11-27-网站申请ssl证书">2019-11-27-网站申请SSL证书</h1>
-<h2 id="网站申请ssl证书">网站申请SSL证书</h2>
+          <p>在Golang中能使用<code>Label</code>的有<code>goto</code>, <code>break</code>, <code>continue</code>.,这篇文章就介绍下Golang中<code>Label</code>使用和注意点.</p>
+<p>注意点:</p>
 <ol>
-<li>
-<p><a href="https://cloud.tencent.com/document/product/400/6814">腾讯云文档</a></p>
-<p><img src="https://raw.githubusercontent.com/linjinbao666/resources/master/amromPicture/%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A61.png" alt="image-20191127152224164"></p>
-</li>
+<li><code>Label</code>在continue, break中是<code>可选的</code>, 但是在<code>goto</code>中是<code>必须的</code></li>
+<li>作用范围: 定义<code>Label</code>的函数体内.</li>
+<li><code>Label</code>可以声明在函数体的任何位置, 不管<code>Label</code>声明在<code>调用点</code>的前面还是后面.</li>
 </ol>
-<p>选择证书类型，这里选择免费的</p>
-<p><img src="https://raw.githubusercontent.com/linjinbao666/resources/master/amromPicture/%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A62.png" alt="image-20191127152250852"></p>
-<p><img src="https://raw.githubusercontent.com/linjinbao666/resources/master/amromPicture/%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A63.png" alt="image-20191127152309659"></p>
-<ol>
-<li>配置域名验证</li>
-</ol>
-<p>这一步是将腾讯云提供的一串文字，放直到服务器web应用内，腾讯云服务器定时去扫描这个域名，如果发现存在文件且匹配，则证明这个域名是你的，目的就是验证身份</p>
-<p>最后访问的<a href="http://172.25.136.242:8088/.well-known/pki-validation/fileauth.txt%20">url</a></p>
-<p><img src="https://raw.githubusercontent.com/linjinbao666/resources/master/amromPicture/%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A64.png" alt="image-20191127152752829"></p>
-<ol>
-<li>等待腾讯验证，验证结束如下图</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/linjinbao666/resources/master/amromPicture/%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A65.png" alt="image-20191127152917264"></p>
-<ol>
-<li>下载文件并上传到nginx服务器（我这里情况比一般复杂，实际申请的网站和域名绑定的不一致，用了nginx反代）</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/linjinbao666/resources/master/amromPicture/%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A66.png" alt="image-20191127153102726"></p>
-<p>上面两个文件是我们需要的，一个证书，一个私钥</p>
-<ol>
-<li>在nginx中配置</li>
-</ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">server {
-                ## 监听80端口，避免大量修改接口
-                listen       80;    
-                ##SSL证书配置
-                listen  443 ssl;
-                ssl_certificate /opt/nginx1.14.2/conf/1_****_bundle.crt;
-                ssl_certificate_key /opt/nginx1.14.2/conf/2_****.key;
-                ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-                ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;
-                ssl_prefer_server_ciphers on;
-                server_name  localhost;
-        }
-</code></pre></div><ol>
-<li>重启nginx服务器</li>
-</ol>
-<h2 id="总结">总结</h2>
-<p>以前用过openssl，步骤繁琐，复杂，没想到腾讯的这么好用，但是限制很明显，，，，，，承认的浏览器有点少，，，，，，，，，，，</p>
+<p>示例：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
+	<span style="color:#e6db74">&#34;math/rand&#34;</span>
+	<span style="color:#e6db74">&#34;time&#34;</span>
+)
 
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">Seed</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>().<span style="color:#a6e22e">UnixNano</span>())
+
+	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">max</span> = <span style="color:#ae81ff">5</span>
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">uniques</span> [<span style="color:#a6e22e">max</span>]<span style="color:#66d9ef">int</span>
+  
+<span style="color:#a6e22e">loop</span>:
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">found</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">found</span> &lt; <span style="color:#a6e22e">max</span>; {
+		<span style="color:#a6e22e">n</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">Intn</span>(<span style="color:#a6e22e">max</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Print</span>(<span style="color:#a6e22e">n</span>, <span style="color:#e6db74">&#34; &#34;</span>)
+
+		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">u</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">uniques</span> {
+			<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">u</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">n</span> {
+				<span style="color:#66d9ef">continue</span> <span style="color:#a6e22e">loop</span>
+			}
+		}
+
+		<span style="color:#a6e22e">uniques</span>[<span style="color:#a6e22e">found</span>] = <span style="color:#a6e22e">n</span>
+		<span style="color:#a6e22e">found</span><span style="color:#f92672">++</span>
+	}
+
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;\n\nuniques:&#34;</span>, <span style="color:#a6e22e">uniques</span>)
+}
+</code></pre></div>
     </div>
 
     <div class="post-copyright">
@@ -207,17 +196,6 @@
 
     <div class="post-tags">
         
-            <section>
-            <i class="iconfont icon-tag"></i>标签: 
-            
-            <span class="tag"><a href="https://linjinbao.github.io/tags/linux/">
-                    #Linux</a></span>
-            
-            <span class="tag"><a href="https://linjinbao.github.io/tags/%E7%BD%91%E7%AB%99/">
-                    #网站</a></span>
-            
-            </section>
-        
         <section>
                 <a href="javascript:window.history.back();">返回</a></span> · 
                 <span><a href="https://linjinbao.github.io">主页</a></span>
@@ -225,11 +203,9 @@
     </div>
 
     <div class="post-nav">
-        
-        <a href="https://linjinbao.github.io/2019/2019-11-26-%E4%B8%AA%E4%BA%BA%E9%82%AE%E7%AE%B1%E6%90%AD%E5%BB%BA/" class="prev" rel="prev" title="个人邮箱服务器搭建"><i class="iconfont icon-left"></i>&nbsp;个人邮箱服务器搭建</a>
          
         
-        <a href="https://linjinbao.github.io/2019/2019-11-28-openvpn%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" class="next" rel="next" title="openvpn服务搭建">openvpn服务搭建&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://linjinbao.github.io/2019/2019-04-05-%E4%BF%AE%E5%A4%8Doffice%E6%96%87%E4%BB%B6%E9%BB%98%E8%AE%A4%E5%9B%BE%E6%A0%87/" class="next" rel="next" title="修复Office文件默认图标">修复Office文件默认图标&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
@@ -278,9 +254,8 @@
 
 
     
-     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
-      
-     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
     
   
 

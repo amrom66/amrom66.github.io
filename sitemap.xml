@@ -2462,7 +2462,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/tags/%E7%AC%94%E8%AE%B0/</loc>
+      <loc>https://linjinbao.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
       
       <lastmod>2019-10-14T00:00:00+00:00</lastmod>
       
@@ -2472,7 +2472,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
+      <loc>https://linjinbao.github.io/tags/%E7%AC%94%E8%AE%B0/</loc>
       
       <lastmod>2019-10-14T00:00:00+00:00</lastmod>
       
@@ -2582,7 +2582,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/tags/%E5%AD%A6%E4%B9%A0/</loc>
+      <loc>https://linjinbao.github.io/categories/%E5%AD%A6%E4%B9%A0/</loc>
       
       <lastmod>2019-10-10T00:00:00+00:00</lastmod>
       
@@ -2592,7 +2592,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/categories/%E5%AD%A6%E4%B9%A0/</loc>
+      <loc>https://linjinbao.github.io/tags/%E5%AD%A6%E4%B9%A0/</loc>
       
       <lastmod>2019-10-10T00:00:00+00:00</lastmod>
       
@@ -3345,6 +3345,14 @@
       <loc>https://linjinbao.github.io/2019/2019-04-05-%E4%BF%AE%E5%A4%8Doffice%E6%96%87%E4%BB%B6%E9%BB%98%E8%AE%A4%E5%9B%BE%E6%A0%87/</loc>
       
       <lastmod>2019-04-05T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://linjinbao.github.io/1/2021-05-23-golang-label/</loc>
       
       
       

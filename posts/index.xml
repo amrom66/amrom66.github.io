@@ -2502,5 +2502,17 @@ DELIMITER // CREATE PROCEDURE getAllUsers() BEGIN SELECT * FROM `user`; END // D
       <description>修复office文件默认图标 rem 修复office文件默认图标.bat :: office图标文件路径，请根据自己电脑上的安装目录设置 set officepath=C:\Program Files\Microsoft Office\root\vfs\Windows\Installer\{90160000-000F-0000-1000-0000000FF1CE}\ :: 修复word图标 reg add &amp;#34;HKCR\Word.Document.8\DefaultIcon&amp;#34; /ve /t REG_SZ /d &amp;#34;%officepath%WORDICON.EXE,1&amp;#34; reg delete &amp;#34;HKCR\Word.</description>
     </item>
     
+    <item>
+      <title>golang label</title>
+      <link>https://linjinbao.github.io/1/2021-05-23-golang-label/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/1/2021-05-23-golang-label/</guid>
+      <description>在Golang中能使用Label的有goto, break, continue.,这篇文章就介绍下Golang中Label使用和注意点.
+注意点:
+ Label在continue, break中是可选的, 但是在goto中是必须的 作用范围: 定义Label的函数体内. Label可以声明在函数体的任何位置, 不管Label声明在调用点的前面还是后面.  示例：
+import ( &amp;#34;fmt&amp;#34; &amp;#34;math/rand&amp;#34; &amp;#34;time&amp;#34; ) func main() { rand.</description>
+    </item>
+    
   </channel>
 </rss>
