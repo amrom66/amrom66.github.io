@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>hadoop on 打工人日记</title>
+    <title>hadoop on 打工笔记</title>
     <link>https://linjinbao.github.io/tags/hadoop/</link>
-    <description>Recent content in hadoop on 打工人日记</description>
+    <description>Recent content in hadoop on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 12 Feb 2020 00:00:00 +0000</lastBuildDate>
