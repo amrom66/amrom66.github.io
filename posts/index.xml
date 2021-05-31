@@ -6,10 +6,22 @@
     <description>Recent content in Posts on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 May 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 31 May 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://linjinbao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DevOps概念理解（转载）</title>
+      <link>https://linjinbao.github.io/2021/2021-05-31-devops%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3%E8%BD%AC%E8%BD%BD/</link>
+      <pubDate>Mon, 31 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-05-31-devops%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3%E8%BD%AC%E8%BD%BD/</guid>
+      <description>原文地址:https://github.com/lcomplete/TechShare/blob/master/docs/engineering/devops.md
+万字长文带你彻底搞懂什么是 DevOps DevOps 日渐成为研发人员耳熟能详的一个组合词，但什么是 DevOps，为什么 DevOps 对于互联网企业如此重要，真正将其思考透彻的人却不多，带着这些困惑，本文将带你一探 DevOps 的起源、原则和实践，让你搞清楚到底何为 DevOps。
+DevOps 的起源可以追溯到 2008 年，在一次敏捷大会的敏捷基础设施话题组被提及，从起源我们可以了解到 DevOps 的发展跟敏捷软件开发是密不可分的。
+DevOps 定义 DevOps 经过这些年的发展，其定义也在不断变化，先来看三段 DevOps 的 wiki 定义。</description>
+    </item>
     
     <item>
       <title>golang label</title>

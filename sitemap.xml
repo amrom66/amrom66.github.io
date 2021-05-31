@@ -2,9 +2,9 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
-      <loc>https://linjinbao.github.io/2021/2021-05-23-golang-label/</loc>
+      <loc>https://linjinbao.github.io/2021/2021-05-31-devops%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3%E8%BD%AC%E8%BD%BD/</loc>
       
-      <lastmod>2021-05-23T00:00:00+00:00</lastmod>
+      <lastmod>2021-05-31T00:00:00+00:00</lastmod>
       
       
       
@@ -14,7 +14,7 @@
     <url>
       <loc>https://linjinbao.github.io/posts/</loc>
       
-      <lastmod>2021-05-23T00:00:00+00:00</lastmod>
+      <lastmod>2021-05-31T00:00:00+00:00</lastmod>
       
       
       
@@ -23,6 +23,16 @@
   
     <url>
       <loc>https://linjinbao.github.io/</loc>
+      
+      <lastmod>2021-05-31T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://linjinbao.github.io/2021/2021-05-23-golang-label/</loc>
       
       <lastmod>2021-05-23T00:00:00+00:00</lastmod>
       
@@ -2592,7 +2602,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/tags/%E5%AD%A6%E4%B9%A0/</loc>
+      <loc>https://linjinbao.github.io/categories/%E5%AD%A6%E4%B9%A0/</loc>
       
       <lastmod>2019-10-10T00:00:00+00:00</lastmod>
       
@@ -2602,7 +2612,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/categories/%E5%AD%A6%E4%B9%A0/</loc>
+      <loc>https://linjinbao.github.io/tags/%E5%AD%A6%E4%B9%A0/</loc>
       
       <lastmod>2019-10-10T00:00:00+00:00</lastmod>
       
@@ -3002,7 +3012,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
+      <loc>https://linjinbao.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
       
       <lastmod>2019-09-21T00:00:00+00:00</lastmod>
       
@@ -3012,7 +3022,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
+      <loc>https://linjinbao.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
       
       <lastmod>2019-09-21T00:00:00+00:00</lastmod>
       
