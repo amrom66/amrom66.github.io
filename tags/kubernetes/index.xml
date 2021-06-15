@@ -6,10 +6,22 @@
     <description>Recent content in kubernetes on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 May 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 14 Jun 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://linjinbao.github.io/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>kubernetes源码学习01-cobra学习</title>
+      <link>https://linjinbao.github.io/2021/2021-06-14-kubernetes%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A001-cobra%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Mon, 14 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-06-14-kubernetes%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A001-cobra%E5%AD%A6%E4%B9%A0/</guid>
+      <description>Cobra是一个著名的CLI应用程序库，有很多知名的 Go 项目使用 Cobra 进行构建，比如：Kubernetes、Docker、Hugo 等等。
+概念解释 Cobra 是构建在命令、参数和标识符之上的：
+ Commands 表示执行动作 Args 就是执行参数 Flags 是这些动作的标识符  基本的执行命令如下所示：
+$ APPNAME Command Args --Flags # 或者 $ APPNAME Command --Flags Args 比如我们平时使用的一些命令行工具：</description>
+    </item>
     
     <item>
       <title>云原生时代日志采集方案浅谈</title>
