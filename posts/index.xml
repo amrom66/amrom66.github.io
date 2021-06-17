@@ -6,10 +6,28 @@
     <description>Recent content in Posts on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 14 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 15 Jun 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://linjinbao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GitOps入门</title>
+      <link>https://linjinbao.github.io/2021/2021-06-15-gitops%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Tue, 15 Jun 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-06-15-gitops%E5%85%A5%E9%97%A8/</guid>
+      <description>GitOps概念 GitOps是一种实现持续交付的模型，利用Git开发工具对云原生应用程序进行操作和管理。当将应用程序部署到Kubernetes时，Git应该是唯一的事实来源。当开发人员更改应用程序时，Git将自动把它们push到Kubernetes进行部署。而且，如果Kubernetes内的运行状态发生变化但与Git内的状态不一致，则它们会从Git内恢复到已知状态。
+参考：https://about.gitlab.com/topics/gitops/
+GitOps与CI/CD GitOps和CI/CD是十分重要的工作伙伴。CI/CD可以让开发人员持续迭代、开发和部署应用程序。而迭代通常通过一个Git配置仓库进行（尽管也会有其他配置仓库）。在部署/交付阶段，构建的基于容器的应用程序被“push”到Kubernetes进行部署。GitOps会通过Kubernetes使用“pull”的方法来增强CI/CD模型，从而将运维层面带入部署/交付中。
+但是，如果有人更改了Kubernetes集群中运行的某些内容，会发生什么？我们将使用Git作为声明性部署工具的主要事实来源，并利用其他工具在出现差异时向我们发出警报。此外，通过利用可以识别运行状态和声明状态之间差异的工具，Kubernetes可以修复为已知/声明的运行状态。
+注意：持续集成和持续开发是互补但独立的过程。在理想状态下，GitOps会将批处理规模拆分为单件流程，每次只处理一个单元。但是，由于CI和CD流程发生在不同的组中，因此组织之间的流程可能会有所不同。
+GitOps和应用程序生命周期 让我们从应用程序生命周期的视角来看一下GitOps的作用。在典型的生命周期中，应用程序会经历多个状态，包括：
+  代码
+  构建
+  创建镜像
+  测试</description>
+    </item>
     
     <item>
       <title>kubernetes源码学习01-cobra学习</title>
