@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工笔记">
+  <meta name="keywords" content="博客 个人 笔记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2021/2021-06-15-gitops%E5%85%A5%E9%97%A8/" />
+  
+  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-06-30-kubernetes%E5%A4%9A%E7%94%A8%E6%88%B7%E5%88%87%E6%8D%A2/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           kubernetes多用户切换 | 打工笔记
+       
+  </title>
+  <meta name="title" content="kubernetes多用户切换 | 打工笔记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "kubernetes多用户切换",
+    "headline" : "kubernetes多用户切换",
+    "description" : "k8s中多用户使用，主要命令在kubectl config命令下，执行kubectl config可以看到提示：\n[root@node1 ansible]# kubectl config Modify kubeconfig files using subcommands like \x26quot;kubectl config set current-context my-context\x26quot; The loading order follows these rules: 1.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-06-30 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-06-30 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-06-30-kubernetes%E5%A4%9A%E7%94%A8%E6%88%B7%E5%88%87%E6%8D%A2\/",
+    "wordCount" : "322",
+    "keywords" : [ "kubernetes", "打工笔记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工笔记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;
+                <a href="https://linjinbao.github.io">打工笔记</a>
+            </div>
+            <div class="menu-toggle">
+                <svg t="1618556759902" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1299" width="16" height="16"><path d="M896 1024h-213.333333a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m768-170.666667h-213.333333a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128zM128 85.333333a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z" p-id="1300"></path></svg>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">kubernetes多用户切换</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=30069-06-30 itemprop="datePublished">June 30, 2021</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>k8s中多用户使用，主要命令在kubectl config命令下，执行kubectl config可以看到提示：</p>
+<pre><code class="language-shel" data-lang="shel">[root@node1 ansible]# kubectl config 
+Modify kubeconfig files using subcommands like &quot;kubectl config set current-context my-context&quot;
+
+ The loading order follows these rules:
+
+  1.  If the --kubeconfig flag is set, then only that file is loaded. The flag may only be set once and no merging takes
+place.
+  2.  If $KUBECONFIG environment variable is set, then it is used as a list of paths (normal path delimiting rules for
+your system). These paths are merged. When a value is modified, it is modified in the file that defines the stanza. When
+a value is created, it is created in the first file that exists. If no files in the chain exist, then it creates the
+last file in the list.
+  3.  Otherwise, ${HOME}/.kube/config is used and no merging takes place.
+
+Available Commands:
+  current-context 显示 current_context
+  delete-cluster  删除 kubeconfig 文件中指定的集群
+  delete-context  删除 kubeconfig 文件中指定的 context
+  delete-user     Delete the specified user from the kubeconfig
+  get-clusters    显示 kubeconfig 文件中定义的集群
+  get-contexts    描述一个或多个 contexts
+  get-users       Display users defined in the kubeconfig
+  rename-context  Renames a context from the kubeconfig file.
+  set             设置 kubeconfig 文件中的一个单个值
+  set-cluster     设置 kubeconfig 文件中的一个集群条目
+  set-context     设置 kubeconfig 文件中的一个 context 条目
+  set-credentials 设置 kubeconfig 文件中的一个用户条目
+  unset           取消设置 kubeconfig 文件中的一个单个值
+  use-context     设置 kubeconfig 文件中的当前上下文
+  view            显示合并的 kubeconfig 配置或一个指定的 kubeconfig 文件
+
+Usage:
+  kubectl config SUBCOMMAND [options]
+
+Use &quot;kubectl &lt;command&gt; --help&quot; for more information about a given command.
+Use &quot;kubectl options&quot; for a list of global command-line options (applies to all commands).
+[root@node1 ansible]# 
+
+</code></pre><p>kubectl confg的子命令包含，对user和context以及cluster的操作，其实现原理为修改~/.kube/config文件内容。</p>
+<p>案例：创建一个新的用户，限定只能操作<code>test</code>名称空间资源。</p>
+<ol>
+<li>
+<p>创建名称空间test</p>
+<pre><code class="language-code" data-lang="code">kubectl create ns test
+</code></pre></li>
+<li>
+<p>创建用户test-user</p>
+<pre><code class="language-code" data-lang="code">kubectl create -n test serviceaccount test-user
+</code></pre></li>
+<li>
+<p>设置证书</p>
+</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">export TOKEN_CONTENT<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>kubectl describe -n test sa test-user | grep Tokens | awk -F <span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#e6db74">&#39;{print$2}&#39;</span> | xargs kubectl describe secret -n test|grep token: | awk -F <span style="color:#e6db74">&#39;:&#39;</span> <span style="color:#e6db74">&#39;{print $2}&#39;</span> | tr -d <span style="color:#e6db74">&#39; \t&#39;</span><span style="color:#e6db74">`</span>
+kubectl config set-credentials test-cred --token<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>TOKEN_CONTENT<span style="color:#e6db74">}</span>
+</code></pre></div><ol start="4">
+<li>
+<p>设置context</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">kubectl config set-context test-context --user<span style="color:#f92672">=</span>test-cred --cluster<span style="color:#f92672">=</span>kubernetes --namespace<span style="color:#f92672">=</span>test
+</code></pre></div><p>注意&ndash;user=test-cred需要和上一步设置证书中的test-cred一致</p>
+</li>
+<li>
+<p>切换到context</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">kubectl config use-context test-context
+</code></pre></div></li>
+<li>
+<p>授予权限</p>
+</li>
+</ol>
+<p>按照上述流程操作得出的context，使用时时没有权限的。</p>
+<p>想要授予权限，可以使用rolebinding，绑定到admin角色</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">kubectl create rolebinding test-admin --clusterrole<span style="color:#f92672">=</span>admin --serviceaccount<span style="color:#f92672">=</span>test:test-user --namespace test 
+</code></pre></div><p>注意此处的&ndash;serviceaccount=test:test-user使用的上面的serviceaccount test-user</p>
+<p>至此，使用test-context即可访问名称空间test下的所有资源了，访问其他名称空间下的会报没权限。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>作者:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+    </div>
+
+    <div class="post-tags">
+        
+            <section>
+            <i class="iconfont icon-tag"></i>标签: 
+            
+            <span class="tag"><a href="https://linjinbao.github.io/tags/kubernetes/">
+                    #kubernetes</a></span>
+            
+            </section>
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2021/2021-06-15-gitops%E5%85%A5%E9%97%A8/" class="prev" rel="prev" title="GitOps入门"><i class="iconfont icon-left"></i>&nbsp;GitOps入门</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= 'title'
+        label= 'utterance'
+        theme= 'github-dark-orange'
+        crossorigin="anonymous"
+        async>
+    </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
