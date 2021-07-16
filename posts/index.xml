@@ -6,10 +6,29 @@
     <description>Recent content in Posts on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 15 Jul 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://linjinbao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>一条复杂的sql</title>
+      <link>https://linjinbao.github.io/2021/2021-07-15-%E4%B8%80%E6%9D%A1%E5%A4%8D%E6%9D%82%E7%9A%84sql/</link>
+      <pubDate>Thu, 15 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-07-15-%E4%B8%80%E6%9D%A1%E5%A4%8D%E6%9D%82%E7%9A%84sql/</guid>
+      <description>USE zentao; SELECT zt_task.id AS &amp;#39;编号&amp;#39;, zt_projectproduct.product AS &amp;#39;所属产品&amp;#39;, zt_product.`name` AS &amp;#39;产品名称&amp;#39;, zt_project.NAME AS &amp;#39;所属项目&amp;#39;, zt_story.title AS &amp;#39;相关需求&amp;#39;, zt_task.NAME AS &amp;#39;任务名称&amp;#39;, CASE zt_task.</description>
+    </item>
+    
+    <item>
+      <title>禅道修改笔记</title>
+      <link>https://linjinbao.github.io/2021/2021-07-07-%E7%A6%85%E9%81%93%E4%BF%AE%E6%94%B9%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Wed, 07 Jul 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-07-07-%E7%A6%85%E9%81%93%E4%BF%AE%E6%94%B9%E7%AC%94%E8%AE%B0/</guid>
+      <description> 需求表增加字段【需求开发工时】  1.1 修改文件
+   </description>
+    </item>
     
     <item>
       <title>kubernetes多用户切换</title>
