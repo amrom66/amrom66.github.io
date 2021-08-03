@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工笔记">
+  <meta name="keywords" content="博客 个人 笔记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2021/2021-07-15-%E4%B8%80%E6%9D%A1%E5%A4%8D%E6%9D%82%E7%9A%84sql/" />
+  
+  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-08-03-maven%E6%89%93%E5%8C%85%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           maven打包方案设计 | 打工笔记
+       
+  </title>
+  <meta name="title" content="maven打包方案设计 | 打工笔记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "maven打包方案设计",
+    "headline" : "maven打包方案设计",
+    "description" : "简介 为了满足审计需要，将二方包和三方包纳入审计。该方案计划做以下工作：1. maven deploy 到独立仓库；2. 打包时候，作替换\n操作步骤 第一步 建立私有仓库\nhttp:\/\/*.*.*.*:8081\/repository\/maven-releases\/\n该仓库开启allow redeploy，即允许覆盖更新包\n第二步 配置maven全局settings.xml文件，增加server\n\x26lt;servers\x26gt; \x26lt;server\x26gt; \x26lt;id\x26gt;maven-releases\x26lt;\/id\x26gt; \x26lt;username\x26gt;admin\x26lt;\/username\x26gt; \x26lt;password\x26gt;2222\x26lt;\/password\x26gt; \x26lt;\/server\x26gt; \x26lt;server\x26gt; \x26lt;id\x26gt;maven-snapshots\x26lt;\/id\x26gt; \x26lt;username\x26gt;admin\x26lt;\/username\x26gt; \x26lt;password\x26gt;1111\x26lt;\/password\x26gt; \x26lt;\/server\x26gt; \x26lt;\/servers\x26gt; 第三步 调整deploy命令",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-08-03 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-08-03 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-08-03-maven%E6%89%93%E5%8C%85%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1\/",
+    "wordCount" : "50",
+    "keywords" : [  "打工笔记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工笔记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;
+                <a href="https://linjinbao.github.io">打工笔记</a>
+            </div>
+            <div class="menu-toggle">
+                <svg t="1618556759902" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1299" width="16" height="16"><path d="M896 1024h-213.333333a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m768-170.666667h-213.333333a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128zM128 85.333333a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z" p-id="1300"></path></svg>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">maven打包方案设计</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=3089-08-03 itemprop="datePublished">August 3, 2021</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="简介">简介</h2>
+<p>为了满足审计需要，将二方包和三方包纳入审计。该方案计划做以下工作：1. maven deploy 到独立仓库；2. 打包时候，作替换</p>
+<h2 id="操作步骤">操作步骤</h2>
+<h3 id="第一步">第一步</h3>
+<p>建立私有仓库</p>
+<p><code>http://*.*.*.*:8081/repository/maven-releases/</code></p>
+<p>该仓库开启<code>allow redeploy</code>，即允许覆盖更新包</p>
+<h3 id="第二步">第二步</h3>
+<p>配置maven全局settings.xml文件，增加server</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;servers</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;server</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;id</span><span style="color:#f92672">&gt;</span>maven-releases<span style="color:#f92672">&lt;/id&gt;</span>
+    <span style="color:#f92672">&lt;username</span><span style="color:#f92672">&gt;</span>admin<span style="color:#f92672">&lt;/username&gt;</span>
+    <span style="color:#f92672">&lt;password</span><span style="color:#f92672">&gt;</span>2222<span style="color:#f92672">&lt;/password&gt;</span>
+  <span style="color:#f92672">&lt;/server&gt;</span>
+  <span style="color:#f92672">&lt;server</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;id</span><span style="color:#f92672">&gt;</span>maven-snapshots<span style="color:#f92672">&lt;/id&gt;</span>
+    <span style="color:#f92672">&lt;username</span><span style="color:#f92672">&gt;</span>admin<span style="color:#f92672">&lt;/username&gt;</span>
+    <span style="color:#f92672">&lt;password</span><span style="color:#f92672">&gt;</span>1111<span style="color:#f92672">&lt;/password&gt;</span>
+  <span style="color:#f92672">&lt;/server&gt;</span>
+<span style="color:#f92672">&lt;/servers&gt;</span>
+</code></pre></div><h3 id="第三步">第三步</h3>
+<p>调整deploy命令</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mvn deploy -Dmaven.test.skip<span style="color:#f92672">=</span>true  -DaltDeploymentRepository<span style="color:#f92672">=</span>maven-releases::default::http://*.*.*.*:8081/repository/maven-releases/
+</code></pre></div><p>策略A：api</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">mvn deploy -Dmaven.test.skip=true  -DaltDeploymentRepository=maven-releases::default::http://*.*.*.*:8081/repository/maven-releases/  --non-recursive
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">cd *-*-api <span style="color:#960050;background-color:#1e0010">&amp;</span><span style="color:#960050;background-color:#1e0010">&amp;</span> mvn deploy -Dmaven.test.skip=true  -DaltDeploymentRepository=maven-releases::default::http://*.*.*.*:8081/repository/maven-releases/
+</code></pre></div><p>策略B：all</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">mvn deploy -Dmaven.test.skip=true  -DaltDeploymentRepository=maven-releases::default::http://*.*.*.*:8081/repository/maven-releases/
+</code></pre></div>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>作者:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+    </div>
+
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2021/2021-07-15-%E4%B8%80%E6%9D%A1%E5%A4%8D%E6%9D%82%E7%9A%84sql/" class="prev" rel="prev" title="一条复杂的sql"><i class="iconfont icon-left"></i>&nbsp;一条复杂的sql</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= 'title'
+        label= 'utterance'
+        theme= 'github-dark-orange'
+        crossorigin="anonymous"
+        async>
+    </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

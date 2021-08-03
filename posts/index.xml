@@ -6,10 +6,24 @@
     <description>Recent content in Posts on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 Jul 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Aug 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://linjinbao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>maven打包方案设计</title>
+      <link>https://linjinbao.github.io/2021/2021-08-03-maven%E6%89%93%E5%8C%85%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1/</link>
+      <pubDate>Tue, 03 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-08-03-maven%E6%89%93%E5%8C%85%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1/</guid>
+      <description>简介 为了满足审计需要，将二方包和三方包纳入审计。该方案计划做以下工作：1. maven deploy 到独立仓库；2. 打包时候，作替换
+操作步骤 第一步 建立私有仓库
+http://*.*.*.*:8081/repository/maven-releases/
+该仓库开启allow redeploy，即允许覆盖更新包
+第二步 配置maven全局settings.xml文件，增加server
+&amp;lt;servers&amp;gt; &amp;lt;server&amp;gt; &amp;lt;id&amp;gt;maven-releases&amp;lt;/id&amp;gt; &amp;lt;username&amp;gt;admin&amp;lt;/username&amp;gt; &amp;lt;password&amp;gt;2222&amp;lt;/password&amp;gt; &amp;lt;/server&amp;gt; &amp;lt;server&amp;gt; &amp;lt;id&amp;gt;maven-snapshots&amp;lt;/id&amp;gt; &amp;lt;username&amp;gt;admin&amp;lt;/username&amp;gt; &amp;lt;password&amp;gt;1111&amp;lt;/password&amp;gt; &amp;lt;/server&amp;gt; &amp;lt;/servers&amp;gt; 第三步 调整deploy命令</description>
+    </item>
     
     <item>
       <title>一条复杂的sql</title>
