@@ -2,9 +2,9 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
-      <loc>https://linjinbao.github.io/2021/2021-08-03-maven%E6%89%93%E5%8C%85%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1/</loc>
+      <loc>https://linjinbao.github.io/posts/</loc>
       
-      <lastmod>2021-08-03T00:00:00+00:00</lastmod>
+      <lastmod>2021-08-05T00:00:00+00:00</lastmod>
       
       
       
@@ -12,9 +12,9 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/posts/</loc>
+      <loc>https://linjinbao.github.io/2021/2021-08-05-%E5%86%92%E5%8F%B7%E7%AB%AF%E5%8F%A3/</loc>
       
-      <lastmod>2021-08-03T00:00:00+00:00</lastmod>
+      <lastmod>2021-08-05T00:00:00+00:00</lastmod>
       
       
       
@@ -23,6 +23,16 @@
   
     <url>
       <loc>https://linjinbao.github.io/</loc>
+      
+      <lastmod>2021-08-05T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://linjinbao.github.io/2021/2021-08-03-maven%E6%89%93%E5%8C%85%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1/</loc>
       
       <lastmod>2021-08-03T00:00:00+00:00</lastmod>
       
@@ -2662,7 +2672,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/categories/%E5%AD%A6%E4%B9%A0/</loc>
+      <loc>https://linjinbao.github.io/tags/%E5%AD%A6%E4%B9%A0/</loc>
       
       <lastmod>2019-10-10T00:00:00+00:00</lastmod>
       
@@ -2672,7 +2682,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/tags/%E5%AD%A6%E4%B9%A0/</loc>
+      <loc>https://linjinbao.github.io/categories/%E5%AD%A6%E4%B9%A0/</loc>
       
       <lastmod>2019-10-10T00:00:00+00:00</lastmod>
       
@@ -3012,7 +3022,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/tags/%E5%B0%8F%E5%B7%A5%E5%85%B7/</loc>
+      <loc>https://linjinbao.github.io/categories/%E5%B0%8F%E5%B7%A5%E5%85%B7/</loc>
       
       <lastmod>2019-09-23T00:00:00+00:00</lastmod>
       
@@ -3022,7 +3032,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/categories/%E5%B0%8F%E5%B7%A5%E5%85%B7/</loc>
+      <loc>https://linjinbao.github.io/tags/%E5%B0%8F%E5%B7%A5%E5%85%B7/</loc>
       
       <lastmod>2019-09-23T00:00:00+00:00</lastmod>
       
@@ -3072,7 +3082,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
+      <loc>https://linjinbao.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
       
       <lastmod>2019-09-21T00:00:00+00:00</lastmod>
       
@@ -3082,7 +3092,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
+      <loc>https://linjinbao.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
       
       <lastmod>2019-09-21T00:00:00+00:00</lastmod>
       
@@ -3292,7 +3302,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/categories/javascript/</loc>
+      <loc>https://linjinbao.github.io/tags/javascript/</loc>
       
       <lastmod>2019-06-24T00:00:00+00:00</lastmod>
       
@@ -3302,7 +3312,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/tags/javascript/</loc>
+      <loc>https://linjinbao.github.io/categories/javascript/</loc>
       
       <lastmod>2019-06-24T00:00:00+00:00</lastmod>
       

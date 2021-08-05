@@ -6,10 +6,21 @@
     <description>Recent content in Posts on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 03 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 05 Aug 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://linjinbao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>冒号端口</title>
+      <link>https://linjinbao.github.io/2021/2021-08-05-%E5%86%92%E5%8F%B7%E7%AB%AF%E5%8F%A3/</link>
+      <pubDate>Thu, 05 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-08-05-%E5%86%92%E5%8F%B7%E7%AB%AF%E5%8F%A3/</guid>
+      <description>Linux程序监听网卡端口的时候会有各种缩写，其中有一种叫做冒号端口的写法。
+现象 首先，我们看一段netstat的输出：
+root@VM-0-4-debian:~# netstat -tunlp Active Internet connections (only servers) Proto Recv-Q Send-Q Local Address Foreign Address State PID/Program name tcp 0 0 0.</description>
+    </item>
     
     <item>
       <title>maven打包方案设计</title>
