@@ -130,6 +130,37 @@
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-08-06-%E5%8D%8E%E4%B8%BA%E4%BA%91sdk%E8%B8%A9%E5%9D%91/">华为云sdk踩坑</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				简介 工作中用到了华为云，想使用华为云的sdk实现批量启动流水线，分发代码等任务，简单试用了下，发现问题太多。
+问题   api区域开放问题
+华为云的api调用大致有3种方式，apiexplorer在线调用、hcloud命令行调用，以及通过sdk调用。而同时华为云有区域的区分，比如华东-上海二，华东-北京一这种。api在有些区域开放了调用，但是在另一区域则不开放。举例说明：CloudPipeline（流水线）api开放区域为：上海二、上海一、北京一、北京四、广州，一共5个区域，但是CloudBuild（编译构建）api开放区域则缺少了上海一。要知道CloudBuild会依赖CloudPipeline使用，前一步的api开放了，后一步却不开放，导致根本无法使用。
+  文档没有示例或者示例是错误的
+CloudPipeline的一个接口，ListPipelineSimpleInfo，官方给出的请求示例为：
+&quot;POST https://{endpoint}/v3/pipelines/list&quot; 文档中根本没给出这个endpoint是什么样式的，后续经过尝试发现hcloud也会配置这个endpoint，其为cn-east-3，但是sdk调用时，其格式变成了：cloudpipeline-ext.cn-east-3.myhuaweicloud.com。样例的缺失，导致了调试成本巨大。
+  api混乱，缺少
+举例来说，CloudPipeline流水线api，没有查看单条流水线详情的api等等
+  收获 经过不断的踩坑，实验出来了几个api的调用示例，贴出来以后备用。
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2021-08-06 itemprop="datePublished">August 6, 2021</time>
+                </span>
+                in
+                
+        	</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
 				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-08-05-%E5%86%92%E5%8F%B7%E7%AB%AF%E5%8F%A3/">冒号端口</a></h1>
 			</header>
 			<div class="post-content">
