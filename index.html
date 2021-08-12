@@ -130,6 +130,37 @@
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-08-13-%E4%B8%80%E4%B8%AAgitlab-ci%E6%96%87%E4%BB%B6/">一个gitlab ci文件</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				一个golang项目典型的gitlab ci文件
+image: golang:latest before_script: - export GOPROXY=https://goproxy.io,direct stages: - build - release - note build: stage: build script: - go build -o dt-release artifacts: paths: - .
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2021-08-12 itemprop="datePublished">August 12, 2021</time>
+                </span>
+                in
+                
+        	</div>
+				
+				<div class="post-tags">
+        		
+        			<span class="tag"><a href="https://linjinbao.github.io/tags/gitlab/">
+               	 #gitlab</a></span>
+        		
+				</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
 				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-08-10-%E4%B8%80%E4%B8%AAshell%E7%A8%8B%E5%BA%8F/">一个shell程序</a></h1>
 			</header>
 			<div class="post-content">
