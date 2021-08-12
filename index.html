@@ -130,6 +130,57 @@
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-08-10-%E4%B8%80%E4%B8%AAshell%E7%A8%8B%E5%BA%8F/">一个shell程序</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				一个简单的shell程序： app.sh
+#!/bin/bash  action=$1 version=$2 app_name=shuqi-public-${version} load() { file_name=shuqi-public-${version}.tar docker load -i data/${file_name} } clean() { old_container=`docker container ls | grep ${app_name}` if [ -n &#34;${old_container}&#34; ]; then echo &#34;程序运行中，请先停止程序&#34; exit; fi docker rm ${app_name} } start() { old_container=`docker container ls | grep ${app_name}` if [ -n &#34;${old_container}&#34; ]; then echo &#34;程序已经在运行，请先停止&#34; exit; fi ip=`ip a | grep -v docker0 |grep inet|grep -v 127.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2021-08-10 itemprop="datePublished">August 10, 2021</time>
+                </span>
+                in
+                
+        	</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-08-06-zookeeper%E7%AC%94%E8%AE%B0/">zookeeper笔记</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				简介 ZooKeeper 为我们提供了高可用、高性能、稳定的分布式数据一致性解决方案，通常被用于实现诸如数据发布/订阅、负载均衡、命名服务、分布式协调/通知、集群管理、Master 选举、分布式锁和分布式队列等功能。
+另外，ZooKeeper 将数据保存在内存中，性能是非常棒的。 在“读”多于“写”的应用程序中尤其地高性能，因为“写”会导致所有的服务器间同步状态。（“读”多于“写”是协调服务的典型场景）。
+权限控制 ZooKeeper 采用 ACL（AccessControlLists）策略来进行权限控制，类似于 UNIX 文件系统的权限控制。
+对于 znode 操作的权限，ZooKeeper 提供了以下 5 种：
+ CREATE : 能创建子节点 READ ：能获取节点数据和列出其子节点 WRITE : 能设置/更新节点数据 DELETE : 能删除子节点 ADMIN : 能设置节点 ACL 的权限  对于身份认证，提供了以下几种方式：
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2021-08-06 itemprop="datePublished">August 6, 2021</time>
+                </span>
+                in
+                
+        	</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
 				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-08-06-%E5%8D%8E%E4%B8%BA%E4%BA%91sdk%E8%B8%A9%E5%9D%91/">华为云sdk踩坑</a></h1>
 			</header>
 			<div class="post-content">

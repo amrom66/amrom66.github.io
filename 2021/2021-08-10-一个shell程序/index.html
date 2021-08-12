@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工笔记">
+  <meta name="keywords" content="博客 个人 笔记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2021/2021-08-06-zookeeper%E7%AC%94%E8%AE%B0/" />
+  
+  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-08-10-%E4%B8%80%E4%B8%AAshell%E7%A8%8B%E5%BA%8F/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           一个shell程序 | 打工笔记
+       
+  </title>
+  <meta name="title" content="一个shell程序 | 打工笔记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "一个shell程序",
+    "headline" : "一个shell程序",
+    "description" : "一个简单的shell程序： app.sh\n#!\/bin\/bash  action=$1 version=$2 app_name=shuqi-public-${version} load() { file_name=shuqi-public-${version}.tar docker load -i data\/${file_name} } clean() { old_container=`docker container ls | grep ${app_name}` if [ -n \x26#34;${old_container}\x26#34; ]; then echo \x26#34;程序运行中，请先停止程序\x26#34; exit; fi docker rm ${app_name} } start() { old_container=`docker container ls | grep ${app_name}` if [ -n \x26#34;${old_container}\x26#34; ]; then echo \x26#34;程序已经在运行，请先停止\x26#34; exit; fi ip=`ip a | grep -v docker0 |grep inet|grep -v 127.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-08-10 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-08-10 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-08-10-%E4%B8%80%E4%B8%AAshell%E7%A8%8B%E5%BA%8F\/",
+    "wordCount" : "276",
+    "keywords" : [  "打工笔记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工笔记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;
+                <a href="https://linjinbao.github.io">打工笔记</a>
+            </div>
+            <div class="menu-toggle">
+                <svg t="1618556759902" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1299" width="16" height="16"><path d="M896 1024h-213.333333a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m768-170.666667h-213.333333a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128zM128 85.333333a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z" p-id="1300"></path></svg>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">一个shell程序</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=10089-08-10 itemprop="datePublished">August 10, 2021</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>一个简单的shell程序：
+app.sh</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
+action<span style="color:#f92672">=</span>$1
+version<span style="color:#f92672">=</span>$2
+app_name<span style="color:#f92672">=</span>shuqi-public-<span style="color:#e6db74">${</span>version<span style="color:#e6db74">}</span>
+
+load<span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+<span style="color:#f92672">{</span>
+  file_name<span style="color:#f92672">=</span>shuqi-public-<span style="color:#e6db74">${</span>version<span style="color:#e6db74">}</span>.tar
+  docker load -i data/<span style="color:#e6db74">${</span>file_name<span style="color:#e6db74">}</span>
+<span style="color:#f92672">}</span>
+
+clean<span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+<span style="color:#f92672">{</span>
+  old_container<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>docker container ls | grep <span style="color:#e6db74">${</span>app_name<span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -n <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>old_container<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    echo <span style="color:#e6db74">&#34;程序运行中，请先停止程序&#34;</span>
+    exit;
+  <span style="color:#66d9ef">fi</span>
+  docker rm <span style="color:#e6db74">${</span>app_name<span style="color:#e6db74">}</span>  
+<span style="color:#f92672">}</span>
+
+start<span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+<span style="color:#f92672">{</span>
+  old_container<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>docker container ls | grep <span style="color:#e6db74">${</span>app_name<span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -n <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>old_container<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    echo <span style="color:#e6db74">&#34;程序已经在运行，请先停止&#34;</span>
+    exit;
+  <span style="color:#66d9ef">fi</span>
+  ip<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>ip a | grep -v docker0 |grep inet|grep -v 127.0.0.1| grep -v inet6|awk <span style="color:#e6db74">&#39;{print $2}&#39;</span>|tr -d <span style="color:#e6db74">&#34;addr:&#34;</span> | awk -F <span style="color:#e6db74">&#39;/&#39;</span> <span style="color:#e6db74">&#39;{print $1}&#39;</span><span style="color:#e6db74">`</span>
+  account_url<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>ip<span style="color:#e6db74">}</span>
+  echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">启动程序</span><span style="color:#e6db74">${</span>app_name<span style="color:#e6db74">}</span><span style="color:#e6db74">...</span><span style="color:#e6db74">&#34;</span>
+  docker run --privileged --name shuqi-public-<span style="color:#e6db74">${</span>version<span style="color:#e6db74">}</span> -dit -e account_url<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>account_url<span style="color:#e6db74">}</span> -p80:80 -p3306 shuqi-public:<span style="color:#e6db74">${</span>version<span style="color:#e6db74">}</span> /usr/sbin/init  <span style="color:#f92672">&amp;&amp;</span> docker exec -it shuqi-public-<span style="color:#e6db74">${</span>version<span style="color:#e6db74">}</span> sh /root/config.sh <span style="color:#f92672">&amp;&amp;</span> docker exec -it shuqi-public-<span style="color:#e6db74">${</span>version<span style="color:#e6db74">}</span> sh /root/init.sh
+  echo <span style="color:#e6db74">&#34;启动中...&#34;</span>
+  sleep <span style="color:#ae81ff">100</span>
+  echo <span style="color:#e6db74">&#34;启动完成&#34;</span>
+
+<span style="color:#f92672">}</span>
+
+stop<span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+<span style="color:#f92672">{</span>
+  old_container<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>docker container ls | grep <span style="color:#e6db74">${</span>app_name<span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! -n <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>old_container<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    echo <span style="color:#e6db74">&#34;程序不存在，请先启动程序&#34;</span>
+    exit;
+  <span style="color:#66d9ef">fi</span>
+  docker stop <span style="color:#e6db74">${</span>app_name<span style="color:#e6db74">}</span>
+<span style="color:#f92672">}</span>
+
+restart<span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+<span style="color:#f92672">{</span>
+  old_container<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>docker container ls | grep <span style="color:#e6db74">${</span>app_name<span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! -n <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>old_container<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+    echo <span style="color:#e6db74">&#34;程序不存在，请先启动程序&#34;</span>
+    exit;
+  <span style="color:#66d9ef">fi</span>
+  docker restart <span style="color:#e6db74">${</span>app_name<span style="color:#e6db74">}</span>
+<span style="color:#f92672">}</span>
+
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>action<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span> ;<span style="color:#66d9ef">then</span>
+    echo <span style="color:#e6db74">&#34;参数是 start、stop、restart&#34;</span>
+    exit;
+<span style="color:#66d9ef">fi</span>
+
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! -n <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>version<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+  echo <span style="color:#e6db74">&#34;请输入版本号&#34;</span>
+  exit;
+<span style="color:#66d9ef">fi</span>
+
+echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">程序名: </span><span style="color:#e6db74">${</span>app_name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">操作: </span><span style="color:#e6db74">${</span>action<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">版本: </span><span style="color:#e6db74">${</span>version<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>action<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;start&#34;</span> <span style="color:#f92672">]</span> ;<span style="color:#66d9ef">then</span>
+  start
+<span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>action<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;stop&#34;</span> <span style="color:#f92672">]</span> ;<span style="color:#66d9ef">then</span>
+  stop
+<span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>action<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;restart&#34;</span> <span style="color:#f92672">]</span> ;<span style="color:#66d9ef">then</span>
+  restart
+<span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>action<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;load&#34;</span> <span style="color:#f92672">]</span> ;<span style="color:#66d9ef">then</span>
+  load
+<span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>action<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;clean&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+  clean
+<span style="color:#66d9ef">else</span>
+  echo <span style="color:#e6db74">&#34;command error&#34;</span>
+<span style="color:#66d9ef">fi</span>
+
+progress<span style="color:#f92672">(</span><span style="color:#f92672">)</span>
+<span style="color:#f92672">{</span>
+  printf <span style="color:#e6db74">&#34;\e[?25l&#34;</span> 
+  i<span style="color:#f92672">=</span>0;
+  str<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
+  arr<span style="color:#f92672">=</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;|&#34;</span> <span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#e6db74">&#34;\\&#34;</span><span style="color:#f92672">)</span>
+  <span style="color:#66d9ef">while</span> <span style="color:#f92672">[</span> $i -le <span style="color:#ae81ff">100</span> <span style="color:#f92672">]</span>
+  <span style="color:#66d9ef">do</span>
+    let index<span style="color:#f92672">=</span>i%4
+    let indexcolor<span style="color:#f92672">=</span>i%8
+    let color<span style="color:#f92672">=</span>30+indexcolor
+    <span style="color:#75715e">#打印进度</span>
+    printf <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\r\e[0;</span>$color<span style="color:#e6db74">;1m[%-100s][%d%%]%c\e[0m</span><span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$str<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span>$i<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>arr[$index]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+    sleep 0.1
+    let i++
+    str<span style="color:#f92672">+=</span><span style="color:#e6db74">&#39;=&#39;</span>
+  <span style="color:#66d9ef">done</span>
+  <span style="color:#75715e">#显示光标</span>
+  wait
+  printf <span style="color:#e6db74">&#34;\e[?25h&#34;</span><span style="color:#e6db74">&#34;\n&#34;</span> 
+<span style="color:#f92672">}</span>
+
+progress
+</code></pre></div>
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>作者:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+    </div>
+
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2021/2021-08-06-zookeeper%E7%AC%94%E8%AE%B0/" class="prev" rel="prev" title="zookeeper笔记"><i class="iconfont icon-left"></i>&nbsp;zookeeper笔记</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= 'title'
+        label= 'utterance'
+        theme= 'github-dark-orange'
+        crossorigin="anonymous"
+        async>
+    </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
