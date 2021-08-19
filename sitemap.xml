@@ -2,9 +2,9 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
-      <loc>https://linjinbao.github.io/tags/gitlab/</loc>
+      <loc>https://linjinbao.github.io/posts/</loc>
       
-      <lastmod>2021-08-12T00:00:00+00:00</lastmod>
+      <lastmod>2021-08-18T00:00:00+00:00</lastmod>
       
       
       
@@ -12,7 +12,27 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/posts/</loc>
+      <loc>https://linjinbao.github.io/2021/2021-08-18-%E5%85%B3%E4%BA%8E%E9%95%9C%E5%83%8Foci%E8%A7%84%E8%8C%83/</loc>
+      
+      <lastmod>2021-08-18T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://linjinbao.github.io/</loc>
+      
+      <lastmod>2021-08-18T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://linjinbao.github.io/tags/gitlab/</loc>
       
       <lastmod>2021-08-12T00:00:00+00:00</lastmod>
       
@@ -33,16 +53,6 @@
   
     <url>
       <loc>https://linjinbao.github.io/2021/2021-08-13-%E4%B8%80%E4%B8%AAgitlab-ci%E6%96%87%E4%BB%B6/</loc>
-      
-      <lastmod>2021-08-12T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://linjinbao.github.io/</loc>
       
       <lastmod>2021-08-12T00:00:00+00:00</lastmod>
       
@@ -2602,7 +2612,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/tags/%E7%AC%94%E8%AE%B0/</loc>
+      <loc>https://linjinbao.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
       
       <lastmod>2019-10-14T00:00:00+00:00</lastmod>
       
@@ -2612,7 +2622,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
+      <loc>https://linjinbao.github.io/tags/%E7%AC%94%E8%AE%B0/</loc>
       
       <lastmod>2019-10-14T00:00:00+00:00</lastmod>
       
@@ -3232,7 +3242,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/tags/%E7%BC%93%E5%AD%98/</loc>
+      <loc>https://linjinbao.github.io/categories/%E7%BC%93%E5%AD%98/</loc>
       
       <lastmod>2019-07-29T00:00:00+00:00</lastmod>
       
@@ -3242,7 +3252,7 @@
     </url>
   
     <url>
-      <loc>https://linjinbao.github.io/categories/%E7%BC%93%E5%AD%98/</loc>
+      <loc>https://linjinbao.github.io/tags/%E7%BC%93%E5%AD%98/</loc>
       
       <lastmod>2019-07-29T00:00:00+00:00</lastmod>
       

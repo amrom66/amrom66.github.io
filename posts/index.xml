@@ -6,10 +6,20 @@
     <description>Recent content in Posts on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Aug 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://linjinbao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>关于镜像oci规范</title>
+      <link>https://linjinbao.github.io/2021/2021-08-18-%E5%85%B3%E4%BA%8E%E9%95%9C%E5%83%8Foci%E8%A7%84%E8%8C%83/</link>
+      <pubDate>Wed, 18 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-08-18-%E5%85%B3%E4%BA%8E%E9%95%9C%E5%83%8Foci%E8%A7%84%E8%8C%83/</guid>
+      <description>早就知道镜像存在OCI规范，就是在镜像的元数据中加入一些表明镜像信息的标签，不知道如何，一次偶然就会在github的流水线中看到了，记录下来：
+{ &amp;#34;target&amp;#34;: { &amp;#34;docker-metadata-action&amp;#34;: { &amp;#34;tags&amp;#34;: [ &amp;#34;ghcr.io/linjinbao666/conda-base:main&amp;#34; ], &amp;#34;labels&amp;#34;: { &amp;#34;org.opencontainers.image.title&amp;#34;: &amp;#34;conda-base&amp;#34;, &amp;#34;org.opencontainers.image.description&amp;#34;: &amp;#34;conda-base&amp;#34;, &amp;#34;org.opencontainers.image.url&amp;#34;: &amp;#34;https://github.com/linjinbao666/conda-base&amp;#34;, &amp;#34;org.opencontainers.image.source&amp;#34;: &amp;#34;https://github.com/linjinbao666/conda-base&amp;#34;, &amp;#34;org.</description>
+    </item>
     
     <item>
       <title>一个gitlab ci文件</title>
