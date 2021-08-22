@@ -130,6 +130,54 @@
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-08-21-cloudflare-worker%E4%BD%BF%E7%94%A8/">cloudflare worker使用</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				部署ariang到cloudflare workers
+mkdir -p ariang/public cd ariang/public wget https://github.com/mayswind/AriaNg/releases/download/1.1.7/AriaNg-1.1.7.zip unzip AriaNg-1.1.7.zip rm -f AriaNg-1.1.7.zip cd .. wrangler init --site ariang wrangler config wrangler publish wrangler.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2021-08-21 itemprop="datePublished">August 21, 2021</time>
+                </span>
+                in
+                
+        	</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-08-20-golang%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/">golang交叉编译</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				Golang 支持在一个平台下生成另一个平台可执行程序的交叉编译功能。
+1、Mac下编译Linux, Windows平台的64位可执行程序： CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build test.go CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build test.go 2、Linux下编译Mac, Windows平台的64位可执行程序： CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build test.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2021-08-20 itemprop="datePublished">August 20, 2021</time>
+                </span>
+                in
+                
+        	</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
 				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-08-18-%E5%85%B3%E4%BA%8E%E9%95%9C%E5%83%8Foci%E8%A7%84%E8%8C%83/">关于镜像oci规范</a></h1>
 			</header>
 			<div class="post-content">

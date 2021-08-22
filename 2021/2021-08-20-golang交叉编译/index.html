@@ -9,9 +9,9 @@
   <meta name="description" content="打工笔记">
   <meta name="keywords" content="博客 个人 笔记">
   
-  <link rel="prev" href="https://linjinbao.github.io/2021/2021-08-13-%E4%B8%80%E4%B8%AAgitlab-ci%E6%96%87%E4%BB%B6/" />
-  <link rel="next" href="https://linjinbao.github.io/2021/2021-08-20-golang%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/" />
-  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-08-18-%E5%85%B3%E4%BA%8E%E9%95%9C%E5%83%8Foci%E8%A7%84%E8%8C%83/" />
+  <link rel="prev" href="https://linjinbao.github.io/2021/2021-08-18-%E5%85%B3%E4%BA%8E%E9%95%9C%E5%83%8Foci%E8%A7%84%E8%8C%83/" />
+  <link rel="next" href="https://linjinbao.github.io/2021/2021-08-21-cloudflare-worker%E4%BD%BF%E7%94%A8/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-08-20-golang%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           关于镜像oci规范 | 打工笔记
+           golang交叉编译 | 打工笔记
        
   </title>
-  <meta name="title" content="关于镜像oci规范 | 打工笔记">
+  <meta name="title" content="golang交叉编译 | 打工笔记">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/linjinbao.github.io"
     },
     "articleSection" : "posts",
-    "name" : "关于镜像oci规范",
-    "headline" : "关于镜像oci规范",
-    "description" : "早就知道镜像存在OCI规范，就是在镜像的元数据中加入一些表明镜像信息的标签，不知道如何，一次偶然就会在github的流水线中看到了，记录下来：\n{ \x26#34;target\x26#34;: { \x26#34;docker-metadata-action\x26#34;: { \x26#34;tags\x26#34;: [ \x26#34;ghcr.io\/linjinbao666\/conda-base:main\x26#34; ], \x26#34;labels\x26#34;: { \x26#34;org.opencontainers.image.title\x26#34;: \x26#34;conda-base\x26#34;, \x26#34;org.opencontainers.image.description\x26#34;: \x26#34;conda-base\x26#34;, \x26#34;org.opencontainers.image.url\x26#34;: \x26#34;https:\/\/github.com\/linjinbao666\/conda-base\x26#34;, \x26#34;org.opencontainers.image.source\x26#34;: \x26#34;https:\/\/github.com\/linjinbao666\/conda-base\x26#34;, \x26#34;org.",
+    "name" : "golang交叉编译",
+    "headline" : "golang交叉编译",
+    "description" : "Golang 支持在一个平台下生成另一个平台可执行程序的交叉编译功能。\n1、Mac下编译Linux, Windows平台的64位可执行程序： CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build test.go CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build test.go 2、Linux下编译Mac, Windows平台的64位可执行程序： CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build test.",
     "inLanguage" : "en-us",
     "author" : "linjinbao66",
     "creator" : "linjinbao66",
@@ -54,9 +54,9 @@
     "accountablePerson" : "linjinbao66",
     "copyrightHolder" : "linjinbao66",
     "copyrightYear" : "2021",
-    "datePublished": "2021-08-18 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2021-08-18 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-08-18-%E5%85%B3%E4%BA%8E%E9%95%9C%E5%83%8Foci%E8%A7%84%E8%8C%83\/",
+    "datePublished": "2021-08-20 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-08-20 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-08-20-golang%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91\/",
     "wordCount" : "48",
     "keywords" : [  "打工笔记"]
 }
@@ -119,11 +119,11 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">关于镜像oci规范</h1>
+        <h1 class="post-title" itemprop="name headline">golang交叉编译</h1>
         <div class="post-meta">
                 作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
                 <span class="post-time">
-                 <time datetime=18089-08-18 itemprop="datePublished">August 18, 2021</time>
+                 <time datetime=20089-08-20 itemprop="datePublished">August 20, 2021</time>
                 </span>
                 分类： 
                 
@@ -145,36 +145,17 @@
           
           
 
-          <p>早就知道镜像存在OCI规范，就是在镜像的元数据中加入一些表明镜像信息的标签，不知道如何，一次偶然就会在github的流水线中看到了，记录下来：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#f92672">&#34;target&#34;</span>: {
-    <span style="color:#f92672">&#34;docker-metadata-action&#34;</span>: {
-      <span style="color:#f92672">&#34;tags&#34;</span>: [
-        <span style="color:#e6db74">&#34;ghcr.io/linjinbao666/conda-base:main&#34;</span>
-      ],
-      <span style="color:#f92672">&#34;labels&#34;</span>: {
-        <span style="color:#f92672">&#34;org.opencontainers.image.title&#34;</span>: <span style="color:#e6db74">&#34;conda-base&#34;</span>,
-        <span style="color:#f92672">&#34;org.opencontainers.image.description&#34;</span>: <span style="color:#e6db74">&#34;conda-base&#34;</span>,
-        <span style="color:#f92672">&#34;org.opencontainers.image.url&#34;</span>: <span style="color:#e6db74">&#34;https://github.com/linjinbao666/conda-base&#34;</span>,
-        <span style="color:#f92672">&#34;org.opencontainers.image.source&#34;</span>: <span style="color:#e6db74">&#34;https://github.com/linjinbao666/conda-base&#34;</span>,
-        <span style="color:#f92672">&#34;org.opencontainers.image.version&#34;</span>: <span style="color:#e6db74">&#34;main&#34;</span>,
-        <span style="color:#f92672">&#34;org.opencontainers.image.created&#34;</span>: <span style="color:#e6db74">&#34;2021-08-19T05:27:05.157Z&#34;</span>,
-        <span style="color:#f92672">&#34;org.opencontainers.image.revision&#34;</span>: <span style="color:#e6db74">&#34;cc3b1c3c0527c0e0dd81b379d35bddbe4f992681&#34;</span>,
-        <span style="color:#f92672">&#34;org.opencontainers.image.licenses&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
-      },
-      <span style="color:#f92672">&#34;args&#34;</span>: {
-        <span style="color:#f92672">&#34;DOCKER_META_IMAGES&#34;</span>: <span style="color:#e6db74">&#34;ghcr.io/linjinbao666/conda-base&#34;</span>,
-        <span style="color:#f92672">&#34;DOCKER_META_VERSION&#34;</span>: <span style="color:#e6db74">&#34;main&#34;</span>
-      }
-    }
-  }
-}
-</code></pre></div><p>这几个标签应该就是OCI规范要求的了，同理在centos官方镜像中也发现了这几个标签：</p>
-<pre><code class="language-code" data-lang="code"> org.opencontainers.image.title=&quot;CentOS Base Image&quot; 
- org.opencontainers.image.vendor=&quot;CentOS&quot; 
- org.opencontainers.image.licenses=&quot;GPL-2.0-only&quot; 
- org.opencontainers.image.created=&quot;2020-11-13 00:00:00+00:00&quot;
-</code></pre><p>这些标签能否发展成为具有<code>自证明</code>性质的标签，还有待期待。</p>
+          <p>Golang 支持在一个平台下生成另一个平台可执行程序的交叉编译功能。</p>
+<h1 id="1mac下编译linux-windows平台的64位可执行程序">1、Mac下编译Linux, Windows平台的64位可执行程序：</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">CGO_ENABLED</span>=<span style="color:#ae81ff">0</span> <span style="color:#a6e22e">GOOS</span>=<span style="color:#a6e22e">linux</span> <span style="color:#a6e22e">GOARCH</span>=<span style="color:#a6e22e">amd64</span> <span style="color:#66d9ef">go</span> <span style="color:#a6e22e">build</span> <span style="color:#a6e22e">test</span>.<span style="color:#66d9ef">go</span>
+<span style="color:#a6e22e">CGO_ENABLED</span>=<span style="color:#ae81ff">0</span> <span style="color:#a6e22e">GOOS</span>=<span style="color:#a6e22e">windows</span> <span style="color:#a6e22e">GOARCH</span>=<span style="color:#a6e22e">amd64</span> <span style="color:#66d9ef">go</span> <span style="color:#a6e22e">build</span> <span style="color:#a6e22e">test</span>.<span style="color:#66d9ef">go</span>
+</code></pre></div><h1 id="2linux下编译mac-windows平台的64位可执行程序">2、Linux下编译Mac, Windows平台的64位可执行程序：</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">CGO_ENABLED</span>=<span style="color:#ae81ff">0</span> <span style="color:#a6e22e">GOOS</span>=<span style="color:#a6e22e">darwin</span> <span style="color:#a6e22e">GOARCH</span>=<span style="color:#a6e22e">amd64</span> <span style="color:#66d9ef">go</span> <span style="color:#a6e22e">build</span> <span style="color:#a6e22e">test</span>.<span style="color:#66d9ef">go</span>
+<span style="color:#a6e22e">CGO_ENABLED</span>=<span style="color:#ae81ff">0</span> <span style="color:#a6e22e">GOOS</span>=<span style="color:#a6e22e">windows</span> <span style="color:#a6e22e">GOARCH</span>=<span style="color:#a6e22e">amd64</span> <span style="color:#66d9ef">go</span> <span style="color:#a6e22e">build</span> <span style="color:#a6e22e">test</span>.<span style="color:#66d9ef">go</span>
+</code></pre></div><h1 id="3windows下编译mac-linux平台的64位可执行程序">3、Windows下编译Mac, Linux平台的64位可执行程序：</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">CGO_ENABLED</span>=<span style="color:#ae81ff">0</span> <span style="color:#a6e22e">GOOS</span>=<span style="color:#a6e22e">darwin</span> <span style="color:#a6e22e">GOARCH</span>=<span style="color:#a6e22e">amd64</span> <span style="color:#66d9ef">go</span> <span style="color:#a6e22e">build</span> <span style="color:#a6e22e">test</span>.<span style="color:#66d9ef">go</span>
+<span style="color:#a6e22e">CGO_ENABLED</span>=<span style="color:#ae81ff">0</span> <span style="color:#a6e22e">GOOS</span>=<span style="color:#a6e22e">linux</span> <span style="color:#a6e22e">GOARCH</span>=<span style="color:#a6e22e">amd64</span> <span style="color:#66d9ef">go</span> <span style="color:#a6e22e">build</span> <span style="color:#a6e22e">test</span>.<span style="color:#66d9ef">go</span>
+</code></pre></div><p>GOOS：目标可执行程序运行操作系统，支持 darwin，freebsd，linux，windows GOARCH：目标可执行程序操作系统构架，包括 386，amd64，arm</p>
 
     </div>
 
@@ -197,10 +178,10 @@
 
     <div class="post-nav">
         
-        <a href="https://linjinbao.github.io/2021/2021-08-13-%E4%B8%80%E4%B8%AAgitlab-ci%E6%96%87%E4%BB%B6/" class="prev" rel="prev" title="一个gitlab ci文件"><i class="iconfont icon-left"></i>&nbsp;一个gitlab ci文件</a>
+        <a href="https://linjinbao.github.io/2021/2021-08-18-%E5%85%B3%E4%BA%8E%E9%95%9C%E5%83%8Foci%E8%A7%84%E8%8C%83/" class="prev" rel="prev" title="关于镜像oci规范"><i class="iconfont icon-left"></i>&nbsp;关于镜像oci规范</a>
          
         
-        <a href="https://linjinbao.github.io/2021/2021-08-20-golang%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/" class="next" rel="next" title="golang交叉编译">golang交叉编译&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://linjinbao.github.io/2021/2021-08-21-cloudflare-worker%E4%BD%BF%E7%94%A8/" class="next" rel="next" title="cloudflare worker使用">cloudflare worker使用&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

@@ -9,9 +9,9 @@
   <meta name="description" content="打工笔记">
   <meta name="keywords" content="博客 个人 笔记">
   
-  <link rel="prev" href="https://linjinbao.github.io/2021/2021-08-13-%E4%B8%80%E4%B8%AAgitlab-ci%E6%96%87%E4%BB%B6/" />
-  <link rel="next" href="https://linjinbao.github.io/2021/2021-08-20-golang%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/" />
-  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-08-18-%E5%85%B3%E4%BA%8E%E9%95%9C%E5%83%8Foci%E8%A7%84%E8%8C%83/" />
+  <link rel="prev" href="https://linjinbao.github.io/2021/2021-08-20-golang%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/" />
+  
+  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-08-21-cloudflare-worker%E4%BD%BF%E7%94%A8/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           关于镜像oci规范 | 打工笔记
+           cloudflare worker使用 | 打工笔记
        
   </title>
-  <meta name="title" content="关于镜像oci规范 | 打工笔记">
+  <meta name="title" content="cloudflare worker使用 | 打工笔记">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/linjinbao.github.io"
     },
     "articleSection" : "posts",
-    "name" : "关于镜像oci规范",
-    "headline" : "关于镜像oci规范",
-    "description" : "早就知道镜像存在OCI规范，就是在镜像的元数据中加入一些表明镜像信息的标签，不知道如何，一次偶然就会在github的流水线中看到了，记录下来：\n{ \x26#34;target\x26#34;: { \x26#34;docker-metadata-action\x26#34;: { \x26#34;tags\x26#34;: [ \x26#34;ghcr.io\/linjinbao666\/conda-base:main\x26#34; ], \x26#34;labels\x26#34;: { \x26#34;org.opencontainers.image.title\x26#34;: \x26#34;conda-base\x26#34;, \x26#34;org.opencontainers.image.description\x26#34;: \x26#34;conda-base\x26#34;, \x26#34;org.opencontainers.image.url\x26#34;: \x26#34;https:\/\/github.com\/linjinbao666\/conda-base\x26#34;, \x26#34;org.opencontainers.image.source\x26#34;: \x26#34;https:\/\/github.com\/linjinbao666\/conda-base\x26#34;, \x26#34;org.",
+    "name" : "cloudflare worker使用",
+    "headline" : "cloudflare worker使用",
+    "description" : "部署ariang到cloudflare workers\nmkdir -p ariang\/public cd ariang\/public wget https:\/\/github.com\/mayswind\/AriaNg\/releases\/download\/1.1.7\/AriaNg-1.1.7.zip unzip AriaNg-1.1.7.zip rm -f AriaNg-1.1.7.zip cd .. wrangler init --site ariang wrangler config wrangler publish wrangler.",
     "inLanguage" : "en-us",
     "author" : "linjinbao66",
     "creator" : "linjinbao66",
@@ -54,10 +54,10 @@
     "accountablePerson" : "linjinbao66",
     "copyrightHolder" : "linjinbao66",
     "copyrightYear" : "2021",
-    "datePublished": "2021-08-18 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2021-08-18 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-08-18-%E5%85%B3%E4%BA%8E%E9%95%9C%E5%83%8Foci%E8%A7%84%E8%8C%83\/",
-    "wordCount" : "48",
+    "datePublished": "2021-08-21 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-08-21 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-08-21-cloudflare-worker%E4%BD%BF%E7%94%A8\/",
+    "wordCount" : "57",
     "keywords" : [  "打工笔记"]
 }
 </script>
@@ -119,11 +119,11 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">关于镜像oci规范</h1>
+        <h1 class="post-title" itemprop="name headline">cloudflare worker使用</h1>
         <div class="post-meta">
                 作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
                 <span class="post-time">
-                 <time datetime=18089-08-18 itemprop="datePublished">August 18, 2021</time>
+                 <time datetime=21089-08-21 itemprop="datePublished">August 21, 2021</time>
                 </span>
                 分类： 
                 
@@ -145,36 +145,28 @@
           
           
 
-          <p>早就知道镜像存在OCI规范，就是在镜像的元数据中加入一些表明镜像信息的标签，不知道如何，一次偶然就会在github的流水线中看到了，记录下来：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#f92672">&#34;target&#34;</span>: {
-    <span style="color:#f92672">&#34;docker-metadata-action&#34;</span>: {
-      <span style="color:#f92672">&#34;tags&#34;</span>: [
-        <span style="color:#e6db74">&#34;ghcr.io/linjinbao666/conda-base:main&#34;</span>
-      ],
-      <span style="color:#f92672">&#34;labels&#34;</span>: {
-        <span style="color:#f92672">&#34;org.opencontainers.image.title&#34;</span>: <span style="color:#e6db74">&#34;conda-base&#34;</span>,
-        <span style="color:#f92672">&#34;org.opencontainers.image.description&#34;</span>: <span style="color:#e6db74">&#34;conda-base&#34;</span>,
-        <span style="color:#f92672">&#34;org.opencontainers.image.url&#34;</span>: <span style="color:#e6db74">&#34;https://github.com/linjinbao666/conda-base&#34;</span>,
-        <span style="color:#f92672">&#34;org.opencontainers.image.source&#34;</span>: <span style="color:#e6db74">&#34;https://github.com/linjinbao666/conda-base&#34;</span>,
-        <span style="color:#f92672">&#34;org.opencontainers.image.version&#34;</span>: <span style="color:#e6db74">&#34;main&#34;</span>,
-        <span style="color:#f92672">&#34;org.opencontainers.image.created&#34;</span>: <span style="color:#e6db74">&#34;2021-08-19T05:27:05.157Z&#34;</span>,
-        <span style="color:#f92672">&#34;org.opencontainers.image.revision&#34;</span>: <span style="color:#e6db74">&#34;cc3b1c3c0527c0e0dd81b379d35bddbe4f992681&#34;</span>,
-        <span style="color:#f92672">&#34;org.opencontainers.image.licenses&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
-      },
-      <span style="color:#f92672">&#34;args&#34;</span>: {
-        <span style="color:#f92672">&#34;DOCKER_META_IMAGES&#34;</span>: <span style="color:#e6db74">&#34;ghcr.io/linjinbao666/conda-base&#34;</span>,
-        <span style="color:#f92672">&#34;DOCKER_META_VERSION&#34;</span>: <span style="color:#e6db74">&#34;main&#34;</span>
-      }
-    }
-  }
-}
-</code></pre></div><p>这几个标签应该就是OCI规范要求的了，同理在centos官方镜像中也发现了这几个标签：</p>
-<pre><code class="language-code" data-lang="code"> org.opencontainers.image.title=&quot;CentOS Base Image&quot; 
- org.opencontainers.image.vendor=&quot;CentOS&quot; 
- org.opencontainers.image.licenses=&quot;GPL-2.0-only&quot; 
- org.opencontainers.image.created=&quot;2020-11-13 00:00:00+00:00&quot;
-</code></pre><p>这些标签能否发展成为具有<code>自证明</code>性质的标签，还有待期待。</p>
+          <p>部署ariang到cloudflare workers</p>
+<pre><code class="language-code" data-lang="code">mkdir -p ariang/public
+cd ariang/public
+wget https://github.com/mayswind/AriaNg/releases/download/1.1.7/AriaNg-1.1.7.zip
+unzip AriaNg-1.1.7.zip
+rm -f AriaNg-1.1.7.zip
+cd ..
+wrangler init --site ariang
+
+wrangler config
+wrangler publish
+</code></pre><p>wrangler.toml配置如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml"><span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;ariang&#34;</span>
+<span style="color:#a6e22e">type</span> = <span style="color:#e6db74">&#34;webpack&#34;</span>
+<span style="color:#a6e22e">account_id</span> = <span style="color:#e6db74">&#34;1e752e20ad8ac6b74a275b64f272ef76&#34;</span>
+<span style="color:#a6e22e">route</span> = <span style="color:#e6db74">&#39;ariang.linjinbao.tk/*&#39;</span>
+<span style="color:#a6e22e">zone_id</span> = <span style="color:#e6db74">&#39;02b23e0f77225f085046a173e2402a25&#39;</span>
+<span style="color:#a6e22e">usage_model</span> = <span style="color:#e6db74">&#39;&#39;</span>
+<span style="color:#a6e22e">compatibility_flags</span> = []
+<span style="color:#a6e22e">workers_dev</span> = <span style="color:#66d9ef">true</span>
+<span style="color:#a6e22e">site</span> = <span style="color:#960050;background-color:#1e0010">{</span><span style="color:#a6e22e">bucket</span> = <span style="color:#e6db74">&#34;./public&#34;</span>,<span style="color:#a6e22e">entry</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#a6e22e">point</span> = <span style="color:#e6db74">&#34;workers-site&#34;</span><span style="color:#960050;background-color:#1e0010">}</span>
+</code></pre></div><p><code>public</code>目录是静态文件目录</p>
 
     </div>
 
@@ -197,10 +189,8 @@
 
     <div class="post-nav">
         
-        <a href="https://linjinbao.github.io/2021/2021-08-13-%E4%B8%80%E4%B8%AAgitlab-ci%E6%96%87%E4%BB%B6/" class="prev" rel="prev" title="一个gitlab ci文件"><i class="iconfont icon-left"></i>&nbsp;一个gitlab ci文件</a>
+        <a href="https://linjinbao.github.io/2021/2021-08-20-golang%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/" class="prev" rel="prev" title="golang交叉编译"><i class="iconfont icon-left"></i>&nbsp;golang交叉编译</a>
          
-        
-        <a href="https://linjinbao.github.io/2021/2021-08-20-golang%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/" class="next" rel="next" title="golang交叉编译">golang交叉编译&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
