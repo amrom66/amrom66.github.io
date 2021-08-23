@@ -9,9 +9,9 @@
   <meta name="description" content="打工笔记">
   <meta name="keywords" content="博客 个人 笔记">
   
+  <link rel="prev" href="https://linjinbao.github.io/2021/2021-08-21-cloudflare-worker%E4%BD%BF%E7%94%A8/" />
   
-  
-  <link rel="canonical" href="https://linjinbao.github.io/categories/leetcode/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-08-23-%E5%88%A9%E7%94%A8cloudflare-workers%E8%87%AA%E5%BB%BA%E9%95%9C%E5%83%8F/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           leetcode | 打工笔记
+           利用cloudflare workers自建的几个镜像站点 | 打工笔记
        
   </title>
-  <meta name="title" content="leetcode | 打工笔记">
+  <meta name="title" content="利用cloudflare workers自建的几个镜像站点 | 打工笔记">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -33,11 +33,34 @@
 
 
   
-    <link href="https://linjinbao.github.io/categories/leetcode/index.xml" rel="alternate" type="application/rss+xml" title="打工笔记" />
-    <link href="https://linjinbao.github.io/categories/leetcode/index.xml" rel="feed" type="application/rss+xml" title="打工笔记" />
-  
   
  
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "利用cloudflare workers自建的几个镜像站点",
+    "headline" : "利用cloudflare workers自建的几个镜像站点",
+    "description" : "Git clone加速站点: clone.linjinbao.tk github镜像: github.linjinbao.tk gist镜像: gist.linjinbao.tk ariang面板托管: ariang.linjinbao.tk gfw站点: https:\/\/gfw.linjinbao66.workers.dev taobao镜像: taobao.linjinbao.tk  附上相关git项目源码\ngit@github.com:linjinbao666\/gfw-proxy.git",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-08-23 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-08-23 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-08-23-%E5%88%A9%E7%94%A8cloudflare-workers%E8%87%AA%E5%BB%BA%E9%95%9C%E5%83%8F\/",
+    "wordCount" : "15",
+    "keywords" : [  "打工笔记"]
+}
+</script>
 
 </head>
 
@@ -94,35 +117,84 @@
     	 <main class="main">
           <div class="container">
       		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">利用cloudflare workers自建的几个镜像站点</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=23089-08-23 itemprop="datePublished">August 23, 2021</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
 
-<div class="post-warp archive">
-    <h2 class="post-title" style="text-align:right;padding-bottom:2em">-&nbsp;Categories&nbsp;·&nbsp;leetcode&nbsp;-</h2>
-    
-    <article class="archive-item">
-        <a href="https://linjinbao.github.io/2019/2019-10-16-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0/" class="archive-item-link hvr-underline-from-center">leetcode题目-罗马数字转整数</a>
-        <span class="archive-item-date">
-            October 16, 2019
-        </span>
-    </article>
-    
-    <article class="archive-item">
-        <a href="https://linjinbao.github.io/2019/2019-09-29-leetcode-156/" class="archive-item-link hvr-underline-from-center">LeetCode周赛-第 156 场</a>
-        <span class="archive-item-date">
-            September 29, 2019
-        </span>
-    </article>
-    
-    <article class="archive-item">
-        <a href="https://linjinbao.github.io/2019/2019-09-27-leetcode%E7%AE%97%E6%B3%95%E9%A2%98-%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/" class="archive-item-link hvr-underline-from-center">LeetCode算法题-合并区间</a>
-        <span class="archive-item-date">
-            September 27, 2019
-        </span>
-    </article>
+        
+
+        
+        
      
-    
+          
+          
+          
 
-</div>
+          
+          
+          
 
+          <ol>
+<li>Git clone加速站点: <code>clone.linjinbao.tk</code></li>
+<li>github镜像: <code>github.linjinbao.tk</code></li>
+<li>gist镜像: <code>gist.linjinbao.tk</code></li>
+<li>ariang面板托管: <code>ariang.linjinbao.tk</code></li>
+<li>gfw站点:  <a href="https://gfw.linjinbao66.workers.dev">https://gfw.linjinbao66.workers.dev</a></li>
+<li>taobao镜像:<code> taobao.linjinbao.tk</code></li>
+</ol>
+<p>附上相关git项目源码</p>
+<p><a href="mailto:git@github.com">git@github.com</a>:linjinbao666/gfw-proxy.git</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>作者:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+    </div>
+
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2021/2021-08-21-cloudflare-worker%E4%BD%BF%E7%94%A8/" class="prev" rel="prev" title="cloudflare worker使用"><i class="iconfont icon-left"></i>&nbsp;cloudflare worker使用</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= 'title'
+        label= 'utterance'
+        theme= 'github-dark-orange'
+        crossorigin="anonymous"
+        async>
+    </script>
+
+    </div>
+</article>
           </div>
 		   </main>
       <footer class="footer">
@@ -153,8 +225,12 @@
 
 
 
+
     
-    <script src="/js/vendor_main.min.js" async=""></script>
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
 
 
 
