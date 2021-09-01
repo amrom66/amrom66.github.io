@@ -9,9 +9,9 @@
   <meta name="description" content="打工笔记">
   <meta name="keywords" content="博客 个人 笔记">
   
-  <link rel="prev" href="https://linjinbao.github.io/2021/2021-08-21-cloudflare-worker%E4%BD%BF%E7%94%A8/" />
-  <link rel="next" href="https://linjinbao.github.io/2021/2021-09-01-kubeedge%E8%B0%83%E7%A0%94/" />
-  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-08-23-%E5%88%A9%E7%94%A8cloudflare-workers%E8%87%AA%E5%BB%BA%E9%95%9C%E5%83%8F/" />
+  <link rel="prev" href="https://linjinbao.github.io/2021/2021-08-23-%E5%88%A9%E7%94%A8cloudflare-workers%E8%87%AA%E5%BB%BA%E9%95%9C%E5%83%8F/" />
+  <link rel="next" href="https://linjinbao.github.io/2021/2021-09-01-ack-edge%E4%BD%BF%E7%94%A8/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-09-01-kubeedge%E8%B0%83%E7%A0%94/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           利用cloudflare workers自建的几个镜像站点 | 打工笔记
+           kubeedge调研 | 打工笔记
        
   </title>
-  <meta name="title" content="利用cloudflare workers自建的几个镜像站点 | 打工笔记">
+  <meta name="title" content="kubeedge调研 | 打工笔记">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/linjinbao.github.io"
     },
     "articleSection" : "posts",
-    "name" : "利用cloudflare workers自建的几个镜像站点",
-    "headline" : "利用cloudflare workers自建的几个镜像站点",
-    "description" : "Git clone加速站点: clone.linjinbao.tk github镜像: github.linjinbao.tk gist镜像: gist.linjinbao.tk ariang面板托管: ariang.linjinbao.tk gfw站点: https:\/\/gfw.linjinbao66.workers.dev taobao镜像: taobao.linjinbao.tk  附上相关git项目源码\ngit@github.com:linjinbao666\/gfw-proxy.git",
+    "name" : "kubeedge调研",
+    "headline" : "kubeedge调研",
+    "description" : "kubeedge介绍  KubeEdge是一个开源系统，用于将容器化应用程序编排功能扩展到Edge的主机。它基于kubernetes构建，并为网络应用程序提供基础架构支持。云和边缘之间的部署和元数据同步。 KubeEdge使用Apache 2.0许可。并且绝对可以免费用于个人或商业用途。我们欢迎贡献者！\n我们的目标是创建一个开放平台，使能边缘计算，将容器化应用编排功能扩展到边缘的节点和设备，后者基于kubernetes构建，并为云和边缘之间的网络，应用部署和元数据同步提供基础架构支持。\n 以上是官方给的介绍，理解起来就2个核心概念：\n 容器编排 边缘计算  容器编排 容器编排概念已经很成熟了，典型的有dokcer swarm和kubernetes，其都是先将服务已容器的形式进行发布，然后调度、控制整个容器。容器编排和微服务是紧密结合到一起的，微服务的最终呈现必然是容器化。\n边缘计算 边缘计算是云厂商喜欢提及的一个概念，例如cloudflare 推出的cf workers服务。所谓的边缘指的是区别于传统的物理机、虚拟机等服务器设备，转而使用一些计算能力较低的设备，例如手机、平板、物联网设备等，这类设备的单机计算能力低，但是数量众多。考虑到部分程序所需要的计算能力并不是很大，这些设备的计算能力足以达到需求的。\nkubernetes的缺陷与kubeedge的改进 k8s是容器编排的事实标准，可以以副本集为最小单元进行容器服务的编排。",
     "inLanguage" : "en-us",
     "author" : "linjinbao66",
     "creator" : "linjinbao66",
@@ -54,10 +54,10 @@
     "accountablePerson" : "linjinbao66",
     "copyrightHolder" : "linjinbao66",
     "copyrightYear" : "2021",
-    "datePublished": "2021-08-23 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2021-08-23 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-08-23-%E5%88%A9%E7%94%A8cloudflare-workers%E8%87%AA%E5%BB%BA%E9%95%9C%E5%83%8F\/",
-    "wordCount" : "15",
+    "datePublished": "2021-09-01 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-09-01 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-09-01-kubeedge%E8%B0%83%E7%A0%94\/",
+    "wordCount" : "27",
     "keywords" : [  "打工笔记"]
 }
 </script>
@@ -119,11 +119,11 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">利用cloudflare workers自建的几个镜像站点</h1>
+        <h1 class="post-title" itemprop="name headline">kubeedge调研</h1>
         <div class="post-meta">
                 作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
                 <span class="post-time">
-                 <time datetime=23089-08-23 itemprop="datePublished">August 23, 2021</time>
+                 <time datetime=1099-09-01 itemprop="datePublished">September 1, 2021</time>
                 </span>
                 分类： 
                 
@@ -145,16 +145,34 @@
           
           
 
-          <ol>
-<li>Git clone加速站点: <code>clone.linjinbao.tk</code></li>
-<li>github镜像: <code>github.linjinbao.tk</code></li>
-<li>gist镜像: <code>gist.linjinbao.tk</code></li>
-<li>ariang面板托管: <code>ariang.linjinbao.tk</code></li>
-<li>gfw站点:  <a href="https://gfw.linjinbao66.workers.dev">https://gfw.linjinbao66.workers.dev</a></li>
-<li>taobao镜像:<code> taobao.linjinbao.tk</code></li>
+          <h1 id="kubeedge介绍">kubeedge介绍</h1>
+<blockquote>
+<p>KubeEdge是一个开源系统，用于将容器化应用程序编排功能扩展到Edge的主机。它基于kubernetes构建，并为网络应用程序提供基础架构支持。云和边缘之间的部署和元数据同步。 KubeEdge使用Apache 2.0许可。并且绝对可以免费用于个人或商业用途。我们欢迎贡献者！</p>
+<p>我们的目标是创建一个开放平台，使能边缘计算，将容器化应用编排功能扩展到边缘的节点和设备，后者基于kubernetes构建，并为云和边缘之间的网络，应用部署和元数据同步提供基础架构支持。</p>
+</blockquote>
+<p>以上是官方给的介绍，理解起来就2个核心概念：</p>
+<ol>
+<li>容器编排</li>
+<li>边缘计算</li>
 </ol>
-<p>附上相关git项目源码</p>
-<p><a href="mailto:git@github.com">git@github.com</a>:linjinbao666/gfw-proxy.git</p>
+<h2 id="容器编排">容器编排</h2>
+<p>容器编排概念已经很成熟了，典型的有dokcer swarm和kubernetes，其都是先将服务已容器的形式进行发布，然后调度、控制整个容器。容器编排和微服务是紧密结合到一起的，微服务的最终呈现必然是容器化。</p>
+<h2 id="边缘计算">边缘计算</h2>
+<p>边缘计算是云厂商喜欢提及的一个概念，例如cloudflare 推出的cf workers服务。所谓的边缘指的是区别于传统的物理机、虚拟机等服务器设备，转而使用一些计算能力较低的设备，例如手机、平板、物联网设备等，这类设备的单机计算能力低，但是数量众多。考虑到部分程序所需要的计算能力并不是很大，这些设备的计算能力足以达到需求的。</p>
+<h2 id="kubernetes的缺陷与kubeedge的改进">kubernetes的缺陷与kubeedge的改进</h2>
+<p>k8s是容器编排的事实标准，可以以副本集为最小单元进行容器服务的编排。</p>
+<h3 id="缺陷一-离线场景的处理">缺陷一 离线场景的处理</h3>
+<p>其分为控制平面和工作节点，控制平面服务容器的调度，集群配置的存储，以及<code>针对各个工作节点的实时控制</code>。工作节点则<code>实时</code>通过http通信接收控制平面下发的指令和数据，并且上报自生节点的容器状态。控制平面与工作节点以近乎实时的紧密通信，来保障集群的稳定运行。但是存在一个潜在的问题：如果控制平面和工作节点的通信断了怎么处理，工作节点的容器还能正常工作吗？新的容器任务能够下发吗？这个是k8s自身的一个缺陷，即离线场景的处理。kubeedge实现了离线场景下的调度。kubeedge在设计上直接考虑了离线的清醒，其分为<code>云端</code>和<code>边缘</code>端。很明显云端拥有整个集群的所有信息，但是边缘端也存储了一部分配置信息，由于边缘端存储了容器运行所需要的信息，所以即使处在离线场景，也能正常运行（一段时间）。</p>
+<h3 id="缺陷二-工作节点的性能问题">缺陷二 工作节点的性能问题</h3>
+<p>kubernetes在设计时只考虑了传统的机器，其pod甚至设计成包含多个容器，并且在部署的时候一般会要求工作节点以类似的配置加入到集群中，且配置不能太低，那么此时像一些低性能的设备就无法加入到集群中使用。</p>
+<h2 id="源码解读">源码解读</h2>
+<p>kubeedge基于kubernetes做了以下开发：</p>
+<ol>
+<li>
+<p>实现了cloud-controller</p>
+<p>该控制器用于控制CRD资源device等</p>
+</li>
+</ol>
 
     </div>
 
@@ -177,10 +195,10 @@
 
     <div class="post-nav">
         
-        <a href="https://linjinbao.github.io/2021/2021-08-21-cloudflare-worker%E4%BD%BF%E7%94%A8/" class="prev" rel="prev" title="cloudflare worker使用"><i class="iconfont icon-left"></i>&nbsp;cloudflare worker使用</a>
+        <a href="https://linjinbao.github.io/2021/2021-08-23-%E5%88%A9%E7%94%A8cloudflare-workers%E8%87%AA%E5%BB%BA%E9%95%9C%E5%83%8F/" class="prev" rel="prev" title="利用cloudflare workers自建的几个镜像站点"><i class="iconfont icon-left"></i>&nbsp;利用cloudflare workers自建的几个镜像站点</a>
          
         
-        <a href="https://linjinbao.github.io/2021/2021-09-01-kubeedge%E8%B0%83%E7%A0%94/" class="next" rel="next" title="kubeedge调研">kubeedge调研&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://linjinbao.github.io/2021/2021-09-01-ack-edge%E4%BD%BF%E7%94%A8/" class="next" rel="next" title="ack-edge介绍">ack-edge介绍&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

@@ -130,6 +130,57 @@
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-09-01-ack-edge%E4%BD%BF%E7%94%A8/">ack-edge介绍</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				介绍 阿里云边缘容器服务ACK@Edge是阿里云容器服务针对边缘计算场景推出的云边一体化协同托管方案。本文介绍阿里云边缘托管Kubernetes集群的产生背景和主要功能。
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2021-09-01 itemprop="datePublished">September 1, 2021</time>
+                </span>
+                in
+                
+        	</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-09-01-kubeedge%E8%B0%83%E7%A0%94/">kubeedge调研</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				kubeedge介绍  KubeEdge是一个开源系统，用于将容器化应用程序编排功能扩展到Edge的主机。它基于kubernetes构建，并为网络应用程序提供基础架构支持。云和边缘之间的部署和元数据同步。 KubeEdge使用Apache 2.0许可。并且绝对可以免费用于个人或商业用途。我们欢迎贡献者！
+我们的目标是创建一个开放平台，使能边缘计算，将容器化应用编排功能扩展到边缘的节点和设备，后者基于kubernetes构建，并为云和边缘之间的网络，应用部署和元数据同步提供基础架构支持。
+ 以上是官方给的介绍，理解起来就2个核心概念：
+ 容器编排 边缘计算  容器编排 容器编排概念已经很成熟了，典型的有dokcer swarm和kubernetes，其都是先将服务已容器的形式进行发布，然后调度、控制整个容器。容器编排和微服务是紧密结合到一起的，微服务的最终呈现必然是容器化。
+边缘计算 边缘计算是云厂商喜欢提及的一个概念，例如cloudflare 推出的cf workers服务。所谓的边缘指的是区别于传统的物理机、虚拟机等服务器设备，转而使用一些计算能力较低的设备，例如手机、平板、物联网设备等，这类设备的单机计算能力低，但是数量众多。考虑到部分程序所需要的计算能力并不是很大，这些设备的计算能力足以达到需求的。
+kubernetes的缺陷与kubeedge的改进 k8s是容器编排的事实标准，可以以副本集为最小单元进行容器服务的编排。
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2021-09-01 itemprop="datePublished">September 1, 2021</time>
+                </span>
+                in
+                
+        	</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
 				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-08-23-%E5%88%A9%E7%94%A8cloudflare-workers%E8%87%AA%E5%BB%BA%E9%95%9C%E5%83%8F/">利用cloudflare workers自建的几个镜像站点</a></h1>
 			</header>
 			<div class="post-content">
