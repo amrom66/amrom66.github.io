@@ -6,10 +6,21 @@
     <description>Recent content in Posts on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 15 Sep 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://linjinbao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>python3.5 vent</title>
+      <link>https://linjinbao.github.io/2021/2021-09-16-python3-venv/</link>
+      <pubDate>Wed, 15 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-09-16-python3-venv/</guid>
+      <description>python3.5后原生支持虚拟环境
+创建命令：
+python3 -m venv ./venv --system-site-packages &amp;ndash;system-site-packages 参数用于保留已存在的包</description>
+    </item>
     
     <item>
       <title>ack-edge介绍</title>
