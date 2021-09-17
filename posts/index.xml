@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 17 Sep 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://linjinbao.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>kubernetes源码通读-01-项目结构</title>
+      <link>https://linjinbao.github.io/2021/2021-09-17-kubernetes%E6%BA%90%E7%A0%81%E9%80%9A%E8%AF%BB-01/</link>
+      <pubDate>Fri, 17 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-09-17-kubernetes%E6%BA%90%E7%A0%81%E9%80%9A%E8%AF%BB-01/</guid>
+      <description>目录结构 ➜ kubernetes git:(release-1.22) tree -LC 1 . ├── CHANGELOG ├── CHANGELOG.md -&amp;gt; CHANGELOG/README.md ├── CONTRIBUTING.md ├── LICENSE ├── LICENSES ├── Makefile -&amp;gt; build/root/Makefile ├── Makefile.</description>
+    </item>
     
     <item>
       <title>python3.5 vent</title>
@@ -20,6 +29,32 @@
       <description>python3.5后原生支持虚拟环境
 创建命令：
 python3 -m venv ./venv --system-site-packages &amp;ndash;system-site-packages 参数用于保留已存在的包</description>
+    </item>
+    
+    <item>
+      <title>kubernetes扩展详细实现</title>
+      <link>https://linjinbao.github.io/2021/2021-09-06-kubernete%E6%89%A9%E5%B1%95%E8%AF%A6%E7%BB%86%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Mon, 06 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-09-06-kubernete%E6%89%A9%E5%B1%95%E8%AF%A6%E7%BB%86%E5%AE%9E%E7%8E%B0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://linjinbao.github.io/2021/2021-09-02-kubernetes%E4%BB%8B%E7%BB%8D/</link>
+      <pubDate>Thu, 02 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://linjinbao.github.io/2021/2021-09-02-kubernetes%E4%BB%8B%E7%BB%8D/</guid>
+      <description>kubernetes简介 k8s是一个便携的，可扩展的，以及开源的平台，用来管理容器化的工作负载和服务，该基础设施兼具声明式配置和自动化特性。k8s是一个大型的，快速成长的生态系统。使用k8s服务，支持以及工具，具备广泛的可行性
+关键词：容器编排
+由于篇幅限制，由来就不做介绍。
+详细文档：https://k8s.amrom.tk/
+架构详解 控制平面：kube-controller-manager kube-apiserver kube-scheduler
+工作平面：kubelet kube-proxy
+数据存储：etcd
+通信机制 Kubernetes具有“中心辐射型” API模式。 来自节点（或它们运行的Pod）的所有API使用都在apiserver处终止。 其他控制平面组件均未设计为公开远程服务。 apiserver配置为侦听启用了一种或多种形式的客户端身份验证的安全HTTPS端口（通常为443）上的远程连接。 应该启用一种或多种形式的授权，尤其是在允许匿名请求或服务帐户令牌的情况下。
+控制平面与工作平面的通信默认为使用HTTP连接，具体为kubelet与kube-apiserver的实时通信。通信的主要目的有如下：</description>
     </item>
     
     <item>

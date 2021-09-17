@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工笔记">
+  <meta name="keywords" content="博客 个人 笔记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2021/2021-09-16-python3-venv/" />
+  
+  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-09-17-kubernetes%E6%BA%90%E7%A0%81%E9%80%9A%E8%AF%BB-01/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           kubernetes源码通读-01-项目结构 | 打工笔记
+       
+  </title>
+  <meta name="title" content="kubernetes源码通读-01-项目结构 | 打工笔记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "kubernetes源码通读-01-项目结构",
+    "headline" : "kubernetes源码通读-01-项目结构",
+    "description" : "目录结构 ➜ kubernetes git:(release-1.22) tree -LC 1 . ├── CHANGELOG ├── CHANGELOG.md -\x26gt; CHANGELOG\/README.md ├── CONTRIBUTING.md ├── LICENSE ├── LICENSES ├── Makefile -\x26gt; build\/root\/Makefile ├── Makefile.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-09-17 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-09-17 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-09-17-kubernetes%E6%BA%90%E7%A0%81%E9%80%9A%E8%AF%BB-01\/",
+    "wordCount" : "344",
+    "keywords" : [  "打工笔记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工笔记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;
+                <a href="https://linjinbao.github.io">打工笔记</a>
+            </div>
+            <div class="menu-toggle">
+                <svg t="1618556759902" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1299" width="16" height="16"><path d="M896 1024h-213.333333a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m768-170.666667h-213.333333a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128zM128 85.333333a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z" p-id="1300"></path></svg>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">kubernetes源码通读-01-项目结构</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=17099-09-17 itemprop="datePublished">September 17, 2021</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="目录结构">目录结构</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">➜  kubernetes git:<span style="color:#f92672">(</span>release-1.22<span style="color:#f92672">)</span> tree -LC <span style="color:#ae81ff">1</span>
+.
+├── CHANGELOG
+├── CHANGELOG.md -&gt; CHANGELOG/README.md
+├── CONTRIBUTING.md
+├── LICENSE
+├── LICENSES
+├── Makefile -&gt; build/root/Makefile
+├── Makefile.generated_files -&gt; build/root/Makefile.generated_files
+├── OWNERS
+├── OWNERS_ALIASES
+├── README.md
+├── SECURITY_CONTACTS
+├── SUPPORT.md
+├── _output
+├── api
+├── build
+├── cluster
+├── cmd
+├── code-of-conduct.md
+├── docs
+├── go.mod
+├── go.sum
+├── hack
+├── logo
+├── pkg
+├── plugin
+├── staging
+├── test
+├── third_party
+└── vendor
+
+<span style="color:#ae81ff">16</span> directories, <span style="color:#ae81ff">13</span> files
+</code></pre></div><p>除去一些证书，更新日志等文件之外，重点需要关注以下几个目录；</p>
+<h2 id="重点目录">重点目录</h2>
+<ol>
+<li>
+<p>Makefile</p>
+<p>该文件表明kubernetes是使用编译工具make管理的，文件中定义了编译的命令，例如make all表明编译所有；</p>
+</li>
+<li>
+<p>_output</p>
+<p>该目录为默认的编译输出位置，其大致结构如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">➜  _output git:<span style="color:#f92672">(</span>release-1.22<span style="color:#f92672">)</span> tree -L <span style="color:#ae81ff">4</span>
+.
+├── AGGREGATOR_violations.report
+├── APIEXTENSIONS_violations.report
+├── CODEGEN_violations.report
+├── KUBE_violations.report
+├── SAMPLEAPISERVER_violations.report
+├── bin -&gt; /Users/apple/code/kubernetes/_output/local/bin/darwin/amd64
+└── local
+    ├── bin
+    │   ├── darwin
+    │   │   └── amd64
+    │   └── go-bindata
+    └── go
+        ├── BUILD.bazel
+        ├── bin
+        │   ├── apiextensions-apiserver
+        │   ├── conversion-gen
+        │   ├── deepcopy-gen
+        │   ├── defaulter-gen
+        │   ├── e2e.test
+        │   ├── gendocs
+        │   ├── genkubedocs
+        │   ├── genman
+        │   ├── genswaggertypedocs
+        │   ├── genyaml
+        │   ├── ginkgo
+        │   ├── go-bindata
+        │   ├── go-runner
+        │   ├── go2make
+        │   ├── hyperkube
+        │   ├── kube-aggregator
+        │   ├── kube-apiserver
+        │   ├── kube-controller-manager
+        │   ├── kube-proxy
+        │   ├── kube-scheduler
+        │   ├── kubeadm
+        │   ├── kubectl
+        │   ├── kubectl-convert
+        │   ├── kubelet
+        │   ├── kubemark
+        │   ├── linkcheck
+        │   ├── mounter
+        │   ├── openapi-gen
+        │   └── prerelease-lifecycle-gen
+</code></pre></div><p>这些组件k8s的组件构成，编译时需要注意跨平台的问题，必要时使用交叉编译即可；</p>
+</li>
+<li>
+<p>api</p>
+<p>该目录用于提供swagger文档（铁打的文档，流水的swagger）；</p>
+</li>
+<li>
+<p>build</p>
+<p>该目录是编译时调用的shell脚本，即Makefile会调用该目录中的脚本；</p>
+</li>
+<li>
+<p>cluster</p>
+<p>集群部署文档与脚本</p>
+</li>
+<li>
+<p><!-- raw HTML omitted -->cmd<!-- raw HTML omitted --></p>
+<p>重点，该目录为各个组件的入口函数所在，目录如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">➜  cmd git:<span style="color:#f92672">(</span>release-1.22<span style="color:#f92672">)</span> tree -L <span style="color:#ae81ff">1</span>
+.
+├── OWNERS
+├── clicheck
+├── cloud-controller-manager
+├── dependencycheck
+├── gendocs
+├── genkubedocs
+├── genman
+├── genswaggertypedocs
+├── genutils
+├── genyaml
+├── importverifier
+├── kube-apiserver
+├── kube-controller-manager
+├── kube-proxy
+├── kube-scheduler
+├── kubeadm
+├── kubectl
+├── kubectl-convert
+├── kubelet
+├── kubemark
+├── linkcheck
+└── preferredimports
+   
+<span style="color:#ae81ff">21</span> directories, <span style="color:#ae81ff">1</span> file
+</code></pre></div><p>例如kube-apiserver组件的入口函数：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#960050;background-color:#1e0010">➜</span>  <span style="color:#a6e22e">cmd</span> <span style="color:#a6e22e">git</span>:(<span style="color:#a6e22e">release</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1.22</span>) <span style="color:#a6e22e">cat</span> <span style="color:#a6e22e">kube</span><span style="color:#f92672">-</span><span style="color:#a6e22e">apiserver</span><span style="color:#f92672">/</span><span style="color:#a6e22e">apiserver</span>.<span style="color:#66d9ef">go</span> 
+<span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+   
+<span style="color:#f92672">import</span> (
+ <span style="color:#e6db74">&#34;math/rand&#34;</span>
+ <span style="color:#e6db74">&#34;os&#34;</span>
+ <span style="color:#e6db74">&#34;time&#34;</span>
+   
+ <span style="color:#e6db74">&#34;github.com/spf13/pflag&#34;</span>
+   
+ <span style="color:#a6e22e">cliflag</span> <span style="color:#e6db74">&#34;k8s.io/component-base/cli/flag&#34;</span>
+ <span style="color:#e6db74">&#34;k8s.io/component-base/logs&#34;</span>
+ <span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;k8s.io/component-base/logs/json/register&#34;</span>          <span style="color:#75715e">// for JSON log format registration
+</span><span style="color:#75715e"></span> <span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;k8s.io/component-base/metrics/prometheus/clientgo&#34;</span> <span style="color:#75715e">// load all the prometheus client-go plugins
+</span><span style="color:#75715e"></span> <span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;k8s.io/component-base/metrics/prometheus/version&#34;</span>  <span style="color:#75715e">// for version metric registration
+</span><span style="color:#75715e"></span> <span style="color:#e6db74">&#34;k8s.io/kubernetes/cmd/kube-apiserver/app&#34;</span>
+)
+   
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+ <span style="color:#a6e22e">rand</span>.<span style="color:#a6e22e">Seed</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>().<span style="color:#a6e22e">UnixNano</span>())
+   
+ <span style="color:#a6e22e">pflag</span>.<span style="color:#a6e22e">CommandLine</span>.<span style="color:#a6e22e">SetNormalizeFunc</span>(<span style="color:#a6e22e">cliflag</span>.<span style="color:#a6e22e">WordSepNormalizeFunc</span>)
+   
+ <span style="color:#a6e22e">command</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">NewAPIServerCommand</span>()
+   
+ <span style="color:#a6e22e">logs</span>.<span style="color:#a6e22e">InitLogs</span>()
+ <span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">logs</span>.<span style="color:#a6e22e">FlushLogs</span>()
+   
+ <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">command</span>.<span style="color:#a6e22e">Execute</span>(); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+     <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Exit</span>(<span style="color:#ae81ff">1</span>)
+ }
+}
+</code></pre></div></li>
+<li>
+<p>hack</p>
+<p>该目录貌似是代码生成器使用</p>
+</li>
+<li>
+<p><!-- raw HTML omitted -->pkg<!-- raw HTML omitted --></p>
+<p>该目录为个组件的逻辑代码</p>
+</li>
+</ol>
+<h2 id="阅读指导">阅读指导</h2>
+<p>组件的入口函数在cmd目录中，其会调用pkg目录下的包与方法</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>作者:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+    </div>
+
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2021/2021-09-16-python3-venv/" class="prev" rel="prev" title="python3.5 vent"><i class="iconfont icon-left"></i>&nbsp;python3.5 vent</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= 'title'
+        label= 'utterance'
+        theme= 'github-dark-orange'
+        crossorigin="anonymous"
+        async>
+    </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

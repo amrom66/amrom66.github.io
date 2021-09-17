@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工笔记">
+  <meta name="keywords" content="博客 个人 笔记">
+  
+  <link rel="prev" href="https://linjinbao.github.io/2021/2021-09-01-ack-edge%E4%BD%BF%E7%94%A8/" />
+  <link rel="next" href="https://linjinbao.github.io/2021/2021-09-06-kubernete%E6%89%A9%E5%B1%95%E8%AF%A6%E7%BB%86%E5%AE%9E%E7%8E%B0/" />
+  <link rel="canonical" href="https://linjinbao.github.io/2021/2021-09-02-kubernetes%E4%BB%8B%E7%BB%8D/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+            | 打工笔记
+       
+  </title>
+  <meta name="title" content=" | 打工笔记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/linjinbao.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "",
+    "headline" : "",
+    "description" : "kubernetes简介 k8s是一个便携的，可扩展的，以及开源的平台，用来管理容器化的工作负载和服务，该基础设施兼具声明式配置和自动化特性。k8s是一个大型的，快速成长的生态系统。使用k8s服务，支持以及工具，具备广泛的可行性\n关键词：容器编排\n由于篇幅限制，由来就不做介绍。\n详细文档：https:\/\/k8s.amrom.tk\/\n架构详解 控制平面：kube-controller-manager kube-apiserver kube-scheduler\n工作平面：kubelet kube-proxy\n数据存储：etcd\n通信机制 Kubernetes具有“中心辐射型” API模式。 来自节点（或它们运行的Pod）的所有API使用都在apiserver处终止。 其他控制平面组件均未设计为公开远程服务。 apiserver配置为侦听启用了一种或多种形式的客户端身份验证的安全HTTPS端口（通常为443）上的远程连接。 应该启用一种或多种形式的授权，尤其是在允许匿名请求或服务帐户令牌的情况下。\n控制平面与工作平面的通信默认为使用HTTP连接，具体为kubelet与kube-apiserver的实时通信。通信的主要目的有如下：",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-09-02 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-09-02 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/linjinbao.github.io\/2021\/2021-09-02-kubernetes%E4%BB%8B%E7%BB%8D\/",
+    "wordCount" : "67",
+    "keywords" : [  "打工笔记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工笔记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;
+                <a href="https://linjinbao.github.io">打工笔记</a>
+            </div>
+            <div class="menu-toggle">
+                <svg t="1618556759902" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1299" width="16" height="16"><path d="M896 1024h-213.333333a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m768-170.666667h-213.333333a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128zM128 85.333333a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z" p-id="1300"></path></svg>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline"></h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=2099-09-02 itemprop="datePublished">September 2, 2021</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="kubernetes简介">kubernetes简介</h1>
+<p>k8s是一个便携的，可扩展的，以及开源的平台，用来管理容器化的工作负载和服务，该基础设施兼具声明式配置和自动化特性。k8s是一个大型的，快速成长的生态系统。使用k8s服务，支持以及工具，具备广泛的可行性</p>
+<p>关键词：容器编排</p>
+<p>由于篇幅限制，由来就不做介绍。</p>
+<p>详细文档：<code>https://k8s.amrom.tk/</code></p>
+<h2 id="架构详解">架构详解</h2>
+<p><img src="https://d33wubrfki0l68.cloudfront.net/2475489eaf20163ec0f54ddc1d92aa8d4c87c96b/e7c81/images/docs/components-of-kubernetes.svg" alt="架构图"></p>
+<p>控制平面：<code>kube-controller-manager</code> <code>kube-apiserver</code> <code>kube-scheduler</code></p>
+<p>工作平面：<code>kubelet</code> <code>kube-proxy</code></p>
+<p>数据存储：<code>etcd</code></p>
+<h3 id="通信机制">通信机制</h3>
+<p>Kubernetes具有“中心辐射型” API模式。 来自节点（或它们运行的Pod）的所有API使用都在apiserver处终止。 其他控制平面组件均未设计为公开远程服务。 apiserver配置为侦听启用了一种或多种形式的客户端身份验证的安全HTTPS端口（通常为443）上的远程连接。 应该启用一种或多种形式的授权，尤其是在允许匿名请求或服务帐户令牌的情况下。</p>
+<p>控制平面与工作平面的通信默认为使用HTTP连接，具体为<code>kubelet</code>与<code>kube-apiserver</code>的实时通信。通信的主要目的有如下：</p>
+<ul>
+<li>正在获取pod的日志。</li>
+<li>附加到运行中的pod</li>
+<li>提供<code>kubelet</code>的端口转发功能。</li>
+</ul>
+<p>![image-20210902134222837](/Users/apple/Library/Application Support/typora-user-images/image-20210902134222837.png)</p>
+<h2 id="机制原理">机制原理</h2>
+<p>kubernetes对工作负载进行了封装，以Deployment和statefulset形式分发，一个完整的部署流程可以看作如下：</p>
+<ol>
+<li>控制平面，输入声明式文件，该文件由kubectl提交到apiserver解析，然后存储到etcd，该文件以<code>kind: </code>标示自身的资源类型。</li>
+<li>kube-controller-manager根据资源类型，选择适当的控制器解析文件，匹配标签、选择器、存储卷，以及其他过滤器</li>
+<li>kube-scheduler根据该资源的自身要求，以及工作节点当前的状态，决定将任务下发到哪一个工作节点。</li>
+<li>kube-apiserver进行任务的下发</li>
+<li>kubelet 工作于工作节点，接受到任务后，在自身节点调用具体的runtime启动容器</li>
+<li>kubelet会定期上报自身节点信息，以及运行在自身节点的容器状态，上报到apiserver</li>
+</ol>
+<p>kubernetes的机制可以理解为一个标准的list/watch机制，其控制平面与工作平面各司其职，通过HTTP通信上报/下发数据。</p>
+<p>其资源的解析，部分发生在控制平面，部分发生在工作平面。</p>
+<h2 id="可以考虑的扩展">可以考虑的扩展</h2>
+<ol>
+<li>
+<p>离线场景的处理</p>
+<p>通过在工作节点外挂数据库，存储当前节点的数据，来实现控制平面与工作节点断连时的正常运行。</p>
+</li>
+<li>
+<p>非容器类型的编排</p>
+<p>通过自定义资源类型，以及自定义控制器，来实现非容器类型的任务下发，工作节点需要实现与之对应的运行时程序。</p>
+</li>
+</ol>
+<h1 id="kubeedge的实现">kubeedge的实现</h1>
+<h2 id="介绍">介绍</h2>
+<p>KubeEdge是一个开源系统，用于将容器化应用程序编排功能扩展到Edge的主机。它基于kubernetes构建，并为网络应用程序提供基础架构支持。云和边缘之间的部署和元数据同步。 KubeEdge使用Apache 2.0许可。并且绝对可以免费用于个人或商业用途。我们欢迎贡献者！</p>
+<p>我们的目标是创建一个开放平台，使能边缘计算，将容器化应用编排功能扩展到边缘的节点和设备，后者基于kubernetes构建，并为云和边缘之间的网络，应用部署和元数据同步提供基础架构支持。</p>
+<p>以上是官方给的介绍，理解起来就2个核心概念：</p>
+<ol>
+<li>容器编排</li>
+<li>边缘计算</li>
+</ol>
+<h2 id="架构">架构</h2>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/973703/1630488614862-62ae58d8-02c8-4806-ad33-58ee295dc977.png" alt="img"></p>
+<h2 id="改进一-离线场景的处理">改进一 离线场景的处理</h2>
+<p>其分为控制平面和工作节点，控制平面服务容器的调度，集群配置的存储，以及<code>针对各个工作节点的实时控制</code>。工作节点则<code>实时</code>通过http通信接收控制平面下发的指令和数据，并且上报自生节点的容器状态。控制平面与工作节点以近乎实时的紧密通信，来保障集群的稳定运行。但是存在一个潜在的问题：如果控制平面和工作节点的通信断了怎么处理，工作节点的容器还能正常工作吗？新的容器任务能够下发吗？这个是k8s自身的一个缺陷，即离线场景的处理。kubeedge实现了离线场景下的调度。kubeedge在设计上直接考虑了离线的清醒，其分为<code>云端</code>和<code>边缘</code>端。很明显云端拥有整个集群的所有信息，但是边缘端也存储了一部分配置信息，由于边缘端存储了容器运行所需要的信息，所以即使处在离线场景，也能正常运行（一段时间）。</p>
+<h2 id="改进二-定制的组件">改进二 定制的组件</h2>
+<p>kubeedge定制实现了几个组件，首先是云端的cloud-controller，用来解析自定义资源类型<code>Device</code>；其次是edged，其代替kubelet工作在工作节点，实现 Pod，Volume，Node 等 Kubernetes 资源对象的生命周期管理，将控制平面的部分工作承接过来；metamanager负责本地元数据的持久化。</p>
+<h1 id="我们的定制化需求">我们的定制化需求</h1>
+<p>管理以下场景：</p>
+<ol>
+<li>IOT设备</li>
+<li>执行代理、网关等资源的管理</li>
+<li>对接底座系统</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>作者:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+    </div>
+
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://linjinbao.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://linjinbao.github.io/2021/2021-09-01-ack-edge%E4%BD%BF%E7%94%A8/" class="prev" rel="prev" title="ack-edge介绍"><i class="iconfont icon-left"></i>&nbsp;ack-edge介绍</a>
+         
+        
+        <a href="https://linjinbao.github.io/2021/2021-09-06-kubernete%E6%89%A9%E5%B1%95%E8%AF%A6%E7%BB%86%E5%AE%9E%E7%8E%B0/" class="next" rel="next" title="kubernetes扩展详细实现">kubernetes扩展详细实现&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'linjinbao/linjinbao.github.io'
+        issue-term= 'title'
+        label= 'utterance'
+        theme= 'github-dark-orange'
+        crossorigin="anonymous"
+        async>
+    </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

@@ -59,18 +59,6 @@
   
 
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-160203449-2', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
   <body class="">
     <div class="wrapper">
         <nav class="navbar">
@@ -142,6 +130,29 @@ if (!doNotTrack) {
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-09-17-kubernetes%E6%BA%90%E7%A0%81%E9%80%9A%E8%AF%BB-01/">kubernetes源码通读-01-项目结构</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				目录结构 ➜ kubernetes git:(release-1.22) tree -LC 1 . ├── CHANGELOG ├── CHANGELOG.md -&gt; CHANGELOG/README.md ├── CONTRIBUTING.md ├── LICENSE ├── LICENSES ├── Makefile -&gt; build/root/Makefile ├── Makefile.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2021-09-17 itemprop="datePublished">September 17, 2021</time>
+                </span>
+                in
+                
+        	</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
 				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-09-16-python3-venv/">python3.5 vent</a></h1>
 			</header>
 			<div class="post-content">
@@ -156,6 +167,60 @@ python3 -m venv ./venv --system-site-packages &ndash;system-site-packages 参数
 				<div class="post-meta">
                 <span class="post-time">
                 <time datetime=2021-09-15 itemprop="datePublished">September 15, 2021</time>
+                </span>
+                in
+                
+        	</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-09-06-kubernete%E6%89%A9%E5%B1%95%E8%AF%A6%E7%BB%86%E5%AE%9E%E7%8E%B0/">kubernetes扩展详细实现</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2021-09-06 itemprop="datePublished">September 6, 2021</time>
+                </span>
+                in
+                
+        	</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://linjinbao.github.io/2021/2021-09-02-kubernetes%E4%BB%8B%E7%BB%8D/"></a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				kubernetes简介 k8s是一个便携的，可扩展的，以及开源的平台，用来管理容器化的工作负载和服务，该基础设施兼具声明式配置和自动化特性。k8s是一个大型的，快速成长的生态系统。使用k8s服务，支持以及工具，具备广泛的可行性
+关键词：容器编排
+由于篇幅限制，由来就不做介绍。
+详细文档：https://k8s.amrom.tk/
+架构详解 控制平面：kube-controller-manager kube-apiserver kube-scheduler
+工作平面：kubelet kube-proxy
+数据存储：etcd
+通信机制 Kubernetes具有“中心辐射型” API模式。 来自节点（或它们运行的Pod）的所有API使用都在apiserver处终止。 其他控制平面组件均未设计为公开远程服务。 apiserver配置为侦听启用了一种或多种形式的客户端身份验证的安全HTTPS端口（通常为443）上的远程连接。 应该启用一种或多种形式的授权，尤其是在允许匿名请求或服务帐户令牌的情况下。
+控制平面与工作平面的通信默认为使用HTTP连接，具体为kubelet与kube-apiserver的实时通信。通信的主要目的有如下：
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2021-09-02 itemprop="datePublished">September 2, 2021</time>
                 </span>
                 in
                 
