@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>k8s on 打工笔记</title>
-    <link>https://linjinbao.github.io/tags/k8s/</link>
+    <link>https://amrom66.github.io/tags/k8s/</link>
     <description>Recent content in k8s on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 07 Feb 2021 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://linjinbao.github.io/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amrom66.github.io/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>pod获取自身参数</title>
-      <link>https://linjinbao.github.io/2021/2021-02-07-pod%E8%8E%B7%E5%8F%96%E8%87%AA%E8%BA%AB%E5%8F%82%E6%95%B0/</link>
+      <link>https://amrom66.github.io/2021/2021-02-07-pod%E8%8E%B7%E5%8F%96%E8%87%AA%E8%BA%AB%E5%8F%82%E6%95%B0/</link>
       <pubDate>Sun, 07 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2021/2021-02-07-pod%E8%8E%B7%E5%8F%96%E8%87%AA%E8%BA%AB%E5%8F%82%E6%95%B0/</guid>
+      <guid>https://amrom66.github.io/2021/2021-02-07-pod%E8%8E%B7%E5%8F%96%E8%87%AA%E8%BA%AB%E5%8F%82%E6%95%B0/</guid>
       <description>简介 很多场景下，我们想要在容器运行的时候获取该副本本身的一些信息，例如副本的名称（名称由rc自动分配），当前运行的节点名，当前副本的IP等等信息，k8s为这类场景提供了解决方案。
 示例：
 downward-api-env.yaml
@@ -25,10 +25,10 @@ apiVersion: v1 kind: Pod metadata: name: downward spec: containers: - name: main
     
     <item>
       <title>PromQL语法学习</title>
-      <link>https://linjinbao.github.io/2021/2021-02-03-promql%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://amrom66.github.io/2021/2021-02-03-promql%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Wed, 03 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2021/2021-02-03-promql%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://amrom66.github.io/2021/2021-02-03-promql%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/</guid>
       <description>直接指标查询  表达式：node_load1表示查询当前1分钟的负载，仅使用指标查询。
  函数查询  表达式：rate(node_cpu[2m])，表示查询单位时间（2分钟）内样本数据的增长率。
 表达式：rate(node_load1[2m])，表示每2分钟内指标node_load1表示的指标的增长率。
@@ -38,38 +38,38 @@ apiVersion: v1 kind: Pod metadata: name: downward spec: containers: - name: main
     
     <item>
       <title>k8s in action 阅读笔记</title>
-      <link>https://linjinbao.github.io/2021/2021-01-28-k8s-in-action-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</link>
+      <link>https://amrom66.github.io/2021/2021-01-28-k8s-in-action-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2021/2021-01-28-k8s-in-action-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://amrom66.github.io/2021/2021-01-28-k8s-in-action-%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</guid>
       <description>如何保证多次请求命中同一个pod？  If you execute the same command a few more times, you should hit a different pod with every invocation, because the service proxy normally forwards each connection to a randomly selected backing pod, even if the connections are coming from the same client.</description>
     </item>
     
     <item>
       <title>flannel网络部署</title>
-      <link>https://linjinbao.github.io/2020/2020-01-25-flannel%E7%BD%91%E7%BB%9C/</link>
+      <link>https://amrom66.github.io/2020/2020-01-25-flannel%E7%BD%91%E7%BB%9C/</link>
       <pubDate>Sat, 25 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-01-25-flannel%E7%BD%91%E7%BB%9C/</guid>
+      <guid>https://amrom66.github.io/2020/2020-01-25-flannel%E7%BD%91%E7%BB%9C/</guid>
       <description>flannel网络部署 简介 Flannel is a simple and easy way to configure a layer 3 network fabric designed for Kubernetes. Flannel runs a small, single binary agent called flanneld on each host, and is responsible for allocating a subnet lease to each host out of a larger, preconfigured address space.</description>
     </item>
     
     <item>
       <title>k8s完整搭建文档</title>
-      <link>https://linjinbao.github.io/2020/2020-01-25-k8s%E6%90%AD%E5%BB%BA/</link>
+      <link>https://amrom66.github.io/2020/2020-01-25-k8s%E6%90%AD%E5%BB%BA/</link>
       <pubDate>Sat, 25 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-01-25-k8s%E6%90%AD%E5%BB%BA/</guid>
+      <guid>https://amrom66.github.io/2020/2020-01-25-k8s%E6%90%AD%E5%BB%BA/</guid>
       <description>k8s完整搭建文档 2. 准备事项 机器环境：centos7.6 主节点：192.168.126.135 从节点：192.168.126.136， 192.168.126.137 2.1 机器hostname设置
 hostnamectl set-hostname etcd1 # 192.168.126.135机器执行 hostnamectl set-hostname etcd2 # 192.168.126.136机器执行 hostnamectl set-hostname etcd3 # 192.</description>
     </item>
     
     <item>
       <title>etcd使用</title>
-      <link>https://linjinbao.github.io/2020/2020-01-24-etcd%E4%BD%BF%E7%94%A8/</link>
+      <link>https://amrom66.github.io/2020/2020-01-24-etcd%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-01-24-etcd%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://amrom66.github.io/2020/2020-01-24-etcd%E4%BD%BF%E7%94%A8/</guid>
       <description>etcd使用 简介 etcd是CoreOS团队于2013年6月发起的开源项目，它的目标是构建一个高可用的分布式键值(key-value)数据库。etcd内部采用raft协议作为一致性算法，etcd基于Go语言实现。 etcd作为服务发现系统，有以下的特点： 简单：安装配置简单，而且提供了HTTP API进行交互，使用也很简单 安全：支持SSL证书验证 快速：根据官方提供的benchmark数据，单实例支持每秒2k+读操作 可靠：采用raft算法，实现分布式系统数据的可用性和一致性
 etcd项目地址：https://github.com/coreos/etcd/
 应用场景 etcd比较多的应用场景是用于服务发现，服务发现(Service Discovery)要解决的是分布式系统中最常见的问题之一，即在同一个分布式集群中的进程或服务如何才能找到对方并建立连接。 从本质上说，服务发现就是要了解集群中是否有进程在监听upd或者tcp端口，并且通过名字就可以进行查找和链接。 要解决服务发现的问题，需要下面三大支柱，缺一不可。

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>教程 on 打工笔记</title>
-    <link>https://linjinbao.github.io/tags/%E6%95%99%E7%A8%8B/</link>
+    <link>https://amrom66.github.io/tags/%E6%95%99%E7%A8%8B/</link>
     <description>Recent content in 教程 on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 07 Dec 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://linjinbao.github.io/tags/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amrom66.github.io/tags/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>docker部署wordpress</title>
-      <link>https://linjinbao.github.io/2019/2019-12-07-docker%E9%83%A8%E7%BD%B2wordpress/</link>
+      <link>https://amrom66.github.io/2019/2019-12-07-docker%E9%83%A8%E7%BD%B2wordpress/</link>
       <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-12-07-docker%E9%83%A8%E7%BD%B2wordpress/</guid>
+      <guid>https://amrom66.github.io/2019/2019-12-07-docker%E9%83%A8%E7%BD%B2wordpress/</guid>
       <description>docker部署wordpress 环境要求： 1. docker 2. Linux服务器
 第一步：准备配置文件 uploads.ini
 file_uploads = On memory_limit = 64M upload_max_filesize = 64M post_max_size = 64M max_execution_time = 600 第二步：下载wordpress镜像和mysql镜像</description>
@@ -24,10 +24,10 @@ file_uploads = On memory_limit = 64M upload_max_filesize = 64M post_max_size = 6
     
     <item>
       <title>博客加入评论功能</title>
-      <link>https://linjinbao.github.io/2019/2019-09-26-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8A%A0%E5%85%A5%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</link>
+      <link>https://amrom66.github.io/2019/2019-09-26-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8A%A0%E5%85%A5%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</link>
       <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-09-26-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8A%A0%E5%85%A5%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-26-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8A%A0%E5%85%A5%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</guid>
       <description>2019-09-26-个人博客加入评论功能 个人博客加入评论功能 实现思路： 使用第三方存储，白嫖美滋滋
 按照姑苏流白的教程，我使用Valine的评论系统
 配置Valine  注册 登录账号 略过 建立应用 配置应用keys，配置项：AppID， AppKey  修改博客配置  修改config.toml配置  加入以下内容：
@@ -36,10 +36,10 @@ file_uploads = On memory_limit = 64M upload_max_filesize = 64M post_max_size = 6
     
     <item>
       <title>Mongodb安装与使用</title>
-      <link>https://linjinbao.github.io/2019/2019-09-24-mongodb/</link>
+      <link>https://amrom66.github.io/2019/2019-09-24-mongodb/</link>
       <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-09-24-mongodb/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-24-mongodb/</guid>
       <description>Mongodb安装与使用 背景知识 最近在项目实施过程中遇到一个问题：由于客户提供的Linux机器没有最下滑化安装，导致使用公司的bin包方式安装Mongodb失败。本着能自己解决就自己解决的态度，我开始了Mongodb的研究。
 安装和启动   下载
 因为centos的官放的yum源中没有提供Mongodb的安装包，此时我们需要自己下载下来（也可以修改yum源，不推荐） 执行命令wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.0.tgz 下载安装包
@@ -50,10 +50,10 @@ file_uploads = On memory_limit = 64M upload_max_filesize = 64M post_max_size = 6
     
     <item>
       <title>GitHub博客教程</title>
-      <link>https://linjinbao.github.io/2019/2019-09-23-%E5%8D%9A%E5%AE%A2/</link>
+      <link>https://amrom66.github.io/2019/2019-09-23-%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-09-23-%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-23-%E5%8D%9A%E5%AE%A2/</guid>
       <description>GitHub博客 作为一名程序员，每天的学习必不可少，但是，如果只是乱糟糟的学习，而不懂得如何去记笔记，那效率可想而知。一个技术博客，是大多数程序员的必须品。漂亮的博客，让工作顺心，让学习更有效率，更有动力。今天，我来教大家如何利用GitHub提供的免费服务，打造自己的专属博客，白嫖美滋滋。
 前期准备；   GitHub账号
   Hugo 软件
@@ -65,19 +65,19 @@ file_uploads = On memory_limit = 64M upload_max_filesize = 64M post_max_size = 6
     
     <item>
       <title>Docker常用操作教程</title>
-      <link>https://linjinbao.github.io/2019/2019-07-05-docker/</link>
+      <link>https://amrom66.github.io/2019/2019-07-05-docker/</link>
       <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-07-05-docker/</guid>
+      <guid>https://amrom66.github.io/2019/2019-07-05-docker/</guid>
       <description>Docker笔记 Docker安装 yum install docker -ysystemctl start docker.servicesystemctl status docker.servicesystemctl stop docker.servicesystemctl start docker.servicesystemctl restart docker.</description>
     </item>
     
     <item>
       <title>Docker常用操作教程</title>
-      <link>https://linjinbao.github.io/2019/2019-07-05-docker%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%95%99%E7%A8%8B/</link>
+      <link>https://amrom66.github.io/2019/2019-07-05-docker%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%95%99%E7%A8%8B/</link>
       <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-07-05-docker%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%95%99%E7%A8%8B/</guid>
+      <guid>https://amrom66.github.io/2019/2019-07-05-docker%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%95%99%E7%A8%8B/</guid>
       <description>Docker常用操作教程 Docker笔记 Docker安装 yum install docker -y systemctl start docker.service systemctl status docker.service systemctl stop docker.service systemctl start docker.service systemctl restart docker.</description>
     </item>
     

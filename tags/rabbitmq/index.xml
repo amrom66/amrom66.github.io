@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>RabbitMq on 打工笔记</title>
-    <link>https://linjinbao.github.io/tags/rabbitmq/</link>
+    <link>https://amrom66.github.io/tags/rabbitmq/</link>
     <description>Recent content in RabbitMq on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 25 Sep 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://linjinbao.github.io/tags/rabbitmq/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amrom66.github.io/tags/rabbitmq/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>RabbitMq安装部署</title>
-      <link>https://linjinbao.github.io/2019/2019-09-25-rabbitmqwindows/</link>
+      <link>https://amrom66.github.io/2019/2019-09-25-rabbitmqwindows/</link>
       <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-09-25-rabbitmqwindows/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-25-rabbitmqwindows/</guid>
       <description>RabbitMq-Windows版本部署 软件下载  otp_win64_R16B03-1.exe rabbitmq-server-3.6.9.exe  软件安装一路下一步，全部使用默认地址
 启动服务 进入C:\Program Files (x86)\RabbitMQ Server\rabbitmq_server-3.4.1\sbin目录，运行cmd，输入命令rabbitmq-plugins enable rabbitmq_management：
 C:\Program Files\RabbitMQ Server\rabbitmq_server-3.6.9\sbin&amp;gt; rabbitmq-plugins enable rabbitmq_management The following plugins have been enabled: amqp_client cowlib cowboy rabbitmq_web_dispatch rabbitmq_management_agent rabbitmq_management Applying plugin configuration to rabbit@DESKTOP-I1CQLLJ.</description>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mybatis on 打工笔记</title>
-    <link>https://linjinbao.github.io/tags/mybatis/</link>
+    <link>https://amrom66.github.io/tags/mybatis/</link>
     <description>Recent content in mybatis on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 27 Feb 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://linjinbao.github.io/tags/mybatis/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amrom66.github.io/tags/mybatis/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Spring Boot教程第6篇：springboot 整合mybatis</title>
-      <link>https://linjinbao.github.io/2020/2020-02-27-mybatis/</link>
+      <link>https://amrom66.github.io/2020/2020-02-27-mybatis/</link>
       <pubDate>Thu, 27 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-02-27-mybatis/</guid>
+      <guid>https://amrom66.github.io/2020/2020-02-27-mybatis/</guid>
       <description>Spring Boot教程第6篇：springboot 整合mybatis 前言：spring boot 与mybatis整合严格要求版本，即
 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.mybatis.spring.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis-spring-boot-starter&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.1.1&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; mybatis的坐标依赖的spring版本需要在maven仓库查看，如当前版本需要使用springboot 2.1.9.RELEASE版本
  pom.xml  &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;project xmlns=&amp;quot;http://maven.</description>
@@ -24,10 +24,10 @@
     
     <item>
       <title>ssm整合</title>
-      <link>https://linjinbao.github.io/2019/2019-07-01-ssm%E6%95%B4%E5%90%88/</link>
+      <link>https://amrom66.github.io/2019/2019-07-01-ssm%E6%95%B4%E5%90%88/</link>
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-07-01-ssm%E6%95%B4%E5%90%88/</guid>
+      <guid>https://amrom66.github.io/2019/2019-07-01-ssm%E6%95%B4%E5%90%88/</guid>
       <description>ssm整合 pom.xml &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;project xmlns=&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemaLocation=&amp;quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;groupId&amp;gt;tk.amrom&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;crms&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;packaging&amp;gt;war&amp;lt;/packaging&amp;gt; &amp;lt;name&amp;gt;crms Maven Webapp&amp;lt;/name&amp;gt; &amp;lt;!-- FIXME change it to the project&#39;s website --&amp;gt; &amp;lt;url&amp;gt;http://www.</description>
     </item>
     

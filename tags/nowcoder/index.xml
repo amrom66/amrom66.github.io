@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>nowcoder on 打工笔记</title>
-    <link>https://linjinbao.github.io/tags/nowcoder/</link>
+    <link>https://amrom66.github.io/tags/nowcoder/</link>
     <description>Recent content in nowcoder on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 25 Sep 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://linjinbao.github.io/tags/nowcoder/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amrom66.github.io/tags/nowcoder/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>牛客网题目-树的子结构</title>
-      <link>https://linjinbao.github.io/2019/2019-09-25-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/</link>
+      <link>https://amrom66.github.io/2019/2019-09-25-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/</link>
       <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-09-25-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-25-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/</guid>
       <description>2019-09-25-树的子结构 题目名称：树的子结构 题目描述 输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）
 分析： 第一想法是递归，只要是树，我就上递归。分析情况有以下3种：
  当前root1节点=当前root2节点 当前root1节点！=当前root2节点，但是root1.left和root2节点相等 当前root1节点！=当前root2节点，但是root1.right和root2节点相等  所以需要一个辅助函数helper

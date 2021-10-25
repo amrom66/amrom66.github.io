@@ -9,9 +9,9 @@
   <meta name="description" content="打工笔记">
   <meta name="keywords" content="博客 个人 笔记">
   
-  <link rel="prev" href="https://linjinbao.github.io/2020/2020-10-15-k8s-%E6%98%A0%E5%B0%84%E5%A4%96%E9%83%A8%E6%9C%8D%E5%8A%A1/" />
-  <link rel="next" href="https://linjinbao.github.io/2020/2020-10-16-k8s-1.16%E4%BA%8C%E8%BF%9B%E5%88%B6%E9%83%A8%E7%BD%B2/" />
-  <link rel="canonical" href="https://linjinbao.github.io/2020/2020-10-16-k8s%E7%9A%84rbac%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/" />
+  <link rel="prev" href="https://amrom66.github.io/2020/2020-10-15-k8s-%E6%98%A0%E5%B0%84%E5%A4%96%E9%83%A8%E6%9C%8D%E5%8A%A1/" />
+  <link rel="next" href="https://amrom66.github.io/2020/2020-10-16-k8s-1.16%E4%BA%8C%E8%BF%9B%E5%88%B6%E9%83%A8%E7%BD%B2/" />
+  <link rel="canonical" href="https://amrom66.github.io/2020/2020-10-16-k8s%E7%9A%84rbac%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,7 +41,7 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https:\/\/linjinbao.github.io"
+         "@id": "https:\/\/amrom66.github.io"
     },
     "articleSection" : "posts",
     "name" : "k8s的rbac权限控制",
@@ -56,7 +56,7 @@
     "copyrightYear" : "2020",
     "datePublished": "2020-10-16 00:00:00 \x2b0000 UTC",
     "dateModified" : "2020-10-16 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/linjinbao.github.io\/2020\/2020-10-16-k8s%E7%9A%84rbac%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6\/",
+    "url" : "https:\/\/amrom66.github.io\/2020\/2020-10-16-k8s%E7%9A%84rbac%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6\/",
     "wordCount" : "484",
     "keywords" : [  "打工笔记"]
 }
@@ -72,7 +72,7 @@
         <nav class="navbar">
     <div class="container">
         <div class="navbar-header header-logo">
-        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://linjinbao.github.io">打工笔记</a>
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://amrom66.github.io">打工笔记</a>
         </div>
         <div class="menu navbar-right">
                 
@@ -93,7 +93,7 @@
         <div class="navbar-header">
             <div>
                 <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;
-                <a href="https://linjinbao.github.io">打工笔记</a>
+                <a href="https://amrom66.github.io">打工笔记</a>
             </div>
             <div class="menu-toggle">
                 <svg t="1618556759902" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1299" width="16" height="16"><path d="M896 1024h-213.333333a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m768-170.666667h-213.333333a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128zM128 85.333333a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z" p-id="1300"></path></svg>
@@ -121,7 +121,7 @@
     <header class="post-header">
         <h1 class="post-title" itemprop="name headline">k8s的rbac权限控制</h1>
         <div class="post-meta">
-                作者： <a itemprop="name" href="https://linjinbao.github.io" rel="author">linjinbao66</a> 时间： 
+                作者： <a itemprop="name" href="https://amrom66.github.io" rel="author">linjinbao66</a> 时间： 
                 <span class="post-time">
                  <time datetime=16109-10-16 itemprop="datePublished">October 16, 2020</time>
                 </span>
@@ -351,23 +351,23 @@ Error from server <span style="color:#f92672">(</span>Forbidden<span style="colo
         
         <section>
                 <a href="javascript:window.history.back();">返回</a></span> · 
-                <span><a href="https://linjinbao.github.io">主页</a></span>
+                <span><a href="https://amrom66.github.io">主页</a></span>
         </section>
     </div>
 
     <div class="post-nav">
         
-        <a href="https://linjinbao.github.io/2020/2020-10-15-k8s-%E6%98%A0%E5%B0%84%E5%A4%96%E9%83%A8%E6%9C%8D%E5%8A%A1/" class="prev" rel="prev" title="k8s 映射外部服务"><i class="iconfont icon-left"></i>&nbsp;k8s 映射外部服务</a>
+        <a href="https://amrom66.github.io/2020/2020-10-15-k8s-%E6%98%A0%E5%B0%84%E5%A4%96%E9%83%A8%E6%9C%8D%E5%8A%A1/" class="prev" rel="prev" title="k8s 映射外部服务"><i class="iconfont icon-left"></i>&nbsp;k8s 映射外部服务</a>
          
         
-        <a href="https://linjinbao.github.io/2020/2020-10-16-k8s-1.16%E4%BA%8C%E8%BF%9B%E5%88%B6%E9%83%A8%E7%BD%B2/" class="next" rel="next" title="k8s-1.16二进制部署">k8s-1.16二进制部署&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://amrom66.github.io/2020/2020-10-16-k8s-1.16%E4%BA%8C%E8%BF%9B%E5%88%B6%E9%83%A8%E7%BD%B2/" class="next" rel="next" title="k8s-1.16二进制部署">k8s-1.16二进制部署&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
     <div class="post-comment">
 		  <div id="utter-container"></div>
     <script src="https://utteranc.es/client.js"
-        repo= 'linjinbao/linjinbao.github.io'
+        repo= 'amrom66/amrom66.github.io'
         issue-term= 'title'
         label= 'utterance'
         theme= 'github-dark-orange'
@@ -389,7 +389,7 @@ Error from server <span style="color:#f92672">(</span>Forbidden<span style="colo
     	 <i class="iconfont icon-love"></i> 
          </span>
          
-            <span class="author" itemprop="copyrightHolder"><a href="https://linjinbao.github.io">linjinbao66</a>  </span> 
+            <span class="author" itemprop="copyrightHolder"><a href="https://amrom66.github.io">linjinbao66</a>  </span> 
          
 
          

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>kubernets on 打工笔记</title>
-    <link>https://linjinbao.github.io/tags/kubernets/</link>
+    <link>https://amrom66.github.io/tags/kubernets/</link>
     <description>Recent content in kubernets on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 19 Jan 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://linjinbao.github.io/tags/kubernets/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amrom66.github.io/tags/kubernets/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>kubernetes笔记</title>
-      <link>https://linjinbao.github.io/2020/2020-01-19-k8s%E7%AC%94%E8%AE%B0/</link>
+      <link>https://amrom66.github.io/2020/2020-01-19-k8s%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Sun, 19 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-01-19-k8s%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://amrom66.github.io/2020/2020-01-19-k8s%E7%AC%94%E8%AE%B0/</guid>
       <description>kubernetes笔记 第一章 作用  弹性伸缩 滚动升级 解决了容器的端口冲突问题（个人理解）  kubernetes是一个容器编排工具，其针对服务的容器化部署进行统一的编排调度。k8s可以实现，流量高峰期的自动扩容，应用版本升级时的不停机更新，重点解决的是容器的统一部署出现的IP冲突问题。
 另一种实现思想：使用nginx做统一访问入口，通过监控nginx的访问日志监控，如果发现短时间的大量访问，则调用创建并启动新的应用容器，待容器启动成功后，更新nginx配置，nginx -s reload， 不重启更新，通过nginx的负载均衡策略将流量分配到新的容器上，在整个升级更新的过程中，用户不会发现应用已经发生了变化，session使用redis进行统一存储，解决用户掉线问题。
 安装部署 yum install etcd kubernetes ##安装 systemctl start etcd ##启动文件系统 systemctl start docker ##启动docker systemctl start kube-apiserver #启动api-server（核心组件），资源调度器 systemctl start kube-controller-manager ##启动访问控制器 systemctl start kube-scheduler ##低筒任务调度器 systemctl start kubelet ##启动？ systemctl start kube-proxy ##启动代理网络服务（重点） 示例 定义mysql-rc.</description>

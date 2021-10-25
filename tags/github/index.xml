@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>github on 打工笔记</title>
-    <link>https://linjinbao.github.io/tags/github/</link>
+    <link>https://amrom66.github.io/tags/github/</link>
     <description>Recent content in github on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 28 Feb 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://linjinbao.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amrom66.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>github webhooks配置</title>
-      <link>https://linjinbao.github.io/2020/2020-02-28-webhook/</link>
+      <link>https://amrom66.github.io/2020/2020-02-28-webhook/</link>
       <pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-02-28-webhook/</guid>
+      <guid>https://amrom66.github.io/2020/2020-02-28-webhook/</guid>
       <description>webhooks 自动部署 原理 利用Github在仓库进行操作时，可以通过配置webhook向服务器发送请求，在服务器端接到请求后，使用脚本来自动进行git pull操作。即，当我在本地机器A进行一个push操作到github，github会在这个操作结束后，发起一个POST请求到机器B，机器B收到这个请求后，执行同步操作，git fetch等等，因为使用的web服务，交换的数据格式为json等，所以叫webhooks，web钩子。
 准备工作  VPS （独立IP），或者能请求到的http服务网址就行，服务受自己控制 nodeJS  第一步 在机器B编写webhooks服务 webhooks服务可以使用Java Web，也可以使用Node，只要可以监听端口，并接收响应web请求就可以。
 我这里使用的Node的简易的Web服务。

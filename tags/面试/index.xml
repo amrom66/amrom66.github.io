@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>面试 on 打工笔记</title>
-    <link>https://linjinbao.github.io/tags/%E9%9D%A2%E8%AF%95/</link>
+    <link>https://amrom66.github.io/tags/%E9%9D%A2%E8%AF%95/</link>
     <description>Recent content in 面试 on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 17 Jul 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://linjinbao.github.io/tags/%E9%9D%A2%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amrom66.github.io/tags/%E9%9D%A2%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>新的开始</title>
-      <link>https://linjinbao.github.io/2020/2020-07-17-%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/</link>
+      <link>https://amrom66.github.io/2020/2020-07-17-%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/</link>
       <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-07-17-%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/</guid>
+      <guid>https://amrom66.github.io/2020/2020-07-17-%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/</guid>
       <description>新的开始 面试了两次
  端点 腾讯  感觉，能力还是不够，研究不够深入的全当做会的写在简历上了。
 面试题整理
@@ -25,10 +25,10 @@
     
     <item>
       <title>排序算法总结</title>
-      <link>https://linjinbao.github.io/2019/2019-09-14-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</link>
+      <link>https://amrom66.github.io/2019/2019-09-14-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</link>
       <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-09-14-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-14-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
       <description>排序总结 冒泡排序 原理：每次比较两个相邻的元素，将较大元素交换至右端 特点：每次循环结束，会出现一个排序好的元素，右侧 理解：大的数右移，重复此过程 代码：
 public static void bubbleSort(int[] nums){ for (int i=0; i&amp;lt;nums.length-1; i++){ //第i次循环找出第i小的元素0&amp;lt;=i&amp;lt;=length-1  for (int j=0; j&amp;lt;nums.</description>
     </item>

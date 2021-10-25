@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Redis on 打工笔记</title>
-    <link>https://linjinbao.github.io/tags/redis/</link>
+    <link>https://amrom66.github.io/tags/redis/</link>
     <description>Recent content in Redis on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 26 Jan 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://linjinbao.github.io/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amrom66.github.io/tags/redis/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>redis笔记</title>
-      <link>https://linjinbao.github.io/2020/2020-01-26-redis%E7%AC%94%E8%AE%B0/</link>
+      <link>https://amrom66.github.io/2020/2020-01-26-redis%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Sun, 26 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-01-26-redis%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://amrom66.github.io/2020/2020-01-26-redis%E7%AC%94%E8%AE%B0/</guid>
       <description>redis笔记 概述 Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker.</description>
     </item>
     
     <item>
       <title>redis集群搭建笔记</title>
-      <link>https://linjinbao.github.io/2020/2020-01-20-redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</link>
+      <link>https://amrom66.github.io/2020/2020-01-20-redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</link>
       <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-01-20-redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
+      <guid>https://amrom66.github.io/2020/2020-01-20-redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
       <description>redis集群搭建笔记 下载redis源码 wget http://download.redis.io/releases/redis-5.0.7.tar.gz tar -xvf redis-5.0.7.tar.gz 编译安装redis yum install gcc-c++ cd redis-5.0.7 make install PREFIX=/root/redis 准备文件夹 mkdir /root/redis-cluster mkdir /root/redis-cluster/redis01 mkdir /root/redis-cluster/redis02 mkdir /root/redis-cluster/redis03 mkdir /root/redis-cluster/redis04 mkdir /root/redis-cluster/redis05 mkdir /root/redis-cluster/redis06 整理配置文件 将/root/redis/bin中的所有文件复制到redis01-06中， /root/redis-cluster/redis01/redis.</description>
     </item>
     
     <item>
       <title>Redis笔记</title>
-      <link>https://linjinbao.github.io/2019/2019-07-29-redis%E7%AC%94%E8%AE%B0/</link>
+      <link>https://amrom66.github.io/2019/2019-07-29-redis%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-07-29-redis%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://amrom66.github.io/2019/2019-07-29-redis%E7%AC%94%E8%AE%B0/</guid>
       <description>Redis笔记 key-value结构 Redis目前有5种数据类型，分别是：
 String（字符串） List（列表） Hash（字典） Set（集合） Sorted Set（有序集合） 不同的数据类型，有不同的命令方式
 String 操作

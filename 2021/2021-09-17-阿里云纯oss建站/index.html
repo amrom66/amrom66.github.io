@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工笔记">
+  <meta name="keywords" content="博客 个人 笔记">
+  
+  <link rel="prev" href="https://amrom66.github.io/2021/2021-09-16-python3-venv/" />
+  <link rel="next" href="https://amrom66.github.io/2021/2021-09-17-kubernetes%E6%BA%90%E7%A0%81%E9%80%9A%E8%AF%BB-01/" />
+  <link rel="canonical" href="https://amrom66.github.io/2021/2021-09-17-%E9%98%BF%E9%87%8C%E4%BA%91%E7%BA%AFoss%E5%BB%BA%E7%AB%99/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           阿里云纯OSS建站 | 打工笔记
+       
+  </title>
+  <meta name="title" content="阿里云纯OSS建站 | 打工笔记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/amrom66.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "阿里云纯OSS建站",
+    "headline" : "阿里云纯OSS建站",
+    "description" : "背景介绍   网站访问的原理\n与网站相关的关键字大致有：域名，DNS解析，CNMAE解析，CDN，回源等等。用户侧通过在浏览器输入网址（域名），由DNS服务解析出后端的IP，浏览器访问IP，获取静态文件和动态数据\n示意图如下：\n根据示意图可以明显得出，想要优化网站的响应速度，注意力应当集中在步骤2和步骤3上。\n  OSS介绍\nOSS中文名为对象存储服务，其实现了通过HTTP协议传输文件，文件的容灾存储，文件的元数据存储等等功能。\n  CDN介绍\nCDN是网站速度优化的最常见方法，其只针对静态资源有效。其实现原理为利用CDN厂商在多个地方的备份存储，实现就近访问，该备份存储定期访问源站，回源率是一个衡量CDN性能的重要指标。\n  传统建站 传统的网站建设方案，遵循上图。其后端服务部署在ECS上，静态资源托管到CDN厂商。用户访问的时候，静态资源从CDN就近获取，动态数据则直接请求源站，也正是由于该特性，网站一般都会通过加载动画来演示页面的呈现。\n很明显，该建站方案的短板在于回源的问题上，因为后端服务只有一个，当用户从远距离访问的时候就会出现延时，多用户访问更加缓慢。解决该问题的方案一般有2种，一是借助CDN厂商的异地机房，部署多个副本，人为的做负载均很方案；二是尽量减少动态数据的出现，并加上延时动画来优化用户体验。",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-09-17 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-09-17 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/amrom66.github.io\/2021\/2021-09-17-%E9%98%BF%E9%87%8C%E4%BA%91%E7%BA%AFoss%E5%BB%BA%E7%AB%99\/",
+    "wordCount" : "47",
+    "keywords" : [  "打工笔记"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://amrom66.github.io">打工笔记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;
+                <a href="https://amrom66.github.io">打工笔记</a>
+            </div>
+            <div class="menu-toggle">
+                <svg t="1618556759902" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1299" width="16" height="16"><path d="M896 1024h-213.333333a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m768-170.666667h-213.333333a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128zM128 85.333333a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z" p-id="1300"></path></svg>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">阿里云纯OSS建站</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://amrom66.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=17099-09-17 itemprop="datePublished">September 17, 2021</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+            
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h2 id="背景介绍">背景介绍</h2>
+<ol>
+<li>
+<p>网站访问的原理</p>
+<p>与网站相关的关键字大致有：域名，DNS解析，CNMAE解析，CDN，回源等等。用户侧通过在浏览器输入网址（域名），由DNS服务解析出后端的IP，浏览器访问IP，获取静态文件和动态数据</p>
+<p>示意图如下：</p>
+<p><img src="../images/website-access.png" alt="网站访问示意图"></p>
+<p>根据示意图可以明显得出，想要优化网站的响应速度，注意力应当集中在步骤2和步骤3上。</p>
+</li>
+<li>
+<p>OSS介绍</p>
+<p>OSS中文名为对象存储服务，其实现了通过HTTP协议传输文件，文件的容灾存储，文件的元数据存储等等功能。</p>
+</li>
+<li>
+<p>CDN介绍</p>
+<p>CDN是网站速度优化的最常见方法，其只针对静态资源有效。其实现原理为利用CDN厂商在多个地方的备份存储，实现就近访问，该备份存储定期访问源站，回源率是一个衡量CDN性能的重要指标。</p>
+</li>
+</ol>
+<h2 id="传统建站">传统建站</h2>
+<p>传统的网站建设方案，遵循上图。其后端服务部署在ECS上，静态资源托管到CDN厂商。用户访问的时候，静态资源从CDN就近获取，动态数据则直接请求源站，也正是由于该特性，网站一般都会通过加载动画来演示页面的呈现。</p>
+<p>很明显，该建站方案的短板在于回源的问题上，因为后端服务只有一个，当用户从远距离访问的时候就会出现延时，多用户访问更加缓慢。解决该问题的方案一般有2种，一是借助CDN厂商的异地机房，部署多个副本，人为的做负载均很方案；二是尽量减少动态数据的出现，并加上延时动画来优化用户体验。</p>
+<h2 id="oss建站">OSS建站</h2>
+<p>标题中提到的利用OSS建站即是属于第二种。完全使用OSS建站的方案可行需要两个基本条件：</p>
+<ul>
+<li>OSS服务商支持配置域名托管</li>
+<li>站点的绝大数资源为静态资源，即可以完全在浏览器执行的文件</li>
+</ul>
+<p>PS：国内政策限制，需要域名备案</p>
+<h2 id="实现步骤">实现步骤</h2>
+<p>以下演示OSS站点的配置，以阿里云为例：</p>
+<h3 id="第一步-静态页">第一步 静态页</h3>
+<p>设置静态页面，点击【基础设置】&gt;【静态页面】&gt;【默认首页】</p>
+<p>![image-20210923134147118](/Users/apple/Library/Application Support/typora-user-images/image-20210923134147118.png)</p>
+<h3 id="第二步-配置域名">第二步 配置域名</h3>
+<p>配置域名</p>
+<p>![image-20210923134324225](/Users/apple/Library/Application Support/typora-user-images/image-20210923134324225.png)</p>
+<p>此处阿里云OSS使用的是CNAME解析，简单解释就是解析重定向。</p>
+<p>如果域名服务商与OSS服务商不一致的话，此处的CNMAE解析配置需要注意。</p>
+<h3 id="第三步-设置跨域">第三步 设置跨域</h3>
+<p>跨域产生的原理：需要注意的是跨域是浏览器为了安全性作出的防护措施，可以通过浏览器配置关闭。假设用户访问了A网站，A网站上有JS文件需要请求B网站的资源，此时浏览器会认定出现了跨域。</p>
+<p>解决跨域的方法一般有3种：</p>
+<ol>
+<li>在A网站的html文件中设置跨域声明</li>
+<li>在七层负载均衡器，例如nginx中批量设置相应头中带有<code>Access-Control-Allow-Origin</code>,<code>Access-Control-Allow-Methods</code>,<code>Access-Control-Allow-Headers</code></li>
+<li>使用JSONP请求替换JSON完成AJAX请求</li>
+</ol>
+<p>阿里云OSS的跨域设置</p>
+<p>![image-20210923135552702](/Users/apple/Library/Application Support/typora-user-images/image-20210923135552702.png)</p>
+<p>![image-20210923135600782](/Users/apple/Library/Application Support/typora-user-images/image-20210923135600782.png)</p>
+<h2 id="备注">备注</h2>
+<p>使用纯OSS建站会带来安全风险，原因就是因为浏览器的html和JS永远是明文存在。可能的风险如下：</p>
+<ol>
+<li>验证码借口被盗用</li>
+<li>redis等中间件密码被获取</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>作者:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+    </div>
+
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://amrom66.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://amrom66.github.io/2021/2021-09-16-python3-venv/" class="prev" rel="prev" title="python3.5 vent"><i class="iconfont icon-left"></i>&nbsp;python3.5 vent</a>
+         
+        
+        <a href="https://amrom66.github.io/2021/2021-09-17-kubernetes%E6%BA%90%E7%A0%81%E9%80%9A%E8%AF%BB-01/" class="next" rel="next" title="kubernetes源码通读-01-项目结构">kubernetes源码通读-01-项目结构&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'amrom66/amrom66.github.io'
+        issue-term= 'title'
+        label= 'utterance'
+        theme= 'github-dark-orange'
+        crossorigin="anonymous"
+        async>
+    </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2021</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://amrom66.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

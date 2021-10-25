@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>nat on 打工笔记</title>
-    <link>https://linjinbao.github.io/tags/nat/</link>
+    <link>https://amrom66.github.io/tags/nat/</link>
     <description>Recent content in nat on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 20 Feb 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://linjinbao.github.io/tags/nat/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amrom66.github.io/tags/nat/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>NAT转发软路由</title>
-      <link>https://linjinbao.github.io/2020/2020-02-20-nat/</link>
+      <link>https://amrom66.github.io/2020/2020-02-20-nat/</link>
       <pubDate>Thu, 20 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-02-20-nat/</guid>
+      <guid>https://amrom66.github.io/2020/2020-02-20-nat/</guid>
       <description>NAT转发软路由 配置NAT 转发软路由 # 开启 NAT 转发 firewall-cmd --permanent --zone=public --add-masquerade # 开放 DNS 使用的 53 端口，UDP # 必须，否则其他机器无法进行域名解析 firewall-cmd --zone=public --add-port=80/tcp --permanent # 检查是否允许 NAT 转发 firewall-cmd --query-masquerade # 禁止防火墙 NAT 转发 firewall-cmd --remove-masquerade 端口转发 # 将80端口的流量转发至8080 firewall-cmd --add-forward-port=port=80:proto=tcp:toport=8080 # 将80端口的流量转发至192.</description>
     </item>
     

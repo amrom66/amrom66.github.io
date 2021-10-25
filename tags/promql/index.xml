@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>PromQL on 打工笔记</title>
-    <link>https://linjinbao.github.io/tags/promql/</link>
+    <link>https://amrom66.github.io/tags/promql/</link>
     <description>Recent content in PromQL on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 03 Feb 2021 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://linjinbao.github.io/tags/promql/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amrom66.github.io/tags/promql/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>PromQL语法学习</title>
-      <link>https://linjinbao.github.io/2021/2021-02-03-promql%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://amrom66.github.io/2021/2021-02-03-promql%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Wed, 03 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2021/2021-02-03-promql%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://amrom66.github.io/2021/2021-02-03-promql%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0/</guid>
       <description>直接指标查询  表达式：node_load1表示查询当前1分钟的负载，仅使用指标查询。
  函数查询  表达式：rate(node_cpu[2m])，表示查询单位时间（2分钟）内样本数据的增长率。
 表达式：rate(node_load1[2m])，表示每2分钟内指标node_load1表示的指标的增长率。

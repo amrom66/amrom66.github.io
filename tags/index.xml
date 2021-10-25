@@ -2,750 +2,750 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 打工笔记</title>
-    <link>https://linjinbao.github.io/tags/</link>
+    <link>https://amrom66.github.io/tags/</link>
     <description>Recent content in Tags on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://linjinbao.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amrom66.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>gitlab</title>
-      <link>https://linjinbao.github.io/tags/gitlab/</link>
+      <link>https://amrom66.github.io/tags/gitlab/</link>
       <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/gitlab/</guid>
+      <guid>https://amrom66.github.io/tags/gitlab/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kubernetes</title>
-      <link>https://linjinbao.github.io/tags/kubernetes/</link>
+      <link>https://amrom66.github.io/tags/kubernetes/</link>
       <pubDate>Wed, 30 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/kubernetes/</guid>
+      <guid>https://amrom66.github.io/tags/kubernetes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>golang</title>
-      <link>https://linjinbao.github.io/tags/golang/</link>
+      <link>https://amrom66.github.io/tags/golang/</link>
       <pubDate>Mon, 14 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/golang/</guid>
+      <guid>https://amrom66.github.io/tags/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>git</title>
-      <link>https://linjinbao.github.io/tags/git/</link>
+      <link>https://amrom66.github.io/tags/git/</link>
       <pubDate>Fri, 19 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/git/</guid>
+      <guid>https://amrom66.github.io/tags/git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Docker</title>
-      <link>https://linjinbao.github.io/tags/docker/</link>
+      <link>https://amrom66.github.io/tags/docker/</link>
       <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/docker/</guid>
+      <guid>https://amrom66.github.io/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>打工日记</title>
-      <link>https://linjinbao.github.io/tags/%E6%89%93%E5%B7%A5%E6%97%A5%E8%AE%B0/</link>
+      <link>https://amrom66.github.io/tags/%E6%89%93%E5%B7%A5%E6%97%A5%E8%AE%B0/</link>
       <pubDate>Sun, 14 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E6%89%93%E5%B7%A5%E6%97%A5%E8%AE%B0/</guid>
+      <guid>https://amrom66.github.io/tags/%E6%89%93%E5%B7%A5%E6%97%A5%E8%AE%B0/</guid>
       <description></description>
     </item>
     
     <item>
       <title>k8s</title>
-      <link>https://linjinbao.github.io/tags/k8s/</link>
+      <link>https://amrom66.github.io/tags/k8s/</link>
       <pubDate>Sun, 07 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/k8s/</guid>
+      <guid>https://amrom66.github.io/tags/k8s/</guid>
       <description></description>
     </item>
     
     <item>
       <title>PromQL</title>
-      <link>https://linjinbao.github.io/tags/promql/</link>
+      <link>https://amrom66.github.io/tags/promql/</link>
       <pubDate>Wed, 03 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/promql/</guid>
+      <guid>https://amrom66.github.io/tags/promql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>cloud native</title>
-      <link>https://linjinbao.github.io/tags/cloud-native/</link>
+      <link>https://amrom66.github.io/tags/cloud-native/</link>
       <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/cloud-native/</guid>
+      <guid>https://amrom66.github.io/tags/cloud-native/</guid>
       <description></description>
     </item>
     
     <item>
       <title>v2ray</title>
-      <link>https://linjinbao.github.io/tags/v2ray/</link>
+      <link>https://amrom66.github.io/tags/v2ray/</link>
       <pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/v2ray/</guid>
+      <guid>https://amrom66.github.io/tags/v2ray/</guid>
       <description></description>
     </item>
     
     <item>
       <title>面试</title>
-      <link>https://linjinbao.github.io/tags/%E9%9D%A2%E8%AF%95/</link>
+      <link>https://amrom66.github.io/tags/%E9%9D%A2%E8%AF%95/</link>
       <pubDate>Fri, 17 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E9%9D%A2%E8%AF%95/</guid>
+      <guid>https://amrom66.github.io/tags/%E9%9D%A2%E8%AF%95/</guid>
       <description></description>
     </item>
     
     <item>
       <title>spring</title>
-      <link>https://linjinbao.github.io/tags/spring/</link>
+      <link>https://amrom66.github.io/tags/spring/</link>
       <pubDate>Mon, 02 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/spring/</guid>
+      <guid>https://amrom66.github.io/tags/spring/</guid>
       <description></description>
     </item>
     
     <item>
       <title>dns</title>
-      <link>https://linjinbao.github.io/tags/dns/</link>
+      <link>https://amrom66.github.io/tags/dns/</link>
       <pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/dns/</guid>
+      <guid>https://amrom66.github.io/tags/dns/</guid>
       <description></description>
     </item>
     
     <item>
       <title>github</title>
-      <link>https://linjinbao.github.io/tags/github/</link>
+      <link>https://amrom66.github.io/tags/github/</link>
       <pubDate>Fri, 28 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/github/</guid>
+      <guid>https://amrom66.github.io/tags/github/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mybatis</title>
-      <link>https://linjinbao.github.io/tags/mybatis/</link>
+      <link>https://amrom66.github.io/tags/mybatis/</link>
       <pubDate>Thu, 27 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/mybatis/</guid>
+      <guid>https://amrom66.github.io/tags/mybatis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>springboot</title>
-      <link>https://linjinbao.github.io/tags/springboot/</link>
+      <link>https://amrom66.github.io/tags/springboot/</link>
       <pubDate>Mon, 24 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/springboot/</guid>
+      <guid>https://amrom66.github.io/tags/springboot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Linux</title>
-      <link>https://linjinbao.github.io/tags/linux/</link>
+      <link>https://amrom66.github.io/tags/linux/</link>
       <pubDate>Fri, 21 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/linux/</guid>
+      <guid>https://amrom66.github.io/tags/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nat</title>
-      <link>https://linjinbao.github.io/tags/nat/</link>
+      <link>https://amrom66.github.io/tags/nat/</link>
       <pubDate>Thu, 20 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/nat/</guid>
+      <guid>https://amrom66.github.io/tags/nat/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hadoop</title>
-      <link>https://linjinbao.github.io/tags/hadoop/</link>
+      <link>https://amrom66.github.io/tags/hadoop/</link>
       <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/hadoop/</guid>
+      <guid>https://amrom66.github.io/tags/hadoop/</guid>
       <description></description>
     </item>
     
     <item>
       <title>frp</title>
-      <link>https://linjinbao.github.io/tags/frp/</link>
+      <link>https://amrom66.github.io/tags/frp/</link>
       <pubDate>Wed, 29 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/frp/</guid>
+      <guid>https://amrom66.github.io/tags/frp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Redis</title>
-      <link>https://linjinbao.github.io/tags/redis/</link>
+      <link>https://amrom66.github.io/tags/redis/</link>
       <pubDate>Sun, 26 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/redis/</guid>
+      <guid>https://amrom66.github.io/tags/redis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>flannel</title>
-      <link>https://linjinbao.github.io/tags/flannel/</link>
+      <link>https://amrom66.github.io/tags/flannel/</link>
       <pubDate>Sat, 25 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/flannel/</guid>
+      <guid>https://amrom66.github.io/tags/flannel/</guid>
       <description></description>
     </item>
     
     <item>
       <title>分布式</title>
-      <link>https://linjinbao.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/</link>
+      <link>https://amrom66.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/</link>
       <pubDate>Sat, 25 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/</guid>
+      <guid>https://amrom66.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F/</guid>
       <description></description>
     </item>
     
     <item>
       <title>etcd</title>
-      <link>https://linjinbao.github.io/tags/etcd/</link>
+      <link>https://amrom66.github.io/tags/etcd/</link>
       <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/etcd/</guid>
+      <guid>https://amrom66.github.io/tags/etcd/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kubernets</title>
-      <link>https://linjinbao.github.io/tags/kubernets/</link>
+      <link>https://amrom66.github.io/tags/kubernets/</link>
       <pubDate>Sun, 19 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/kubernets/</guid>
+      <guid>https://amrom66.github.io/tags/kubernets/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hive</title>
-      <link>https://linjinbao.github.io/tags/hive/</link>
+      <link>https://amrom66.github.io/tags/hive/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/hive/</guid>
+      <guid>https://amrom66.github.io/tags/hive/</guid>
       <description></description>
     </item>
     
     <item>
       <title>spark</title>
-      <link>https://linjinbao.github.io/tags/spark/</link>
+      <link>https://amrom66.github.io/tags/spark/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/spark/</guid>
+      <guid>https://amrom66.github.io/tags/spark/</guid>
       <description></description>
     </item>
     
     <item>
       <title>springmvc</title>
-      <link>https://linjinbao.github.io/tags/springmvc/</link>
+      <link>https://amrom66.github.io/tags/springmvc/</link>
       <pubDate>Sun, 08 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/springmvc/</guid>
+      <guid>https://amrom66.github.io/tags/springmvc/</guid>
       <description></description>
     </item>
     
     <item>
       <title>java</title>
-      <link>https://linjinbao.github.io/tags/java/</link>
+      <link>https://amrom66.github.io/tags/java/</link>
       <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/java/</guid>
+      <guid>https://amrom66.github.io/tags/java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>jvm</title>
-      <link>https://linjinbao.github.io/tags/jvm/</link>
+      <link>https://amrom66.github.io/tags/jvm/</link>
       <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/jvm/</guid>
+      <guid>https://amrom66.github.io/tags/jvm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>教程</title>
-      <link>https://linjinbao.github.io/tags/%E6%95%99%E7%A8%8B/</link>
+      <link>https://amrom66.github.io/tags/%E6%95%99%E7%A8%8B/</link>
       <pubDate>Sat, 07 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E6%95%99%E7%A8%8B/</guid>
+      <guid>https://amrom66.github.io/tags/%E6%95%99%E7%A8%8B/</guid>
       <description></description>
     </item>
     
     <item>
       <title>node</title>
-      <link>https://linjinbao.github.io/tags/node/</link>
+      <link>https://amrom66.github.io/tags/node/</link>
       <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/node/</guid>
+      <guid>https://amrom66.github.io/tags/node/</guid>
       <description></description>
     </item>
     
     <item>
       <title>shell</title>
-      <link>https://linjinbao.github.io/tags/shell/</link>
+      <link>https://amrom66.github.io/tags/shell/</link>
       <pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/shell/</guid>
+      <guid>https://amrom66.github.io/tags/shell/</guid>
       <description></description>
     </item>
     
     <item>
       <title>MYSQL</title>
-      <link>https://linjinbao.github.io/tags/mysql/</link>
+      <link>https://amrom66.github.io/tags/mysql/</link>
       <pubDate>Wed, 04 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/mysql/</guid>
+      <guid>https://amrom66.github.io/tags/mysql/</guid>
       <description></description>
     </item>
     
     <item>
       <title>多线程</title>
-      <link>https://linjinbao.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
+      <link>https://amrom66.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
       <pubDate>Tue, 03 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</guid>
+      <guid>https://amrom66.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</guid>
       <description></description>
     </item>
     
     <item>
       <title>dos</title>
-      <link>https://linjinbao.github.io/tags/dos/</link>
+      <link>https://amrom66.github.io/tags/dos/</link>
       <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/dos/</guid>
+      <guid>https://amrom66.github.io/tags/dos/</guid>
       <description></description>
     </item>
     
     <item>
       <title>vpn</title>
-      <link>https://linjinbao.github.io/tags/vpn/</link>
+      <link>https://amrom66.github.io/tags/vpn/</link>
       <pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/vpn/</guid>
+      <guid>https://amrom66.github.io/tags/vpn/</guid>
       <description></description>
     </item>
     
     <item>
       <title>网站</title>
-      <link>https://linjinbao.github.io/tags/%E7%BD%91%E7%AB%99/</link>
+      <link>https://amrom66.github.io/tags/%E7%BD%91%E7%AB%99/</link>
       <pubDate>Wed, 27 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E7%BD%91%E7%AB%99/</guid>
+      <guid>https://amrom66.github.io/tags/%E7%BD%91%E7%AB%99/</guid>
       <description></description>
     </item>
     
     <item>
       <title>http</title>
-      <link>https://linjinbao.github.io/tags/http/</link>
+      <link>https://amrom66.github.io/tags/http/</link>
       <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/http/</guid>
+      <guid>https://amrom66.github.io/tags/http/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nginx</title>
-      <link>https://linjinbao.github.io/tags/nginx/</link>
+      <link>https://amrom66.github.io/tags/nginx/</link>
       <pubDate>Mon, 25 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/nginx/</guid>
+      <guid>https://amrom66.github.io/tags/nginx/</guid>
       <description></description>
     </item>
     
     <item>
       <title>AOP</title>
-      <link>https://linjinbao.github.io/tags/aop/</link>
+      <link>https://amrom66.github.io/tags/aop/</link>
       <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/aop/</guid>
+      <guid>https://amrom66.github.io/tags/aop/</guid>
       <description></description>
     </item>
     
     <item>
       <title>LeetCode</title>
-      <link>https://linjinbao.github.io/tags/leetcode/</link>
+      <link>https://amrom66.github.io/tags/leetcode/</link>
       <pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/leetcode/</guid>
+      <guid>https://amrom66.github.io/tags/leetcode/</guid>
       <description></description>
     </item>
     
     <item>
       <title>算法</title>
-      <link>https://linjinbao.github.io/tags/%E7%AE%97%E6%B3%95/</link>
+      <link>https://amrom66.github.io/tags/%E7%AE%97%E6%B3%95/</link>
       <pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://amrom66.github.io/tags/%E7%AE%97%E6%B3%95/</guid>
       <description></description>
     </item>
     
     <item>
       <title>工具</title>
-      <link>https://linjinbao.github.io/tags/%E5%B7%A5%E5%85%B7/</link>
+      <link>https://amrom66.github.io/tags/%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E5%B7%A5%E5%85%B7/</guid>
+      <guid>https://amrom66.github.io/tags/%E5%B7%A5%E5%85%B7/</guid>
       <description></description>
     </item>
     
     <item>
       <title>笔记</title>
-      <link>https://linjinbao.github.io/tags/%E7%AC%94%E8%AE%B0/</link>
+      <link>https://amrom66.github.io/tags/%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 14 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://amrom66.github.io/tags/%E7%AC%94%E8%AE%B0/</guid>
       <description></description>
     </item>
     
     <item>
       <title>数组</title>
-      <link>https://linjinbao.github.io/tags/%E6%95%B0%E7%BB%84/</link>
+      <link>https://amrom66.github.io/tags/%E6%95%B0%E7%BB%84/</link>
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E6%95%B0%E7%BB%84/</guid>
+      <guid>https://amrom66.github.io/tags/%E6%95%B0%E7%BB%84/</guid>
       <description></description>
     </item>
     
     <item>
       <title>栈</title>
-      <link>https://linjinbao.github.io/tags/%E6%A0%88/</link>
+      <link>https://amrom66.github.io/tags/%E6%A0%88/</link>
       <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E6%A0%88/</guid>
+      <guid>https://amrom66.github.io/tags/%E6%A0%88/</guid>
       <description></description>
     </item>
     
     <item>
       <title>webpack</title>
-      <link>https://linjinbao.github.io/tags/webpack/</link>
+      <link>https://amrom66.github.io/tags/webpack/</link>
       <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/webpack/</guid>
+      <guid>https://amrom66.github.io/tags/webpack/</guid>
       <description></description>
     </item>
     
     <item>
       <title>学习</title>
-      <link>https://linjinbao.github.io/tags/%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://amrom66.github.io/tags/%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://amrom66.github.io/tags/%E5%AD%A6%E4%B9%A0/</guid>
       <description></description>
     </item>
     
     <item>
       <title>牛客网</title>
-      <link>https://linjinbao.github.io/tags/%E7%89%9B%E5%AE%A2%E7%BD%91/</link>
+      <link>https://amrom66.github.io/tags/%E7%89%9B%E5%AE%A2%E7%BD%91/</link>
       <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E7%89%9B%E5%AE%A2%E7%BD%91/</guid>
+      <guid>https://amrom66.github.io/tags/%E7%89%9B%E5%AE%A2%E7%BD%91/</guid>
       <description></description>
     </item>
     
     <item>
       <title>字符串</title>
-      <link>https://linjinbao.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+      <link>https://amrom66.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
       <pubDate>Sun, 29 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+      <guid>https://amrom66.github.io/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
       <description></description>
     </item>
     
     <item>
       <title>React</title>
-      <link>https://linjinbao.github.io/tags/react/</link>
+      <link>https://amrom66.github.io/tags/react/</link>
       <pubDate>Sat, 28 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/react/</guid>
+      <guid>https://amrom66.github.io/tags/react/</guid>
       <description></description>
     </item>
     
     <item>
       <title>中等</title>
-      <link>https://linjinbao.github.io/tags/%E4%B8%AD%E7%AD%89/</link>
+      <link>https://amrom66.github.io/tags/%E4%B8%AD%E7%AD%89/</link>
       <pubDate>Fri, 27 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E4%B8%AD%E7%AD%89/</guid>
+      <guid>https://amrom66.github.io/tags/%E4%B8%AD%E7%AD%89/</guid>
       <description></description>
     </item>
     
     <item>
       <title>博客</title>
-      <link>https://linjinbao.github.io/tags/%E5%8D%9A%E5%AE%A2/</link>
+      <link>https://amrom66.github.io/tags/%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>https://amrom66.github.io/tags/%E5%8D%9A%E5%AE%A2/</guid>
       <description></description>
     </item>
     
     <item>
       <title>链表</title>
-      <link>https://linjinbao.github.io/tags/%E9%93%BE%E8%A1%A8/</link>
+      <link>https://amrom66.github.io/tags/%E9%93%BE%E8%A1%A8/</link>
       <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E9%93%BE%E8%A1%A8/</guid>
+      <guid>https://amrom66.github.io/tags/%E9%93%BE%E8%A1%A8/</guid>
       <description></description>
     </item>
     
     <item>
       <title>nowcoder</title>
-      <link>https://linjinbao.github.io/tags/nowcoder/</link>
+      <link>https://amrom66.github.io/tags/nowcoder/</link>
       <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/nowcoder/</guid>
+      <guid>https://amrom66.github.io/tags/nowcoder/</guid>
       <description></description>
     </item>
     
     <item>
       <title>RabbitMq</title>
-      <link>https://linjinbao.github.io/tags/rabbitmq/</link>
+      <link>https://amrom66.github.io/tags/rabbitmq/</link>
       <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/rabbitmq/</guid>
+      <guid>https://amrom66.github.io/tags/rabbitmq/</guid>
       <description></description>
     </item>
     
     <item>
       <title>安装</title>
-      <link>https://linjinbao.github.io/tags/%E5%AE%89%E8%A3%85/</link>
+      <link>https://amrom66.github.io/tags/%E5%AE%89%E8%A3%85/</link>
       <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E5%AE%89%E8%A3%85/</guid>
+      <guid>https://amrom66.github.io/tags/%E5%AE%89%E8%A3%85/</guid>
       <description></description>
     </item>
     
     <item>
       <title>bat</title>
-      <link>https://linjinbao.github.io/tags/bat/</link>
+      <link>https://amrom66.github.io/tags/bat/</link>
       <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/bat/</guid>
+      <guid>https://amrom66.github.io/tags/bat/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mongodb</title>
-      <link>https://linjinbao.github.io/tags/mongodb/</link>
+      <link>https://amrom66.github.io/tags/mongodb/</link>
       <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/mongodb/</guid>
+      <guid>https://amrom66.github.io/tags/mongodb/</guid>
       <description></description>
     </item>
     
     <item>
       <title>数据库</title>
-      <link>https://linjinbao.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+      <link>https://amrom66.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
       <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+      <guid>https://amrom66.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
       <description></description>
     </item>
     
     <item>
       <title>windows</title>
-      <link>https://linjinbao.github.io/tags/windows/</link>
+      <link>https://amrom66.github.io/tags/windows/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/windows/</guid>
+      <guid>https://amrom66.github.io/tags/windows/</guid>
       <description></description>
     </item>
     
     <item>
       <title>小工具</title>
-      <link>https://linjinbao.github.io/tags/%E5%B0%8F%E5%B7%A5%E5%85%B7/</link>
+      <link>https://amrom66.github.io/tags/%E5%B0%8F%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E5%B0%8F%E5%B7%A5%E5%85%B7/</guid>
+      <guid>https://amrom66.github.io/tags/%E5%B0%8F%E5%B7%A5%E5%85%B7/</guid>
       <description></description>
     </item>
     
     <item>
       <title>netcat</title>
-      <link>https://linjinbao.github.io/tags/netcat/</link>
+      <link>https://amrom66.github.io/tags/netcat/</link>
       <pubDate>Sat, 21 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/netcat/</guid>
+      <guid>https://amrom66.github.io/tags/netcat/</guid>
       <description></description>
     </item>
     
     <item>
       <title>信息安全</title>
-      <link>https://linjinbao.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</link>
+      <link>https://amrom66.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</link>
       <pubDate>Sat, 21 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</guid>
+      <guid>https://amrom66.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</guid>
       <description></description>
     </item>
     
     <item>
       <title>网络</title>
-      <link>https://linjinbao.github.io/tags/%E7%BD%91%E7%BB%9C/</link>
+      <link>https://amrom66.github.io/tags/%E7%BD%91%E7%BB%9C/</link>
       <pubDate>Sat, 21 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E7%BD%91%E7%BB%9C/</guid>
+      <guid>https://amrom66.github.io/tags/%E7%BD%91%E7%BB%9C/</guid>
       <description></description>
     </item>
     
     <item>
       <title>开发</title>
-      <link>https://linjinbao.github.io/tags/%E5%BC%80%E5%8F%91/</link>
+      <link>https://amrom66.github.io/tags/%E5%BC%80%E5%8F%91/</link>
       <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E5%BC%80%E5%8F%91/</guid>
+      <guid>https://amrom66.github.io/tags/%E5%BC%80%E5%8F%91/</guid>
       <description></description>
     </item>
     
     <item>
       <title>后端开发</title>
-      <link>https://linjinbao.github.io/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/</link>
+      <link>https://amrom66.github.io/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/</link>
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/</guid>
+      <guid>https://amrom66.github.io/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/</guid>
       <description></description>
     </item>
     
     <item>
       <title>development</title>
-      <link>https://linjinbao.github.io/tags/development/</link>
+      <link>https://amrom66.github.io/tags/development/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/development/</guid>
+      <guid>https://amrom66.github.io/tags/development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>后端</title>
-      <link>https://linjinbao.github.io/tags/%E5%90%8E%E7%AB%AF/</link>
+      <link>https://amrom66.github.io/tags/%E5%90%8E%E7%AB%AF/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E5%90%8E%E7%AB%AF/</guid>
+      <guid>https://amrom66.github.io/tags/%E5%90%8E%E7%AB%AF/</guid>
       <description></description>
     </item>
     
     <item>
       <title>缓存</title>
-      <link>https://linjinbao.github.io/tags/%E7%BC%93%E5%AD%98/</link>
+      <link>https://amrom66.github.io/tags/%E7%BC%93%E5%AD%98/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E7%BC%93%E5%AD%98/</guid>
+      <guid>https://amrom66.github.io/tags/%E7%BC%93%E5%AD%98/</guid>
       <description></description>
     </item>
     
     <item>
       <title>服务端</title>
-      <link>https://linjinbao.github.io/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF/</link>
+      <link>https://amrom66.github.io/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF/</link>
       <pubDate>Sun, 28 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF/</guid>
+      <guid>https://amrom66.github.io/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF/</guid>
       <description></description>
     </item>
     
     <item>
       <title>仓库</title>
-      <link>https://linjinbao.github.io/tags/%E4%BB%93%E5%BA%93/</link>
+      <link>https://amrom66.github.io/tags/%E4%BB%93%E5%BA%93/</link>
       <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E4%BB%93%E5%BA%93/</guid>
+      <guid>https://amrom66.github.io/tags/%E4%BB%93%E5%BA%93/</guid>
       <description></description>
     </item>
     
     <item>
       <title>容器</title>
-      <link>https://linjinbao.github.io/tags/%E5%AE%B9%E5%99%A8/</link>
+      <link>https://amrom66.github.io/tags/%E5%AE%B9%E5%99%A8/</link>
       <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E5%AE%B9%E5%99%A8/</guid>
+      <guid>https://amrom66.github.io/tags/%E5%AE%B9%E5%99%A8/</guid>
       <description></description>
     </item>
     
     <item>
       <title>javaee</title>
-      <link>https://linjinbao.github.io/tags/javaee/</link>
+      <link>https://amrom66.github.io/tags/javaee/</link>
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/javaee/</guid>
+      <guid>https://amrom66.github.io/tags/javaee/</guid>
       <description></description>
     </item>
     
     <item>
       <title>JavaScript</title>
-      <link>https://linjinbao.github.io/tags/javascript/</link>
+      <link>https://amrom66.github.io/tags/javascript/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/javascript/</guid>
+      <guid>https://amrom66.github.io/tags/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>vue</title>
-      <link>https://linjinbao.github.io/tags/vue/</link>
+      <link>https://amrom66.github.io/tags/vue/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/vue/</guid>
+      <guid>https://amrom66.github.io/tags/vue/</guid>
       <description></description>
     </item>
     
     <item>
       <title>前端</title>
-      <link>https://linjinbao.github.io/tags/%E5%89%8D%E7%AB%AF/</link>
+      <link>https://amrom66.github.io/tags/%E5%89%8D%E7%AB%AF/</link>
       <pubDate>Mon, 24 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E5%89%8D%E7%AB%AF/</guid>
+      <guid>https://amrom66.github.io/tags/%E5%89%8D%E7%AB%AF/</guid>
       <description></description>
     </item>
     
     <item>
       <title>中间件</title>
-      <link>https://linjinbao.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
+      <link>https://amrom66.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
       <pubDate>Mon, 17 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/</guid>
+      <guid>https://amrom66.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Android</title>
-      <link>https://linjinbao.github.io/tags/android/</link>
+      <link>https://amrom66.github.io/tags/android/</link>
       <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/android/</guid>
+      <guid>https://amrom66.github.io/tags/android/</guid>
       <description></description>
     </item>
     
     <item>
       <title>学习笔记</title>
-      <link>https://linjinbao.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <link>https://amrom66.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://amrom66.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Office</title>
-      <link>https://linjinbao.github.io/tags/office/</link>
+      <link>https://amrom66.github.io/tags/office/</link>
       <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/tags/office/</guid>
+      <guid>https://amrom66.github.io/tags/office/</guid>
       <description></description>
     </item>
     

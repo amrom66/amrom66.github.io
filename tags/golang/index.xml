@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>golang on 打工笔记</title>
-    <link>https://linjinbao.github.io/tags/golang/</link>
+    <link>https://amrom66.github.io/tags/golang/</link>
     <description>Recent content in golang on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 14 Jun 2021 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://linjinbao.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amrom66.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>kubernetes源码学习01-cobra学习</title>
-      <link>https://linjinbao.github.io/2021/2021-06-14-kubernetes%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A001-cobra%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://amrom66.github.io/2021/2021-06-14-kubernetes%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A001-cobra%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Mon, 14 Jun 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2021/2021-06-14-kubernetes%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A001-cobra%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://amrom66.github.io/2021/2021-06-14-kubernetes%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A001-cobra%E5%AD%A6%E4%B9%A0/</guid>
       <description>Cobra是一个著名的CLI应用程序库，有很多知名的 Go 项目使用 Cobra 进行构建，比如：Kubernetes、Docker、Hugo 等等。
 概念解释 Cobra 是构建在命令、参数和标识符之上的：
  Commands 表示执行动作 Args 就是执行参数 Flags 是这些动作的标识符  基本的执行命令如下所示：
@@ -25,10 +25,10 @@ $ APPNAME Command Args --Flags # 或者 $ APPNAME Command --Flags Args 比如我
     
     <item>
       <title>go install和go build</title>
-      <link>https://linjinbao.github.io/2020/2020-02-25-go/</link>
+      <link>https://amrom66.github.io/2020/2020-02-25-go/</link>
       <pubDate>Tue, 25 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-02-25-go/</guid>
+      <guid>https://amrom66.github.io/2020/2020-02-25-go/</guid>
       <description>go install和go build go run go run ***.xml 解释：直接运行，不生成文件
 go build 解释：生成.exe文件
 go install 解释：生成exe，并且安装到$GOPATH下的bin中，类似于maven install
@@ -38,10 +38,10 @@ go install 解释：生成exe，并且安装到$GOPATH下的bin中，类似于ma
     
     <item>
       <title>Go语言结构体（struct）</title>
-      <link>https://linjinbao.github.io/2020/2020-01-02-golang%E7%BB%93%E6%9E%84%E4%BD%93/</link>
+      <link>https://amrom66.github.io/2020/2020-01-02-golang%E7%BB%93%E6%9E%84%E4%BD%93/</link>
       <pubDate>Thu, 02 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-01-02-golang%E7%BB%93%E6%9E%84%E4%BD%93/</guid>
+      <guid>https://amrom66.github.io/2020/2020-01-02-golang%E7%BB%93%E6%9E%84%E4%BD%93/</guid>
       <description>Go语言结构体（struct） Go 语言通过用自定义的方式形成新的类型，结构体是类型中带有成员的复合类型。Go 语言使用结构体和结构体成员来描述真实世界的实体和实体对应的各种属性。
 结构体成员是由一系列的成员变量构成，这些成员变量也被称为“字段”。字段有以下特性：
  字段拥有自己的类型和值。 字段名必须唯一。 字段的类型也可以是结构体，甚至是字段所在结构体的类型。  Go 语言中没有“类”的概念，也不支持“类”的继承等面向对象的概念。Go 语言的结构体与“类”都是复合结构体，但 Go 语言中结构体的内嵌配合接口比面向对象具有更高的扩展性和灵活性。Go 语言不仅认为结构体能拥有方法，且每种自定义类型也可以拥有自己的方法。
@@ -50,10 +50,10 @@ go install 解释：生成exe，并且安装到$GOPATH下的bin中，类似于ma
     
     <item>
       <title>golang容器</title>
-      <link>https://linjinbao.github.io/2020/2020-01-01-golang%E5%AE%B9%E5%99%A8/</link>
+      <link>https://amrom66.github.io/2020/2020-01-01-golang%E5%AE%B9%E5%99%A8/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-01-01-golang%E5%AE%B9%E5%99%A8/</guid>
+      <guid>https://amrom66.github.io/2020/2020-01-01-golang%E5%AE%B9%E5%99%A8/</guid>
       <description>golang容器 数组 声明：var 数组变量名 [元素数量]Type
 代码实例：
 func main() { var a [3]int fmt.Println(a[2]) fmt.Println(len(a)) /** 打印索引和元素 */ for i,v := range a { fmt.</description>
@@ -61,10 +61,10 @@ func main() { var a [3]int fmt.Println(a[2]) fmt.Println(len(a)) /** 打印索�
     
     <item>
       <title>go语言笔记—函数</title>
-      <link>https://linjinbao.github.io/2020/2020-01-01-golang%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://amrom66.github.io/2020/2020-01-01-golang%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-01-01-golang%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://amrom66.github.io/2020/2020-01-01-golang%E5%AD%A6%E4%B9%A0/</guid>
       <description>go语言笔记—函数 函数是组织好的、可重复使用的、用来实现单一或相关联功能的代码段，其可以提高应用的模块性和代码的重复利用率。Go 语言支持普通函数、匿名函数和闭包，从设计上对函数进行了优化和改进，让函数使用起来更加方便。Go 语言的函数属于“一等公民”（first-class），也就是说：
  函数本身可以作为值进行传递。 支持匿名函数和闭包（closure）。 函数可以满足接口。  函数定义 格式：
 func 函数名(形式参数列表)(返回值列表){ 函数体 } 多返回值：
@@ -73,10 +73,10 @@ func typedTwoValues() (int, int) { return 1, 2 } 对返回值命名：</descript
     
     <item>
       <title>golang学习</title>
-      <link>https://linjinbao.github.io/2019/2019-12-28-golang%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://amrom66.github.io/2019/2019-12-28-golang%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Sat, 28 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-12-28-golang%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://amrom66.github.io/2019/2019-12-28-golang%E5%AD%A6%E4%B9%A0/</guid>
       <description>golang学习 string 与 int 类型之间的转换 整型转字符串：Itoa()
 func main() { num := 100 str := strconv.Itoa(num) fmt.Printf(&amp;#34;type:%T value:%#v\n&amp;#34;, str, str) } 字符串转整形：Atoi()</description>
     </item>

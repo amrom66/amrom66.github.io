@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>v2ray on 打工笔记</title>
-    <link>https://linjinbao.github.io/tags/v2ray/</link>
+    <link>https://amrom66.github.io/tags/v2ray/</link>
     <description>Recent content in v2ray on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 10 Dec 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://linjinbao.github.io/tags/v2ray/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amrom66.github.io/tags/v2ray/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>v2ray全步骤记录</title>
-      <link>https://linjinbao.github.io/2020/2020-12-10-v2ray%E5%85%A8%E6%AD%A5%E9%AA%A4%E8%AE%B0%E5%BD%95/</link>
+      <link>https://amrom66.github.io/2020/2020-12-10-v2ray%E5%85%A8%E6%AD%A5%E9%AA%A4%E8%AE%B0%E5%BD%95/</link>
       <pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-12-10-v2ray%E5%85%A8%E6%AD%A5%E9%AA%A4%E8%AE%B0%E5%BD%95/</guid>
+      <guid>https://amrom66.github.io/2020/2020-12-10-v2ray%E5%85%A8%E6%AD%A5%E9%AA%A4%E8%AE%B0%E5%BD%95/</guid>
       <description>背景介绍 由于不可描述的原因，国内的网络长期针对谷歌等网站进行屏蔽，导致国内网络与世界脱轨，形成局域网，并且，时有民众因为“私自搭建非法网络信道”罪名被处罚。但是，作为程序员，本身非常依赖信息的获取，由此产生了搭建VPN的需求。注意，由于国情限制，此操作只可以私下小规模使用，并伴随牢狱风险。
 条件准备  国外VPS，建议vultr，国内的VPS由于处在大环境下，不会提供访问境外网络的服务，并有记录流量日志的行为。 VPN选择，在v2ray和trojan中进行选择，建议v2ray。 域名准备（可选），使用域名方便配合CDN代理进行源站伪装，避免IP被直接墙掉。  操作步骤 第一步：注册vultr账号： https://www.vultr.com；
 第二步：充值金额，新账号，一般会有$100的额度，所以一般无需充值，用完再充值；

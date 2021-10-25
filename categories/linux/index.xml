@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on 打工笔记</title>
-    <link>https://linjinbao.github.io/categories/linux/</link>
+    <link>https://amrom66.github.io/categories/linux/</link>
     <description>Recent content in Linux on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 16 Oct 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://linjinbao.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amrom66.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>firewalld防火墙使用</title>
-      <link>https://linjinbao.github.io/2019/2019-10-16-firewalld%E9%98%B2%E7%81%AB%E5%A2%99%E4%BD%BF%E7%94%A8/</link>
+      <link>https://amrom66.github.io/2019/2019-10-16-firewalld%E9%98%B2%E7%81%AB%E5%A2%99%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Wed, 16 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-10-16-firewalld%E9%98%B2%E7%81%AB%E5%A2%99%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://amrom66.github.io/2019/2019-10-16-firewalld%E9%98%B2%E7%81%AB%E5%A2%99%E4%BD%BF%E7%94%A8/</guid>
       <description>2019-10-16-firewalld防火墙使用 firewalld动态防火墙 firewalld 服务引入了一个信任级别的概念来管理与之相关联的连接与接口。它支持 ipv4 与 ipv6，并支持网桥，采用 firewall-cmd (command) 或 firewall-config (gui) 来动态的管理 kernel netfilter 的临时或永久的接口规则，并实时生效而无需重启服务。
 firewalld相关命令 systemctl start firewalld systemctl stop firewalld systemctl status firewalld systemctl enable firewalld firewall-cmd基本使用 firewall-cmd用来管理端口</description>
     </item>
     
     <item>
       <title>Linux笔记</title>
-      <link>https://linjinbao.github.io/2019/2019-09-13-linux%E7%AC%94%E8%AE%B0/</link>
+      <link>https://amrom66.github.io/2019/2019-09-13-linux%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-09-13-linux%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-13-linux%E7%AC%94%E8%AE%B0/</guid>
       <description>笔记 查找软件包rsync rpm -qa | grep rsync 客户端拉取 rsync -av root@192.168.59.130::backup /home/ljbao/ 打印指定行数据 sed -n &amp;#39;10,10p&amp;#39; file.txt cat file.txt | head -n 10 | tail -n +10 awk使用 awk &amp;#39;{print $2} {print $1}&amp;#39; emp.</description>
     </item>
     

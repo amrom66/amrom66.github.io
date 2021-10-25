@@ -2,68 +2,68 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on 打工笔记</title>
-    <link>https://linjinbao.github.io/tags/linux/</link>
+    <link>https://amrom66.github.io/tags/linux/</link>
     <description>Recent content in Linux on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 21 Feb 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://linjinbao.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amrom66.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>cent7修改仓库</title>
-      <link>https://linjinbao.github.io/2020/2020-02-21-centos7%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93/</link>
+      <link>https://amrom66.github.io/2020/2020-02-21-centos7%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93/</link>
       <pubDate>Fri, 21 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-02-21-centos7%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93/</guid>
+      <guid>https://amrom66.github.io/2020/2020-02-21-centos7%E4%BF%AE%E6%94%B9%E4%BB%93%E5%BA%93/</guid>
       <description>2020-02-21-centos7修改仓库  首先备份  /etc/yum.repos.d/CentOS-Base.repo mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup  进入yum源配置文件所在文件夹  [root@localhost yum.repos.d]# cd /etc/yum.repos.d/</description>
     </item>
     
     <item>
       <title>搭建12306抢票服务</title>
-      <link>https://linjinbao.github.io/2020/2020-01-17-12306%E6%8A%A2%E7%A5%A8/</link>
+      <link>https://amrom66.github.io/2020/2020-01-17-12306%E6%8A%A2%E7%A5%A8/</link>
       <pubDate>Fri, 17 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-01-17-12306%E6%8A%A2%E7%A5%A8/</guid>
+      <guid>https://amrom66.github.io/2020/2020-01-17-12306%E6%8A%A2%E7%A5%A8/</guid>
       <description>搭建12306抢票服务 准备环境 软件地址：https://github.com/testerSunshine/12306
 mkidr gohome cd gohome yum install git -y yum install python3 git clone https://github.com/amromlin/12306.git pip3 install -i https://pypi.</description>
     </item>
     
     <item>
       <title>Linux学习</title>
-      <link>https://linjinbao.github.io/2019/2019-12-05-linux%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E6%9F%A5%E7%9C%8B/</link>
+      <link>https://amrom66.github.io/2019/2019-12-05-linux%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E6%9F%A5%E7%9C%8B/</link>
       <pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-12-05-linux%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E6%9F%A5%E7%9C%8B/</guid>
+      <guid>https://amrom66.github.io/2019/2019-12-05-linux%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8%E6%9F%A5%E7%9C%8B/</guid>
       <description>Linux 端口占用查看  ss查看  ss -lntpd | grep :22 示例：
 [root@jk-zhengwu03 ~]# ss -lntpd Netid State Recv-Q Send-Q Local Address:Port Peer Address:Port tcp LISTEN 0 128 *:27017 *:* users:((&amp;#34;mongod&amp;#34;,pid=5175,fd=11)) tcp LISTEN 0 128 *:22 *:* users:((&amp;#34;sshd&amp;#34;,pid=1399,fd=3)) tcp LISTEN 0 100 127.</description>
     </item>
     
     <item>
       <title>Linux端口扫描</title>
-      <link>https://linjinbao.github.io/2019/2019-12-05-linux%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/</link>
+      <link>https://amrom66.github.io/2019/2019-12-05-linux%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/</link>
       <pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-12-05-linux%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/</guid>
+      <guid>https://amrom66.github.io/2019/2019-12-05-linux%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/</guid>
       <description>2019-12-05-Linux端口扫描 Linux扫描网段主机是否可通  单纯扫描  ##!/bin/sh declare -i I=1 declare -i S=100 while \[ $I -le $S \] ; do IP=&amp;#34;192.</description>
     </item>
     
     <item>
       <title>Linux命令学习</title>
-      <link>https://linjinbao.github.io/2019/2019-12-03-linux%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://amrom66.github.io/2019/2019-12-03-linux%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Tue, 03 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-12-03-linux%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://amrom66.github.io/2019/2019-12-03-linux%E5%AD%A6%E4%B9%A0/</guid>
       <description>Linux命令学习 更新yum源 cd /ect/yum.repos.d/CentOS-Base.repo mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo yum makecache yum -y update Linux系统监控命令  top命令  top - 14:10:24 up 83 days, 22:45, 1 user, load average: 0.</description>
     </item>
     
     <item>
       <title>openvpn服务搭建</title>
-      <link>https://linjinbao.github.io/2019/2019-11-28-openvpn%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</link>
+      <link>https://amrom66.github.io/2019/2019-11-28-openvpn%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</link>
       <pubDate>Thu, 28 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-11-28-openvpn%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</guid>
+      <guid>https://amrom66.github.io/2019/2019-11-28-openvpn%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</guid>
       <description>openvpn服务搭建 安装openvpn 和easy-rsa（制作ca证书） 方法一：
 wget http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm rpm -Uvh epel-release-6-8.noarch.rpm yum install openvpn wget https://github.com/OpenVPN/easy-rsa/archive/master.zip unzip master.zip 方法二：
 yum -y install epel-release #epel源 yum -y install openvpn easy-rsa ca证书制作（重点难点）   创建目录，并复制easy-rsa 目录</description>
@@ -71,10 +71,10 @@ yum -y install epel-release #epel源 yum -y install openvpn easy-rsa ca证书制
     
     <item>
       <title>网站申请SSL证书-腾讯云</title>
-      <link>https://linjinbao.github.io/2019/2019-11-27-%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/</link>
+      <link>https://amrom66.github.io/2019/2019-11-27-%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/</link>
       <pubDate>Wed, 27 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-11-27-%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/</guid>
+      <guid>https://amrom66.github.io/2019/2019-11-27-%E7%BD%91%E7%AB%99%E7%94%B3%E8%AF%B7ssl%E8%AF%81%E4%B9%A6/</guid>
       <description>2019-11-27-网站申请SSL证书 网站申请SSL证书   腾讯云文档
   选择证书类型，这里选择免费的
  配置域名验证  这一步是将腾讯云提供的一串文字，放直到服务器web应用内，腾讯云服务器定时去扫描这个域名，如果发现存在文件且匹配，则证明这个域名是你的，目的就是验证身份
@@ -84,20 +84,20 @@ yum -y install epel-release #epel源 yum -y install openvpn easy-rsa ca证书制
     
     <item>
       <title>linux find 按文件时间查询</title>
-      <link>https://linjinbao.github.io/2019/2019-11-23-linux-find%E6%8C%89%E7%85%A7%E6%97%B6%E9%97%B4%E6%9F%A5%E8%AF%A2/</link>
+      <link>https://amrom66.github.io/2019/2019-11-23-linux-find%E6%8C%89%E7%85%A7%E6%97%B6%E9%97%B4%E6%9F%A5%E8%AF%A2/</link>
       <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-11-23-linux-find%E6%8C%89%E7%85%A7%E6%97%B6%E9%97%B4%E6%9F%A5%E8%AF%A2/</guid>
+      <guid>https://amrom66.github.io/2019/2019-11-23-linux-find%E6%8C%89%E7%85%A7%E6%97%B6%E9%97%B4%E6%9F%A5%E8%AF%A2/</guid>
       <description>需求:删除 /home/ljbao/myback/files 目录下7分钟之前生成的gz类型的文件 find /home/ljbao/myback/files -mtime +7 -name &amp;#34;*.gz&amp;#34; -exec rm {} \; //时间条件
 -amin n: 查找n分钟以前被访问过的所有文件。 -atime n: 查找n天以前被访问过的所有文件。 -cmin n: 查找n分钟以前文件状态被修改过的所有文件。 -ctime n: 查找n天以前文件状态被修改过的所有文件。 -mmin n: 查找n分钟以前文件内容被修改过的所有文件。 -mtime n: 查找n天以前文件内容被修改过的所有文件。 </description>
     </item>
     
     <item>
       <title>Linux用户，用户组，密码，文件权限</title>
-      <link>https://linjinbao.github.io/2019/2019-11-20-linux/</link>
+      <link>https://amrom66.github.io/2019/2019-11-20-linux/</link>
       <pubDate>Wed, 20 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-11-20-linux/</guid>
+      <guid>https://amrom66.github.io/2019/2019-11-20-linux/</guid>
       <description>Linux用户，用户组，密码，文件权限 用户 相关命令 useradd userdel usermod /etc/passwd文件内容 用户名:密码:UID:GID:用户信息:HOME目录路径:用户shell
 root❌0:0:root:/root:/bin/bash
 /etc/shadow文件内容 用户名：加密密码：最后一次修改时间：最小修改时间间隔：密码有效期：密码需要变更前的警告天数：密码过期后的宽限时间：账号失效时间：保留字段
@@ -106,10 +106,10 @@ postfix:!!:18220:::::: ljbao:$6$1QXKHgXD$66Aj/Qyo3QGGxmKAMH9cQfJs61KXieXLurSvdxH
     
     <item>
       <title>使用svn&#43;docker搭建持续集成环境</title>
-      <link>https://linjinbao.github.io/2019/2019-11-09-%E4%BD%BF%E7%94%A8svn-docker%E6%90%AD%E5%BB%BA%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83/</link>
+      <link>https://amrom66.github.io/2019/2019-11-09-%E4%BD%BF%E7%94%A8svn-docker%E6%90%AD%E5%BB%BA%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83/</link>
       <pubDate>Sat, 09 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-11-09-%E4%BD%BF%E7%94%A8svn-docker%E6%90%AD%E5%BB%BA%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83/</guid>
+      <guid>https://amrom66.github.io/2019/2019-11-09-%E4%BD%BF%E7%94%A8svn-docker%E6%90%AD%E5%BB%BA%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83/</guid>
       <description>使用svn+docker搭建持续集成环境 功能描述： 通过使用svn+docker部署一套自动打包系统，使得项目的打包部署更加简单，只需要做一步操作： 在本地svn上面执行commit操作即可，svn服务器端收到推送后，会利用post-commit钩子将新的项目内容同步到目标路径，同时执行docker打包脚本，被docker部署脚本
 准备工具  svn服务端 docker和tomcat基础镜像  实现逻辑  使用svn进行项目更新包的同步 svn hooks完成更新包和tomcat内容的同步 自动化脚本由post-commit调用；完成镜像版本的更新、镜像启动等操作  第一步：安装svn服务端，并且在本地checkout出一份，同时在服务器找个文件夹checkout一份 这一步比较简单，可以看我另一篇博客学习，地址如下：Linux SVN服务端搭建
 第二步：配置svn hooks实现自动同步，将版本库中文件自动checkout到docker待打包目录 post-commit文件内容示例如下：</description>
@@ -117,10 +117,10 @@ postfix:!!:18220:::::: ljbao:$6$1QXKHgXD$66Aj/Qyo3QGGxmKAMH9cQfJs61KXieXLurSvdxH
     
     <item>
       <title>Linux SVN服务端搭建</title>
-      <link>https://linjinbao.github.io/2019/2019-11-08-svn%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA/</link>
+      <link>https://amrom66.github.io/2019/2019-11-08-svn%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA/</link>
       <pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-11-08-svn%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA/</guid>
+      <guid>https://amrom66.github.io/2019/2019-11-08-svn%E4%BB%93%E5%BA%93%E6%90%AD%E5%BB%BA/</guid>
       <description>2019-11-08-SVN仓库搭建 SVN仓库服务端搭建 svn功能强大，主要用在以下方面：1. 版本控制；2. 内容同步；3.文件备份
 配置步骤 第一步：安装 yum install subversion
 第二步：初始化服务
@@ -129,29 +129,29 @@ cd /home mkdir svn #创建svn软件工作目录 svnadmin create /home/svn #创�
     
     <item>
       <title>rpm工具用法</title>
-      <link>https://linjinbao.github.io/2019/2019-11-04-rpm%E5%B7%A5%E5%85%B7%E7%94%A8%E6%B3%95/</link>
+      <link>https://amrom66.github.io/2019/2019-11-04-rpm%E5%B7%A5%E5%85%B7%E7%94%A8%E6%B3%95/</link>
       <pubDate>Mon, 04 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-11-04-rpm%E5%B7%A5%E5%85%B7%E7%94%A8%E6%B3%95/</guid>
+      <guid>https://amrom66.github.io/2019/2019-11-04-rpm%E5%B7%A5%E5%85%B7%E7%94%A8%E6%B3%95/</guid>
       <description>rpm工具用法  rpm -ivh * 安装软件包 rpm -Uvh 升级软件包 rpm -e 卸载软件包 rpm -qa 查看系统已经安装的rpm包 rpm -q 后面接包名，查询指定的包是否安装 rpm -qi 查询已安装的包的信息 rpm -ql 查询软件包安装了哪些文件 rpm -qf 查询一个文件是否那个包安装的  rpm安装traceroute  下载rpm包并上传到服务器 traceroute-2.</description>
     </item>
     
     <item>
       <title>firewalld防火墙使用</title>
-      <link>https://linjinbao.github.io/2019/2019-10-16-firewalld%E9%98%B2%E7%81%AB%E5%A2%99%E4%BD%BF%E7%94%A8/</link>
+      <link>https://amrom66.github.io/2019/2019-10-16-firewalld%E9%98%B2%E7%81%AB%E5%A2%99%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Wed, 16 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-10-16-firewalld%E9%98%B2%E7%81%AB%E5%A2%99%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://amrom66.github.io/2019/2019-10-16-firewalld%E9%98%B2%E7%81%AB%E5%A2%99%E4%BD%BF%E7%94%A8/</guid>
       <description>2019-10-16-firewalld防火墙使用 firewalld动态防火墙 firewalld 服务引入了一个信任级别的概念来管理与之相关联的连接与接口。它支持 ipv4 与 ipv6，并支持网桥，采用 firewall-cmd (command) 或 firewall-config (gui) 来动态的管理 kernel netfilter 的临时或永久的接口规则，并实时生效而无需重启服务。
 firewalld相关命令 systemctl start firewalld systemctl stop firewalld systemctl status firewalld systemctl enable firewalld firewall-cmd基本使用 firewall-cmd用来管理端口</description>
     </item>
     
     <item>
       <title>netcat使用教程</title>
-      <link>https://linjinbao.github.io/2019/2019-09-21-netcat%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link>
+      <link>https://amrom66.github.io/2019/2019-09-21-netcat%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link>
       <pubDate>Sat, 21 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-09-21-netcat%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-21-netcat%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid>
       <description>netcat使用教程 @author linjinbao666@gmail.com fork me on github
 netcat简介 netcat 一般简称为 nc，直译为中文就是“网猫”，被誉为——【网络上的瑞士军刀】。它诞生于1995年，在网络安全社区的名气很大（就如同 AK47 在军事领域的名气）。长期在安全圈内混的人，应该都知道它。想当年，insecure.org 网站在本世纪初搞过几次“年度投票”，评选优秀的安全工具。每次投票，netcat 都能排进前几名。参考链接
 nc命令行简介 形式： nc 命令选项 主机 端口 命令选项 这部分可能包含 0~N 个选项 （注：这部分最复杂，下一个小节单独聊） 主机 这部分可能没有，可能以“点分十进制”形式表示，也可能以“域名”形式表示。 端口 这部分可能没有，可能是单个端口，可能是端口范围（以减号分隔） 举例：</description>
@@ -159,10 +159,10 @@ nc命令行简介 形式： nc 命令选项 主机 端口 命令选项 这部分
     
     <item>
       <title>Linux笔记</title>
-      <link>https://linjinbao.github.io/2019/2019-09-13-linux%E7%AC%94%E8%AE%B0/</link>
+      <link>https://amrom66.github.io/2019/2019-09-13-linux%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-09-13-linux%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-13-linux%E7%AC%94%E8%AE%B0/</guid>
       <description>笔记 查找软件包rsync rpm -qa | grep rsync 客户端拉取 rsync -av root@192.168.59.130::backup /home/ljbao/ 打印指定行数据 sed -n &amp;#39;10,10p&amp;#39; file.txt cat file.txt | head -n 10 | tail -n +10 awk使用 awk &amp;#39;{print $2} {print $1}&amp;#39; emp.</description>
     </item>
     

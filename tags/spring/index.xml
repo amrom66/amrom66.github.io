@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>spring on 打工笔记</title>
-    <link>https://linjinbao.github.io/tags/spring/</link>
+    <link>https://amrom66.github.io/tags/spring/</link>
     <description>Recent content in spring on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 02 Mar 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://linjinbao.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amrom66.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Spring Boot教程第24篇：整合docker</title>
-      <link>https://linjinbao.github.io/2020/2020-03-02-spring-docker/</link>
+      <link>https://amrom66.github.io/2020/2020-03-02-spring-docker/</link>
       <pubDate>Mon, 02 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-03-02-spring-docker/</guid>
+      <guid>https://amrom66.github.io/2020/2020-03-02-spring-docker/</guid>
       <description>Spring Boot教程第24篇：整合docker 在idea中使用docker插件，使用远程docker服务器打包。
  在远程机器，linux上安装docker并开启docker远程访问。  /usr/lib/systemd/system/docker.service
 [Unit] Description=Docker Application Container Engine Documentation=http://docs.docker.com After=network.target Wants=docker-storage-setup.service Requires=docker-cleanup.timer [Service] Type=notify NotifyAccess=main EnvironmentFile=-/run/containers/registries.conf EnvironmentFile=-/etc/sysconfig/docker EnvironmentFile=-/etc/sysconfig/docker-storage EnvironmentFile=-/etc/sysconfig/docker-network Environment=GOTRACEBACK=crash Environment=DOCKER_HTTP_HOST_COMPAT=1 Environment=PATH=/usr/libexec/docker:/usr/bin:/usr/sbin ExecStart=/usr/bin/dockerd-current \ --add-runtime docker-runc=/usr/libexec/docker/docker-runc-current \ --default-runtime=docker-runc \ --exec-opt native.</description>
@@ -24,20 +24,20 @@
     
     <item>
       <title>Spring Boot教程第11篇：swagger2</title>
-      <link>https://linjinbao.github.io/2020/2020-03-01-swagger/</link>
+      <link>https://amrom66.github.io/2020/2020-03-01-swagger/</link>
       <pubDate>Sun, 01 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-03-01-swagger/</guid>
+      <guid>https://amrom66.github.io/2020/2020-03-01-swagger/</guid>
       <description>swagger2学习 swagger,中文“拽”的意思。它是一个功能强大的api框架，它的集成非常简单，不仅提供了在线文档的查阅，而且还提供了在线文档的测试。另外swagger很容易构建restful风格的api，简单优雅帅气，正如它的名字。
  pom.xml  &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;project xmlns=&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemaLocation=&amp;quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;&amp;gt; &amp;lt;parent&amp;gt; &amp;lt;artifactId&amp;gt;learnboot&amp;lt;/artifactId&amp;gt; &amp;lt;groupId&amp;gt;tk.amrom&amp;lt;/groupId&amp;gt; &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;/parent&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;artifactId&amp;gt;learnswagger2&amp;lt;/artifactId&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.</description>
     </item>
     
     <item>
       <title>Spring Boot教程第10篇：restdoc</title>
-      <link>https://linjinbao.github.io/2020/2020-02-29-restdoc/</link>
+      <link>https://amrom66.github.io/2020/2020-02-29-restdoc/</link>
       <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-02-29-restdoc/</guid>
+      <guid>https://amrom66.github.io/2020/2020-02-29-restdoc/</guid>
       <description>Spring Boot教程第10篇：restdoc Spring REST Docs的目标是帮助您为您的RESTful服务生成准确可读的文档。
 编写高质量的文档很困难。减轻这种困难的一种方法是使用非常适合工作的工具。为此，Spring REST Docs 默认使用Asciidoctor。Asciidoctor处理纯文本并生成HTML，进行样式化和布局以满足您的需求。如果您愿意，还可以将Spring REST Docs配置为使用Markdown。
 Spring REST Docs利用Spring MVC的测试框架 Spring WebFlux WebTestClient或 REST Assured 3编写的测试生成的代码片段。这种测试驱动的方法有助于保证服务文档的准确性。如果代码片段不正确，则生成它的测试将失败。</description>
@@ -45,10 +45,10 @@ Spring REST Docs利用Spring MVC的测试框架 Spring WebFlux WebTestClient或 
     
     <item>
       <title>Spring-Boot教程第7篇：springboot-tx 事务</title>
-      <link>https://linjinbao.github.io/2020/2020-02-27-tx/</link>
+      <link>https://amrom66.github.io/2020/2020-02-27-tx/</link>
       <pubDate>Thu, 27 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-02-27-tx/</guid>
+      <guid>https://amrom66.github.io/2020/2020-02-27-tx/</guid>
       <description>Spring-Boot教程第7篇：springboot-tx 事务 基于mybatis整合开启事务很简单，注解 @Transactional，该注解放在service层，可以注解在类上，也可以放在方法上
 示例：
 @Service @Transactional public class AccountService { @Autowired private AccountMapper accountMapper; public int add(String name, double money) { return accountMapper.</description>
@@ -56,30 +56,30 @@ Spring REST Docs利用Spring MVC的测试框架 Spring WebFlux WebTestClient或 
     
     <item>
       <title>Spring Boot教程第5篇：beatsql</title>
-      <link>https://linjinbao.github.io/2020/2020-02-26-beatsql/</link>
+      <link>https://amrom66.github.io/2020/2020-02-26-beatsql/</link>
       <pubDate>Wed, 26 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-02-26-beatsql/</guid>
+      <guid>https://amrom66.github.io/2020/2020-02-26-beatsql/</guid>
       <description>Spring Boot教程第5篇：beatsql BeetSql是一个全功能DAO工具， 同时具有Hibernate 优点 &amp;amp; Mybatis优点功能，适用于承认以SQL为中心，同时又需求工具能自动能生成大量常用的SQL的应用。
 beatlsql 优点  开发效率  无需注解，自动使用大量内置SQL，轻易完成增删改查功能，节省50%的开发工作量 数据模型支持Pojo，也支持Map/List这种快速模型，也支持混合模型 SQL 模板基于Beetl实现，更容易写和调试，以及扩展   维护性  SQL 以更简洁的方式，Markdown方式集中管理，同时方便程序开发和数据库SQL调试。 可以自动将sql文件映射为dao接口类 灵活直观的支持支持一对一，一对多，多对多关系映射而不引入复杂的OR Mapping概念和技术。 具备Interceptor功能，可以调试，性能诊断SQL，以及扩展其他功能   其他  内置支持主从数据库支持的开源工具 支持跨数据库平台，开发者所需工作减少到最小，目前跨数据库支持mysql,postgres,oracle,sqlserver,h2,sqllite,DB2.</description>
     </item>
     
     <item>
       <title>spring cloud系列笔记-08</title>
-      <link>https://linjinbao.github.io/2020/2020-02-21-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B008/</link>
+      <link>https://amrom66.github.io/2020/2020-02-21-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B008/</link>
       <pubDate>Fri, 21 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-02-21-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B008/</guid>
+      <guid>https://amrom66.github.io/2020/2020-02-21-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B008/</guid>
       <description>spring cloud系列笔记-08 Spring Cloud Bus Spring Cloud Bus 将分布式的节点用轻量的消息代理连接起来。它可以用于广播配置文件的更改或者服务之间的通讯，也可以用于监控。本文要讲述的是用Spring Cloud Bus实现通知微服务架构的配置文件的更改。
  pom.xml  &amp;lt;!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-bus-amqp --&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-cloud-starter-bus-amqp&amp;lt;/artifactId&amp;gt; &amp;lt;/dependency&amp;gt;  bootstrap.</description>
     </item>
     
     <item>
       <title>spring cloud系列笔记-09</title>
-      <link>https://linjinbao.github.io/2020/2020-02-21-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B009/</link>
+      <link>https://amrom66.github.io/2020/2020-02-21-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B009/</link>
       <pubDate>Fri, 21 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-02-21-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B009/</guid>
+      <guid>https://amrom66.github.io/2020/2020-02-21-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B009/</guid>
       <description>spring cloud系列笔记-09 Sleuth 服务追踪组件zipkin，Spring Cloud Sleuth集成了zipkin组件。Spring Cloud Sleuth 主要功能就是在分布式系统中提供追踪解决方案，并且兼容支持了 zipkin，你只需要在pom文件中引入相应的依赖即可。
 服务追踪分析 微服务架构上通过业务来划分服务的，通过REST调用，对外暴露的一个接口，可能需要很多个服务协同才能完成这个接口功能，如果链路上任何一个服务出现问题或者网络超时，都会形成导致接口调用失败。随着业务的不断扩张，服务之间互相调用会越来越复杂。
 术语  Span：基本工作单元，例如，在一个新建的span中发送一个RPC等同于发送一个回应请求给RPC，span通过一个64位ID唯一标识，trace以另一个64位ID表示，span还有其他数据信息，比如摘要、时间戳事件、关键值注释(tags)、span的ID、以及进度ID(通常是IP地址) span在不断的启动和停止，同时记录了时间信息，当你创建了一个span，你必须在未来的某个时刻停止它。 Trace：一系列spans组成的一个树状结构，例如，如果你正在跑一个分布式大数据工程，你可能需要创建一个trace。 Annotation：用来及时记录一个事件的存在，一些核心annotations用来定义一个请求的开始和结束  cs - Client Sent -客户端发起一个请求，这个annotion描述了这个span的开始 sr - Server Received -服务端获得请求并准备开始处理它，如果将其sr减去cs时间戳便可得到网络延迟 ss - Server Sent -注解表明请求处理的完成(当请求返回客户端)，如果ss减去sr时间戳便可得到服务端需要的处理请求时间 cr - Client Received -表明span的结束，客户端成功接收到服务端的回复，如果cr减去cs时间戳便可得到客户端从服务端获取回复的所有所需时间 将Span和Trace在一个系统中使用Zipkin注解的过程图形化：    zipkin服务端部署 下载zipkin-server-2.</description>
@@ -87,10 +87,10 @@ beatlsql 优点  开发效率  无需注解，自动使用大量内置SQL，轻�
     
     <item>
       <title>spring cloud系列笔记-05</title>
-      <link>https://linjinbao.github.io/2020/2020-02-20-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0-05/</link>
+      <link>https://amrom66.github.io/2020/2020-02-20-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0-05/</link>
       <pubDate>Thu, 20 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-02-20-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0-05/</guid>
+      <guid>https://amrom66.github.io/2020/2020-02-20-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B0-05/</guid>
       <description>spring cloud系列笔记-05 Zuul 在Spring Cloud微服务系统中，一种常见的负载均衡方式是，客户端的请求首先经过负载均衡（zuul、Ngnix），再到达服务网关（zuul集群），然后再到具体的服。，服务统一注册到高可用的服务注册中心集群，服务的所有的配置文件由配置服务管理（下一篇文章讲述），配置服务的配置文件放在git仓库，方便开发人员随时改配置。
 简介 Zuul的主要功能是路由转发和过滤器。路由功能是微服务的一部分，比如／api/user转发到到user服务，/api/shop转发到到shop服务。zuul默认和Ribbon结合实现了负载均衡的功能。
 项目搭建  pom.xml  &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;project xmlns=&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemaLocation=&amp;quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;&amp;gt; &amp;lt;parent&amp;gt; &amp;lt;artifactId&amp;gt;learncloud&amp;lt;/artifactId&amp;gt; &amp;lt;groupId&amp;gt;tk.</description>
@@ -98,10 +98,10 @@ beatlsql 优点  开发效率  无需注解，自动使用大量内置SQL，轻�
     
     <item>
       <title>spring cloud系列笔记-06</title>
-      <link>https://linjinbao.github.io/2020/2020-02-20-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B006/</link>
+      <link>https://amrom66.github.io/2020/2020-02-20-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B006/</link>
       <pubDate>Thu, 20 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-02-20-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B006/</guid>
+      <guid>https://amrom66.github.io/2020/2020-02-20-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B006/</guid>
       <description>spring cloud系列笔记-06 config 简介 在分布式系统中，由于服务数量巨多，为了方便服务配置文件统一管理，实时更新，所以需要分布式配置中心组件。在Spring Cloud中，有分布式配置中心组件spring cloud config ，它支持配置服务放在配置服务的内存中（即本地），也支持放在远程Git仓库中。在spring cloud config 组件中，分两个角色，一是config server，二是config client。
 config-server config服务端，用于从git读取配置
  pom.xml  &amp;lt;?xml version=&amp;quot;1.</description>
@@ -109,10 +109,10 @@ config-server config服务端，用于从git读取配置
     
     <item>
       <title>spring cloud系列笔记-04</title>
-      <link>https://linjinbao.github.io/2020/2020-02-19-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B004/</link>
+      <link>https://amrom66.github.io/2020/2020-02-19-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B004/</link>
       <pubDate>Wed, 19 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-02-19-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B004/</guid>
+      <guid>https://amrom66.github.io/2020/2020-02-19-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B004/</guid>
       <description>spring cloud系列笔记-04 Hystrix 简介 在微服务架构中，根据业务来拆分成一个个的服务，服务与服务之间可以相互调用（RPC），在Spring Cloud可以用RestTemplate+Ribbon和Feign来调用。为了保证其高可用，单个服务通常会集群部署。由于网络原因或者自身的原因，服务并不能保证100%可用，如果单个服务出现问题，调用这个服务就会出现线程阻塞，此时若有大量的请求涌入，Servlet容器的线程资源会被消耗完毕，导致服务瘫痪。服务与服务之间的依赖性，故障会传播，会对整个微服务系统造成灾难性的严重后果，这就是服务故障的“雪崩”效应。
 为了解决这个问题，业界提出了断路器模型。
 在ribbon使用熔断器 改造service-ribbon代码
@@ -121,19 +121,19 @@ config-server config服务端，用于从git读取配置
     
     <item>
       <title>spring cloud系列笔记-01</title>
-      <link>https://linjinbao.github.io/2020/2020-02-18-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B001/</link>
+      <link>https://amrom66.github.io/2020/2020-02-18-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B001/</link>
       <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-02-18-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B001/</guid>
+      <guid>https://amrom66.github.io/2020/2020-02-18-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B001/</guid>
       <description>spring cloud系列笔记-01 Eureka 创建注册中心  pom.xml  &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;project xmlns=&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemaLocation=&amp;quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;parent&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.2.4.RELEASE&amp;lt;/version&amp;gt; &amp;lt;relativePath/&amp;gt; &amp;lt;!</description>
     </item>
     
     <item>
       <title>spring cloud系列笔记-02</title>
-      <link>https://linjinbao.github.io/2020/2020-02-18-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B002/</link>
+      <link>https://amrom66.github.io/2020/2020-02-18-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B002/</link>
       <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-02-18-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B002/</guid>
+      <guid>https://amrom66.github.io/2020/2020-02-18-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B002/</guid>
       <description>spring cloud系列笔记-02 Ribbon 简介 ribbon是一个负载均衡客户端，可以很好的控制htt和tcp的一些行为。Feign默认集成了ribbon。
 ribbon 已经默认实现了这些配置bean：
  IClientConfig ribbonClientConfig: DefaultClientConfigImpl IRule ribbonRule: ZoneAvoidanceRule IPing ribbonPing: NoOpPing ServerList ribbonServerList: ConfigurationBasedServerList ServerListFilter ribbonServerListFilter: ZonePreferenceServerListFilter ILoadBalancer ribbonLoadBalancer: ZoneAwareLoadBalancer  准备工作：</description>
@@ -141,10 +141,10 @@ ribbon 已经默认实现了这些配置bean：
     
     <item>
       <title>spring cloud系列笔记-03</title>
-      <link>https://linjinbao.github.io/2020/2020-02-18-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B003/</link>
+      <link>https://amrom66.github.io/2020/2020-02-18-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B003/</link>
       <pubDate>Tue, 18 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-02-18-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B003/</guid>
+      <guid>https://amrom66.github.io/2020/2020-02-18-spring-cloud%E7%B3%BB%E5%88%97%E7%AC%94%E8%AE%B003/</guid>
       <description>spring cloud系列笔记-03 Feign 简介 Feign是一个声明式的伪Http客户端，它使得写Http客户端变得更简单。使用Feign，只需要创建一个接口并注解。它具有可插拔的注解特性，可使用Feign 注解和JAX-RS注解。Feign支持可插拔的编码器和解码器。Feign默认集成了Ribbon，并和Eureka结合，默认实现了负载均衡的效果。
 简而言之：
  Feign 采用的是基于接口的注解 Feign 整合了ribbon  准备工作  创建注册中心 在注册中心中注册两个相同服务名，端口号不同的服务  feign配置  pom.</description>
@@ -152,29 +152,29 @@ ribbon 已经默认实现了这些配置bean：
     
     <item>
       <title>SpringMVC学习02</title>
-      <link>https://linjinbao.github.io/2019/2019-12-09-springmvc%E5%AD%A6%E4%B9%A002/</link>
+      <link>https://amrom66.github.io/2019/2019-12-09-springmvc%E5%AD%A6%E4%B9%A002/</link>
       <pubDate>Mon, 09 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-12-09-springmvc%E5%AD%A6%E4%B9%A002/</guid>
+      <guid>https://amrom66.github.io/2019/2019-12-09-springmvc%E5%AD%A6%E4%B9%A002/</guid>
       <description>SpringMVC学习02 获取请求 @RequestParam(&amp;#34;userid&amp;#34;) String userid; //获取请求参数 @RequestHeader(&amp;#34;User-Agent&amp;#34;)String userAgent; //获取请求头 @CookieValue(value = &amp;#34;JSESSIONID&amp;#34;, required = false); //获取Cookie 解决乱码 web.xml
 &amp;lt;filter&amp;gt; &amp;lt;filter-name&amp;gt;characterEncodingFilter&amp;lt;/filter-name&amp;gt; &amp;lt;filter-class&amp;gt;org.</description>
     </item>
     
     <item>
       <title>MySQL 分库分表-ShardingSphere使用</title>
-      <link>https://linjinbao.github.io/2019/2019-11-17-shardingsphere/</link>
+      <link>https://amrom66.github.io/2019/2019-11-17-shardingsphere/</link>
       <pubDate>Sun, 17 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-11-17-shardingsphere/</guid>
+      <guid>https://amrom66.github.io/2019/2019-11-17-shardingsphere/</guid>
       <description>MySQL 分库分表-ShardingSphere使用 分库和分表的实现-java工程版  依赖项  &amp;lt;dependencies&amp;gt; &amp;lt;!-- 主要 --&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.shardingsphere&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;sharding-jdbc-core&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.0.0-RC2&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;junit&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;junit&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;4.12&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;commons-dbcp&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;commons-dbcp&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.</description>
     </item>
     
     <item>
       <title>面向切面编程SpringAOP</title>
-      <link>https://linjinbao.github.io/2019/2019-11-12-%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8Bspring-aop/</link>
+      <link>https://amrom66.github.io/2019/2019-11-12-%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8Bspring-aop/</link>
       <pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-11-12-%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8Bspring-aop/</guid>
+      <guid>https://amrom66.github.io/2019/2019-11-12-%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8Bspring-aop/</guid>
       <description>面向切面编程SpringAOP  注解方式实现aop，xml配置  名称空间xmlns:aop=&amp;quot;http://www.springframework.org/schema/aop&amp;quot; &amp;lt;context:component-scan base-package=&amp;quot;tk.amrom&amp;quot;&amp;gt;&amp;lt;/context:component-scan&amp;gt; &amp;lt;aop:aspectj-autoproxy&amp;gt; &amp;lt;/aop:aspectj-autoproxy&amp;gt;   LogUtil.java
 ```java
   @Aspect @Component public class LogUtil {</description>
@@ -182,20 +182,20 @@ ribbon 已经默认实现了这些配置bean：
     
     <item>
       <title>spring xml使用bean加载数据库连接池</title>
-      <link>https://linjinbao.github.io/2019/2019-11-10-spring-xml%E4%BD%BF%E7%94%A8bean%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/</link>
+      <link>https://amrom66.github.io/2019/2019-11-10-spring-xml%E4%BD%BF%E7%94%A8bean%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/</link>
       <pubDate>Sun, 10 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-11-10-spring-xml%E4%BD%BF%E7%94%A8bean%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/</guid>
+      <guid>https://amrom66.github.io/2019/2019-11-10-spring-xml%E4%BD%BF%E7%94%A8bean%E5%8A%A0%E8%BD%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E6%B1%A0/</guid>
       <description>2019-11-10-spring xml使用bean加载数据库连接池 spring xml使用bean管理数据库连接池 ioc2.xml
 &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;beans xmlns=&amp;quot;http://www.springframework.org/schema/beans&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemaLocation=&amp;quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&amp;quot;&amp;gt; &amp;lt;bean id=&amp;quot;datasource&amp;quot; class=&amp;quot;com.mchange.v2.c3p0.ComboPooledDataSource&amp;quot;&amp;gt; &amp;lt;property name=&amp;quot;user&amp;quot; value=&amp;quot;root&amp;quot;&amp;gt;&amp;lt;/property&amp;gt; &amp;lt;property name=&amp;quot;password&amp;quot; value=&amp;quot;***&amp;quot;&amp;gt;&amp;lt;/property&amp;gt; &amp;lt;property name=&amp;quot;jdbcUrl&amp;quot; value=&amp;quot;jdbc:mysql://localhost:3306/mqtt&amp;quot;&amp;gt;&amp;lt;/property&amp;gt; &amp;lt;property name=&amp;quot;driverClass&amp;quot; value=&amp;quot;com.</description>
     </item>
     
     <item>
       <title>使用工厂方法创建管理bean</title>
-      <link>https://linjinbao.github.io/2019/2019-11-08-%E4%BD%BF%E7%94%A8%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E7%AE%A1%E7%90%86bean/</link>
+      <link>https://amrom66.github.io/2019/2019-11-08-%E4%BD%BF%E7%94%A8%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E7%AE%A1%E7%90%86bean/</link>
       <pubDate>Fri, 08 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-11-08-%E4%BD%BF%E7%94%A8%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E7%AE%A1%E7%90%86bean/</guid>
+      <guid>https://amrom66.github.io/2019/2019-11-08-%E4%BD%BF%E7%94%A8%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E7%AE%A1%E7%90%86bean/</guid>
       <description>使用工厂方法创建管理bean 第一部分： 静态工厂   工厂类写法：
 ```java
   public class AirPlaneStaticFactory {
@@ -204,20 +204,20 @@ ribbon 已经默认实现了这些配置bean：
     
     <item>
       <title>IOC注入方式</title>
-      <link>https://linjinbao.github.io/2019/2019-11-07-ioc%E6%B3%A8%E5%85%A5%E6%96%B9%E5%BC%8F/</link>
+      <link>https://amrom66.github.io/2019/2019-11-07-ioc%E6%B3%A8%E5%85%A5%E6%96%B9%E5%BC%8F/</link>
       <pubDate>Thu, 07 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-11-07-ioc%E6%B3%A8%E5%85%A5%E6%96%B9%E5%BC%8F/</guid>
+      <guid>https://amrom66.github.io/2019/2019-11-07-ioc%E6%B3%A8%E5%85%A5%E6%96%B9%E5%BC%8F/</guid>
       <description>2019-11-07-IOC注入方式 IOC注入多种复杂类型 简单类型注入 Person.java
 public class Person { private Integer id; private String name; private String gender; ... } ioc.xml</description>
     </item>
     
     <item>
       <title>ssm整合</title>
-      <link>https://linjinbao.github.io/2019/2019-07-01-ssm%E6%95%B4%E5%90%88/</link>
+      <link>https://amrom66.github.io/2019/2019-07-01-ssm%E6%95%B4%E5%90%88/</link>
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-07-01-ssm%E6%95%B4%E5%90%88/</guid>
+      <guid>https://amrom66.github.io/2019/2019-07-01-ssm%E6%95%B4%E5%90%88/</guid>
       <description>ssm整合 pom.xml &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;project xmlns=&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemaLocation=&amp;quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;groupId&amp;gt;tk.amrom&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;crms&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;packaging&amp;gt;war&amp;lt;/packaging&amp;gt; &amp;lt;name&amp;gt;crms Maven Webapp&amp;lt;/name&amp;gt; &amp;lt;!-- FIXME change it to the project&#39;s website --&amp;gt; &amp;lt;url&amp;gt;http://www.</description>
     </item>
     

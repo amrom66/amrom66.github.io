@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>算法 on 打工笔记</title>
-    <link>https://linjinbao.github.io/categories/%E7%AE%97%E6%B3%95/</link>
+    <link>https://amrom66.github.io/categories/%E7%AE%97%E6%B3%95/</link>
     <description>Recent content in 算法 on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 16 Oct 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://linjinbao.github.io/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amrom66.github.io/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>leetcode题目-罗马数字转整数</title>
-      <link>https://linjinbao.github.io/2019/2019-10-16-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0/</link>
+      <link>https://amrom66.github.io/2019/2019-10-16-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0/</link>
       <pubDate>Wed, 16 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-10-16-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0/</guid>
+      <guid>https://amrom66.github.io/2019/2019-10-16-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0/</guid>
       <description>2019-10-16-罗马数字转整数 题目描述 罗马数字包含以下七种字符: I， V， X， L，C，D 和 M。
 字符 数值 I 1 V 5 X 10 L 50 C 100 D 500 M 1000</description>
     </item>
     
     <item>
       <title>寻找两个有序数组的中位数</title>
-      <link>https://linjinbao.github.io/2019/2019-10-12-%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/</link>
+      <link>https://amrom66.github.io/2019/2019-10-12-%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/</link>
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-10-12-%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/</guid>
+      <guid>https://amrom66.github.io/2019/2019-10-12-%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/</guid>
       <description>2019-10-12-寻找两个有序数组的中位数 题目描述： 给定两个大小为 m 和 n 的有序数组 nums1 和 nums2。
 请你找出这两个有序数组的中位数，并且要求算法的时间复杂度为 O(log(m + n))。
 你可以假设 nums1 和 nums2 不会同时为空。
@@ -35,10 +35,10 @@
     
     <item>
       <title>牛客网题目-栈的压入、弹出序列</title>
-      <link>https://linjinbao.github.io/2019/2019-10-11-%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/</link>
+      <link>https://amrom66.github.io/2019/2019-10-11-%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/</link>
       <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-10-11-%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/</guid>
+      <guid>https://amrom66.github.io/2019/2019-10-11-%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/</guid>
       <description>2019-10-11-栈的压入、弹出序列 题目描述 输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否可能为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4,5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的）
 分析 1.辅助栈 2.找到弹出的位置
 代码实现 package nowcoder; import java.util.Stack; /** * 栈的压入、弹出序列 */ public class IsPopOrder { public boolean isPopOrder(int [] pushA,int [] popA) { if (pushA.</description>
@@ -46,10 +46,10 @@
     
     <item>
       <title>包含min函数的栈</title>
-      <link>https://linjinbao.github.io/2019/2019-10-10-%E7%89%9B%E5%AE%A2%E7%BD%91-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/</link>
+      <link>https://amrom66.github.io/2019/2019-10-10-%E7%89%9B%E5%AE%A2%E7%BD%91-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/</link>
       <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-10-10-%E7%89%9B%E5%AE%A2%E7%BD%91-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/</guid>
+      <guid>https://amrom66.github.io/2019/2019-10-10-%E7%89%9B%E5%AE%A2%E7%BD%91-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/</guid>
       <description>牛客网题目-包含min函数的栈 题目描述 定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为O（1））。
 解法一 双栈实现，数据栈加最小值栈 代码如下：
 import java.util.Stack; public class Solution { Stack&amp;lt;Integer&amp;gt; dataStack = new Stack(); Stack&amp;lt;Integer&amp;gt; minStack = new Stack&amp;lt;&amp;gt;(); public void push(int node) { dataStack.</description>
@@ -57,10 +57,10 @@ import java.util.Stack; public class Solution { Stack&amp;lt;Integer&amp;gt; dat
     
     <item>
       <title>LeetCode周赛-第 156 场</title>
-      <link>https://linjinbao.github.io/2019/2019-09-29-leetcode-156/</link>
+      <link>https://amrom66.github.io/2019/2019-09-29-leetcode-156/</link>
       <pubDate>Sun, 29 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-09-29-leetcode-156/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-29-leetcode-156/</guid>
       <description>LeetCode周赛-第 156 场  排名630 / 1432
  题目名称：
 独一无二的出现次数
@@ -72,20 +72,20 @@ import java.util.Stack; public class Solution { Stack&amp;lt;Integer&amp;gt; dat
     
     <item>
       <title>LeetCode算法题-合并区间</title>
-      <link>https://linjinbao.github.io/2019/2019-09-27-leetcode%E7%AE%97%E6%B3%95%E9%A2%98-%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/</link>
+      <link>https://amrom66.github.io/2019/2019-09-27-leetcode%E7%AE%97%E6%B3%95%E9%A2%98-%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/</link>
       <pubDate>Fri, 27 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-09-27-leetcode%E7%AE%97%E6%B3%95%E9%A2%98-%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-27-leetcode%E7%AE%97%E6%B3%95%E9%A2%98-%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/</guid>
       <description>2019-09-27-LeetCode算法题-合并区间 LeetCode算法题-合并区间 题目描述： 给出一个区间的集合，请合并所有重叠的区间。
 示例 1: 输入: [[1,3],[2,6],[8,10],[15,18]] 输出: [[1,6],[8,10],[15,18]] 解释: 区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6]. 示例 2: 输入: [[1,4],[4,5]] 输出: [[1,5]] 解释: 区间 [1,4] 和 [4,5] 可被视为重叠区间。 思路分析：</description>
     </item>
     
     <item>
       <title>牛客网-二叉树的镜像</title>
-      <link>https://linjinbao.github.io/2019/2019-09-26-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%95%9C%E5%83%8F/</link>
+      <link>https://amrom66.github.io/2019/2019-09-26-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%95%9C%E5%83%8F/</link>
       <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-09-26-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%95%9C%E5%83%8F/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-26-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%95%9C%E5%83%8F/</guid>
       <description>二叉树镜像 题目描述 操作给定的二叉树，将其变换为源二叉树的镜像。
 分析： 想到递归，对每一个节点有4种情况：
  当前节点为空 当前节点不为空，左子树为空 当前节点不为空，右子树为空 当前节点不为空，左右子树都为空  很显然2,3两点可以重合
@@ -96,10 +96,10 @@ public static void mirror(TreeNode root) { if (root==null)return; if (root.</des
     
     <item>
       <title>牛客网题目-树的子结构</title>
-      <link>https://linjinbao.github.io/2019/2019-09-25-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/</link>
+      <link>https://amrom66.github.io/2019/2019-09-25-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/</link>
       <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-09-25-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-25-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/</guid>
       <description>2019-09-25-树的子结构 题目名称：树的子结构 题目描述 输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）
 分析： 第一想法是递归，只要是树，我就上递归。分析情况有以下3种：
  当前root1节点=当前root2节点 当前root1节点！=当前root2节点，但是root1.left和root2节点相等 当前root1节点！=当前root2节点，但是root1.right和root2节点相等  所以需要一个辅助函数helper
@@ -108,10 +108,10 @@ public static boolean hasSubtree(TreeNode root1, TreeNode root2) { if (root1==nu
     
     <item>
       <title>第155场周赛--LeetCode</title>
-      <link>https://linjinbao.github.io/2019/2019-09-22-%E7%AC%AC155%E5%9C%BA%E5%91%A8%E8%B5%9B/</link>
+      <link>https://amrom66.github.io/2019/2019-09-22-%E7%AC%AC155%E5%9C%BA%E5%91%A8%E8%B5%9B/</link>
       <pubDate>Sun, 22 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-09-22-%E7%AC%AC155%E5%9C%BA%E5%91%A8%E8%B5%9B/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-22-%E7%AC%AC155%E5%9C%BA%E5%91%A8%E8%B5%9B/</guid>
       <description>第 155 场周赛&amp;ndash;LeetCode 第一题：最小绝对差 题目描述： 给你个整数数组 arr，其中每个元素都 不相同。 请你找到所有具有最小绝对差的元素对，并且按升序的顺序返回。 示例 1：
 输入：arr = [4,2,1,3] 输出：[[1,2],[2,3],[3,4]] 示例 2：
 输入：arr = [1,3,6,10,15] 输出：[[1,3]] 示例 3：</description>
@@ -119,10 +119,10 @@ public static boolean hasSubtree(TreeNode root1, TreeNode root2) { if (root1==nu
     
     <item>
       <title>排序算法总结</title>
-      <link>https://linjinbao.github.io/2019/2019-09-14-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</link>
+      <link>https://amrom66.github.io/2019/2019-09-14-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</link>
       <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-09-14-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-14-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
       <description>排序总结 冒泡排序 原理：每次比较两个相邻的元素，将较大元素交换至右端 特点：每次循环结束，会出现一个排序好的元素，右侧 理解：大的数右移，重复此过程 代码：
 public static void bubbleSort(int[] nums){ for (int i=0; i&amp;lt;nums.length-1; i++){ //第i次循环找出第i小的元素0&amp;lt;=i&amp;lt;=length-1  for (int j=0; j&amp;lt;nums.</description>
     </item>

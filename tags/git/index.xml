@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>git on 打工笔记</title>
-    <link>https://linjinbao.github.io/tags/git/</link>
+    <link>https://amrom66.github.io/tags/git/</link>
     <description>Recent content in git on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 19 Mar 2021 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://linjinbao.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amrom66.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>git单独忽略一个文件的历史提交</title>
-      <link>https://linjinbao.github.io/2021/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/</link>
+      <link>https://amrom66.github.io/2021/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/</link>
       <pubDate>Fri, 19 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2021/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/</guid>
+      <guid>https://amrom66.github.io/2021/2021-03-19-git%E5%8D%95%E7%8B%AC%E5%BF%BD%E7%95%A5%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4/</guid>
       <description>使用场景：
 将一个重要文件，勿加入git的版本管理中了，后续又更新了好多版本，此时想要去除该文件的所有历史提交。
  方案一：删除所有git记录 方案二：单独删除该文件的历史记录  方案二操作如下：
@@ -25,19 +25,19 @@ git filter-branch --force --index-filter &#39;git rm --cached --ignore-unmatch v
     
     <item>
       <title>git分支管理</title>
-      <link>https://linjinbao.github.io/2019/2019-12-06-git%E5%88%86%E4%B9%8B%E7%AE%A1%E7%90%86/</link>
+      <link>https://amrom66.github.io/2019/2019-12-06-git%E5%88%86%E4%B9%8B%E7%AE%A1%E7%90%86/</link>
       <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-12-06-git%E5%88%86%E4%B9%8B%E7%AE%A1%E7%90%86/</guid>
+      <guid>https://amrom66.github.io/2019/2019-12-06-git%E5%88%86%E4%B9%8B%E7%AE%A1%E7%90%86/</guid>
       <description>git分支管理 基本命令  git branch git branch ：创建分支，名称为 git branch：显示当前分枝，和本地分支 git branch -a：显示所有，包含远程分支 git branch -d dev：删除分支 git branch -vv ：查看本地分支对应的远程分支 git branch -m oldName newName：重命名 git checkout  git checkout * ：切换当前分支</description>
     </item>
     
     <item>
       <title>git分支管理</title>
-      <link>https://linjinbao.github.io/2019/2019-12-06-git%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/</link>
+      <link>https://amrom66.github.io/2019/2019-12-06-git%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/</link>
       <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-12-06-git%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/</guid>
+      <guid>https://amrom66.github.io/2019/2019-12-06-git%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/</guid>
       <description>git分支管理 基本命令   git branch git branch *** ：创建分支，名称为*** git branch：显示当前分枝，和本地分支 git branch -a：显示所有，包含远程分支 git branch -d dev：删除分支 git branch -vv ：查看本地分支对应的远程分支 git branch -m oldName newName：重命名</description>
     </item>
     

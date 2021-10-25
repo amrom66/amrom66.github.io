@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on 打工笔记</title>
-    <link>https://linjinbao.github.io/tags/docker/</link>
+    <link>https://amrom66.github.io/tags/docker/</link>
     <description>Recent content in Docker on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 17 Mar 2021 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://linjinbao.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amrom66.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>空镜像</title>
-      <link>https://linjinbao.github.io/2021/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/</link>
+      <link>https://amrom66.github.io/2021/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/</link>
       <pubDate>Wed, 17 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2021/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/</guid>
+      <guid>https://amrom66.github.io/2021/2021-03-17-%E7%A9%BA%E9%95%9C%E5%83%8F/</guid>
       <description>如何将当前宿主机制作成镜像？
 答案：借助scratch 镜像
 scratch 是一个空镜像，只能用于构建其他镜像，比如你要运行一个包含所有依赖的二进制文件，如Golang 程序，可以直接使用 scratch 作为基础镜像。例如busybox的Dockerfile写法：
@@ -25,10 +25,10 @@ FROM scratch ADD busybox.tar.xz / CMD [&amp;quot;sh&amp;quot;] 将当前机器�
     
     <item>
       <title>使用svn&#43;docker搭建持续集成环境</title>
-      <link>https://linjinbao.github.io/2019/2019-11-09-%E4%BD%BF%E7%94%A8svn-docker%E6%90%AD%E5%BB%BA%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83/</link>
+      <link>https://amrom66.github.io/2019/2019-11-09-%E4%BD%BF%E7%94%A8svn-docker%E6%90%AD%E5%BB%BA%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83/</link>
       <pubDate>Sat, 09 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-11-09-%E4%BD%BF%E7%94%A8svn-docker%E6%90%AD%E5%BB%BA%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83/</guid>
+      <guid>https://amrom66.github.io/2019/2019-11-09-%E4%BD%BF%E7%94%A8svn-docker%E6%90%AD%E5%BB%BA%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83/</guid>
       <description>使用svn+docker搭建持续集成环境 功能描述： 通过使用svn+docker部署一套自动打包系统，使得项目的打包部署更加简单，只需要做一步操作： 在本地svn上面执行commit操作即可，svn服务器端收到推送后，会利用post-commit钩子将新的项目内容同步到目标路径，同时执行docker打包脚本，被docker部署脚本
 准备工具  svn服务端 docker和tomcat基础镜像  实现逻辑  使用svn进行项目更新包的同步 svn hooks完成更新包和tomcat内容的同步 自动化脚本由post-commit调用；完成镜像版本的更新、镜像启动等操作  第一步：安装svn服务端，并且在本地checkout出一份，同时在服务器找个文件夹checkout一份 这一步比较简单，可以看我另一篇博客学习，地址如下：Linux SVN服务端搭建
 第二步：配置svn hooks实现自动同步，将版本库中文件自动checkout到docker待打包目录 post-commit文件内容示例如下：</description>
@@ -36,19 +36,19 @@ FROM scratch ADD busybox.tar.xz / CMD [&amp;quot;sh&amp;quot;] 将当前机器�
     
     <item>
       <title>Docker常用操作教程</title>
-      <link>https://linjinbao.github.io/2019/2019-07-05-docker/</link>
+      <link>https://amrom66.github.io/2019/2019-07-05-docker/</link>
       <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-07-05-docker/</guid>
+      <guid>https://amrom66.github.io/2019/2019-07-05-docker/</guid>
       <description>Docker笔记 Docker安装 yum install docker -ysystemctl start docker.servicesystemctl status docker.servicesystemctl stop docker.servicesystemctl start docker.servicesystemctl restart docker.</description>
     </item>
     
     <item>
       <title>Docker常用操作教程</title>
-      <link>https://linjinbao.github.io/2019/2019-07-05-docker%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%95%99%E7%A8%8B/</link>
+      <link>https://amrom66.github.io/2019/2019-07-05-docker%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%95%99%E7%A8%8B/</link>
       <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-07-05-docker%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%95%99%E7%A8%8B/</guid>
+      <guid>https://amrom66.github.io/2019/2019-07-05-docker%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%95%99%E7%A8%8B/</guid>
       <description>Docker常用操作教程 Docker笔记 Docker安装 yum install docker -y systemctl start docker.service systemctl status docker.service systemctl stop docker.service systemctl start docker.service systemctl restart docker.</description>
     </item>
     

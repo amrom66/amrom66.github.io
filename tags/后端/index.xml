@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>后端 on 打工笔记</title>
-    <link>https://linjinbao.github.io/tags/%E5%90%8E%E7%AB%AF/</link>
+    <link>https://amrom66.github.io/tags/%E5%90%8E%E7%AB%AF/</link>
     <description>Recent content in 后端 on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 29 Jul 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://linjinbao.github.io/tags/%E5%90%8E%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amrom66.github.io/tags/%E5%90%8E%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Redis笔记</title>
-      <link>https://linjinbao.github.io/2019/2019-07-29-redis%E7%AC%94%E8%AE%B0/</link>
+      <link>https://amrom66.github.io/2019/2019-07-29-redis%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-07-29-redis%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://amrom66.github.io/2019/2019-07-29-redis%E7%AC%94%E8%AE%B0/</guid>
       <description>Redis笔记 key-value结构 Redis目前有5种数据类型，分别是：
 String（字符串） List（列表） Hash（字典） Set（集合） Sorted Set（有序集合） 不同的数据类型，有不同的命令方式
 String 操作

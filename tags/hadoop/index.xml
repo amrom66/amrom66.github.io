@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>hadoop on 打工笔记</title>
-    <link>https://linjinbao.github.io/tags/hadoop/</link>
+    <link>https://amrom66.github.io/tags/hadoop/</link>
     <description>Recent content in hadoop on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 12 Feb 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://linjinbao.github.io/tags/hadoop/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amrom66.github.io/tags/hadoop/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>hadoop学习</title>
-      <link>https://linjinbao.github.io/2020/2020-02-12-hadoop/</link>
+      <link>https://amrom66.github.io/2020/2020-02-12-hadoop/</link>
       <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-02-12-hadoop/</guid>
+      <guid>https://amrom66.github.io/2020/2020-02-12-hadoop/</guid>
       <description>hadoop学习 spark 定义：基于内存计算的大数据并行计算框架，可用于构建大型的、低延迟的数据分析应用程序。
 spark-shell使用 scala&amp;gt; val textFile = spark.read.textFile(&amp;#34;hdfs://c1:9000/redis.conf&amp;#34;) textFile: org.apache.spark.sql.Dataset[String] = [value: string] scala&amp;gt; textFile.count() res4: Long = 1372 scala&amp;gt; val wordsRdd=textFile.</description>
     </item>
     
     <item>
       <title>hadoop全分布式集群搭建</title>
-      <link>https://linjinbao.github.io/2020/2020-01-27-hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</link>
+      <link>https://amrom66.github.io/2020/2020-01-27-hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</link>
       <pubDate>Mon, 27 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-01-27-hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
+      <guid>https://amrom66.github.io/2020/2020-01-27-hadoop%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</guid>
       <description>hadoop全分布式集群搭建 准备虚拟机 192.168.126.133 cent1 namenode datanode 192.168.126.130 cent2 namenode datanode secondary 192.168.126.139 vm1 datanode 192.168.126.140 vm2 datanode
 export JAVA_HOME=/usr export HADOOP_HOME=/root/hadoop-3.</description>
     </item>
     
     <item>
       <title>hive on spark 测试</title>
-      <link>https://linjinbao.github.io/2020/2020-01-09-hive/</link>
+      <link>https://amrom66.github.io/2020/2020-01-09-hive/</link>
       <pubDate>Thu, 09 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-01-09-hive/</guid>
+      <guid>https://amrom66.github.io/2020/2020-01-09-hive/</guid>
       <description>hive on spark 测试 准备工作： 建库：
 create database db2; 建表：
 sql语句：
@@ -45,10 +45,10 @@ create table tb1(id int , name string); 测试1：插入单条数据 insert into
     
     <item>
       <title>spark on hive 踩坑</title>
-      <link>https://linjinbao.github.io/2020/2020-01-08-spark/</link>
+      <link>https://amrom66.github.io/2020/2020-01-08-spark/</link>
       <pubDate>Wed, 08 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2020/2020-01-08-spark/</guid>
+      <guid>https://amrom66.github.io/2020/2020-01-08-spark/</guid>
       <description>spark on hive 踩坑 搭建hadoop环境 掠过
 搭建hive环境 掠过
 搭建spark  注意版本兼容  在pom文件中查看
@@ -57,19 +57,19 @@ create table tb1(id int , name string); 测试1：插入单条数据 insert into
     
     <item>
       <title>hive踩坑纪实</title>
-      <link>https://linjinbao.github.io/2019/2019-12-29-hive%E8%B8%A9%E5%9D%91/</link>
+      <link>https://amrom66.github.io/2019/2019-12-29-hive%E8%B8%A9%E5%9D%91/</link>
       <pubDate>Sun, 29 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-12-29-hive%E8%B8%A9%E5%9D%91/</guid>
+      <guid>https://amrom66.github.io/2019/2019-12-29-hive%E8%B8%A9%E5%9D%91/</guid>
       <description>hive踩坑纪实 hive查询报错 0: jdbc:hive2://localhost:10000&amp;gt; select * from testa; Error: Error while compiling statement: FAILED: SemanticException Unable to determine if hdfs://localhost:9000/user/hive/warehouse/testa is encrypted: java.</description>
     </item>
     
     <item>
       <title>hadoop-hdfs学习</title>
-      <link>https://linjinbao.github.io/2019/2019-12-26-hdfs%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://amrom66.github.io/2019/2019-12-26-hdfs%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Thu, 26 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-12-26-hdfs%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://amrom66.github.io/2019/2019-12-26-hdfs%E5%AD%A6%E4%B9%A0/</guid>
       <description>hadoop-hdfs学习 概念 hdfs是一个分布式的，文件存储系统 ，重要特性如下：
  分块存储 统一的抽象目录树 不支持文件修改  shell操作 hadoop fs -ls /：列出文件
 hadoop fs -ls hdfs://hadoop-server01:9000/：列出文件
@@ -78,10 +78,10 @@ hadoop fs -mkdir -p /aaa/bbb/cc/dd：创建目录</description>
     
     <item>
       <title>hive学习01-环境搭建</title>
-      <link>https://linjinbao.github.io/2019/2019-12-25-hive%E5%AD%A6%E4%B9%A0/</link>
+      <link>https://amrom66.github.io/2019/2019-12-25-hive%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Wed, 25 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://linjinbao.github.io/2019/2019-12-25-hive%E5%AD%A6%E4%B9%A0/</guid>
+      <guid>https://amrom66.github.io/2019/2019-12-25-hive%E5%AD%A6%E4%B9%A0/</guid>
       <description>hive学习01-环境搭建 环境准备：
  jdk 自己手动放置在一个不含空格的目录，并配置好JAVA_HOME hadoop安装包 hadoop-2.7.7 http://mirror.bit.edu.cn/apache/hadoop/common/hadoop-2.7.7/hadoop-2.7.7.tar.gz hive 安装包hive-2.1.1 http://archive.apache.org/dist/hive/hive-2.1.1/apache-hive-2.1.1-bin.tar.gz  环境准备玩本人目录如下：
 &amp;ndash;D:\hadoop
