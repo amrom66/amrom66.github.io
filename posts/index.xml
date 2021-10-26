@@ -50,15 +50,6 @@ python3 -m venv ./venv --system-site-packages &amp;ndash;system-site-packages �
     </item>
     
     <item>
-      <title>kubernetes扩展详细实现</title>
-      <link>https://amrom66.github.io/2021/2021-09-06-kubernete%E6%89%A9%E5%B1%95%E8%AF%A6%E7%BB%86%E5%AE%9E%E7%8E%B0/</link>
-      <pubDate>Mon, 06 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://amrom66.github.io/2021/2021-09-06-kubernete%E6%89%A9%E5%B1%95%E8%AF%A6%E7%BB%86%E5%AE%9E%E7%8E%B0/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title></title>
       <link>https://amrom66.github.io/2021/2021-09-02-kubernetes%E4%BB%8B%E7%BB%8D/</link>
       <pubDate>Thu, 02 Sep 2021 00:00:00 +0000</pubDate>
