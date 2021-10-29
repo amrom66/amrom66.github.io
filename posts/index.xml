@@ -6,10 +6,21 @@
     <description>Recent content in Posts on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 Oct 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://amrom66.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>kubeconfig签发</title>
+      <link>https://amrom66.github.io/2021/2021-10-28-kubeconfig%E7%AD%BE%E5%8F%91/</link>
+      <pubDate>Thu, 28 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/2021/2021-10-28-kubeconfig%E7%AD%BE%E5%8F%91/</guid>
+      <description>签发一个kubeconfig文件的详细流程 大致步骤：
+ cfssl证书 定义集群 定义用户 定义上下文 绑定角色  cfssl证书 ca-config.json cfssl的配置文件
+{ &amp;#34;signing&amp;#34;: { &amp;#34;default&amp;#34;: { &amp;#34;expiry&amp;#34;: &amp;#34;87600h&amp;#34; }, &amp;#34;profiles&amp;#34;: { &amp;#34;kubernetes&amp;#34;: { &amp;#34;usages&amp;#34;: [ &amp;#34;signing&amp;#34;, &amp;#34;key encipherment&amp;#34;, &amp;#34;server auth&amp;#34;, &amp;#34;client auth&amp;#34; ], &amp;#34;expiry&amp;#34;: &amp;#34;876000h&amp;#34; } } } } user-csr.</description>
+    </item>
     
     <item>
       <title>kubernetes源码通读-01-项目结构</title>
