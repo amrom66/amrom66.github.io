@@ -6,10 +6,25 @@
     <description>Recent content in Posts on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 29 Nov 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://amrom66.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>iptables操作实例</title>
+      <link>https://amrom66.github.io/2021/2021-11-29-iptables%E6%93%8D%E4%BD%9C%E5%AE%9E%E4%BE%8B/</link>
+      <pubDate>Mon, 29 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/2021/2021-11-29-iptables%E6%93%8D%E4%BD%9C%E5%AE%9E%E4%BE%8B/</guid>
+      <description>4个表:filter,mangle,nat,raw
+3个链:PREROUTING,PREROUTING,PREROUTING
+iptabls基本操作示例 查看规则 查看规则集
+iptables --list -n 加一个-n以数字形式显示IP和端口，而不是默认的服务名称
+修改规则 配置默认规则，不允许数据进入
+iptables -P INPUT DROP 允许转发
+iptables -P FORWARD ACCEPT 不允许数据流出</description>
+    </item>
     
     <item>
       <title>kubeconfig签发</title>
