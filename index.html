@@ -142,6 +142,30 @@ if (!doNotTrack) {
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-02-28-etcd%E5%BC%BA%E5%88%B6%E5%88%A0%E9%99%A4k8s%E6%95%B0%E6%8D%AE/">etcd强制删除k8s数据</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				k8s由于各种原因，导致pod等数据一直处于terminting状态中，可以考虑到etcd中强制删除
+#检索pod数据 etcdctl --endpoints=https://127.0.0.1:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/ca.crt --key=/etc/kubernetes/pki/etcd/ca.key get /registry/pod --prefix --keys-only #根据关键字清楚 export ssss=calico etcdctl --endpoints=https://127.0.0.1:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/ca.crt --key=/etc/kubernetes/pki/etcd/ca.key get /registry --prefix --keys-only | grep ${ssss} | xargs -I{} etcdctl --endpoints=https://127.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2022-02-28 itemprop="datePublished">February 28, 2022</time>
+                </span>
+                in
+                
+        	</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
 				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-02-16-node%E8%8A%82%E7%82%B9%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/">node节点安装笔记</a></h1>
 			</header>
 			<div class="post-content">
@@ -227,38 +251,6 @@ iptables -P FORWARD ACCEPT 不允许数据流出
 				   
        			 
 				目录结构 ➜ kubernetes git:(release-1.22) tree -LC 1 . ├── CHANGELOG ├── CHANGELOG.md -&gt; CHANGELOG/README.md ├── CONTRIBUTING.md ├── LICENSE ├── LICENSES ├── Makefile -&gt; build/root/Makefile ├── Makefile.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2021-09-17 itemprop="datePublished">September 17, 2021</time>
-                </span>
-                in
-                
-        	</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2021/2021-09-17-%E9%98%BF%E9%87%8C%E4%BA%91%E7%BA%AFoss%E5%BB%BA%E7%AB%99/">阿里云纯OSS建站</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				背景介绍   网站访问的原理
-与网站相关的关键字大致有：域名，DNS解析，CNMAE解析，CDN，回源等等。用户侧通过在浏览器输入网址（域名），由DNS服务解析出后端的IP，浏览器访问IP，获取静态文件和动态数据
-示意图如下：
-根据示意图可以明显得出，想要优化网站的响应速度，注意力应当集中在步骤2和步骤3上。
-  OSS介绍
-OSS中文名为对象存储服务，其实现了通过HTTP协议传输文件，文件的容灾存储，文件的元数据存储等等功能。
-  CDN介绍
-CDN是网站速度优化的最常见方法，其只针对静态资源有效。其实现原理为利用CDN厂商在多个地方的备份存储，实现就近访问，该备份存储定期访问源站，回源率是一个衡量CDN性能的重要指标。
-  传统建站 传统的网站建设方案，遵循上图。其后端服务部署在ECS上，静态资源托管到CDN厂商。用户访问的时候，静态资源从CDN就近获取，动态数据则直接请求源站，也正是由于该特性，网站一般都会通过加载动画来演示页面的呈现。
-很明显，该建站方案的短板在于回源的问题上，因为后端服务只有一个，当用户从远距离访问的时候就会出现延时，多用户访问更加缓慢。解决该问题的方案一般有2种，一是借助CDN厂商的异地机房，部署多个副本，人为的做负载均很方案；二是尽量减少动态数据的出现，并加上延时动画来优化用户体验。
 			</div>
 			<div class="post-footer">
 				<div class="post-meta">
