@@ -142,6 +142,39 @@ if (!doNotTrack) {
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-03-03-esxi-cloud-init%E4%BD%BF%E7%94%A8/">esxi-cloud-init使用</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				esxi是虚拟化的常见方案，其直接部署到物理机上，在之上可以虚拟化出来不同的系统。部署一个虚拟机，我们常见的操作方式是登录esxi的控制台或者vcenter的控制台操作，步骤比较繁琐。
+cloud-init是云厂商常用的方案，用于工作在虚拟机初始化的时候。例如，原生部署虚拟机的时候，需要在网页上设置磁盘，用户，网络等等，在cloud-init中，这些不必操作；原生部署虚拟机的时候，无法添加自定义源，cloud-init可以实现。
+使用到的工具  govc  govc 是vmware出的cli工具，用于操作vcenter
+第一步 配置esxi.env配置 # vCenter host export GOVC_URL=192.168.123.138 # vCenter credentials export GOVC_USERNAME=administrator@vsphere.local export GOVC_PASSWORD=rpK0qGVhd#YIxP4~S26+ # disable cert validation export GOVC_INSECURE=1 export GOVC_DATASTORE=bigdata export GOVC_NETWORK=&#34;&#34; export GOVC_RESOURCE_POOL=&#39;default-cluster/Resources&#39; export GOVC_DATACENTER=default-dc jinbao666lin@jinbao666deMacBook-Pro govc-practice % govc about FullName: VMware vCenter Server 6.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2022-03-03 itemprop="datePublished">March 3, 2022</time>
+                </span>
+                in
+                
+        	</div>
+				
+				<div class="post-tags">
+        		
+        			<span class="tag"><a href="https://amrom66.github.io/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/">
+               	 #虚拟化</a></span>
+        		
+				</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
 				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-02-28-etcd%E5%BC%BA%E5%88%B6%E5%88%A0%E9%99%A4k8s%E6%95%B0%E6%8D%AE/">etcd强制删除k8s数据</a></h1>
 			</header>
 			<div class="post-content">
@@ -233,29 +266,6 @@ iptables -P FORWARD ACCEPT 不允许数据流出
 				<div class="post-meta">
                 <span class="post-time">
                 <time datetime=2021-10-28 itemprop="datePublished">October 28, 2021</time>
-                </span>
-                in
-                
-        	</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2021/2021-09-17-kubernetes%E6%BA%90%E7%A0%81%E9%80%9A%E8%AF%BB-01/">kubernetes源码通读-01-项目结构</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				目录结构 ➜ kubernetes git:(release-1.22) tree -LC 1 . ├── CHANGELOG ├── CHANGELOG.md -&gt; CHANGELOG/README.md ├── CONTRIBUTING.md ├── LICENSE ├── LICENSES ├── Makefile -&gt; build/root/Makefile ├── Makefile.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2021-09-17 itemprop="datePublished">September 17, 2021</time>
                 </span>
                 in
                 
