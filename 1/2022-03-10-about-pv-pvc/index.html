@@ -9,9 +9,9 @@
   <meta name="description" content="打工笔记">
   <meta name="keywords" content="博客 个人 笔记">
   
-  <link rel="prev" href="https://amrom66.github.io/1/2022-03-10-about-pv-pvc/" />
-  <link rel="next" href="https://amrom66.github.io/2019/2019-06-11-android/" />
-  <link rel="canonical" href="https://amrom66.github.io/2019/2019-04-05-%E4%BF%AE%E5%A4%8Doffice%E6%96%87%E4%BB%B6%E9%BB%98%E8%AE%A4%E5%9B%BE%E6%A0%87/" />
+  
+  <link rel="next" href="https://amrom66.github.io/2019/2019-04-05-%E4%BF%AE%E5%A4%8Doffice%E6%96%87%E4%BB%B6%E9%BB%98%E8%AE%A4%E5%9B%BE%E6%A0%87/" />
+  <link rel="canonical" href="https://amrom66.github.io/1/2022-03-10-about-pv-pvc/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           修复Office文件默认图标 | 打工笔记
+           关于pv pvc的新认识 | 打工笔记
        
   </title>
-  <meta name="title" content="修复Office文件默认图标 | 打工笔记">
+  <meta name="title" content="关于pv pvc的新认识 | 打工笔记">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,21 +44,21 @@
          "@id": "https:\/\/amrom66.github.io"
     },
     "articleSection" : "posts",
-    "name" : "修复Office文件默认图标",
-    "headline" : "修复Office文件默认图标",
-    "description" : "修复office文件默认图标 rem 修复office文件默认图标.bat :: office图标文件路径，请根据自己电脑上的安装目录设置 set officepath=C:\\Program Files\\Microsoft Office\\root\\vfs\\Windows\\Installer\\{90160000-000F-0000-1000-0000000FF1CE}\\ :: 修复word图标 reg add \x26#34;HKCR\\Word.Document.8\\DefaultIcon\x26#34; \/ve \/t REG_SZ \/d \x26#34;%officepath%WORDICON.EXE,1\x26#34; reg delete \x26#34;HKCR\\Word.",
+    "name" : "关于pv pvc的新认识",
+    "headline" : "关于pv pvc的新认识",
+    "description" : "新认识\n hostpath可以直接使用  apiVersion: v1 kind: Pod metadata: name: pod-hostpath spec: nodeSelector: kubernetes.io\/hostname: i-6fns0nua containers: - image: busybox name: app volumeMounts: - mountPath: \/logs name: shared-dir args: - \/bin\/sh - -c - echo hostpath \x26gt;\x26gt; \/logs\/app.",
     "inLanguage" : "en-us",
     "author" : "linjinbao66",
     "creator" : "linjinbao66",
     "publisher": "linjinbao66",
     "accountablePerson" : "linjinbao66",
     "copyrightHolder" : "linjinbao66",
-    "copyrightYear" : "2019",
-    "datePublished": "2019-04-05 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2019-04-05 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/amrom66.github.io\/2019\/2019-04-05-%E4%BF%AE%E5%A4%8Doffice%E6%96%87%E4%BB%B6%E9%BB%98%E8%AE%A4%E5%9B%BE%E6%A0%87\/",
-    "wordCount" : "109",
-    "keywords" : [ "Office","bat","小工具", "打工笔记"]
+    "copyrightYear" : "0001",
+    "datePublished": "0001-01-01 00:00:00 \x2b0000 UTC",
+    "dateModified" : "0001-01-01 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/amrom66.github.io\/1\/2022-03-10-about-pv-pvc\/",
+    "wordCount" : "139",
+    "keywords" : [  "打工笔记"]
 }
 </script>
 
@@ -131,18 +131,14 @@ if (!doNotTrack) {
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">修复Office文件默认图标</h1>
+        <h1 class="post-title" itemprop="name headline">关于pv pvc的新认识</h1>
         <div class="post-meta">
                 作者： <a itemprop="name" href="https://amrom66.github.io" rel="author">linjinbao66</a> 时间： 
                 <span class="post-time">
-                 <time datetime=5049-04-05 itemprop="datePublished">April 5, 2019</time>
+                 <time datetime=1019-01-01 itemprop="datePublished">January 1, 0001</time>
                 </span>
                 分类： 
-                <i class="iconfont icon-folder"></i>
-                <span class="post-category">
-                        <a href="https://amrom66.github.io/categories/%E5%B0%8F%E5%B7%A5%E5%85%B7/"> 小工具 </a>
-                        
-                </span>
+                
         </div>
     </header>
     <div class="post-content">
@@ -161,41 +157,91 @@ if (!doNotTrack) {
           
           
 
-          <h1 id="修复office文件默认图标">修复office文件默认图标</h1>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">rem 修复office文件默认图标.bat
-
-:: office图标文件路径，请根据自己电脑上的安装目录设置
-set officepath=C:\Program Files\Microsoft Office\root\vfs\Windows\Installer\{90160000-000F-0000-1000-0000000FF1CE}\
-
-:: 修复word图标
-reg add &#34;HKCR\Word.Document.8\DefaultIcon&#34; /ve /t REG_SZ /d &#34;%officepath%WORDICON.EXE,1&#34;
-reg delete &#34;HKCR\Word.Document.8\DefaultIcon&#34; /v .ksobak
-
-reg add &#34;HKCR\Word.Document.12\DefaultIcon&#34; /ve /t REG_SZ /d &#34;%officepath%WORDICON.EXE,13&#34;
-:: 此行为删除wps残留注册表文件，下同
-reg delete &#34;HKCR\Word.Document.12\DefaultIcon&#34; /v .ksobak
-
-
-:: 修复EXCEL图标
-reg add &#34;HKCR\Excel.Sheet.8\DefaultIcon&#34; /ve /t REG_SZ /d &#34;%officepath%XLICONS.EXE,28&#34;
-reg delete &#34;HKCR\Excel.Sheet.8\DefaultIcon&#34; /v .ksobak
-
-reg add &#34;HKCR\Excel.Sheet.12\DefaultIcon&#34; /ve /t REG_SZ /d &#34;%officepath%XLICONS.EXE,1&#34;
-reg delete &#34;HKCR\Excel.Sheet.12\DefaultIcon&#34; /v .ksobak
-
-:: 修复POWERPNT图标
-reg add &#34;HKCR\PowerPoint.Show.8\DefaultIcon&#34; /ve /t REG_SZ /d &#34;%officepath%PPTICO.EXE,17&#34;
-reg delete &#34;HKCR\PowerPoint.Show.8\DefaultIcon&#34; /v .ksobak
-
-reg add &#34;HKCR\PowerPoint.Show.12\DefaultIcon&#34; /ve /t REG_SZ /d &#34;%officepath%PPTICO.EXE,10&#34;
-reg delete &#34;HKCR\PowerPoint.Show.12\DefaultIcon&#34; /v .ksobak
-
-
-:: 清理图标缓存，重启explorer
-taskkill /f /im explorer.exe
-CD /d %userprofile%\AppData\Local
-DEL IconCache.db /a
-start explorer.exe
+          <p>新认识</p>
+<ol>
+<li>hostpath可以直接使用</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">kind</span>: Pod
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: pod-hostpath
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">nodeSelector</span>:
+    <span style="color:#66d9ef">kubernetes.io/hostname</span>: i-6fns0nua
+  <span style="color:#66d9ef">containers</span>:
+  - <span style="color:#66d9ef">image</span>: busybox
+    <span style="color:#66d9ef">name</span>: app
+    <span style="color:#66d9ef">volumeMounts</span>:
+    - <span style="color:#66d9ef">mountPath</span>: /logs
+      <span style="color:#66d9ef">name</span>: shared-dir
+    <span style="color:#66d9ef">args</span>:
+    - /bin/sh
+    - -c
+    - echo hostpath &gt;&gt; /logs/app.log; sleep <span style="color:#ae81ff">60000</span>
+  <span style="color:#66d9ef">volumes</span>:
+  - <span style="color:#66d9ef">name</span>: shared-dir
+    <span style="color:#66d9ef">hostPath</span>:
+      <span style="color:#66d9ef">path</span>: /data/logs
+</code></pre></div><ol>
+<li>hostpath可以作为pv后端使用</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: storage.k8s.io/v1
+<span style="color:#66d9ef">kind</span>: StorageClass
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: local
+<span style="color:#66d9ef">provisioner</span>: kubernetes.io/no-provisioner
+<span style="color:#66d9ef">volumeBindingMode</span>: WaitForFirstConsumer
+---
+<span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">kind</span>: PersistentVolume
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: local1
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">capacity</span>:
+    <span style="color:#66d9ef">storage</span>: 30Gi 
+  <span style="color:#66d9ef">volumeMode</span>: Filesystem
+  <span style="color:#66d9ef">accessModes</span>:
+  - ReadWriteOnce
+  <span style="color:#66d9ef">persistentVolumeReclaimPolicy</span>: Retain
+  <span style="color:#66d9ef">storageClassName</span>: local
+  <span style="color:#66d9ef">local</span>:
+    <span style="color:#66d9ef">path</span>: /data/local1
+  <span style="color:#66d9ef">nodeAffinity</span>:
+      <span style="color:#66d9ef">required</span>:
+        <span style="color:#66d9ef">nodeSelectorTerms</span>:
+        - <span style="color:#66d9ef">matchExpressions</span>:
+          - <span style="color:#66d9ef">key</span>: kubernetes.io/hostname
+            <span style="color:#66d9ef">operator</span>: In
+            <span style="color:#66d9ef">values</span>:
+            - i-6fns0nua
+---
+<span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">kind</span>: PersistentVolumeClaim
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: pvc1
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">storageClassName</span>: local
+  <span style="color:#66d9ef">accessModes</span>:
+    - ReadWriteMany
+  <span style="color:#66d9ef">resources</span>:
+    <span style="color:#66d9ef">requests</span>:
+      <span style="color:#66d9ef">storage</span>: 30Gi
+---
+<span style="color:#66d9ef">kind</span>: Pod
+<span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: pod1
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">containers</span>:
+    - <span style="color:#66d9ef">name</span>: nginx1
+      <span style="color:#66d9ef">image</span>: nginx
+      <span style="color:#66d9ef">volumeMounts</span>:
+      - <span style="color:#66d9ef">mountPath</span>: <span style="color:#e6db74">&#34;/var/www/html&#34;</span>
+        <span style="color:#66d9ef">name</span>: pod1
+  <span style="color:#66d9ef">volumes</span>:
+    - <span style="color:#66d9ef">name</span>: pod1
+      <span style="color:#66d9ef">persistentVolumeClaim</span>:
+        <span style="color:#66d9ef">claimName</span>: pvc1
 </code></pre></div>
     </div>
 
@@ -210,20 +256,6 @@ start explorer.exe
 
     <div class="post-tags">
         
-            <section>
-            <i class="iconfont icon-tag"></i>标签: 
-            
-            <span class="tag"><a href="https://amrom66.github.io/tags/office/">
-                    #Office</a></span>
-            
-            <span class="tag"><a href="https://amrom66.github.io/tags/bat/">
-                    #bat</a></span>
-            
-            <span class="tag"><a href="https://amrom66.github.io/tags/%E5%B0%8F%E5%B7%A5%E5%85%B7/">
-                    #小工具</a></span>
-            
-            </section>
-        
         <section>
                 <a href="javascript:window.history.back();">返回</a></span> · 
                 <span><a href="https://amrom66.github.io">主页</a></span>
@@ -231,11 +263,9 @@ start explorer.exe
     </div>
 
     <div class="post-nav">
-        
-        <a href="https://amrom66.github.io/1/2022-03-10-about-pv-pvc/" class="prev" rel="prev" title="关于pv pvc的新认识"><i class="iconfont icon-left"></i>&nbsp;关于pv pvc的新认识</a>
          
         
-        <a href="https://amrom66.github.io/2019/2019-06-11-android/" class="next" rel="next" title="Android学习笔记">Android学习笔记&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://amrom66.github.io/2019/2019-04-05-%E4%BF%AE%E5%A4%8Doffice%E6%96%87%E4%BB%B6%E9%BB%98%E8%AE%A4%E5%9B%BE%E6%A0%87/" class="next" rel="next" title="修复Office文件默认图标">修复Office文件默认图标&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

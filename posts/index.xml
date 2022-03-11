@@ -2837,5 +2837,15 @@ DELIMITER // CREATE PROCEDURE getAllUsers() BEGIN SELECT * FROM `user`; END // D
       <description>修复office文件默认图标 rem 修复office文件默认图标.bat :: office图标文件路径，请根据自己电脑上的安装目录设置 set officepath=C:\Program Files\Microsoft Office\root\vfs\Windows\Installer\{90160000-000F-0000-1000-0000000FF1CE}\ :: 修复word图标 reg add &amp;#34;HKCR\Word.Document.8\DefaultIcon&amp;#34; /ve /t REG_SZ /d &amp;#34;%officepath%WORDICON.EXE,1&amp;#34; reg delete &amp;#34;HKCR\Word.</description>
     </item>
     
+    <item>
+      <title>关于pv pvc的新认识</title>
+      <link>https://amrom66.github.io/1/2022-03-10-about-pv-pvc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/1/2022-03-10-about-pv-pvc/</guid>
+      <description>新认识
+ hostpath可以直接使用  apiVersion: v1 kind: Pod metadata: name: pod-hostpath spec: nodeSelector: kubernetes.io/hostname: i-6fns0nua containers: - image: busybox name: app volumeMounts: - mountPath: /logs name: shared-dir args: - /bin/sh - -c - echo hostpath &amp;gt;&amp;gt; /logs/app.</description>
+    </item>
+    
   </channel>
 </rss>
