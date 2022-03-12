@@ -142,6 +142,30 @@ if (!doNotTrack) {
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-03-10-about-pv-pvc/">关于pv pvc的新认识</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				新认识
+ hostpath可以直接使用  apiVersion: v1 kind: Pod metadata: name: pod-hostpath spec: nodeSelector: kubernetes.io/hostname: i-6fns0nua containers: - image: busybox name: app volumeMounts: - mountPath: /logs name: shared-dir args: - /bin/sh - -c - echo hostpath &gt;&gt; /logs/app.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2022-03-10 itemprop="datePublished">March 10, 2022</time>
+                </span>
+                in
+                
+        	</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
 				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-03-03-esxi-cloud-init%E4%BD%BF%E7%94%A8/">esxi-cloud-init使用</a></h1>
 			</header>
 			<div class="post-content">
@@ -241,31 +265,6 @@ iptables -P FORWARD ACCEPT 不允许数据流出
 				<div class="post-meta">
                 <span class="post-time">
                 <time datetime=2021-11-29 itemprop="datePublished">November 29, 2021</time>
-                </span>
-                in
-                
-        	</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2021/2021-10-28-kubeconfig%E7%AD%BE%E5%8F%91/">kubeconfig签发</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				签发一个kubeconfig文件的详细流程 大致步骤：
- cfssl证书 定义集群 定义用户 定义上下文 绑定角色  cfssl证书 ca-config.json cfssl的配置文件
-{ &#34;signing&#34;: { &#34;default&#34;: { &#34;expiry&#34;: &#34;87600h&#34; }, &#34;profiles&#34;: { &#34;kubernetes&#34;: { &#34;usages&#34;: [ &#34;signing&#34;, &#34;key encipherment&#34;, &#34;server auth&#34;, &#34;client auth&#34; ], &#34;expiry&#34;: &#34;876000h&#34; } } } } user-csr.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2021-10-28 itemprop="datePublished">October 28, 2021</time>
                 </span>
                 in
                 
