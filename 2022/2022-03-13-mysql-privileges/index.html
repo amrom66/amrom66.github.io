@@ -9,9 +9,9 @@
   <meta name="description" content="打工笔记">
   <meta name="keywords" content="博客 个人 笔记">
   
-  <link rel="prev" href="https://amrom66.github.io/2022/2022-03-03-esxi-cloud-init%E4%BD%BF%E7%94%A8/" />
-  <link rel="next" href="https://amrom66.github.io/2022/2022-03-13-mysql-privileges/" />
-  <link rel="canonical" href="https://amrom66.github.io/2022/2022-03-10-about-pv-pvc/" />
+  <link rel="prev" href="https://amrom66.github.io/2022/2022-03-10-about-pv-pvc/" />
+  
+  <link rel="canonical" href="https://amrom66.github.io/2022/2022-03-13-mysql-privileges/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           关于pv pvc的新认识 | 打工笔记
+           mysql权限高级 | 打工笔记
        
   </title>
-  <meta name="title" content="关于pv pvc的新认识 | 打工笔记">
+  <meta name="title" content="mysql权限高级 | 打工笔记">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/amrom66.github.io"
     },
     "articleSection" : "posts",
-    "name" : "关于pv pvc的新认识",
-    "headline" : "关于pv pvc的新认识",
-    "description" : "新认识\n hostpath可以直接使用  apiVersion: v1 kind: Pod metadata: name: pod-hostpath spec: nodeSelector: kubernetes.io\/hostname: i-6fns0nua containers: - image: busybox name: app volumeMounts: - mountPath: \/logs name: shared-dir args: - \/bin\/sh - -c - echo hostpath \x26gt;\x26gt; \/logs\/app.",
+    "name" : "mysql权限高级",
+    "headline" : "mysql权限高级",
+    "description" : "问题： 如何创建一个新用户，并屏蔽旧库权限？\n答案： 问题是对mysql的权限理解有问题。 mysql的权限有2个操作符,grant(授予)和revoke(撤销)。旧库的权限是不能屏蔽的，必须每一个剔除允许的列表。\n操作实例\ncreate user \x27test\x27@\x27%\x27 identified by \x27123456\x27; grant all privileges on `test%` to \x27test\x27@\x27%\x27; 以上操作会给予test用户，作用域test开头的所有库的所有权限。",
     "inLanguage" : "en-us",
     "author" : "linjinbao66",
     "creator" : "linjinbao66",
@@ -54,10 +54,10 @@
     "accountablePerson" : "linjinbao66",
     "copyrightHolder" : "linjinbao66",
     "copyrightYear" : "2022",
-    "datePublished": "2022-03-10 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2022-03-10 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/amrom66.github.io\/2022\/2022-03-10-about-pv-pvc\/",
-    "wordCount" : "139",
+    "datePublished": "2022-03-12 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2022-03-12 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/amrom66.github.io\/2022\/2022-03-13-mysql-privileges\/",
+    "wordCount" : "28",
     "keywords" : [  "打工笔记"]
 }
 </script>
@@ -131,11 +131,11 @@ if (!doNotTrack) {
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">关于pv pvc的新认识</h1>
+        <h1 class="post-title" itemprop="name headline">mysql权限高级</h1>
         <div class="post-meta">
                 作者： <a itemprop="name" href="https://amrom66.github.io" rel="author">linjinbao66</a> 时间： 
                 <span class="post-time">
-                 <time datetime=10039-03-10 itemprop="datePublished">March 10, 2022</time>
+                 <time datetime=12039-03-12 itemprop="datePublished">March 12, 2022</time>
                 </span>
                 分类： 
                 
@@ -157,92 +157,18 @@ if (!doNotTrack) {
           
           
 
-          <p>新认识</p>
-<ol>
-<li>hostpath可以直接使用</li>
-</ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: v1
-<span style="color:#66d9ef">kind</span>: Pod
-<span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: pod-hostpath
-<span style="color:#66d9ef">spec</span>:
-  <span style="color:#66d9ef">nodeSelector</span>:
-    <span style="color:#66d9ef">kubernetes.io/hostname</span>: i-6fns0nua
-  <span style="color:#66d9ef">containers</span>:
-  - <span style="color:#66d9ef">image</span>: busybox
-    <span style="color:#66d9ef">name</span>: app
-    <span style="color:#66d9ef">volumeMounts</span>:
-    - <span style="color:#66d9ef">mountPath</span>: /logs
-      <span style="color:#66d9ef">name</span>: shared-dir
-    <span style="color:#66d9ef">args</span>:
-    - /bin/sh
-    - -c
-    - echo hostpath &gt;&gt; /logs/app.log; sleep <span style="color:#ae81ff">60000</span>
-  <span style="color:#66d9ef">volumes</span>:
-  - <span style="color:#66d9ef">name</span>: shared-dir
-    <span style="color:#66d9ef">hostPath</span>:
-      <span style="color:#66d9ef">path</span>: /data/logs
-</code></pre></div><ol>
-<li>hostpath可以作为pv后端使用</li>
-</ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: storage.k8s.io/v1
-<span style="color:#66d9ef">kind</span>: StorageClass
-<span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: local
-<span style="color:#66d9ef">provisioner</span>: kubernetes.io/no-provisioner
-<span style="color:#66d9ef">volumeBindingMode</span>: WaitForFirstConsumer
----
-<span style="color:#66d9ef">apiVersion</span>: v1
-<span style="color:#66d9ef">kind</span>: PersistentVolume
-<span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: local1
-<span style="color:#66d9ef">spec</span>:
-  <span style="color:#66d9ef">capacity</span>:
-    <span style="color:#66d9ef">storage</span>: 30Gi 
-  <span style="color:#66d9ef">volumeMode</span>: Filesystem
-  <span style="color:#66d9ef">accessModes</span>:
-  - ReadWriteOnce
-  <span style="color:#66d9ef">persistentVolumeReclaimPolicy</span>: Retain
-  <span style="color:#66d9ef">storageClassName</span>: local
-  <span style="color:#66d9ef">local</span>:
-    <span style="color:#66d9ef">path</span>: /data/local1
-  <span style="color:#66d9ef">nodeAffinity</span>:
-      <span style="color:#66d9ef">required</span>:
-        <span style="color:#66d9ef">nodeSelectorTerms</span>:
-        - <span style="color:#66d9ef">matchExpressions</span>:
-          - <span style="color:#66d9ef">key</span>: kubernetes.io/hostname
-            <span style="color:#66d9ef">operator</span>: In
-            <span style="color:#66d9ef">values</span>:
-            - i-6fns0nua
----
-<span style="color:#66d9ef">apiVersion</span>: v1
-<span style="color:#66d9ef">kind</span>: PersistentVolumeClaim
-<span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: pvc1
-<span style="color:#66d9ef">spec</span>:
-  <span style="color:#66d9ef">storageClassName</span>: local
-  <span style="color:#66d9ef">accessModes</span>:
-    - ReadWriteMany
-  <span style="color:#66d9ef">resources</span>:
-    <span style="color:#66d9ef">requests</span>:
-      <span style="color:#66d9ef">storage</span>: 30Gi
----
-<span style="color:#66d9ef">kind</span>: Pod
-<span style="color:#66d9ef">apiVersion</span>: v1
-<span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">name</span>: pod1
-<span style="color:#66d9ef">spec</span>:
-  <span style="color:#66d9ef">containers</span>:
-    - <span style="color:#66d9ef">name</span>: nginx1
-      <span style="color:#66d9ef">image</span>: nginx
-      <span style="color:#66d9ef">volumeMounts</span>:
-      - <span style="color:#66d9ef">mountPath</span>: <span style="color:#e6db74">&#34;/var/www/html&#34;</span>
-        <span style="color:#66d9ef">name</span>: pod1
-  <span style="color:#66d9ef">volumes</span>:
-    - <span style="color:#66d9ef">name</span>: pod1
-      <span style="color:#66d9ef">persistentVolumeClaim</span>:
-        <span style="color:#66d9ef">claimName</span>: pvc1
-</code></pre></div>
+          <p><strong>问题：</strong>
+如何创建一个新用户，并屏蔽旧库权限？</p>
+<p><strong>答案：</strong>
+问题是对mysql的权限理解有问题。
+mysql的权限有2个操作符,grant(授予)和revoke(撤销)。旧库的权限是不能屏蔽的，必须每一个剔除允许的列表。</p>
+<p>操作实例</p>
+<pre><code class="language-code" data-lang="code">create user 'test'@'%' identified by '123456';
+grant all privileges on `test%` to 'test'@'%';
+</code></pre><p>以上操作会给予test用户，作用域test开头的所有库的所有权限。</p>
+<pre><code class="language-code" data-lang="code">revoke all privileges on test.* from 'sql'@'%';
+</code></pre><p>以上操作撤销test用于针对test库的操作。</p>
+
     </div>
 
     <div class="post-copyright">
@@ -264,10 +190,8 @@ if (!doNotTrack) {
 
     <div class="post-nav">
         
-        <a href="https://amrom66.github.io/2022/2022-03-03-esxi-cloud-init%E4%BD%BF%E7%94%A8/" class="prev" rel="prev" title="esxi-cloud-init使用"><i class="iconfont icon-left"></i>&nbsp;esxi-cloud-init使用</a>
+        <a href="https://amrom66.github.io/2022/2022-03-10-about-pv-pvc/" class="prev" rel="prev" title="关于pv pvc的新认识"><i class="iconfont icon-left"></i>&nbsp;关于pv pvc的新认识</a>
          
-        
-        <a href="https://amrom66.github.io/2022/2022-03-13-mysql-privileges/" class="next" rel="next" title="mysql权限高级">mysql权限高级&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

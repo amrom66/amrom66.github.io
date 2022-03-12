@@ -142,6 +142,32 @@ if (!doNotTrack) {
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-03-13-mysql-privileges/">mysql权限高级</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				问题： 如何创建一个新用户，并屏蔽旧库权限？
+答案： 问题是对mysql的权限理解有问题。 mysql的权限有2个操作符,grant(授予)和revoke(撤销)。旧库的权限是不能屏蔽的，必须每一个剔除允许的列表。
+操作实例
+create user 'test'@'%' identified by '123456'; grant all privileges on `test%` to 'test'@'%'; 以上操作会给予test用户，作用域test开头的所有库的所有权限。
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2022-03-12 itemprop="datePublished">March 12, 2022</time>
+                </span>
+                in
+                
+        	</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
 				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-03-10-about-pv-pvc/">关于pv pvc的新认识</a></h1>
 			</header>
 			<div class="post-content">
@@ -236,35 +262,6 @@ yum install containerd.io cat &lt;&lt;EOF | sudo tee /etc/modules-load.d/contain
 				<div class="post-meta">
                 <span class="post-time">
                 <time datetime=2022-02-16 itemprop="datePublished">February 16, 2022</time>
-                </span>
-                in
-                
-        	</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2021/2021-11-29-iptables%E6%93%8D%E4%BD%9C%E5%AE%9E%E4%BE%8B/">iptables操作实例</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				4个表:filter,mangle,nat,raw
-3个链:PREROUTING,PREROUTING,PREROUTING
-iptabls基本操作示例 查看规则 查看规则集
-iptables --list -n 加一个-n以数字形式显示IP和端口，而不是默认的服务名称
-修改规则 配置默认规则，不允许数据进入
-iptables -P INPUT DROP 允许转发
-iptables -P FORWARD ACCEPT 不允许数据流出
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2021-11-29 itemprop="datePublished">November 29, 2021</time>
                 </span>
                 in
                 

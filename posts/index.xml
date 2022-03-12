@@ -6,10 +6,22 @@
     <description>Recent content in Posts on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 12 Mar 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://amrom66.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>mysql权限高级</title>
+      <link>https://amrom66.github.io/2022/2022-03-13-mysql-privileges/</link>
+      <pubDate>Sat, 12 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/2022/2022-03-13-mysql-privileges/</guid>
+      <description>问题： 如何创建一个新用户，并屏蔽旧库权限？
+答案： 问题是对mysql的权限理解有问题。 mysql的权限有2个操作符,grant(授予)和revoke(撤销)。旧库的权限是不能屏蔽的，必须每一个剔除允许的列表。
+操作实例
+create user &#39;test&#39;@&#39;%&#39; identified by &#39;123456&#39;; grant all privileges on `test%` to &#39;test&#39;@&#39;%&#39;; 以上操作会给予test用户，作用域test开头的所有库的所有权限。</description>
+    </item>
     
     <item>
       <title>关于pv pvc的新认识</title>
