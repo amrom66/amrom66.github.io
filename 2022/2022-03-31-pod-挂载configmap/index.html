@@ -9,9 +9,9 @@
   <meta name="description" content="打工笔记">
   <meta name="keywords" content="博客 个人 笔记">
   
-  <link rel="prev" href="https://amrom66.github.io/2022/2022-03-10-about-pv-pvc/" />
-  <link rel="next" href="https://amrom66.github.io/2022/2022-03-31-pod-%E6%8C%82%E8%BD%BDconfigmap/" />
-  <link rel="canonical" href="https://amrom66.github.io/2022/2022-03-13-mysql-privileges/" />
+  <link rel="prev" href="https://amrom66.github.io/2022/2022-03-13-mysql-privileges/" />
+  
+  <link rel="canonical" href="https://amrom66.github.io/2022/2022-03-31-pod-%E6%8C%82%E8%BD%BDconfigmap/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           mysql权限高级 | 打工笔记
+           pod挂载configmap | 打工笔记
        
   </title>
-  <meta name="title" content="mysql权限高级 | 打工笔记">
+  <meta name="title" content="pod挂载configmap | 打工笔记">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/amrom66.github.io"
     },
     "articleSection" : "posts",
-    "name" : "mysql权限高级",
-    "headline" : "mysql权限高级",
-    "description" : "问题： 如何创建一个新用户，并屏蔽旧库权限？\n答案： 问题是对mysql的权限理解有问题。 mysql的权限有2个操作符,grant(授予)和revoke(撤销)。旧库的权限是不能屏蔽的，必须每一个剔除允许的列表。\n操作实例\ncreate user \x27test\x27@\x27%\x27 identified by \x27123456\x27; grant all privileges on `test%` to \x27test\x27@\x27%\x27; 以上操作会给予test用户，作用域test开头的所有库的所有权限。",
+    "name" : "pod挂载configmap",
+    "headline" : "pod挂载configmap",
+    "description" : "nginx.yaml\napiVersion: v1 kind: Pod metadata: creationTimestamp: null labels: run: nginx name: nginx spec: containers: - image: nginx imagePullPolicy: IfNotPresent name: nginx resources: {} env: - name: option # name of the env variable valueFrom: configMapKeyRef: name: options # name of config map key: var5 # name of the entity in config map dnsPolicy: ClusterFirst restartPolicy: Never status: {} options.",
     "inLanguage" : "en-us",
     "author" : "linjinbao66",
     "creator" : "linjinbao66",
@@ -54,10 +54,10 @@
     "accountablePerson" : "linjinbao66",
     "copyrightHolder" : "linjinbao66",
     "copyrightYear" : "2022",
-    "datePublished": "2022-03-12 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2022-03-12 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/amrom66.github.io\/2022\/2022-03-13-mysql-privileges\/",
-    "wordCount" : "28",
+    "datePublished": "2022-03-31 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2022-03-31 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/amrom66.github.io\/2022\/2022-03-31-pod-%E6%8C%82%E8%BD%BDconfigmap\/",
+    "wordCount" : "65",
     "keywords" : [  "打工笔记"]
 }
 </script>
@@ -131,11 +131,11 @@ if (!doNotTrack) {
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">mysql权限高级</h1>
+        <h1 class="post-title" itemprop="name headline">pod挂载configmap</h1>
         <div class="post-meta">
                 作者： <a itemprop="name" href="https://amrom66.github.io" rel="author">linjinbao66</a> 时间： 
                 <span class="post-time">
-                 <time datetime=12039-03-12 itemprop="datePublished">March 12, 2022</time>
+                 <time datetime=31039-03-31 itemprop="datePublished">March 31, 2022</time>
                 </span>
                 分类： 
                 
@@ -157,18 +157,32 @@ if (!doNotTrack) {
           
           
 
-          <p><strong>问题：</strong>
-如何创建一个新用户，并屏蔽旧库权限？</p>
-<p><strong>答案：</strong>
-问题是对mysql的权限理解有问题。
-mysql的权限有2个操作符,grant(授予)和revoke(撤销)。旧库的权限是不能屏蔽的，必须每一个剔除允许的列表。</p>
-<p>操作实例</p>
-<pre><code class="language-code" data-lang="code">create user 'test'@'%' identified by '123456';
-grant all privileges on `test%` to 'test'@'%';
-</code></pre><p>以上操作会给予test用户，作用域test开头的所有库的所有权限。</p>
-<pre><code class="language-code" data-lang="code">revoke all privileges on test.* from 'sql'@'%';
-</code></pre><p>以上操作撤销test用于针对test库的操作。</p>
-
+          <p>nginx.yaml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">kind</span>: Pod
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">creationTimestamp</span>: <span style="color:#66d9ef">null</span>
+  <span style="color:#66d9ef">labels</span>:
+    <span style="color:#66d9ef">run</span>: nginx
+  <span style="color:#66d9ef">name</span>: nginx
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">containers</span>:
+  - <span style="color:#66d9ef">image</span>: nginx
+    <span style="color:#66d9ef">imagePullPolicy</span>: IfNotPresent
+    <span style="color:#66d9ef">name</span>: nginx
+    <span style="color:#66d9ef">resources</span>: {}
+    <span style="color:#66d9ef">env</span>:
+    - <span style="color:#66d9ef">name</span>: option <span style="color:#75715e"># name of the env variable</span>
+      <span style="color:#66d9ef">valueFrom</span>:
+        <span style="color:#66d9ef">configMapKeyRef</span>:
+          <span style="color:#66d9ef">name</span>: options <span style="color:#75715e"># name of config map</span>
+          <span style="color:#66d9ef">key</span>: var5 <span style="color:#75715e"># name of the entity in config map</span>
+  <span style="color:#66d9ef">dnsPolicy</span>: ClusterFirst
+  <span style="color:#66d9ef">restartPolicy</span>: Never
+<span style="color:#66d9ef">status</span>: {}
+</code></pre></div><p>options.yaml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">kubectl create configmap options --from-literal<span style="color:#f92672">=</span>var5<span style="color:#f92672">=</span>val5 
+</code></pre></div>
     </div>
 
     <div class="post-copyright">
@@ -190,10 +204,8 @@ grant all privileges on `test%` to 'test'@'%';
 
     <div class="post-nav">
         
-        <a href="https://amrom66.github.io/2022/2022-03-10-about-pv-pvc/" class="prev" rel="prev" title="关于pv pvc的新认识"><i class="iconfont icon-left"></i>&nbsp;关于pv pvc的新认识</a>
+        <a href="https://amrom66.github.io/2022/2022-03-13-mysql-privileges/" class="prev" rel="prev" title="mysql权限高级"><i class="iconfont icon-left"></i>&nbsp;mysql权限高级</a>
          
-        
-        <a href="https://amrom66.github.io/2022/2022-03-31-pod-%E6%8C%82%E8%BD%BDconfigmap/" class="next" rel="next" title="pod挂载configmap">pod挂载configmap&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

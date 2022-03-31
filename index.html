@@ -142,6 +142,30 @@ if (!doNotTrack) {
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-03-31-pod-%E6%8C%82%E8%BD%BDconfigmap/">pod挂载configmap</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				nginx.yaml
+apiVersion: v1 kind: Pod metadata: creationTimestamp: null labels: run: nginx name: nginx spec: containers: - image: nginx imagePullPolicy: IfNotPresent name: nginx resources: {} env: - name: option # name of the env variable valueFrom: configMapKeyRef: name: options # name of config map key: var5 # name of the entity in config map dnsPolicy: ClusterFirst restartPolicy: Never status: {} options.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2022-03-31 itemprop="datePublished">March 31, 2022</time>
+                </span>
+                in
+                
+        	</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
 				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-03-13-mysql-privileges/">mysql权限高级</a></h1>
 			</header>
 			<div class="post-content">
@@ -238,30 +262,6 @@ cloud-init是云厂商常用的方案，用于工作在虚拟机初始化的时�
 				<div class="post-meta">
                 <span class="post-time">
                 <time datetime=2022-02-28 itemprop="datePublished">February 28, 2022</time>
-                </span>
-                in
-                
-        	</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-02-16-node%E8%8A%82%E7%82%B9%E5%AE%89%E8%A3%85%E7%AC%94%E8%AE%B0/">node节点安装笔记</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				node节点安装笔记
-yum install containerd.io cat &lt;&lt;EOF | sudo tee /etc/modules-load.d/containerd.conf overlay br_netfilter EOF sudo modprobe overlay sudo modprobe br_netfilter # Setup required sysctl params, these persist across reboots.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2022-02-16 itemprop="datePublished">February 16, 2022</time>
                 </span>
                 in
                 
