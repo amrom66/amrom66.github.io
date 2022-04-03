@@ -2,9 +2,9 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
-      <loc>https://amrom66.github.io/2022/2022-03-31-pod-%E6%8C%82%E8%BD%BDconfigmap/</loc>
+      <loc>https://amrom66.github.io/2022/2022-04-03-network-policy/</loc>
       
-      <lastmod>2022-03-31T00:00:00+00:00</lastmod>
+      <lastmod>2022-04-03T00:00:00+00:00</lastmod>
       
       
       
@@ -14,7 +14,7 @@
     <url>
       <loc>https://amrom66.github.io/posts/</loc>
       
-      <lastmod>2022-03-31T00:00:00+00:00</lastmod>
+      <lastmod>2022-04-03T00:00:00+00:00</lastmod>
       
       
       
@@ -23,6 +23,16 @@
   
     <url>
       <loc>https://amrom66.github.io/</loc>
+      
+      <lastmod>2022-04-03T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://amrom66.github.io/2022/2022-03-31-pod-%E6%8C%82%E8%BD%BDconfigmap/</loc>
       
       <lastmod>2022-03-31T00:00:00+00:00</lastmod>
       
@@ -2912,7 +2922,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/categories/%E5%AD%A6%E4%B9%A0/</loc>
+      <loc>https://amrom66.github.io/tags/%E5%AD%A6%E4%B9%A0/</loc>
       
       <lastmod>2019-10-10T00:00:00+00:00</lastmod>
       
@@ -2922,7 +2932,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/tags/%E5%AD%A6%E4%B9%A0/</loc>
+      <loc>https://amrom66.github.io/categories/%E5%AD%A6%E4%B9%A0/</loc>
       
       <lastmod>2019-10-10T00:00:00+00:00</lastmod>
       
@@ -3322,7 +3332,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
+      <loc>https://amrom66.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
       
       <lastmod>2019-09-21T00:00:00+00:00</lastmod>
       
@@ -3332,7 +3342,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
+      <loc>https://amrom66.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
       
       <lastmod>2019-09-21T00:00:00+00:00</lastmod>
       

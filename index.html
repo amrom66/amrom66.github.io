@@ -142,6 +142,29 @@ if (!doNotTrack) {
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-04-03-network-policy/">network-policy</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				一个网络隔离策略讲解 apiVersion: networking.k8s.io/v1 kind: NetworkPolicy metadata: name: my-networkpolicy namespace: mysql spec: podSelector: {} policyTypes: - Ingress ingress: - from: - namespaceSelector: matchLabels: name: internal ports: - protocol: TCP port: 8080 解释 该策略：
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2022-04-03 itemprop="datePublished">April 3, 2022</time>
+                </span>
+                in
+                
+        	</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
 				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-03-31-pod-%E6%8C%82%E8%BD%BDconfigmap/">pod挂载configmap</a></h1>
 			</header>
 			<div class="post-content">
@@ -242,30 +265,6 @@ cloud-init是云厂商常用的方案，用于工作在虚拟机初始化的时�
                	 #虚拟化</a></span>
         		
 				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-02-28-etcd%E5%BC%BA%E5%88%B6%E5%88%A0%E9%99%A4k8s%E6%95%B0%E6%8D%AE/">etcd强制删除k8s数据</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				k8s由于各种原因，导致pod等数据一直处于terminting状态中，可以考虑到etcd中强制删除
-#检索pod数据 etcdctl --endpoints=https://127.0.0.1:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/ca.crt --key=/etc/kubernetes/pki/etcd/ca.key get /registry/pod --prefix --keys-only #根据关键字清楚 export ssss=calico etcdctl --endpoints=https://127.0.0.1:2379 --cacert=/etc/kubernetes/pki/etcd/ca.crt --cert=/etc/kubernetes/pki/etcd/ca.crt --key=/etc/kubernetes/pki/etcd/ca.key get /registry --prefix --keys-only | grep ${ssss} | xargs -I{} etcdctl --endpoints=https://127.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2022-02-28 itemprop="datePublished">February 28, 2022</time>
-                </span>
-                in
-                
-        	</div>
 				
 			</div>
 		</article>

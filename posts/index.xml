@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 Mar 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 03 Apr 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://amrom66.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>network-policy</title>
+      <link>https://amrom66.github.io/2022/2022-04-03-network-policy/</link>
+      <pubDate>Sun, 03 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/2022/2022-04-03-network-policy/</guid>
+      <description>一个网络隔离策略讲解 apiVersion: networking.k8s.io/v1 kind: NetworkPolicy metadata: name: my-networkpolicy namespace: mysql spec: podSelector: {} policyTypes: - Ingress ingress: - from: - namespaceSelector: matchLabels: name: internal ports: - protocol: TCP port: 8080 解释 该策略：</description>
+    </item>
     
     <item>
       <title>pod挂载configmap</title>
