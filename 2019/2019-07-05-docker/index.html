@@ -57,7 +57,7 @@
     "datePublished": "2019-07-05 00:00:00 \x2b0000 UTC",
     "dateModified" : "2019-07-05 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/amrom66.github.io\/2019\/2019-07-05-docker\/",
-    "wordCount" : "204",
+    "wordCount" : "201",
     "keywords" : [ "Docker","教程","容器","仓库","工具", "打工笔记"]
 }
 </script>
@@ -162,7 +162,7 @@ if (!doNotTrack) {
           
           
 
-          <h3 id="docker笔记">Docker笔记</h3>
+          <h2 id="docker笔记">Docker笔记</h2>
 <h3 id="docker安装">Docker安装</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">yum install docker -y
 systemctl start docker.service
@@ -171,8 +171,8 @@ systemctl stop docker.service
 systemctl start docker.service
 systemctl restart docker.service
 systemctl status docker.service
-</code></pre></div><p>####Docker卸载
-1.搜索已经安装的Docker保</p>
+</code></pre></div><h4 id="docker卸载">Docker卸载</h4>
+<p>1.搜索已经安装的Docker保</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">yum list installed|grep docker
 rpm -qa|grep docker
 </code></pre></div><p>2.分别删除安装包</p>
@@ -227,11 +227,11 @@ tail /etc/docker/daemon.json
 </code></pre><p>删除全部镜像</p>
 <pre><code class="language-code" data-lang="code">docker rmi $(docker images -q)
 </code></pre><h4 id="建立docker用户组用户">建立docker用户组、用户</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sudo groupadd docker
-$ sudo usermod -aG docker $USER
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo groupadd docker
+sudo usermod -aG docker $USER
 </code></pre></div><h3 id="镜像">镜像</h3>
 <p>1.获取镜像</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ docker	pull	<span style="color:#f92672">[</span>选项<span style="color:#f92672">]</span>	<span style="color:#f92672">[</span>Docker	Registry地址<span style="color:#f92672">]</span>&lt;仓库名&gt;:&lt;标签&gt;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">docker pull <span style="color:#f92672">[</span>选项<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>Docker Registry地址<span style="color:#f92672">]</span>&lt;仓库名&gt;:&lt;标签&gt;
 </code></pre></div><p>2.运行</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ docker run -it --rm ubuntu:14.04 bash 
 $ docker run --name tomcat -p 8080:8080 -dit tomcat 

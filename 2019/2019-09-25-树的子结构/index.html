@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "牛客网题目-树的子结构",
     "headline" : "牛客网题目-树的子结构",
-    "description" : "2019-09-25-树的子结构 题目名称：树的子结构 题目描述 输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）\n分析： 第一想法是递归，只要是树，我就上递归。分析情况有以下3种：\n 当前root1节点=当前root2节点 当前root1节点！=当前root2节点，但是root1.left和root2节点相等 当前root1节点！=当前root2节点，但是root1.right和root2节点相等  所以需要一个辅助函数helper\npublic static boolean hasSubtree(TreeNode root1, TreeNode root2) { if (root1==null || root2==null) return false; \/\/三种情况  return helper(root1,root2) || hasSubtree(root1.",
+    "description" : "2019-09-25-树的子结构 题目名称：树的子结构 题目描述 输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）\n分析 第一想法是递归，只要是树，我就上递归。分析情况有以下3种：\n 当前root1节点=当前root2节点 当前root1节点！=当前root2节点，但是root1.left和root2节点相等 当前root1节点！=当前root2节点，但是root1.right和root2节点相等  所以需要一个辅助函数helper\npublic static boolean hasSubtree(TreeNode root1, TreeNode root2) { if (root1==null || root2==null) return false; \/\/三种情况  return helper(root1,root2) || hasSubtree(root1.",
     "inLanguage" : "en-us",
     "author" : "linjinbao66",
     "creator" : "linjinbao66",
@@ -161,11 +161,11 @@ if (!doNotTrack) {
           
           
 
-          <h1 id="2019-09-25-树的子结构">2019-09-25-树的子结构</h1>
+          <h2 id="2019-09-25-树的子结构">2019-09-25-树的子结构</h2>
 <h2 id="题目名称树的子结构">题目名称：树的子结构</h2>
 <h2 id="题目描述">题目描述</h2>
 <p>输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）</p>
-<h2 id="分析">分析：</h2>
+<h2 id="分析">分析</h2>
 <p>第一想法是递归，<strong>只要是树，我就上递归</strong>。分析情况有以下3种：</p>
 <ol>
 <li>当前<code>root1</code>节点=当前<code>root2</code>节点</li>
