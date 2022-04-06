@@ -157,7 +157,7 @@ if (!doNotTrack) {
           
           
 
-          <h1 id="2019-12-05-linux端口扫描">2019-12-05-Linux端口扫描</h1>
+          <h2 id="2019-12-05-linux端口扫描">2019-12-05-Linux端口扫描</h2>
 <h3 id="linux扫描网段主机是否可通">Linux扫描网段主机是否可通</h3>
 <ol>
 <li>单纯扫描</li>
@@ -165,7 +165,7 @@ if (!doNotTrack) {
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">##!/bin/sh</span>
 
 declare -i I<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> declare -i S<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span> <span style="color:#66d9ef">while</span> <span style="color:#ae81ff">\[</span> $I -le $S <span style="color:#ae81ff">\]</span> ; <span style="color:#66d9ef">do</span> IP<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">192.168.1.</span>$I<span style="color:#e6db74">&#34;</span> STATE<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>ping $IP -c <span style="color:#ae81ff">1</span> | grep time<span style="color:#f92672">=</span>0. | awk <span style="color:#e6db74">&#39;{print $8}&#39;</span><span style="color:#e6db74">`</span> echo -n <span style="color:#e6db74">&#34;</span>$IP<span style="color:#e6db74"> </span><span style="color:#e6db74">&#34;</span> <span style="color:#66d9ef">if</span> <span style="color:#ae81ff">\[</span> <span style="color:#e6db74">&#34;</span>$STATE<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ms&#34;</span> <span style="color:#ae81ff">\]</span> ; <span style="color:#66d9ef">then</span> echo <span style="color:#e6db74">&#34;yes&#34;</span> <span style="color:#66d9ef">else</span> echo <span style="color:#e6db74">&#34;no&#34;</span> <span style="color:#66d9ef">fi</span> I<span style="color:#f92672">+=</span><span style="color:#ae81ff">1</span> <span style="color:#66d9ef">done</span>
-</code></pre></div><ol start="2">
+</code></pre></div><ol>
 <li>扫描并打印</li>
 </ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/sh

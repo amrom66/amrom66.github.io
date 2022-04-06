@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "jdk1.15编译",
     "headline" : "jdk1.15编译",
-    "description" : "github下载项目  https:\/\/github.com\/openjdk\/jdk\n安装依赖  yum -y install build-essential gawk m4 libasound2-print-dev binutils libmotif3 libmotif-dev ant yum install libX* yum install fontconfig-devel yum install autoconf yum install -y centos-release-scl yum install -y devtoolset-7 yum install libXtst-devel libXt-devel libXrender-devel libXrandr-devel libXi-devel -y yum install cups-devel yum install fontconfig-devel yum install alsa-lib-devel -y 编译  make images",
+    "description" : "jdk1.15编译 github下载项目 https:\/\/github.com\/openjdk\/jdk\n安装依赖 yum -y install build-essential gawk m4 libasound2-print-dev binutils libmotif3 libmotif-dev ant yum install libX* yum install fontconfig-devel yum install autoconf yum install -y centos-release-scl yum install -y devtoolset-7 yum install libXtst-devel libXt-devel libXrender-devel libXrandr-devel libXi-devel -y yum install cups-devel yum install fontconfig-devel yum install alsa-lib-devel -y 编译 make images",
     "inLanguage" : "en-us",
     "author" : "linjinbao66",
     "creator" : "linjinbao66",
@@ -57,7 +57,7 @@
     "datePublished": "2020-12-30 00:00:00 \x2b0000 UTC",
     "dateModified" : "2020-12-30 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/amrom66.github.io\/2020\/2020-12-30-jdk1.15%E7%BC%96%E8%AF%91\/",
-    "wordCount" : "1025",
+    "wordCount" : "1026",
     "keywords" : [  "打工笔记"]
 }
 </script>
@@ -157,13 +157,10 @@ if (!doNotTrack) {
           
           
 
-          <ol>
-<li>github下载项目</li>
-</ol>
+          <h2 id="jdk115编译">jdk1.15编译</h2>
+<h3 id="github下载项目">github下载项目</h3>
 <p><a href="https://github.com/openjdk/jdk">https://github.com/openjdk/jdk</a></p>
-<ol start="2">
-<li>安装依赖</li>
-</ol>
+<h3 id="安装依赖">安装依赖</h3>
 <pre><code class="language-code" data-lang="code">yum -y install build-essential gawk m4 libasound2-print-dev binutils libmotif3 libmotif-dev ant
 yum install libX*
 yum install fontconfig-devel
@@ -174,9 +171,7 @@ yum install libXtst-devel libXt-devel libXrender-devel libXrandr-devel libXi-dev
 yum install cups-devel
 yum install fontconfig-devel
 yum install alsa-lib-devel -y
-</code></pre><ol start="3">
-<li>编译</li>
-</ol>
+</code></pre><h3 id="编译">编译</h3>
 <p>make images</p>
 <pre><code class="language-code" data-lang="code">[root@node2 jdk-master]# make 
 Building target 'default (exploded-image)' in configuration 'linux-x86_64-server-release'
@@ -208,7 +203,7 @@ Compiling 2 files for BUILD_JVMTI_TOOLS
 Compiling 2 files for BUILD_BREAKITERATOR_BASE
 Compiling 2 files for BUILD_BREAKITERATOR_LD
 Creating support/modules_libs/java.base/server/libjvm.so from 1063 file(s)
-	Compiling 11 properties into resource bundles for java.logging
+ Compiling 11 properties into resource bundles for java.logging
 Compiling 11 properties into resource bundles for java.base
 Compiling 6 properties into resource bundles for java.base
 Compiling 11 properties into resource bundles for jdk.jartool

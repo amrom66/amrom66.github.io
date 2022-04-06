@@ -51,7 +51,7 @@ show variables like &amp;#39;innodb_file_per_table&amp;#39;;   约束 约束是�
       <pubDate>Fri, 22 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://amrom66.github.io/2019/2019-11-22-mysql%E5%85%B3%E9%97%AD%E4%B8%BB%E4%BB%8E/</guid>
-      <description>2019-11-22-mysql 关闭主从 mysql 关闭主从 执行STOP SLAVE语句 使用SHOW STATUS检查slave_open_temp_tables变量的值 如果值为0，使用mysqladmin shutdown命令关闭从服务器 如果值不为0，用START SLAVE重启从服务器线程 slave_open_temp_tables值显示，当前slave创建了多少临时表，注意由client显示创建的 即便是这样，在使用临时表的场景下，如果服务器宕机，将遇到不可预知的问题。 所以比较保险的做法是，创建实体表，虽然会由于分配的文件刷新到磁盘。
+      <description>关闭主从 mysql 关闭主从 执行STOP SLAVE语句 使用SHOW STATUS检查slave_open_temp_tables变量的值 如果值为0，使用mysqladmin shutdown命令关闭从服务器 如果值不为0，用START SLAVE重启从服务器线程 slave_open_temp_tables值显示，当前slave创建了多少临时表，注意由client显示创建的 即便是这样，在使用临时表的场景下，如果服务器宕机，将遇到不可预知的问题。 所以比较保险的做法是，创建实体表，虽然会由于分配的文件刷新到磁盘。
 mysql&amp;gt; show status like &amp;#39;%slave%&amp;#39;; +------------------------+-------+ | Variable_name | Value | +------------------------+-------+ | Com_show_slave_hosts | 0 | | Com_show_slave_status | 0 | | Com_slave_start | 0 | | Com_slave_stop | 0 | | Slave_open_temp_tables | 0 | +----------------------- mysql删除主从 进入mysql</description>
     </item>
     
@@ -123,7 +123,7 @@ set long_query_time=1; #1秒
       <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://amrom66.github.io/2019/2019-11-01-mysql%E4%B8%BB%E4%BB%8E%E9%85%8D%E7%BD%AE/</guid>
-      <description>mysql 主从配置 分别安装主数据库和从数据库 ##下载源安装包 wget http://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm ##安装mysql源 yum localinstall mysql57-community-release-el7-11.noarch.rpm ##检查 yum 源是否安装成功 yum repolist enabled|grep &amp;#34;mysql.*-community.*&amp;#34; ##安装服务 yum install mysql-community-server ##启动MySQL systemctl enable mysqld systemctl start mysqld systemctl status mysqld 修改密码之类步骤掠过</description>
+      <description>mysql 主从配置 分别安装主数据库和从数据库 ##下载源安装包 wget http://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm ##安装mysql源 yum localinstall mysql57-community-release-el7-11.noarch.rpm ##检查 yum 源是否安装成功 yum repolist enabled|grep &amp;quot;mysql.*-community.*&amp;quot; ##安装服务 yum install mysql-community-server ##启动MySQL systemctl enable mysqld systemctl start mysqld systemctl status mysqld 修改密码之类步骤掠过</description>
     </item>
     
     <item>

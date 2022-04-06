@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "mysql主从配置",
     "headline" : "mysql主从配置",
-    "description" : "mysql 主从配置 分别安装主数据库和从数据库 ##下载源安装包 wget http:\/\/dev.mysql.com\/get\/mysql57-community-release-el7-11.noarch.rpm ##安装mysql源 yum localinstall mysql57-community-release-el7-11.noarch.rpm ##检查 yum 源是否安装成功 yum repolist enabled|grep \x26#34;mysql.*-community.*\x26#34; ##安装服务 yum install mysql-community-server ##启动MySQL systemctl enable mysqld systemctl start mysqld systemctl status mysqld 修改密码之类步骤掠过",
+    "description" : "mysql 主从配置 分别安装主数据库和从数据库 ##下载源安装包 wget http:\/\/dev.mysql.com\/get\/mysql57-community-release-el7-11.noarch.rpm ##安装mysql源 yum localinstall mysql57-community-release-el7-11.noarch.rpm ##检查 yum 源是否安装成功 yum repolist enabled|grep \x26quot;mysql.*-community.*\x26quot; ##安装服务 yum install mysql-community-server ##启动MySQL systemctl enable mysqld systemctl start mysqld systemctl status mysqld 修改密码之类步骤掠过",
     "inLanguage" : "en-us",
     "author" : "linjinbao66",
     "creator" : "linjinbao66",
@@ -157,16 +157,16 @@ if (!doNotTrack) {
           
           
 
-          <h1 id="mysql-主从配置">mysql 主从配置</h1>
+          <h2 id="mysql-主从配置">mysql 主从配置</h2>
 <h2 id="分别安装主数据库和从数据库">分别安装主数据库和从数据库</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">##下载源安装包
+<pre><code class="language-code" data-lang="code">##下载源安装包
 wget http://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
 
 ##安装mysql源
 yum localinstall mysql57-community-release-el7-11.noarch.rpm
 
 ##检查 yum 源是否安装成功
-yum repolist enabled|grep &#34;mysql.*-community.*&#34;
+yum repolist enabled|grep &quot;mysql.*-community.*&quot;
 
 ##安装服务
 yum install mysql-community-server
@@ -176,9 +176,9 @@ yum install mysql-community-server
 systemctl enable mysqld
 systemctl start mysqld
 systemctl status mysqld
-</code></pre></div><p>修改密码之类步骤掠过</p>
+</code></pre><p>修改密码之类步骤掠过</p>
 <h2 id="配置主数据库">配置主数据库</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">vi /etc/my.cnf
+<pre><code class="language-code" data-lang="code">vi /etc/my.cnf
 
 [mysqld]
 
@@ -186,17 +186,17 @@ systemctl status mysqld
 # 参数必须唯一, 本例主库设置为 11 ，从库设置为 12
 server_id=101
 log_bin=/var/log/mysql/mysql-bin
-</code></pre></div><p>记得检查日志目录是否存在，不存在子主动建立并授权</p>
+</code></pre><p>记得检查日志目录是否存在，不存在子主动建立并授权</p>
 <p>重启数据库</p>
 <h2 id="检查主库配置">检查主库配置</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">mysql&gt; show master;
+<pre><code class="language-code" data-lang="code">mysql&gt; show master;
 +------------------+----------+--------------+------------------+-------------------+
 | File             | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set |
 +------------------+----------+--------------+------------------+-------------------+
 | mysql-bin.000001 |      154 |              |                  |                   |
 +------------------+----------+--------------+------------------+-------------------+
-</code></pre></div><h2 id="配置从库">配置从库</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">vi /etc/my.cnf
+</code></pre><h2 id="配置从库">配置从库</h2>
+<pre><code class="language-code" data-lang="code">vi /etc/my.cnf
 
 [mysqld]
 
@@ -204,18 +204,18 @@ log_bin=/var/log/mysql/mysql-bin
 # 参数必须唯一, 本例主库设置为 11 ，从库设置为 12
 server_id=12
 log_bin=/var/log/mysql/mysql-bin
-</code></pre></div><p>重启数据库</p>
+</code></pre><p>重启数据库</p>
 <h2 id="进入从库数据库配置">进入从库数据库配置</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">mysql&gt; CHANGE MASTER TO MASTER_HOST=&#39;192.168.200.136&#39;,
-    -&gt; MASTER_USER=&#39;admin&#39;,
-    -&gt; MASTER_PASSWORD=&#39;admin&#39;,
+<pre><code class="language-code" data-lang="code">mysql&gt; CHANGE MASTER TO MASTER_HOST='192.168.200.136',
+    -&gt; MASTER_USER='admin',
+    -&gt; MASTER_PASSWORD='admin',
     #此选项初始化设置时需要跟主库中的一致。设置好后，如果主
     #库发生重启等，不需再次设置，从库会跟着更新
-    -&gt; MASTER_LOG_FILE=&#39;mysql-bin.000001&#39;,
+    -&gt; MASTER_LOG_FILE='mysql-bin.000001',
     # master Position的值
     -&gt; MASTER_LOG_POS=154;
-</code></pre></div><h2 id="检查从库配置">检查从库配置</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">mysql&gt; show slave status \G;
+</code></pre><h2 id="检查从库配置">检查从库配置</h2>
+<pre><code class="language-code" data-lang="code">mysql&gt; show slave status \G;
 
 mysql&gt; show slave status \G;
 *************************** 1. row ***************************
@@ -283,7 +283,7 @@ No query specified
 
 mysql&gt; start slave;
 Query OK, 0 rows affected, 1 warning (0.00 sec)
-</code></pre></div><p><strong>错误提示</strong></p>
+</code></pre><h2 id="错误提示">错误提示</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">The replication receiver thread cannot start because the master has GTID_MODE = OFF and this server has GTID_MODE = ON.
 </code></pre></div><p>解决方案： 这个报错是因为主库和从库配置了不同的<code>GTID</code>策略，修改相同即可。</p>
 <h2 id="启动从库">启动从库</h2>

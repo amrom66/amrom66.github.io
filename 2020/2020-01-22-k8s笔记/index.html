@@ -157,7 +157,7 @@ if (!doNotTrack) {
           
           
 
-          <h1 id="kubernetes笔记">kubernetes笔记</h1>
+          <h2 id="kubernetes笔记">kubernetes笔记</h2>
 <h2 id="问题描述通过定义rc创建pod会出现无法创建的问题">问题描述：通过定义<code>rc</code>创建<code>pod</code>，会出现无法创建的问题</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[root@localhost ~]# kubectl describe rc mysql
 Name:           mysql
@@ -175,9 +175,9 @@ Events:
 [root@localhost ~]# ll
 </code></pre></div><h2 id="解决方案">解决方案</h2>
 <p>出现问题的原因的安全认证配置，解决方案有两个，第一修改安全配置，第二，指定安全密钥</p>
-<h3 id="第一种">第一种：</h3>
+<h3 id="第一种">第一种</h3>
 <p>编辑/etc/kubenetes/apiserver： 将以下这行中的ServiceAccount删除即可 KUBE_ADMISSION_CONTROL=&rdquo;&ndash;admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ServiceAccount,ResourceQuota&rdquo; 改为： KUBE_ADMISSION_CONTROL=&rdquo;&ndash;admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ResourceQuota&rdquo; 这种方式比较粗暴，可能会遇到必须要用ServiceAccount的情况。</p>
-<h3 id="第二种">第二种：</h3>
+<h3 id="第二种">第二种</h3>
 <p>1、首先生成密钥： openssl genrsa -out /etc/kubernetes/serviceaccount.key 2048</p>
 <p>2、编辑/etc/kubenetes/apiserver 添加以下内容： KUBE_API_ARGS=&rdquo;&ndash;service_account_key_file=/etc/kubernetes/serviceaccount.key&rdquo;</p>
 <p>3、再编辑/etc/kubernetes/controller-manager 添加以下内容： KUBE_CONTROLLER_MANAGER_ARGS=&rdquo;&ndash;service_account_private_key_file=/etc/kubernetes/serviceaccount.key&rdquo;</p>
@@ -187,7 +187,7 @@ Events:
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[root@localhost ~]# kubectl get pod
 NAME          READY     STATUS              RESTARTS   AGE
 mysql-wgqcj   0/1       ContainerCreating   0          53m
-</code></pre></div><h2 id="解决方案-1">解决方案</h2>
+</code></pre></div><h2 id="解决方案2">解决方案2</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[root@localhost ~]# kubectl describe pod mysql
 Name:           mysql-wgqcj
 Namespace:      default

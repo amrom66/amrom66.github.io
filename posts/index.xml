@@ -804,8 +804,8 @@ version = 2 root = &amp;#34;/var/lib/containerd&amp;#34; state = &amp;#34;/run/c
       <pubDate>Wed, 30 Dec 2020 00:00:00 +0000</pubDate>
       
       <guid>https://amrom66.github.io/2020/2020-12-30-jdk1.15%E7%BC%96%E8%AF%91/</guid>
-      <description>github下载项目  https://github.com/openjdk/jdk
-安装依赖  yum -y install build-essential gawk m4 libasound2-print-dev binutils libmotif3 libmotif-dev ant yum install libX* yum install fontconfig-devel yum install autoconf yum install -y centos-release-scl yum install -y devtoolset-7 yum install libXtst-devel libXt-devel libXrender-devel libXrandr-devel libXi-devel -y yum install cups-devel yum install fontconfig-devel yum install alsa-lib-devel -y 编译  make images</description>
+      <description>jdk1.15编译 github下载项目 https://github.com/openjdk/jdk
+安装依赖 yum -y install build-essential gawk m4 libasound2-print-dev binutils libmotif3 libmotif-dev ant yum install libX* yum install fontconfig-devel yum install autoconf yum install -y centos-release-scl yum install -y devtoolset-7 yum install libXtst-devel libXt-devel libXrender-devel libXrandr-devel libXi-devel -y yum install cups-devel yum install fontconfig-devel yum install alsa-lib-devel -y 编译 make images</description>
     </item>
     
     <item>
@@ -1803,7 +1803,7 @@ C:\Users\linjinbao666\Desktop&amp;gt;jps -v 11776 Bootstrap -Dcatalina.base=C:\U
       <pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate>
       
       <guid>https://amrom66.github.io/2019/2019-12-06-git%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/</guid>
-      <description>git分支管理 基本命令   git branch git branch *** ：创建分支，名称为*** git branch：显示当前分枝，和本地分支 git branch -a：显示所有，包含远程分支 git branch -d dev：删除分支 git branch -vv ：查看本地分支对应的远程分支 git branch -m oldName newName：重命名</description>
+      <description>git分支管理 基本命令   git branch git branch ：创建分支，名称为 git branch：显示当前分枝，和本地分支 git branch -a：显示所有，包含远程分支 git branch -d dev：删除分支 git branch -vv ：查看本地分支对应的远程分支 git branch -m oldName newName：重命名</description>
     </item>
     
     <item>
@@ -1920,7 +1920,7 @@ SELECT * from information_schema.INNODB_TRX ##啥看事务 SELECT * FROM informa
       <pubDate>Fri, 29 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://amrom66.github.io/2019/2019-11-29-%E6%89%B9%E5%A4%84%E7%90%86%E8%A7%A3%E5%86%B3ie%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BE%E7%BD%AE%E9%97%AE%E9%A2%98/</guid>
-      <description>2019-11-29-批处理解决IE浏览器设置问题 功能集合.bat
+      <description>批处理解决IE浏览器设置问题 功能集合.bat
 @echo off title ★ IEl浏览器设置，请先确保浏览器是IE11 ，否则会有设置无法生效 ★ echo 正在启用IE的 ActiveX控件、JAVA脚本、活动脚本，请稍候... ping 127.0.0.1 -n 2 &amp;gt;nul 2&amp;gt;nul set bl=0 :setreg if &amp;#34;%bl%&amp;#34;==&amp;#34;3&amp;#34; goto ex set regpath=HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Zones\%bl% cls echo 本脚本可快速启用IE的 ActiveX控件、JAVA脚本、活动脚本 echo 正在进行 ZONE%bl% 的设置.</description>
     </item>
     
@@ -2012,7 +2012,7 @@ show variables like &amp;#39;innodb_file_per_table&amp;#39;;   约束 约束是�
       <pubDate>Fri, 22 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://amrom66.github.io/2019/2019-11-22-mysql%E5%85%B3%E9%97%AD%E4%B8%BB%E4%BB%8E/</guid>
-      <description>2019-11-22-mysql 关闭主从 mysql 关闭主从 执行STOP SLAVE语句 使用SHOW STATUS检查slave_open_temp_tables变量的值 如果值为0，使用mysqladmin shutdown命令关闭从服务器 如果值不为0，用START SLAVE重启从服务器线程 slave_open_temp_tables值显示，当前slave创建了多少临时表，注意由client显示创建的 即便是这样，在使用临时表的场景下，如果服务器宕机，将遇到不可预知的问题。 所以比较保险的做法是，创建实体表，虽然会由于分配的文件刷新到磁盘。
+      <description>关闭主从 mysql 关闭主从 执行STOP SLAVE语句 使用SHOW STATUS检查slave_open_temp_tables变量的值 如果值为0，使用mysqladmin shutdown命令关闭从服务器 如果值不为0，用START SLAVE重启从服务器线程 slave_open_temp_tables值显示，当前slave创建了多少临时表，注意由client显示创建的 即便是这样，在使用临时表的场景下，如果服务器宕机，将遇到不可预知的问题。 所以比较保险的做法是，创建实体表，虽然会由于分配的文件刷新到磁盘。
 mysql&amp;gt; show status like &amp;#39;%slave%&amp;#39;; +------------------------+-------+ | Variable_name | Value | +------------------------+-------+ | Com_show_slave_hosts | 0 | | Com_show_slave_status | 0 | | Com_slave_start | 0 | | Com_slave_stop | 0 | | Slave_open_temp_tables | 0 | +----------------------- mysql删除主从 进入mysql</description>
     </item>
     
@@ -2096,7 +2096,7 @@ postfix:!!:18220:::::: ljbao:$6$1QXKHgXD$66Aj/Qyo3QGGxmKAMH9cQfJs61KXieXLurSvdxH
       <pubDate>Fri, 15 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://amrom66.github.io/2019/2019-11-15-jenkins%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%B7%A5%E5%85%B7%E5%AD%A6%E4%B9%A002/</guid>
-      <description>2019-11-15-Jenkins持续集成工具学习02 安装教程见上一节 jenkins持续集成工具学习01
+      <description>Jenkins持续集成工具学习02 安装教程见上一节 jenkins持续集成工具学习01
 使用-重点 项目的完整发布过程如下：
 拉取源码-&amp;gt;maven编译-&amp;gt;部署/推送部署
   安装git
@@ -2277,7 +2277,7 @@ user root; # 用户，这里使用root用户，默认是nginx worker_processes 1
       <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://amrom66.github.io/2019/2019-11-01-mysql%E4%B8%BB%E4%BB%8E%E9%85%8D%E7%BD%AE/</guid>
-      <description>mysql 主从配置 分别安装主数据库和从数据库 ##下载源安装包 wget http://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm ##安装mysql源 yum localinstall mysql57-community-release-el7-11.noarch.rpm ##检查 yum 源是否安装成功 yum repolist enabled|grep &amp;#34;mysql.*-community.*&amp;#34; ##安装服务 yum install mysql-community-server ##启动MySQL systemctl enable mysqld systemctl start mysqld systemctl status mysqld 修改密码之类步骤掠过</description>
+      <description>mysql 主从配置 分别安装主数据库和从数据库 ##下载源安装包 wget http://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm ##安装mysql源 yum localinstall mysql57-community-release-el7-11.noarch.rpm ##检查 yum 源是否安装成功 yum repolist enabled|grep &amp;quot;mysql.*-community.*&amp;quot; ##安装服务 yum install mysql-community-server ##启动MySQL systemctl enable mysqld systemctl start mysqld systemctl status mysqld 修改密码之类步骤掠过</description>
     </item>
     
     <item>
@@ -2353,7 +2353,7 @@ ACID 一个完整的事务，必然包含了如下4个特性：原子性、一�
       <pubDate>Wed, 23 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://amrom66.github.io/2019/2019-10-23-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80/</guid>
-      <description>LeetCode 算法题-最长公共前缀 题目描述： 编写一个函数来查找字符串数组中的最长公共前缀。
+      <description>LeetCode 算法题-最长公共前缀 题目描述 编写一个函数来查找字符串数组中的最长公共前缀。
 如果不存在公共前缀，返回空字符串 &amp;ldquo;&amp;quot;。
 示例 1: 输入: [&amp;#34;flower&amp;#34;,&amp;#34;flow&amp;#34;,&amp;#34;flight&amp;#34;] 输出: &amp;#34;fl&amp;#34; 示例 2: 输入: [&amp;#34;dog&amp;#34;,&amp;#34;racecar&amp;#34;,&amp;#34;car&amp;#34;] 输出: &amp;#34;&amp;#34; 解释: 输入不存在公共前缀。 说明:</description>
     </item>
@@ -2445,20 +2445,21 @@ firewalld相关命令 systemctl start firewalld systemctl stop firewalld systemc
       <pubDate>Wed, 16 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://amrom66.github.io/2019/2019-10-16-nginx%E4%BD%BF%E7%94%A8/</guid>
-      <description>2019-10-16-Nginx使用 Nginx使用 Nginx是一款轻量级的Web 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器，在BSD-like 协议下发行。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。
+      <description>Nginx使用 Nginx是一款轻量级的Web 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器，在BSD-like 协议下发行。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。
 Windows下的安装部署  下载软件  链接，Nginx下载地址
  解压启动  使用cmd命令行启动，start nginx
 可能没有反馈提示，这时可以查看任务管理器是否有Nginx进程
- 验证  访问lovalhost:80</description>
+ 验证  访问lovalhost:80
+页面内容：</description>
     </item>
     
     <item>
-      <title>rabbitMQ示例代码</title>
+      <title>RabbitMQ示例代码</title>
       <link>https://amrom66.github.io/2019/2019-10-16-rabbitmq/</link>
       <pubDate>Wed, 16 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://amrom66.github.io/2019/2019-10-16-rabbitmq/</guid>
-      <description>rabbitMQ 官网文档 涉及jar包amqp-client-5.7.3.jar
+      <description>RabbitMQ 官网文档 涉及jar包amqp-client-5.7.3.jar
  发送  package myrabbitmq; import com.rabbitmq.client.Channel; import com.rabbitmq.client.Connection; import com.rabbitmq.client.ConnectionFactory; public class Send { private final static String QUEUE_NAME = &amp;#34;hello&amp;#34;; private final static String IP = &amp;#34;localhost&amp;#34;; public static void main(String[] args) { ConnectionFactory factory = new ConnectionFactory(); factory.</description>
     </item>
     
@@ -2483,10 +2484,10 @@ Windows下的安装部署  下载软件  链接，Nginx下载地址
     
     <item>
       <title>博客加入访问统计</title>
-      <link>https://amrom66.github.io/2019/2019-10-15/</link>
+      <link>https://amrom66.github.io/2019/2019-10-15-%E5%8D%9A%E5%AE%A2%E5%8A%A0%E5%85%A5%E8%AE%BF%E9%97%AE%E8%AE%A1%E6%95%B0/</link>
       <pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-10-15/</guid>
+      <guid>https://amrom66.github.io/2019/2019-10-15-%E5%8D%9A%E5%AE%A2%E5%8A%A0%E5%85%A5%E8%AE%BF%E9%97%AE%E8%AE%A1%E6%95%B0/</guid>
       <description>2019-10-15-博客加入访问计数 博客加入访问统计 使用valine的实现
 步骤  修改comments.html  将以下内容加入：
 &amp;lt;p class=&amp;quot;copyright-item&amp;quot;&amp;gt; &amp;lt;span id=&amp;quot;{{ .RelPermalink | relURL }}&amp;quot; class=&amp;quot;leancloud_visitors&amp;quot; data-flag-title=&amp;quot;{{ .Title }}&amp;quot;&amp;gt; &amp;lt;span class=&amp;quot;post-meta-item-text&amp;quot;&amp;gt;Reading: 本文累计被阅读 &amp;lt;/span&amp;gt; &amp;lt;span class=&amp;quot;leancloud-visitors-count&amp;quot;&amp;gt;1000000&amp;lt;/span&amp;gt; &amp;lt;span class=&amp;quot;post-meta-item-text&amp;quot;&amp;gt;次&amp;lt;/span&amp;gt; &amp;lt;/span&amp;gt; &amp;lt;/p&amp;gt; 加入后内容如下：</description>
@@ -2494,13 +2495,15 @@ Windows下的安装部署  下载软件  链接，Nginx下载地址
     
     <item>
       <title>JAVA并发编程实战-笔记</title>
-      <link>https://amrom66.github.io/2019/2019-10-14/</link>
+      <link>https://amrom66.github.io/2019/2019-10-14-java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/</link>
       <pubDate>Mon, 14 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-10-14/</guid>
+      <guid>https://amrom66.github.io/2019/2019-10-14-java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/</guid>
       <description>JAVA并发编程实战-笔记 Volatile变量
  同步的弱形式 该变量不会被缓存 不加锁 不会导致阻塞 可以修饰变量，不能修饰方法 只能保证可见性，不能保证原子性  线程封闭 访问共享的、可变的数据要求使用同步，一个可以避免同步的方法就是不共享数据。
- Ad-hoc线程限制 栈限制 ThreadLocal 不可变性   第二部分-构建并发应用 </description>
+  Ad-hoc线程限制
+  栈限制
+  ThreadLocal</description>
     </item>
     
     <item>
@@ -2510,7 +2513,7 @@ Windows下的安装部署  下载软件  链接，Nginx下载地址
       
       <guid>https://amrom66.github.io/2019/2019-10-14-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
       <description>2019-10-14-工厂模式 含义  简单工厂模式又叫静态方法模式（因为工厂类定义了一个静态方法） 现实生活中，工厂是负责生产产品的；同样在设计模式中，简单工厂模式我们可以理解为负责生产对象的一个类，称为“工厂类”。  解决的问题 将“类实例化的操作”与“使用对象的操作”分开，让使用者不用知道具体参数就可以实例化出所需要的“产品”类，从而避免了在客户端代码中显式指定，实现了解耦。
-步骤  创建抽象产品类 &amp;amp; 定义具体产品的公共接口； 创建具体产品类（继承抽象产品类） &amp;amp; 定义生产的具体产品； 创建工厂类，通过创建静态方法根据传入不同参数从而创建不同具体产品类的实例； 外界通过调用工厂类的静态方法，传入不同参数从而创建不同具体产品类的实例  示例：  创建抽象产品类  abstract class Product{ public abstract void Show(); }  创建具体产品类  //具体产品类A class ProductA extends Product{ @Override public void Show() { System.</description>
+步骤  创建抽象产品类 &amp;amp; 定义具体产品的公共接口； 创建具体产品类（继承抽象产品类） &amp;amp; 定义生产的具体产品； 创建工厂类，通过创建静态方法根据传入不同参数从而创建不同具体产品类的实例； 外界通过调用工厂类的静态方法，传入不同参数从而创建不同具体产品类的实例  示例  创建抽象产品类  abstract class Product{ public abstract void Show(); }  创建具体产品类  //具体产品类A class ProductA extends Product{ @Override public void Show() { System.</description>
     </item>
     
     <item>
@@ -2530,7 +2533,7 @@ public class CalculatorProxy { /** * 代理 * @param calcultor * @return */ publ
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://amrom66.github.io/2019/2019-10-12-%E5%AF%BB%E6%89%BE%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/</guid>
-      <description>2019-10-12-寻找两个有序数组的中位数 题目描述： 给定两个大小为 m 和 n 的有序数组 nums1 和 nums2。
+      <description>2019-10-12-寻找两个有序数组的中位数 题目描述 给定两个大小为 m 和 n 的有序数组 nums1 和 nums2。
 请你找出这两个有序数组的中位数，并且要求算法的时间复杂度为 O(log(m + n))。
 你可以假设 nums1 和 nums2 不会同时为空。
 示例 1:</description>

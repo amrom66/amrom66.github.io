@@ -157,7 +157,7 @@ if (!doNotTrack) {
           
           
 
-          <h1 id="nginx代理出来的页面使用ie无法加载png问题">nginx代理出来的页面使用IE无法加载png问题</h1>
+          <h2 id="nginx代理出来的页面使用ie无法加载png问题">nginx代理出来的页面使用IE无法加载png问题</h2>
 <p>问题描述： 使用nginx对站点进行反代，其他都正常，但是有个png图片无法加载。排查了情况如下： 1. 其他浏览器正常 2. IE在内网正常，访问原始地址 3. IE在外网异常，访问nginx代理后地址</p>
 <p>问题分析： 检查F12，发现图片状态码200，已经加载出来，但是没有渲染出来，推测是由于安全策略问题；比对内网header和外网访问header，发现区别在外网多了个<code>X-Content-Type-Options: nosniff</code>，估计问题在这。</p>
 <p>问题解决： 在nginx代理中，去掉<code>add_header X-Content-Type-Options nosniff;</code>配置项 问题解决</p>

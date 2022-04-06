@@ -157,7 +157,7 @@ if (!doNotTrack) {
           
           
 
-          <h1 id="node操作mysql">node操作mysql</h1>
+          <h2 id="node操作mysql">node操作mysql</h2>
 <h2 id="第一步引入mysql模块">第一步：引入<code>mysql</code>模块</h2>
 <pre><code class="language-code" data-lang="code">
 var mysql = require('mysql');
@@ -166,10 +166,10 @@ var mysql = require('mysql');
 <pre><code class="language-code" data-lang="code">
 var connection = mysql.createConnection(
 {
-		host:'localhost',
-		user: 'root',
-		password: 'Gepoint',
-		database: 'mqtt'
+  host:'localhost',
+  user: 'root',
+  password: 'Gepoint',
+  database: 'mqtt'
 });
 connection.connect();
 

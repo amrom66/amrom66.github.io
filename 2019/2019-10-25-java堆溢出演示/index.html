@@ -157,9 +157,9 @@ if (!doNotTrack) {
           
           
 
-          <h1 id="java堆溢出演示-outofmemoryerror">java堆溢出演示-OutOfMemoryError</h1>
+          <h2 id="java堆溢出演示-outofmemoryerror">java堆溢出演示-OutOfMemoryError</h2>
 <h2 id="jvm-参数"><code>jvm</code> 参数</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">-</span>Xms20m <span style="color:#f92672">-</span>Xmx20m  <span style="color:#f92672">-</span>XX<span style="color:#f92672">:</span><span style="color:#f92672">+</span>HeapDumpOnOutOfMemoryError
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">-Xms20m -Xmx20m  -XX:+HeapDumpOnOutOfMemoryError
 </code></pre></div><h2 id="代码示例">代码示例</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.util.ArrayList<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> java.util.List<span style="color:#f92672">;</span>
@@ -178,10 +178,10 @@ if (!doNotTrack) {
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 </code></pre></div><h2 id="结果">结果</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">java.lang.OutOfMemoryError: Java heap space
+<pre><code class="language-code" data-lang="code">java.lang.OutOfMemoryError: Java heap space
 Dumping heap to java_pid17808.hprof ...
 Heap dump file created [27978623 bytes in 0.066 secs]
-Exception in thread &#34;main&#34; java.lang.OutOfMemoryError: Java heap space
+Exception in thread &quot;main&quot; java.lang.OutOfMemoryError: Java heap space
     at java.util.Arrays.copyOf(Unknown Source)
     at java.util.Arrays.copyOf(Unknown Source)
     at java.util.ArrayList.grow(Unknown Source)
@@ -189,7 +189,7 @@ Exception in thread &#34;main&#34; java.lang.OutOfMemoryError: Java heap space
     at java.util.ArrayList.ensureCapacityInternal(Unknown Source)
     at java.util.ArrayList.add(Unknown Source)
     at myrabbitmq.HeapOOM.main(HeapOOM.java:15)
-</code></pre></div>
+</code></pre>
     </div>
 
     <div class="post-copyright">

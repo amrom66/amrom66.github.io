@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "mysql 关闭主从",
     "headline" : "mysql 关闭主从",
-    "description" : "2019-11-22-mysql 关闭主从 mysql 关闭主从 执行STOP SLAVE语句 使用SHOW STATUS检查slave_open_temp_tables变量的值 如果值为0，使用mysqladmin shutdown命令关闭从服务器 如果值不为0，用START SLAVE重启从服务器线程 slave_open_temp_tables值显示，当前slave创建了多少临时表，注意由client显示创建的 即便是这样，在使用临时表的场景下，如果服务器宕机，将遇到不可预知的问题。 所以比较保险的做法是，创建实体表，虽然会由于分配的文件刷新到磁盘。\nmysql\x26gt; show status like \x26#39;%slave%\x26#39;; \x2b------------------------\x2b-------\x2b | Variable_name | Value | \x2b------------------------\x2b-------\x2b | Com_show_slave_hosts | 0 | | Com_show_slave_status | 0 | | Com_slave_start | 0 | | Com_slave_stop | 0 | | Slave_open_temp_tables | 0 | \x2b----------------------- mysql删除主从 进入mysql",
+    "description" : "关闭主从 mysql 关闭主从 执行STOP SLAVE语句 使用SHOW STATUS检查slave_open_temp_tables变量的值 如果值为0，使用mysqladmin shutdown命令关闭从服务器 如果值不为0，用START SLAVE重启从服务器线程 slave_open_temp_tables值显示，当前slave创建了多少临时表，注意由client显示创建的 即便是这样，在使用临时表的场景下，如果服务器宕机，将遇到不可预知的问题。 所以比较保险的做法是，创建实体表，虽然会由于分配的文件刷新到磁盘。\nmysql\x26gt; show status like \x26#39;%slave%\x26#39;; \x2b------------------------\x2b-------\x2b | Variable_name | Value | \x2b------------------------\x2b-------\x2b | Com_show_slave_hosts | 0 | | Com_show_slave_status | 0 | | Com_slave_start | 0 | | Com_slave_stop | 0 | | Slave_open_temp_tables | 0 | \x2b----------------------- mysql删除主从 进入mysql",
     "inLanguage" : "en-us",
     "author" : "linjinbao66",
     "creator" : "linjinbao66",
@@ -57,7 +57,7 @@
     "datePublished": "2019-11-22 00:00:00 \x2b0000 UTC",
     "dateModified" : "2019-11-22 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/amrom66.github.io\/2019\/2019-11-22-mysql%E5%85%B3%E9%97%AD%E4%B8%BB%E4%BB%8E\/",
-    "wordCount" : "83",
+    "wordCount" : "82",
     "keywords" : [ "mysql", "打工笔记"]
 }
 </script>
@@ -157,7 +157,7 @@ if (!doNotTrack) {
           
           
 
-          <h1 id="2019-11-22-mysql-关闭主从">2019-11-22-mysql 关闭主从</h1>
+          <h2 id="关闭主从">关闭主从</h2>
 <h2 id="mysql-关闭主从">mysql 关闭主从</h2>
 <p>执行STOP SLAVE语句 使用SHOW STATUS检查slave_open_temp_tables变量的值 如果值为0，使用mysqladmin shutdown命令关闭从服务器 如果值不为0，用START SLAVE重启从服务器线程 slave_open_temp_tables值显示，当前slave创建了多少临时表，注意由client显示创建的 即便是这样，在使用临时表的场景下，如果服务器宕机，将遇到不可预知的问题。 所以比较保险的做法是，创建实体表，虽然会由于分配的文件刷新到磁盘。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">mysql&gt; show status like &#39;%slave%&#39;;

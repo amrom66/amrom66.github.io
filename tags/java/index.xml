@@ -110,13 +110,15 @@ public class Hello{ public static void main(String[] args){ System.out.println(&
     
     <item>
       <title>JAVA并发编程实战-笔记</title>
-      <link>https://amrom66.github.io/2019/2019-10-14/</link>
+      <link>https://amrom66.github.io/2019/2019-10-14-java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/</link>
       <pubDate>Mon, 14 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-10-14/</guid>
+      <guid>https://amrom66.github.io/2019/2019-10-14-java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/</guid>
       <description>JAVA并发编程实战-笔记 Volatile变量
  同步的弱形式 该变量不会被缓存 不加锁 不会导致阻塞 可以修饰变量，不能修饰方法 只能保证可见性，不能保证原子性  线程封闭 访问共享的、可变的数据要求使用同步，一个可以避免同步的方法就是不共享数据。
- Ad-hoc线程限制 栈限制 ThreadLocal 不可变性   第二部分-构建并发应用 </description>
+  Ad-hoc线程限制
+  栈限制
+  ThreadLocal</description>
     </item>
     
     <item>

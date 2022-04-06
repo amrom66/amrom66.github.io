@@ -157,7 +157,7 @@ if (!doNotTrack) {
           
           
 
-          <h1 id="需求删除-homeljbaomybackfiles-目录下7分钟之前生成的gz类型的文件">需求:删除 /home/ljbao/myback/files 目录下7分钟之前生成的gz类型的文件</h1>
+          <h2 id="需求删除-homeljbaomybackfiles-目录下7分钟之前生成的gz类型的文件">需求:删除 /home/ljbao/myback/files 目录下7分钟之前生成的gz类型的文件</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">find /home/ljbao/myback/files -mtime +7 -name &#34;*.gz&#34; -exec rm {} \;
 </code></pre></div><p>//时间条件</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">-amin n: 查找n分钟以前被访问过的所有文件。

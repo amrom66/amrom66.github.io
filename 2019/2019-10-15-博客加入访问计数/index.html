@@ -9,9 +9,9 @@
   <meta name="description" content="打工笔记">
   <meta name="keywords" content="博客 个人 笔记">
   
-  <link rel="prev" href="https://amrom66.github.io/2019/2019-10-14-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" />
-  <link rel="next" href="https://amrom66.github.io/2019/2019-10-15/" />
-  <link rel="canonical" href="https://amrom66.github.io/2019/2019-10-14/" />
+  <link rel="prev" href="https://amrom66.github.io/2019/2019-10-14-java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/" />
+  <link rel="next" href="https://amrom66.github.io/2019/2019-10-15-windows%E5%85%B1%E4%BA%AB/" />
+  <link rel="canonical" href="https://amrom66.github.io/2019/2019-10-15-%E5%8D%9A%E5%AE%A2%E5%8A%A0%E5%85%A5%E8%AE%BF%E9%97%AE%E8%AE%A1%E6%95%B0/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           JAVA并发编程实战-笔记 | 打工笔记
+           博客加入访问统计 | 打工笔记
        
   </title>
-  <meta name="title" content="JAVA并发编程实战-笔记 | 打工笔记">
+  <meta name="title" content="博客加入访问统计 | 打工笔记">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/amrom66.github.io"
     },
     "articleSection" : "posts",
-    "name" : "JAVA并发编程实战-笔记",
-    "headline" : "JAVA并发编程实战-笔记",
-    "description" : "JAVA并发编程实战-笔记 Volatile变量\n 同步的弱形式 该变量不会被缓存 不加锁 不会导致阻塞 可以修饰变量，不能修饰方法 只能保证可见性，不能保证原子性  线程封闭 访问共享的、可变的数据要求使用同步，一个可以避免同步的方法就是不共享数据。\n Ad-hoc线程限制 栈限制 ThreadLocal 不可变性   第二部分-构建并发应用 ",
+    "name" : "博客加入访问统计",
+    "headline" : "博客加入访问统计",
+    "description" : "2019-10-15-博客加入访问计数 博客加入访问统计 使用valine的实现\n步骤  修改comments.html  将以下内容加入：\n\x26lt;p class=\x26quot;copyright-item\x26quot;\x26gt; \x26lt;span id=\x26quot;{{ .RelPermalink | relURL }}\x26quot; class=\x26quot;leancloud_visitors\x26quot; data-flag-title=\x26quot;{{ .Title }}\x26quot;\x26gt; \x26lt;span class=\x26quot;post-meta-item-text\x26quot;\x26gt;Reading: 本文累计被阅读 \x26lt;\/span\x26gt; \x26lt;span class=\x26quot;leancloud-visitors-count\x26quot;\x26gt;1000000\x26lt;\/span\x26gt; \x26lt;span class=\x26quot;post-meta-item-text\x26quot;\x26gt;次\x26lt;\/span\x26gt; \x26lt;\/span\x26gt; \x26lt;\/p\x26gt; 加入后内容如下：",
     "inLanguage" : "en-us",
     "author" : "linjinbao66",
     "creator" : "linjinbao66",
@@ -54,11 +54,11 @@
     "accountablePerson" : "linjinbao66",
     "copyrightHolder" : "linjinbao66",
     "copyrightYear" : "2019",
-    "datePublished": "2019-10-14 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2019-10-14 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/amrom66.github.io\/2019\/2019-10-14\/",
-    "wordCount" : "15",
-    "keywords" : [ "笔记","JAVA", "打工笔记"]
+    "datePublished": "2019-10-15 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2019-10-15 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/amrom66.github.io\/2019\/2019-10-15-%E5%8D%9A%E5%AE%A2%E5%8A%A0%E5%85%A5%E8%AE%BF%E9%97%AE%E8%AE%A1%E6%95%B0\/",
+    "wordCount" : "104",
+    "keywords" : [  "打工笔记"]
 }
 </script>
 
@@ -131,18 +131,14 @@ if (!doNotTrack) {
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">JAVA并发编程实战-笔记</h1>
+        <h1 class="post-title" itemprop="name headline">博客加入访问统计</h1>
         <div class="post-meta">
                 作者： <a itemprop="name" href="https://amrom66.github.io" rel="author">linjinbao66</a> 时间： 
                 <span class="post-time">
-                 <time datetime=14109-10-14 itemprop="datePublished">October 14, 2019</time>
+                 <time datetime=15109-10-15 itemprop="datePublished">October 15, 2019</time>
                 </span>
                 分类： 
-                <i class="iconfont icon-folder"></i>
-                <span class="post-category">
-                        <a href="https://amrom66.github.io/categories/%E7%AC%94%E8%AE%B0/"> 笔记 </a>
-                        
-                </span>
+                
         </div>
     </header>
     <div class="post-content">
@@ -161,27 +157,50 @@ if (!doNotTrack) {
           
           
 
-          <h1 id="java并发编程实战-笔记">JAVA并发编程实战-笔记</h1>
-<p><code>Volatile</code>变量</p>
-<ul>
-<li>同步的弱形式</li>
-<li>该变量不会被缓存</li>
-<li>不加锁</li>
-<li>不会导致阻塞</li>
-<li>可以修饰变量，不能修饰方法</li>
-<li>只能保证可见性，不能保证原子性</li>
-</ul>
-<h2 id="线程封闭">线程封闭</h2>
-<p>访问共享的、可变的数据要求使用同步，一个可以避免同步的方法就是不共享数据。</p>
+          <h2 id="2019-10-15-博客加入访问计数">2019-10-15-博客加入访问计数</h2>
+<h2 id="博客加入访问统计">博客加入访问统计</h2>
+<p>使用valine的实现</p>
+<h2 id="步骤">步骤</h2>
 <ol>
-<li>Ad-hoc线程限制</li>
-<li>栈限制</li>
-<li>ThreadLocal</li>
-<li>不可变性</li>
-<li></li>
+<li>修改<code>comments.html</code></li>
 </ol>
-<h2 id="第二部分-构建并发应用">第二部分-构建并发应用</h2>
+<p>将以下内容加入：</p>
+<pre><code class="language-markup" data-lang="markup">&lt;p class=&quot;copyright-item&quot;&gt;
+    &lt;span id=&quot;{{ .RelPermalink | relURL }}&quot; class=&quot;leancloud_visitors&quot; data-flag-title=&quot;{{ .Title }}&quot;&gt;
+        &lt;span class=&quot;post-meta-item-text&quot;&gt;Reading: 本文累计被阅读 &lt;/span&gt;
+        &lt;span class=&quot;leancloud-visitors-count&quot;&gt;1000000&lt;/span&gt;
+        &lt;span class=&quot;post-meta-item-text&quot;&gt;次&lt;/span&gt;
+    &lt;/span&gt;
+&lt;/p&gt;
+</code></pre><p>加入后内容如下：</p>
+<pre><code class="language-markup" data-lang="markup">{{- if .Site.Params.valine.enable -}}
+  &lt;!-- id 将作为查询条件 --&gt;  
+&lt;p class=&quot;copyright-item&quot;&gt;
+    &lt;span id=&quot;{{ .RelPermalink | relURL }}&quot; class=&quot;leancloud_visitors&quot; data-flag-title=&quot;{{ .Title }}&quot;&gt;
+        &lt;span class=&quot;post-meta-item-text&quot;&gt;阅读次数: 本文累计被阅读 &lt;/span&gt;
+        &lt;span class=&quot;leancloud-visitors-count&quot;&gt;1000000&lt;/span&gt;
+        &lt;span class=&quot;post-meta-item-text&quot;&gt;次&lt;/span&gt;
+    &lt;/span&gt;
+&lt;/p&gt;
+  &lt;div id=&quot;vcomments&quot;&gt;&lt;/div&gt;
 
+  &lt;script src=&quot;//cdn1.lncld.net/static/js/3.0.4/av-min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src='//unpkg.com/valine/dist/Valine.min.js'&gt;&lt;/script&gt;
+
+  &lt;script type=&quot;text/javascript&quot;&gt;
+    new Valine({
+        el: '#vcomments' ,
+        appId: '{{ .Site.Params.valine.appId }}',
+        appKey: '{{ .Site.Params.valine.appKey }}',
+        notify: '{{ .Site.Params.valine.notify }}', 
+        verify: '{{ .Site.Params.valine.verify }}', 
+        avatar:'{{ .Site.Params.valine.avatar }}', 
+        placeholder: '{{ .Site.Params.valine.placeholder }}',
+        visitor: '{{ .Site.Params.valine.visitor }}'
+    });
+  &lt;/script&gt;
+  {{- end -}}
+</code></pre>
     </div>
 
     <div class="post-copyright">
@@ -195,17 +214,6 @@ if (!doNotTrack) {
 
     <div class="post-tags">
         
-            <section>
-            <i class="iconfont icon-tag"></i>标签: 
-            
-            <span class="tag"><a href="https://amrom66.github.io/tags/%E7%AC%94%E8%AE%B0/">
-                    #笔记</a></span>
-            
-            <span class="tag"><a href="https://amrom66.github.io/tags/java/">
-                    #JAVA</a></span>
-            
-            </section>
-        
         <section>
                 <a href="javascript:window.history.back();">返回</a></span> · 
                 <span><a href="https://amrom66.github.io">主页</a></span>
@@ -214,10 +222,10 @@ if (!doNotTrack) {
 
     <div class="post-nav">
         
-        <a href="https://amrom66.github.io/2019/2019-10-14-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" class="prev" rel="prev" title="简单工程模式"><i class="iconfont icon-left"></i>&nbsp;简单工程模式</a>
+        <a href="https://amrom66.github.io/2019/2019-10-14-java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/" class="prev" rel="prev" title="JAVA并发编程实战-笔记"><i class="iconfont icon-left"></i>&nbsp;JAVA并发编程实战-笔记</a>
          
         
-        <a href="https://amrom66.github.io/2019/2019-10-15/" class="next" rel="next" title="博客加入访问统计">博客加入访问统计&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://amrom66.github.io/2019/2019-10-15-windows%E5%85%B1%E4%BA%AB/" class="next" rel="next" title="windows共享开启">windows共享开启&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
