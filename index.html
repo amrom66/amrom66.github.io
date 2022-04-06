@@ -121,14 +121,13 @@ if (!doNotTrack) {
     	 <main class="main">
           <div class="container">
       		
-  	
-  	<div class="post-warp">
-	<div class="intro">
+  
+  	<div class="intro">
     
     
     
     <div class="avatar">
-        <a href="/"> <img src="/images/me/touxiang.jpeg"> </a>
+        <a href="/posts/"> <img src="/images/me/touxiang.jpeg"> </a>
     </div>
     
     
@@ -136,143 +135,82 @@ if (!doNotTrack) {
        Across the great wall, we can reach the world
     </h2>
     
+    <div class="social-links">
+      
+<a href="https://github.com/amrom66" target="_blank" rel="me noopener"><i class="iconfont icon-github"></i></a>
+
+
+
+<a href="https://twitter.com/linjinbao66" target="_blank" rel="me noopener"><i class="iconfont icon-twitter"></i></a>
+
+
+<a href="https://www.instagram.com/null/" target="_blank" rel="me noopener"><i class="iconfont icon-instagram"></i></a> 
  
-	</div>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-04-03-network-policy/">network-policy</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				一个网络隔离策略讲解 apiVersion: networking.k8s.io/v1 kind: NetworkPolicy metadata: name: my-networkpolicy namespace: mysql spec: podSelector: {} policyTypes: - Ingress ingress: - from: - namespaceSelector: matchLabels: name: internal ports: - protocol: TCP port: 8080 解释 该策略：
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2022-04-03 itemprop="datePublished">April 3, 2022</time>
-                </span>
-                in
-                
-        	</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+<a href="javascript:void(0);" rel="me noopener" onClick="document.getElementById('lightbox').style.display='inline';" ><i class="iconfont icon-wechat"></i></a> 
 
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-03-31-pod-%E6%8C%82%E8%BD%BDconfigmap/">pod挂载configmap</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				nginx.yaml
-apiVersion: v1 kind: Pod metadata: creationTimestamp: null labels: run: nginx name: nginx spec: containers: - image: nginx imagePullPolicy: IfNotPresent name: nginx resources: {} env: - name: option # name of the env variable valueFrom: configMapKeyRef: name: options # name of config map key: var5 # name of the entity in config map dnsPolicy: ClusterFirst restartPolicy: Never status: {} options.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2022-03-31 itemprop="datePublished">March 31, 2022</time>
-                </span>
-                in
-                
-        	</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-03-13-mysql-privileges/">mysql权限高级</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				问题： 如何创建一个新用户，并屏蔽旧库权限？
-答案： 问题是对mysql的权限理解有问题。 mysql的权限有2个操作符,grant(授予)和revoke(撤销)。旧库的权限是不能屏蔽的，必须每一个剔除允许的列表。
-操作实例
-create user 'test'@'%' identified by '123456'; grant all privileges on `test%` to 'test'@'%'; 以上操作会给予test用户，作用域test开头的所有库的所有权限。
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2022-03-12 itemprop="datePublished">March 12, 2022</time>
-                </span>
-                in
-                
-        	</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+<a href="mailto:linjinbao66@gmail.com" rel="me noopener"><i class="iconfont icon-mail01"></i></a>
 
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-03-10-about-pv-pvc/">关于pv pvc的新认识</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				新认识
- hostpath可以直接使用  apiVersion: v1 kind: Pod metadata: name: pod-hostpath spec: nodeSelector: kubernetes.io/hostname: i-6fns0nua containers: - image: busybox name: app volumeMounts: - mountPath: /logs name: shared-dir args: - /bin/sh - -c - echo hostpath &gt;&gt; /logs/app.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2022-03-10 itemprop="datePublished">March 10, 2022</time>
-                </span>
-                in
-                
-        	</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-03-03-esxi-cloud-init%E4%BD%BF%E7%94%A8/">esxi-cloud-init使用</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				esxi是虚拟化的常见方案，其直接部署到物理机上，在之上可以虚拟化出来不同的系统。部署一个虚拟机，我们常见的操作方式是登录esxi的控制台或者vcenter的控制台操作，步骤比较繁琐。
-cloud-init是云厂商常用的方案，用于工作在虚拟机初始化的时候。例如，原生部署虚拟机的时候，需要在网页上设置磁盘，用户，网络等等，在cloud-init中，这些不必操作；原生部署虚拟机的时候，无法添加自定义源，cloud-init可以实现。
-使用到的工具  govc  govc 是vmware出的cli工具，用于操作vcenter
-第一步 配置esxi.env配置 # vCenter host export GOVC_URL=192.168.123.138 # vCenter credentials export GOVC_USERNAME=administrator@vsphere.local export GOVC_PASSWORD=rpK0qGVhd#YIxP4~S26+ # disable cert validation export GOVC_INSECURE=1 export GOVC_DATASTORE=bigdata export GOVC_NETWORK=&#34;&#34; export GOVC_RESOURCE_POOL=&#39;default-cluster/Resources&#39; export GOVC_DATACENTER=default-dc jinbao666lin@jinbao666deMacBook-Pro govc-practice % govc about FullName: VMware vCenter Server 6.
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2022-03-03 itemprop="datePublished">March 3, 2022</time>
-                </span>
-                in
-                
-        	</div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://amrom66.github.io/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/">
-               	 #虚拟化</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-	<div>
-		<h1 class="post-title" itemprop="name headline"><a href="/posts/">所有文章</a></h1>
-	</div>
+<a href="https://facebook.com/https://www.facebook.com/linjinbao666" rel="me noopener"><i class="iconfont icon-facebook"></i></a>
+
+
+<a href="https://t.me/null" rel="me noopener"><i class="iconfont icon-telegram"></i></a>
+
+
+
+
+    </div>
 </div>
+
+
+ 
+
+
+<style type="text/css">
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .8);
+}
+
+.center {
+    width: 220px;
+    height: 220px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -110px;
+}
+
+.center img {
+    width: 220px;
+}
+
+.center i {
+    color: #fff;
+    font-size: 1.5em;
+    position: relative;
+    float: right;
+    top: 0px;
+    right: -20px;
+    cursor: pointer;
+}
+</style>
+
+
+<div id="lightbox" style="display: none" class="lightbox" onclick="document.getElementById('lightbox').style.display='none';">
+    <div class="center">
+        <i class="iconfont icon-close"></i>
+        <img src="/images/me/wechat.png">
+    </div>
+</div>
+
+
 
   
 
