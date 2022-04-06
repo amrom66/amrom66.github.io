@@ -173,7 +173,7 @@ if (!doNotTrack) {
 </ol>
 <h2 id="方案二-loki">方案二 Loki</h2>
 <p>Loki是近期比较流行的k8s日志采集方案。博主认为，说Loki是日志采集方案其实是不准确的。先来看Loki采集的原理：</p>
-<p><img src="https://raw.githubusercontent.com/wsgzao/storage-public/master/img/20201030162315.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/wsgzao/storage-public/master/img/20201030162315.png" alt="loki采集原理"></p>
 <p>Loki也采用了代理程序与服务端结合的设计：</p>
 <ul>
 <li>Loki 是主服务器，负责存储日志和处理查询</li>
@@ -192,7 +192,7 @@ if (!doNotTrack) {
 <p>不论如何，使用Loki的查询，最后得出来的是面向pod的日志，如果把上述的pod条件去除，则会得出namespace下所有pod的日志。</p>
 <h2 id="比较">比较</h2>
 <p>通过分别使用EFK与Loki，我们可以看出，EFK注重的收集所有的日志，至于如何展示，看使用人员的技术了；而Loki注重的是展示pod的日志，通过简单的语句，筛选出符合要求的日志。</p>
-<p>笔者倾向于选择Loki作为容器日志采集方案，原因除了以上之外，还考虑到能否整合Loki与prometheus，实现基于日志采集的告警方案。参见https://github.com/linjinbao666/log-practice.git仓库。</p>
+<p>笔者倾向于选择Loki作为容器日志采集方案，原因除了以上之外，还考虑到能否整合Loki与prometheus，实现基于日志采集的告警方案。参见<a href="https://github.com/linjinbao666/log-practice.git">https://github.com/linjinbao666/log-practice.git</a>仓库。</p>
 
     </div>
 

@@ -6,10 +6,23 @@
     <description>Recent content in Posts on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 06 Apr 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://amrom66.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>最大子数组和</title>
+      <link>https://amrom66.github.io/2022/2022-04-06-%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84%E5%92%8C/</link>
+      <pubDate>Wed, 06 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/2022/2022-04-06-%E6%9C%80%E5%A4%A7%E5%AD%90%E6%95%B0%E7%BB%84%E5%92%8C/</guid>
+      <description>最大子数组和 给你一个整数数组 nums ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+子数组 是数组中的一个连续部分。
+示例 1：
+输入：nums = [-2,1,-3,4,-1,2,1,-5,4] 输出：6 解释：连续子数组 [4,-1,2,1] 的和最大，为 6 。 示例 2：
+输入：nums = [1] 输出：1 示例 3：</description>
+    </item>
     
     <item>
       <title>network-policy</title>
@@ -194,7 +207,7 @@ kubernetes的缺陷与kubeedge的改进 k8s是容器编排的事实标准，可�
       <pubDate>Mon, 23 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://amrom66.github.io/2021/2021-08-23-%E5%88%A9%E7%94%A8cloudflare-workers%E8%87%AA%E5%BB%BA%E9%95%9C%E5%83%8F/</guid>
-      <description>Git clone加速站点: clone.linjinbao.tk github镜像: github.linjinbao.tk gist镜像: gist.linjinbao.tk ariang面板托管: ariang.linjinbao.tk gfw站点: https://gfw.linjinbao66.workers.dev taobao镜像: taobao.linjinbao.tk  附上相关git项目源码
+      <description>Git clone加速站点: clone.linjinbao.tk github镜像: github.linjinbao.tk gist镜像: gist.linjinbao.tk ariang面板托管: ariang.linjinbao.tk gfw站点: https://gfw.linjinbao66.workers.dev taobao镜像:taobao.linjinbao.tk  附上相关git项目源码
 git@github.com:linjinbao666/gfw-proxy.git</description>
     </item>
     
@@ -215,7 +228,7 @@ mkdir -p ariang/public cd ariang/public wget https://github.com/mayswind/AriaNg/
       
       <guid>https://amrom66.github.io/2021/2021-08-20-golang%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/</guid>
       <description>Golang 支持在一个平台下生成另一个平台可执行程序的交叉编译功能。
-1、Mac下编译Linux, Windows平台的64位可执行程序： CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build test.go CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build test.go 2、Linux下编译Mac, Windows平台的64位可执行程序： CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build test.</description>
+1、Mac下编译Linux, Windows平台的64位可执行程序 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build test.go CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build test.go 2、Linux下编译Mac, Windows平台的64位可执行程序 CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build test.</description>
     </item>
     
     <item>
@@ -692,8 +705,8 @@ Redis 提供了多种数据类型来支持不同的业务场景。Redis 还支�
       
       <guid>https://amrom66.github.io/2021/2021-02-23-%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
       <description>git合并指定的一次commit  答案：
-git cherry-pick commitid git rebase --onto branch commitid git撤销已经推送的提交  答案：
-git reset --soft id Java线程间通信  答案：利用线程同步来实现通信，通过while轮询方式，wait/notify机制</description>
+git cherry-pick commitid git rebase --onto branch commitid  git撤销已经推送的提交  答案：
+git reset --soft id  Java线程间通信  答案：利用线程同步来实现通信，通过while轮询方式，wait/notify机制</description>
     </item>
     
     <item>
@@ -714,7 +727,7 @@ apiVersion: v1 kind: Pod metadata: name: downward spec: containers: - name: main
       <pubDate>Thu, 04 Feb 2021 00:00:00 +0000</pubDate>
       
       <guid>https://amrom66.github.io/2021/2021-02-04-gitlab%E9%83%A8%E7%BD%B2%E5%85%A8%E6%B5%81%E7%A8%8B%E8%AE%B0%E5%BD%95/</guid>
-      <description>术语解释： 1. Gitlab GitLab是一个利用Ruby on Rails开发的开源应用程序，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。 它拥有与GitHub类似的功能，能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序（Wall）进行交流。它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。
+      <description>术语解释 1. Gitlab GitLab是一个利用Ruby on Rails开发的开源应用程序，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。 它拥有与GitHub类似的功能，能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序（Wall）进行交流。它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。
 2. Gitlab-CI Gitlab-CI是GitLab Continuous Integration（Gitlab持续集成）的简称。 从Gitlab的8.0版本开始，gitlab就全面集成了Gitlab-CI,并且对所有项目默认开启。 只要在项目仓库的根目录添加.gitlab-ci.yml文件，并且配置了Runner（运行器），那么每一次合并请求（MR）或者push都会触发CI pipeline。
 3. Gitlab-runner Gitlab-runner是.gitlab-ci.yml脚本的运行器，Gitlab-runner是基于Gitlab-CI的API进行构建的相互隔离的机器（或虚拟机）。GitLab Runner 不需要和Gitlab安装在同一台机器上，但是考虑到GitLab Runner的资源消耗问题和安全问题，也不建议这两者安装在同一台机器上。</description>
     </item>
@@ -761,7 +774,7 @@ kubectl get cm -n kube-system NAME DATA AGE coredns 2 33d extension-apiserver-au
       <guid>https://amrom66.github.io/2021/2021-01-29-spring-boot-%E5%88%87%E6%8D%A2%E5%88%B0postgress%E6%95%B0%E6%8D%AE%E5%BA%93-jpa%E7%89%88/</guid>
       <description>适用范围  基于spring boot 2.0 orm框架使用jpa  无法修改原先的任何代码。
 操作步骤  修改pom文件加入依赖  pom.xml
-&amp;lt;!--https://mvnrepository.com/artifact/org.postgresql/postgresql --&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.postgresql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;postgresql&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;42.2.18&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; 修改pom文件，新增profile环境  pom.</description>
+&amp;lt;!--https://mvnrepository.com/artifact/org.postgresql/postgresql --&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.postgresql&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;postgresql&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;42.2.18&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt;  修改pom文件，新增profile环境  pom.</description>
     </item>
     
     <item>
@@ -877,7 +890,7 @@ apiVersion: v1 kind: Namespace metadata: name: ingress-nginx labels: app.kuberne
       <pubDate>Tue, 17 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>https://amrom66.github.io/2020/2020-11-17-sonar%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E-%E7%A0%94%E5%8F%91%E4%BA%BA%E5%91%98/</guid>
-      <description>**！ 注意此文档为测试文档，让大家提前使用并熟悉下代码检查的工作原理，后续会集成到jenkins中 **
+      <description>注意此文档为测试文档，让大家提前使用并熟悉下代码检查的工作原理，后续会集成到jenkins中
 1. 背景说明 代码检查是项目开发过程中的重要组成，及时的代码检查可以帮助规避掉多数的简单漏洞和潜在bug。本文旨在讲解如何使用sonar的代码检查工具进行代码检查。支持语言：html js java 等
 2. maven操作演示 2.1 在maven的settings.xml中做如下配置， pluginGroups在settings标签下：
 &amp;lt;pluginGroups&amp;gt; &amp;lt;pluginGroup&amp;gt;org.sonarsource.scanner.maven&amp;lt;/pluginGroup&amp;gt; &amp;lt;/pluginGroups&amp;gt; 2.2 profile中加入sonar的环境配置：
@@ -913,7 +926,7 @@ docker pull mirrorgooglecontainers/pause:3.1 docker tag mirrorgooglecontainers/p
       
       <guid>https://amrom66.github.io/2020/2020-11-15-linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
       <description>原文地址: https://github.com/xjh22222228/linux-manual
-目录  文件操作  head tail ls pwd wc find mkdir mktemp chattr more paste stat grep touch cd rm rmdir cp cat mv locate open source tree ln file   系统管理  nohup watch ping which shutdown reboot uptime crontab uname ifconfig whereis chmod lsof chown systemctl service free type alias time jobs &amp;amp;   系统进程  ps pstree top netstat kill killall   用户管理  useradd userdel passwd chpasswd chsh chfn usermod users who w last su whoami   环境变量  printenv set export unset   压缩、解压  zip unzip gzip bzip2 tar   加解密  md5sum base64   网络  ssh wget curl scp rsync   磁盘  df du   包管理  yum apt-get   其他  目录名称含义 重定向输入和输出 管道 echo date man sleep history xargs cal expr bc timeout exit vim basename read tee clear    文件操作 head 显示文件的头部内容，如果不指定参数默认显示10行</description>
+目录  文件操作  head tail ls pwd wc find mkdir mktemp chattr more paste stat grep touch cd   rm  rmdir cp cat mv locate open source tree ln file   系统管理  nohup watch ping which shutdown reboot uptime crontab uname ifconfig whereis chmod  文件权限码   lsof chown systemctl service free type alias time jobs &amp;amp;   系统进程  ps  Unix 风格参数   pstree  显示所有进程的所有详细信息 显示当前所有进程的进程号和进程id   top netstat kill  进程信号   killall   用户管理  useradd  useradd 命令行参数 更改默认值参数   userdel passwd chpasswd chsh chfn  修改真实姓名   usermod users who w last su whoami   环境变量  printenv set export unset   压缩、解压  zip unzip gzip bzip2 tar   加解密  md5sum base64   网络  ssh wget curl  不传递任何参数只打印HTTP响应内容 -s 不输出错误和进度信息, 只显示正常结果 -o 指定文件名下载到本地，等价于 wget -O 下载文件到本地, 并将URL最后部分当做文件名 &amp;ndash;progress 显示进度条 -L HTTP请求跟随服务器重定向 -I 或 -head 显示HTTP响应报文, 不打印响应内容 -H 设置请求头 -X 指明HTTP请求方法 -d 要发送的实体内容 &amp;ndash;cookie HTTP请求时携带的cookie信息 -v 打印整个传输过程 -F 上传文件，默认以POST方法请求 -u 请求授权   scp rsync  本地同步文件 远程同步文件 增量备份 其他用法     磁盘  df  描述   du   包管理  yum apt-get   其他  目录名称含义 重定向输入和输出  输出重定向 输入重定向   管道 echo date man sleep history xargs cal expr bc timeout exit vim basename read tee clear 致谢    文件操作 head 显示文件的头部内容，如果不指定参数默认显示10行</description>
     </item>
     
     <item>

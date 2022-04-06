@@ -188,7 +188,7 @@ dashboard_user = ***
 dashboard_pwd = ***
 </code></pre><p>bind_port表示frp服务端与客户端建立通信使用的端口；vhost_http_port表示使用http服务的时候使用的端口；dashboard_port是面板的端口。</p>
 <p>以上配置完成后，frp会占用，37000，8080，8443，37500端口</p>
-<ol start="2">
+<ol>
 <li>客户端</li>
 </ol>
 <p>/etc/systemd/system/frpc.service</p>
@@ -242,7 +242,7 @@ local_port = 3999
 custom_domains = tour.amrom.tk
 
 </code></pre><p>客户端不会占用任何端口，以上配置表示客户端通过37000与服务端建立连接，同时监听了内网的gitlab80，minio80，k8s80，tour80服务，服务之间通过域名区分。</p>
-<ol start="3">
+<ol>
 <li>nginx</li>
 </ol>
 <p>一般来说，不建议直接暴露frp服务出来，使用nginx反代处理效果更好。</p>

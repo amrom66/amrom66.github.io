@@ -159,7 +159,7 @@ if (!doNotTrack) {
 
           <h2 id="gitops概念">GitOps概念</h2>
 <p>GitOps是一种实现持续交付的模型，利用Git开发工具对云原生应用程序进行操作和管理。当将应用程序部署到Kubernetes时，Git应该是唯一的事实来源。当开发人员更改应用程序时，Git将自动把它们push到Kubernetes进行部署。而且，如果Kubernetes内的运行状态发生变化但与Git内的状态不一致，则它们会从Git内恢复到已知状态。</p>
-<p>参考：https://about.gitlab.com/topics/gitops/</p>
+<p>参考：<a href="https://about.gitlab.com/topics/gitops/">https://about.gitlab.com/topics/gitops/</a></p>
 <h2 id="gitops与cicd">GitOps与CI/CD</h2>
 <p>GitOps和CI/CD是十分重要的工作伙伴。CI/CD可以让开发人员持续迭代、开发和部署应用程序。而迭代通常通过一个Git配置仓库进行（尽管也会有其他配置仓库）。在部署/交付阶段，构建的基于容器的应用程序被“push”到Kubernetes进行部署。GitOps会通过Kubernetes使用“pull”的方法来增强CI/CD模型，从而将运维层面带入部署/交付中。</p>
 <p>但是，如果有人更改了Kubernetes集群中运行的某些内容，会发生什么？我们将使用Git作为声明性部署工具的主要事实来源，并利用其他工具在出现差异时向我们发出警报。此外，通过利用可以识别运行状态和声明状态之间差异的工具，Kubernetes可以修复为已知/声明的运行状态。</p>
@@ -212,7 +212,7 @@ if (!doNotTrack) {
 <p>Git控制并修证差异或“漂移”</p>
 <p>GitOps利用审核、监控以及回滚功能来增加应用程序发布的可靠性和稳定性</p>
 <p>最后，尽管在GitOps模式下还有很多工作要做，但是GitOps、DevOps以及现有CI/CD模式之间存在十分明显的协同作用。GitOps提供了一种用于将应用程序交付到Kubernetes平台的模型，该模型确保了Git是唯一的事实来源并且充分利用Kubernetes平台上的功能。但值得注意的是，GitOps不能替代工具。恰恰相反，GitOps通过声明性的流程和工具来强化流程、提高其成熟度并帮助团队交付应用程序。</p>
-<p>实践参考：https://www.qikqiak.com/post/gitlab-ci-argo-cd-gitops/</p>
+<p>实践参考：<a href="https://www.qikqiak.com/post/gitlab-ci-argo-cd-gitops/">https://www.qikqiak.com/post/gitlab-ci-argo-cd-gitops/</a></p>
 
     </div>
 

@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "gitlab部署全流程记录",
     "headline" : "gitlab部署全流程记录",
-    "description" : "术语解释： 1. Gitlab GitLab是一个利用Ruby on Rails开发的开源应用程序，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。 它拥有与GitHub类似的功能，能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序（Wall）进行交流。它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。\n2. Gitlab-CI Gitlab-CI是GitLab Continuous Integration（Gitlab持续集成）的简称。 从Gitlab的8.0版本开始，gitlab就全面集成了Gitlab-CI,并且对所有项目默认开启。 只要在项目仓库的根目录添加.gitlab-ci.yml文件，并且配置了Runner（运行器），那么每一次合并请求（MR）或者push都会触发CI pipeline。\n3. Gitlab-runner Gitlab-runner是.gitlab-ci.yml脚本的运行器，Gitlab-runner是基于Gitlab-CI的API进行构建的相互隔离的机器（或虚拟机）。GitLab Runner 不需要和Gitlab安装在同一台机器上，但是考虑到GitLab Runner的资源消耗问题和安全问题，也不建议这两者安装在同一台机器上。",
+    "description" : "术语解释 1. Gitlab GitLab是一个利用Ruby on Rails开发的开源应用程序，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。 它拥有与GitHub类似的功能，能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序（Wall）进行交流。它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。\n2. Gitlab-CI Gitlab-CI是GitLab Continuous Integration（Gitlab持续集成）的简称。 从Gitlab的8.0版本开始，gitlab就全面集成了Gitlab-CI,并且对所有项目默认开启。 只要在项目仓库的根目录添加.gitlab-ci.yml文件，并且配置了Runner（运行器），那么每一次合并请求（MR）或者push都会触发CI pipeline。\n3. Gitlab-runner Gitlab-runner是.gitlab-ci.yml脚本的运行器，Gitlab-runner是基于Gitlab-CI的API进行构建的相互隔离的机器（或虚拟机）。GitLab Runner 不需要和Gitlab安装在同一台机器上，但是考虑到GitLab Runner的资源消耗问题和安全问题，也不建议这两者安装在同一台机器上。",
     "inLanguage" : "en-us",
     "author" : "linjinbao66",
     "creator" : "linjinbao66",
@@ -57,7 +57,7 @@
     "datePublished": "2021-02-04 00:00:00 \x2b0000 UTC",
     "dateModified" : "2021-02-04 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/amrom66.github.io\/2021\/2021-02-04-gitlab%E9%83%A8%E7%BD%B2%E5%85%A8%E6%B5%81%E7%A8%8B%E8%AE%B0%E5%BD%95\/",
-    "wordCount" : "493",
+    "wordCount" : "492",
     "keywords" : [  "打工笔记"]
 }
 </script>
@@ -157,7 +157,7 @@ if (!doNotTrack) {
           
           
 
-          <h2 id="术语解释">术语解释：</h2>
+          <h2 id="术语解释">术语解释</h2>
 <h3 id="1-gitlab">1. Gitlab</h3>
 <p>GitLab是一个利用Ruby on Rails开发的开源应用程序，实现一个自托管的Git项目仓库，可通过Web界面进行访问公开的或者私人项目。
 它拥有与GitHub类似的功能，能够浏览源代码，管理缺陷和注释。可以管理团队对仓库的访问，它非常易于浏览提交过的版本并提供一个文件历史库。团队成员可以利用内置的简单聊天程序（Wall）进行交流。它还提供一个代码片段收集功能可以轻松实现代码复用，便于日后有需要的时候进行查找。</p>
@@ -168,7 +168,7 @@ if (!doNotTrack) {
 <h3 id="3-gitlab-runner">3. Gitlab-runner</h3>
 <p><a href="https://docs.gitlab.com/ce/ci/runners/README.html">Gitlab-runner</a>是<code>.gitlab-ci.yml</code>脚本的运行器，Gitlab-runner是基于Gitlab-CI的API进行构建的相互隔离的机器（或虚拟机）。GitLab Runner 不需要和Gitlab安装在同一台机器上，但是考虑到GitLab Runner的资源消耗问题和安全问题，也不建议这两者安装在同一台机器上。</p>
 <p>Gitlab Runner分为两种，Shared runners和Specific runners。
-Specific runners只能被指定的项目使用，Shared runners则可以运行所有开启<code> Allow shared runners</code>选项的项目。</p>
+Specific runners只能被指定的项目使用，Shared runners则可以运行所有开启<code>Allow shared runners</code>选项的项目。</p>
 <h3 id="4-pipelines">4. Pipelines</h3>
 <p>Pipelines是定义于<code>.gitlab-ci.yml</code>中的不同阶段的不同任务。
 我把<a href="https://docs.gitlab.com/ce/ci/pipelines.html">Pipelines</a>理解为流水线，流水线包含有多个阶段（<a href="https://docs.gitlab.com/ce/ci/yaml/README.html#stages">stages</a>），每个阶段包含有一个或多个工序（<a href="https://docs.gitlab.com/ce/ci/yaml/README.html#jobs">jobs</a>），比如先购料、组装、测试、包装再上线销售，每一次push或者MR都要经过流水线之后才可以合格出厂。而<code>.gitlab-ci.yml</code>正是定义了这条流水线有哪些阶段，每个阶段要做什么事。</p>
@@ -181,7 +181,7 @@ Specific runners只能被指定的项目使用，Shared runners则可以运行�
 <pre><code class="language-code" data-lang="code">helm install gitlab gitlab/  --timeout 600s --set global.hosts.domain=linjb.com --set certmanager-issuer.email=1576654308@qq.com --set global.hosts.gitlab.https=false  --set global.hosts.https=false --set global.ingress.tls.enabled=false
 </code></pre><p>第二步：在coredns中配置域名的解析为集群内地址。</p>
 <p>第三步：登录集群：</p>
-<p>root账号为：kubectl get secret <!-- raw HTML omitted -->-gitlab-initial-root-password -ojsonpath=&rsquo;{.data.password}&rsquo; | base64 &ndash;decode ; echo</p>
+<p>root账号为：kubectl get secret name-gitlab-initial-root-password -ojsonpath=&rsquo;{.data.password}&rsquo; | base64 &ndash;decode ; echo</p>
 <p>第四步：登录集群后的操作</p>
 <ul>
 <li>设置允许本机IP的流量访问</li>

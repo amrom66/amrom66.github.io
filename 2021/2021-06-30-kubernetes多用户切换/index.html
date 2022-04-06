@@ -212,7 +212,7 @@ Use &quot;kubectl options&quot; for a list of global command-line options (appli
 </ol>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">export TOKEN_CONTENT<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>kubectl describe -n test sa test-user | grep Tokens | awk -F <span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#e6db74">&#39;{print$2}&#39;</span> | xargs kubectl describe secret -n test|grep token: | awk -F <span style="color:#e6db74">&#39;:&#39;</span> <span style="color:#e6db74">&#39;{print $2}&#39;</span> | tr -d <span style="color:#e6db74">&#39; \t&#39;</span><span style="color:#e6db74">`</span>
 kubectl config set-credentials test-cred --token<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>TOKEN_CONTENT<span style="color:#e6db74">}</span>
-</code></pre></div><ol start="4">
+</code></pre></div><ol>
 <li>
 <p>设置context</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">kubectl config set-context test-context --user<span style="color:#f92672">=</span>test-cred --cluster<span style="color:#f92672">=</span>kubernetes --namespace<span style="color:#f92672">=</span>test

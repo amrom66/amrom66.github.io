@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "spring boot 切换到postgress数据库-jpa版",
     "headline" : "spring boot 切换到postgress数据库-jpa版",
-    "description" : "适用范围  基于spring boot 2.0 orm框架使用jpa  无法修改原先的任何代码。\n操作步骤  修改pom文件加入依赖  pom.xml\n\x26lt;!--https:\/\/mvnrepository.com\/artifact\/org.postgresql\/postgresql --\x26gt; \x26lt;dependency\x26gt; \x26lt;groupId\x26gt;org.postgresql\x26lt;\/groupId\x26gt; \x26lt;artifactId\x26gt;postgresql\x26lt;\/artifactId\x26gt; \x26lt;version\x26gt;42.2.18\x26lt;\/version\x26gt; \x26lt;\/dependency\x26gt; 修改pom文件，新增profile环境  pom.",
+    "description" : "适用范围  基于spring boot 2.0 orm框架使用jpa  无法修改原先的任何代码。\n操作步骤  修改pom文件加入依赖  pom.xml\n\x26lt;!--https:\/\/mvnrepository.com\/artifact\/org.postgresql\/postgresql --\x26gt; \x26lt;dependency\x26gt; \x26lt;groupId\x26gt;org.postgresql\x26lt;\/groupId\x26gt; \x26lt;artifactId\x26gt;postgresql\x26lt;\/artifactId\x26gt; \x26lt;version\x26gt;42.2.18\x26lt;\/version\x26gt; \x26lt;\/dependency\x26gt;  修改pom文件，新增profile环境  pom.",
     "inLanguage" : "en-us",
     "author" : "linjinbao66",
     "creator" : "linjinbao66",
@@ -174,7 +174,7 @@ if (!doNotTrack) {
             <span style="color:#f92672">&lt;artifactId</span><span style="color:#f92672">&gt;</span>postgresql<span style="color:#f92672">&lt;/artifactId&gt;</span>
             <span style="color:#f92672">&lt;version</span><span style="color:#f92672">&gt;</span>42.2.18<span style="color:#f92672">&lt;/version&gt;</span>
         <span style="color:#f92672">&lt;/dependency&gt;</span>
-</code></pre></div><ol start="2">
+</code></pre></div><ol>
 <li>修改pom文件，新增profile环境</li>
 </ol>
 <p>pom.xml</p>
@@ -185,7 +185,7 @@ if (!doNotTrack) {
                 <span style="color:#f92672">&lt;profile.active</span><span style="color:#f92672">&gt;</span>pg<span style="color:#f92672">&lt;/profile.active&gt;</span>
             <span style="color:#f92672">&lt;/properties&gt;</span>
         <span style="color:#f92672">&lt;/profile&gt;</span>
-</code></pre></div><ol start="3">
+</code></pre></div><ol>
 <li>新增application-pg.yaml配置</li>
 </ol>
 <p>application-pg.yaml</p>
@@ -214,7 +214,7 @@ if (!doNotTrack) {
   <span style="color:#66d9ef">admin-conf</span>: classpath:k8s/admin-pg.conf
   
 </code></pre></div><p>此处建议覆盖application.yaml中的所有配置项。注意<code>driver-class-name</code>和<code>database-platform</code>等postgress特有配置项。</p>
-<ol start="4">
+<ol>
 <li>检查关键字</li>
 </ol>
 <p>postgress中的关键字与mysql不同，需要特别注意，例如postgress中的<code>user</code>无法直接使用，需要使用反引号标记。</p>

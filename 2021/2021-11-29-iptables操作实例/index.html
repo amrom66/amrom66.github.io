@@ -212,12 +212,12 @@ if (!doNotTrack) {
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">iptables -Z INPUT
 </code></pre></div><h3 id="保存规则">保存规则</h3>
 <p>保存设置,将规则保存在/etc/sysconfig/iptables文件里</p>
-<h4 id="方法1">方法1:</h4>
+<h4 id="方法1">方法1</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/etc/init.d/iptables save
 </code></pre></div><p>或者</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">service iptables save
 </code></pre></div><p>iptables防火墙的配置文件存放于：/etc/sysconfig/iptables</p>
-<h4 id="方法2">方法2:</h4>
+<h4 id="方法2">方法2</h4>
 <p>修改/etc/sysconfig/iptables-config 将里面的IPTABLES_SAVE_ON_STOP=”no”, 这一句的”no”改为”yes”这样每次服务在停止之前会自动将现有的规则保存在 /etc/sysconfig/iptables 这个文件中去。</p>
 <h2 id="iptables实用案例">iptables实用案例</h2>
 <h3 id="iptables常见操作案例">iptables常见操作案例</h3>

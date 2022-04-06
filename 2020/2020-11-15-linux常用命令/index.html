@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "linux常用命令",
     "headline" : "linux常用命令",
-    "description" : "原文地址: https:\/\/github.com\/xjh22222228\/linux-manual\n目录  文件操作  head tail ls pwd wc find mkdir mktemp chattr more paste stat grep touch cd rm rmdir cp cat mv locate open source tree ln file   系统管理  nohup watch ping which shutdown reboot uptime crontab uname ifconfig whereis chmod lsof chown systemctl service free type alias time jobs \x26amp;   系统进程  ps pstree top netstat kill killall   用户管理  useradd userdel passwd chpasswd chsh chfn usermod users who w last su whoami   环境变量  printenv set export unset   压缩、解压  zip unzip gzip bzip2 tar   加解密  md5sum base64   网络  ssh wget curl scp rsync   磁盘  df du   包管理  yum apt-get   其他  目录名称含义 重定向输入和输出 管道 echo date man sleep history xargs cal expr bc timeout exit vim basename read tee clear    文件操作 head 显示文件的头部内容，如果不指定参数默认显示10行",
+    "description" : "原文地址: https:\/\/github.com\/xjh22222228\/linux-manual\n目录  文件操作  head tail ls pwd wc find mkdir mktemp chattr more paste stat grep touch cd   rm  rmdir cp cat mv locate open source tree ln file   系统管理  nohup watch ping which shutdown reboot uptime crontab uname ifconfig whereis chmod  文件权限码   lsof chown systemctl service free type alias time jobs \x26amp;   系统进程  ps  Unix 风格参数   pstree  显示所有进程的所有详细信息 显示当前所有进程的进程号和进程id   top netstat kill  进程信号   killall   用户管理  useradd  useradd 命令行参数 更改默认值参数   userdel passwd chpasswd chsh chfn  修改真实姓名   usermod users who w last su whoami   环境变量  printenv set export unset   压缩、解压  zip unzip gzip bzip2 tar   加解密  md5sum base64   网络  ssh wget curl  不传递任何参数只打印HTTP响应内容 -s 不输出错误和进度信息, 只显示正常结果 -o 指定文件名下载到本地，等价于 wget -O 下载文件到本地, 并将URL最后部分当做文件名 \x26ndash;progress 显示进度条 -L HTTP请求跟随服务器重定向 -I 或 -head 显示HTTP响应报文, 不打印响应内容 -H 设置请求头 -X 指明HTTP请求方法 -d 要发送的实体内容 \x26ndash;cookie HTTP请求时携带的cookie信息 -v 打印整个传输过程 -F 上传文件，默认以POST方法请求 -u 请求授权   scp rsync  本地同步文件 远程同步文件 增量备份 其他用法     磁盘  df  描述   du   包管理  yum apt-get   其他  目录名称含义 重定向输入和输出  输出重定向 输入重定向   管道 echo date man sleep history xargs cal expr bc timeout exit vim basename read tee clear 致谢    文件操作 head 显示文件的头部内容，如果不指定参数默认显示10行",
     "inLanguage" : "en-us",
     "author" : "linjinbao66",
     "creator" : "linjinbao66",
@@ -57,7 +57,7 @@
     "datePublished": "2020-11-15 00:00:00 \x2b0000 UTC",
     "dateModified" : "2020-11-15 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/amrom66.github.io\/2020\/2020-11-15-linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4\/",
-    "wordCount" : "4652",
+    "wordCount" : "4703",
     "keywords" : [  "打工笔记"]
 }
 </script>
@@ -158,7 +158,7 @@ if (!doNotTrack) {
           
 
           <p><a href="https://github.com/xjh22222228/linux-manual.git">原文地址</a>: <a href="https://github.com/xjh22222228/linux-manual">https://github.com/xjh22222228/linux-manual</a></p>
-<h1 id="目录">目录</h1>
+<h2 id="目录">目录</h2>
 <ul>
 <li><a href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C">文件操作</a>
 <ul>
@@ -177,7 +177,10 @@ if (!doNotTrack) {
 <li><a href="#grep">grep</a></li>
 <li><a href="#touch">touch</a></li>
 <li><a href="#cd">cd</a></li>
-<li><a href="#rm">rm</a></li>
+</ul>
+</li>
+<li><a href="#rm">rm</a>
+<ul>
 <li><a href="#rmdir">rmdir</a></li>
 <li><a href="#cp">cp</a></li>
 <li><a href="#cat">cat</a></li>
@@ -203,7 +206,11 @@ if (!doNotTrack) {
 <li><a href="#uname">uname</a></li>
 <li><a href="#ifconfig">ifconfig</a></li>
 <li><a href="#whereis">whereis</a></li>
-<li><a href="#chmod">chmod</a></li>
+<li><a href="#chmod">chmod</a>
+<ul>
+<li><a href="#%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%A0%81">文件权限码</a></li>
+</ul>
+</li>
 <li><a href="#lsof">lsof</a></li>
 <li><a href="#chown">chown</a></li>
 <li><a href="#systemctl">systemctl</a></li>
@@ -213,27 +220,49 @@ if (!doNotTrack) {
 <li><a href="#alias">alias</a></li>
 <li><a href="#time">time</a></li>
 <li><a href="#jobs">jobs</a></li>
-<li><a href="#&amp;">&amp;</a></li>
+<li><a href="#">&amp;</a></li>
 </ul>
 </li>
 <li><a href="#%E7%B3%BB%E7%BB%9F%E8%BF%9B%E7%A8%8B">系统进程</a>
 <ul>
-<li><a href="#ps">ps</a></li>
-<li><a href="#pstree">pstree</a></li>
+<li><a href="#ps">ps</a>
+<ul>
+<li><a href="#unix-%E9%A3%8E%E6%A0%BC%E5%8F%82%E6%95%B0">Unix 风格参数</a></li>
+</ul>
+</li>
+<li><a href="#pstree">pstree</a>
+<ul>
+<li><a href="#%E6%98%BE%E7%A4%BA%E6%89%80%E6%9C%89%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%89%80%E6%9C%89%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF">显示所有进程的所有详细信息</a></li>
+<li><a href="#%E6%98%BE%E7%A4%BA%E5%BD%93%E5%89%8D%E6%89%80%E6%9C%89%E8%BF%9B%E7%A8%8B%E7%9A%84%E8%BF%9B%E7%A8%8B%E5%8F%B7%E5%92%8C%E8%BF%9B%E7%A8%8Bid">显示当前所有进程的进程号和进程id</a></li>
+</ul>
+</li>
 <li><a href="#top">top</a></li>
 <li><a href="#netstat">netstat</a></li>
-<li><a href="#kill">kill</a></li>
+<li><a href="#kill">kill</a>
+<ul>
+<li><a href="#%E8%BF%9B%E7%A8%8B%E4%BF%A1%E5%8F%B7">进程信号</a></li>
+</ul>
+</li>
 <li><a href="#killall">killall</a></li>
 </ul>
 </li>
 <li><a href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86">用户管理</a>
 <ul>
-<li><a href="#useradd">useradd</a></li>
+<li><a href="#useradd">useradd</a>
+<ul>
+<li><a href="#useradd-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0">useradd 命令行参数</a></li>
+<li><a href="#%E6%9B%B4%E6%94%B9%E9%BB%98%E8%AE%A4%E5%80%BC%E5%8F%82%E6%95%B0">更改默认值参数</a></li>
+</ul>
+</li>
 <li><a href="#userdel">userdel</a></li>
 <li><a href="#passwd">passwd</a></li>
 <li><a href="#chpasswd">chpasswd</a></li>
 <li><a href="#chsh">chsh</a></li>
-<li><a href="#chfn">chfn</a></li>
+<li><a href="#chfn">chfn</a>
+<ul>
+<li><a href="#%E4%BF%AE%E6%94%B9%E7%9C%9F%E5%AE%9E%E5%A7%93%E5%90%8D">修改真实姓名</a></li>
+</ul>
+</li>
 <li><a href="#usermod">usermod</a></li>
 <li><a href="#users">users</a></li>
 <li><a href="#who">who</a></li>
@@ -251,7 +280,7 @@ if (!doNotTrack) {
 <li><a href="#unset">unset</a></li>
 </ul>
 </li>
-<li><a href="#%E5%8E%8B%E7%BC%A9%E3%80%81%E8%A7%A3%E5%8E%8B">压缩、解压</a>
+<li><a href="#%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B">压缩、解压</a>
 <ul>
 <li><a href="#zip">zip</a></li>
 <li><a href="#unzip">unzip</a></li>
@@ -270,14 +299,42 @@ if (!doNotTrack) {
 <ul>
 <li><a href="#ssh">ssh</a></li>
 <li><a href="#wget">wget</a></li>
-<li><a href="#curl">curl</a></li>
+<li><a href="#curl">curl</a>
+<ul>
+<li><a href="#%E4%B8%8D%E4%BC%A0%E9%80%92%E4%BB%BB%E4%BD%95%E5%8F%82%E6%95%B0%E5%8F%AA%E6%89%93%E5%8D%B0http%E5%93%8D%E5%BA%94%E5%86%85%E5%AE%B9">不传递任何参数只打印HTTP响应内容</a></li>
+<li><a href="#-s-%E4%B8%8D%E8%BE%93%E5%87%BA%E9%94%99%E8%AF%AF%E5%92%8C%E8%BF%9B%E5%BA%A6%E4%BF%A1%E6%81%AF-%E5%8F%AA%E6%98%BE%E7%A4%BA%E6%AD%A3%E5%B8%B8%E7%BB%93%E6%9E%9C">-s 不输出错误和进度信息, 只显示正常结果</a></li>
+<li><a href="#-o-%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%8B%E8%BD%BD%E5%88%B0%E6%9C%AC%E5%9C%B0%E7%AD%89%E4%BB%B7%E4%BA%8E-wget">-o 指定文件名下载到本地，等价于 wget</a></li>
+<li><a href="#-o-%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6%E5%88%B0%E6%9C%AC%E5%9C%B0-%E5%B9%B6%E5%B0%86url%E6%9C%80%E5%90%8E%E9%83%A8%E5%88%86%E5%BD%93%E5%81%9A%E6%96%87%E4%BB%B6%E5%90%8D">-O 下载文件到本地, 并将URL最后部分当做文件名</a></li>
+<li><a href="#--progress-%E6%98%BE%E7%A4%BA%E8%BF%9B%E5%BA%A6%E6%9D%A1">&ndash;progress 显示进度条</a></li>
+<li><a href="#-l-http%E8%AF%B7%E6%B1%82%E8%B7%9F%E9%9A%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%87%8D%E5%AE%9A%E5%90%91">-L HTTP请求跟随服务器重定向</a></li>
+<li><a href="#-i-%E6%88%96--head-%E6%98%BE%E7%A4%BAhttp%E5%93%8D%E5%BA%94%E6%8A%A5%E6%96%87-%E4%B8%8D%E6%89%93%E5%8D%B0%E5%93%8D%E5%BA%94%E5%86%85%E5%AE%B9">-I 或 -head 显示HTTP响应报文, 不打印响应内容</a></li>
+<li><a href="#-h-%E8%AE%BE%E7%BD%AE%E8%AF%B7%E6%B1%82%E5%A4%B4">-H 设置请求头</a></li>
+<li><a href="#-x-%E6%8C%87%E6%98%8Ehttp%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95">-X 指明HTTP请求方法</a></li>
+<li><a href="#-d-%E8%A6%81%E5%8F%91%E9%80%81%E7%9A%84%E5%AE%9E%E4%BD%93%E5%86%85%E5%AE%B9">-d 要发送的实体内容</a></li>
+<li><a href="#--cookie-http%E8%AF%B7%E6%B1%82%E6%97%B6%E6%90%BA%E5%B8%A6%E7%9A%84cookie%E4%BF%A1%E6%81%AF">&ndash;cookie HTTP请求时携带的cookie信息</a></li>
+<li><a href="#-v-%E6%89%93%E5%8D%B0%E6%95%B4%E4%B8%AA%E4%BC%A0%E8%BE%93%E8%BF%87%E7%A8%8B">-v 打印整个传输过程</a></li>
+<li><a href="#-f-%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E9%BB%98%E8%AE%A4%E4%BB%A5post%E6%96%B9%E6%B3%95%E8%AF%B7%E6%B1%82">-F 上传文件，默认以POST方法请求</a></li>
+<li><a href="#-u-%E8%AF%B7%E6%B1%82%E6%8E%88%E6%9D%83">-u 请求授权</a></li>
+</ul>
+</li>
 <li><a href="#scp">scp</a></li>
-<li><a href="#rsync">rsync</a></li>
+<li><a href="#rsync">rsync</a>
+<ul>
+<li><a href="#%E6%9C%AC%E5%9C%B0%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6">本地同步文件</a></li>
+<li><a href="#%E8%BF%9C%E7%A8%8B%E5%90%8C%E6%AD%A5%E6%96%87%E4%BB%B6">远程同步文件</a></li>
+<li><a href="#%E5%A2%9E%E9%87%8F%E5%A4%87%E4%BB%BD">增量备份</a></li>
+<li><a href="#%E5%85%B6%E4%BB%96%E7%94%A8%E6%B3%95">其他用法</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#%E7%A3%81%E7%9B%98">磁盘</a>
 <ul>
-<li><a href="#df">df</a></li>
+<li><a href="#df">df</a>
+<ul>
+<li><a href="#%E6%8F%8F%E8%BF%B0">描述</a></li>
+</ul>
+</li>
 <li><a href="#du">du</a></li>
 </ul>
 </li>
@@ -290,7 +347,12 @@ if (!doNotTrack) {
 <li><a href="#%E5%85%B6%E4%BB%96">其他</a>
 <ul>
 <li><a href="#%E7%9B%AE%E5%BD%95%E5%90%8D%E7%A7%B0%E5%90%AB%E4%B9%89">目录名称含义</a></li>
-<li><a href="#%E9%87%8D%E5%AE%9A%E5%90%91%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA">重定向输入和输出</a></li>
+<li><a href="#%E9%87%8D%E5%AE%9A%E5%90%91%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA">重定向输入和输出</a>
+<ul>
+<li><a href="#%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91">输出重定向</a></li>
+<li><a href="#%E8%BE%93%E5%85%A5%E9%87%8D%E5%AE%9A%E5%90%91">输入重定向</a></li>
+</ul>
+</li>
 <li><a href="#%E7%AE%A1%E9%81%93">管道</a></li>
 <li><a href="#echo">echo</a></li>
 <li><a href="#date">date</a></li>
@@ -308,6 +370,7 @@ if (!doNotTrack) {
 <li><a href="#read">read</a></li>
 <li><a href="#tee">tee</a></li>
 <li><a href="#clear">clear</a></li>
+<li><a href="#%E8%87%B4%E8%B0%A2">致谢</a></li>
 </ul>
 </li>
 </ul>

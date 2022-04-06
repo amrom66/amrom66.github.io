@@ -386,7 +386,7 @@ format, it skips the entry (but it does record an event informing you it skipped
   <span style="color:#66d9ef">my-nginx-confg.conf</span>: <span style="color:#e6db74">|
 </span><span style="color:#e6db74">   </span><span style="color:#e6db74"> </span><span style="color:#e6db74">server {</span>
       listen <span style="color:#ae81ff">80</span>;
-      server_name localhost;	
+      server_name localhost; 
       location / {
         proxy_pass  http://<span style="color:#ae81ff">172.16</span><span style="color:#ae81ff">.1</span><span style="color:#ae81ff">.223</span>:<span style="color:#ae81ff">8981</span>/;
         proxy_set_header   X-Forwarded-Proto $scheme;
@@ -395,7 +395,7 @@ format, it skips the entry (but it does record an event informing you it skipped
         proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_http_version <span style="color:#ae81ff">1.1</span>;
         proxy_set_header   Connection <span style="color:#e6db74">&#34;&#34;</span>;
-      }		
+      }  
     }
 ---
 <span style="color:#66d9ef">apiVersion</span>: apps/v1

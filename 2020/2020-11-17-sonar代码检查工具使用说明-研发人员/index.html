@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "sonar代码检查工具使用说明-研发人员",
     "headline" : "sonar代码检查工具使用说明-研发人员",
-    "description" : "**！ 注意此文档为测试文档，让大家提前使用并熟悉下代码检查的工作原理，后续会集成到jenkins中 **\n1. 背景说明 代码检查是项目开发过程中的重要组成，及时的代码检查可以帮助规避掉多数的简单漏洞和潜在bug。本文旨在讲解如何使用sonar的代码检查工具进行代码检查。支持语言：html js java 等\n2. maven操作演示 2.1 在maven的settings.xml中做如下配置， pluginGroups在settings标签下：\n\x26lt;pluginGroups\x26gt; \x26lt;pluginGroup\x26gt;org.sonarsource.scanner.maven\x26lt;\/pluginGroup\x26gt; \x26lt;\/pluginGroups\x26gt; 2.2 profile中加入sonar的环境配置：\n\x26lt;profile\x26gt; \x26lt;id\x26gt;sonar\x26lt;\/id\x26gt; \x26lt;activation\x26gt; \x26lt;activeByDefault\x26gt;true\x26lt;\/activeByDefault\x26gt; \x26lt;\/activation\x26gt; \x26lt;properties\x26gt; \x26lt;sonar.",
+    "description" : "注意此文档为测试文档，让大家提前使用并熟悉下代码检查的工作原理，后续会集成到jenkins中\n1. 背景说明 代码检查是项目开发过程中的重要组成，及时的代码检查可以帮助规避掉多数的简单漏洞和潜在bug。本文旨在讲解如何使用sonar的代码检查工具进行代码检查。支持语言：html js java 等\n2. maven操作演示 2.1 在maven的settings.xml中做如下配置， pluginGroups在settings标签下：\n\x26lt;pluginGroups\x26gt; \x26lt;pluginGroup\x26gt;org.sonarsource.scanner.maven\x26lt;\/pluginGroup\x26gt; \x26lt;\/pluginGroups\x26gt; 2.2 profile中加入sonar的环境配置：\n\x26lt;profile\x26gt; \x26lt;id\x26gt;sonar\x26lt;\/id\x26gt; \x26lt;activation\x26gt; \x26lt;activeByDefault\x26gt;true\x26lt;\/activeByDefault\x26gt; \x26lt;\/activation\x26gt; \x26lt;properties\x26gt; \x26lt;sonar.",
     "inLanguage" : "en-us",
     "author" : "linjinbao66",
     "creator" : "linjinbao66",
@@ -57,7 +57,7 @@
     "datePublished": "2020-11-17 00:00:00 \x2b0000 UTC",
     "dateModified" : "2020-11-17 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/amrom66.github.io\/2020\/2020-11-17-sonar%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E-%E7%A0%94%E5%8F%91%E4%BA%BA%E5%91%98\/",
-    "wordCount" : "114",
+    "wordCount" : "112",
     "keywords" : [  "打工笔记"]
 }
 </script>
@@ -159,7 +159,7 @@ if (!doNotTrack) {
           
           
 
-          <p>**！ 注意此文档为测试文档，让大家提前使用并熟悉下代码检查的工作原理，后续会集成到jenkins中 **</p>
+          <p>注意此文档为测试文档，让大家提前使用并熟悉下代码检查的工作原理，后续会集成到jenkins中</p>
 <h2 id="1-背景说明">1. 背景说明</h2>
 <p>代码检查是项目开发过程中的重要组成，及时的代码检查可以帮助规避掉多数的简单漏洞和潜在bug。本文旨在讲解如何使用sonar的代码检查工具进行代码检查。支持语言：html  js java 等</p>
 <h2 id="2-maven操作演示">2. maven操作演示</h2>
@@ -175,7 +175,7 @@ if (!doNotTrack) {
     <span style="color:#f92672">&lt;/activation&gt;</span>
     <span style="color:#f92672">&lt;properties</span><span style="color:#f92672">&gt;</span>
         <span style="color:#f92672">&lt;sonar.host.url</span><span style="color:#f92672">&gt;</span>
-			<span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> sonar服务地址 </span><span style="color:#75715e">--&gt;</span>
+   <span style="color:#75715e">&lt;!--</span><span style="color:#75715e"> sonar服务地址 </span><span style="color:#75715e">--&gt;</span>
             http://10.20.250.23:31821
         <span style="color:#f92672">&lt;/sonar.host.url&gt;</span>
         <span style="color:#f92672">&lt;sonar.login</span><span style="color:#f92672">&gt;</span>admin<span style="color:#f92672">&lt;/sonar.login&gt;</span>
@@ -193,7 +193,7 @@ if (!doNotTrack) {
 <p><img src="C:%5CUsers%5CUser%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20201117141756400.png" alt="image-20201117141756400"></p>
 <h2 id="3-前端扫描操作演示">3. 前端扫描操作演示</h2>
 <p>前端需要下载扫描器使用，参见链接下载：</p>
-<p>http://10.20.250.23:31821/documentation/analysis/scan/sonarscanner/</p>
+<p><a href="http://10.20.250.23:31821/documentation/analysis/scan/sonarscanner/">http://10.20.250.23:31821/documentation/analysis/scan/sonarscanner/</a></p>
 <p>windows版本：</p>
 <p>第一步： 下载windows scanner客户端，见附件：sonar-scanner-cli-4.5.0.2216-windows.zip</p>
 <p>第二步： 解压并配置环境变量</p>
@@ -210,11 +210,11 @@ if (!doNotTrack) {
 <p>第四步： 配置服务端地址</p>
 <p>${sonar-scanner_home}/conf/sonar-scanner.properties</p>
 <pre><code class="language-code" data-lang="code">sonar.host.url=http://10.20.250.23:31821  ##服务器地址
-sonar.projectKey=app-manage-pages 			#子系统名称
+sonar.projectKey=app-manage-pages    #子系统名称
 sonar.login=e59068d2502a086bccb6615a726c69494f512db4 ##密钥，各子系统使用各自独立的key，见密钥列表
 sonar.sourceEncoding=UTF-8
-sonar.sources=src							##检测目录
-sonar.language=js							##检测预言
+sonar.sources=src       ##检测目录
+sonar.language=js       ##检测预言
 </code></pre><p>第5步： 执行检查命令</p>
 <pre><code class="language-code" data-lang="code">cd ${project_home}
 sonar-scanner

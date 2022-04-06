@@ -209,81 +209,81 @@ Your Cobra applicaton is ready at
 <span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;cobra-practice/cmd&#34;</span>
 
 <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
-	<span style="color:#a6e22e">cmd</span>.<span style="color:#a6e22e">Execute</span>()
+ <span style="color:#a6e22e">cmd</span>.<span style="color:#a6e22e">Execute</span>()
 }
 </code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">//cmd/root.go
 </span><span style="color:#75715e"></span><span style="color:#f92672">package</span> <span style="color:#a6e22e">cmd</span>
 
 <span style="color:#f92672">import</span> (
-	<span style="color:#e6db74">&#34;fmt&#34;</span>
-	<span style="color:#e6db74">&#34;os&#34;</span>
+ <span style="color:#e6db74">&#34;fmt&#34;</span>
+ <span style="color:#e6db74">&#34;os&#34;</span>
 
-	<span style="color:#e6db74">&#34;github.com/spf13/cobra&#34;</span>
+ <span style="color:#e6db74">&#34;github.com/spf13/cobra&#34;</span>
 
-	<span style="color:#a6e22e">homedir</span> <span style="color:#e6db74">&#34;github.com/mitchellh/go-homedir&#34;</span>
-	<span style="color:#e6db74">&#34;github.com/spf13/viper&#34;</span>
+ <span style="color:#a6e22e">homedir</span> <span style="color:#e6db74">&#34;github.com/mitchellh/go-homedir&#34;</span>
+ <span style="color:#e6db74">&#34;github.com/spf13/viper&#34;</span>
 )
 
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">cfgFile</span> <span style="color:#66d9ef">string</span>
 
 <span style="color:#75715e">// rootCmd represents the base command when called without any subcommands
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">rootCmd</span> = <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">cobra</span>.<span style="color:#a6e22e">Command</span>{
-	<span style="color:#a6e22e">Use</span>:   <span style="color:#e6db74">&#34;cobra-practice&#34;</span>,
-	<span style="color:#a6e22e">Short</span>: <span style="color:#e6db74">&#34;A brief description of your application&#34;</span>,
-	<span style="color:#a6e22e">Long</span>: <span style="color:#e6db74">`</span><span style="color:#e6db74">A longer description that spans multiple lines and likely contains
+ <span style="color:#a6e22e">Use</span>:   <span style="color:#e6db74">&#34;cobra-practice&#34;</span>,
+ <span style="color:#a6e22e">Short</span>: <span style="color:#e6db74">&#34;A brief description of your application&#34;</span>,
+ <span style="color:#a6e22e">Long</span>: <span style="color:#e6db74">`</span><span style="color:#e6db74">A longer description that spans multiple lines and likely contains
 </span><span style="color:#e6db74">examples and usage of using your application. For example:
 </span><span style="color:#e6db74">
 </span><span style="color:#e6db74">Cobra is a CLI library for Go that empowers applications.
 </span><span style="color:#e6db74">This application is a tool to generate the needed files
 </span><span style="color:#e6db74">to quickly create a Cobra application.</span><span style="color:#e6db74">`</span>,
-	<span style="color:#75715e">// Uncomment the following line if your bare application
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// has an action associated with it:
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Run</span>: <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">cmd</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">cobra</span>.<span style="color:#a6e22e">Command</span>, <span style="color:#a6e22e">args</span> []<span style="color:#66d9ef">string</span>) {
-		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Hello Cobra CLI&#34;</span>)
-	},
+ <span style="color:#75715e">// Uncomment the following line if your bare application
+</span><span style="color:#75715e"></span> <span style="color:#75715e">// has an action associated with it:
+</span><span style="color:#75715e"></span> <span style="color:#a6e22e">Run</span>: <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">cmd</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">cobra</span>.<span style="color:#a6e22e">Command</span>, <span style="color:#a6e22e">args</span> []<span style="color:#66d9ef">string</span>) {
+  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Hello Cobra CLI&#34;</span>)
+ },
 }
 
 <span style="color:#75715e">// Execute adds all child commands to the root command and sets flags appropriately.
 </span><span style="color:#75715e"></span><span style="color:#75715e">// This is called by main.main(). It only needs to happen once to the rootCmd.
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Execute</span>() {
-	<span style="color:#a6e22e">cobra</span>.<span style="color:#a6e22e">CheckErr</span>(<span style="color:#a6e22e">rootCmd</span>.<span style="color:#a6e22e">Execute</span>())
+ <span style="color:#a6e22e">cobra</span>.<span style="color:#a6e22e">CheckErr</span>(<span style="color:#a6e22e">rootCmd</span>.<span style="color:#a6e22e">Execute</span>())
 }
 
 <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">init</span>() {
-	<span style="color:#a6e22e">cobra</span>.<span style="color:#a6e22e">OnInitialize</span>(<span style="color:#a6e22e">initConfig</span>)
+ <span style="color:#a6e22e">cobra</span>.<span style="color:#a6e22e">OnInitialize</span>(<span style="color:#a6e22e">initConfig</span>)
 
-	<span style="color:#75715e">// Here you will define your flags and configuration settings.
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// Cobra supports persistent flags, which, if defined here,
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// will be global for your application.
+ <span style="color:#75715e">// Here you will define your flags and configuration settings.
+</span><span style="color:#75715e"></span> <span style="color:#75715e">// Cobra supports persistent flags, which, if defined here,
+</span><span style="color:#75715e"></span> <span style="color:#75715e">// will be global for your application.
 </span><span style="color:#75715e"></span>
-	<span style="color:#a6e22e">rootCmd</span>.<span style="color:#a6e22e">PersistentFlags</span>().<span style="color:#a6e22e">StringVar</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">cfgFile</span>, <span style="color:#e6db74">&#34;config&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;config file (default is $HOME/.cobra-practice.yaml)&#34;</span>)
+ <span style="color:#a6e22e">rootCmd</span>.<span style="color:#a6e22e">PersistentFlags</span>().<span style="color:#a6e22e">StringVar</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">cfgFile</span>, <span style="color:#e6db74">&#34;config&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;config file (default is $HOME/.cobra-practice.yaml)&#34;</span>)
 
-	<span style="color:#75715e">// Cobra also supports local flags, which will only run
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// when this action is called directly.
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">rootCmd</span>.<span style="color:#a6e22e">Flags</span>().<span style="color:#a6e22e">BoolP</span>(<span style="color:#e6db74">&#34;toggle&#34;</span>, <span style="color:#e6db74">&#34;t&#34;</span>, <span style="color:#66d9ef">false</span>, <span style="color:#e6db74">&#34;Help message for toggle&#34;</span>)
+ <span style="color:#75715e">// Cobra also supports local flags, which will only run
+</span><span style="color:#75715e"></span> <span style="color:#75715e">// when this action is called directly.
+</span><span style="color:#75715e"></span> <span style="color:#a6e22e">rootCmd</span>.<span style="color:#a6e22e">Flags</span>().<span style="color:#a6e22e">BoolP</span>(<span style="color:#e6db74">&#34;toggle&#34;</span>, <span style="color:#e6db74">&#34;t&#34;</span>, <span style="color:#66d9ef">false</span>, <span style="color:#e6db74">&#34;Help message for toggle&#34;</span>)
 }
 
 <span style="color:#75715e">// initConfig reads in config file and ENV variables if set.
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">initConfig</span>() {
-	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">cfgFile</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;&#34;</span> {
-		<span style="color:#75715e">// Use config file from the flag.
-</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">viper</span>.<span style="color:#a6e22e">SetConfigFile</span>(<span style="color:#a6e22e">cfgFile</span>)
-	} <span style="color:#66d9ef">else</span> {
-		<span style="color:#75715e">// Find home directory.
-</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">home</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">homedir</span>.<span style="color:#a6e22e">Dir</span>()
-		<span style="color:#a6e22e">cobra</span>.<span style="color:#a6e22e">CheckErr</span>(<span style="color:#a6e22e">err</span>)
+ <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">cfgFile</span> <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#34;&#34;</span> {
+  <span style="color:#75715e">// Use config file from the flag.
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">viper</span>.<span style="color:#a6e22e">SetConfigFile</span>(<span style="color:#a6e22e">cfgFile</span>)
+ } <span style="color:#66d9ef">else</span> {
+  <span style="color:#75715e">// Find home directory.
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">home</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">homedir</span>.<span style="color:#a6e22e">Dir</span>()
+  <span style="color:#a6e22e">cobra</span>.<span style="color:#a6e22e">CheckErr</span>(<span style="color:#a6e22e">err</span>)
 
-		<span style="color:#75715e">// Search config in home directory with name &#34;.cobra-practice&#34; (without extension).
-</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">viper</span>.<span style="color:#a6e22e">AddConfigPath</span>(<span style="color:#a6e22e">home</span>)
-		<span style="color:#a6e22e">viper</span>.<span style="color:#a6e22e">SetConfigName</span>(<span style="color:#e6db74">&#34;.cobra-practice&#34;</span>)
-	}
+  <span style="color:#75715e">// Search config in home directory with name &#34;.cobra-practice&#34; (without extension).
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">viper</span>.<span style="color:#a6e22e">AddConfigPath</span>(<span style="color:#a6e22e">home</span>)
+  <span style="color:#a6e22e">viper</span>.<span style="color:#a6e22e">SetConfigName</span>(<span style="color:#e6db74">&#34;.cobra-practice&#34;</span>)
+ }
 
-	<span style="color:#a6e22e">viper</span>.<span style="color:#a6e22e">AutomaticEnv</span>() <span style="color:#75715e">// read in environment variables that match
+ <span style="color:#a6e22e">viper</span>.<span style="color:#a6e22e">AutomaticEnv</span>() <span style="color:#75715e">// read in environment variables that match
 </span><span style="color:#75715e"></span>
-	<span style="color:#75715e">// If a config file is found, read it in.
-</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">viper</span>.<span style="color:#a6e22e">ReadInConfig</span>(); <span style="color:#a6e22e">err</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
-		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fprintln</span>(<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Stderr</span>, <span style="color:#e6db74">&#34;Using config file:&#34;</span>, <span style="color:#a6e22e">viper</span>.<span style="color:#a6e22e">ConfigFileUsed</span>())
-	}
+ <span style="color:#75715e">// If a config file is found, read it in.
+</span><span style="color:#75715e"></span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">viper</span>.<span style="color:#a6e22e">ReadInConfig</span>(); <span style="color:#a6e22e">err</span> <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> {
+  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fprintln</span>(<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Stderr</span>, <span style="color:#e6db74">&#34;Using config file:&#34;</span>, <span style="color:#a6e22e">viper</span>.<span style="color:#a6e22e">ConfigFileUsed</span>())
+ }
 }
 </code></pre></div><p>使用<code>go build编译</code>，运行cobra-practice可执行文件即执行了命令</p>
 <h2 id="增加命令">增加命令</h2>
@@ -295,41 +295,41 @@ add created at /Users/apple/zl/code/cobra-practice
 </span><span style="color:#75715e"></span><span style="color:#f92672">package</span> <span style="color:#a6e22e">cmd</span>
 
 <span style="color:#f92672">import</span> (
-	<span style="color:#e6db74">&#34;fmt&#34;</span>
+ <span style="color:#e6db74">&#34;fmt&#34;</span>
 
-	<span style="color:#e6db74">&#34;github.com/spf13/cobra&#34;</span>
+ <span style="color:#e6db74">&#34;github.com/spf13/cobra&#34;</span>
 )
 
 <span style="color:#75715e">// addCmd represents the add command
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">addCmd</span> = <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">cobra</span>.<span style="color:#a6e22e">Command</span>{
-	<span style="color:#a6e22e">Use</span>:   <span style="color:#e6db74">&#34;add&#34;</span>,
-	<span style="color:#a6e22e">Short</span>: <span style="color:#e6db74">&#34;A brief description of your command&#34;</span>,
-	<span style="color:#a6e22e">Long</span>: <span style="color:#e6db74">`</span><span style="color:#e6db74">A longer description that spans multiple lines and likely contains examples
+ <span style="color:#a6e22e">Use</span>:   <span style="color:#e6db74">&#34;add&#34;</span>,
+ <span style="color:#a6e22e">Short</span>: <span style="color:#e6db74">&#34;A brief description of your command&#34;</span>,
+ <span style="color:#a6e22e">Long</span>: <span style="color:#e6db74">`</span><span style="color:#e6db74">A longer description that spans multiple lines and likely contains examples
 </span><span style="color:#e6db74">and usage of using your command. For example:
 </span><span style="color:#e6db74">
 </span><span style="color:#e6db74">Cobra is a CLI library for Go that empowers applications.
 </span><span style="color:#e6db74">This application is a tool to generate the needed files
 </span><span style="color:#e6db74">to quickly create a Cobra application.</span><span style="color:#e6db74">`</span>,
-	<span style="color:#a6e22e">Run</span>: <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">cmd</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">cobra</span>.<span style="color:#a6e22e">Command</span>, <span style="color:#a6e22e">args</span> []<span style="color:#66d9ef">string</span>) {
-		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;add called&#34;</span>)
-	},
+ <span style="color:#a6e22e">Run</span>: <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">cmd</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">cobra</span>.<span style="color:#a6e22e">Command</span>, <span style="color:#a6e22e">args</span> []<span style="color:#66d9ef">string</span>) {
+  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;add called&#34;</span>)
+ },
 }
 
 <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">init</span>() {
-	<span style="color:#a6e22e">rootCmd</span>.<span style="color:#a6e22e">AddCommand</span>(<span style="color:#a6e22e">addCmd</span>)
+ <span style="color:#a6e22e">rootCmd</span>.<span style="color:#a6e22e">AddCommand</span>(<span style="color:#a6e22e">addCmd</span>)
 
-	<span style="color:#75715e">// Here you will define your flags and configuration settings.
+ <span style="color:#75715e">// Here you will define your flags and configuration settings.
 </span><span style="color:#75715e"></span>
-	<span style="color:#75715e">// Cobra supports Persistent Flags which will work for this command
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// and all subcommands, e.g.:
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// addCmd.PersistentFlags().String(&#34;foo&#34;, &#34;&#34;, &#34;A help for foo&#34;)
+ <span style="color:#75715e">// Cobra supports Persistent Flags which will work for this command
+</span><span style="color:#75715e"></span> <span style="color:#75715e">// and all subcommands, e.g.:
+</span><span style="color:#75715e"></span> <span style="color:#75715e">// addCmd.PersistentFlags().String(&#34;foo&#34;, &#34;&#34;, &#34;A help for foo&#34;)
 </span><span style="color:#75715e"></span>
-	<span style="color:#75715e">// Cobra supports local flags which will only run when this command
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// is called directly, e.g.:
-</span><span style="color:#75715e"></span>	<span style="color:#75715e">// addCmd.Flags().BoolP(&#34;toggle&#34;, &#34;t&#34;, false, &#34;Help message for toggle&#34;)
+ <span style="color:#75715e">// Cobra supports local flags which will only run when this command
+</span><span style="color:#75715e"></span> <span style="color:#75715e">// is called directly, e.g.:
+</span><span style="color:#75715e"></span> <span style="color:#75715e">// addCmd.Flags().BoolP(&#34;toggle&#34;, &#34;t&#34;, false, &#34;Help message for toggle&#34;)
 </span><span style="color:#75715e"></span>}
 </code></pre></div><p>重新编译，<code>go build</code>，执行<code>cobra-practice add</code>即执行该命令</p>
-<p>源码：https://github.com/linjinbao666/cobra-practice.git</p>
+<p>源码：<a href="https://github.com/linjinbao666/cobra-practice.git">https://github.com/linjinbao666/cobra-practice.git</a></p>
 
     </div>
 
