@@ -12,6 +12,17 @@
     
     
     <item>
+      <title>java的深拷贝</title>
+      <link>https://amrom66.github.io/2022/2022-04-08-java%E7%9A%84%E6%B7%B1%E6%8B%B7%E8%B4%9D/</link>
+      <pubDate>Fri, 08 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/2022/2022-04-08-java%E7%9A%84%E6%B7%B1%E6%8B%B7%E8%B4%9D/</guid>
+      <description>概念 浅拷贝：只复制对象的引用，两个引用仍然指向同一个对象，在内存中占用同一块内存； 被复制对象的所有变量都含有与原来的对象相同的值，而所有的对其他对象的引用仍然指向原来的对象； 换言之，浅复制仅仅复制所考虑的对象，而不复制它所引用的对象。 深拷贝：被复制对象的所有变量都含有与原来的对象相同的值，除去那些引用其他对象的变量； 那些引用其他对象的变量将指向被复制过的新对象，而不再是原有的那些被引用的对象； 换言之，深复制把要复制的对象所引用的对象都复制了一遍。
+使用场景 java map的复制
+Map&amp;lt;Character, Integer&amp;gt; map = new HashMap&amp;lt;&amp;gt;(); char[] array1 = s1.toCharArray(); for(char c : array1){ map.</description>
+    </item>
+    
+    <item>
       <title>没有重复自负的最长字串</title>
       <link>https://amrom66.github.io/2022/2022-04-08-%E6%B2%A1%E6%9C%89%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%97%E4%B8%B2/</link>
       <pubDate>Fri, 08 Apr 2022 00:00:00 +0000</pubDate>
