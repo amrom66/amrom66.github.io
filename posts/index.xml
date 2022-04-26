@@ -6,10 +6,22 @@
     <description>Recent content in Posts on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 22 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 26 Apr 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://amrom66.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>linux network namespace 详解</title>
+      <link>https://amrom66.github.io/2022/2022-04-26-linux-namespace-%E8%AF%A6%E8%A7%A3/</link>
+      <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/2022/2022-04-26-linux-namespace-%E8%AF%A6%E8%A7%A3/</guid>
+      <description>网络名称空间 linux 网络空间用于管理容器的网络，编排工具创建容器的时候往往会为容器创建一个独立的namespace，然后将容器的网络与宿主机的网络打通，即可实现容器与外部网络的通信。
+linux namespace的操作命令是ip netns
+使用实例   创建一个namespace
+[root@localhost ~]# ip netns add net1 [root@localhost ~]# ip netns ls net1 net0 [root@localhost ~]# ip netns exec net1 ip addr 1: lo: &amp;lt;LOOPBACK&amp;gt; mtu 65536 qdisc noop state DOWN group default qlen 1000 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00   不同namespace通信</description>
+    </item>
     
     <item>
       <title>k8sd多网卡方案</title>

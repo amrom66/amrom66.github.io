@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工笔记">
+  <meta name="keywords" content="博客 个人 笔记">
+  
+  <link rel="prev" href="https://amrom66.github.io/2022/2022-04-22-multus-cni/" />
+  
+  <link rel="canonical" href="https://amrom66.github.io/2022/2022-04-26-linux-namespace-%E8%AF%A6%E8%A7%A3/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           linux network namespace 详解 | 打工笔记
+       
+  </title>
+  <meta name="title" content="linux network namespace 详解 | 打工笔记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/amrom66.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "linux network namespace 详解",
+    "headline" : "linux network namespace 详解",
+    "description" : "网络名称空间 linux 网络空间用于管理容器的网络，编排工具创建容器的时候往往会为容器创建一个独立的namespace，然后将容器的网络与宿主机的网络打通，即可实现容器与外部网络的通信。\nlinux namespace的操作命令是ip netns\n使用实例   创建一个namespace\n[root@localhost ~]# ip netns add net1 [root@localhost ~]# ip netns ls net1 net0 [root@localhost ~]# ip netns exec net1 ip addr 1: lo: \x26lt;LOOPBACK\x26gt; mtu 65536 qdisc noop state DOWN group default qlen 1000 link\/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00   不同namespace通信",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2022",
+    "datePublished": "2022-04-26 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2022-04-26 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/amrom66.github.io\/2022\/2022-04-26-linux-namespace-%E8%AF%A6%E8%A7%A3\/",
+    "wordCount" : "831",
+    "keywords" : [  "打工笔记"]
+}
+</script>
+
+</head>
+
+  
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-160203449-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://amrom66.github.io">打工笔记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;
+                <a href="https://amrom66.github.io">打工笔记</a>
+            </div>
+            <div class="menu-toggle">
+                <svg t="1618556759902" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1299" width="16" height="16"><path d="M896 1024h-213.333333a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m768-170.666667h-213.333333a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128zM128 85.333333a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z" p-id="1300"></path></svg>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">linux network namespace 详解</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://amrom66.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=26049-04-26 itemprop="datePublished">April 26, 2022</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="网络名称空间">网络名称空间</h1>
+<p>linux 网络空间用于管理容器的网络，编排工具创建容器的时候往往会为容器创建一个独立的namespace，然后将容器的网络与宿主机的网络打通，即可实现容器与外部网络的通信。</p>
+<p>linux namespace的操作命令是<code>ip netns</code></p>
+<h2 id="使用实例">使用实例</h2>
+<ol>
+<li>
+<p>创建一个namespace</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>root@localhost ~<span style="color:#f92672">]</span><span style="color:#75715e"># ip netns add net1</span> 
+<span style="color:#f92672">[</span>root@localhost ~<span style="color:#f92672">]</span><span style="color:#75715e"># ip netns ls</span> 
+net1
+net0
+<span style="color:#f92672">[</span>root@localhost ~<span style="color:#f92672">]</span><span style="color:#75715e"># ip netns exec net1 ip addr</span> 
+1: lo: &lt;LOOPBACK&gt; mtu <span style="color:#ae81ff">65536</span> qdisc noop state DOWN group default qlen <span style="color:#ae81ff">1000</span>
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+</code></pre></div></li>
+<li>
+<p>不同namespace通信</p>
+<p>不同的namespace通信有2种方案，一种是使用<code>veth pari</code>通信，另一种是使用<code>bridge</code>网桥通信。</p>
+<p>方案一：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>root@localhost ~<span style="color:#f92672">]</span><span style="color:#75715e"># ip link add type veth</span> 
+<span style="color:#f92672">[</span>root@localhost ~<span style="color:#f92672">]</span><span style="color:#75715e"># ip link</span> 
+<span style="color:#75715e">## 省略</span>
+36: veth0@veth1: &lt;BROADCAST,MULTICAST,M-DOWN&gt; mtu <span style="color:#ae81ff">1500</span> qdisc noop state DOWN mode DEFAULT group default qlen <span style="color:#ae81ff">1000</span>
+    link/ether 9a:9b:f7:b2:ca:62 brd ff:ff:ff:ff:ff:ff
+37: veth1@veth0: &lt;BROADCAST,MULTICAST,M-DOWN&gt; mtu <span style="color:#ae81ff">1500</span> qdisc noop state DOWN mode DEFAULT group default qlen <span style="color:#ae81ff">1000</span>
+    link/ether 9e:8c:83:42:72:a7 brd ff:ff:ff:ff:ff:ff
+<span style="color:#75715e">## veth0添加到net0名称空间, veth1添加到net1名称空间</span>
+<span style="color:#f92672">[</span>root@localhost ~<span style="color:#f92672">]</span><span style="color:#75715e"># ip link set veth0 netns net0</span>
+<span style="color:#f92672">[</span>root@localhost ~<span style="color:#f92672">]</span><span style="color:#75715e"># ip link set veth1 netns net1</span>
+<span style="color:#75715e">## 检查各名称空间信息，此时默认的名称空间veth0和veth1都消失</span>
+<span style="color:#f92672">[</span>root@localhost ~<span style="color:#f92672">]</span><span style="color:#75715e"># ip netns exec net0 ip a</span>
+1: lo: &lt;LOOPBACK&gt; mtu <span style="color:#ae81ff">65536</span> qdisc noop state DOWN group default qlen <span style="color:#ae81ff">1000</span>
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+36: veth0@if37: &lt;BROADCAST,MULTICAST&gt; mtu <span style="color:#ae81ff">1500</span> qdisc noop state DOWN group default qlen <span style="color:#ae81ff">1000</span>
+    link/ether 9a:9b:f7:b2:ca:62 brd ff:ff:ff:ff:ff:ff link-netnsid <span style="color:#ae81ff">1</span>
+<span style="color:#f92672">[</span>root@localhost ~<span style="color:#f92672">]</span><span style="color:#75715e"># ip netns exec net1 ip a</span> 
+1: lo: &lt;LOOPBACK&gt; mtu <span style="color:#ae81ff">65536</span> qdisc noop state DOWN group default qlen <span style="color:#ae81ff">1000</span>
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+37: veth1@if36: &lt;BROADCAST,MULTICAST&gt; mtu <span style="color:#ae81ff">1500</span> qdisc noop state DOWN group default qlen <span style="color:#ae81ff">1000</span>
+    link/ether 9e:8c:83:42:72:a7 brd ff:ff:ff:ff:ff:ff link-netnsid <span style="color:#ae81ff">0</span>
+<span style="color:#75715e">## 启动net0中的veth0设备</span>
+<span style="color:#f92672">[</span>root@localhost ~<span style="color:#f92672">]</span><span style="color:#75715e"># ip netns exec net0 ip link set veth0 up</span> 
+<span style="color:#f92672">[</span>root@localhost ~<span style="color:#f92672">]</span><span style="color:#75715e"># ip netns exec net0 ip a</span> 
+1: lo: &lt;LOOPBACK&gt; mtu <span style="color:#ae81ff">65536</span> qdisc noop state DOWN group default qlen <span style="color:#ae81ff">1000</span>
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+36: veth0@if37: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu <span style="color:#ae81ff">1500</span> qdisc noqueue state LOWERLAYERDOWN group default qlen <span style="color:#ae81ff">1000</span>
+    link/ether 9a:9b:f7:b2:ca:62 brd ff:ff:ff:ff:ff:ff link-netnsid <span style="color:#ae81ff">1</span>
+<span style="color:#75715e">## 添加ip</span>
+<span style="color:#f92672">[</span>root@localhost ~<span style="color:#f92672">]</span><span style="color:#75715e"># ip netns exec net0 ip addr add 10.1.1.1/24 dev veth0</span> 
+<span style="color:#f92672">[</span>root@localhost ~<span style="color:#f92672">]</span><span style="color:#75715e"># ip netns exec net0 ip a</span> 
+1: lo: &lt;LOOPBACK&gt; mtu <span style="color:#ae81ff">65536</span> qdisc noop state DOWN group default qlen <span style="color:#ae81ff">1000</span>
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+36: veth0@if37: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu <span style="color:#ae81ff">1500</span> qdisc noqueue state LOWERLAYERDOWN group default qlen <span style="color:#ae81ff">1000</span>
+    link/ether 9a:9b:f7:b2:ca:62 brd ff:ff:ff:ff:ff:ff link-netnsid <span style="color:#ae81ff">1</span>
+    inet 10.1.1.1/24 scope global veth0
+       valid_lft forever preferred_lft forever
+<span style="color:#f92672">[</span>root@localhost ~<span style="color:#f92672">]</span><span style="color:#75715e"># ip netns exec net0 ip route</span> 
+10.1.1.0/24 dev veth0 proto kernel scope link src 10.1.1.1 
+<span style="color:#f92672">[</span>root@localhost ~<span style="color:#f92672">]</span><span style="color:#75715e"># ip netns exec net1 ip link set veth1 up</span> 
+<span style="color:#f92672">[</span>root@localhost ~<span style="color:#f92672">]</span><span style="color:#75715e"># ip netns exec net1 ip a</span> 
+1: lo: &lt;LOOPBACK&gt; mtu <span style="color:#ae81ff">65536</span> qdisc noop state DOWN group default qlen <span style="color:#ae81ff">1000</span>
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+37: veth1@if36: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span style="color:#ae81ff">1500</span> qdisc noqueue state UP group default qlen <span style="color:#ae81ff">1000</span>
+    link/ether 9e:8c:83:42:72:a7 brd ff:ff:ff:ff:ff:ff link-netnsid <span style="color:#ae81ff">0</span>
+    inet6 fe80::9c8c:83ff:fe42:72a7/64 scope link 
+       valid_lft forever preferred_lft forever
+<span style="color:#f92672">[</span>root@localhost ~<span style="color:#f92672">]</span><span style="color:#75715e"># ip netns exec net1 ip addr add 10.1.1.2/24 dev veth1</span> 
+<span style="color:#f92672">[</span>root@localhost ~<span style="color:#f92672">]</span><span style="color:#75715e"># ip netns exec net1 ip a</span> 
+1: lo: &lt;LOOPBACK&gt; mtu <span style="color:#ae81ff">65536</span> qdisc noop state DOWN group default qlen <span style="color:#ae81ff">1000</span>
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+37: veth1@if36: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span style="color:#ae81ff">1500</span> qdisc noqueue state UP group default qlen <span style="color:#ae81ff">1000</span>
+    link/ether 9e:8c:83:42:72:a7 brd ff:ff:ff:ff:ff:ff link-netnsid <span style="color:#ae81ff">0</span>
+    inet 10.1.1.2/24 scope global veth1
+       valid_lft forever preferred_lft forever
+    inet6 fe80::9c8c:83ff:fe42:72a7/64 scope link 
+       valid_lft forever preferred_lft forever
+<span style="color:#f92672">[</span>root@localhost ~<span style="color:#f92672">]</span><span style="color:#75715e"># ip netns exec net1 ip route</span> 
+10.1.1.0/24 dev veth1 proto kernel scope link src 10.1.1.2
+<span style="color:#75715e">## 测试连通性</span>
+<span style="color:#f92672">[</span>root@localhost ~<span style="color:#f92672">]</span><span style="color:#75715e"># ip netns exec net0 ping 10.1.1.2</span>
+PING 10.1.1.2 <span style="color:#f92672">(</span>10.1.1.2<span style="color:#f92672">)</span> 56<span style="color:#f92672">(</span>84<span style="color:#f92672">)</span> bytes of data.
+<span style="color:#ae81ff">64</span> bytes from 10.1.1.2: icmp_seq<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> ttl<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> time<span style="color:#f92672">=</span>0.049 ms
+<span style="color:#ae81ff">64</span> bytes from 10.1.1.2: icmp_seq<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> ttl<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> time<span style="color:#f92672">=</span>0.039 ms
+<span style="color:#ae81ff">64</span> bytes from 10.1.1.2: icmp_seq<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span> ttl<span style="color:#f92672">=</span><span style="color:#ae81ff">64</span> time<span style="color:#f92672">=</span>0.056 ms
+^C
+--- 10.1.1.2 ping statistics ---
+<span style="color:#ae81ff">3</span> packets transmitted, <span style="color:#ae81ff">3</span> received, 0% packet loss, time 1999ms
+rtt min/avg/max/mdev <span style="color:#f92672">=</span> 0.039/0.048/0.056/0.007 ms
+</code></pre></div><p>方案二：</p>
+<p>创建bridge网桥</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>root@localhost ~<span style="color:#f92672">]</span><span style="color:#75715e"># ip link add br0 type bridge</span> 
+<span style="color:#f92672">[</span>root@localhost ~<span style="color:#f92672">]</span><span style="color:#75715e"># ip link</span> 
+<span style="color:#75715e">## 省略</span>
+26: veth99caeb5a@if3: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span style="color:#ae81ff">1450</span> qdisc noqueue master cni0 state UP mode DEFAULT group default 
+    link/ether 7e:cb:e2:57:bf:83 brd ff:ff:ff:ff:ff:ff link-netnsid <span style="color:#ae81ff">5</span>
+38: br0: &lt;BROADCAST,MULTICAST&gt; mtu <span style="color:#ae81ff">1500</span> qdisc noop state DOWN mode DEFAULT group default qlen <span style="color:#ae81ff">1000</span>
+    link/ether 3a:80:ef:e3:44:95 brd ff:ff:ff:ff:ff:ff
+</code></pre></div><p>创建3对<code>veth pari</code></p>
+<pre><code class="language-code" data-lang="code">38: br0: &lt;BROADCAST,MULTICAST&gt; mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/ether 3a:80:ef:e3:44:95 brd ff:ff:ff:ff:ff:ff
+39: veth0@veth1: &lt;BROADCAST,MULTICAST,M-DOWN&gt; mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/ether a6:3f:78:43:bd:2c brd ff:ff:ff:ff:ff:ff
+40: veth1@veth0: &lt;BROADCAST,MULTICAST,M-DOWN&gt; mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/ether 46:2f:22:c8:b8:4d brd ff:ff:ff:ff:ff:ff
+41: veth2@veth3: &lt;BROADCAST,MULTICAST,M-DOWN&gt; mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/ether be:5b:27:50:27:b4 brd ff:ff:ff:ff:ff:ff
+42: veth3@veth2: &lt;BROADCAST,MULTICAST,M-DOWN&gt; mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/ether 1e:2c:68:2f:fa:e9 brd ff:ff:ff:ff:ff:ff
+43: veth4@veth5: &lt;BROADCAST,MULTICAST,M-DOWN&gt; mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/ether 9a:b2:c6:b9:e7:1c brd ff:ff:ff:ff:ff:ff
+44: veth5@veth4: &lt;BROADCAST,MULTICAST,M-DOWN&gt; mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/ether 96:10:ed:89:f1:92 brd ff:ff:ff:ff:ff:ff
+</code></pre><p>将 <code>veth pair</code> 的一头挂到<code>namespace</code>中，一头挂到<code>bridge</code>上，并设 IP 地址。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ip link set dev veth0 netns net0 <span style="color:#75715e">##veth0移到net0名称空间</span>
+ip netns exec net0 ip link set dev veth0 
+ip netns exec net0 ip addr add 10.0.1.1/24 dev veth0 <span style="color:#75715e">##添加网卡</span>
+ip netns exec net0 ip link set dev veth0 up 
+ip link set dev veth1 master br0 <span style="color:#75715e">##veth1挂载到br0</span>
+ip link set dev veth1 master br0
+</code></pre></div><p>其他<code>veth pari</code>类似配置，一个放到<code>namespace</code>，一个挂到br0网桥上。</p>
+<p>完成之后还需要做以下操作（二选一）：</p>
+<ol>
+<li>关闭系统bridge的iptables功能，这样数据包转发就不受iptables影响了：<code>echo 0 &gt; /proc/sys/net/bridge/bridge-nf-call-iptables</code></li>
+<li>为br0添加一条iptables规则，让经过br0的包能被forward：<code>iptables -A FORWARD -i br0 -j ACCEPT</code></li>
+</ol>
+<p>操作后，即可实现多namespace的网卡通信了。</p>
+</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>作者:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+    </div>
+
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://amrom66.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://amrom66.github.io/2022/2022-04-22-multus-cni/" class="prev" rel="prev" title="k8sd多网卡方案"><i class="iconfont icon-left"></i>&nbsp;k8sd多网卡方案</a>
+         
+        
+    </div>
+
+    <div class="post-comment">
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'amrom66/amrom66.github.io'
+        issue-term= 'title'
+        label= 'utterance'
+        theme= 'github-dark-orange'
+        crossorigin="anonymous"
+        async>
+    </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2022</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://amrom66.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
