@@ -6,10 +6,20 @@
     <description>Recent content in Posts on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 12 May 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 May 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://amrom66.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>cetos升级内核</title>
+      <link>https://amrom66.github.io/2022/2022-05-19-upgrade-kernel/</link>
+      <pubDate>Thu, 19 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/2022/2022-05-19-upgrade-kernel/</guid>
+      <description>背景 发现了一个netns的问题，在v站提问了https://v2ex.com/t/853722#reply2，最后决定升级内核.
+upgrade-kernel.sh # 载入公钥 rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org # 安装ELRepo rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm # 载入elrepo-kernel元数据 yum --disablerepo=\* --enablerepo=elrepo-kernel repolist # 查看可用的rpm包 yum --disablerepo=\* --enablerepo=elrepo-kernel list kernel* # 安装长期支持版本的kernel yum --disablerepo=\* --enablerepo=elrepo-kernel install -y kernel-lt.</description>
+    </item>
     
     <item>
       <title>使用deploymane来模拟daemonset</title>

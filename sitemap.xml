@@ -2,9 +2,9 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
-      <loc>https://amrom66.github.io/posts/</loc>
+      <loc>https://amrom66.github.io/2022/2022-05-19-upgrade-kernel/</loc>
       
-      <lastmod>2022-05-12T00:00:00+00:00</lastmod>
+      <lastmod>2022-05-19T00:00:00+00:00</lastmod>
       
       
       
@@ -12,9 +12,9 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/2022/2022-05-12-use-deployment-simuator-daemonset/</loc>
+      <loc>https://amrom66.github.io/posts/</loc>
       
-      <lastmod>2022-05-12T00:00:00+00:00</lastmod>
+      <lastmod>2022-05-19T00:00:00+00:00</lastmod>
       
       
       
@@ -23,6 +23,16 @@
   
     <url>
       <loc>https://amrom66.github.io/</loc>
+      
+      <lastmod>2022-05-19T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://amrom66.github.io/2022/2022-05-12-use-deployment-simuator-daemonset/</loc>
       
       <lastmod>2022-05-12T00:00:00+00:00</lastmod>
       
@@ -2902,7 +2912,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/tags/%E7%AC%94%E8%AE%B0/</loc>
+      <loc>https://amrom66.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
       
       <lastmod>2019-10-14T00:00:00+00:00</lastmod>
       
@@ -2912,7 +2922,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
+      <loc>https://amrom66.github.io/tags/%E7%AC%94%E8%AE%B0/</loc>
       
       <lastmod>2019-10-14T00:00:00+00:00</lastmod>
       
@@ -3372,7 +3382,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/categories/%E5%B0%8F%E5%B7%A5%E5%85%B7/</loc>
+      <loc>https://amrom66.github.io/tags/%E5%B0%8F%E5%B7%A5%E5%85%B7/</loc>
       
       <lastmod>2019-09-23T00:00:00+00:00</lastmod>
       
@@ -3382,7 +3392,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/tags/%E5%B0%8F%E5%B7%A5%E5%85%B7/</loc>
+      <loc>https://amrom66.github.io/categories/%E5%B0%8F%E5%B7%A5%E5%85%B7/</loc>
       
       <lastmod>2019-09-23T00:00:00+00:00</lastmod>
       
@@ -3692,7 +3702,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
+      <loc>https://amrom66.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
       
       <lastmod>2019-06-24T00:00:00+00:00</lastmod>
       
@@ -3702,7 +3712,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
+      <loc>https://amrom66.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
       
       <lastmod>2019-06-24T00:00:00+00:00</lastmod>
       

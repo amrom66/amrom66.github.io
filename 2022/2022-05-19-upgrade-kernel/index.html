@@ -9,9 +9,9 @@
   <meta name="description" content="打工笔记">
   <meta name="keywords" content="博客 个人 笔记">
   
-  <link rel="prev" href="https://amrom66.github.io/2022/2022-04-26-linux-namespace-%E8%AF%A6%E8%A7%A3/" />
-  <link rel="next" href="https://amrom66.github.io/2022/2022-05-19-upgrade-kernel/" />
-  <link rel="canonical" href="https://amrom66.github.io/2022/2022-05-12-use-deployment-simuator-daemonset/" />
+  <link rel="prev" href="https://amrom66.github.io/2022/2022-05-12-use-deployment-simuator-daemonset/" />
+  
+  <link rel="canonical" href="https://amrom66.github.io/2022/2022-05-19-upgrade-kernel/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           使用deploymane来模拟daemonset | 打工笔记
+           cetos升级内核 | 打工笔记
        
   </title>
-  <meta name="title" content="使用deploymane来模拟daemonset | 打工笔记">
+  <meta name="title" content="cetos升级内核 | 打工笔记">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/amrom66.github.io"
     },
     "articleSection" : "posts",
-    "name" : "使用deploymane来模拟daemonset",
-    "headline" : "使用deploymane来模拟daemonset",
-    "description" : "一个yaml文件\napiVersion: apps\/v1 kind: Deployment metadata: creationTimestamp: null labels: id: very-important name: deploy-important namespace: project-tiger spec: replicas: 3 selector: matchLabels: id: very-important strategy: {} template: metadata: creationTimestamp: null labels: id: very-important spec: affinity: podAntiAffinity: requiredDuringSchedulingIgnoredDuringExecution: - topologyKey: kubernetes.",
+    "name" : "cetos升级内核",
+    "headline" : "cetos升级内核",
+    "description" : "背景 发现了一个netns的问题，在v站提问了https:\/\/v2ex.com\/t\/853722#reply2，最后决定升级内核.\nupgrade-kernel.sh # 载入公钥 rpm --import https:\/\/www.elrepo.org\/RPM-GPG-KEY-elrepo.org # 安装ELRepo rpm -Uvh http:\/\/www.elrepo.org\/elrepo-release-7.0-3.el7.elrepo.noarch.rpm # 载入elrepo-kernel元数据 yum --disablerepo=\\* --enablerepo=elrepo-kernel repolist # 查看可用的rpm包 yum --disablerepo=\\* --enablerepo=elrepo-kernel list kernel* # 安装长期支持版本的kernel yum --disablerepo=\\* --enablerepo=elrepo-kernel install -y kernel-lt.",
     "inLanguage" : "en-us",
     "author" : "linjinbao66",
     "creator" : "linjinbao66",
@@ -54,10 +54,10 @@
     "accountablePerson" : "linjinbao66",
     "copyrightHolder" : "linjinbao66",
     "copyrightYear" : "2022",
-    "datePublished": "2022-05-12 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2022-05-12 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/amrom66.github.io\/2022\/2022-05-12-use-deployment-simuator-daemonset\/",
-    "wordCount" : "65",
+    "datePublished": "2022-05-19 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2022-05-19 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/amrom66.github.io\/2022\/2022-05-19-upgrade-kernel\/",
+    "wordCount" : "60",
     "keywords" : [  "打工笔记"]
 }
 </script>
@@ -131,11 +131,11 @@ if (!doNotTrack) {
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">使用deploymane来模拟daemonset</h1>
+        <h1 class="post-title" itemprop="name headline">cetos升级内核</h1>
         <div class="post-meta">
                 作者： <a itemprop="name" href="https://amrom66.github.io" rel="author">linjinbao66</a> 时间： 
                 <span class="post-time">
-                 <time datetime=12059-05-12 itemprop="datePublished">May 12, 2022</time>
+                 <time datetime=19059-05-19 itemprop="datePublished">May 19, 2022</time>
                 </span>
                 分类： 
                 
@@ -157,46 +157,29 @@ if (!doNotTrack) {
           
           
 
-          <p>一个yaml文件</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: apps/v1
-<span style="color:#66d9ef">kind</span>: Deployment
-<span style="color:#66d9ef">metadata</span>:
-  <span style="color:#66d9ef">creationTimestamp</span>: <span style="color:#66d9ef">null</span>
-  <span style="color:#66d9ef">labels</span>:
-    <span style="color:#66d9ef">id</span>: very-important
-  <span style="color:#66d9ef">name</span>: deploy-important
-  <span style="color:#66d9ef">namespace</span>: project-tiger
-<span style="color:#66d9ef">spec</span>:
-  <span style="color:#66d9ef">replicas</span>: <span style="color:#ae81ff">3</span>
-  <span style="color:#66d9ef">selector</span>:
-    <span style="color:#66d9ef">matchLabels</span>:
-      <span style="color:#66d9ef">id</span>: very-important
-  <span style="color:#66d9ef">strategy</span>: {}
-  <span style="color:#66d9ef">template</span>:
-    <span style="color:#66d9ef">metadata</span>:
-      <span style="color:#66d9ef">creationTimestamp</span>: <span style="color:#66d9ef">null</span>
-      <span style="color:#66d9ef">labels</span>:
-        <span style="color:#66d9ef">id</span>: very-important
-    <span style="color:#66d9ef">spec</span>:
-      <span style="color:#66d9ef">affinity</span>:
-        <span style="color:#66d9ef">podAntiAffinity</span>:
-          <span style="color:#66d9ef">requiredDuringSchedulingIgnoredDuringExecution</span>:
-          - <span style="color:#66d9ef">topologyKey</span>: kubernetes.io/hostname
-            <span style="color:#66d9ef">labelSelector</span>:
-              <span style="color:#66d9ef">matchExpressions</span>:
-              - <span style="color:#66d9ef">key</span>: id
-                <span style="color:#66d9ef">operator</span>: In
-                <span style="color:#66d9ef">values</span>:
-                - very-important 
-      <span style="color:#66d9ef">containers</span>:
-      - <span style="color:#66d9ef">image</span>: nginx:<span style="color:#ae81ff">1.17</span><span style="color:#ae81ff">.6</span>
-        <span style="color:#66d9ef">name</span>: container1
-        <span style="color:#66d9ef">resources</span>: {}
-      - <span style="color:#66d9ef">name</span>: container2
-        <span style="color:#66d9ef">image</span>: kubernetes/pause
-<span style="color:#66d9ef">status</span>: {}
-</code></pre></div><p>podAntiAffinity 告诉调度器避免多个带有id标签的pod在同一个节点上运行，这样就可以保证同一个节点上只有一个带有id标签的pod。</p>
+          <h2 id="背景">背景</h2>
+<p>发现了一个netns的问题，在v站提问了<a href="https://v2ex.com/t/853722#reply2">https://v2ex.com/t/853722#reply2</a>，最后决定升级内核.</p>
+<h2 id="upgrade-kernelsh">upgrade-kernel.sh</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 载入公钥</span>
+rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+<span style="color:#75715e"># 安装ELRepo</span>
+rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm
+<span style="color:#75715e"># 载入elrepo-kernel元数据</span>
+yum --disablerepo<span style="color:#f92672">=</span><span style="color:#ae81ff">\*</span> --enablerepo<span style="color:#f92672">=</span>elrepo-kernel repolist
+<span style="color:#75715e"># 查看可用的rpm包</span>
+yum --disablerepo<span style="color:#f92672">=</span><span style="color:#ae81ff">\*</span> --enablerepo<span style="color:#f92672">=</span>elrepo-kernel list kernel*
+<span style="color:#75715e"># 安装长期支持版本的kernel</span>
+yum --disablerepo<span style="color:#f92672">=</span><span style="color:#ae81ff">\*</span> --enablerepo<span style="color:#f92672">=</span>elrepo-kernel install -y kernel-lt.x86_64
+<span style="color:#75715e"># 删除旧版本工具包</span>
+yum remove kernel-tools-libs.x86_64 kernel-tools.x86_64 -y
+<span style="color:#75715e"># 安装新版本工具包</span>
+yum --disablerepo<span style="color:#f92672">=</span><span style="color:#ae81ff">\*</span> --enablerepo<span style="color:#f92672">=</span>elrepo-kernel install -y kernel-lt-tools.x86_64
 
+<span style="color:#75715e">#查看默认启动顺序</span>
+awk -F<span style="color:#ae81ff">\&#39;</span> <span style="color:#e6db74">&#39;$1==&#34;menuentry &#34; {print $2}&#39;</span> /etc/grub2.cfg 
+<span style="color:#75715e">#默认启动的顺序是从0开始，新内核是从头插入（目前位置在0，而4.4.4的是在1），所以需要选择0。</span>
+grub2-set-default <span style="color:#ae81ff">0</span>  
+</code></pre></div>
     </div>
 
     <div class="post-copyright">
@@ -218,10 +201,8 @@ if (!doNotTrack) {
 
     <div class="post-nav">
         
-        <a href="https://amrom66.github.io/2022/2022-04-26-linux-namespace-%E8%AF%A6%E8%A7%A3/" class="prev" rel="prev" title="linux network namespace 详解"><i class="iconfont icon-left"></i>&nbsp;linux network namespace 详解</a>
+        <a href="https://amrom66.github.io/2022/2022-05-12-use-deployment-simuator-daemonset/" class="prev" rel="prev" title="使用deploymane来模拟daemonset"><i class="iconfont icon-left"></i>&nbsp;使用deploymane来模拟daemonset</a>
          
-        
-        <a href="https://amrom66.github.io/2022/2022-05-19-upgrade-kernel/" class="next" rel="next" title="cetos升级内核">cetos升级内核&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
