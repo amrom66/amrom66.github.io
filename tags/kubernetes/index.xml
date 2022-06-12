@@ -6,10 +6,22 @@
     <description>Recent content in kubernetes on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 07 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 11 Jun 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://amrom66.github.io/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>multiple-container-in-one-pod</title>
+      <link>https://amrom66.github.io/2022/2022-06-11-multiple-container-in-one-pod/</link>
+      <pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/2022/2022-06-11-multiple-container-in-one-pod/</guid>
+      <description>在kubernetes中，默认场景下，initContainers中的容器是按照顺序启动的，且存在先后依赖关系，即前一个启动完了，才会启动后一个，containers中则是按照顺序启动，但是不存在依赖关系，这就给一些使用场景带来了麻烦。例如，在使用pod作为流水线的时候，containers中的容器顺序需要存在先后依赖关系。以下记录一些实践方案：
+方案一 利用原生的postStart机制，该机制保证了后一个容器在前一个容器发出该信号前不会创建。
+实例：
+apiVersion: v1 kind: Pod metadata: creationTimestamp: null labels: run: my-pipline name: my-pipline spec: volumes: - name: data emptyDir: {} initContainers: - image: &amp;#34;alpine/git&amp;#34; name: prepare env: - name: repo value: &amp;#34;https://github.</description>
+    </item>
     
     <item>
       <title>kubernetes二进制部署升级</title>
