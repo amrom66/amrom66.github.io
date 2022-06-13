@@ -57,7 +57,7 @@
     "datePublished": "2022-06-11 00:00:00 \x2b0000 UTC",
     "dateModified" : "2022-06-11 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/amrom66.github.io\/2022\/2022-06-11-multiple-container-in-one-pod\/",
-    "wordCount" : "126",
+    "wordCount" : "259",
     "keywords" : [ "kubernetes", "打工笔记"]
 }
 </script>
@@ -225,6 +225,65 @@ if (!doNotTrack) {
 <li>该方案需要前容器会保持Running状态，由于sidecar程序监听，所以整个Pod不会出现Completed状态，如果后一容器会执行完则退出，则会出现NotReady状态。</li>
 <li>该方案在前一容器sidecar程序执行前的日志无法实时获取，如果该阶段比较耗时，例如是mvn build命令，则不利于日志的实时推出</li>
 </ul>
+<h2 id="方案二">方案二</h2>
+<p>该方案利用多容器间共享存储卷实现</p>
+<p>实例：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">kind</span>: Pod
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">creationTimestamp</span>: <span style="color:#66d9ef">null</span>
+  <span style="color:#66d9ef">labels</span>:
+    <span style="color:#66d9ef">run</span>: my-pipline
+  <span style="color:#66d9ef">name</span>: my-pipline
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">volumes</span>:
+  - <span style="color:#66d9ef">name</span>: data
+    <span style="color:#66d9ef">emptyDir</span>: {}
+  <span style="color:#66d9ef">initContainers</span>:
+  - <span style="color:#66d9ef">image</span>: <span style="color:#e6db74">&#34;alpine/git&#34;</span>
+    <span style="color:#66d9ef">name</span>: prepare
+    <span style="color:#66d9ef">env</span>:
+    - <span style="color:#66d9ef">name</span>: repo
+      <span style="color:#66d9ef">value</span>: <span style="color:#e6db74">&#34;https://github.com/linjinbao666/vrmanager.git&#34;</span>
+    <span style="color:#66d9ef">args</span>:
+    - clone
+    - --single-branch
+    - --branch=main
+    - -<span style="color:#e6db74">-
+</span><span style="color:#e6db74">   </span><span style="color:#e6db74"> </span><span style="color:#e6db74">- &#34;https://github.com/linjinbao666/vrmanager.git&#34;</span>
+    - <span style="color:#e6db74">&#34;/opt/workspace&#34;</span>
+    <span style="color:#66d9ef">volumeMounts</span>:
+    - <span style="color:#66d9ef">name</span>: data
+      <span style="color:#66d9ef">mountPath</span>: <span style="color:#e6db74">&#34;/opt/workspace&#34;</span> 
+  <span style="color:#66d9ef">containers</span>:
+  - <span style="color:#66d9ef">image</span>: <span style="color:#e6db74">&#34;docker.io/linjinbao66/dt-maven:0.0.3&#34;</span>
+    <span style="color:#66d9ef">name</span>: my-pipline
+    <span style="color:#66d9ef">workingDir</span>: <span style="color:#e6db74">&#34;/opt/workspace&#34;</span>
+    <span style="color:#66d9ef">env</span>:
+    - <span style="color:#66d9ef">name</span>: repo
+      <span style="color:#66d9ef">value</span>: <span style="color:#e6db74">&#34;https://github.com/linjinbao666/vrmanager.git&#34;</span>
+    <span style="color:#66d9ef">command</span>:
+    - <span style="color:#e6db74">&#34;/bin/sh&#34;</span>
+    - <span style="color:#e6db74">&#34;-c&#34;</span>
+    <span style="color:#66d9ef">args</span>: 
+    - <span style="color:#e6db74">&#34;mvn clean  package &amp;&amp; echo &#39;build finished&#39; &gt; /opt/workspace/mvn.log&#34;</span>
+    <span style="color:#66d9ef">volumeMounts</span>:
+    - <span style="color:#66d9ef">name</span>: data
+      <span style="color:#66d9ef">mountPath</span>: <span style="color:#e6db74">&#34;/opt/workspace&#34;</span>
+  - <span style="color:#66d9ef">image</span>: <span style="color:#e6db74">&#34;busybox:latest&#34;</span>
+    <span style="color:#66d9ef">name</span>: busybox
+    <span style="color:#66d9ef">command</span>:
+    - <span style="color:#e6db74">&#34;/bin/sh&#34;</span>
+    - <span style="color:#e6db74">&#34;-c&#34;</span> 
+    <span style="color:#66d9ef">args</span>: [<span style="color:#e6db74">&#34;while true; do sleep 10 &amp;&amp; [ -f &#39;/opt/workspace/mvn.log&#39; ] &amp;&amp; exit 0|| echo &#39;file not exists&#39; ;  done&#34;</span>]
+    <span style="color:#66d9ef">volumeMounts</span>:
+    - <span style="color:#66d9ef">name</span>: data
+      <span style="color:#66d9ef">mountPath</span>: <span style="color:#e6db74">&#34;/opt/workspace&#34;</span>
+  <span style="color:#66d9ef">dnsPolicy</span>: ClusterFirst
+  <span style="color:#66d9ef">restartPolicy</span>: Never
+<span style="color:#66d9ef">status</span>: {}
+</code></pre></div><p>容器my-pipline将执行完的结果写入共享文件<code>/opt/workspace/mvn.log</code>，容器busybox检测共享文件是否存在，存在则执行自身命令，执行完退出。</p>
+<p>该方案可以同时查看2个容器的日志。</p>
 <p>参考链接：</p>
 <ul>
 <li><a href="https://medium.com/@marko.luksa/delaying-application-start-until-sidecar-is-ready-2ec2d21a7b74">https://medium.com/@marko.luksa/delaying-application-start-until-sidecar-is-ready-2ec2d21a7b74</a></li>
