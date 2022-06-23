@@ -6,21 +6,10 @@
     <description>Recent content in mybatis on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jul 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://amrom66.github.io/tags/mybatis/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Spring Boot教程第6篇：springboot 整合mybatis</title>
-      <link>https://amrom66.github.io/2020/2020-02-27-mybatis/</link>
-      <pubDate>Thu, 27 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://amrom66.github.io/2020/2020-02-27-mybatis/</guid>
-      <description>Spring Boot教程第6篇：springboot 整合mybatis 前言：spring boot 与mybatis整合严格要求版本，即
-&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.mybatis.spring.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;mybatis-spring-boot-starter&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.1.1&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; mybatis的坐标依赖的spring版本需要在maven仓库查看，如当前版本需要使用springboot 2.1.9.RELEASE版本
- pom.xml  &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;project xmlns=&amp;quot;http://maven.</description>
-    </item>
     
     <item>
       <title>ssm整合</title>

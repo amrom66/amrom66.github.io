@@ -13,10 +13,10 @@
     
     <item>
       <title>esxi-cloud-init使用</title>
-      <link>https://amrom66.github.io/2022/2022-03-03-esxi-cloud-init%E4%BD%BF%E7%94%A8/</link>
+      <link>https://amrom66.github.io/2022/2022-03-03-esxi-cloud-init/</link>
       <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2022/2022-03-03-esxi-cloud-init%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://amrom66.github.io/2022/2022-03-03-esxi-cloud-init/</guid>
       <description>esxi是虚拟化的常见方案，其直接部署到物理机上，在之上可以虚拟化出来不同的系统。部署一个虚拟机，我们常见的操作方式是登录esxi的控制台或者vcenter的控制台操作，步骤比较繁琐。
 cloud-init是云厂商常用的方案，用于工作在虚拟机初始化的时候。例如，原生部署虚拟机的时候，需要在网页上设置磁盘，用户，网络等等，在cloud-init中，这些不必操作；原生部署虚拟机的时候，无法添加自定义源，cloud-init可以实现。
 使用到的工具  govc  govc 是vmware出的cli工具，用于操作vcenter

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工笔记">
+  <meta name="keywords" content="博客 个人 笔记">
+  
+  <link rel="prev" href="https://amrom66.github.io/2021/2021-07-15-one-complex-sql/" />
+  <link rel="next" href="https://amrom66.github.io/2021/2021-08-06-hcloud-sdk-trip/" />
+  <link rel="canonical" href="https://amrom66.github.io/2021/2021-08-05-bubble-ports/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           冒号端口 | 打工笔记
+       
+  </title>
+  <meta name="title" content="冒号端口 | 打工笔记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/amrom66.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "冒号端口",
+    "headline" : "冒号端口",
+    "description" : "Linux程序监听网卡端口的时候会有各种缩写，其中有一种叫做冒号端口的写法。\n现象 首先，我们看一段netstat的输出：\nroot@VM-0-4-debian:~# netstat -tunlp Active Internet connections (only servers) Proto Recv-Q Send-Q Local Address Foreign Address State PID\/Program name tcp 0 0 0.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-08-05 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-08-05 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/amrom66.github.io\/2021\/2021-08-05-bubble-ports\/",
+    "wordCount" : "174",
+    "keywords" : [  "打工笔记"]
+}
+</script>
+
+</head>
+
+  
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-160203449-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://amrom66.github.io">打工笔记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;
+                <a href="https://amrom66.github.io">打工笔记</a>
+            </div>
+            <div class="menu-toggle">
+                <svg t="1618556759902" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1299" width="16" height="16"><path d="M896 1024h-213.333333a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m768-170.666667h-213.333333a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128zM128 85.333333a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z" p-id="1300"></path></svg>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">冒号端口</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://amrom66.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=5089-08-05 itemprop="datePublished">August 5, 2021</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>Linux程序监听网卡端口的时候会有各种缩写，其中有一种叫做冒号端口的写法。</p>
+<h2 id="现象">现象</h2>
+<p>首先，我们看一段netstat的输出：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">root@VM-0-4-debian:~# netstat -tunlp 
+Active Internet connections <span style="color:#f92672">(</span>only servers<span style="color:#f92672">)</span>
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> 0.0.0.0:25672           0.0.0.0:*               LISTEN      639/beam.smp        
+tcp        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> 0.0.0.0:3306            0.0.0.0:*               LISTEN      895/mysqld          
+tcp        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> 0.0.0.0:6379            0.0.0.0:*               LISTEN      16717/redis-server  
+tcp        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> 127.0.0.1:2379          0.0.0.0:*               LISTEN      581/etcd            
+tcp        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> 127.0.0.1:2380          0.0.0.0:*               LISTEN      581/etcd            
+tcp        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> 0.0.0.0:80              0.0.0.0:*               LISTEN      737/nginx: master p 
+tcp        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> 0.0.0.0:22              0.0.0.0:*               LISTEN      627/sshd            
+tcp        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> 127.0.0.1:5432          0.0.0.0:*               LISTEN      766/postgres        
+tcp        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> 127.0.0.1:8088          0.0.0.0:*               LISTEN      604/influxd         
+tcp6       <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> :::45473                :::*                    LISTEN      504/java            
+tcp6       <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> :::9090                 :::*                    LISTEN      601/prometheus      
+tcp6       <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> :::2181                 :::*                    LISTEN      504/java            
+tcp6       <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> :::5672                 :::*                    LISTEN      639/beam.smp        
+tcp6       <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> ::1:6379                :::*                    LISTEN      16717/redis-server  
+tcp6       <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> :::9100                 :::*                    LISTEN      595/prometheus-node 
+tcp6       <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> :::4369                 :::*                    LISTEN      1/init              
+tcp6       <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> :::8086                 :::*                    LISTEN      604/influxd         
+tcp6       <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> :::22                   :::*                    LISTEN      627/sshd            
+tcp6       <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> ::1:5432                :::*                    LISTEN      766/postgres        
+udp        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> 0.0.0.0:68              0.0.0.0:*                           533/dhclient        
+udp        <span style="color:#ae81ff">0</span>      <span style="color:#ae81ff">0</span> 0.0.0.0:51591           0.0.0.0:*                           639/beam.smp 
+</code></pre></div><p>这段输出中，<code>Local Address</code>一栏，出现了各种表示法，<code>0.0.0.0:25672</code>，<code>:::45473</code>，<code>::1:5432</code>，这几种写法，其中0.0.0.0这种写法很明显是监听所有网卡，后面两种则叫做冒号端口。</p>
+<h2 id="解释">解释</h2>
+<p>冒号端口是ipv6才有的表示法</p>
+<p><code>:::</code>表示ipv6的所有网卡，类比ipv4的<code>0.0.0.0</code></p>
+<p><code>::1</code>表示ipv6的本地回环网卡，类比ipv4中的<code>127.0.0.1</code></p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>作者:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+    </div>
+
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://amrom66.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://amrom66.github.io/2021/2021-07-15-one-complex-sql/" class="prev" rel="prev" title="一条复杂的sql"><i class="iconfont icon-left"></i>&nbsp;一条复杂的sql</a>
+         
+        
+        <a href="https://amrom66.github.io/2021/2021-08-06-hcloud-sdk-trip/" class="next" rel="next" title="华为云sdk踩坑">华为云sdk踩坑&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'amrom66/amrom66.github.io'
+        issue-term= 'title'
+        label= 'utterance'
+        theme= 'github-dark-orange'
+        crossorigin="anonymous"
+        async>
+    </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2022</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://amrom66.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

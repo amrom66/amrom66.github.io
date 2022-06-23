@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工笔记">
+  <meta name="keywords" content="博客 个人 笔记">
+  
+  <link rel="prev" href="https://amrom66.github.io/2021/2021-03-25-k8s-glusterfs/" />
+  <link rel="next" href="https://amrom66.github.io/2021/2021-05-10-log-metrics-in-cloud-native-environment/" />
+  <link rel="canonical" href="https://amrom66.github.io/2021/2021-05-05-what-is-devops/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+           什么是DevOps | 打工笔记
+       
+  </title>
+  <meta name="title" content="什么是DevOps | 打工笔记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/amrom66.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "什么是DevOps",
+    "headline" : "什么是DevOps",
+    "description" : "什么是DevOps：\n维基百科的解释：https:\/\/en.wikipedia.org\/wiki\/DevOps\n DevOps is a set of practices that combines software development (Dev) and IT operations (Ops). It aims to shorten the systems development life cycle and provide continuous delivery with high software quality.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-05-05 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2021-05-05 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/amrom66.github.io\/2021\/2021-05-05-what-is-devops\/",
+    "wordCount" : "58",
+    "keywords" : [  "打工笔记"]
+}
+</script>
+
+</head>
+
+  
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-160203449-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://amrom66.github.io">打工笔记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;
+                <a href="https://amrom66.github.io">打工笔记</a>
+            </div>
+            <div class="menu-toggle">
+                <svg t="1618556759902" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1299" width="16" height="16"><path d="M896 1024h-213.333333a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m768-170.666667h-213.333333a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128zM128 85.333333a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z" p-id="1300"></path></svg>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">什么是DevOps</h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://amrom66.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=5059-05-05 itemprop="datePublished">May 5, 2021</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <p>什么是DevOps：</p>
+<p>维基百科的解释：<a href="https://en.wikipedia.org/wiki/DevOps">https://en.wikipedia.org/wiki/DevOps</a></p>
+<hr>
+<p>DevOps is a set of practices that combines software development (Dev) and IT operations (Ops). It aims to shorten the systems development life cycle and provide continuous delivery with high software quality.[1][2] DevOps is complementary with Agile software development; several DevOps aspects came from the Agile methodology.</p>
+<p>DevOps是结合了软件开发（Dev）和IT运营（Ops）的一组实践。 它旨在缩短系统开发生命周期并提供具有高质量软件的连续交付。[1] [2] DevOps是对敏捷软件开发的补充； DevOps的几个方面都来自敏捷方法论。</p>
+<hr>
+<p>亚马逊的解释：<a href="https://aws.amazon.com/cn/devops/what-is-devops/">https://aws.amazon.com/cn/devops/what-is-devops/</a></p>
+<hr>
+<p>DevOps 集文化理念、实践和工具于一身，可以提高组织高速交付应用程序和服务的能力，与使用传统软件开发和基础设施管理流程相比，能够帮助组织更快地发展和改进产品。这种速度使组织能够更好地服务其客户，并在市场上更高效地参与竞争。</p>
+<hr>
+<p>总结：DevOps结合开发与运维，目标在于实现产品的持续交付。对于DevOps而言，单一程序开发完成并不意味着任务结束，后续的部署，使用前的调试也是需要关注的点。</p>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>作者:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+    </div>
+
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://amrom66.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://amrom66.github.io/2021/2021-03-25-k8s-glusterfs/" class="prev" rel="prev" title="k8s整合glusterfs做后端存储"><i class="iconfont icon-left"></i>&nbsp;k8s整合glusterfs做后端存储</a>
+         
+        
+        <a href="https://amrom66.github.io/2021/2021-05-10-log-metrics-in-cloud-native-environment/" class="next" rel="next" title="云原生时代日志采集方案浅谈">云原生时代日志采集方案浅谈&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'amrom66/amrom66.github.io'
+        issue-term= 'title'
+        label= 'utterance'
+        theme= 'github-dark-orange'
+        crossorigin="anonymous"
+        async>
+    </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2022</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://amrom66.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

@@ -13,10 +13,10 @@
     
     <item>
       <title>一个gitlab ci文件</title>
-      <link>https://amrom66.github.io/2021/2021-08-13-%E4%B8%80%E4%B8%AAgitlab-ci%E6%96%87%E4%BB%B6/</link>
+      <link>https://amrom66.github.io/2021/2021-08-13-gitlab-ci-sample/</link>
       <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2021/2021-08-13-%E4%B8%80%E4%B8%AAgitlab-ci%E6%96%87%E4%BB%B6/</guid>
+      <guid>https://amrom66.github.io/2021/2021-08-13-gitlab-ci-sample/</guid>
       <description>一个golang项目典型的gitlab ci文件
 image: golang:latest before_script: - export GOPROXY=https://goproxy.io,direct stages: - build - release - note build: stage: build script: - go build -o dt-release artifacts: paths: - .</description>
     </item>

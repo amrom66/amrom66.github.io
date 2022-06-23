@@ -13,10 +13,10 @@
     
     <item>
       <title>Linux端口扫描</title>
-      <link>https://amrom66.github.io/2019/2019-12-05-linux%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/</link>
+      <link>https://amrom66.github.io/2019/2019-12-05-port-scan/</link>
       <pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-12-05-linux%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F/</guid>
+      <guid>https://amrom66.github.io/2019/2019-12-05-port-scan/</guid>
       <description>2019-12-05-Linux端口扫描 Linux扫描网段主机是否可通  单纯扫描  ##!/bin/sh declare -i I=1 declare -i S=100 while \[ $I -le $S \] ; do IP=&amp;#34;192.</description>
     </item>
     

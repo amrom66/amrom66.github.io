@@ -6,22 +6,10 @@
     <description>Recent content in 多线程 on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 03 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 09 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://amrom66.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>java多线程处理数据表格</title>
-      <link>https://amrom66.github.io/2019/2019-12-03-java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%A4%84%E7%90%86%E8%A1%A8%E6%A0%BC/</link>
-      <pubDate>Tue, 03 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://amrom66.github.io/2019/2019-12-03-java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%A4%84%E7%90%86%E8%A1%A8%E6%A0%BC/</guid>
-      <description>java多线程处理数据表格 问题描述： 现在需要处理一个excel表格，数据量几百条，我使用多线程处理
-思路描述： 使用import java.util.concurrent.ExecutorService;和import java.util.concurrent.Executors;类实现
-核心代码：
-ExecutorService e = Executors.newFixedThreadPool(10); e.submit(new Runnable() { @Override public void run() { Long id = Thread.</description>
-    </item>
     
     <item>
       <title>java创建线程的7种方式</title>
