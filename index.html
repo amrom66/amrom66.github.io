@@ -121,13 +121,14 @@ if (!doNotTrack) {
     	 <main class="main">
           <div class="container">
       		
-  
-  	<div class="intro">
+  	
+  	<div class="post-warp">
+	<div class="intro">
     
     
     
     <div class="avatar">
-        <a href="/posts/"> <img src="/images/me/touxiang.jpeg"> </a>
+        <a href="/"> <img src="/images/me/touxiang.jpeg"> </a>
     </div>
     
     
@@ -135,82 +136,151 @@ if (!doNotTrack) {
        Across the great wall, we can reach the world
     </h2>
     
-    <div class="social-links">
-      
-<a href="https://github.com/amrom66" target="_blank" rel="me noopener"><i class="iconfont icon-github"></i></a>
-
-
-
-<a href="https://twitter.com/linjinbao66" target="_blank" rel="me noopener"><i class="iconfont icon-twitter"></i></a>
-
-
-<a href="https://www.instagram.com/null/" target="_blank" rel="me noopener"><i class="iconfont icon-instagram"></i></a> 
  
+	</div>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
-<a href="javascript:void(0);" rel="me noopener" onClick="document.getElementById('lightbox').style.display='inline';" ><i class="iconfont icon-wechat"></i></a> 
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-06-11-multiple-container-in-one-pod/">multiple-container-in-one-pod</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				在kubernetes中，默认场景下，initContainers中的容器是按照顺序启动的，且存在先后依赖关系，即前一个启动完了，才会启动后一个，containers中则是按照顺序启动，但是不存在依赖关系，这就给一些使用场景带来了麻烦。例如，在使用pod作为流水线的时候，containers中的容器顺序需要存在先后依赖关系。以下记录一些实践方案：
+方案一 利用原生的postStart机制，该机制保证了后一个容器在前一个容器发出该信号前不会创建。
+实例：
+apiVersion: v1 kind: Pod metadata: creationTimestamp: null labels: run: my-pipline name: my-pipline spec: volumes: - name: data emptyDir: {} initContainers: - image: &#34;alpine/git&#34; name: prepare env: - name: repo value: &#34;https://github.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2022-06-11 itemprop="datePublished">June 11, 2022</time>
+                </span>
+                in
+                
+        	</div>
+				
+				<div class="post-tags">
+        		
+        			<span class="tag"><a href="https://amrom66.github.io/tags/kubernetes/">
+               	 #kubernetes</a></span>
+        		
+				</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-06-07-kubernetes-%E4%BA%8C%E8%BF%9B%E5%88%B6%E9%83%A8%E7%BD%B2%E5%8D%87%E7%BA%A7/">kubernetes二进制部署升级</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				前提 k8s的部署方式基本上有2中，其一是全部利用kubeadm部署，这种方式会以static pod形式部署各个组件，升级的时候按照kubeadm的手册就行，需要先使用kubeadm upgrade plan获得提示，第二种部署方式是组件全部以二进制形式部署，这种部署的升级的时候需要手动操作，以下记录了一次升级操作的过程。
+   组件 升级前 升级后     Etcd 3.4.15 3.4.15   kube-apiserver 1.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2022-06-07 itemprop="datePublished">June 7, 2022</time>
+                </span>
+                in
+                
+        	</div>
+				
+				<div class="post-tags">
+        		
+        			<span class="tag"><a href="https://amrom66.github.io/tags/kubernetes/">
+               	 #kubernetes</a></span>
+        		
+				</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
-<a href="mailto:linjinbao66@gmail.com" rel="me noopener"><i class="iconfont icon-mail01"></i></a>
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-05-19-upgrade-kernel/">cetos升级内核</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				背景 发现了一个netns的问题，在v站提问了https://v2ex.com/t/853722#reply2，最后决定升级内核.
+upgrade-kernel.sh # 载入公钥 rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org # 安装ELRepo rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm # 载入elrepo-kernel元数据 yum --disablerepo=\* --enablerepo=elrepo-kernel repolist # 查看可用的rpm包 yum --disablerepo=\* --enablerepo=elrepo-kernel list kernel* # 安装长期支持版本的kernel yum --disablerepo=\* --enablerepo=elrepo-kernel install -y kernel-lt.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2022-05-19 itemprop="datePublished">May 19, 2022</time>
+                </span>
+                in
+                
+        	</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-05-12-use-deployment-simuator-daemonset/">使用deploymane来模拟daemonset</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				一个yaml文件
+apiVersion: apps/v1 kind: Deployment metadata: creationTimestamp: null labels: id: very-important name: deploy-important namespace: project-tiger spec: replicas: 3 selector: matchLabels: id: very-important strategy: {} template: metadata: creationTimestamp: null labels: id: very-important spec: affinity: podAntiAffinity: requiredDuringSchedulingIgnoredDuringExecution: - topologyKey: kubernetes.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2022-05-12 itemprop="datePublished">May 12, 2022</time>
+                </span>
+                in
+                
+        	</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
-<a href="https://facebook.com/https://www.facebook.com/linjinbao666" rel="me noopener"><i class="iconfont icon-facebook"></i></a>
-
-
-<a href="https://t.me/null" rel="me noopener"><i class="iconfont icon-telegram"></i></a>
-
-
-
-
-    </div>
+			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-04-26-linux-namespace-%E8%AF%A6%E8%A7%A3/">linux network namespace 详解</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				网络名称空间 linux 网络空间用于管理容器的网络，编排工具创建容器的时候往往会为容器创建一个独立的namespace，然后将容器的网络与宿主机的网络打通，即可实现容器与外部网络的通信。
+linux namespace的操作命令是ip netns
+使用实例   创建一个namespace
+[root@localhost ~]# ip netns add net1 [root@localhost ~]# ip netns ls net1 net0 [root@localhost ~]# ip netns exec net1 ip addr 1: lo: &lt;LOOPBACK&gt; mtu 65536 qdisc noop state DOWN group default qlen 1000 link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00   不同namespace通信
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2022-04-26 itemprop="datePublished">April 26, 2022</time>
+                </span>
+                in
+                
+        	</div>
+				
+			</div>
+		</article>
+	
+	<div>
+		<h1 class="post-title" itemprop="name headline"><a href="/posts/">所有文章</a></h1>
+	</div>
 </div>
-
-
- 
-
-
-<style type="text/css">
-.lightbox {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, .8);
-}
-
-.center {
-    width: 220px;
-    height: 220px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -150px 0 0 -110px;
-}
-
-.center img {
-    width: 220px;
-}
-
-.center i {
-    color: #fff;
-    font-size: 1.5em;
-    position: relative;
-    float: right;
-    top: 0px;
-    right: -20px;
-    cursor: pointer;
-}
-</style>
-
-
-<div id="lightbox" style="display: none" class="lightbox" onclick="document.getElementById('lightbox').style.display='none';">
-    <div class="center">
-        <i class="iconfont icon-close"></i>
-        <img src="/images/me/wechat.png">
-    </div>
-</div>
-
-
 
   
 

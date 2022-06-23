@@ -36,20 +36,20 @@ FROM scratch ADD busybox.tar.xz / CMD [&amp;quot;sh&amp;quot;] 将当前机器�
     
     <item>
       <title>Docker常用操作教程</title>
+      <link>https://amrom66.github.io/2019/2019-07-05-docker-common-useage/</link>
+      <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/2019/2019-07-05-docker-common-useage/</guid>
+      <description>Docker常用操作教程 Docker笔记 Docker安装 yum install docker -y systemctl start docker.service systemctl status docker.service systemctl stop docker.service systemctl start docker.service systemctl restart docker.</description>
+    </item>
+    
+    <item>
+      <title>Docker常用操作教程</title>
       <link>https://amrom66.github.io/2019/2019-07-05-docker/</link>
       <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
       
       <guid>https://amrom66.github.io/2019/2019-07-05-docker/</guid>
       <description>Docker笔记 Docker安装 yum install docker -ysystemctl start docker.servicesystemctl status docker.servicesystemctl stop docker.servicesystemctl start docker.servicesystemctl restart docker.</description>
-    </item>
-    
-    <item>
-      <title>Docker常用操作教程</title>
-      <link>https://amrom66.github.io/2019/2019-07-05-docker%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%95%99%E7%A8%8B/</link>
-      <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://amrom66.github.io/2019/2019-07-05-docker%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%95%99%E7%A8%8B/</guid>
-      <description>Docker常用操作教程 Docker笔记 Docker安装 yum install docker -y systemctl start docker.service systemctl status docker.service systemctl stop docker.service systemctl start docker.service systemctl restart docker.</description>
     </item>
     
   </channel>

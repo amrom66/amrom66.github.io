@@ -2695,10 +2695,10 @@ public class CalculatorProxy { /** * 代理 * @param calcultor * @return */ publ
     
     <item>
       <title>牛客网题目-栈的压入、弹出序列</title>
-      <link>https://amrom66.github.io/2019/2019-10-11-%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/</link>
+      <link>https://amrom66.github.io/2019/2019-10-11-stack-note/</link>
       <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-10-11-%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/</guid>
+      <guid>https://amrom66.github.io/2019/2019-10-11-stack-note/</guid>
       <description>2019-10-11-栈的压入、弹出序列 题目描述 输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否可能为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4,5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的）
 分析 1.辅助栈 2.找到弹出的位置
 代码实现 package nowcoder; import java.util.Stack; /** * 栈的压入、弹出序列 */ public class IsPopOrder { public boolean isPopOrder(int [] pushA,int [] popA) { if (pushA.</description>
@@ -2715,10 +2715,10 @@ public class CalculatorProxy { /** * 代理 * @param calcultor * @return */ publ
     
     <item>
       <title>包含min函数的栈</title>
-      <link>https://amrom66.github.io/2019/2019-10-10-%E7%89%9B%E5%AE%A2%E7%BD%91-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/</link>
+      <link>https://amrom66.github.io/2019/2019-10-10-stack-which-include-min-func/</link>
       <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-10-10-%E7%89%9B%E5%AE%A2%E7%BD%91-%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/</guid>
+      <guid>https://amrom66.github.io/2019/2019-10-10-stack-which-include-min-func/</guid>
       <description>牛客网题目-包含min函数的栈 题目描述 定义栈的数据结构，请在该类型中实现一个能够得到栈中所含最小元素的min函数（时间复杂度应为O（1））。
 解法一 双栈实现，数据栈加最小值栈 代码如下：
 import java.util.Stack; public class Solution { Stack&amp;lt;Integer&amp;gt; dataStack = new Stack(); Stack&amp;lt;Integer&amp;gt; minStack = new Stack&amp;lt;&amp;gt;(); public void push(int node) { dataStack.</description>
@@ -2726,29 +2726,29 @@ import java.util.Stack; public class Solution { Stack&amp;lt;Integer&amp;gt; dat
     
     <item>
       <title>java创建线程的7种方式</title>
-      <link>https://amrom66.github.io/2019/2019-10-09-java%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%847%E7%A7%8D%E6%96%B9%E5%BC%8F/</link>
+      <link>https://amrom66.github.io/2019/2019-10-09-seven-ways-to-create-thread-in-java/</link>
       <pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-10-09-java%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%847%E7%A7%8D%E6%96%B9%E5%BC%8F/</guid>
+      <guid>https://amrom66.github.io/2019/2019-10-09-seven-ways-to-create-thread-in-java/</guid>
       <description>java创建线程的7种方式  继承Thread类并重写run()方法  public class MyThread extends Thread { @Override public void run() { System.out.println(this.getId()+this.getName()+ &amp;#34; is running&amp;#34;); } public static void main(String[] arg){ new MyThread().</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://amrom66.github.io/2019/2019-10-03-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87/</link>
+      <link>https://amrom66.github.io/2019/2019-10-03-thread-sample-of-pi/</link>
       <pubDate>Thu, 03 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-10-03-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%A1%E7%AE%97%E5%9C%86%E5%91%A8%E7%8E%87/</guid>
+      <guid>https://amrom66.github.io/2019/2019-10-03-thread-sample-of-pi/</guid>
       <description>多线程计算圆周率 使用公式1-1/3+1/5&amp;hellip;&amp;hellip;
 代码示例 package learn; import java.math.BigDecimal; import java.util.ArrayList; import java.util.concurrent.*; /** * 多线程计算圆周率 */ public class Pie { public static double sum = 0.</description>
     </item>
     
     <item>
       <title>LeetCode周赛-第 156 场</title>
-      <link>https://amrom66.github.io/2019/2019-09-29-leetcode-156/</link>
+      <link>https://amrom66.github.io/2019/2019-09-29-lc-156/</link>
       <pubDate>Sun, 29 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-09-29-leetcode-156/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-29-lc-156/</guid>
       <description>LeetCode周赛-第 156 场  排名630 / 1432
  题目名称：
 独一无二的出现次数
@@ -2770,30 +2770,30 @@ import java.util.Stack; public class Solution { Stack&amp;lt;Integer&amp;gt; dat
     
     <item>
       <title>LeetCode算法题-合并区间</title>
-      <link>https://amrom66.github.io/2019/2019-09-27-leetcode%E7%AE%97%E6%B3%95%E9%A2%98-%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/</link>
+      <link>https://amrom66.github.io/2019/2019-09-27-merge-gap/</link>
       <pubDate>Fri, 27 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-09-27-leetcode%E7%AE%97%E6%B3%95%E9%A2%98-%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-27-merge-gap/</guid>
       <description>2019-09-27-LeetCode算法题-合并区间 LeetCode算法题-合并区间 题目描述： 给出一个区间的集合，请合并所有重叠的区间。
 示例 1: 输入: [[1,3],[2,6],[8,10],[15,18]] 输出: [[1,6],[8,10],[15,18]] 解释: 区间 [1,3] 和 [2,6] 重叠, 将它们合并为 [1,6]. 示例 2: 输入: [[1,4],[4,5]] 输出: [[1,5]] 解释: 区间 [1,4] 和 [4,5] 可被视为重叠区间。 思路分析：</description>
     </item>
     
     <item>
       <title>MYSQL操作笔记</title>
-      <link>https://amrom66.github.io/2019/2019-09-27-mysql%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/</link>
+      <link>https://amrom66.github.io/2019/2019-09-27-mysql-note/</link>
       <pubDate>Fri, 27 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-09-27-mysql%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-27-mysql-note/</guid>
       <description>MYSQL操作笔记 修改用户密码 [官方链接]（https://dev.mysql.com/doc/mysql-windows-excerpt/5.7/en/resetting-permissions-windows.html） 方法一（老版本）：使用set password命令 格式`mysql&amp;gt; set password for username@loclhost=password(&amp;lsquo;passwd&amp;rsquo;);
 mysql&amp;gt; set password = password(&amp;#39;Gepoint&amp;#39;); Query OK, 0 rows affected (0.</description>
     </item>
     
     <item>
       <title>博客加入评论功能</title>
-      <link>https://amrom66.github.io/2019/2019-09-26-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8A%A0%E5%85%A5%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</link>
+      <link>https://amrom66.github.io/2019/2019-09-26-comment-of-my-blog/</link>
       <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-09-26-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8A%A0%E5%85%A5%E8%AF%84%E8%AE%BA%E5%8A%9F%E8%83%BD/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-26-comment-of-my-blog/</guid>
       <description>2019-09-26-个人博客加入评论功能 个人博客加入评论功能 实现思路： 使用第三方存储，白嫖美滋滋
 按照姑苏流白的教程，我使用Valine的评论系统
 配置Valine  注册 登录账号 略过 建立应用 配置应用keys，配置项：AppID， AppKey  修改博客配置  修改config.toml配置  加入以下内容：
@@ -2802,10 +2802,10 @@ mysql&amp;gt; set password = password(&amp;#39;Gepoint&amp;#39;); Query OK, 0 ro
     
     <item>
       <title>牛客网-二叉树的镜像</title>
-      <link>https://amrom66.github.io/2019/2019-09-26-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%95%9C%E5%83%8F/</link>
+      <link>https://amrom66.github.io/2019/2019-09-26-mirror-of-tree/</link>
       <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-09-26-%E4%BA%8C%E5%8F%89%E6%A0%91%E9%95%9C%E5%83%8F/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-26-mirror-of-tree/</guid>
       <description>二叉树镜像 题目描述 操作给定的二叉树，将其变换为源二叉树的镜像。
 分析 想到递归，对每一个节点有4种情况：
  当前节点为空 当前节点不为空，左子树为空 当前节点不为空，右子树为空 当前节点不为空，左右子树都为空  很显然2,3两点可以重合
@@ -2827,10 +2827,10 @@ C:\Program Files\RabbitMQ Server\rabbitmq_server-3.6.9\sbin&amp;gt; rabbitmq-plu
     
     <item>
       <title>牛客网题目-树的子结构</title>
-      <link>https://amrom66.github.io/2019/2019-09-25-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/</link>
+      <link>https://amrom66.github.io/2019/2019-09-25-sub-structure-of-tree/</link>
       <pubDate>Wed, 25 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-09-25-%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-25-sub-structure-of-tree/</guid>
       <description>2019-09-25-树的子结构 题目名称：树的子结构 题目描述 输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）
 分析 第一想法是递归，只要是树，我就上递归。分析情况有以下3种：
  当前root1节点=当前root2节点 当前root1节点！=当前root2节点，但是root1.left和root2节点相等 当前root1节点！=当前root2节点，但是root1.right和root2节点相等  所以需要一个辅助函数helper
@@ -2839,10 +2839,10 @@ public static boolean hasSubtree(TreeNode root1, TreeNode root2) { if (root1==nu
     
     <item>
       <title>Mongodb安装与使用</title>
-      <link>https://amrom66.github.io/2019/2019-09-24-mongodb/</link>
+      <link>https://amrom66.github.io/2019/2019-09-24-mongodb-install/</link>
       <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-09-24-mongodb/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-24-mongodb-install/</guid>
       <description>Mongodb安装与使用 背景知识 最近在项目实施过程中遇到一个问题：由于客户提供的Linux机器没有最下滑化安装，导致使用公司的bin包方式安装Mongodb失败。本着能自己解决就自己解决的态度，我开始了Mongodb的研究。
 安装和启动   下载
 因为centos的官放的yum源中没有提供Mongodb的安装包，此时我们需要自己下载下来（也可以修改yum源，不推荐） 执行命令wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.0.tgz 下载安装包
@@ -2853,20 +2853,20 @@ public static boolean hasSubtree(TreeNode root1, TreeNode root2) { if (root1==nu
     
     <item>
       <title>MySQL一键备份脚本</title>
-      <link>https://amrom66.github.io/2019/2019-09-24-mysql%E4%B8%80%E4%BB%B6%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</link>
+      <link>https://amrom66.github.io/2019/2019-09-24-mysql-backup-script/</link>
       <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-09-24-mysql%E4%B8%80%E4%BB%B6%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-24-mysql-backup-script/</guid>
       <description>MySQL一键备份脚本 备份脚本-Windows版本 脚本下载
 @echo off pause set year=%Date:~0,4% set month=%Date:~5,2% set day=%Date:~8,2% set address=f:\ set host=localhost set user=root set password=123321 set mysqlpath=D:\epoint_mysql_5.</description>
     </item>
     
     <item>
       <title>GitHub博客教程</title>
-      <link>https://amrom66.github.io/2019/2019-09-23-%E5%8D%9A%E5%AE%A2/</link>
+      <link>https://amrom66.github.io/2019/2019-09-23-how-to-write-blog/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-09-23-%E5%8D%9A%E5%AE%A2/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-23-how-to-write-blog/</guid>
       <description>GitHub博客 作为一名程序员，每天的学习必不可少，但是，如果只是乱糟糟的学习，而不懂得如何去记笔记，那效率可想而知。一个技术博客，是大多数程序员的必须品。漂亮的博客，让工作顺心，让学习更有效率，更有动力。今天，我来教大家如何利用GitHub提供的免费服务，打造自己的专属博客，白嫖美滋滋。
 前期准备   GitHub账号
   Hugo 软件
@@ -2878,29 +2878,29 @@ public static boolean hasSubtree(TreeNode root1, TreeNode root2) { if (root1==nu
     
     <item>
       <title>windows常用批处理命令</title>
-      <link>https://amrom66.github.io/2019/2019-09-23-windows/</link>
+      <link>https://amrom66.github.io/2019/2019-09-23-windows-cmd/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-09-23-windows/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-23-windows-cmd/</guid>
       <description>Windows批处理 常用dos命令 echo 打印 dir 列文件名 cd　改变当前目录 ren 改变文件名 copy　拷贝文件 del 删除文件 md　建立子目录 rd　删除目录 deltree　删除目录树 format　格式化磁盘 edit　文本编辑 type　显示文件内容 mem 查看内存状况 ## 以下是新增加的命令 help　显示帮助提示 cls 清屏 move　移动文件，改目录名 more　分屏显示 xcopy 拷贝目录和文件 显示篇  echo @ 和 pause 在DOS命令提示符中使用 echo /?</description>
     </item>
     
     <item>
       <title>合并两个排序的链表</title>
-      <link>https://amrom66.github.io/2019/2019-09-23-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%8E%92%E5%BA%8F%E7%9A%84%E9%93%BE%E8%A1%A8/</link>
+      <link>https://amrom66.github.io/2019/2019-09-23-merge-two-listnode/</link>
       <pubDate>Mon, 23 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-09-23-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%8E%92%E5%BA%8F%E7%9A%84%E9%93%BE%E8%A1%A8/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-23-merge-two-listnode/</guid>
       <description>牛客网-合并两个排序的链表 题目描述 输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则
 解答 package nowcoder; /** * 合并两个排序的链表 */ public class Merge { public static ListNode merge(ListNode list1,ListNode list2) { ListNode head = new ListNode(-1); head.</description>
     </item>
     
     <item>
       <title>第155场周赛--LeetCode</title>
-      <link>https://amrom66.github.io/2019/2019-09-22-%E7%AC%AC155%E5%9C%BA%E5%91%A8%E8%B5%9B/</link>
+      <link>https://amrom66.github.io/2019/2019-09-22-155th-weekly-game/</link>
       <pubDate>Sun, 22 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-09-22-%E7%AC%AC155%E5%9C%BA%E5%91%A8%E8%B5%9B/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-22-155th-weekly-game/</guid>
       <description>第 155 场周赛&amp;ndash;LeetCode 第一题：最小绝对差 题目描述： 给你个整数数组 arr，其中每个元素都 不相同。 请你找到所有具有最小绝对差的元素对，并且按升序的顺序返回。 示例 1：
 输入：arr = [4,2,1,3] 输出：[[1,2],[2,3],[3,4]] 示例 2：
 输入：arr = [1,3,6,10,15] 输出：[[1,3]] 示例 3：</description>
@@ -2908,10 +2908,10 @@ public static boolean hasSubtree(TreeNode root1, TreeNode root2) { if (root1==nu
     
     <item>
       <title>netcat使用教程</title>
-      <link>https://amrom66.github.io/2019/2019-09-21-netcat%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link>
+      <link>https://amrom66.github.io/2019/2019-09-21-netcat-sample/</link>
       <pubDate>Sat, 21 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-09-21-netcat%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-21-netcat-sample/</guid>
       <description>netcat使用教程 @author linjinbao666@gmail.com fork me on github
 netcat简介 netcat 一般简称为 nc，直译为中文就是“网猫”，被誉为——【网络上的瑞士军刀】。它诞生于1995年，在网络安全社区的名气很大（就如同 AK47 在军事领域的名气）。长期在安全圈内混的人，应该都知道它。想当年，insecure.org 网站在本世纪初搞过几次“年度投票”，评选优秀的安全工具。每次投票，netcat 都能排进前几名。参考链接
 nc命令行简介 形式： nc 命令选项 主机 端口 命令选项 这部分可能包含 0~N 个选项 （注：这部分最复杂，下一个小节单独聊） 主机 这部分可能没有，可能以“点分十进制”形式表示，也可能以“域名”形式表示。 端口 这部分可能没有，可能是单个端口，可能是端口范围（以减号分隔） 举例：</description>
@@ -2919,29 +2919,29 @@ nc命令行简介 形式： nc 命令选项 主机 端口 命令选项 这部分
     
     <item>
       <title>排序算法总结</title>
-      <link>https://amrom66.github.io/2019/2019-09-14-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</link>
+      <link>https://amrom66.github.io/2019/2019-09-14-sort-summary/</link>
       <pubDate>Sat, 14 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-09-14-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-14-sort-summary/</guid>
       <description>排序总结 冒泡排序 原理：每次比较两个相邻的元素，将较大元素交换至右端 特点：每次循环结束，会出现一个排序好的元素，右侧 理解：大的数右移，重复此过程 代码：
 public static void bubbleSort(int[] nums){ for (int i=0; i&amp;lt;nums.length-1; i++){ //第i次循环找出第i小的元素0&amp;lt;=i&amp;lt;=length-1  for (int j=0; j&amp;lt;nums.</description>
     </item>
     
     <item>
       <title>Linux笔记</title>
-      <link>https://amrom66.github.io/2019/2019-09-13-linux%E7%AC%94%E8%AE%B0/</link>
+      <link>https://amrom66.github.io/2019/2019-09-13-linux-note/</link>
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-09-13-linux%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-13-linux-note/</guid>
       <description>笔记 查找软件包rsync rpm -qa | grep rsync 客户端拉取 rsync -av root@192.168.59.130::backup /home/ljbao/ 打印指定行数据 sed -n &amp;#39;10,10p&amp;#39; file.txt cat file.txt | head -n 10 | tail -n +10 awk使用 awk &amp;#39;{print $2} {print $1}&amp;#39; emp.</description>
     </item>
     
     <item>
       <title>Redis笔记</title>
-      <link>https://amrom66.github.io/2019/2019-07-29-redis%E7%AC%94%E8%AE%B0/</link>
+      <link>https://amrom66.github.io/2019/2019-07-29-redis-note/</link>
       <pubDate>Mon, 29 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-07-29-redis%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://amrom66.github.io/2019/2019-07-29-redis-note/</guid>
       <description>Redis笔记 key-value结构 Redis目前有5种数据类型，分别是：
 String（字符串） List（列表） Hash（字典） Set（集合） Sorted Set（有序集合） 不同的数据类型，有不同的命令方式
 String 操作
@@ -2950,12 +2950,21 @@ set google http://www.google append google .com get google set visitors 0 incr v
     
     <item>
       <title>MYSQL笔记</title>
-      <link>https://amrom66.github.io/2019/2019-07-28-mysql%E7%AC%94%E8%AE%B0/</link>
+      <link>https://amrom66.github.io/2019/2019-07-28-mysql-note/</link>
       <pubDate>Sun, 28 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-07-28-mysql%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://amrom66.github.io/2019/2019-07-28-mysql-note/</guid>
       <description>MYSQL笔记 UUID select uuid(); 存储过程 存储过程（Stored Procedure）是一种在数据库中存储复杂程序，以便外部程序调用的一种数据库对象。 存储过程是为了完成特定功能的SQL语句集，经编译创建并保存在数据库中，用户可通过指定存储过程的名字并给定参数(需要时)来调用执行。 创建存储过程
 DELIMITER // CREATE PROCEDURE getAllUsers() BEGIN SELECT * FROM `user`; END // DELIMITER ; CALL getAllUsers(); 调用存储过程</description>
+    </item>
+    
+    <item>
+      <title>Docker常用操作教程</title>
+      <link>https://amrom66.github.io/2019/2019-07-05-docker-common-useage/</link>
+      <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/2019/2019-07-05-docker-common-useage/</guid>
+      <description>Docker常用操作教程 Docker笔记 Docker安装 yum install docker -y systemctl start docker.service systemctl status docker.service systemctl stop docker.service systemctl start docker.service systemctl restart docker.</description>
     </item>
     
     <item>
@@ -2968,20 +2977,11 @@ DELIMITER // CREATE PROCEDURE getAllUsers() BEGIN SELECT * FROM `user`; END // D
     </item>
     
     <item>
-      <title>Docker常用操作教程</title>
-      <link>https://amrom66.github.io/2019/2019-07-05-docker%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%95%99%E7%A8%8B/</link>
-      <pubDate>Fri, 05 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://amrom66.github.io/2019/2019-07-05-docker%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E6%95%99%E7%A8%8B/</guid>
-      <description>Docker常用操作教程 Docker笔记 Docker安装 yum install docker -y systemctl start docker.service systemctl status docker.service systemctl stop docker.service systemctl start docker.service systemctl restart docker.</description>
-    </item>
-    
-    <item>
       <title>ssm整合</title>
-      <link>https://amrom66.github.io/2019/2019-07-01-ssm%E6%95%B4%E5%90%88/</link>
+      <link>https://amrom66.github.io/2019/2019-07-01-ssm-merge/</link>
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-07-01-ssm%E6%95%B4%E5%90%88/</guid>
+      <guid>https://amrom66.github.io/2019/2019-07-01-ssm-merge/</guid>
       <description>ssm整合 pom.xml &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt; &amp;lt;project xmlns=&amp;quot;http://maven.apache.org/POM/4.0.0&amp;quot; xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSchema-instance&amp;quot; xsi:schemaLocation=&amp;quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&amp;quot;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;groupId&amp;gt;tk.amrom&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;crms&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.0-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;packaging&amp;gt;war&amp;lt;/packaging&amp;gt; &amp;lt;name&amp;gt;crms Maven Webapp&amp;lt;/name&amp;gt; &amp;lt;!-- FIXME change it to the project&#39;s website --&amp;gt; &amp;lt;url&amp;gt;http://www.</description>
     </item>
     
@@ -2999,16 +2999,6 @@ DELIMITER // CREATE PROCEDURE getAllUsers() BEGIN SELECT * FROM `user`; END // D
     </item>
     
     <item>
-      <title>Zookeeper学习笔记</title>
-      <link>https://amrom66.github.io/2019/2019-06-17-zookeeper/</link>
-      <pubDate>Mon, 17 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://amrom66.github.io/2019/2019-06-17-zookeeper/</guid>
-      <description>zookeeper配置 下载地址 http://mirrors.hust.edu.cn/apache/zookeeper/
-安装：解压zoo_sample.cfg改为zoo.cfg</description>
-    </item>
-    
-    <item>
       <title>Android学习笔记</title>
       <link>https://amrom66.github.io/2019/2019-06-11-android/</link>
       <pubDate>Tue, 11 Jun 2019 00:00:00 +0000</pubDate>
@@ -3019,10 +3009,10 @@ DELIMITER // CREATE PROCEDURE getAllUsers() BEGIN SELECT * FROM `user`; END // D
     
     <item>
       <title>修复Office文件默认图标</title>
-      <link>https://amrom66.github.io/2019/2019-04-05-%E4%BF%AE%E5%A4%8Doffice%E6%96%87%E4%BB%B6%E9%BB%98%E8%AE%A4%E5%9B%BE%E6%A0%87/</link>
+      <link>https://amrom66.github.io/2019/2019-04-05-repari-office-default-icon/</link>
       <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-04-05-%E4%BF%AE%E5%A4%8Doffice%E6%96%87%E4%BB%B6%E9%BB%98%E8%AE%A4%E5%9B%BE%E6%A0%87/</guid>
+      <guid>https://amrom66.github.io/2019/2019-04-05-repari-office-default-icon/</guid>
       <description>修复office文件默认图标 rem 修复office文件默认图标.bat :: office图标文件路径，请根据自己电脑上的安装目录设置 set officepath=C:\Program Files\Microsoft Office\root\vfs\Windows\Installer\{90160000-000F-0000-1000-0000000FF1CE}\ :: 修复word图标 reg add &amp;#34;HKCR\Word.Document.8\DefaultIcon&amp;#34; /ve /t REG_SZ /d &amp;#34;%officepath%WORDICON.EXE,1&amp;#34; reg delete &amp;#34;HKCR\Word.</description>
     </item>
     

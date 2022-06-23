@@ -45,10 +45,10 @@
     
     <item>
       <title>MYSQL操作笔记</title>
-      <link>https://amrom66.github.io/2019/2019-09-27-mysql%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/</link>
+      <link>https://amrom66.github.io/2019/2019-09-27-mysql-note/</link>
       <pubDate>Fri, 27 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-09-27-mysql%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-27-mysql-note/</guid>
       <description>MYSQL操作笔记 修改用户密码 [官方链接]（https://dev.mysql.com/doc/mysql-windows-excerpt/5.7/en/resetting-permissions-windows.html） 方法一（老版本）：使用set password命令 格式`mysql&amp;gt; set password for username@loclhost=password(&amp;lsquo;passwd&amp;rsquo;);
 mysql&amp;gt; set password = password(&amp;#39;Gepoint&amp;#39;); Query OK, 0 rows affected (0.</description>
     </item>

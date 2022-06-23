@@ -139,30 +139,30 @@ ACID 一个完整的事务，必然包含了如下4个特性：原子性、一�
     
     <item>
       <title>MYSQL操作笔记</title>
-      <link>https://amrom66.github.io/2019/2019-09-27-mysql%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/</link>
+      <link>https://amrom66.github.io/2019/2019-09-27-mysql-note/</link>
       <pubDate>Fri, 27 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-09-27-mysql%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-27-mysql-note/</guid>
       <description>MYSQL操作笔记 修改用户密码 [官方链接]（https://dev.mysql.com/doc/mysql-windows-excerpt/5.7/en/resetting-permissions-windows.html） 方法一（老版本）：使用set password命令 格式`mysql&amp;gt; set password for username@loclhost=password(&amp;lsquo;passwd&amp;rsquo;);
 mysql&amp;gt; set password = password(&amp;#39;Gepoint&amp;#39;); Query OK, 0 rows affected (0.</description>
     </item>
     
     <item>
       <title>MySQL一键备份脚本</title>
-      <link>https://amrom66.github.io/2019/2019-09-24-mysql%E4%B8%80%E4%BB%B6%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</link>
+      <link>https://amrom66.github.io/2019/2019-09-24-mysql-backup-script/</link>
       <pubDate>Tue, 24 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-09-24-mysql%E4%B8%80%E4%BB%B6%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC/</guid>
+      <guid>https://amrom66.github.io/2019/2019-09-24-mysql-backup-script/</guid>
       <description>MySQL一键备份脚本 备份脚本-Windows版本 脚本下载
 @echo off pause set year=%Date:~0,4% set month=%Date:~5,2% set day=%Date:~8,2% set address=f:\ set host=localhost set user=root set password=123321 set mysqlpath=D:\epoint_mysql_5.</description>
     </item>
     
     <item>
       <title>MYSQL笔记</title>
-      <link>https://amrom66.github.io/2019/2019-07-28-mysql%E7%AC%94%E8%AE%B0/</link>
+      <link>https://amrom66.github.io/2019/2019-07-28-mysql-note/</link>
       <pubDate>Sun, 28 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://amrom66.github.io/2019/2019-07-28-mysql%E7%AC%94%E8%AE%B0/</guid>
+      <guid>https://amrom66.github.io/2019/2019-07-28-mysql-note/</guid>
       <description>MYSQL笔记 UUID select uuid(); 存储过程 存储过程（Stored Procedure）是一种在数据库中存储复杂程序，以便外部程序调用的一种数据库对象。 存储过程是为了完成特定功能的SQL语句集，经编译创建并保存在数据库中，用户可通过指定存储过程的名字并给定参数(需要时)来调用执行。 创建存储过程
 DELIMITER // CREATE PROCEDURE getAllUsers() BEGIN SELECT * FROM `user`; END // DELIMITER ; CALL getAllUsers(); 调用存储过程</description>
     </item>
