@@ -44,7 +44,7 @@ upgrade-kernel.sh # 载入公钥 rpm --import https://www.elrepo.org/RPM-GPG-KEY
     </item>
     
     <item>
-      <title>使用deploymane来模拟daemonset</title>
+      <title>使用deployment来模拟daemonset</title>
       <link>https://amrom66.github.io/2022/2022-05-12-use-deployment-simuator-daemonset/</link>
       <pubDate>Thu, 12 May 2022 00:00:00 +0000</pubDate>
       
