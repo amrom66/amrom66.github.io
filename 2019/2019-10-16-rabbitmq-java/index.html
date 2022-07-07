@@ -1,163 +1,116 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html>
+
   <head>
-  <meta http-equiv="content-type" content="text/html;charset=utf-8">
-  <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noodp"/>
-  <meta name="author" content="linjinbao66">
-  <meta name="description" content="打工笔记">
-  <meta name="keywords" content="博客 个人 笔记">
-  
-  <link rel="prev" href="https://amrom66.github.io/2019/2019-10-15-base64-usage/" />
-  <link rel="next" href="https://amrom66.github.io/2019/2019-10-18-linux-scale-disk/" />
-  <link rel="canonical" href="https://amrom66.github.io/2019/2019-10-16-rabbitmq-java/" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
-  <title>
-       
-       
-           RabbitMQ示例代码 | 打工笔记
-       
-  </title>
-  <meta name="title" content="RabbitMQ示例代码 | 打工笔记">
-    
-  
-  <link rel="stylesheet" href="/font/iconfont.css">
-  <link rel="stylesheet" href="/css/main.min.css">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>RabbitMQ示例代码 - 打工笔记</title>
+<meta name="description" content="RabbitMQ 官网文档 涉及jar包amqp-client-5.7.3.jar
+ 发送  package myrabbitmq; import com.rabbitmq.client.Channel; import com.rabbitmq.client.Connection; import com.rabbitmq.client.ConnectionFactory; public class Send { private final static String QUEUE_NAME = &amp;#34;hello&amp;#34;; private final static String IP = &amp;#34;localhost&amp;#34;; public static void main(String[] args) { ConnectionFactory factory = new ConnectionFactory(); factory."/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://amrom66.github.io/2019/2019-10-16-rabbitmq-java/" />
 
 
-  
-  
- 
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="RabbitMQ 官网文档 涉及jar包amqp-client-5.7.3.jar
+ 发送  package myrabbitmq; import com.rabbitmq.client.Channel; import com.rabbitmq.client.Connection; import com.rabbitmq.client.ConnectionFactory; public class Send { private final static String QUEUE_NAME = &amp;#34;hello&amp;#34;; private final static String IP = &amp;#34;localhost&amp;#34;; public static void main(String[] args) { ConnectionFactory factory = new ConnectionFactory(); factory." />
+<meta name="twitter:title" content="RabbitMQ示例代码 - 打工笔记" />
+<meta name="twitter:site" content="" />
+<meta name="twitter:creator" content="" />
+
+
+<meta property="og:type" content="article" />
+<meta content="RabbitMQ示例代码 - 打工笔记" property="og:title">
+<meta content="RabbitMQ 官网文档 涉及jar包amqp-client-5.7.3.jar
+ 发送  package myrabbitmq; import com.rabbitmq.client.Channel; import com.rabbitmq.client.Connection; import com.rabbitmq.client.ConnectionFactory; public class Send { private final static String QUEUE_NAME = &amp;#34;hello&amp;#34;; private final static String IP = &amp;#34;localhost&amp;#34;; public static void main(String[] args) { ConnectionFactory factory = new ConnectionFactory(); factory." property="og:description">
+<meta property="og:url" content="https://amrom66.github.io/2019/2019-10-16-rabbitmq-java/" />
+<meta property="og:site_name" content="打工笔记" />
+
+<meta property="article:published_time" content="2019-10-16 00:00:00 &#43;0000 UTC" />
+
+
+
+
 
 <script type="application/ld+json">
- "@context" : "http://schema.org",
-    "@type" : "BlogPosting",
-    "mainEntityOfPage": {
-         "@type": "WebPage",
-         "@id": "https:\/\/amrom66.github.io"
-    },
-    "articleSection" : "posts",
-    "name" : "RabbitMQ示例代码",
-    "headline" : "RabbitMQ示例代码",
-    "description" : "RabbitMQ 官网文档 涉及jar包amqp-client-5.7.3.jar\n 发送  package myrabbitmq; import com.rabbitmq.client.Channel; import com.rabbitmq.client.Connection; import com.rabbitmq.client.ConnectionFactory; public class Send { private final static String QUEUE_NAME = \x26#34;hello\x26#34;; private final static String IP = \x26#34;localhost\x26#34;; public static void main(String[] args) { ConnectionFactory factory = new ConnectionFactory(); factory.",
-    "inLanguage" : "en-us",
-    "author" : "linjinbao66",
-    "creator" : "linjinbao66",
-    "publisher": "linjinbao66",
-    "accountablePerson" : "linjinbao66",
-    "copyrightHolder" : "linjinbao66",
-    "copyrightYear" : "2019",
+{ 
+    "@context": "http://schema.org", 
+    "@type": "BlogPosting",
+    "headline": "RabbitMQ示例代码",
+    "genre": "",  
+    "url": "https:\/\/amrom66.github.io\/2019\/2019-10-16-rabbitmq-java\/",
     "datePublished": "2019-10-16 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2019-10-16 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/amrom66.github.io\/2019\/2019-10-16-rabbitmq-java\/",
-    "wordCount" : "187",
-    "keywords" : [  "打工笔记"]
-}
+    "description": "RabbitMQ 官网文档 涉及jar包amqp-client-5.7.3.jar\n 发送  package myrabbitmq; import com.rabbitmq.client.Channel; import com.rabbitmq.client.Connection; import com.rabbitmq.client.ConnectionFactory; public class Send { private final static String QUEUE_NAME = \x26#34;hello\x26#34;; private final static String IP = \x26#34;localhost\x26#34;; public static void main(String[] args) { ConnectionFactory factory = new ConnectionFactory(); factory.",
+    "author": {
+        "@type": "Person",
+        "name": ""
+    }
+ }
 </script>
+
+
+
+
+<link rel="stylesheet" href="/sass/main.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
-  
+
+  <body>
+
+    <header class="site-header">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://amrom66.github.io">打工笔记</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+        <li><a href="https://amrom66.github.iopages/about/">About</a></li>
+        <li><a href="https://amrom66.github.iopages/contact/">Contact</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Download <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a target="_blank" href="https://github.com/bul-ikana/hugo-cards">Project</a></li>
+            <li><a href="https://github.com/bul-ikana/hugo-cards.git">Download</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a target="_blank" href="https://themes.gohugo.io/">More Themes</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
 
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-160203449-2', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-  <body class="">
-    <div class="wrapper">
-        <nav class="navbar">
     <div class="container">
-        <div class="navbar-header header-logo">
-        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://amrom66.github.io">打工笔记</a>
-        </div>
-        <div class="menu navbar-right">
-                
-                
-                <a class="menu-item" href="/posts/" title="">博客</a>
-                
-                <a class="menu-item" href="/categories/" title="">分类</a>
-                
-                <a class="menu-item" href="/tags/" title="">标签</a>
-                
-                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
-                
-        </div>
-    </div>
-</nav>
-<nav class="navbar-mobile" id="nav-mobile" style="display: none">
-     <div class="container">
-        <div class="navbar-header">
-            <div>
-                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;
-                <a href="https://amrom66.github.io">打工笔记</a>
-            </div>
-            <div class="menu-toggle">
-                <svg t="1618556759902" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1299" width="16" height="16"><path d="M896 1024h-213.333333a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m768-170.666667h-213.333333a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128zM128 85.333333a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z" p-id="1300"></path></svg>
-            </div>
-        </div>
-     
-          <div class="menu" id="mobile-menu">
-                
-                
-                <a class="menu-item" href="/posts/" title="">博客</a>
-                
-                <a class="menu-item" href="/categories/" title="">分类</a>
-                
-                <a class="menu-item" href="/tags/" title="">标签</a>
-                
-                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
-                
-        </div>
-    </div>
-</nav>
-    	 <main class="main">
-          <div class="container">
-      		
-<article class="post-warp" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">RabbitMQ示例代码</h1>
-        <div class="post-meta">
-                作者： <a itemprop="name" href="https://amrom66.github.io" rel="author">linjinbao66</a> 时间： 
-                <span class="post-time">
-                 <time datetime=16109-10-16 itemprop="datePublished">October 16, 2019</time>
-                </span>
-                分类： 
-                
-        </div>
-    </header>
-    <div class="post-content">
+      <div class="wrapper">
         
+<div class="row">
+<div class="col-md-8">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-        
+          <header class="post-header">
+            <h1 class="post-title" itemprop="name headline">RabbitMQ示例代码</h1>
+            <p class="post-meta"><time datetime='2019-10-16T00:00:00Z' itemprop="datePublished">October 16, 2019</time></p>
+                 
+          </header>
 
-        
-        
-     
-          
-          
-          
-
-          
-          
-          
-
-          <h2 id="rabbitmq">RabbitMQ</h2>
+          <div class="post-content" itemprop="articleBody">
+            <h2 id="rabbitmq">RabbitMQ</h2>
 <p><a href="https://www.rabbitmq.com/api-guide.html">官网文档</a> 涉及jar包<code>amqp-client-5.7.3.jar</code></p>
 <ol>
 <li>发送</li>
@@ -227,86 +180,95 @@ if (!doNotTrack) {
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
 </code></pre></div>
-    </div>
-
-    <div class="post-copyright">
-             
-            <p class="copyright-item">
-                <span>作者:</span>
-                <span>linjinbao66 </span>
-                </p>
-            
-    </div>
-
-    <div class="post-tags">
-        
-        <section>
-                <a href="javascript:window.history.back();">返回</a></span> · 
-                <span><a href="https://amrom66.github.io">主页</a></span>
-        </section>
-    </div>
-
-    <div class="post-nav">
-        
-        <a href="https://amrom66.github.io/2019/2019-10-15-base64-usage/" class="prev" rel="prev" title="base64转码"><i class="iconfont icon-left"></i>&nbsp;base64转码</a>
-         
-        
-        <a href="https://amrom66.github.io/2019/2019-10-18-linux-scale-disk/" class="next" rel="next" title="Vmware虚拟机Linux修改磁盘大小">Vmware虚拟机Linux修改磁盘大小&nbsp;<i class="iconfont icon-right"></i></a>
-        
-    </div>
-
-    <div class="post-comment">
-		  <div id="utter-container"></div>
-    <script src="https://utteranc.es/client.js"
-        repo= 'amrom66/amrom66.github.io'
-        issue-term= 'title'
-        label= 'utterance'
-        theme= 'github-dark-orange'
-        crossorigin="anonymous"
-        async>
-    </script>
-
-    </div>
-</article>
           </div>
-		   </main>
-      <footer class="footer">
-    <div class="copyright">
-        &copy;
-        
-        <span itemprop="copyrightYear">2019 - 2022</span>
-        
-        <span class="with-love">
-    	 <i class="iconfont icon-love"></i> 
-         </span>
-         
-            <span class="author" itemprop="copyrightHolder"><a href="https://amrom66.github.io">linjinbao66</a>  </span> 
-         
 
-         
-		 
+    </article>
+    <div class="row">
+        
+    </div>
+    
+    <div class="row">
+            <ul class="pager">
+             
+                    <li><a class="next" href="https://amrom66.github.io/2019/2019-10-18-linux-scale-disk/">&laquo; Vmware虚拟机Linux修改磁盘大小</a></li>
+              
+              
+                <li><a class="previous" href="https://amrom66.github.io/2019/2019-10-15-base64-usage/">base64转码 &raquo;</a></li>
+              
+            </ul>
+    </div>
+</div>
+
+
+<div class="col-md-4 mt20">
+        <div class="post-img">
+            
+            <img width="600" src="https://amrom66.github.ioimages/wallhaven-q2ypkl.jpg" alt="webjeda">
+            
+        </div>
+            
+        
+        <div class="mt10 recent">
+            <h2>Recent articles</h2>        
+             <ul>
+                
+
+                      <li>
+                      <p><a href="https://amrom66.github.io/2022/2022-06-11-multiple-container-in-one-pod/">multiple-container-in-one-pod</a><small>&nbsp;&nbsp;June 11, 2022</small></p>
+                      </li>
+
+                
+
+                      <li>
+                      <p><a href="https://amrom66.github.io/2022/2022-06-07-kubernetes-binary-upgrade/">kubernetes二进制部署升级</a><small>&nbsp;&nbsp;June 7, 2022</small></p>
+                      </li>
+
+                
+
+                      <li>
+                      <p><a href="https://amrom66.github.io/2022/2022-05-19-upgrade-kernel/">cetos升级内核</a><small>&nbsp;&nbsp;May 19, 2022</small></p>
+                      </li>
+
+                
+              </ul>
+        </div>
+        
+        <br>
+
+</div>
+
+</div>
+
+
+
+
+      </div>
+    </div>
+
+    <footer>
+    <div class="container">
+        <div class="row p20">
+            
+
+            <div class="col-md-4 text-center mt25" >
+                
+            </div>
+            <div class="col-md-4 text-center mt25">
+               
+               
+               
+               
+               
+            </div>
+
+        </div> 
     </div>
 </footer>
-
-
-
-
-
-
-
-
-
-
-
-
     
-    
-    <script src="/js/vendor_no_gallery.min.js" async=""></script>
-    
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="https://amrom66.github.io/js/bootstrap.min.js"></script>
   
-
-
-
-     </div>
   </body>
+
 </html>

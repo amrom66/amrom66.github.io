@@ -1,163 +1,122 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html>
+
   <head>
-  <meta http-equiv="content-type" content="text/html;charset=utf-8">
-  <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noodp"/>
-  <meta name="author" content="linjinbao66">
-  <meta name="description" content="打工笔记">
-  <meta name="keywords" content="博客 个人 笔记">
-  
-  <link rel="prev" href="https://amrom66.github.io/2022/2022-02-28-etcd-clean/" />
-  <link rel="next" href="https://amrom66.github.io/2022/2022-03-10-about-pv-pvc/" />
-  <link rel="canonical" href="https://amrom66.github.io/2022/2022-03-03-esxi-cloud-init/" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
-  <title>
-       
-       
-           esxi-cloud-init使用 | 打工笔记
-       
-  </title>
-  <meta name="title" content="esxi-cloud-init使用 | 打工笔记">
-    
-  
-  <link rel="stylesheet" href="/font/iconfont.css">
-  <link rel="stylesheet" href="/css/main.min.css">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>esxi-cloud-init使用 - 打工笔记</title>
+<meta name="description" content="esxi是虚拟化的常见方案，其直接部署到物理机上，在之上可以虚拟化出来不同的系统。部署一个虚拟机，我们常见的操作方式是登录esxi的控制台或者vcenter的控制台操作，步骤比较繁琐。
+cloud-init是云厂商常用的方案，用于工作在虚拟机初始化的时候。例如，原生部署虚拟机的时候，需要在网页上设置磁盘，用户，网络等等，在cloud-init中，这些不必操作；原生部署虚拟机的时候，无法添加自定义源，cloud-init可以实现。
+使用到的工具  govc  govc 是vmware出的cli工具，用于操作vcenter
+第一步 配置esxi.env配置 # vCenter host export GOVC_URL=192.168.123.138 # vCenter credentials export GOVC_USERNAME=administrator@vsphere.local export GOVC_PASSWORD=rpK0qGVhd#YIxP4~S26&#43; # disable cert validation export GOVC_INSECURE=1 export GOVC_DATASTORE=bigdata export GOVC_NETWORK=&amp;#34;&amp;#34; export GOVC_RESOURCE_POOL=&amp;#39;default-cluster/Resources&amp;#39; export GOVC_DATACENTER=default-dc jinbao666lin@jinbao666deMacBook-Pro govc-practice % govc about FullName: VMware vCenter Server 6."/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://amrom66.github.io/2022/2022-03-03-esxi-cloud-init/" />
 
 
-  
-  
- 
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="esxi是虚拟化的常见方案，其直接部署到物理机上，在之上可以虚拟化出来不同的系统。部署一个虚拟机，我们常见的操作方式是登录esxi的控制台或者vcenter的控制台操作，步骤比较繁琐。
+cloud-init是云厂商常用的方案，用于工作在虚拟机初始化的时候。例如，原生部署虚拟机的时候，需要在网页上设置磁盘，用户，网络等等，在cloud-init中，这些不必操作；原生部署虚拟机的时候，无法添加自定义源，cloud-init可以实现。
+使用到的工具  govc  govc 是vmware出的cli工具，用于操作vcenter
+第一步 配置esxi.env配置 # vCenter host export GOVC_URL=192.168.123.138 # vCenter credentials export GOVC_USERNAME=administrator@vsphere.local export GOVC_PASSWORD=rpK0qGVhd#YIxP4~S26&#43; # disable cert validation export GOVC_INSECURE=1 export GOVC_DATASTORE=bigdata export GOVC_NETWORK=&amp;#34;&amp;#34; export GOVC_RESOURCE_POOL=&amp;#39;default-cluster/Resources&amp;#39; export GOVC_DATACENTER=default-dc jinbao666lin@jinbao666deMacBook-Pro govc-practice % govc about FullName: VMware vCenter Server 6." />
+<meta name="twitter:title" content="esxi-cloud-init使用 - 打工笔记" />
+<meta name="twitter:site" content="" />
+<meta name="twitter:creator" content="" />
+
+
+<meta property="og:type" content="article" />
+<meta content="esxi-cloud-init使用 - 打工笔记" property="og:title">
+<meta content="esxi是虚拟化的常见方案，其直接部署到物理机上，在之上可以虚拟化出来不同的系统。部署一个虚拟机，我们常见的操作方式是登录esxi的控制台或者vcenter的控制台操作，步骤比较繁琐。
+cloud-init是云厂商常用的方案，用于工作在虚拟机初始化的时候。例如，原生部署虚拟机的时候，需要在网页上设置磁盘，用户，网络等等，在cloud-init中，这些不必操作；原生部署虚拟机的时候，无法添加自定义源，cloud-init可以实现。
+使用到的工具  govc  govc 是vmware出的cli工具，用于操作vcenter
+第一步 配置esxi.env配置 # vCenter host export GOVC_URL=192.168.123.138 # vCenter credentials export GOVC_USERNAME=administrator@vsphere.local export GOVC_PASSWORD=rpK0qGVhd#YIxP4~S26&#43; # disable cert validation export GOVC_INSECURE=1 export GOVC_DATASTORE=bigdata export GOVC_NETWORK=&amp;#34;&amp;#34; export GOVC_RESOURCE_POOL=&amp;#39;default-cluster/Resources&amp;#39; export GOVC_DATACENTER=default-dc jinbao666lin@jinbao666deMacBook-Pro govc-practice % govc about FullName: VMware vCenter Server 6." property="og:description">
+<meta property="og:url" content="https://amrom66.github.io/2022/2022-03-03-esxi-cloud-init/" />
+<meta property="og:site_name" content="打工笔记" />
+
+<meta property="article:published_time" content="2022-03-03 00:00:00 &#43;0000 UTC" />
+
+
+
+
 
 <script type="application/ld+json">
- "@context" : "http://schema.org",
-    "@type" : "BlogPosting",
-    "mainEntityOfPage": {
-         "@type": "WebPage",
-         "@id": "https:\/\/amrom66.github.io"
-    },
-    "articleSection" : "posts",
-    "name" : "esxi-cloud-init使用",
-    "headline" : "esxi-cloud-init使用",
-    "description" : "esxi是虚拟化的常见方案，其直接部署到物理机上，在之上可以虚拟化出来不同的系统。部署一个虚拟机，我们常见的操作方式是登录esxi的控制台或者vcenter的控制台操作，步骤比较繁琐。\ncloud-init是云厂商常用的方案，用于工作在虚拟机初始化的时候。例如，原生部署虚拟机的时候，需要在网页上设置磁盘，用户，网络等等，在cloud-init中，这些不必操作；原生部署虚拟机的时候，无法添加自定义源，cloud-init可以实现。\n使用到的工具  govc  govc 是vmware出的cli工具，用于操作vcenter\n第一步 配置esxi.env配置 # vCenter host export GOVC_URL=192.168.123.138 # vCenter credentials export GOVC_USERNAME=administrator@vsphere.local export GOVC_PASSWORD=rpK0qGVhd#YIxP4~S26\x2b # disable cert validation export GOVC_INSECURE=1 export GOVC_DATASTORE=bigdata export GOVC_NETWORK=\x26#34;\x26#34; export GOVC_RESOURCE_POOL=\x26#39;default-cluster\/Resources\x26#39; export GOVC_DATACENTER=default-dc jinbao666lin@jinbao666deMacBook-Pro govc-practice % govc about FullName: VMware vCenter Server 6.",
-    "inLanguage" : "en-us",
-    "author" : "linjinbao66",
-    "creator" : "linjinbao66",
-    "publisher": "linjinbao66",
-    "accountablePerson" : "linjinbao66",
-    "copyrightHolder" : "linjinbao66",
-    "copyrightYear" : "2022",
+{ 
+    "@context": "http://schema.org", 
+    "@type": "BlogPosting",
+    "headline": "esxi-cloud-init使用",
+    "genre": "",  
+    "url": "https:\/\/amrom66.github.io\/2022\/2022-03-03-esxi-cloud-init\/",
     "datePublished": "2022-03-03 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2022-03-03 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/amrom66.github.io\/2022\/2022-03-03-esxi-cloud-init\/",
-    "wordCount" : "255",
-    "keywords" : [ "虚拟化", "打工笔记"]
-}
+    "description": "esxi是虚拟化的常见方案，其直接部署到物理机上，在之上可以虚拟化出来不同的系统。部署一个虚拟机，我们常见的操作方式是登录esxi的控制台或者vcenter的控制台操作，步骤比较繁琐。\ncloud-init是云厂商常用的方案，用于工作在虚拟机初始化的时候。例如，原生部署虚拟机的时候，需要在网页上设置磁盘，用户，网络等等，在cloud-init中，这些不必操作；原生部署虚拟机的时候，无法添加自定义源，cloud-init可以实现。\n使用到的工具  govc  govc 是vmware出的cli工具，用于操作vcenter\n第一步 配置esxi.env配置 # vCenter host export GOVC_URL=192.168.123.138 # vCenter credentials export GOVC_USERNAME=administrator@vsphere.local export GOVC_PASSWORD=rpK0qGVhd#YIxP4~S26\x2b # disable cert validation export GOVC_INSECURE=1 export GOVC_DATASTORE=bigdata export GOVC_NETWORK=\x26#34;\x26#34; export GOVC_RESOURCE_POOL=\x26#39;default-cluster\/Resources\x26#39; export GOVC_DATACENTER=default-dc jinbao666lin@jinbao666deMacBook-Pro govc-practice % govc about FullName: VMware vCenter Server 6.",
+    "author": {
+        "@type": "Person",
+        "name": ""
+    }
+ }
 </script>
+
+
+
+
+<link rel="stylesheet" href="/sass/main.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
-  
+
+  <body>
+
+    <header class="site-header">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://amrom66.github.io">打工笔记</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+        <li><a href="https://amrom66.github.iopages/about/">About</a></li>
+        <li><a href="https://amrom66.github.iopages/contact/">Contact</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Download <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a target="_blank" href="https://github.com/bul-ikana/hugo-cards">Project</a></li>
+            <li><a href="https://github.com/bul-ikana/hugo-cards.git">Download</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a target="_blank" href="https://themes.gohugo.io/">More Themes</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
 
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-160203449-2', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-  <body class="">
-    <div class="wrapper">
-        <nav class="navbar">
     <div class="container">
-        <div class="navbar-header header-logo">
-        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://amrom66.github.io">打工笔记</a>
-        </div>
-        <div class="menu navbar-right">
-                
-                
-                <a class="menu-item" href="/posts/" title="">博客</a>
-                
-                <a class="menu-item" href="/categories/" title="">分类</a>
-                
-                <a class="menu-item" href="/tags/" title="">标签</a>
-                
-                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
-                
-        </div>
-    </div>
-</nav>
-<nav class="navbar-mobile" id="nav-mobile" style="display: none">
-     <div class="container">
-        <div class="navbar-header">
-            <div>
-                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;
-                <a href="https://amrom66.github.io">打工笔记</a>
-            </div>
-            <div class="menu-toggle">
-                <svg t="1618556759902" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1299" width="16" height="16"><path d="M896 1024h-213.333333a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m768-170.666667h-213.333333a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128zM128 85.333333a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z" p-id="1300"></path></svg>
-            </div>
-        </div>
-     
-          <div class="menu" id="mobile-menu">
-                
-                
-                <a class="menu-item" href="/posts/" title="">博客</a>
-                
-                <a class="menu-item" href="/categories/" title="">分类</a>
-                
-                <a class="menu-item" href="/tags/" title="">标签</a>
-                
-                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
-                
-        </div>
-    </div>
-</nav>
-    	 <main class="main">
-          <div class="container">
-      		
-<article class="post-warp" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">esxi-cloud-init使用</h1>
-        <div class="post-meta">
-                作者： <a itemprop="name" href="https://amrom66.github.io" rel="author">linjinbao66</a> 时间： 
-                <span class="post-time">
-                 <time datetime=3039-03-03 itemprop="datePublished">March 3, 2022</time>
-                </span>
-                分类： 
-                
-        </div>
-    </header>
-    <div class="post-content">
+      <div class="wrapper">
         
+<div class="row">
+<div class="col-md-8">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-        
+          <header class="post-header">
+            <h1 class="post-title" itemprop="name headline">esxi-cloud-init使用</h1>
+            <p class="post-meta"><time datetime='2022-03-03T00:00:00Z' itemprop="datePublished">March 3, 2022</time></p>
+                 
+          </header>
 
-        
-        
-     
-          
-          
-          
-
-          
-          
-          
-
-          <p>esxi是虚拟化的常见方案，其直接部署到物理机上，在之上可以虚拟化出来不同的系统。部署一个虚拟机，我们常见的操作方式是登录esxi的控制台或者vcenter的控制台操作，步骤比较繁琐。</p>
+          <div class="post-content" itemprop="articleBody">
+            <p>esxi是虚拟化的常见方案，其直接部署到物理机上，在之上可以虚拟化出来不同的系统。部署一个虚拟机，我们常见的操作方式是登录esxi的控制台或者vcenter的控制台操作，步骤比较繁琐。</p>
 <p>cloud-init是云厂商常用的方案，用于工作在虚拟机初始化的时候。例如，原生部署虚拟机的时候，需要在网页上设置磁盘，用户，网络等等，在cloud-init中，这些不必操作；原生部署虚拟机的时候，无法添加自定义源，cloud-init可以实现。</p>
 <h2 id="使用到的工具">使用到的工具</h2>
 <ul>
@@ -273,94 +232,95 @@ UUID:         e8dd6d90-2d67-4803-a46a-22494e87a678
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">govc import.ova -options<span style="color:#f92672">=</span>ubuntu.json ~/Downloads/ubuntu-18.04-server-cloudimg-amd64.ova 
 </code></pre></div><p>部署完成，即出现了一个虚拟机，使用<code>deploy|ubuntu</code>用户登录</p>
 
-    </div>
-
-    <div class="post-copyright">
-             
-            <p class="copyright-item">
-                <span>作者:</span>
-                <span>linjinbao66 </span>
-                </p>
-            
-    </div>
-
-    <div class="post-tags">
-        
-            <section>
-            <i class="iconfont icon-tag"></i>标签: 
-            
-            <span class="tag"><a href="https://amrom66.github.io/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/">
-                    #虚拟化</a></span>
-            
-            </section>
-        
-        <section>
-                <a href="javascript:window.history.back();">返回</a></span> · 
-                <span><a href="https://amrom66.github.io">主页</a></span>
-        </section>
-    </div>
-
-    <div class="post-nav">
-        
-        <a href="https://amrom66.github.io/2022/2022-02-28-etcd-clean/" class="prev" rel="prev" title="etcd强制删除k8s数据"><i class="iconfont icon-left"></i>&nbsp;etcd强制删除k8s数据</a>
-         
-        
-        <a href="https://amrom66.github.io/2022/2022-03-10-about-pv-pvc/" class="next" rel="next" title="关于pv pvc的新认识">关于pv pvc的新认识&nbsp;<i class="iconfont icon-right"></i></a>
-        
-    </div>
-
-    <div class="post-comment">
-		  <div id="utter-container"></div>
-    <script src="https://utteranc.es/client.js"
-        repo= 'amrom66/amrom66.github.io'
-        issue-term= 'title'
-        label= 'utterance'
-        theme= 'github-dark-orange'
-        crossorigin="anonymous"
-        async>
-    </script>
-
-    </div>
-</article>
           </div>
-		   </main>
-      <footer class="footer">
-    <div class="copyright">
-        &copy;
-        
-        <span itemprop="copyrightYear">2019 - 2022</span>
-        
-        <span class="with-love">
-    	 <i class="iconfont icon-love"></i> 
-         </span>
-         
-            <span class="author" itemprop="copyrightHolder"><a href="https://amrom66.github.io">linjinbao66</a>  </span> 
-         
 
-         
-		 
+    </article>
+    <div class="row">
+        
+    </div>
+    
+    <div class="row">
+            <ul class="pager">
+             
+                    <li><a class="next" href="https://amrom66.github.io/2022/2022-03-10-about-pv-pvc/">&laquo; 关于pv pvc的新认识</a></li>
+              
+              
+                <li><a class="previous" href="https://amrom66.github.io/2022/2022-02-28-etcd-clean/">etcd强制删除k8s数据 &raquo;</a></li>
+              
+            </ul>
+    </div>
+</div>
+
+
+<div class="col-md-4 mt20">
+        <div class="post-img">
+            
+            <img width="600" src="https://amrom66.github.ioimages/wallhaven-q2ypkl.jpg" alt="webjeda">
+            
+        </div>
+            
+        
+        <div class="mt10 recent">
+            <h2>Recent articles</h2>        
+             <ul>
+                
+
+                      <li>
+                      <p><a href="https://amrom66.github.io/2022/2022-06-11-multiple-container-in-one-pod/">multiple-container-in-one-pod</a><small>&nbsp;&nbsp;June 11, 2022</small></p>
+                      </li>
+
+                
+
+                      <li>
+                      <p><a href="https://amrom66.github.io/2022/2022-06-07-kubernetes-binary-upgrade/">kubernetes二进制部署升级</a><small>&nbsp;&nbsp;June 7, 2022</small></p>
+                      </li>
+
+                
+
+                      <li>
+                      <p><a href="https://amrom66.github.io/2022/2022-05-19-upgrade-kernel/">cetos升级内核</a><small>&nbsp;&nbsp;May 19, 2022</small></p>
+                      </li>
+
+                
+              </ul>
+        </div>
+        
+        <br>
+
+</div>
+
+</div>
+
+
+
+
+      </div>
+    </div>
+
+    <footer>
+    <div class="container">
+        <div class="row p20">
+            
+
+            <div class="col-md-4 text-center mt25" >
+                
+            </div>
+            <div class="col-md-4 text-center mt25">
+               
+               
+               
+               
+               
+            </div>
+
+        </div> 
     </div>
 </footer>
-
-
-
-
-
-
-
-
-
-
-
-
     
-    
-    <script src="/js/vendor_no_gallery.min.js" async=""></script>
-    
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="https://amrom66.github.io/js/bootstrap.min.js"></script>
   
-
-
-
-     </div>
   </body>
+
 </html>
