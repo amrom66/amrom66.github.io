@@ -6,10 +6,21 @@
     <description>Recent content in Posts on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 11 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 14 Jul 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://amrom66.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>mysql生成宽表脚本</title>
+      <link>https://amrom66.github.io/2022/2022-07-14-mysql-1k-columns/</link>
+      <pubDate>Thu, 14 Jul 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/2022/2022-07-14-mysql-1k-columns/</guid>
+      <description>需求描述 生成一张有1000个字段的表，每个字段的类型随机，用测试使用。
+解决方案 shell脚本生成建表sql generate_sql.sh
+#!/bin/bash echo &amp;#34;USE amrom;&amp;#34; echo &amp;#34;CREATE TABLE ONE_K_COLS (&amp;#34; for (( i = 0; i &amp;lt; 999; i++ )) { col_type=`echo &amp;#34;tinyint int(11) bigint(20) varchar(50) char(30) date $RANDOM&amp;#34; | awk &amp;#39;{print $($NF%(NF-1)+1)}&amp;#39;` suffix=`cat /proc/sys/kernel/random/uuid | cut -f5 -d&amp;#34;-&amp;#34;` echo &amp;#34;col&amp;#34;_$suffix&amp;#39; &amp;#39;${col_type}&amp;#39;,&amp;#39; } echo &amp;#34;id int auto_increment,&amp;#34; echo &amp;#34;primary key (id)&amp;#34; echo &amp;#34;) engine=innodb;&amp;#34; exit 0  使用方式：.</description>
+    </item>
     
     <item>
       <title>multiple-container-in-one-pod</title>
