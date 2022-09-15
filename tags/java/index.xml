@@ -6,10 +6,21 @@
     <description>Recent content in java on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Dec 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 16 Aug 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://amrom66.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>mvn-generate-project</title>
+      <link>https://amrom66.github.io/2022/2022-08-16-mvn-generate-project/</link>
+      <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/2022/2022-08-16-mvn-generate-project/</guid>
+      <description>use mvn cli to generate a project:
+mvn archetype:generate -DgroupId=tk.amrom -DartifactId=proto-java -DinteractiveMode=false -DoutputDirectory=./ explain:
+ use plugin archetype:generate require args groutId and artifactId and DinteractiveMode  </description>
+    </item>
     
     <item>
       <title>jvm学习02</title>
