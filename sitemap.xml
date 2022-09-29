@@ -2,6 +2,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
+      <loc>https://amrom66.github.io/posts/</loc>
+      
+      <lastmod>2022-09-21T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://amrom66.github.io/2022/2022-09-21-how-to-access-my-server-with-a-pod/</loc>
+      
+      <lastmod>2022-09-21T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://amrom66.github.io/</loc>
+      
+      <lastmod>2022-09-21T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
       <loc>https://amrom66.github.io/tags/cli/</loc>
       
       <lastmod>2022-08-16T00:00:00+00:00</lastmod>
@@ -52,27 +82,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/posts/</loc>
-      
-      <lastmod>2022-08-16T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
       <loc>https://amrom66.github.io/tags/</loc>
-      
-      <lastmod>2022-08-16T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://amrom66.github.io/</loc>
       
       <lastmod>2022-08-16T00:00:00+00:00</lastmod>
       
@@ -982,7 +992,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
+      <loc>https://amrom66.github.io/tags/%E7%AC%94%E8%AE%B0/</loc>
       
       <lastmod>2019-10-14T00:00:00+00:00</lastmod>
       
@@ -992,7 +1002,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/tags/%E7%AC%94%E8%AE%B0/</loc>
+      <loc>https://amrom66.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
       
       <lastmod>2019-10-14T00:00:00+00:00</lastmod>
       
@@ -1152,7 +1162,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
+      <loc>https://amrom66.github.io/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
       
       <lastmod>2019-10-09T00:00:00+00:00</lastmod>
       
@@ -1162,7 +1172,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
+      <loc>https://amrom66.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</loc>
       
       <lastmod>2019-10-09T00:00:00+00:00</lastmod>
       
@@ -1222,7 +1232,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/tags/%E6%95%99%E7%A8%8B/</loc>
+      <loc>https://amrom66.github.io/categories/%E6%95%99%E7%A8%8B/</loc>
       
       <lastmod>2019-09-26T00:00:00+00:00</lastmod>
       
@@ -1232,7 +1242,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/categories/%E6%95%99%E7%A8%8B/</loc>
+      <loc>https://amrom66.github.io/tags/%E6%95%99%E7%A8%8B/</loc>
       
       <lastmod>2019-09-26T00:00:00+00:00</lastmod>
       
@@ -1412,7 +1422,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
+      <loc>https://amrom66.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
       
       <lastmod>2019-09-21T00:00:00+00:00</lastmod>
       
@@ -1422,7 +1432,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
+      <loc>https://amrom66.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
       
       <lastmod>2019-09-21T00:00:00+00:00</lastmod>
       

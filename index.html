@@ -142,6 +142,33 @@ if (!doNotTrack) {
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-09-21-how-to-access-my-server-with-a-pod/">一个线上服务远程访问的方案</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				背景  kubernetes集群在内网中 服务部署在kubernetes集群中 允许暴露一个端口，可以远程访问  目的  访问内网服务的mysql redis mongodb  方案一 部署一套archery，通过端口暴露到公网，实现远程访问
+缺点：只能访问特定服务，archery比较厚重
+方案二 内网部署一个pod，运行ssh客户端，预装常用工具，mysql-client，redis-cli等
+tmp.yaml
+apiVersion: v1 kind: Pod metadata: name: my-svc labels: app.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2022-09-21 itemprop="datePublished">September 21, 2022</time>
+                </span>
+                in
+                
+        	</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
 				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2022/2022-08-16-mvn-generate-project/">mvn-generate-project</a></h1>
 			</header>
 			<div class="post-content">
@@ -1498,40 +1525,6 @@ C:\Users\linjinbao666\Desktop&gt;jps -v 11776 Bootstrap -Dcatalina.base=C:\Users
 				<div class="post-meta">
                 <span class="post-time">
                 <time datetime=2019-12-07 itemprop="datePublished">December 7, 2019</time>
-                </span>
-                in
-                
-        	</div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://amrom66.github.io/tags/java/">
-               	 #Java</a></span>
-        		
-        			<span class="tag"><a href="https://amrom66.github.io/tags/jvm/">
-               	 #jvm</a></span>
-        		
-				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2019/2019-12-06-jvm-gc-log/">jvmGC日志分析</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				jvmGC日志分析 TestGC.java
-public class TestGc { private static final int _1MB = 1024*1024; public static void main(String[] args) { byte[] allocation1, allocation2, allocation3, allocation4,allocation5,allocation6; allocation1 = new byte[2 * _1MB]; allocation2 = new byte[2 * _1MB]; allocation3 = new byte[4 * _1MB]; allocation4 = new byte[4 * _1MB]; // allocation5 = new byte[2 * _1MB]; // allocation6 = new byte[1 * _1MB];  } } gc输出
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2019-12-06 itemprop="datePublished">December 6, 2019</time>
                 </span>
                 in
                 

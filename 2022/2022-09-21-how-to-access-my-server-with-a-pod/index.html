@@ -9,9 +9,9 @@
   <meta name="description" content="打工笔记">
   <meta name="keywords" content="博客 个人 笔记">
   
-  <link rel="prev" href="https://amrom66.github.io/2022/2022-07-14-mysql-1k-columns/" />
-  <link rel="next" href="https://amrom66.github.io/2022/2022-09-21-how-to-access-my-server-with-a-pod/" />
-  <link rel="canonical" href="https://amrom66.github.io/2022/2022-08-16-mvn-generate-project/" />
+  <link rel="prev" href="https://amrom66.github.io/2022/2022-08-16-mvn-generate-project/" />
+  
+  <link rel="canonical" href="https://amrom66.github.io/2022/2022-09-21-how-to-access-my-server-with-a-pod/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           mvn-generate-project | 打工笔记
+           一个线上服务远程访问的方案 | 打工笔记
        
   </title>
-  <meta name="title" content="mvn-generate-project | 打工笔记">
+  <meta name="title" content="一个线上服务远程访问的方案 | 打工笔记">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/amrom66.github.io"
     },
     "articleSection" : "posts",
-    "name" : "mvn-generate-project",
-    "headline" : "mvn-generate-project",
-    "description" : "use mvn cli to generate a project:\nmvn archetype:generate -DgroupId=tk.amrom -DartifactId=proto-java -DinteractiveMode=false -DoutputDirectory=.\/ explain:\n use plugin archetype:generate require args groutId and artifactId and DinteractiveMode  ",
+    "name" : "一个线上服务远程访问的方案",
+    "headline" : "一个线上服务远程访问的方案",
+    "description" : "背景  kubernetes集群在内网中 服务部署在kubernetes集群中 允许暴露一个端口，可以远程访问  目的  访问内网服务的mysql redis mongodb  方案一 部署一套archery，通过端口暴露到公网，实现远程访问\n缺点：只能访问特定服务，archery比较厚重\n方案二 内网部署一个pod，运行ssh客户端，预装常用工具，mysql-client，redis-cli等\ntmp.yaml\napiVersion: v1 kind: Pod metadata: name: my-svc labels: app.",
     "inLanguage" : "en-us",
     "author" : "linjinbao66",
     "creator" : "linjinbao66",
@@ -54,11 +54,11 @@
     "accountablePerson" : "linjinbao66",
     "copyrightHolder" : "linjinbao66",
     "copyrightYear" : "2022",
-    "datePublished": "2022-08-16 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2022-08-16 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/amrom66.github.io\/2022\/2022-08-16-mvn-generate-project\/",
-    "wordCount" : "24",
-    "keywords" : [ "maven","mvn","java","cli", "打工笔记"]
+    "datePublished": "2022-09-21 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2022-09-21 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/amrom66.github.io\/2022\/2022-09-21-how-to-access-my-server-with-a-pod\/",
+    "wordCount" : "74",
+    "keywords" : [  "打工笔记"]
 }
 </script>
 
@@ -131,11 +131,11 @@ if (!doNotTrack) {
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">mvn-generate-project</h1>
+        <h1 class="post-title" itemprop="name headline">一个线上服务远程访问的方案</h1>
         <div class="post-meta">
                 作者： <a itemprop="name" href="https://amrom66.github.io" rel="author">linjinbao66</a> 时间： 
                 <span class="post-time">
-                 <time datetime=16089-08-16 itemprop="datePublished">August 16, 2022</time>
+                 <time datetime=21099-09-21 itemprop="datePublished">September 21, 2022</time>
                 </span>
                 分类： 
                 
@@ -157,15 +157,56 @@ if (!doNotTrack) {
           
           
 
-          <p>use mvn cli to generate a project:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
-mvn archetype:generate -DgroupId<span style="color:#f92672">=</span>tk.amrom -DartifactId<span style="color:#f92672">=</span>proto-java -DinteractiveMode<span style="color:#f92672">=</span>false -DoutputDirectory<span style="color:#f92672">=</span>./
-
-</code></pre></div><p>explain:</p>
-<ol>
-<li>use plugin archetype:generate</li>
-<li>require args groutId and artifactId and DinteractiveMode</li>
-</ol>
+          <h2 id="背景">背景</h2>
+<ul>
+<li>kubernetes集群在内网中</li>
+<li>服务部署在kubernetes集群中</li>
+<li>允许暴露一个端口，可以远程访问</li>
+</ul>
+<h2 id="目的">目的</h2>
+<ul>
+<li>访问内网服务的mysql redis mongodb</li>
+</ul>
+<h2 id="方案一">方案一</h2>
+<p>部署一套archery，通过端口暴露到公网，实现远程访问</p>
+<p>缺点：只能访问特定服务，archery比较厚重</p>
+<h2 id="方案二">方案二</h2>
+<p>内网部署一个pod，运行ssh客户端，预装常用工具，mysql-client，redis-cli等</p>
+<p>tmp.yaml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">kind</span>: Pod
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: my-svc
+  <span style="color:#66d9ef">labels</span>:
+    <span style="color:#66d9ef">app.kubernetes.io/name</span>: my-svc
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">containers</span>:
+    - <span style="color:#66d9ef">name</span>: my-svc
+      <span style="color:#66d9ef">image</span>: docker.io/linjinbao66/dev-server:<span style="color:#ae81ff">1.0</span><span style="color:#ae81ff">.0</span>
+---
+<span style="color:#66d9ef">kind</span>: Service
+<span style="color:#66d9ef">apiVersion</span>: v1
+<span style="color:#66d9ef">metadata</span>:
+  <span style="color:#66d9ef">name</span>: my-svc
+  <span style="color:#66d9ef">namespace</span>: default
+  <span style="color:#66d9ef">labels</span>:
+    <span style="color:#66d9ef">app</span>: my-svc
+<span style="color:#66d9ef">spec</span>:
+  <span style="color:#66d9ef">ports</span>:
+    - <span style="color:#66d9ef">name</span>: tcp<span style="color:#ae81ff">-22</span>
+      <span style="color:#66d9ef">protocol</span>: TCP
+      <span style="color:#66d9ef">port</span>: <span style="color:#ae81ff">22</span>
+      <span style="color:#66d9ef">targetPort</span>: <span style="color:#ae81ff">22</span>
+      <span style="color:#66d9ef">nodePort</span>: <span style="color:#ae81ff">30080</span>
+  <span style="color:#66d9ef">selector</span>:
+    <span style="color:#66d9ef">app.kubernetes.io/name</span>: my-svc
+  <span style="color:#66d9ef">type</span>: NodePort
+  <span style="color:#66d9ef">sessionAffinity</span>: None
+  <span style="color:#66d9ef">externalTrafficPolicy</span>: Cluster
+  <span style="color:#66d9ef">ipFamilies</span>:
+    - IPv4
+  <span style="color:#66d9ef">ipFamilyPolicy</span>: SingleStack
+</code></pre></div><p>远程访问，<code>ssh test@ip -p30080</code></p>
 
     </div>
 
@@ -180,23 +221,6 @@ mvn archetype:generate -DgroupId<span style="color:#f92672">=</span>tk.amrom -Da
 
     <div class="post-tags">
         
-            <section>
-            <i class="iconfont icon-tag"></i>标签: 
-            
-            <span class="tag"><a href="https://amrom66.github.io/tags/maven/">
-                    #maven</a></span>
-            
-            <span class="tag"><a href="https://amrom66.github.io/tags/mvn/">
-                    #mvn</a></span>
-            
-            <span class="tag"><a href="https://amrom66.github.io/tags/java/">
-                    #java</a></span>
-            
-            <span class="tag"><a href="https://amrom66.github.io/tags/cli/">
-                    #cli</a></span>
-            
-            </section>
-        
         <section>
                 <a href="javascript:window.history.back();">返回</a></span> · 
                 <span><a href="https://amrom66.github.io">主页</a></span>
@@ -205,10 +229,8 @@ mvn archetype:generate -DgroupId<span style="color:#f92672">=</span>tk.amrom -Da
 
     <div class="post-nav">
         
-        <a href="https://amrom66.github.io/2022/2022-07-14-mysql-1k-columns/" class="prev" rel="prev" title="mysql生成宽表脚本"><i class="iconfont icon-left"></i>&nbsp;mysql生成宽表脚本</a>
+        <a href="https://amrom66.github.io/2022/2022-08-16-mvn-generate-project/" class="prev" rel="prev" title="mvn-generate-project"><i class="iconfont icon-left"></i>&nbsp;mvn-generate-project</a>
          
-        
-        <a href="https://amrom66.github.io/2022/2022-09-21-how-to-access-my-server-with-a-pod/" class="next" rel="next" title="一个线上服务远程访问的方案">一个线上服务远程访问的方案&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 
