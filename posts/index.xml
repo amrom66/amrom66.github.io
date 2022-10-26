@@ -6,10 +6,23 @@
     <description>Recent content in Posts on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 21 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 26 Oct 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://amrom66.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>how-to-create-a-java-archive-file-with-jdk</title>
+      <link>https://amrom66.github.io/2022/2022-10-26-how-to-create-a-java-archive-file-with-jdk/</link>
+      <pubDate>Wed, 26 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/2022/2022-10-26-how-to-create-a-java-archive-file-with-jdk/</guid>
+      <description>JAR 文件支持广泛的功能，包括电子签名、版本控制、包封和其他功能。是什么给了一个 JAR 文件这样的多功能性？答案是 JAR 文件的清单( manifest.)。
+清单是一个特殊的文件，可以包含有关打包在 JAR 文件中的文件的信息。通过调整清单中包含的 “元/ meta” 信息，可以启用 JAR 文件以实现各种目的。
+以下，演示如何从普通的java文件打包成jar文件：
+MultiThread.java:
+import java.lang.management.ManagementFactory;import java.</description>
+    </item>
     
     <item>
       <title>一个线上服务远程访问的方案</title>
