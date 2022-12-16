@@ -6,10 +6,26 @@
     <description>Recent content in Posts on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 16 Dec 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://amrom66.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>v2网友的一首诗</title>
+      <link>https://amrom66.github.io/2022/2022-12-16-v2er/</link>
+      <pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/2022/2022-12-16-v2er/</guid>
+      <description>@onice
+纽约时间比加州时间早三个小时，
+但加州时间并没有变慢。
+有人 22 岁就毕业了，
+但等了五年才找到好的工作！
+有人 25 岁就当上 CEO ，
+却在 50 岁去世。
+也有人迟到 50 岁才当上 CEO ，</description>
+    </item>
     
     <item>
       <title>how-to-create-a-java-archive-file-with-jdk</title>
@@ -808,15 +824,6 @@ public class Hello{ public static void main(String[] args){ System.out.println(&
       <description>使用jdk的代理-Proxy动态代理 核心思想：反射，不改变原有代码，使用代理对象执行原有方法，侵入原始类内部 用处：解耦，切面编程
 CalculatorProxy.java
 public class CalculatorProxy { /** * 代理 * @param calcultor * @return */ public static Calcultor getCaluctor(Calcultor calcultor) { ClassLoader loader = calcultor.</description>
-    </item>
-    
-    <item>
-      <title>Dart学习</title>
-      <link>https://amrom66.github.io/2019/2019-10-11-dart/</link>
-      <pubDate>Fri, 11 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://amrom66.github.io/2019/2019-10-11-dart/</guid>
-      <description>Dart 语法  代码片段  void main\(\) { for \(int i = 0; i &amp;amp;lt; 5; i++\) { print\(&amp;#39;hello ${i + 1}&amp;#39;\); prinfNUmber\(i\); } } prinfNUmber\(num number\){ print\(&amp;#39;The number is $number.</description>
     </item>
     
     <item>

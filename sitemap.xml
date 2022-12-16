@@ -2,9 +2,9 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
-      <loc>https://amrom66.github.io/2022/2022-10-26-how-to-create-a-java-archive-file-with-jdk/</loc>
+      <loc>https://amrom66.github.io/posts/</loc>
       
-      <lastmod>2022-10-26T00:00:00+00:00</lastmod>
+      <lastmod>2022-12-16T00:00:00+00:00</lastmod>
       
       
       
@@ -12,9 +12,9 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/posts/</loc>
+      <loc>https://amrom66.github.io/2022/2022-12-16-v2er/</loc>
       
-      <lastmod>2022-10-26T00:00:00+00:00</lastmod>
+      <lastmod>2022-12-16T00:00:00+00:00</lastmod>
       
       
       
@@ -23,6 +23,16 @@
   
     <url>
       <loc>https://amrom66.github.io/</loc>
+      
+      <lastmod>2022-12-16T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://amrom66.github.io/2022/2022-10-26-how-to-create-a-java-archive-file-with-jdk/</loc>
       
       <lastmod>2022-10-26T00:00:00+00:00</lastmod>
       
@@ -1052,16 +1062,6 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/2019/2019-10-11-dart/</loc>
-      
-      <lastmod>2019-10-11T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
       <loc>https://amrom66.github.io/tags/%E6%A0%88/</loc>
       
       <lastmod>2019-10-11T00:00:00+00:00</lastmod>
@@ -1442,7 +1442,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
+      <loc>https://amrom66.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
       
       <lastmod>2019-09-21T00:00:00+00:00</lastmod>
       
@@ -1452,7 +1452,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
+      <loc>https://amrom66.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
       
       <lastmod>2019-09-21T00:00:00+00:00</lastmod>
       
@@ -1672,7 +1672,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
+      <loc>https://amrom66.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
       
       <lastmod>2019-06-24T00:00:00+00:00</lastmod>
       
@@ -1682,7 +1682,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
+      <loc>https://amrom66.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
       
       <lastmod>2019-06-24T00:00:00+00:00</lastmod>
       
@@ -1712,7 +1712,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+      <loc>https://amrom66.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
       
       <lastmod>2019-06-11T00:00:00+00:00</lastmod>
       
@@ -1722,7 +1722,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
+      <loc>https://amrom66.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
       
       <lastmod>2019-06-11T00:00:00+00:00</lastmod>
       
