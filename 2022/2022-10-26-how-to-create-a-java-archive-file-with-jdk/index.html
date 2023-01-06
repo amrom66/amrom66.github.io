@@ -46,7 +46,7 @@
     "articleSection" : "posts",
     "name" : "how-to-create-a-java-archive-file-with-jdk",
     "headline" : "how-to-create-a-java-archive-file-with-jdk",
-    "description" : "JAR 文件支持广泛的功能，包括电子签名、版本控制、包封和其他功能。是什么给了一个 JAR 文件这样的多功能性？答案是 JAR 文件的清单( manifest.)。\n清单是一个特殊的文件，可以包含有关打包在 JAR 文件中的文件的信息。通过调整清单中包含的 “元\/ meta” 信息，可以启用 JAR 文件以实现各种目的。\n以下，演示如何从普通的java文件打包成jar文件：\nMultiThread.java:\nimport java.lang.management.ManagementFactory;\rimport java.",
+    "description" : "JAR 文件支持广泛的功能，包括电子签名、版本控制、包封和其他功能。是什么给了一个 JAR 文件这样的多功能性？\n答案是 JAR 文件的清单( manifest.)。\n清单是一个特殊的文件，可以包含有关打包在 JAR 文件中的文件的信息。通过调整清单中包含的meta\/ meta信息，可以启用 JAR 文件以实现各种目的。\n以下，演示如何从普通的java文件打包成jar文件：\nMultiThread.java:\nimport java.lang.management.ManagementFactory;\rimport java.lang.management.ThreadInfo;\rimport java.",
     "inLanguage" : "en-us",
     "author" : "linjinbao66",
     "creator" : "linjinbao66",
@@ -57,7 +57,7 @@
     "datePublished": "2022-10-26 00:00:00 \x2b0000 UTC",
     "dateModified" : "2022-10-26 00:00:00 \x2b0000 UTC",
     "url" : "https:\/\/amrom66.github.io\/2022\/2022-10-26-how-to-create-a-java-archive-file-with-jdk\/",
-    "wordCount" : "145",
+    "wordCount" : "144",
     "keywords" : [  "打工笔记"]
 }
 </script>
@@ -157,11 +157,13 @@ if (!doNotTrack) {
           
           
 
-          <p>JAR 文件支持广泛的功能，包括电子签名、版本控制、包封和其他功能。是什么给了一个 JAR 文件这样的多功能性？答案是 JAR 文件的清单( manifest.)。</p>
-<p>清单是一个特殊的文件，可以包含有关打包在 JAR 文件中的文件的信息。通过调整清单中包含的 “元/ meta” 信息，可以启用 JAR 文件以实现各种目的。</p>
+          <p>JAR 文件支持广泛的功能，包括电子签名、版本控制、包封和其他功能。是什么给了一个 JAR 文件这样的多功能性？</p>
+<p>答案是 JAR 文件的清单( manifest.)。</p>
+<p>清单是一个特殊的文件，可以包含有关打包在 JAR 文件中的文件的信息。通过调整清单中包含的<code>meta/ meta</code>信息，可以启用 JAR 文件以实现各种目的。</p>
 <p>以下，演示如何从普通的java文件打包成jar文件：</p>
 <p>MultiThread.java:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> java.lang.management.ManagementFactory<span style="color:#f92672">;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">
+<span style="color:#f92672">import</span> java.lang.management.ManagementFactory<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> java.lang.management.ThreadInfo<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> java.lang.management.ThreadMXBean<span style="color:#f92672">;</span>
 
@@ -177,15 +179,23 @@ if (!doNotTrack) {
 		<span style="color:#f92672">}</span>
 	<span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir build <span style="color:#f92672">&amp;&amp;</span> cd build
+
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
+mkdir build <span style="color:#f92672">&amp;&amp;</span> cd build
 javac MultiThread.java //编译成字节码
+
 </code></pre></div><p>manifest.txt:</p>
-<pre><code class="language-code" data-lang="code">Manifest-Version: 1.0
+<pre><code class="language-code" data-lang="code">
+Manifest-Version: 1.0
 Created-By: 11.0.16.1 (Microsoft)
 Main-Class: MultiThread
 Built-By: baeldung
-</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">jar -cfm my.jar manifest.txt .
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">root ➜ /com.docker.devenvironments.code/build <span style="color:#f92672">(</span>main ✗<span style="color:#f92672">)</span> $ jar -cfm my.jar manifest.txt .
+
+</code></pre><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
+jar -cfm my.jar manifest.txt .
+
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">
+root ➜ /com.docker.devenvironments.code/build <span style="color:#f92672">(</span>main ✗<span style="color:#f92672">)</span> $ jar -cfm my.jar manifest.txt .
 root ➜ /com.docker.devenvironments.code/build <span style="color:#f92672">(</span>main ✗<span style="color:#f92672">)</span> $ java -jar my.jar 
 <span style="color:#f92672">[</span>1<span style="color:#f92672">]</span> main
 <span style="color:#f92672">[</span>2<span style="color:#f92672">]</span> Reference Handler
@@ -195,6 +205,7 @@ root ➜ /com.docker.devenvironments.code/build <span style="color:#f92672">(</s
 root ➜ /com.docker.devenvironments.code/build <span style="color:#f92672">(</span>main ✗<span style="color:#f92672">)</span> $ ls 
 manifest.txt  MultiThread.class  my.jar
 root ➜ /com.docker.devenvironments.code/build <span style="color:#f92672">(</span>main ✗<span style="color:#f92672">)</span> $ 
+
 </code></pre></div>
     </div>
 
