@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 16 Dec 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Jan 2023 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://amrom66.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>mysql-schedule</title>
+      <link>https://amrom66.github.io/2023/2023-01-11-mysql-schedule/</link>
+      <pubDate>Wed, 11 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/2023/2023-01-11-mysql-schedule/</guid>
+      <description>create event clean_xxl_job on schedule every 1 day do truncate xxl_job_log ; </description>
+    </item>
     
     <item>
       <title>v2网友的一首诗</title>
