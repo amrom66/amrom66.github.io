@@ -9,9 +9,9 @@
   <meta name="description" content="打工笔记">
   <meta name="keywords" content="博客 个人 笔记">
   
+  <link rel="prev" href="https://amrom66.github.io/2023/2023-01-11-mysql-schedule/" />
   
-  <link rel="next" href="https://amrom66.github.io/2019/2019-04-05-repari-office-default-icon/" />
-  <link rel="canonical" href="https://amrom66.github.io/1/2023-05-04-v2ray-dns/" />
+  <link rel="canonical" href="https://amrom66.github.io/2023/2023-05-04-v2ray-dns/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-            | 打工笔记
+           v2ray-dns-gateway | 打工笔记
        
   </title>
-  <meta name="title" content=" | 打工笔记">
+  <meta name="title" content="v2ray-dns-gateway | 打工笔记">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,8 +44,8 @@
          "@id": "https:\/\/amrom66.github.io"
     },
     "articleSection" : "posts",
-    "name" : "",
-    "headline" : "",
+    "name" : "v2ray-dns-gateway",
+    "headline" : "v2ray-dns-gateway",
     "description" : "分享一个v2ray旁路网关配置 实现的效果  在路由器中配置dhcp地址为该设备的ip 所有由该路由器分配ip的设备流量全部有该设备接管 该设备为一个普通的Linux设备，安装v2ray即可  config.json { \x26#34;inbounds\x26#34;: [ { \x26#34;tag\x26#34;: \x26#34;transparent\x26#34;, \x26#34;port\x26#34;: 12345, \x26#34;protocol\x26#34;: \x26#34;dokodemo-door\x26#34;, \x26#34;settings\x26#34;: { \x26#34;network\x26#34;: \x26#34;tcp,udp\x26#34;, \x26#34;followRedirect\x26#34;: true }, \x26#34;sniffing\x26#34;: { \x26#34;enabled\x26#34;: true, \x26#34;destOverride\x26#34;: [ \x26#34;http\x26#34;, \x26#34;tls\x26#34; ] }, \x26#34;streamSettings\x26#34;: { \x26#34;sockopt\x26#34;: { \x26#34;tproxy\x26#34;: \x26#34;tproxy\x26#34;, \x26#34;mark\x26#34;: 255 } } }, { \x26#34;port\x26#34;: 1080, \x26#34;protocol\x26#34;: \x26#34;socks\x26#34;, \x26#34;sniffing\x26#34;: { \x26#34;enabled\x26#34;: true, \x26#34;destOverride\x26#34;: [ \x26#34;http\x26#34;, \x26#34;tls\x26#34; ] }, \x26#34;settings\x26#34;: { \x26#34;auth\x26#34;: \x26#34;noauth\x26#34; } } ], \x26#34;outbounds\x26#34;: [ { \x26#34;tag\x26#34;: \x26#34;proxy\x26#34;, \x26#34;protocol\x26#34;: \x26#34;vmess\x26#34;, \x26#34;settings\x26#34;: { \x26#34;vnext\x26#34;: [ { \x26#34;address\x26#34;: \x26#34;remote ip\x26#34;, \x26#34;port\x26#34;: 10086, \x26#34;users\x26#34;: [ { \x26#34;id\x26#34;: \x26#34;***-***-***-***-***\x26#34;, \x26#34;alterId\x26#34;: 0, \x26#34;security\x26#34;: \x26#34;auto\x26#34; } ] } ] }, \x26#34;streamSettings\x26#34;: { \x26#34;sockopt\x26#34;: { \x26#34;mark\x26#34;: 255 }, \x26#34;network\x26#34;: \x26#34;ws\x26#34;, \x26#34;wsSettings\x26#34;: { \x26#34;path\x26#34;: \x26#34;\/\x26#34;, \x26#34;headers\x26#34;: { \x26#34;Host\x26#34;: \x26#34;\x26#34; } } }, \x26#34;mux\x26#34;: { \x26#34;enabled\x26#34;: true } }, { \x26#34;tag\x26#34;: \x26#34;direct\x26#34;, \x26#34;protocol\x26#34;: \x26#34;freedom\x26#34;, \x26#34;settings\x26#34;: { \x26#34;domainStrategy\x26#34;: \x26#34;UseIP\x26#34; }, \x26#34;streamSettings\x26#34;: { \x26#34;sockopt\x26#34;: { \x26#34;mark\x26#34;: 255 } } }, { \x26#34;tag\x26#34;: \x26#34;block\x26#34;, \x26#34;protocol\x26#34;: \x26#34;blackhole\x26#34;, \x26#34;settings\x26#34;: { \x26#34;response\x26#34;: { \x26#34;type\x26#34;: \x26#34;http\x26#34; } } }, { \x26#34;tag\x26#34;: \x26#34;dns-out\x26#34;, \x26#34;protocol\x26#34;: \x26#34;dns\x26#34;, \x26#34;streamSettings\x26#34;: { \x26#34;sockopt\x26#34;: { \x26#34;mark\x26#34;: 255 } } } ], \x26#34;dns\x26#34;: { \x26#34;servers\x26#34;: [ { \x26#34;address\x26#34;: \x26#34;223.",
     "inLanguage" : "en-us",
     "author" : "linjinbao66",
@@ -53,10 +53,10 @@
     "publisher": "linjinbao66",
     "accountablePerson" : "linjinbao66",
     "copyrightHolder" : "linjinbao66",
-    "copyrightYear" : "0001",
-    "datePublished": "0001-01-01 00:00:00 \x2b0000 UTC",
-    "dateModified" : "0001-01-01 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/amrom66.github.io\/1\/2023-05-04-v2ray-dns\/",
+    "copyrightYear" : "2023",
+    "datePublished": "2023-05-04 00:00:00 \x2b0000 UTC",
+    "dateModified" : "2023-05-04 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/amrom66.github.io\/2023\/2023-05-04-v2ray-dns\/",
     "wordCount" : "325",
     "keywords" : [  "打工笔记"]
 }
@@ -131,11 +131,11 @@ if (!doNotTrack) {
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline"></h1>
+        <h1 class="post-title" itemprop="name headline">v2ray-dns-gateway</h1>
         <div class="post-meta">
                 作者： <a itemprop="name" href="https://amrom66.github.io" rel="author">linjinbao66</a> 时间： 
                 <span class="post-time">
-                 <time datetime=1019-01-01 itemprop="datePublished">January 1, 0001</time>
+                 <time datetime=4059-05-04 itemprop="datePublished">May 4, 2023</time>
                 </span>
                 分类： 
                 
@@ -402,9 +402,9 @@ if (!doNotTrack) {
     </div>
 
     <div class="post-nav">
-         
         
-        <a href="https://amrom66.github.io/2019/2019-04-05-repari-office-default-icon/" class="next" rel="next" title="修复Office文件默认图标">修复Office文件默认图标&nbsp;<i class="iconfont icon-right"></i></a>
+        <a href="https://amrom66.github.io/2023/2023-01-11-mysql-schedule/" class="prev" rel="prev" title="mysql-schedule"><i class="iconfont icon-left"></i>&nbsp;mysql-schedule</a>
+         
         
     </div>
 

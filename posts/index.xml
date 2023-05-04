@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Jan 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 04 May 2023 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://amrom66.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>v2ray-dns-gateway</title>
+      <link>https://amrom66.github.io/2023/2023-05-04-v2ray-dns/</link>
+      <pubDate>Thu, 04 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/2023/2023-05-04-v2ray-dns/</guid>
+      <description>分享一个v2ray旁路网关配置 实现的效果  在路由器中配置dhcp地址为该设备的ip 所有由该路由器分配ip的设备流量全部有该设备接管 该设备为一个普通的Linux设备，安装v2ray即可  config.json { &amp;#34;inbounds&amp;#34;: [ { &amp;#34;tag&amp;#34;: &amp;#34;transparent&amp;#34;, &amp;#34;port&amp;#34;: 12345, &amp;#34;protocol&amp;#34;: &amp;#34;dokodemo-door&amp;#34;, &amp;#34;settings&amp;#34;: { &amp;#34;network&amp;#34;: &amp;#34;tcp,udp&amp;#34;, &amp;#34;followRedirect&amp;#34;: true }, &amp;#34;sniffing&amp;#34;: { &amp;#34;enabled&amp;#34;: true, &amp;#34;destOverride&amp;#34;: [ &amp;#34;http&amp;#34;, &amp;#34;tls&amp;#34; ] }, &amp;#34;streamSettings&amp;#34;: { &amp;#34;sockopt&amp;#34;: { &amp;#34;tproxy&amp;#34;: &amp;#34;tproxy&amp;#34;, &amp;#34;mark&amp;#34;: 255 } } }, { &amp;#34;port&amp;#34;: 1080, &amp;#34;protocol&amp;#34;: &amp;#34;socks&amp;#34;, &amp;#34;sniffing&amp;#34;: { &amp;#34;enabled&amp;#34;: true, &amp;#34;destOverride&amp;#34;: [ &amp;#34;http&amp;#34;, &amp;#34;tls&amp;#34; ] }, &amp;#34;settings&amp;#34;: { &amp;#34;auth&amp;#34;: &amp;#34;noauth&amp;#34; } } ], &amp;#34;outbounds&amp;#34;: [ { &amp;#34;tag&amp;#34;: &amp;#34;proxy&amp;#34;, &amp;#34;protocol&amp;#34;: &amp;#34;vmess&amp;#34;, &amp;#34;settings&amp;#34;: { &amp;#34;vnext&amp;#34;: [ { &amp;#34;address&amp;#34;: &amp;#34;remote ip&amp;#34;, &amp;#34;port&amp;#34;: 10086, &amp;#34;users&amp;#34;: [ { &amp;#34;id&amp;#34;: &amp;#34;***-***-***-***-***&amp;#34;, &amp;#34;alterId&amp;#34;: 0, &amp;#34;security&amp;#34;: &amp;#34;auto&amp;#34; } ] } ] }, &amp;#34;streamSettings&amp;#34;: { &amp;#34;sockopt&amp;#34;: { &amp;#34;mark&amp;#34;: 255 }, &amp;#34;network&amp;#34;: &amp;#34;ws&amp;#34;, &amp;#34;wsSettings&amp;#34;: { &amp;#34;path&amp;#34;: &amp;#34;/&amp;#34;, &amp;#34;headers&amp;#34;: { &amp;#34;Host&amp;#34;: &amp;#34;&amp;#34; } } }, &amp;#34;mux&amp;#34;: { &amp;#34;enabled&amp;#34;: true } }, { &amp;#34;tag&amp;#34;: &amp;#34;direct&amp;#34;, &amp;#34;protocol&amp;#34;: &amp;#34;freedom&amp;#34;, &amp;#34;settings&amp;#34;: { &amp;#34;domainStrategy&amp;#34;: &amp;#34;UseIP&amp;#34; }, &amp;#34;streamSettings&amp;#34;: { &amp;#34;sockopt&amp;#34;: { &amp;#34;mark&amp;#34;: 255 } } }, { &amp;#34;tag&amp;#34;: &amp;#34;block&amp;#34;, &amp;#34;protocol&amp;#34;: &amp;#34;blackhole&amp;#34;, &amp;#34;settings&amp;#34;: { &amp;#34;response&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;http&amp;#34; } } }, { &amp;#34;tag&amp;#34;: &amp;#34;dns-out&amp;#34;, &amp;#34;protocol&amp;#34;: &amp;#34;dns&amp;#34;, &amp;#34;streamSettings&amp;#34;: { &amp;#34;sockopt&amp;#34;: { &amp;#34;mark&amp;#34;: 255 } } } ], &amp;#34;dns&amp;#34;: { &amp;#34;servers&amp;#34;: [ { &amp;#34;address&amp;#34;: &amp;#34;223.</description>
+    </item>
     
     <item>
       <title>mysql-schedule</title>
@@ -1047,15 +1056,6 @@ DELIMITER // CREATE PROCEDURE getAllUsers() BEGIN SELECT * FROM `user`; END // D
       
       <guid>https://amrom66.github.io/2019/2019-04-05-repari-office-default-icon/</guid>
       <description>修复office文件默认图标 rem 修复office文件默认图标.bat :: office图标文件路径，请根据自己电脑上的安装目录设置 set officepath=C:\Program Files\Microsoft Office\root\vfs\Windows\Installer\{90160000-000F-0000-1000-0000000FF1CE}\ :: 修复word图标 reg add &amp;#34;HKCR\Word.Document.8\DefaultIcon&amp;#34; /ve /t REG_SZ /d &amp;#34;%officepath%WORDICON.EXE,1&amp;#34; reg delete &amp;#34;HKCR\Word.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://amrom66.github.io/1/2023-05-04-v2ray-dns/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://amrom66.github.io/1/2023-05-04-v2ray-dns/</guid>
-      <description>分享一个v2ray旁路网关配置 实现的效果  在路由器中配置dhcp地址为该设备的ip 所有由该路由器分配ip的设备流量全部有该设备接管 该设备为一个普通的Linux设备，安装v2ray即可  config.json { &amp;#34;inbounds&amp;#34;: [ { &amp;#34;tag&amp;#34;: &amp;#34;transparent&amp;#34;, &amp;#34;port&amp;#34;: 12345, &amp;#34;protocol&amp;#34;: &amp;#34;dokodemo-door&amp;#34;, &amp;#34;settings&amp;#34;: { &amp;#34;network&amp;#34;: &amp;#34;tcp,udp&amp;#34;, &amp;#34;followRedirect&amp;#34;: true }, &amp;#34;sniffing&amp;#34;: { &amp;#34;enabled&amp;#34;: true, &amp;#34;destOverride&amp;#34;: [ &amp;#34;http&amp;#34;, &amp;#34;tls&amp;#34; ] }, &amp;#34;streamSettings&amp;#34;: { &amp;#34;sockopt&amp;#34;: { &amp;#34;tproxy&amp;#34;: &amp;#34;tproxy&amp;#34;, &amp;#34;mark&amp;#34;: 255 } } }, { &amp;#34;port&amp;#34;: 1080, &amp;#34;protocol&amp;#34;: &amp;#34;socks&amp;#34;, &amp;#34;sniffing&amp;#34;: { &amp;#34;enabled&amp;#34;: true, &amp;#34;destOverride&amp;#34;: [ &amp;#34;http&amp;#34;, &amp;#34;tls&amp;#34; ] }, &amp;#34;settings&amp;#34;: { &amp;#34;auth&amp;#34;: &amp;#34;noauth&amp;#34; } } ], &amp;#34;outbounds&amp;#34;: [ { &amp;#34;tag&amp;#34;: &amp;#34;proxy&amp;#34;, &amp;#34;protocol&amp;#34;: &amp;#34;vmess&amp;#34;, &amp;#34;settings&amp;#34;: { &amp;#34;vnext&amp;#34;: [ { &amp;#34;address&amp;#34;: &amp;#34;remote ip&amp;#34;, &amp;#34;port&amp;#34;: 10086, &amp;#34;users&amp;#34;: [ { &amp;#34;id&amp;#34;: &amp;#34;***-***-***-***-***&amp;#34;, &amp;#34;alterId&amp;#34;: 0, &amp;#34;security&amp;#34;: &amp;#34;auto&amp;#34; } ] } ] }, &amp;#34;streamSettings&amp;#34;: { &amp;#34;sockopt&amp;#34;: { &amp;#34;mark&amp;#34;: 255 }, &amp;#34;network&amp;#34;: &amp;#34;ws&amp;#34;, &amp;#34;wsSettings&amp;#34;: { &amp;#34;path&amp;#34;: &amp;#34;/&amp;#34;, &amp;#34;headers&amp;#34;: { &amp;#34;Host&amp;#34;: &amp;#34;&amp;#34; } } }, &amp;#34;mux&amp;#34;: { &amp;#34;enabled&amp;#34;: true } }, { &amp;#34;tag&amp;#34;: &amp;#34;direct&amp;#34;, &amp;#34;protocol&amp;#34;: &amp;#34;freedom&amp;#34;, &amp;#34;settings&amp;#34;: { &amp;#34;domainStrategy&amp;#34;: &amp;#34;UseIP&amp;#34; }, &amp;#34;streamSettings&amp;#34;: { &amp;#34;sockopt&amp;#34;: { &amp;#34;mark&amp;#34;: 255 } } }, { &amp;#34;tag&amp;#34;: &amp;#34;block&amp;#34;, &amp;#34;protocol&amp;#34;: &amp;#34;blackhole&amp;#34;, &amp;#34;settings&amp;#34;: { &amp;#34;response&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;http&amp;#34; } } }, { &amp;#34;tag&amp;#34;: &amp;#34;dns-out&amp;#34;, &amp;#34;protocol&amp;#34;: &amp;#34;dns&amp;#34;, &amp;#34;streamSettings&amp;#34;: { &amp;#34;sockopt&amp;#34;: { &amp;#34;mark&amp;#34;: 255 } } } ], &amp;#34;dns&amp;#34;: { &amp;#34;servers&amp;#34;: [ { &amp;#34;address&amp;#34;: &amp;#34;223.</description>
     </item>
     
   </channel>

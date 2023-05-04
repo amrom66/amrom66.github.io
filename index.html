@@ -142,6 +142,29 @@ if (!doNotTrack) {
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2023/2023-05-04-v2ray-dns/">v2ray-dns-gateway</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				分享一个v2ray旁路网关配置 实现的效果  在路由器中配置dhcp地址为该设备的ip 所有由该路由器分配ip的设备流量全部有该设备接管 该设备为一个普通的Linux设备，安装v2ray即可  config.json { &#34;inbounds&#34;: [ { &#34;tag&#34;: &#34;transparent&#34;, &#34;port&#34;: 12345, &#34;protocol&#34;: &#34;dokodemo-door&#34;, &#34;settings&#34;: { &#34;network&#34;: &#34;tcp,udp&#34;, &#34;followRedirect&#34;: true }, &#34;sniffing&#34;: { &#34;enabled&#34;: true, &#34;destOverride&#34;: [ &#34;http&#34;, &#34;tls&#34; ] }, &#34;streamSettings&#34;: { &#34;sockopt&#34;: { &#34;tproxy&#34;: &#34;tproxy&#34;, &#34;mark&#34;: 255 } } }, { &#34;port&#34;: 1080, &#34;protocol&#34;: &#34;socks&#34;, &#34;sniffing&#34;: { &#34;enabled&#34;: true, &#34;destOverride&#34;: [ &#34;http&#34;, &#34;tls&#34; ] }, &#34;settings&#34;: { &#34;auth&#34;: &#34;noauth&#34; } } ], &#34;outbounds&#34;: [ { &#34;tag&#34;: &#34;proxy&#34;, &#34;protocol&#34;: &#34;vmess&#34;, &#34;settings&#34;: { &#34;vnext&#34;: [ { &#34;address&#34;: &#34;remote ip&#34;, &#34;port&#34;: 10086, &#34;users&#34;: [ { &#34;id&#34;: &#34;***-***-***-***-***&#34;, &#34;alterId&#34;: 0, &#34;security&#34;: &#34;auto&#34; } ] } ] }, &#34;streamSettings&#34;: { &#34;sockopt&#34;: { &#34;mark&#34;: 255 }, &#34;network&#34;: &#34;ws&#34;, &#34;wsSettings&#34;: { &#34;path&#34;: &#34;/&#34;, &#34;headers&#34;: { &#34;Host&#34;: &#34;&#34; } } }, &#34;mux&#34;: { &#34;enabled&#34;: true } }, { &#34;tag&#34;: &#34;direct&#34;, &#34;protocol&#34;: &#34;freedom&#34;, &#34;settings&#34;: { &#34;domainStrategy&#34;: &#34;UseIP&#34; }, &#34;streamSettings&#34;: { &#34;sockopt&#34;: { &#34;mark&#34;: 255 } } }, { &#34;tag&#34;: &#34;block&#34;, &#34;protocol&#34;: &#34;blackhole&#34;, &#34;settings&#34;: { &#34;response&#34;: { &#34;type&#34;: &#34;http&#34; } } }, { &#34;tag&#34;: &#34;dns-out&#34;, &#34;protocol&#34;: &#34;dns&#34;, &#34;streamSettings&#34;: { &#34;sockopt&#34;: { &#34;mark&#34;: 255 } } } ], &#34;dns&#34;: { &#34;servers&#34;: [ { &#34;address&#34;: &#34;223.
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2023-05-04 itemprop="datePublished">May 4, 2023</time>
+                </span>
+                in
+                
+        	</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
 				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2023/2023-01-11-mysql-schedule/">mysql-schedule</a></h1>
 			</header>
 			<div class="post-content">
@@ -1488,29 +1511,6 @@ logback.xml
                	 #面试</a></span>
         		
 				</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2020/2020-03-09-linux-memory-free/">服务器内存优化</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				服务器内存优化  释放缓存  sync echo 3 &gt; /proc/sys/vm/drop_caches  排序  ps -eo pmem,pcpu,rss,vsize,args | sort -k 1 -r | less  查看启动的服务  systemctl list-unit-files --type=service --state=enabled 
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-03-09 itemprop="datePublished">March 9, 2020</time>
-                </span>
-                in
-                
-        	</div>
 				
 			</div>
 		</article>
