@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  <meta name="author" content="linjinbao66">
+  <meta name="description" content="打工笔记">
+  <meta name="keywords" content="博客 个人 笔记">
+  
+  
+  <link rel="next" href="https://amrom66.github.io/2019/2019-04-05-repari-office-default-icon/" />
+  <link rel="canonical" href="https://amrom66.github.io/1/2023-05-04-v2ray-dns/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+            | 打工笔记
+       
+  </title>
+  <meta name="title" content=" | 打工笔记">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/amrom66.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "",
+    "headline" : "",
+    "description" : "分享一个v2ray旁路网关配置 实现的效果  在路由器中配置dhcp地址为该设备的ip 所有由该路由器分配ip的设备流量全部有该设备接管 该设备为一个普通的Linux设备，安装v2ray即可  config.json { \x26#34;inbounds\x26#34;: [ { \x26#34;tag\x26#34;: \x26#34;transparent\x26#34;, \x26#34;port\x26#34;: 12345, \x26#34;protocol\x26#34;: \x26#34;dokodemo-door\x26#34;, \x26#34;settings\x26#34;: { \x26#34;network\x26#34;: \x26#34;tcp,udp\x26#34;, \x26#34;followRedirect\x26#34;: true }, \x26#34;sniffing\x26#34;: { \x26#34;enabled\x26#34;: true, \x26#34;destOverride\x26#34;: [ \x26#34;http\x26#34;, \x26#34;tls\x26#34; ] }, \x26#34;streamSettings\x26#34;: { \x26#34;sockopt\x26#34;: { \x26#34;tproxy\x26#34;: \x26#34;tproxy\x26#34;, \x26#34;mark\x26#34;: 255 } } }, { \x26#34;port\x26#34;: 1080, \x26#34;protocol\x26#34;: \x26#34;socks\x26#34;, \x26#34;sniffing\x26#34;: { \x26#34;enabled\x26#34;: true, \x26#34;destOverride\x26#34;: [ \x26#34;http\x26#34;, \x26#34;tls\x26#34; ] }, \x26#34;settings\x26#34;: { \x26#34;auth\x26#34;: \x26#34;noauth\x26#34; } } ], \x26#34;outbounds\x26#34;: [ { \x26#34;tag\x26#34;: \x26#34;proxy\x26#34;, \x26#34;protocol\x26#34;: \x26#34;vmess\x26#34;, \x26#34;settings\x26#34;: { \x26#34;vnext\x26#34;: [ { \x26#34;address\x26#34;: \x26#34;remote ip\x26#34;, \x26#34;port\x26#34;: 10086, \x26#34;users\x26#34;: [ { \x26#34;id\x26#34;: \x26#34;***-***-***-***-***\x26#34;, \x26#34;alterId\x26#34;: 0, \x26#34;security\x26#34;: \x26#34;auto\x26#34; } ] } ] }, \x26#34;streamSettings\x26#34;: { \x26#34;sockopt\x26#34;: { \x26#34;mark\x26#34;: 255 }, \x26#34;network\x26#34;: \x26#34;ws\x26#34;, \x26#34;wsSettings\x26#34;: { \x26#34;path\x26#34;: \x26#34;\/\x26#34;, \x26#34;headers\x26#34;: { \x26#34;Host\x26#34;: \x26#34;\x26#34; } } }, \x26#34;mux\x26#34;: { \x26#34;enabled\x26#34;: true } }, { \x26#34;tag\x26#34;: \x26#34;direct\x26#34;, \x26#34;protocol\x26#34;: \x26#34;freedom\x26#34;, \x26#34;settings\x26#34;: { \x26#34;domainStrategy\x26#34;: \x26#34;UseIP\x26#34; }, \x26#34;streamSettings\x26#34;: { \x26#34;sockopt\x26#34;: { \x26#34;mark\x26#34;: 255 } } }, { \x26#34;tag\x26#34;: \x26#34;block\x26#34;, \x26#34;protocol\x26#34;: \x26#34;blackhole\x26#34;, \x26#34;settings\x26#34;: { \x26#34;response\x26#34;: { \x26#34;type\x26#34;: \x26#34;http\x26#34; } } }, { \x26#34;tag\x26#34;: \x26#34;dns-out\x26#34;, \x26#34;protocol\x26#34;: \x26#34;dns\x26#34;, \x26#34;streamSettings\x26#34;: { \x26#34;sockopt\x26#34;: { \x26#34;mark\x26#34;: 255 } } } ], \x26#34;dns\x26#34;: { \x26#34;servers\x26#34;: [ { \x26#34;address\x26#34;: \x26#34;223.",
+    "inLanguage" : "en-us",
+    "author" : "linjinbao66",
+    "creator" : "linjinbao66",
+    "publisher": "linjinbao66",
+    "accountablePerson" : "linjinbao66",
+    "copyrightHolder" : "linjinbao66",
+    "copyrightYear" : "0001",
+    "datePublished": "0001-01-01 00:00:00 \x2b0000 UTC",
+    "dateModified" : "0001-01-01 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/amrom66.github.io\/1\/2023-05-04-v2ray-dns\/",
+    "wordCount" : "325",
+    "keywords" : [  "打工笔记"]
+}
+</script>
+
+</head>
+
+  
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-160203449-2', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://amrom66.github.io">打工笔记</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>
+                <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;
+                <a href="https://amrom66.github.io">打工笔记</a>
+            </div>
+            <div class="menu-toggle">
+                <svg t="1618556759902" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1299" width="16" height="16"><path d="M896 1024h-213.333333a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128v-213.333333a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667v-213.333333a42.666667 42.666667 0 0 0-42.666667-42.666667z m768-170.666667h-213.333333a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128z m-213.333333-384a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z m-341.333334 384H128a128 128 0 0 1-128-128V128a128 128 0 0 1 128-128h213.333333a128 128 0 0 1 128 128v213.333333a128 128 0 0 1-128 128zM128 85.333333a42.666667 42.666667 0 0 0-42.666667 42.666667v213.333333a42.666667 42.666667 0 0 0 42.666667 42.666667h213.333333a42.666667 42.666667 0 0 0 42.666667-42.666667V128a42.666667 42.666667 0 0 0-42.666667-42.666667z" p-id="1300"></path></svg>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="/posts/" title="">博客</a>
+                
+                <a class="menu-item" href="/categories/" title="">分类</a>
+                
+                <a class="menu-item" href="/tags/" title="">标签</a>
+                
+                <a class="menu-item" href="/2020/about/" title="关于">关于</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline"></h1>
+        <div class="post-meta">
+                作者： <a itemprop="name" href="https://amrom66.github.io" rel="author">linjinbao66</a> 时间： 
+                <span class="post-time">
+                 <time datetime=1019-01-01 itemprop="datePublished">January 1, 0001</time>
+                </span>
+                分类： 
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h1 id="分享一个v2ray旁路网关配置">分享一个v2ray旁路网关配置</h1>
+<h2 id="实现的效果">实现的效果</h2>
+<ul>
+<li>在路由器中配置dhcp地址为该设备的ip</li>
+<li>所有由该路由器分配ip的设备流量全部有该设备接管</li>
+<li>该设备为一个普通的Linux设备，安装v2ray即可</li>
+</ul>
+<h2 id="configjson">config.json</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;inbounds&#34;</span>: [
+        {
+            <span style="color:#f92672">&#34;tag&#34;</span>: <span style="color:#e6db74">&#34;transparent&#34;</span>,
+            <span style="color:#f92672">&#34;port&#34;</span>: <span style="color:#ae81ff">12345</span>,
+            <span style="color:#f92672">&#34;protocol&#34;</span>: <span style="color:#e6db74">&#34;dokodemo-door&#34;</span>,
+            <span style="color:#f92672">&#34;settings&#34;</span>: {
+                <span style="color:#f92672">&#34;network&#34;</span>: <span style="color:#e6db74">&#34;tcp,udp&#34;</span>,
+                <span style="color:#f92672">&#34;followRedirect&#34;</span>: <span style="color:#66d9ef">true</span>
+            },
+            <span style="color:#f92672">&#34;sniffing&#34;</span>: {
+                <span style="color:#f92672">&#34;enabled&#34;</span>: <span style="color:#66d9ef">true</span>,
+                <span style="color:#f92672">&#34;destOverride&#34;</span>: [
+                    <span style="color:#e6db74">&#34;http&#34;</span>,
+                    <span style="color:#e6db74">&#34;tls&#34;</span>
+                ]
+            },
+            <span style="color:#f92672">&#34;streamSettings&#34;</span>: {
+                <span style="color:#f92672">&#34;sockopt&#34;</span>: {
+                    <span style="color:#f92672">&#34;tproxy&#34;</span>: <span style="color:#e6db74">&#34;tproxy&#34;</span>,
+                    <span style="color:#f92672">&#34;mark&#34;</span>: <span style="color:#ae81ff">255</span>
+                }
+            }
+        },
+        {
+            <span style="color:#f92672">&#34;port&#34;</span>: <span style="color:#ae81ff">1080</span>,
+            <span style="color:#f92672">&#34;protocol&#34;</span>: <span style="color:#e6db74">&#34;socks&#34;</span>,
+            <span style="color:#f92672">&#34;sniffing&#34;</span>: {
+                <span style="color:#f92672">&#34;enabled&#34;</span>: <span style="color:#66d9ef">true</span>,
+                <span style="color:#f92672">&#34;destOverride&#34;</span>: [
+                    <span style="color:#e6db74">&#34;http&#34;</span>,
+                    <span style="color:#e6db74">&#34;tls&#34;</span>
+                ]
+            },
+            <span style="color:#f92672">&#34;settings&#34;</span>: {
+                <span style="color:#f92672">&#34;auth&#34;</span>: <span style="color:#e6db74">&#34;noauth&#34;</span>
+            }
+        }
+    ],
+    <span style="color:#f92672">&#34;outbounds&#34;</span>: [
+        {
+            <span style="color:#f92672">&#34;tag&#34;</span>: <span style="color:#e6db74">&#34;proxy&#34;</span>,
+            <span style="color:#f92672">&#34;protocol&#34;</span>: <span style="color:#e6db74">&#34;vmess&#34;</span>,
+            <span style="color:#f92672">&#34;settings&#34;</span>: {
+                <span style="color:#f92672">&#34;vnext&#34;</span>: [
+                    {
+                        <span style="color:#f92672">&#34;address&#34;</span>: <span style="color:#e6db74">&#34;remote ip&#34;</span>,
+                        <span style="color:#f92672">&#34;port&#34;</span>: <span style="color:#ae81ff">10086</span>,
+                        <span style="color:#f92672">&#34;users&#34;</span>: [
+                            {
+                                <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;***-***-***-***-***&#34;</span>,
+                                <span style="color:#f92672">&#34;alterId&#34;</span>: <span style="color:#ae81ff">0</span>,
+                                <span style="color:#f92672">&#34;security&#34;</span>: <span style="color:#e6db74">&#34;auto&#34;</span>
+                            }
+                        ]
+                    }
+                ]
+            },
+            <span style="color:#f92672">&#34;streamSettings&#34;</span>: {
+                <span style="color:#f92672">&#34;sockopt&#34;</span>: {
+                    <span style="color:#f92672">&#34;mark&#34;</span>: <span style="color:#ae81ff">255</span>
+                },
+                <span style="color:#f92672">&#34;network&#34;</span>: <span style="color:#e6db74">&#34;ws&#34;</span>,
+                <span style="color:#f92672">&#34;wsSettings&#34;</span>: {
+                    <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;/&#34;</span>,
+                    <span style="color:#f92672">&#34;headers&#34;</span>: {
+                        <span style="color:#f92672">&#34;Host&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>
+                    }
+                }
+            },
+            <span style="color:#f92672">&#34;mux&#34;</span>: {
+                <span style="color:#f92672">&#34;enabled&#34;</span>: <span style="color:#66d9ef">true</span>
+            }
+        },
+        {
+            <span style="color:#f92672">&#34;tag&#34;</span>: <span style="color:#e6db74">&#34;direct&#34;</span>,
+            <span style="color:#f92672">&#34;protocol&#34;</span>: <span style="color:#e6db74">&#34;freedom&#34;</span>,
+            <span style="color:#f92672">&#34;settings&#34;</span>: {
+                <span style="color:#f92672">&#34;domainStrategy&#34;</span>: <span style="color:#e6db74">&#34;UseIP&#34;</span>
+            },
+            <span style="color:#f92672">&#34;streamSettings&#34;</span>: {
+                <span style="color:#f92672">&#34;sockopt&#34;</span>: {
+                    <span style="color:#f92672">&#34;mark&#34;</span>: <span style="color:#ae81ff">255</span>
+                }
+            }
+        },
+        {
+            <span style="color:#f92672">&#34;tag&#34;</span>: <span style="color:#e6db74">&#34;block&#34;</span>,
+            <span style="color:#f92672">&#34;protocol&#34;</span>: <span style="color:#e6db74">&#34;blackhole&#34;</span>,
+            <span style="color:#f92672">&#34;settings&#34;</span>: {
+                <span style="color:#f92672">&#34;response&#34;</span>: {
+                    <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;http&#34;</span>
+                }
+            }
+        },
+        {
+            <span style="color:#f92672">&#34;tag&#34;</span>: <span style="color:#e6db74">&#34;dns-out&#34;</span>,
+            <span style="color:#f92672">&#34;protocol&#34;</span>: <span style="color:#e6db74">&#34;dns&#34;</span>,
+            <span style="color:#f92672">&#34;streamSettings&#34;</span>: {
+                <span style="color:#f92672">&#34;sockopt&#34;</span>: {
+                    <span style="color:#f92672">&#34;mark&#34;</span>: <span style="color:#ae81ff">255</span>
+                }
+            }
+        }
+    ],
+    <span style="color:#f92672">&#34;dns&#34;</span>: {
+        <span style="color:#f92672">&#34;servers&#34;</span>: [
+            {
+                <span style="color:#f92672">&#34;address&#34;</span>: <span style="color:#e6db74">&#34;223.5.5.5&#34;</span>,
+                <span style="color:#f92672">&#34;port&#34;</span>: <span style="color:#ae81ff">53</span>,
+                <span style="color:#f92672">&#34;domains&#34;</span>: [
+                    <span style="color:#e6db74">&#34;geosite:cn&#34;</span>,
+                    <span style="color:#e6db74">&#34;ntp.org&#34;</span>,
+                    <span style="color:#e6db74">&#34;149.28.60.76&#34;</span>
+                ]
+            },
+            {
+                <span style="color:#f92672">&#34;address&#34;</span>: <span style="color:#e6db74">&#34;114.114.114.114&#34;</span>,
+                <span style="color:#f92672">&#34;port&#34;</span>: <span style="color:#ae81ff">53</span>,
+                <span style="color:#f92672">&#34;domains&#34;</span>: [
+                    <span style="color:#e6db74">&#34;geosite:cn&#34;</span>,
+                    <span style="color:#e6db74">&#34;ntp.org&#34;</span>,
+                    <span style="color:#e6db74">&#34;149.28.60.76&#34;</span>
+                ]
+            },
+            {
+                <span style="color:#f92672">&#34;address&#34;</span>: <span style="color:#e6db74">&#34;8.8.8.8&#34;</span>,
+                <span style="color:#f92672">&#34;port&#34;</span>: <span style="color:#ae81ff">53</span>,
+                <span style="color:#f92672">&#34;domains&#34;</span>: [
+                    <span style="color:#e6db74">&#34;geosite:geolocation-!cn&#34;</span>
+                ]
+            },
+            {
+                <span style="color:#f92672">&#34;address&#34;</span>: <span style="color:#e6db74">&#34;1.1.1.1&#34;</span>,
+                <span style="color:#f92672">&#34;port&#34;</span>: <span style="color:#ae81ff">53</span>,
+                <span style="color:#f92672">&#34;domains&#34;</span>: [
+                    <span style="color:#e6db74">&#34;geosite:geolocation-!cn&#34;</span>
+                ]
+            }
+        ]
+    },
+    <span style="color:#f92672">&#34;routing&#34;</span>: {
+        <span style="color:#f92672">&#34;domainStrategy&#34;</span>: <span style="color:#e6db74">&#34;IPOnDemand&#34;</span>,
+        <span style="color:#f92672">&#34;rules&#34;</span>: [
+            {
+                <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;field&#34;</span>,
+                <span style="color:#f92672">&#34;inboundTag&#34;</span>: [
+                    <span style="color:#e6db74">&#34;transparent&#34;</span>
+                ],
+                <span style="color:#f92672">&#34;port&#34;</span>: <span style="color:#ae81ff">53</span>,
+                <span style="color:#f92672">&#34;network&#34;</span>: <span style="color:#e6db74">&#34;udp&#34;</span>,
+                <span style="color:#f92672">&#34;outboundTag&#34;</span>: <span style="color:#e6db74">&#34;dns-out&#34;</span>
+            },
+            {
+                <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;field&#34;</span>,
+                <span style="color:#f92672">&#34;inboundTag&#34;</span>: [
+                    <span style="color:#e6db74">&#34;transparent&#34;</span>
+                ],
+                <span style="color:#f92672">&#34;port&#34;</span>: <span style="color:#ae81ff">123</span>,
+                <span style="color:#f92672">&#34;network&#34;</span>: <span style="color:#e6db74">&#34;udp&#34;</span>,
+                <span style="color:#f92672">&#34;outboundTag&#34;</span>: <span style="color:#e6db74">&#34;direct&#34;</span>
+            },
+            {
+                <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;field&#34;</span>,
+                <span style="color:#f92672">&#34;ip&#34;</span>: [
+                    <span style="color:#e6db74">&#34;223.5.5.5&#34;</span>,
+                    <span style="color:#e6db74">&#34;114.114.114.114&#34;</span>
+                ],
+                <span style="color:#f92672">&#34;outboundTag&#34;</span>: <span style="color:#e6db74">&#34;direct&#34;</span>
+            },
+            {
+                <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;field&#34;</span>,
+                <span style="color:#f92672">&#34;ip&#34;</span>: [
+                    <span style="color:#e6db74">&#34;8.8.8.8&#34;</span>,
+                    <span style="color:#e6db74">&#34;1.1.1.1&#34;</span>
+                ],
+                <span style="color:#f92672">&#34;outboundTag&#34;</span>: <span style="color:#e6db74">&#34;proxy&#34;</span>
+            },
+            {
+                <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;field&#34;</span>,
+                <span style="color:#f92672">&#34;domain&#34;</span>: [
+                    <span style="color:#e6db74">&#34;geosite:category-ads-all&#34;</span>
+                ],
+                <span style="color:#f92672">&#34;outboundTag&#34;</span>: <span style="color:#e6db74">&#34;block&#34;</span>
+            },
+            {
+                <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;field&#34;</span>,
+                <span style="color:#f92672">&#34;protocol&#34;</span>: [
+                    <span style="color:#e6db74">&#34;bittorrent&#34;</span>
+                ],
+                <span style="color:#f92672">&#34;outboundTag&#34;</span>: <span style="color:#e6db74">&#34;direct&#34;</span>
+            },
+            {
+                <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;field&#34;</span>,
+                <span style="color:#f92672">&#34;ip&#34;</span>: [
+                    <span style="color:#e6db74">&#34;geoip:private&#34;</span>,
+                    <span style="color:#e6db74">&#34;geoip:cn&#34;</span>
+                ],
+                <span style="color:#f92672">&#34;outboundTag&#34;</span>: <span style="color:#e6db74">&#34;direct&#34;</span>
+            },
+            {
+                <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;field&#34;</span>,
+                <span style="color:#f92672">&#34;domain&#34;</span>: [
+                    <span style="color:#e6db74">&#34;geosite:cn&#34;</span>
+                ],
+                <span style="color:#f92672">&#34;outboundTag&#34;</span>: <span style="color:#e6db74">&#34;direct&#34;</span>
+            }
+        ]
+    }
+}
+</code></pre></div><h2 id="原理解释">原理解释</h2>
+<ul>
+<li>安装了v2ray的设备A接收外部的流量，并通过v2ray访问互联网</li>
+<li>其他设备的gateway设置成A</li>
+<li>在路由器中设置DHCP，里面的gateway直接配置成A</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+             
+            <p class="copyright-item">
+                <span>作者:</span>
+                <span>linjinbao66 </span>
+                </p>
+            
+    </div>
+
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">返回</a></span> · 
+                <span><a href="https://amrom66.github.io">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+         
+        
+        <a href="https://amrom66.github.io/2019/2019-04-05-repari-office-default-icon/" class="next" rel="next" title="修复Office文件默认图标">修复Office文件默认图标&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+		  <div id="utter-container"></div>
+    <script src="https://utteranc.es/client.js"
+        repo= 'amrom66/amrom66.github.io'
+        issue-term= 'title'
+        label= 'utterance'
+        theme= 'github-dark-orange'
+        crossorigin="anonymous"
+        async>
+    </script>
+
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span itemprop="copyrightYear">2019 - 2023</span>
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://amrom66.github.io">linjinbao66</a>  </span> 
+         
+
+         
+		 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
