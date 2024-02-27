@@ -142,6 +142,29 @@ if (!doNotTrack) {
 		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
 
 			<header class="post-header">
+				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2024/2024-02-26-quicksort/">quick sort</a></h1>
+			</header>
+			<div class="post-content">
+				 
+				   
+       			 
+				快速排序思想  选定pivot中心轴（一般选择最左侧） 将大于pivot的数字放在左侧 将小于pivot的数字放在右侧 递归pivot左侧和右侧的数列  代码实现： public void quickSort(int[] nums) { int length = nums.length; quickSort(nums, 0, length - 1); } public void quickSort(int[] nums, int start, int end) { if (start &gt;= end) { return; } int left = start; int right = end; int pivot = nums[left]; while (left &lt; right) { while (left &lt; right &amp;&amp; nums[right] &gt; pivot) { right--; } if (left &lt; right) { nums[left] = nums[right]; left++; } while (left &lt; right &amp;&amp; nums[left] &lt; pivot) { left++; } if (left &lt; right) { nums[right] = nums[left]; right--; } } nums[left] = pivot; quickSort(nums, start, left - 1); quickSort(nums, left + 1, end); } 
+			</div>
+			<div class="post-footer">
+				<div class="post-meta">
+                <span class="post-time">
+                <time datetime=2024-02-26 itemprop="datePublished">February 26, 2024</time>
+                </span>
+                in
+                
+        	</div>
+				
+			</div>
+		</article>
+	
+		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
+
+			<header class="post-header">
 				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2023/2023-05-04-v2ray-dns/">v2ray-dns-gateway</a></h1>
 			</header>
 			<div class="post-content">
@@ -1477,39 +1500,6 @@ logback.xml
                 in
                 
         	</div>
-				
-			</div>
-		</article>
-	
-		<article class="post" itemscope itemscope="" itemtype="http://schema.org/Article">
-
-			<header class="post-header">
-				<h1 class="post-title" itemprop="name headline"><a href="https://amrom66.github.io/2020/2020-07-17-the-new-beginning/">新的开始</a></h1>
-			</header>
-			<div class="post-content">
-				 
-				   
-       			 
-				新的开始 面试了两次
- 端点 腾讯  感觉，能力还是不够，研究不够深入的全当做会的写在简历上了。
-面试题整理
-[mysql]联合索引字段顺序会产生影响吗？什么情况下需要建索引？什么情况下不建？mysql 查看连接数和进程数?慢查询是什么？[linux]Linux 端口数一共多少，怎么确定的？sh 和 bash 的区别脚本首行的#!
-			</div>
-			<div class="post-footer">
-				<div class="post-meta">
-                <span class="post-time">
-                <time datetime=2020-07-17 itemprop="datePublished">July 17, 2020</time>
-                </span>
-                in
-                
-        	</div>
-				
-				<div class="post-tags">
-        		
-        			<span class="tag"><a href="https://amrom66.github.io/tags/%E9%9D%A2%E8%AF%95/">
-               	 #面试</a></span>
-        		
-				</div>
 				
 			</div>
 		</article>

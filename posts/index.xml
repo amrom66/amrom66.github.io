@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 May 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 26 Feb 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://amrom66.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>quick sort</title>
+      <link>https://amrom66.github.io/2024/2024-02-26-quicksort/</link>
+      <pubDate>Mon, 26 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/2024/2024-02-26-quicksort/</guid>
+      <description>快速排序思想  选定pivot中心轴（一般选择最左侧） 将大于pivot的数字放在左侧 将小于pivot的数字放在右侧 递归pivot左侧和右侧的数列  代码实现： public void quickSort(int[] nums) { int length = nums.length; quickSort(nums, 0, length - 1); } public void quickSort(int[] nums, int start, int end) { if (start &amp;gt;= end) { return; } int left = start; int right = end; int pivot = nums[left]; while (left &amp;lt; right) { while (left &amp;lt; right &amp;amp;&amp;amp; nums[right] &amp;gt; pivot) { right--; } if (left &amp;lt; right) { nums[left] = nums[right]; left++; } while (left &amp;lt; right &amp;amp;&amp;amp; nums[left] &amp;lt; pivot) { left++; } if (left &amp;lt; right) { nums[right] = nums[left]; right--; } } nums[left] = pivot; quickSort(nums, start, left - 1); quickSort(nums, left + 1, end); } </description>
+    </item>
     
     <item>
       <title>v2ray-dns-gateway</title>
