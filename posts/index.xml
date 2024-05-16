@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Feb 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 15 May 2024 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://amrom66.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>不得不做的事情</title>
+      <link>https://amrom66.github.io/2024/2024-05-15-read-to-do-something/</link>
+      <pubDate>Wed, 15 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/2024/2024-05-15-read-to-do-something/</guid>
+      <description>有些事情，20岁不做，30岁也要做；30岁不做，40岁还会去做</description>
+    </item>
     
     <item>
       <title>quick sort</title>
