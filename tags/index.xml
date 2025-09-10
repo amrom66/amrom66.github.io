@@ -6,10 +6,64 @@
     <description>Recent content in Tags on 打工笔记</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Sep 2025 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://amrom66.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>arm64</title>
+      <link>https://amrom66.github.io/tags/arm64/</link>
+      <pubDate>Wed, 10 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/tags/arm64/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ci</title>
+      <link>https://amrom66.github.io/tags/ci/</link>
+      <pubDate>Wed, 10 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/tags/ci/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jenkins</title>
+      <link>https://amrom66.github.io/tags/jenkins/</link>
+      <pubDate>Wed, 10 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/tags/jenkins/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>node</title>
+      <link>https://amrom66.github.io/tags/node/</link>
+      <pubDate>Wed, 10 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/tags/node/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>node-sass</title>
+      <link>https://amrom66.github.io/tags/node-sass/</link>
+      <pubDate>Wed, 10 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/tags/node-sass/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>npm</title>
+      <link>https://amrom66.github.io/tags/npm/</link>
+      <pubDate>Wed, 10 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/tags/npm/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>cli</title>

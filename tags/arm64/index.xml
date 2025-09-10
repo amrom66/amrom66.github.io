@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>arm64 on 打工笔记</title>
+    <link>https://amrom66.github.io/tags/arm64/</link>
+    <description>Recent content in arm64 on 打工笔记</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Sep 2025 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://amrom66.github.io/tags/arm64/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>node-sass自行编译教程</title>
+      <link>https://amrom66.github.io/2025/2025-09-10-node-sass/</link>
+      <pubDate>Wed, 10 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://amrom66.github.io/2025/2025-09-10-node-sass/</guid>
+      <description>arm64下自行编译node-sass 背景 一些老旧工程中，使用的是node-sass来处理sass解析，使用的过程中，会从从github下载一个官方编译好的binding.node文件，但是官方并不维护arm64版本的，当在arm64机器编译该工程的时候，会出现无法编译
+解决方案 在arm64下编译
+步骤 以使用node10编译node-sass 4.14.1示例
+docker pull docker.1ms.run/python:2.7 docker run -it --name python27-container -v &amp;#34;$(pwd)&amp;#34;:/mnt docker.1ms.run/python:2.7 /bin/bash git clone https://github.</description>
+    </item>
+    
+  </channel>
+</rss>

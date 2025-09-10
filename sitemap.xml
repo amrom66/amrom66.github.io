@@ -2,9 +2,9 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
-      <loc>https://amrom66.github.io/posts/</loc>
+      <loc>https://amrom66.github.io/tags/arm64/</loc>
       
-      <lastmod>2024-05-15T00:00:00+00:00</lastmod>
+      <lastmod>2025-09-10T00:00:00+00:00</lastmod>
       
       
       
@@ -12,9 +12,89 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/2024/2024-05-15-read-to-do-something/</loc>
+      <loc>https://amrom66.github.io/categories/</loc>
       
-      <lastmod>2024-05-15T00:00:00+00:00</lastmod>
+      <lastmod>2025-09-10T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://amrom66.github.io/tags/ci/</loc>
+      
+      <lastmod>2025-09-10T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://amrom66.github.io/tags/jenkins/</loc>
+      
+      <lastmod>2025-09-10T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://amrom66.github.io/tags/node/</loc>
+      
+      <lastmod>2025-09-10T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://amrom66.github.io/tags/node-sass/</loc>
+      
+      <lastmod>2025-09-10T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://amrom66.github.io/2025/2025-09-10-node-sass/</loc>
+      
+      <lastmod>2025-09-10T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://amrom66.github.io/tags/npm/</loc>
+      
+      <lastmod>2025-09-10T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://amrom66.github.io/posts/</loc>
+      
+      <lastmod>2025-09-10T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://amrom66.github.io/tags/</loc>
+      
+      <lastmod>2025-09-10T00:00:00+00:00</lastmod>
       
       
       
@@ -23,6 +103,26 @@
   
     <url>
       <loc>https://amrom66.github.io/</loc>
+      
+      <lastmod>2025-09-10T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://amrom66.github.io/categories/%E7%BC%96%E8%AF%91/</loc>
+      
+      <lastmod>2025-09-10T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://amrom66.github.io/2024/2024-05-15-read-to-do-something/</loc>
       
       <lastmod>2024-05-15T00:00:00+00:00</lastmod>
       
@@ -143,16 +243,6 @@
   
     <url>
       <loc>https://amrom66.github.io/2022/2022-08-16-mvn-generate-project/</loc>
-      
-      <lastmod>2022-08-16T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://amrom66.github.io/tags/</loc>
       
       <lastmod>2022-08-16T00:00:00+00:00</lastmod>
       
@@ -992,16 +1082,6 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/categories/</loc>
-      
-      <lastmod>2019-10-15T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
       <loc>https://amrom66.github.io/categories/java/</loc>
       
       <lastmod>2019-10-15T00:00:00+00:00</lastmod>
@@ -1122,7 +1202,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
+      <loc>https://amrom66.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
       
       <lastmod>2019-10-11T00:00:00+00:00</lastmod>
       
@@ -1132,7 +1212,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/tags/%E7%AE%97%E6%B3%95/</loc>
+      <loc>https://amrom66.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
       
       <lastmod>2019-10-11T00:00:00+00:00</lastmod>
       
@@ -1292,7 +1372,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/categories/%E6%95%99%E7%A8%8B/</loc>
+      <loc>https://amrom66.github.io/tags/%E6%95%99%E7%A8%8B/</loc>
       
       <lastmod>2019-09-26T00:00:00+00:00</lastmod>
       
@@ -1302,7 +1382,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/tags/%E6%95%99%E7%A8%8B/</loc>
+      <loc>https://amrom66.github.io/categories/%E6%95%99%E7%A8%8B/</loc>
       
       <lastmod>2019-09-26T00:00:00+00:00</lastmod>
       
@@ -1482,7 +1562,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
+      <loc>https://amrom66.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
       
       <lastmod>2019-09-21T00:00:00+00:00</lastmod>
       
@@ -1492,7 +1572,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
+      <loc>https://amrom66.github.io/categories/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</loc>
       
       <lastmod>2019-09-21T00:00:00+00:00</lastmod>
       
@@ -1582,7 +1662,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/categories/%E7%BC%93%E5%AD%98/</loc>
+      <loc>https://amrom66.github.io/tags/%E7%BC%93%E5%AD%98/</loc>
       
       <lastmod>2019-07-29T00:00:00+00:00</lastmod>
       
@@ -1592,7 +1672,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/tags/%E7%BC%93%E5%AD%98/</loc>
+      <loc>https://amrom66.github.io/categories/%E7%BC%93%E5%AD%98/</loc>
       
       <lastmod>2019-07-29T00:00:00+00:00</lastmod>
       
@@ -1712,7 +1792,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
+      <loc>https://amrom66.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
       
       <lastmod>2019-06-24T00:00:00+00:00</lastmod>
       
@@ -1722,7 +1802,7 @@
     </url>
   
     <url>
-      <loc>https://amrom66.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
+      <loc>https://amrom66.github.io/categories/%E5%89%8D%E7%AB%AF/</loc>
       
       <lastmod>2019-06-24T00:00:00+00:00</lastmod>
       
